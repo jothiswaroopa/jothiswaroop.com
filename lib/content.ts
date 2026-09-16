@@ -18,7 +18,7 @@ export const site = {
     instagram: "https://instagram.com/jothi.swaroopa",
     linkedin: "", // pending
   },
-  seatsLine: "Taking 2 new founders per quarter",
+  seatsLine: "Taking 4 new founders per quarter",
   promise: "I find and remove the bottlenecks in your marketing and automation.",
 };
 

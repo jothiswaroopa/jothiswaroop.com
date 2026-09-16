@@ -70,7 +70,7 @@ HOOK (who · what · proof · your face on video · one epiphany line) → RECEI
     *Shape:* "I watched agencies sell reports. I decided to sell customers. Now I build lead engines for founders who are done waiting."
   - CTAs: filled `Apply to work with me` · ghost `Get a free audit`
 - **Desktop, right 45%:** **Your video** — 60–90s straight to lens, muted autoplay, captions burned in, tap for sound, duotone poster.
-  Mono caption pinned: `Taking 2 new founders per quarter` (no live counter — see §10).
+  Mono caption pinned: `Taking 4 new founders per quarter` (no live counter — see §10).
   *Fallback:* duotone portrait, same caption.
 - **Mobile:** video (9:16) → headline → sub → stacked CTAs.
 - **Motion:** words rise from clipped masks (40ms stagger); video/poster scales 1.15→1 behind clip-path as last word lands; magnetic CTAs; caption types in.
@@ -142,7 +142,7 @@ HOOK (who · what · proof · your face on video · one epiphany line) → RECEI
      - **[Tier 2 name] — Growth + Systems** · everything in 1 + AI follow-up automation + CRM · from ₹60K / $1,500
   4. What's inside each — stacked list, honest value beside each line, total.
   5. **The guarantee** — named, boxed, one sentence. *Build blocker.*
-  6. Capacity, static and true: `2 new founders per quarter.` **No live counter.** (Optional later: wire to CRM `capacity − active`.)
+  6. Capacity, static and true: `4 new founders per quarter.` **No live counter.** (Optional later: wire to CRM `capacity − active`.)
   7. CTAs: filled `Apply` · ghost `Free audit first`.
 - **Motion:** calculator counts to new value per keystroke; value lines count up on enter; fee fades in after; guarantee border gets one slow light sweep.
 
