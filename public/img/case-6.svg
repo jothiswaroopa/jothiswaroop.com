@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><radialGradient id="g"><stop offset="0" stop-color="#3a3846"/><stop offset="1" stop-color="#111114" stop-opacity="0"/></radialGradient>
+<pattern id="h" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="28" stroke="#1e1e24" stroke-width="1"/></pattern></defs>
+<rect width="100%" height="100%" fill="#111114"/><circle cx="165" cy="170" r="629" fill="url(#g)" opacity="0.6"/><circle cx="822" cy="562" r="542" fill="url(#g)" opacity="0.6"/><circle cx="280" cy="838" r="620" fill="url(#g)" opacity="0.6"/><circle cx="1126" cy="285" r="761" fill="url(#g)" opacity="0.6"/><circle cx="850" cy="367" r="749" fill="url(#g)" opacity="0.6"/><rect width="100%" height="100%" fill="url(#h)"/>
+<rect x="1" y="1" width="1598" height="898" fill="none" stroke="#32323a" stroke-width="2"/>
+<text x="50%" y="50%" fill="#ffb020" font-family="Menlo, monospace" font-size="53" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">PLACEHOLDER · CASE 6 CREATIVE</text>
+</svg>

@@ -1,0 +1,19 @@
+import AuditForm from "@/components/AuditForm";
+import { audit } from "@/lib/content";
+
+export const metadata = { title: "The Bottleneck Audit — Jothi Swaroop" };
+
+export default function AuditPage() {
+  return (
+    <section className="min-h-[100svh] pt-[72px]">
+      <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-16 md:px-10 md:py-24 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
+        <div>
+          <p className="label">{audit.label}</p>
+          <h1 className="mt-6 text-[clamp(2.5rem,5.5vw,5rem)]">{audit.headline}</h1>
+          <p className="mt-6 max-w-lg text-paper/65">{audit.sub}</p>
+        </div>
+        <AuditForm />
+      </div>
+    </section>
+  );
+}
