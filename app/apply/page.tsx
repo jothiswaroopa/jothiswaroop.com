@@ -10,7 +10,7 @@ export default function ApplyPage() {
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink className="mb-8" />
         <p className="label">// APPLY</p>
-        <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,6vw,5.5rem)]">{apply.headline}</h1>
+        <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,6vw,5.5rem)]">{apply.standaloneHeadline}</h1>
         <p className="mt-6 max-w-xl text-paper/75">{apply.sub}</p>
         <div className="mt-16"><ApplyForm /></div>
       </div>

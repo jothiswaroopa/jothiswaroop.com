@@ -17,7 +17,7 @@ export default function Who() {
     <section className="theme-paper card-over relative">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[2fr_3fr] md:px-10 md:py-28 md:gap-16">
         <div ref={ref} className="bezel">
-          <div className="bezel-core relative aspect-[4/5]">
+          <div className="bezel-core relative aspect-[4/3] md:aspect-[4/5]">
             <motion.div style={{ y }} className="absolute inset-[-8%]">
               <Image
                 src={who.portrait}
@@ -46,14 +46,14 @@ export default function Who() {
               </Reveal>
             ))}
           </ul>
-          <Reveal delay={0.45} className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3">
+          <Reveal delay={0.45} className="mt-10 grid grid-cols-3 gap-2 md:gap-3">
             {recognition.map((r) => (
               <Link key={r.title} href="/about" className="bezel press block !p-1">
                 <div className="bezel-core">
                   <div className="relative aspect-[4/3]">
                     <Image src={r.image} alt={r.caption} fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover [filter:saturate(0.85)]" style={{ objectPosition: r.position }} />
                   </div>
-                  <p className="label px-3 py-2.5 !text-paper/80">{r.title}</p>
+                  <p className="label px-2 py-2 !text-[10px] !text-paper/80 md:px-3 md:py-2.5 md:!text-[11px]">{r.title}</p>
                 </div>
               </Link>
             ))}

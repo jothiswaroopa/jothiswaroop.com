@@ -7,7 +7,10 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import NavTracker from "@/components/NavTracker";
-import { site } from "@/lib/content";
+import { site, hero } from "@/lib/content";
+
+// Share-card description mirrors the live headline — never a second copy that can drift.
+const ogLine = hero.headline.map((l) => l.replace(/[*_]/g, "").replace(/\u00a0/g, " ")).join(" ");
 
 const display = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -19,7 +22,7 @@ export const metadata: Metadata = {
   description: "I find and remove the bottlenecks in your marketing and automation. Founder-led growth operator, Chennai → worldwide.",
   openGraph: {
     title: "Jothi Swaroop — Performance marketing & AI systems",
-    description: "3,222 leads for one client. Zero cold pitches for me. Founder-led growth operator, Chennai → worldwide.",
+    description: ogLine,
     type: "website",
     siteName: "Jothi Swaroop",
     url: "/",

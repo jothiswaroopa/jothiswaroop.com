@@ -266,6 +266,18 @@ h1, h2, h3, .display {
   background: rgba(242, 237, 228, 0.72);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 20px 60px -30px rgba(10, 10, 12, 0.35);
 }
+/* mobile: sections breathe less — 13 sections × 160px of padding is 2,000px of nothing on a phone */
+@media (max-width: 767px) {
+  main > section > div.mx-auto { padding-top: 3.25rem; padding-bottom: 3.25rem; }
+  main > section.card-over { border-radius: 28px 28px 0 0; }
+}
+/* mobile: a row of cards is a swipe, not a stack. md+: back to the grid the class list describes. */
+@media (max-width: 767px) {
+  .m-scroller { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x pan-y; padding-bottom: 6px; margin-inline: -20px; padding-inline: 20px; }
+  .m-scroller::-webkit-scrollbar { display: none; }
+  .m-scroller > * { flex: 0 0 82vw; scroll-snap-align: start; }
+  .m-scroller.m-scroller-narrow > * { flex-basis: 62vw; }
+}
 /* where content meets floating chrome: a soft edge, not a 1px divider */
 .scroll-edge-top::before {
   content: "";

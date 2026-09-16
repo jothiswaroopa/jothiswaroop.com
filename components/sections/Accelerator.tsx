@@ -31,7 +31,7 @@ export default function Accelerator() {
           <Reveal delay={0.1}>
             <figure className="bezel h-full">
               <div className="bezel-core flex h-full flex-col p-6 md:p-8">
-                <blockquote className="display text-xl leading-snug text-paper md:text-2xl">&ldquo;{t.text}&rdquo;</blockquote>
+                <blockquote className="display text-xl !leading-[1.3] text-paper md:text-2xl">&ldquo;{t.text}&rdquo;</blockquote>
                 <figcaption className="mt-8 flex items-center gap-4 border-t hairline pt-6">
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
                     <Image src={t.image} alt={`${t.author} with Jothi Swaroop`} fill sizes="56px" className="object-cover object-[38%_45%]" />
@@ -44,7 +44,8 @@ export default function Accelerator() {
                 </figcaption>
                 {t.receipt && (
                   <details className="mt-6 border-t hairline pt-5">
-                    <summary className="label cursor-pointer list-none !normal-case !tracking-normal text-paper/70 hover:text-paper">See the original message ↓</summary>
+                    <summary className="press label cursor-pointer list-none !normal-case !tracking-normal text-paper/70 hover:text-paper">Read the full message and see the original ↓</summary>
+                    {"full" in t && <p className="mt-4 max-w-[420px] text-sm text-paper/75">&ldquo;{(t as { full: string }).full}&rdquo;</p>}
                     <div className="mt-4 max-w-[320px] overflow-hidden rounded-xl border hairline">
                       <Image src={t.receipt} alt="The original WhatsApp message" width={442} height={552} className="h-auto w-full" />
                     </div>

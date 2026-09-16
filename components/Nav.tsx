@@ -27,6 +27,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const onPaper = ["/apply", "/audit", "/about"].some((p) => pathname?.startsWith(p));
+  const onApply = !!pathname?.startsWith("/apply");
 
   useEffect(() => {
     let last = 0;
@@ -67,9 +68,11 @@ export default function Nav() {
             <Link href="/audit" className="press rounded-full border border-paper/15 px-4 py-2 text-sm text-paper/85 hover:border-paper/40">
               Free audit
             </Link>
-            <Link href="/apply" className="press rounded-full bg-signal px-4 py-2 text-sm font-medium text-ink hover:bg-paper">
-              Apply
-            </Link>
+            {!onApply && (
+              <Link href="/apply" className="press rounded-full bg-signal px-4 py-2 text-sm font-medium text-ink hover:bg-paper">
+                Apply
+              </Link>
+            )}
           </div>
           <button
             onClick={() => setOpen((o) => !o)}
@@ -130,7 +133,7 @@ export default function Nav() {
         className={clsx(
           "glass scroll-edge-top fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-expo md:hidden",
           onPaper && "theme-paper",
-          pastHero && !open ? "translate-y-0" : "translate-y-full"
+          pastHero && !open && !onApply ? "translate-y-0" : "translate-y-full"
         )}
       >
         <Link href="/audit" className="press rounded-full border border-paper/20 py-3 text-center text-sm">Free audit</Link>

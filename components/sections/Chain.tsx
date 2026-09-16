@@ -38,7 +38,7 @@ export default function Chain() {
               initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}>
               <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-ink-3" />
               <Link href={`/work/${c.slug}`} className="group block">
-                <p className="mono text-[11px] text-paper/55">{String(i + 1).padStart(2, "0")} · {c.how}</p>
+                <p className="mono text-xs text-paper/55">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                 <p className="display mt-1 text-xl text-paper group-hover:text-signal">{c.label}</p>
                 <p className="mono mt-1 text-xs text-paper/70">{c.result}</p>
               </Link>
@@ -67,7 +67,7 @@ export default function Chain() {
                   initial={{ opacity: 0, x: left ? -12 : 12 }} animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * (2.2 / chain.length), ease: EASE }}>
                   <Link href={`/work/${c.slug}`} className={`group block ${left ? "text-right" : ""}`}>
-                    <p className="mono text-[11px] text-paper/55 md:text-xs">{String(i + 1).padStart(2, "0")} · {c.how}</p>
+                    <p className="mono text-xs text-paper/55 md:text-xs">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                     <p className="display mt-1 text-lg leading-tight text-paper transition-colors group-hover:text-signal md:text-2xl">{c.label}</p>
                     <p className="mono mt-1 text-xs text-paper/70">{c.result}</p>
                   </Link>

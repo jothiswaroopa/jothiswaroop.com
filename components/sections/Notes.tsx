@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import { notes } from "@/lib/content";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Notes() {
   const hasPosts = notes.posts.some((p) => !p.placeholder);
@@ -33,10 +34,7 @@ export default function Notes() {
         <Reveal delay={0.3} className="bezel mt-12">
          <div className="bezel-core flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
           <p className="text-lg text-paper/85">{notes.optin}</p>
-          <form className="flex w-full gap-2 md:w-auto" action="/audit">
-            <input type="email" required placeholder="you@company.com" className="w-full rounded-full border border-line-strong bg-transparent px-5 py-3 text-sm text-paper placeholder:text-paper/30 focus:border-signal focus:outline-none md:w-72" />
-            <button className="press shrink-0 rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Join</button>
-          </form>
+          <NewsletterForm />
          </div>
         </Reveal>
       </div>

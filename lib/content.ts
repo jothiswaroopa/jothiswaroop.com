@@ -194,7 +194,7 @@ export const cases: CaseStudy[] = [
     headline: { value: 4248, suffix: " leads" },
     before: "A Tirupur apparel manufacturer finding buyers the old way — references and trade visits. No inbound, no idea what a buyer enquiry cost.",
     after: "4,248 wholesale buyer leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
-    measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
+    measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Lifetime view (Jun 2023 → Jul 2026); campaigns ran Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
     receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
     image: "/img/ads-nova-1.png",
     featured: true,
@@ -205,7 +205,7 @@ export const cases: CaseStudy[] = [
     industry: "Knitwear & garment manufacturer",
     location: "Tirupur → UK",
     year: "2025",
-    result: "1,318 India leads + 19 UK wholesale leads",
+    result: "1,337 leads · India + UK",
     headline: { value: 1337, suffix: " leads" },
     before: "A Tirupur manufacturer with no inbound pipeline and zero presence in the UK.",
     after: "1,318 domestic knitwear leads at ₹19.34 each, and 19 UK apparel buyers (MOQ 200) at ₹443 — a wholesale enquiry for under $6.",
@@ -221,7 +221,7 @@ export const cases: CaseStudy[] = [
     industry: "Garment label manufacturer · B2B",
     location: "Tirupur",
     year: "2023–26",
-    result: "1,589 leads — the first client",
+    result: "1,589 leads",
     headline: { value: 1589, suffix: " leads" },
     before: "A label manufacturer selling on relationships alone. The very first campaign I ever ran for a client.",
     after: "1,349 form leads at ₹19–33 each plus 240 WhatsApp and Instagram conversations at under ₹6.50 — 1,589 in total on ₹28,178. The result that started the referral chain.",
@@ -236,11 +236,11 @@ export const cases: CaseStudy[] = [
     industry: "Textile showroom · D2C",
     location: "Tindivanam",
     year: "2025–26",
-    result: "950K people reached for festival sales",
+    result: "950K people reached",
     headline: { value: 950548, suffix: " reached" },
     before: "Festival-season footfall depended on word of mouth and a hoarding.",
     after: "Diwali and Aadi Sale awareness campaigns reached 950,548 people — 1.46M impressions — on ₹11,440. ₹12 for every thousand people reached.",
-    measured: { source: "Meta Ads Manager, lifetime view", window: "Aug 2023 → Sep 2026", counted: "Reach = unique Meta accounts reached (477,456 Diwali + 525,781 Aadi Sale, de-duplicated total 950,548). Cost per 1,000 reached = spend ÷ reach × 1,000.", screenshot: "/img/ads-ram-textiles.png" },
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Aug 2023 → Sep 2026", counted: "Reach = unique Meta accounts reached. The two campaigns show 477,456 and 525,781; Ads Manager's own total row de-duplicates people reached by both to 950,548 — visible in the screenshot. Cost per 1,000 reached = spend ÷ reach × 1,000.", screenshot: "/img/ads-ram-textiles.png" },
     receipts: ["/img/ads-ram-textiles.png"],
     image: "/img/ads-ram-textiles.png",
   },
@@ -264,10 +264,10 @@ export const cases: CaseStudy[] = [
     industry: "Imitation jewellery · 4 showrooms",
     location: "Chennai",
     year: "2026",
-    result: "321 conversations · 5,687 clicks at ₹0.39",
+    result: "321 conversations",
     headline: { value: 321, suffix: " conversations" },
     before: "Four showrooms, a beautiful catalogue, and nobody messaging about it.",
-    after: "321 WhatsApp and Instagram conversations across five campaigns, and a jhumka video that drove 5,687 link clicks at ₹0.39 each — 156K people reached on ₹2,214.",
+    after: "321 WhatsApp and Instagram conversations across five messaging campaigns, plus a jhumka video that drove 5,687 link clicks at ₹0.39 each — 156K people reached on ₹2,214. Six campaigns in total.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Feb → Mar 2026", counted: "Conversations = messaging conversations started (WhatsApp / Instagram). Clicks = link clicks on the video campaign. Total spend across six campaigns: ₹8,471.", screenshot: "/img/ads-tharunis.png" },
     receipts: ["/img/ads-tharunis.png"],
     image: "/img/ads-tharunis.png",
@@ -279,7 +279,7 @@ export const cases: CaseStudy[] = [
     industry: "Tanjore painting mentorship",
     location: "Tamil Nadu → US & Canada",
     year: "2025–26",
-    result: "315 conversations · 1,815 profile visits at ₹1.23",
+    result: "315 conversations",
     headline: { value: 315, suffix: " conversations" },
     before: "Tanjore painting mentorships filled by word of mouth only. No way to reach the Tamil and Telugu diaspora who want the craft.",
     after: "315 WhatsApp conversations for mentorships at ₹13–20 each, 1,815 Instagram profile visits at ₹1.23, and a US + Canada summer-camp campaign reaching diaspora families.",
@@ -407,7 +407,8 @@ export const accelerator = {
   cta: { label: "Apply for the Accelerator", href: "/apply?program=accelerator" },
   testimonial: {
     // Verbatim from the BSHIP Chennai Tycoons WhatsApp group (400+ members). Confirm Balaji is happy to be quoted by name.
-    text: "Today, I started a customised AI productivity training program with Jothi Swaroopa. He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth by making complex concepts easy to follow even for someone technologically challenged like me. I already feel confident that I will master these AI tools in no time. I highly recommend his custom training packages to all of you looking to build confidence and prepare for a tech-driven future.",
+    text: "He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth — making complex concepts easy to follow even for someone technologically challenged like me.",
+    full: "Today, I started a customised AI productivity training program with Jothi Swaroopa. He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth by making complex concepts easy to follow even for someone technologically challenged like me. I already feel confident that I will master these AI tools in no time. I highly recommend his custom training packages to all of you looking to build confidence and prepare for a tech-driven future.",
     author: "D Balaji",
     role: "Centralised AC · BSHIP Chennai Tycoons",
     where: "Posted in the BSHIP Chennai Tycoons group, 400+ members",
@@ -429,7 +430,7 @@ export const faq = [
   },
   {
     q: "Do you work with international clients?",
-    a: "Yes. I run campaigns in the UK and Europe from Chennai. Calls in your timezone, reporting in your currency.",
+    a: "Yes. I run campaigns for UK, US and Canadian markets from Tamil Nadu — a UK wholesale buyer campaign and a US/Canada diaspora campaign are both on this page. Calls in your timezone, reporting in your currency.",
   },
   {
     q: "Do you do one-off projects?",
@@ -437,16 +438,35 @@ export const faq = [
   },
 ];
 
+export type Currency = "inr" | "usd" | "gbp";
+export type ApplyStep =
+  | { key: string; q: string; type: "text"; placeholder: string }
+  | { key: string; q: string; type: "currency" }
+  | { key: string; q: string; type: "chips"; options: Record<Currency, string[]>; escape?: string }
+  | { key: string; q: string; type: "contact" };
+
 export const apply = {
   headline: "If the numbers above look like what you want, apply below.",
-  sub: "Five questions. Takes two minutes. I read every one myself.",
+  standaloneHeadline: "Tell me what you sell and what's broken. I'll tell you if I can help.",
+  sub: "Seven quick questions. Two minutes. I read every one myself.",
   steps: [
-    { key: "sell", q: "What do you sell?", type: "text", placeholder: "e.g. Women's ethnic wear, D2C, ₹2,400 / $30 average order" },
-    { key: "revenue", q: "Monthly revenue, roughly", type: "chips", options: ["Under ₹50L · $60K · £45K", "₹50L–2Cr · $60–250K · £45–190K", "₹2Cr+ · $250K+ · £190K+", "Pre-revenue"] },
-    { key: "spend", q: "Current monthly ad spend", type: "chips", options: ["Nothing yet", "Under ₹1L · $1.2K · £900", "₹1–5L · $1.2–6K · £900–4.5K", "₹5L+ · $6K+ · £4.5K+"] },
+    { key: "sell", q: "What do you sell?", type: "text", placeholder: "e.g. Knitwear for UK retailers · MOQ 200 · £8 a unit" },
+    { key: "currency", q: "Which currency do you think in?", type: "currency" },
+    { key: "revenue", q: "Monthly revenue, roughly", type: "chips", options: {
+      inr: ["Under ₹50L", "₹50L – 2Cr", "₹2Cr+", "Pre-revenue"],
+      usd: ["Under $60K", "$60K – 250K", "$250K+", "Pre-revenue"],
+      gbp: ["Under £45K", "£45K – 190K", "£190K+", "Pre-revenue"] } },
+    { key: "spend", q: "Current monthly ad spend", type: "chips", options: {
+      inr: ["Nothing yet", "Under ₹1L", "₹1 – 5L", "₹5L+"],
+      usd: ["Nothing yet", "Under $1.2K", "$1.2 – 6K", "$6K+"],
+      gbp: ["Nothing yet", "Under £900", "£900 – 4.5K", "£4.5K+"] } },
     { key: "broken", q: "What's broken right now?", type: "text", placeholder: "One line. Be blunt." },
-    { key: "budget", q: "Budget you're ready to commit monthly", type: "chips", options: ["₹30–60K · $800–1.5K · £600–1.2K", "₹60K+ · $1.5K+ · £1.2K+", "Not yet — send me the audit"] },
-  ],
+    { key: "budget", q: "Budget you're ready to commit monthly", type: "chips", escape: "Not yet — send me the audit", options: {
+      inr: ["₹30 – 60K", "₹60K+", "Not yet — send me the audit"],
+      usd: ["$800 – 1.5K", "$1.5K+", "Not yet — send me the audit"],
+      gbp: ["£600 – 1.2K", "£1.2K+", "Not yet — send me the audit"] } },
+    { key: "contact", q: "Where should I reply?", type: "contact" },
+  ] as ApplyStep[],
   followup: "A personal reply the same working day · IST · English / Tamil · calls in your timezone",
 };
 

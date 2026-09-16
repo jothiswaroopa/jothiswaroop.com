@@ -8,12 +8,12 @@ import { cases, chain, videoTestimonials } from "@/lib/content";
 import VideoTile from "@/components/VideoTile";
 
 export function generateStaticParams() {
-  return cases.map((c) => ({ slug: c.slug }));
+  return cases.filter((c) => !c.placeholder).map((c) => ({ slug: c.slug }));
 }
 
 export default async function CasePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const c = cases.find((x) => x.slug === slug);
+  const c = cases.find((x) => x.slug === slug && !x.placeholder);
   if (!c) notFound();
   const idx = chain.map((n) => n.slug).lastIndexOf(c.slug);
   const nextNode = idx >= 0 ? chain.slice(idx + 1).find((n) => n.slug !== c.slug) : undefined;

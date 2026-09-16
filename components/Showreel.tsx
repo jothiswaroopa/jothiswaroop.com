@@ -9,7 +9,7 @@ function Tile({ v }: { v: (typeof videos)[number] }) {
   return (
     <div className="bezel">
       <div className="bezel-core">
-        <VideoTile youtubeId={v.youtubeId!} title={v.title} vertical={v.vertical} className={v.vertical ? "mx-auto max-h-[560px] w-full" : ""} />
+        <VideoTile youtubeId={v.youtubeId!} title={v.title} vertical={v.vertical} className={v.vertical ? "mx-auto max-h-[420px] w-full md:max-h-[560px]" : ""} />
         <div className="flex items-baseline justify-between gap-4 p-4">
           <div>
             <p className="text-paper">{v.title}</p>
@@ -27,7 +27,7 @@ export default function Showreel() {
   return (
     <Reveal className="mt-16">
       <p className="label">// VIDEO & COMMERCIALS</p>
-      <div className="mt-5 grid gap-4 md:grid-cols-3">
+      <div className="m-scroller mt-5 grid gap-4 md:grid-cols-3" data-lenis-prevent>
         {videos.map((v) => (
           <div key={v.title} className={v.vertical ? "md:col-span-1" : "md:col-span-2"}><Tile v={v} /></div>
         ))}

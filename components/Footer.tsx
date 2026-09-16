@@ -16,7 +16,7 @@ export default function Footer() {
             <Link href="/#work" className="underline-slide w-fit hover:text-paper">Results</Link>
             <Link href="/#method" className="underline-slide w-fit hover:text-paper">Method</Link>
             <Link href="/about" className="underline-slide w-fit hover:text-paper">About</Link>
-            <Link href="/notes" className="underline-slide w-fit hover:text-paper">Notes</Link>
+            <Link href="/#notes" className="underline-slide w-fit hover:text-paper">Notes</Link>
           </div>
           <div className="flex flex-col gap-2">
             {site.socials.instagram && <a href={site.socials.instagram} className="underline-slide w-fit hover:text-paper" target="_blank" rel="noreferrer">Instagram</a>}

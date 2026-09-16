@@ -17,12 +17,12 @@ export default function Home() {
     <>
       <Hero />
       <Receipts />
+      <Chain />
       <Who />
       <Burn />
       <Method />
       <Work />
       <Testimonials />
-      <Chain />
       <Filter />
       <Accelerator />
       <Faq />
