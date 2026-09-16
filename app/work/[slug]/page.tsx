@@ -17,7 +17,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const num = parseFloat(c.result.replace(/[^0-9.]/g, ""));
 
   return (
-    <article className="pt-[72px]">
+    <article className="pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <Link href="/#work" className="label hover:text-paper">← All work</Link>
         <p className="mt-10 text-paper/60">{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</p>

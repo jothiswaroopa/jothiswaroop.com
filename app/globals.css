@@ -49,6 +49,64 @@ html {
   color: var(--paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent; /* no grey flash on tap */
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 96px; /* anchors land below the floating nav */
+}
+
+/* controls: instant tap, no long-press selection, no 300ms delay */
+button, a, [role="button"] {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+input, textarea, select {
+  font-size: 16px; /* iOS zooms into anything smaller */
+}
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+[id] { scroll-margin-top: 96px; }
+
+/* press feedback — every pressable thing answers the finger */
+.press {
+  transition: transform 140ms var(--ease), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.press:active { transform: scale(0.97); }
+
+/* double-bezel: a plate sitting in a tray — never a card flat on the background */
+.bezel {
+  background: rgba(242, 237, 228, 0.035);
+  border: 1px solid rgba(242, 237, 228, 0.08);
+  padding: 6px;
+  border-radius: 24px;
+}
+.bezel-core {
+  border-radius: 18px;
+  background: var(--ink-3);
+  box-shadow: inset 0 1px 0 rgba(242, 237, 228, 0.08), 0 20px 60px -30px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+/* scroll-entry reveal — CSS transitions (off main thread), toggled by IntersectionObserver */
+.rv {
+  opacity: 0;
+  transform: translate3d(0, var(--rv-y, 28px), 0);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
+  transition-delay: var(--rv-d, 0s);
+  will-change: opacity, transform;
+}
+@media (min-width: 768px) {
+  .rv { filter: blur(6px); }
+}
+.rv.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  will-change: auto;
 }
 html.lenis,
 html.lenis body {
@@ -177,9 +235,11 @@ h1, h2, h3, .display {
   transform-origin: right;
   transition: transform var(--d-fast) var(--ease);
 }
-.underline-slide:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+@media (hover: hover) and (pointer: fine) {
+  .underline-slide:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
 .marquee-track {
@@ -249,4 +309,5 @@ h1, h2, h3, .display {
     transition-duration: 0.001ms !important;
   }
   .grain::before { animation: none; }
+  .rv { opacity: 1; transform: none; filter: none; }
 }

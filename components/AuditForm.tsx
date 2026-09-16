@@ -41,12 +41,12 @@ export default function AuditForm() {
       </div>
       <AnimatePresence mode="wait">
         {!done ? (
-          <motion.div key={step} initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.45, ease: EASE }}>
+          <motion.div key={step} initial={{ opacity: 0, x: 24, filter: "blur(4px)" }} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={{ opacity: 0, x: -24, filter: "blur(4px)", transition: { duration: 0.2 } }} transition={{ duration: 0.4, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">{cur.q}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {cur.options.map((o) => (
                 <button key={o} onClick={() => { setA({ ...a, [cur.key]: o }); setTimeout(() => setStep(step + 1), 220); }}
-                  className={`rounded-full border px-4 py-2.5 text-sm transition-colors ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/80 hover:border-paper"}`}>{o}</button>
+                  className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/80 hover:border-paper"}`}>{o}</button>
               ))}
             </div>
             {step > 0 && <button onClick={() => setStep(step - 1)} className="mt-8 text-sm text-paper/50 hover:text-paper">← Back</button>}
@@ -74,7 +74,7 @@ export default function AuditForm() {
             <form className="mt-6 flex flex-col gap-2 sm:flex-row" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
               <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com"
                 className="w-full rounded-full border border-line-strong bg-transparent px-5 py-3.5 text-sm text-paper placeholder:text-paper/30 focus:border-signal focus:outline-none" />
-              <button className="shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper">{qualified ? "Send me the teardown" : "Send it"}</button>
+              <button className="press shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper">{qualified ? "Send me the teardown" : "Send it"}</button>
             </form>
             <p className="mt-3 text-xs text-paper/40">No list-bombing. One letter every two weeks, and you can leave any time.</p>
           </motion.div>

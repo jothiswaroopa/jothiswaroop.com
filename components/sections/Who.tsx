@@ -16,10 +16,12 @@ export default function Who() {
   return (
     <section className="bg-ink">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[2fr_3fr] md:px-10 md:py-28 md:gap-16">
-        <div ref={ref} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink-2">
-          <motion.div style={{ y }} className="duotone absolute inset-[-8%]">
-            <Image src={who.portrait} alt={`${site.name} at work`} fill sizes="(min-width:768px) 40vw, 100vw" className="object-cover" />
-          </motion.div>
+        <div ref={ref} className="bezel">
+          <div className="bezel-core relative aspect-[4/5]">
+            <motion.div style={{ y }} className="duotone absolute inset-[-8%]">
+              <Image src={who.portrait} alt={`${site.name} at work`} fill sizes="(min-width:768px) 40vw, 100vw" className="object-cover" />
+            </motion.div>
+          </div>
         </div>
         <div className="flex flex-col justify-center">
           <p className="label"><Scramble text="// WHO I AM" /></p>

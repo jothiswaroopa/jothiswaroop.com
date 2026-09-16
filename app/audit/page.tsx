@@ -5,7 +5,7 @@ export const metadata = { title: "The Bottleneck Audit — Jothi Swaroop" };
 
 export default function AuditPage() {
   return (
-    <section className="min-h-[100svh] pt-[72px]">
+    <section className="min-h-[100svh] pt-[96px]">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-16 md:px-10 md:py-24 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
         <div>
           <p className="label">{audit.label}</p>

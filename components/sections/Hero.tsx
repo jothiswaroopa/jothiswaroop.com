@@ -14,15 +14,16 @@ export default function Hero() {
   const settle = 0.2 + wordCount * 0.04;
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden pt-[72px]">
+    <section className="relative min-h-[100svh] overflow-hidden pt-[88px]">
       <div className="mx-auto grid max-w-[1440px] gap-8 px-5 pb-16 pt-6 md:px-10 lg:grid-cols-[55fr_45fr] lg:items-end lg:gap-12 lg:pb-14 lg:pt-10">
         {/* Video / portrait — first on mobile */}
         <motion.div
-          className="relative order-1 h-[min(48svh,520px)] w-full overflow-hidden rounded-2xl bg-ink-2 lg:order-2 lg:h-[min(72vh,760px)]"
-          initial={{ clipPath: "inset(6% 6% 6% 6% round 16px)", scale: 1.15 }}
-          animate={{ clipPath: "inset(0% 0% 0% 0% round 16px)", scale: 1 }}
+          className="bezel relative order-1 h-[min(48svh,520px)] w-full lg:order-2 lg:h-[min(72vh,760px)]"
+          initial={{ clipPath: "inset(6% 6% 6% 6% round 24px)", scale: 1.1 }}
+          animate={{ clipPath: "inset(0% 0% 0% 0% round 24px)", scale: 1 }}
           transition={{ duration: 1.4, ease: EASE, delay: settle * 0.6 }}
         >
+         <div className="bezel-core relative h-full w-full">
           {hero.videoSrc ? (
             <video className="h-full w-full object-cover" src={hero.videoSrc} poster={hero.posterSrc} autoPlay muted loop playsInline />
           ) : (
@@ -40,6 +41,7 @@ export default function Hero() {
             <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-signal align-middle" />
             {site.seatsLine} · Q4 2026
           </motion.p>
+         </div>
         </motion.div>
 
         {/* Copy */}

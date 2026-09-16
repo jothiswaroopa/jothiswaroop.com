@@ -43,7 +43,7 @@ export default function ApplyForm() {
 
       <AnimatePresence mode="wait">
         {!done ? (
-          <motion.div key={step} initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.5, ease: EASE }}>
+          <motion.div key={step} initial={{ opacity: 0, x: 24, filter: "blur(4px)" }} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={{ opacity: 0, x: -24, filter: "blur(4px)", transition: { duration: 0.2 } }} transition={{ duration: 0.4, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">{cur.q}</p>
             {cur.type === "text" ? (
               <input
@@ -57,14 +57,14 @@ export default function ApplyForm() {
               <div className="mt-8 flex flex-wrap gap-3">
                 {cur.options!.map((o) => (
                   <button key={o} onClick={() => setAnswers({ ...answers, [cur.key]: o })}
-                    className={`rounded-full border px-4 py-2.5 text-sm transition-colors ${value === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/80 hover:border-paper"}`}>
+                    className={`press rounded-full border px-4 py-2.5 text-sm ${value === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/80 hover:border-paper"}`}>
                     {o}
                   </button>
                 ))}
               </div>
             )}
             <div className="mt-10 flex items-center gap-6">
-              <button onClick={next} disabled={!value} className="rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-paper disabled:opacity-30">
+              <button onClick={next} disabled={!value} className="press rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper disabled:opacity-30">
                 {step < total - 1 ? "Next →" : "Submit application →"}
               </button>
               {step > 0 && <button onClick={() => setStep(step - 1)} className="text-sm text-paper/50 hover:text-paper">← Back</button>}

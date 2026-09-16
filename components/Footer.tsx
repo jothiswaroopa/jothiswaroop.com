@@ -4,7 +4,7 @@ import { site, footer } from "@/lib/content";
 /** Stillness. No motion here by design. */
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t hairline bg-ink pb-24 pt-20 md:pb-10">
+    <footer className="relative overflow-hidden border-t hairline bg-ink pb-[calc(6rem+env(safe-area-inset-bottom))] pt-20 md:pb-10">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <p className="display text-3xl italic text-paper/90 md:text-5xl">{footer.line}</p>
         <div className="mt-14 grid gap-8 border-t hairline pt-8 text-sm text-paper/60 md:grid-cols-4">

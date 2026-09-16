@@ -30,9 +30,10 @@ export default function Work() {
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {featured.map((c, i) => (
             <Reveal key={c.slug} delay={i * 0.08}>
-              <Link href={`/work/${c.slug}`} className="group block overflow-hidden rounded-2xl border hairline bg-ink-3 transition-colors hover:border-line-strong">
+              <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-paper/20">
+               <div className="bezel-core">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image src={c.image} alt={c.client} fill sizes="(min-width:768px) 50vw, 100vw" className="duotone object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]" />
+                  <Image src={c.image} alt={c.client} fill sizes="(min-width:768px) 50vw, 100vw" className="duotone object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.04]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-3 via-ink-3/20 to-transparent" />
                   <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-4">
                     <p className={`num text-signal ${c.result.length > 14 ? "text-[clamp(1.25rem,2vw,1.75rem)]" : "text-[clamp(1.75rem,3vw,2.75rem)]"}`}>{c.result}</p>
@@ -53,6 +54,7 @@ export default function Work() {
                   <p className="text-sm text-paper/60">{c.client} · {c.industry}</p>
                   <p className="label">{c.year}{c.placeholder ? " · placeholder" : ""}</p>
                 </div>
+               </div>
               </Link>
             </Reveal>
           ))}
@@ -61,12 +63,12 @@ export default function Work() {
         {/* Raw proof strip */}
         <Reveal className="mt-16">
           <p className="label">// RAW RECEIPTS</p>
-          <div className="mt-5 flex gap-4 overflow-x-auto pb-4 [scrollbar-width:none]" data-lenis-prevent>
+          <div className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [touch-action:pan-x_pan-y]" data-lenis-prevent>
             {cases.map((c) => (
-              <div key={c.slug} className="relative aspect-[4/3] w-[280px] shrink-0 overflow-hidden rounded-lg border hairline bg-ink-3">
+              <div key={c.slug} className="bezel relative w-[280px] shrink-0 snap-start !p-1 !rounded-xl"><div className="bezel-core relative aspect-[4/3] !rounded-lg">
                 <Image src={c.image} alt={`Screenshot — ${c.client}`} fill sizes="280px" className="object-cover opacity-80" />
                 <span className="label absolute bottom-2 left-2 rounded bg-ink/80 px-2 py-1 !text-paper/70">{c.placeholder ? "placeholder screenshot" : c.client}</span>
-              </div>
+              </div></div>
             ))}
           </div>
         </Reveal>
@@ -91,8 +93,8 @@ export default function Work() {
             {cases.map((c, i) => (
               <Reveal key={c.slug} delay={i * 0.04}>
                 <li onMouseEnter={() => setHover(c.slug)}>
-                  <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-2 border-b hairline py-5 transition-colors hover:bg-paper/[0.03] md:grid-cols-[2fr_1.5fr_2fr_auto] md:gap-6 md:px-3">
-                    <span className="display text-2xl text-paper transition-transform duration-500 ease-out-expo group-hover:translate-x-2 md:text-3xl">{c.client}</span>
+                  <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-2 border-b hairline py-5 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[2fr_1.5fr_2fr_auto] md:gap-6 md:px-3">
+                    <span className="display text-2xl text-paper transition-transform duration-500 ease-out-expo group-hover:translate-x-2 md:text-3xl duration-300">{c.client}</span>
                     <span className="text-sm text-paper/55">{c.industry} · {c.location}</span>
                     <span className="mono text-sm text-signal">{c.result}</span>
                     <span className="label md:text-right">{c.year}</span>
@@ -104,12 +106,12 @@ export default function Work() {
           <AnimatePresence>
             {active && (
               <motion.div
-                className="pointer-events-none fixed z-40 hidden h-[200px] w-[300px] overflow-hidden rounded-xl border hairline shadow-2xl lg:block"
+                className="pointer-events-none fixed z-40 hidden h-[200px] w-[300px] overflow-hidden rounded-2xl border border-paper/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] lg:block"
                 style={{ left: sx, top: sy, x: 24, y: -100 }}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.94 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35, ease: EASE }}
+                exit={{ opacity: 0, scale: 0.97, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.3, ease: EASE }}
               >
                 <Image src={active.image} alt="" fill sizes="300px" className="object-cover" />
               </motion.div>
