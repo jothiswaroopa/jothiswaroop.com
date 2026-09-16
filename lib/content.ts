@@ -382,6 +382,28 @@ export const filter = {
   ],
 };
 
+// ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time.
+export const accelerator = {
+  label: "// THE OTHER DOOR",
+  headline: "Don't want to hand it over? Learn to run it yourself.",
+  body: "The AI Accelerator is five days, one business owner, at your office. I build the curriculum around your business and sit next to you until the tools are yours — not a course, not a webinar. I take one owner at a time.",
+  facts: [
+    { k: "Format", v: "1:1 · at your place of work" },
+    { k: "Length", v: "5 days" },
+    { k: "Intake", v: "One owner at a time" },
+  ],
+  cta: { label: "Apply for the Accelerator", href: "/apply?program=accelerator" },
+  testimonial: {
+    // Verbatim from the BSHIP Chennai Tycoons WhatsApp group (400+ members). Confirm Balaji is happy to be quoted by name.
+    text: "Today, I started a customised AI productivity training program with Jothi Swaroopa. He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth by making complex concepts easy to follow even for someone technologically challenged like me. I already feel confident that I will master these AI tools in no time. I highly recommend his custom training packages to all of you looking to build confidence and prepare for a tech-driven future.",
+    author: "D Balaji",
+    role: "Centralised AC · BSHIP Chennai Tycoons",
+    where: "Posted in the BSHIP Chennai Tycoons group, 400+ members",
+    image: "/img/accelerator-balaji.jpg",
+    verified: true,
+  },
+};
+
 export const faq = [
   {
     q: "What if it doesn't work?",

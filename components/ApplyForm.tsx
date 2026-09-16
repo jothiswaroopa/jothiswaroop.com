@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { apply, site } from "@/lib/content";
 import { submit, currencyOf } from "@/lib/submit";
@@ -26,6 +26,9 @@ export default function ApplyForm() {
   const [dir, setDir] = useState(1);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [phase, setPhase] = useState<Phase>("steps");
+  const [program, setProgram] = useState<string | null>(null);
+  useEffect(() => { try { setProgram(new URLSearchParams(window.location.search).get("program")); } catch {} }, []);
+  const programLabel = program === "accelerator" ? "AI Accelerator · 5-day 1:1 mentorship" : null;
   const cur = apply.steps[step];
   const total = apply.steps.length;
   const value = answers[cur?.key] ?? "";
@@ -43,11 +46,11 @@ export default function ApplyForm() {
     }
     setPhase("sending");
     const fields = Object.fromEntries(apply.steps.map((s) => [s.q, answers[s.key] ?? ""]));
-    const r = await submit("Application — jothiswaroop.com", fields);
+    const r = await submit(programLabel ? `Application — ${programLabel}` : "Application — jothiswaroop.com", { ...(programLabel ? { program: programLabel } : {}), ...fields });
     setPhase(r.delivered ? "delivered" : "manual");
   };
 
-  const body = `Hi Jothi — application from your site.\n\n` + apply.steps.map((s) => `${s.q}\n→ ${answers[s.key] ?? "-"}`).join("\n\n");
+  const body = `Hi Jothi — application from your site${programLabel ? ` (${programLabel})` : ""}.\n\n` + apply.steps.map((s) => `${s.q}\n→ ${answers[s.key] ?? "-"}`).join("\n\n");
   const waHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(body)}`;
   const mailHref = site.email ? `mailto:${site.email}?subject=${encodeURIComponent("Application — jothiswaroop.com")}&body=${encodeURIComponent(body)}` : "";
 
@@ -65,6 +68,7 @@ export default function ApplyForm() {
 
   return (
     <div className="mx-auto w-full max-w-2xl">
+      {programLabel && <p className="label mb-6 inline-block rounded-full border border-line-strong px-3 py-1.5 !normal-case !tracking-normal">Applying for: {programLabel}</p>}
       <div className="mb-10 flex items-center gap-4">
         <span className="mono text-xs text-paper/65">{String(Math.min(step + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
         <div className="h-px flex-1 bg-line">
