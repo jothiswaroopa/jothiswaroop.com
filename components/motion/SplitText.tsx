@@ -41,7 +41,7 @@ export default function SplitText({ lines, className, delay = 0, stagger = 0.04,
             return (
               <span key={wi} className="mask-line !inline-block align-baseline">
                 <motion.span
-                  className={"inline-block will-change-transform" + cls}
+                  className={"inline-block" + cls}
                   initial={{ y: "110%" }}
                   {...anim}
                   transition={{ duration: 1, ease: EASE, delay: delay + idx * stagger }}

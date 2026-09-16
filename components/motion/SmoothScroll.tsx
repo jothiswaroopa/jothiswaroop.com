@@ -12,7 +12,7 @@ export default function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    const lenis = new Lenis({ lerp: 0.16, smoothWheel: true }); // 0.09 lagged the wheel by ~200ms; 0.16 keeps the inertia without the delay
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (t: number) => lenis.raf(t * 1000);
     gsap.ticker.add(tick);

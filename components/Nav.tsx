@@ -30,12 +30,18 @@ export default function Nav() {
   const onApply = !!pathname?.startsWith("/apply");
 
   useEffect(() => {
-    let last = 0;
+    let last = window.scrollY, ticking = false, h = false, p = false;
     const onScroll = () => {
-      const y = window.scrollY;
-      setHidden(y > last && y > 160 && !open);
-      setPastHero(y > 40);
-      last = y;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const nh = y > last && y > 160 && !open;
+        const np = y > 40;
+        if (nh !== h) { h = nh; setHidden(nh); }
+        if (np !== p) { p = np; setPastHero(np); }
+        last = y; ticking = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
