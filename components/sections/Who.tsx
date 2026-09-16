@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
-import { who, site } from "@/lib/content";
+import { who, site, recognition } from "@/lib/content";
 
 export default function Who() {
   const ref = useRef<HTMLDivElement>(null);
@@ -46,7 +46,18 @@ export default function Who() {
               </Reveal>
             ))}
           </ul>
-          <Reveal delay={0.5} className="mt-10">
+          <Reveal delay={0.45} className="mt-10 grid grid-cols-2 gap-3">
+            {recognition.map((r) => (
+              <Link key={r.title} href="/about" className="bezel press block !p-1">
+                <div className="bezel-core relative aspect-[4/3]">
+                  <Image src={r.image} alt={r.caption} fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover [filter:saturate(0.85)]" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-3/80 via-transparent to-transparent" />
+                  <p className="label absolute bottom-3 left-3 right-3 !text-paper/90">{r.title}</p>
+                </div>
+              </Link>
+            ))}
+          </Reveal>
+          <Reveal delay={0.55} className="mt-8">
             <Link href="/about" className="underline-slide text-sm text-paper/80 hover:text-paper">Full story →</Link>
           </Reveal>
         </div>

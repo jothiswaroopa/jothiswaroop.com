@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motio
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import Button from "@/components/Button";
+import Showreel from "@/components/Showreel";
 import { cases, externalProof, automations } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -75,6 +76,8 @@ export default function Work() {
             )))}
           </div>
         </Reveal>
+
+        <Showreel />
 
         {/* Systems — the automation half of the positioning, with the actual builds */}
         <Reveal className="mt-16">

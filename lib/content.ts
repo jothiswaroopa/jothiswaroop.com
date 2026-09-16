@@ -58,14 +58,31 @@ export const receipts: Receipt[] = [
 // Only cities and niches that have a case study behind them. Add here only when you add a case.
 export const marquee = [
   "Chennai", "Tirupur", "United Kingdom", "Coimbatore", "United States", "Canada",
-  "Fashion D2C", "Knitwear", "Labels · B2B", "Textiles", "Jewellery", "Kids education", "Bakery", "Compliance",
+  "Fashion D2C", "Knitwear", "Labels · B2B", "Textiles", "Jewellery", "Kids education", "Bakery", "Compliance", "VROOM 2026 · Digital Partner",
+];
+
+export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[] };
+export const recognition: Recognition[] = [
+  {
+    title: "Tamil Nadu Digital Summit 2026",
+    detail: "Award presented by CK Kumaravel, founder of Naturals.",
+    image: "/img/award.jpg",
+    caption: "TN Digital Summit 2026 · award ceremony",
+  },
+  {
+    title: "Official Digital Partner · VROOM 2026",
+    detail: "Vysya Rally of Our Madras, 9 August 2026 — recognised for exceptional contribution, as Be The Brand, my studio.",
+    image: "/img/vroom-stage.jpg",
+    caption: "VROOM 2026 · recognised on stage",
+    extra: ["/img/vroom-trophy.jpg", "/img/vroom-poster.jpg"],
+  },
 ];
 
 export const who = {
   role: "I run the marketing myself. One person, no account managers.",
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads.",
-    "Recognised at Tamil Nadu Digital Summit 2026 — award presented by CK Kumaravel, founder of Naturals.",
+    "Recognised twice in 2026: an award at Tamil Nadu Digital Summit, and Official Digital Partner of VROOM 2026.",
     "Every number on this page links to how it was measured. If I can't prove it, it isn't here.",
   ],
   portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
@@ -301,6 +318,14 @@ export const chain: ChainNode[] = [
   { slug: "five-elements", label: "Five Elements", result: "1,318 knitwear leads at ₹19", how: "Introduced by Sathyam Labels" },
   { slug: "five-elements", label: "Five Elements — United Kingdom", result: "19 wholesale buyers, MOQ 200", how: "Same client, asked me to open a new market" },
   { slug: "nova", label: "Nova Attire", result: "4,248 leads at ₹16.58", how: "Introduced by Five Elements" },
+];
+
+// ─── VIDEO & COMMERCIALS — hosted on YouTube (Unlisted) / Vimeo; GitHub Pages can't stream large files.
+// Add { title, client, kind, youtubeId } per video. Section renders only when this array has entries.
+export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
+export const videos: Video[] = [
+  { title: "VROOM 2026 sponsor film", client: "Vysya Rally of Our Madras · Chennai Tycoons", kind: "AI video", youtubeId: "yiw8Qmsx7rA" },
+  { title: "House of Vummudi — jewellery commercial", client: "VBC Jewellery", kind: "AI commercial", youtubeId: "8CF9gKUf3VY", vertical: true },
 ];
 
 // ─── AUTOMATION GALLERY — real n8n builds (public/img/auto-*.png) ───
