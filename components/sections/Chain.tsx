@@ -5,28 +5,12 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
-import { cases } from "@/lib/content";
+import { chain as chainNodes } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/** Orders cases by who referred whom, then draws the line between them on scroll. */
-function orderChain() {
-  const bySlug = new Map(cases.map((c) => [c.slug, c]));
-  const start = cases.find((c) => c.referredBy === "first") ?? cases[0];
-  const out = [start];
-  const seen = new Set([start.slug]);
-  let cur = start;
-  while (true) {
-    const next = cases.find((c) => c.referredBy === cur.slug && !seen.has(c.slug));
-    if (!next) break;
-    out.push(next); seen.add(next.slug); cur = next;
-  }
-  cases.forEach((c) => { if (!seen.has(c.slug)) out.push(c); });
-  return out.map((c) => bySlug.get(c.slug)!);
-}
-
 export default function Chain() {
-  const chain = orderChain();
+  const chain = chainNodes;
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -42,20 +26,20 @@ export default function Chain() {
         <p className="label"><Scramble text="// HOW I GET CLIENTS" /></p>
         <Reveal>
           <h2 className="mt-6 max-w-4xl text-[clamp(2.25rem,5.5vw,5rem)]">
-            Every founder I work with was <span className="italic text-signal">introduced</span> by a founder I work with.
+            One client. One <span className="italic text-signal">introduction</span>. Then the next.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-paper/75">Zero cold pitches. Zero ads for myself. The chain below is the actual order it happened in.</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-paper/75">Zero cold pitches, zero ads for myself — every client came by introduction. This is the chain that started it, in the order it actually happened: a label manufacturer, a knitwear brand, that brand&apos;s UK expansion, and the fashion label they sent my way.</p></Reveal>
 
         {/* Mobile: vertical rail */}
         <ol className="mt-14 border-l border-signal/40 md:hidden">
           {chain.map((c, i) => (
-            <motion.li key={c.slug} className="relative pb-10 pl-6"
+            <motion.li key={`${c.slug}-${i}`} className="relative pb-10 pl-6"
               initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}>
               <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-ink-3" />
               <Link href={`/work/${c.slug}`} className="group block">
-                <p className="mono text-[11px] text-paper/55">{String(i + 1).padStart(2, "0")}{i === 0 ? " · first client" : ` · introduced by ${chain[i - 1].client}`}</p>
-                <p className="display mt-1 text-xl text-paper group-hover:text-signal">{c.client}</p>
+                <p className="mono text-[11px] text-paper/55">{String(i + 1).padStart(2, "0")} · {c.how}</p>
+                <p className="display mt-1 text-xl text-paper group-hover:text-signal">{c.label}</p>
                 <p className="mono mt-1 text-xs text-paper/70">{c.result}</p>
               </Link>
             </motion.li>
@@ -78,13 +62,13 @@ export default function Chain() {
             {chain.map((c, i) => {
               const left = i % 2 === 0;
               return (
-                <motion.li key={c.slug} className="pointer-events-auto absolute w-[27%]"
+                <motion.li key={`${c.slug}-${i}`} className="pointer-events-auto absolute w-[27%]"
                   style={{ top: `${((50 + i * stepY) / h) * 100}%`, [left ? "right" : "left"]: "71.5%", transform: "translateY(-50%)" }}
                   initial={{ opacity: 0, x: left ? -12 : 12 }} animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * (2.2 / chain.length), ease: EASE }}>
                   <Link href={`/work/${c.slug}`} className={`group block ${left ? "text-right" : ""}`}>
-                    <p className="mono text-[11px] text-paper/55 md:text-xs">{String(i + 1).padStart(2, "0")}{i === 0 ? " · first client" : ` · introduced by ${chain[i - 1].client.split(" ").slice(0, 2).join(" ")}`}</p>
-                    <p className="display mt-1 text-lg leading-tight text-paper transition-colors group-hover:text-signal md:text-2xl">{c.client}</p>
+                    <p className="mono text-[11px] text-paper/55 md:text-xs">{String(i + 1).padStart(2, "0")} · {c.how}</p>
+                    <p className="display mt-1 text-lg leading-tight text-paper transition-colors group-hover:text-signal md:text-2xl">{c.label}</p>
                     <p className="mono mt-1 text-xs text-paper/70">{c.result}</p>
                   </Link>
                 </motion.li>

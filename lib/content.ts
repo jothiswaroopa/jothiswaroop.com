@@ -172,7 +172,6 @@ export const cases: CaseStudy[] = [
     receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
     image: "/img/ads-nova-1.png",
     featured: true,
-    referredBy: "srr",
   },
   {
     slug: "five-elements",
@@ -189,7 +188,6 @@ export const cases: CaseStudy[] = [
     image: "/img/ads-five-elements.png",
     featured: true,
     international: true,
-    referredBy: "nova",
   },
   {
     slug: "sathyam",
@@ -205,7 +203,6 @@ export const cases: CaseStudy[] = [
     receipts: ["/img/ads-sathyam.png"],
     image: "/img/ads-sathyam.png",
     featured: true,
-    referredBy: "first",
   },
   {
     slug: "ram",
@@ -220,7 +217,6 @@ export const cases: CaseStudy[] = [
     measured: { source: "Meta Ads Manager, lifetime view", window: "Aug 2023 → Sep 2026", counted: "Reach = unique Meta accounts reached (477,456 Diwali + 525,781 Aadi Sale, de-duplicated total 950,548). Cost per 1,000 reached = spend ÷ reach × 1,000.", screenshot: "/img/ads-ram-textiles.png" },
     receipts: ["/img/ads-ram-textiles.png"],
     image: "/img/ads-ram-textiles.png",
-    referredBy: "sathyam",
   },
   {
     slug: "srr",
@@ -235,7 +231,6 @@ export const cases: CaseStudy[] = [
     measured: { source: "Meta Ads Manager, lifetime view", window: "Jun 2025 →", counted: "Lead = lead-form submission. WhatsApp campaign counted as messaging conversations started.", screenshot: "/img/ads-srr.png" },
     receipts: ["/img/ads-srr.png"],
     image: "/img/ads-srr.png",
-    referredBy: "ram",
   },
   {
     slug: "tharunis",
@@ -251,7 +246,6 @@ export const cases: CaseStudy[] = [
     receipts: ["/img/ads-tharunis.png"],
     image: "/img/ads-tharunis.png",
     featured: true,
-    referredBy: "five-elements",
   },
   {
     slug: "kalavridhi",
@@ -267,7 +261,6 @@ export const cases: CaseStudy[] = [
     receipts: ["/img/ads-kalavridhi.png"],
     image: "/img/ads-kalavridhi.png",
     international: true,
-    referredBy: "tharunis",
   },
   {
     slug: "angel",
@@ -282,7 +275,6 @@ export const cases: CaseStudy[] = [
     measured: { source: "Meta Ads Manager, lifetime view", window: "2025", counted: "Lead = lead-form submission (47) + Meta leads (37). Three campaigns, ₹200/day budgets, ₹5,508 total.", screenshot: "/img/ads-angel.png" },
     receipts: ["/img/ads-angel.png"],
     image: "/img/ads-angel.png",
-    referredBy: "kalavridhi",
   },
   {
     slug: "dsc",
@@ -297,9 +289,17 @@ export const cases: CaseStudy[] = [
     measured: { source: "n8n workflow + client sheet", window: "Live since 2026", counted: "Clients tracked = rows in the renewal sheet the workflow scans. Renewed / upcoming / overdue from its own log. ⚠ 247 / 77% / 1% are from the client deck — confirm from the sheet before launch.", screenshot: "/img/auto-reminders.png" },
     receipts: ["/img/auto-reminders.png"],
     image: "/img/auto-reminders.png",
-    referredBy: "angel",
     placeholder: true, // numbers await the sheet; the workflow screenshot is real
   },
+];
+
+// ─── THE REFERRAL CHAIN — the actual order, from Jothi. Explicit, not derived from cases.
+export type ChainNode = { slug: string; label: string; result: string; how: string };
+export const chain: ChainNode[] = [
+  { slug: "sathyam", label: "Sathyam Labels", result: "1,589 leads", how: "The first client" },
+  { slug: "five-elements", label: "Five Elements", result: "1,318 knitwear leads at ₹19", how: "Introduced by Sathyam Labels" },
+  { slug: "five-elements", label: "Five Elements — United Kingdom", result: "19 wholesale buyers, MOQ 200", how: "Same client, asked me to open a new market" },
+  { slug: "nova", label: "Nova Attire", result: "4,248 leads at ₹16.58", how: "Introduced by Five Elements" },
 ];
 
 // ─── AUTOMATION GALLERY — real n8n builds (public/img/auto-*.png) ───

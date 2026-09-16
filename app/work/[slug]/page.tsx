@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Button from "@/components/Button";
 import Counter from "@/components/motion/Counter";
-import { cases } from "@/lib/content";
+import { cases, chain } from "@/lib/content";
 
 export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
@@ -13,7 +13,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const c = cases.find((x) => x.slug === slug);
   if (!c) notFound();
-  const next = cases.find((x) => x.referredBy === c.slug);
+  const idx = chain.map((n) => n.slug).lastIndexOf(c.slug);
+  const nextNode = idx >= 0 ? chain.slice(idx + 1).find((n) => n.slug !== c.slug) : undefined;
+  const next = nextNode ? cases.find((x) => x.slug === nextNode.slug) : undefined;
   const h = c.headline;
 
   return (
