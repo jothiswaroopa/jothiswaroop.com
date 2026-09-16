@@ -27,7 +27,7 @@ export default function Showreel() {
   return (
     <Reveal className="mt-16">
       <p className="label">// VIDEO & COMMERCIALS</p>
-      <div className="m-scroller mt-5 grid gap-4 md:grid-cols-3" data-lenis-prevent>
+      <div className="m-scroller mt-5 grid gap-4 md:grid-cols-3">
         {videos.map((v) => (
           <div key={v.title} className={v.vertical ? "md:col-span-1" : "md:col-span-2"}><Tile v={v} /></div>
         ))}

@@ -21,7 +21,7 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
   }, [cases]);
 
   return (
-    <div className="m-scroller mt-14 grid gap-5 md:grid-cols-2" data-lenis-prevent>
+    <div className="m-scroller mt-14 grid gap-5 md:grid-cols-2">
       {list.map((c, i) => (
         <Reveal key={c.slug} delay={i * 0.08}>
           <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-paper/20">

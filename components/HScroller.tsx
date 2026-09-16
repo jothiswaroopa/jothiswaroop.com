@@ -20,6 +20,12 @@ export default function HScroller({ children, hint = "scroll", className = "" }:
   };
   useEffect(() => { update(); const el = ref.current; el?.addEventListener("scroll", update, { passive: true }); window.addEventListener("resize", update); return () => { el?.removeEventListener("scroll", update); window.removeEventListener("resize", update); }; }, []);
 
+  // Trackpad sideways swipe moves the strip. Vertical wheel is ignored here so it reaches the page.
+  const onWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const el = ref.current; if (!el) return;
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) el.scrollLeft += e.deltaX;
+  };
+
   const by = (dir: 1 | -1) => {
     const el = ref.current; if (!el) return;
     const tile = (el.firstElementChild as HTMLElement | null)?.getBoundingClientRect().width ?? el.clientWidth * 0.8;
@@ -28,7 +34,7 @@ export default function HScroller({ children, hint = "scroll", className = "" }:
 
   return (
     <div className={`relative ${className}`}>
-      <div ref={ref} className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [touch-action:pan-x_pan-y] [&::-webkit-scrollbar]:hidden" data-lenis-prevent>
+      <div ref={ref} onWheel={onWheel} className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [touch-action:pan-x_pan-y] [&::-webkit-scrollbar]:hidden">
         {children}
       </div>
 
