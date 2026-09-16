@@ -10,7 +10,7 @@ export default function AuditPage() {
         <div>
           <p className="label">{audit.label}</p>
           <h1 className="mt-6 text-[clamp(2.5rem,5.5vw,5rem)]">{audit.headline}</h1>
-          <p className="mt-6 max-w-lg text-paper/65">{audit.sub}</p>
+          <p className="mt-6 max-w-lg text-paper/75">{audit.sub}</p>
         </div>
         <AuditForm />
       </div>

@@ -11,7 +11,7 @@ export default function ApplySection() {
           <div>
             <p className="label"><Scramble text="// APPLY" /></p>
             <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.5rem)]">{apply.headline}</h2></Reveal>
-            <Reveal delay={0.1}><p className="mt-6 text-paper/65">{apply.sub}</p></Reveal>
+            <Reveal delay={0.1}><p className="mt-6 text-paper/75">{apply.sub}</p></Reveal>
           </div>
           <Reveal delay={0.15}><ApplyForm /></Reveal>
         </div>

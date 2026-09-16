@@ -43,7 +43,7 @@ export default function AuditForm() {
   return (
     <div className="w-full max-w-2xl">
       <div className="mb-10 flex items-center gap-4">
-        <span className="mono text-xs text-paper/50">{String(Math.min(step + 1, qs.length)).padStart(2, "0")} / {String(qs.length).padStart(2, "0")}</span>
+        <span className="mono text-xs text-paper/65">{String(Math.min(step + 1, qs.length)).padStart(2, "0")} / {String(qs.length).padStart(2, "0")}</span>
         <div className="h-px flex-1 bg-line"><motion.div className="h-full bg-signal" animate={{ width: `${(Math.min(step, qs.length) / qs.length) * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
       <AnimatePresence mode="wait" custom={dir}>
@@ -56,7 +56,7 @@ export default function AuditForm() {
                   className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/80 hover:border-paper"}`}>{o}</button>
               ))}
             </div>
-            {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="mt-8 text-sm text-paper/50 hover:text-paper">← Back</button>}
+            {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="mt-8 text-sm text-paper/65 hover:text-paper">← Back</button>}
           </motion.div>
         ) : !sent ? (
           <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
@@ -67,9 +67,9 @@ export default function AuditForm() {
             <ul className="mt-8 space-y-3 border-t hairline pt-6">
               {scored.map((x) => (
                 <li key={x.k} className="flex items-center gap-4 text-sm">
-                  <span className="w-36 text-paper/70">{x.name}</span>
+                  <span className="w-36 text-paper/80">{x.name}</span>
                   <span className="h-px flex-1 bg-line"><motion.span className={`block h-full ${x.s === 2 ? "bg-strike" : x.s === 1 ? "bg-signal" : "bg-paper/40"}`} initial={{ width: 0 }} animate={{ width: `${(x.s / 2) * 100}%` }} transition={{ duration: 0.9, ease: EASE }} /></span>
-                  <span className="mono w-16 text-right text-xs text-paper/50">{["healthy", "leaking", "broken"][x.s]}</span>
+                  <span className="mono w-16 text-right text-xs text-paper/65">{["healthy", "leaking", "broken"][x.s]}</span>
                 </li>
               ))}
             </ul>
@@ -83,12 +83,12 @@ export default function AuditForm() {
                 className="w-full rounded-full border border-line-strong bg-transparent px-5 py-3.5 text-sm text-paper placeholder:text-paper/30 focus:border-signal focus:outline-none" />
               <button className="press shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper">{qualified ? "Send me the teardown" : "Send it"}</button>
             </form>
-            <p className="mt-3 text-xs text-paper/40">No list-bombing. One letter every two weeks, and you can leave any time.</p>
+            <p className="mt-3 text-xs text-paper/55">No list-bombing. One letter every two weeks, and you can leave any time.</p>
           </motion.div>
         ) : (
           <motion.div key="sent" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">Done. Check your inbox.</p>
-            <p className="mt-4 text-paper/70">{qualified ? "Teardown lands within 48 hours." : "It's on its way."} Want to skip the wait?</p>
+            <p className="mt-4 text-paper/80">{qualified ? "Teardown lands within 48 hours." : "It's on its way."} Want to skip the wait?</p>
             <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi Jothi — just ran the Bottleneck Audit. Biggest leak: ${top[0].name}. Email: ${email}`)}`} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full border border-line-strong px-5 py-3 text-sm hover:border-signal hover:text-signal">Message me on WhatsApp →</a>
           </motion.div>
         )}

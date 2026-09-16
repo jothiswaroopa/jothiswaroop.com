@@ -9,8 +9,8 @@
   --ink-2: #111114;
   --ink-3: #18181d;
   --paper: #f2ede4;
-  --paper-70: rgba(242, 237, 228, 0.7);
-  --paper-45: rgba(242, 237, 228, 0.45);
+  --paper-70: rgba(242, 237, 228, 0.8);
+  --paper-45: rgba(242, 237, 228, 0.55);
   --paper-20: rgba(242, 237, 228, 0.2);
   --line: rgba(242, 237, 228, 0.1);
   --line-strong: rgba(242, 237, 228, 0.22);
@@ -40,6 +40,33 @@
 
   --ease-out-expo: var(--ease);
 }
+
+/* PAPER SURFACE — scoped inversion for the proof sections: screenshots and receipts read as
+   native on light, not "presented" on dark. Amber darkens for contrast on cream. */
+.theme-paper {
+  --ink: #f2ede4;
+  --ink-2: #ebe5d9;
+  --ink-3: #e4ddcf;
+  --paper: #0a0a0c;
+  --paper-70: rgba(10, 10, 12, 0.78);
+  --paper-45: rgba(10, 10, 12, 0.55);
+  --paper-20: rgba(10, 10, 12, 0.2);
+  --line: rgba(10, 10, 12, 0.1);
+  --line-strong: rgba(10, 10, 12, 0.22);
+  --signal: #a85f00;
+  --signal-dim: rgba(168, 95, 0, 0.12);
+  --strike: #c42b2b;
+  background: var(--ink);
+  color: var(--paper);
+}
+.theme-paper .bezel {
+  background: rgba(10, 10, 12, 0.03);
+  border-color: rgba(10, 10, 12, 0.08);
+}
+.theme-paper .bezel-core {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 20px 50px -30px rgba(10, 10, 12, 0.35);
+}
+.theme-paper ::selection { background: var(--paper); color: var(--ink); }
 
 /* ─────────────────────────────────────────────────────────────
    BASE
@@ -126,10 +153,11 @@ body {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: 1.0625rem; /* 17px on phones: dark UI in daylight needs the extra point */
   line-height: 1.55;
   overflow-x: clip;
 }
+@media (min-width: 768px) { body { font-size: 1rem; } }
 
 ::selection {
   background: var(--signal);

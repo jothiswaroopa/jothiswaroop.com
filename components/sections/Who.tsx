@@ -35,19 +35,19 @@ export default function Who() {
         <div className="flex flex-col justify-center">
           <p className="label"><Scramble text="// WHO I AM" /></p>
           <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.5rem)]">{site.name}</h2></Reveal>
-          <Reveal delay={0.1}><p className="mt-3 text-paper/60">{who.role}</p></Reveal>
+          <Reveal delay={0.1}><p className="mt-3 text-paper/72">{who.role}</p></Reveal>
           <ul className="mt-10 space-y-5 border-t hairline pt-8">
             {who.lines.map((l, i) => (
               <Reveal key={i} delay={0.15 + i * 0.1}>
                 <li className="flex gap-5 text-lg text-paper/85">
-                  <span className="mono mt-1.5 text-xs text-signal">0{i + 1}</span>
+                  <span className="mono mt-1.5 text-xs text-paper/55">0{i + 1}</span>
                   <span>{l}</span>
                 </li>
               </Reveal>
             ))}
           </ul>
           <Reveal delay={0.5} className="mt-10">
-            <Link href="/about" className="underline-slide text-sm text-paper/70 hover:text-paper">Full story →</Link>
+            <Link href="/about" className="underline-slide text-sm text-paper/80 hover:text-paper">Full story →</Link>
           </Reveal>
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t hairline bg-ink pb-[calc(6rem+env(safe-area-inset-bottom))] pt-20 md:pb-10">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10">
         <p className="display text-3xl italic text-paper/90 md:text-5xl">{footer.line}</p>
-        <div className="mt-14 grid gap-8 border-t hairline pt-8 text-sm text-paper/60 md:grid-cols-4">
+        <div className="mt-14 grid gap-8 border-t hairline pt-8 text-sm text-paper/72 md:grid-cols-4">
           <div>
             <p className="text-paper">{site.name}</p>
             <p className="mt-1">{site.role}</p>
@@ -24,7 +24,7 @@ export default function Footer() {
             <Link href="/apply" className="underline-slide w-fit hover:text-paper">Apply</Link>
             <Link href="/audit" className="underline-slide w-fit hover:text-paper">Free audit</Link>
           </div>
-          <div className="mono text-xs text-paper/45 md:text-right">
+          <div className="mono text-xs text-paper/60 md:text-right">
             <p>{footer.built}</p>
             <p>© {new Date().getFullYear()}</p>
           </div>

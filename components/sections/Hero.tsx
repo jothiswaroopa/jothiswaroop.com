@@ -55,7 +55,7 @@ export default function Hero() {
             delay={0.2}
           />
           <motion.p
-            className="mt-8 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg"
+            className="mt-8 max-w-xl text-base leading-relaxed text-paper/80 md:text-lg"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: settle + 0.2 }}

@@ -11,6 +11,9 @@ import { cases, externalProof } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/** Proof reads truer on paper: real screenshots are light UIs; on dark they look like pitch-deck slides. Flip to "ink" to compare. */
+const PROOF_THEME: "paper" | "ink" = "paper";
+
 export default function Work() {
   const featured = cases.filter((c) => c.featured).slice(0, 4);
   const [hover, setHover] = useState<string | null>(null);
@@ -21,7 +24,7 @@ export default function Work() {
   const active = cases.find((c) => c.slug === hover);
 
   return (
-    <section id="work" className="card-over relative bg-ink-2">
+    <section id="work" className={`card-over relative ${PROOF_THEME === "paper" ? "theme-paper" : "bg-ink-2"}`}>
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <p className="label"><Scramble text="// SELECTED WORK" /></p>
         <Reveal><h2 className="mt-6 max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)]">Before, after, and the receipts in between.</h2></Reveal>
@@ -33,25 +36,25 @@ export default function Work() {
               <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-paper/20">
                <div className="bezel-core">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image src={c.image} alt={c.client} fill sizes="(min-width:768px) 50vw, 100vw" className="duotone object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.04]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-3 via-ink-3/20 to-transparent" />
+                  <Image src={c.image} alt={c.client} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.04]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-3 via-ink-3/30 to-transparent" />
                   <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-4">
                     <p className={`num text-signal ${c.result.length > 14 ? "text-[clamp(1.25rem,2vw,1.75rem)]" : "text-[clamp(1.75rem,3vw,2.75rem)]"}`}>{c.result}</p>
-                    {c.international && <span className="label rounded-full border border-signal/40 px-2 py-1 !text-signal">International</span>}
+                    {c.international && <span className="label rounded-full border border-paper/25 px-2 py-1 !text-paper/80">International</span>}
                   </div>
                 </div>
                 <div className="grid gap-4 p-5 md:grid-cols-2 md:p-6">
                   <div>
                     <p className="label !text-strike">Before</p>
-                    <p className="mt-2 text-sm text-paper/70">{c.before}</p>
+                    <p className="mt-2 text-sm text-paper/80">{c.before}</p>
                   </div>
                   <div>
-                    <p className="label !text-signal">After</p>
+                    <p className="label !text-paper/80">After</p>
                     <p className="mt-2 text-sm text-paper/90">{c.after}</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-between border-t hairline px-5 py-3 md:px-6">
-                  <p className="text-sm text-paper/60">{c.client} · {c.industry}</p>
+                  <p className="text-sm text-paper/72">{c.client} · {c.industry}</p>
                   <p className="label">{c.year}{c.placeholder ? " · placeholder" : ""}</p>
                 </div>
                </div>
@@ -67,7 +70,7 @@ export default function Work() {
             {cases.map((c) => (
               <div key={c.slug} className="bezel relative w-[280px] shrink-0 snap-start !p-1 !rounded-xl"><div className="bezel-core relative aspect-[4/3] !rounded-lg">
                 <Image src={c.image} alt={`Screenshot — ${c.client}`} fill sizes="280px" className="object-cover opacity-80" />
-                <span className="label absolute bottom-2 left-2 rounded bg-ink/80 px-2 py-1 !text-paper/70">{c.placeholder ? "placeholder screenshot" : c.client}</span>
+                <span className="label absolute bottom-2 left-2 rounded bg-ink/80 px-2 py-1 !text-paper/80">{c.placeholder ? "placeholder screenshot" : c.client}</span>
               </div></div>
             ))}
           </div>
@@ -77,7 +80,7 @@ export default function Work() {
         <Reveal className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-y hairline py-5">
           <p className="label">// PROOF I DON'T HOST</p>
           {Object.values(externalProof).map((p) => (
-            <a key={p.label} href={p.href || "#"} className="underline-slide text-sm text-paper/70 hover:text-paper" target={p.href ? "_blank" : undefined} rel="noreferrer">
+            <a key={p.label} href={p.href || "#"} className="underline-slide text-sm text-paper/80 hover:text-paper" target={p.href ? "_blank" : undefined} rel="noreferrer">
               {p.label}{p.count ? ` · ${p.count}` : ""} →
             </a>
           ))}
@@ -95,7 +98,7 @@ export default function Work() {
                 <li onMouseEnter={() => setHover(c.slug)}>
                   <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-2 border-b hairline py-5 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[2fr_1.5fr_2fr_auto] md:gap-6 md:px-3">
                     <span className="display text-2xl text-paper transition-transform duration-500 ease-out-expo group-hover:translate-x-2 md:text-3xl duration-300">{c.client}</span>
-                    <span className="text-sm text-paper/55">{c.industry} · {c.location}</span>
+                    <span className="text-sm text-paper/70">{c.industry} · {c.location}</span>
                     <span className="mono text-sm text-signal">{c.result}</span>
                     <span className="label md:text-right">{c.year}</span>
                   </Link>

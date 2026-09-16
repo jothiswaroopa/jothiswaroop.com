@@ -20,11 +20,11 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     <article className="pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <Link href="/#work" className="label hover:text-paper">← All work</Link>
-        <p className="mt-10 text-paper/60">{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</p>
+        <p className="mt-10 text-paper/72">{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</p>
         <h1 className="num mt-4 text-[clamp(3rem,10vw,10rem)] text-signal">
           {isNaN(num) ? c.result : <Counter value={num} decimals={c.result.includes(".") ? 1 : 0} suffix={c.result.replace(/^[^a-zA-Z%+]*/, "").split(" ")[0]} />}
         </h1>
-        <p className="mono mt-4 text-sm text-paper/50">{c.industry} · {c.location} · {c.year}</p>
+        <p className="mono mt-4 text-sm text-paper/65">{c.industry} · {c.location} · {c.year}</p>
 
         <div className="relative mt-14 aspect-[16/8] overflow-hidden rounded-2xl bg-ink-2"><Image src={c.image} alt={c.client} fill className="duotone object-cover" sizes="100vw" priority /></div>
 
@@ -36,7 +36,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         {c.quote && (
           <blockquote className="mt-16 border-l-2 border-signal pl-6">
             <p className="display text-2xl italic text-paper/90 md:text-4xl">“{c.quote.text}”</p>
-            <p className="mt-4 text-sm text-paper/55">— {c.quote.author}{c.quote.verified ? "" : " · awaiting sign-off"}</p>
+            <p className="mt-4 text-sm text-paper/70">— {c.quote.author}{c.quote.verified ? "" : " · awaiting sign-off"}</p>
           </blockquote>
         )}
 

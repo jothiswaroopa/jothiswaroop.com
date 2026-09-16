@@ -12,7 +12,7 @@ export default function Notes() {
             <p className="label"><Scramble text={notes.label} /></p>
             <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.5rem)]">Thinking in public.</h2></Reveal>
           </div>
-          <Reveal delay={0.1}><Link href="/notes" className="underline-slide text-sm text-paper/70 hover:text-paper">Read all →</Link></Reveal>
+          <Reveal delay={0.1}><Link href="/notes" className="underline-slide text-sm text-paper/80 hover:text-paper">Read all →</Link></Reveal>
         </div>
         {notes.posts.length > 0 && (
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -22,7 +22,7 @@ export default function Notes() {
                  <div className="bezel-core h-full p-6">
                   <p className="label">{new Date(p.date).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}{p.placeholder ? " · placeholder" : ""}</p>
                   <p className="display mt-4 text-2xl text-paper group-hover:text-signal transition-colors">{p.title}</p>
-                  <p className="mt-3 text-sm text-paper/60">{p.hook}</p>
+                  <p className="mt-3 text-sm text-paper/72">{p.hook}</p>
                  </div>
                 </a>
               </Reveal>

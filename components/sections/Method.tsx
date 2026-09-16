@@ -16,10 +16,10 @@ function Block({ m, i }: { m: Move; i: number }) {
     <Reveal delay={i * 0.1}>
       <article ref={ref} className="grid gap-8 border-t hairline py-12 md:grid-cols-[1fr_1.2fr] md:gap-14 md:py-16">
         <div>
-          <p className="mono text-sm text-signal">{m.n}</p>
+          <p className="mono text-sm text-paper/60">{m.n}</p>
           <h3 className="mt-3 text-[clamp(2rem,4vw,3.5rem)]">{m.title}</h3>
           <p className="mt-6 text-lg text-paper/80">{m.what}</p>
-          <p className="mt-4 text-paper/60">→ {m.gets}</p>
+          <p className="mt-4 text-paper/72">→ {m.gets}</p>
           <dl className="mt-8 grid grid-cols-2 gap-6 border-t hairline pt-6">
             <div>
               <dt className="label">How long</dt>

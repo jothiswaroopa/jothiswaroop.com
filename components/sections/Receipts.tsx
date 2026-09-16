@@ -16,8 +16,8 @@ export default function Receipts() {
                 <p className="num text-[clamp(2.25rem,4.6vw,4.25rem)] text-signal">
                   <Counter value={r.value} prefix={r.prefix} suffix={r.suffix} decimals={r.decimals} />
                 </p>
-                <p className="mt-3 text-sm text-paper/70">{r.label}</p>
-                <p className="label mt-2 !text-paper/40 transition-colors group-hover:!text-signal">
+                <p className="mt-3 text-sm text-paper/80">{r.label}</p>
+                <p className="label mt-2 !text-paper/55 transition-colors group-hover:!text-signal">
                   ↗ verified{r.placeholder ? " · placeholder" : ""}
                 </p>
               </Link>

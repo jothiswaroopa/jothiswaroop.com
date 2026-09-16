@@ -55,7 +55,7 @@ export default function Nav() {
           </Link>
           <nav className="hidden items-center gap-7 lg:flex">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="underline-slide text-sm text-paper/70 transition-colors duration-200 hover:text-paper">
+              <Link key={l.href} href={l.href} className="underline-slide text-sm text-paper/80 transition-colors duration-200 hover:text-paper">
                 {l.label}
               </Link>
             ))}
@@ -117,7 +117,7 @@ export default function Nav() {
               <Link href="/audit" onClick={() => setOpen(false)} className="press rounded-full border border-paper/20 py-3.5 text-center text-sm">Free audit</Link>
               <Link href="/apply" onClick={() => setOpen(false)} className="press rounded-full bg-signal py-3.5 text-center text-sm font-medium text-ink">Apply</Link>
             </motion.div>
-            <p className="label mt-8 !text-paper/40">{site.base} · {site.whatsappDisplay}</p>
+            <p className="label mt-8 !text-paper/55">{site.base} · {site.whatsappDisplay}</p>
           </motion.div>
         )}
       </AnimatePresence>

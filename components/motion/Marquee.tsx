@@ -9,7 +9,7 @@ export default function Marquee({ items, className }: { items: string[]; classNa
         {row.map((t, i) => (
           <span key={i} className="label flex items-center gap-6 pr-6 whitespace-nowrap !text-[var(--paper-45)]">
             {t}
-            <span className="inline-block h-1 w-1 rounded-full bg-signal/70" />
+            <span className="inline-block h-1 w-1 rounded-full bg-paper/30" />
           </span>
         ))}
       </div>

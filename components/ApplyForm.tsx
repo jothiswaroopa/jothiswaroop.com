@@ -44,7 +44,7 @@ export default function ApplyForm() {
     <div className="mx-auto w-full max-w-2xl">
       {/* progress rule */}
       <div className="mb-10 flex items-center gap-4">
-        <span className="mono text-xs text-paper/50">{String(Math.min(step + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
+        <span className="mono text-xs text-paper/65">{String(Math.min(step + 1, total)).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
         <div className="h-px flex-1 bg-line"><motion.div className="h-full bg-signal" animate={{ width: `${((done ? total : step) / total) * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
 
@@ -74,26 +74,26 @@ export default function ApplyForm() {
               <button onClick={next} disabled={!value} className="press rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper disabled:opacity-30">
                 {step < total - 1 ? "Next →" : "Submit application →"}
               </button>
-              {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="text-sm text-paper/50 hover:text-paper">← Back</button>}
+              {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="text-sm text-paper/65 hover:text-paper">← Back</button>}
             </div>
           </motion.div>
         ) : (
           <motion.div key="done" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">Got it. Two things now.</p>
             <ol className="mt-8 space-y-6">
-              <li className="flex gap-4"><span className="mono text-signal">01</span>
+              <li className="flex gap-4"><span className="mono text-paper/60">01</span>
                 <div>
                   <p className="text-paper">Send this to me on WhatsApp so it lands in my hand, not a form.</p>
                   <a href={`https://wa.me/${site.whatsapp}?text=${waText}`} target="_blank" rel="noreferrer" className="mt-3 inline-block rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Open WhatsApp → {site.whatsappDisplay}</a>
                 </div>
               </li>
-              <li className="flex gap-4"><span className="mono text-signal">02</span>
+              <li className="flex gap-4"><span className="mono text-paper/60">02</span>
                 <div>
                   <p className="text-paper">Pick a time.</p>
                   {site.calendar ? (
                     <iframe src={site.calendar} className="mt-3 h-[560px] w-full rounded-xl border hairline" title="Book a call" />
                   ) : (
-                    <p className="mt-2 text-sm text-paper/60">Calendar link coming — I'll send times on WhatsApp within the hour.</p>
+                    <p className="mt-2 text-sm text-paper/72">Calendar link coming — I'll send times on WhatsApp within the hour.</p>
                   )}
                 </div>
               </li>
@@ -102,8 +102,8 @@ export default function ApplyForm() {
         )}
       </AnimatePresence>
 
-      <p className="label mt-12 !normal-case !tracking-normal !text-paper/45">{apply.followup}</p>
-      <p className="mt-4 text-sm text-paper/50">Not ready? <Link href="/audit" className="underline-slide text-paper/80">Run the free Bottleneck Audit instead →</Link></p>
+      <p className="label mt-12 !normal-case !tracking-normal !text-paper/60">{apply.followup}</p>
+      <p className="mt-4 text-sm text-paper/65">Not ready? <Link href="/audit" className="underline-slide text-paper/80">Run the free Bottleneck Audit instead →</Link></p>
     </div>
   );
 }

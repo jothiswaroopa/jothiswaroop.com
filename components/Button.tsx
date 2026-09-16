@@ -16,7 +16,7 @@ type Props = {
 export default function Button({ href, children, variant = "fill", className }: Props) {
   if (variant === "quiet") {
     return (
-      <Link href={href} className={clsx("group inline-flex items-center gap-2 text-sm text-paper/70 transition-colors duration-200 hover:text-signal press", className)}>
+      <Link href={href} className={clsx("group inline-flex items-center gap-2 text-sm text-paper/80 transition-colors duration-200 hover:text-signal press", className)}>
         <span className="underline-slide">{children}</span>
         <span className="inline-block transition-transform duration-300 ease-out-expo group-hover:translate-x-1" aria-hidden>→</span>
       </Link>
