@@ -52,11 +52,11 @@ export default function Nav() {
           hidden ? "-translate-y-[130%]" : "translate-y-0"
         )}
       >
-        <div className={clsx("glass flex w-full max-w-[1200px] items-center justify-between gap-6 rounded-full border py-2 pl-5 pr-2", onPaper ? "theme-paper border-paper/10" : "border-paper/10")}>
+        <div className={clsx("glass flex w-full items-center justify-between gap-6 rounded-full border py-2 pl-5 pr-2 lg:w-max lg:gap-14 lg:pl-6", onPaper ? "theme-paper border-paper/10" : "border-paper/10")}>
           <Link href="/" className="display text-xl tracking-tight text-paper" onClick={() => setOpen(false)}>
             {site.name}
           </Link>
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
               <Link key={l.href} href={l.href} className="underline-slide text-sm text-paper/80 transition-colors duration-200 hover:text-paper">
                 {l.label}
