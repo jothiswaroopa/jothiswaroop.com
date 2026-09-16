@@ -18,17 +18,18 @@ export const site = {
     instagram: "https://instagram.com/jothi.swaroopa",
     linkedin: "", // pending
   },
-  seatsLine: "Taking 4 new founders per quarter",
+  seatsLine: "Accepting applications",
   promise: "I find and remove the bottlenecks in your marketing and automation.",
 };
 
 export const hero = {
   eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA · UK · US",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
-  headline: ["*4,248\u00a0leads* for one client.", "Every client I\u00a0have\u00a0came\u00a0from _the\u00a0last\u00a0one._"],
+  headline: ["*4,248\u00a0leads* for one client.", "Four founders a\u00a0quarter.", "_Every\u00a0one_ _by\u00a0introduction._"],
+  // alt A: "Every client since was introduced by the one before." · alt C: "Zero cold pitches, ever."
   // *…* = amber (the proof number) · _…_ = italic (the payoff) · NBSPs keep each marked phrase on one line
   // A/B alt (kept for testing): "Zero cold pitches for me."
-  sub: "I watched agencies sell reports. I decided to sell customers. Now I build lead engines and the automation that follows up — for founders who are done waiting.",
+  sub: "I watched agencies sell reports. I decided to sell customers. Paid acquisition, creative and follow-up automation — one person, for founders in India, the\u00a0UK and the\u00a0US.",
   ctaPrimary: { label: "Apply to work with me", href: "/apply" },
   ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
   videoSrc: "", // pending — 60–90s straight-to-lens

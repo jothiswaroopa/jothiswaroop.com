@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="mx-auto grid max-w-[1440px] gap-8 px-5 pb-16 pt-6 md:px-10 lg:grid-cols-[55fr_45fr] lg:items-end lg:gap-12 lg:pb-14 lg:pt-10">
         {/* Video / portrait — first on mobile */}
         <motion.div
-          className="bezel relative order-1 h-[min(30svh,380px)] w-full lg:order-2 lg:h-[min(72vh,760px)]"
+          className="bezel relative order-1 h-[min(28svh,360px)] w-full lg:order-2 lg:h-[min(72vh,760px)]"
           initial={{ clipPath: "inset(6% 6% 6% 6% round 24px)", scale: 1.1 }}
           animate={{ clipPath: "inset(0% 0% 0% 0% round 24px)", scale: 1 }}
           transition={{ duration: 1.4, ease: EASE, delay: settle * 0.6 }}
@@ -51,7 +51,7 @@ export default function Hero() {
           </motion.p>
           <SplitText
             lines={hero.headline}
-            className="tracking-display mt-6 text-[clamp(2.75rem,7vw,6.75rem)] text-paper"
+            className="tracking-display mt-5 text-[clamp(2.5rem,4.6vw,4.5rem)] text-paper"
             delay={0.2}
           />
           <motion.p
