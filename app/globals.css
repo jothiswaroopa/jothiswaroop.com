@@ -337,6 +337,10 @@ h1, h2, h3, .display {
   width: max-content;
   animation: marquee 40s linear infinite;
 }
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
 @keyframes marquee {
   to { transform: translateX(-50%); }
 }

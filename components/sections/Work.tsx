@@ -5,6 +5,7 @@ import Scramble from "@/components/motion/Scramble";
 import Button from "@/components/Button";
 import Showreel from "@/components/Showreel";
 import FeaturedGrid from "@/components/FeaturedGrid";
+import HScroller from "@/components/HScroller";
 import CreativeGallery from "@/components/CreativeGallery";
 import { cases, externalProof, automations } from "@/lib/content";
 
@@ -29,45 +30,30 @@ export default function Work() {
         {/* Raw receipts — every Ads Manager screen, big enough to read, swipe sideways */}
         <Reveal className="mt-12">
           <p className="label">// RAW RECEIPTS · EVERY AD ACCOUNT</p>
-          <div className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [touch-action:pan-x_pan-y] [&::-webkit-scrollbar]:hidden" data-lenis-prevent>
+          <HScroller hint="9 accounts · scroll" className="mt-5">
             {live.flatMap((c) => (c.receipts ?? []).map((src, i) => (
               <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
                 <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:640px) 520px, 86vw" className="object-cover object-left-top" />
                 <span className="label absolute bottom-2 left-2 rounded bg-ink/85 px-2 py-1 !text-paper/85">{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
               </div></Link>
             )))}
-          </div>
+          </HScroller>
         </Reveal>
 
         <Showreel />
         <CreativeGallery />
 
-        {/* Systems — three builds up front, the rest behind a tap. Proof by precision, not volume. */}
+        {/* Systems — all nine builds in one row. Scroll sideways to see them all. */}
         <Reveal className="mt-16">
           <p className="label">// SYSTEMS I&apos;VE BUILT · n8n</p>
-          <div className="m-scroller mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-lenis-prevent>
-            {automations.slice(0, 3).map((a) => (
-              <div key={a.image} className="bezel"><div className="bezel-core">
-                <div className="relative aspect-[16/9]"><Image src={a.image} alt={a.title} fill sizes="(min-width:1024px) 30vw, (min-width:640px) 50vw, 100vw" className="object-cover object-left" /></div>
+          <HScroller hint={`${automations.length} systems · scroll`} className="mt-5">
+            {automations.map((a) => (
+              <div key={a.image} className="bezel w-[86vw] shrink-0 snap-start sm:w-[440px]"><div className="bezel-core h-full">
+                <div className="relative aspect-[16/9]"><Image src={a.image} alt={a.title} fill sizes="(min-width:640px) 440px, 86vw" className="object-cover object-left" /></div>
                 <div className="p-4"><p className="text-paper">{a.title}</p><p className="mt-1 text-sm text-paper/70">{a.what}</p></div>
               </div></div>
             ))}
-          </div>
-          {automations.length > 3 && (
-            <details className="group mt-4">
-              <summary className="press label inline-flex cursor-pointer list-none items-center gap-2 !normal-case !tracking-normal text-paper/70 hover:text-paper">
-                <span className="group-open:hidden">{automations.length - 3} more systems ↓</span><span className="hidden group-open:inline">Fewer ↑</span>
-              </summary>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {automations.slice(3).map((a) => (
-                  <div key={a.image} className="bezel"><div className="bezel-core">
-                    <div className="relative aspect-[16/9]"><Image src={a.image} alt={a.title} fill sizes="(min-width:1024px) 30vw, (min-width:640px) 50vw, 100vw" className="object-cover object-left" loading="lazy" /></div>
-                    <div className="p-4"><p className="text-paper">{a.title}</p><p className="mt-1 text-sm text-paper/70">{a.what}</p></div>
-                  </div></div>
-                ))}
-              </div>
-            </details>
-          )}
+          </HScroller>
         </Reveal>
 
         {/* External proof */}
