@@ -7,7 +7,7 @@ import Showreel from "@/components/Showreel";
 import FeaturedGrid from "@/components/FeaturedGrid";
 import HScroller from "@/components/HScroller";
 import CreativeGallery from "@/components/CreativeGallery";
-import { cases, externalProof, automations } from "@/lib/content";
+import { cases, externalProof } from "@/lib/content";
 
 
 /** Proof reads truer on paper: real screenshots are light UIs; on dark they look like pitch-deck slides. Flip to "ink" to compare. */
@@ -42,19 +42,6 @@ export default function Work() {
 
         <Showreel />
         <CreativeGallery />
-
-        {/* Systems — all nine builds in one row. Scroll sideways to see them all. */}
-        <Reveal className="mt-16">
-          <p className="label">// SYSTEMS I&apos;VE BUILT · n8n</p>
-          <HScroller hint={`${automations.length} systems · scroll`} className="mt-5">
-            {automations.map((a) => (
-              <div key={a.image} className="bezel w-[86vw] shrink-0 snap-start sm:w-[440px]"><div className="bezel-core h-full">
-                <div className="relative aspect-[16/9]"><Image src={a.image} alt={a.title} fill sizes="(min-width:640px) 440px, 86vw" className="object-cover object-left" /></div>
-                <div className="p-4"><p className="text-paper">{a.title}</p><p className="mt-1 text-sm text-paper/70">{a.what}</p></div>
-              </div></div>
-            ))}
-          </HScroller>
-        </Reveal>
 
         {/* External proof */}
         {/* Proof I don't host — only rendered when real links exist. A dead link is worse than no link. */}

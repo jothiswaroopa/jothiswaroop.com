@@ -349,18 +349,29 @@ export const decks: Deck[] = [
   // { title: "VROOM 2026 sponsorship deck", client: "Chennai Tycoons", audience: "Presented to corporate sponsors", outcome: "…", slides: ["/img/deck-vroom-01.jpg", "/img/deck-vroom-02.jpg"] },
 ];
 
-// ─── AUTOMATION GALLERY — real n8n builds (public/img/auto-*.png) ───
-export type Automation = { title: string; what: string; image: string };
+// ─── SYSTEMS — real n8n builds (public/img/auto-*.png). `replaces` = the manual job it took over; `stack` = what's wired.
+export type Automation = { title: string; what: string; replaces: string; stack: string[]; image: string; featured?: boolean; flow?: string[] };
+export const systemsIntro = {
+  label: "// SYSTEMS I'VE BUILT",
+  headline: "Ads get the lead. These make sure nobody drops it.",
+  sub: "Nine systems running for real businesses — a clinic's phone, a restaurant's orders, a company secretary's renewal dates. Built in n8n, wired to the tools the owner already uses, and running while they sleep.",
+  facts: [
+    { value: 9, label: "systems live" },
+    { value: 14, label: "tools wired together" },
+    { value: 4, label: "kinds: voice · vision · agents · RAG" },
+  ],
+};
 export const automations: Automation[] = [
-  { title: "AI receptionist for a dental clinic", what: "Voice agent → intent routing → Google Calendar booking, reschedule, cancel, or escalate to the front desk by SMS.", image: "/img/auto-dental-receptionist.png" },
-  { title: "Voice-order → invoice bot", what: "Telegram voice or text order → transcription → menu match → sales log → invoice PDF generated and sent back.", image: "/img/auto-order-invoice-bot.png" },
-  { title: "Inventory reorder agent", what: "Sales webhook → Supabase stock update → AI agent decides reorders → approval by email before anything is placed.", image: "/img/auto-inventory-agent.png" },
-  { title: "Renewal reminder system", what: "Scheduled scan of a client sheet → due-date logic → Gmail reminders. The compliance case above.", image: "/img/auto-reminders.png" },
-  { title: "Receipt & card OCR intake", what: "Photo on Telegram → OpenAI Vision → confidence check → duplicate check → Google Sheets.", image: "/img/auto-receipt-ocr.png" },
-  { title: "Knowledge agent with RAG", what: "Drive folder → Pinecone embeddings → Telegram agent that answers from your documents and the web.", image: "/img/auto-rag-agent.png" },
-  { title: "Event registration codes", what: "Form webhook → unique code → sheet → confirmation email → team notified on Telegram.", image: "/img/auto-event-codes.png" },
-  { title: "Expense bot with weekly roast", what: "Log an expense by message; every Sunday it aggregates the week and tells you the truth.", image: "/img/auto-expense-bot.png" },
-  { title: "Content pipeline", what: "Sheet rows → fetch → files → two OpenAI passes → rendered output, end to end.", image: "/img/auto-content-pipeline.png" },
+  { title: "AI receptionist for a dental clinic", what: "A voice agent answers the phone, works out what the caller wants, and books, moves or cancels the appointment in the clinic's calendar — or hands off to the front desk by SMS.", replaces: "the front-desk phone shift", stack: ["Voice AI", "n8n", "Google Calendar", "Twilio SMS", "Sheets log"], image: "/img/auto-dental-receptionist.png", featured: true,
+    flow: ["Patient calls · the voice agent listens", "Intent is routed: book · reschedule · cancel · question · escalate", "Calendar is checked and written; the front desk gets an SMS only when a human is needed"] },
+  { title: "Voice-order → invoice bot", what: "Send a voice note or text on Telegram; it transcribes the order, matches the menu, logs the sale, and sends back a finished invoice PDF.", replaces: "order-taking and billing by hand", stack: ["Telegram", "OpenAI Whisper", "OpenAI", "Google Sheets", "Google Docs", "Drive"], image: "/img/auto-order-invoice-bot.png" },
+  { title: "Inventory reorder agent", what: "Every sale updates stock in Supabase; an AI agent decides what to reorder and asks the owner by email before anything is placed.", replaces: "stock checks and reorder emails", stack: ["Supabase", "OpenAI", "DeepSeek", "Gmail approval", "Sheets", "Error alerts"], image: "/img/auto-inventory-agent.png" },
+  { title: "Renewal reminder system", what: "Scans a client sheet on a schedule, works out what's due, and emails reminders — the compliance case on this page.", replaces: "a spreadsheet someone forgets to check", stack: ["Schedule", "Google Sheets", "Gmail"], image: "/img/auto-reminders.png" },
+  { title: "Receipt & card OCR intake", what: "Photograph a receipt or card on Telegram; OpenAI Vision reads it, a confidence check asks for a clearer shot if needed, duplicates are caught, and the row lands in Sheets.", replaces: "typing receipts into a spreadsheet", stack: ["Telegram", "OpenAI Vision", "Google Sheets"], image: "/img/auto-receipt-ocr.png" },
+  { title: "Knowledge agent with RAG", what: "Drop documents in a Drive folder; they're embedded into Pinecone and a Telegram agent answers from them — and from the web when they don't cover it.", replaces: "asking the one person who knows", stack: ["Google Drive", "Pinecone", "OpenAI embeddings", "SerpAPI", "Telegram"], image: "/img/auto-rag-agent.png" },
+  { title: "Event registration codes", what: "A form submission generates a unique code, writes it to the sheet, emails the confirmation, and pings the events team on Telegram.", replaces: "manual confirmations before an event", stack: ["Webhook", "Google Sheets", "Gmail", "Telegram"], image: "/img/auto-event-codes.png" },
+  { title: "Expense bot with a weekly roast", what: "Log an expense by message; every Sunday at 8pm it totals the week and tells you the truth about it.", replaces: "the end-of-month expense scramble", stack: ["Telegram", "Google Sheets", "Schedule"], image: "/img/auto-expense-bot.png" },
+  { title: "Content pipeline", what: "Rows in a sheet become finished output: fetch, process, two OpenAI passes, render — end to end without a hand on it.", replaces: "a copy-paste content workflow", stack: ["Google Sheets", "HTTP", "OpenAI", "Shell"], image: "/img/auto-content-pipeline.png" },
 ];
 
 export const externalProof = {
