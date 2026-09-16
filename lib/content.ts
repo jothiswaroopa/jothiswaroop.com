@@ -400,6 +400,7 @@ export const accelerator = {
     role: "Centralised AC · BSHIP Chennai Tycoons",
     where: "Posted in the BSHIP Chennai Tycoons group, 400+ members",
     image: "/img/accelerator-balaji.jpg",
+    receipt: "/img/accelerator-balaji-review.png", // the actual WhatsApp message — proof the quote is real
     verified: true,
   },
 };

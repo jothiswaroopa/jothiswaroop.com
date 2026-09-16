@@ -34,7 +34,7 @@ export default function Accelerator() {
                 <blockquote className="display text-xl leading-snug text-paper md:text-2xl">&ldquo;{t.text}&rdquo;</blockquote>
                 <figcaption className="mt-8 flex items-center gap-4 border-t hairline pt-6">
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
-                    <Image src={t.image} alt={`${t.author} with Jothi Swaroop`} fill sizes="56px" className="object-cover object-[35%_40%]" />
+                    <Image src={t.image} alt={`${t.author} with Jothi Swaroop`} fill sizes="56px" className="object-cover object-[38%_45%]" />
                   </div>
                   <div>
                     <p className="text-paper">{t.author}</p>
@@ -42,6 +42,14 @@ export default function Accelerator() {
                     <p className="label mt-1 !normal-case !tracking-normal">{t.where}</p>
                   </div>
                 </figcaption>
+                {t.receipt && (
+                  <details className="mt-6 border-t hairline pt-5">
+                    <summary className="label cursor-pointer list-none !normal-case !tracking-normal text-paper/70 hover:text-paper">See the original message ↓</summary>
+                    <div className="mt-4 max-w-[320px] overflow-hidden rounded-xl border hairline">
+                      <Image src={t.receipt} alt="The original WhatsApp message" width={442} height={552} className="h-auto w-full" />
+                    </div>
+                  </details>
+                )}
               </div>
             </figure>
           </Reveal>
