@@ -70,17 +70,23 @@ export default function Work() {
           </Reveal>
         )}
 
-        {/* The rest — one row each, no repetition of the featured four */}
+        {/* The rest — one row each with its own Ads Manager receipt. Every account on the page, nothing repeated. */}
         <Reveal className="mt-14">
-          <p className="label">// AND</p>
+          <p className="label">// AND — EVERY OTHER ACCOUNT</p>
           <ul className="mt-4 border-t hairline">
             {rest.map((c) => (
               <li key={c.slug}>
-                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
-                  <span className="display text-2xl text-paper transition-transform duration-300 ease-out-expo group-hover:translate-x-2">{c.client}</span>
-                  <span className="text-sm text-paper/70">{c.industry} · {c.location}</span>
-                  <span className="mono text-sm text-signal">{c.result}</span>
-                  <span className="label md:text-right">{c.year}</span>
+                <Link href={`/work/${c.slug}`} className="group grid grid-cols-[112px_1fr] items-center gap-4 border-b hairline py-4 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[160px_2fr_1.6fr_1.4fr_auto] md:gap-6 md:px-3">
+                  <span className="bezel block !rounded-lg !p-0.5"><span className="bezel-core relative block aspect-[16/9] !rounded-md">
+                    <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="160px" className="object-cover object-left-top" />
+                  </span></span>
+                  <span className="min-w-0">
+                    <span className="display block text-xl text-paper transition-transform duration-300 ease-out-expo group-hover:translate-x-1 md:text-2xl">{c.client}</span>
+                    <span className="mt-0.5 block text-sm text-paper/70 md:hidden">{c.result}</span>
+                  </span>
+                  <span className="hidden text-sm text-paper/70 md:block">{c.industry} · {c.location}</span>
+                  <span className="mono hidden text-sm text-signal md:block">{c.result}</span>
+                  <span className="label hidden md:block md:text-right">{c.year}</span>
                 </Link>
               </li>
             ))}
