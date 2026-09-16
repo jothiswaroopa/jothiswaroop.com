@@ -33,6 +33,13 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
         <div className="bezel mt-14"><div className="bezel-core relative aspect-[16/8]"><Image src={c.image} alt={`Ads Manager — ${c.client}`} fill className="object-cover object-left-top" sizes="100vw" priority /></div></div>
 
+        {c.outcome && (
+          <div className="mt-14 border-l-2 border-signal pl-6">
+            <p className="label">// WHAT IT TURNED INTO</p>
+            <p className="display mt-3 text-2xl text-paper md:text-4xl">{c.outcome}</p>
+          </div>
+        )}
+
         <div className="mt-16 grid gap-12 md:grid-cols-2">
           <div><p className="label !text-strike">Before</p><p className="mt-4 text-xl text-paper/80">{c.before}</p></div>
           <div><p className="label !text-signal">After</p><p className="mt-4 text-xl text-paper">{c.after}</p></div>

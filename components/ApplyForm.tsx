@@ -35,9 +35,11 @@ export default function ApplyForm() {
   useEffect(() => { try { setProgram(new URLSearchParams(window.location.search).get("program")); } catch {} }, []);
   const programLabel = program === "accelerator" ? "AI Accelerator · 5-day 1:1 mentorship" : null;
 
-  const steps = apply.steps;
+  // conditional steps: skip "who introduced you" unless they said they were introduced
+  const steps = apply.steps.filter((st) => !("showIf" in st && st.showIf) || a[st.showIf.key] === st.showIf.equals);
   const total = steps.length;
-  const cur = steps[step];
+  const cur = steps[Math.min(step, total - 1)];
+  const introduced = a.intro === apply.introducedValue;
   const currency = (a.currency as Currency) || "inr";
   const intl = currency !== "inr";
 
@@ -55,6 +57,7 @@ export default function ApplyForm() {
     for (const s of steps) {
       if (s.type === "contact") { fields["Email"] = a.email ?? ""; fields["WhatsApp / phone"] = a.phone ?? ""; }
       else if (s.type === "currency") fields["Currency"] = currency.toUpperCase();
+      else if (s.type === "choice") fields[s.q] = a[s.key] ?? "";
       else fields[s.q] = a[s.key] ?? "";
     }
     const r = await submit(programLabel ? `Application — ${programLabel}` : "Application — jothiswaroop.com", { ...(programLabel ? { program: programLabel } : {}), ...fields });
@@ -91,6 +94,16 @@ export default function ApplyForm() {
             {cur.type === "text" && (
               <input aria-label={cur.q} value={a[cur.key] ?? ""} onChange={(e) => setA({ ...a, [cur.key]: e.target.value })} onKeyDown={(e) => e.key === "Enter" && valid && next()} placeholder={cur.placeholder}
                 className="mt-8 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-paper placeholder:text-paper/40 focus:border-signal focus:outline-none" />
+            )}
+
+            {cur.type === "choice" && (
+              <div className="mt-8 grid gap-3 sm:grid-cols-2" role="group" aria-label={cur.q}>
+                {cur.options.map((o) => (
+                  <button key={o} onClick={() => setA({ ...a, [cur.key]: o })} aria-pressed={a[cur.key] === o}
+                    className={`press rounded-2xl border px-5 py-4 text-left text-base ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/85 hover:border-paper"}`}>{o}</button>
+                ))}
+                {a.intro === apply.introducedValue && <p className="label sm:col-span-2 !normal-case !tracking-normal text-paper/70">Introductions go first — you&apos;ll hear from me today.</p>}
+              </div>
             )}
 
             {cur.type === "currency" && (
@@ -148,7 +161,7 @@ export default function ApplyForm() {
         {phase === "delivered" && (
           <motion.div key="delivered" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">Received.</p>
-            <p className="mt-4 text-paper/80">I read every application myself. You'll have a personal reply at <span className="text-paper">{a.email}</span> by the end of the next working day, in your timezone.</p>
+            <p className="mt-4 text-paper/80">{introduced ? <>You were introduced, so you go first — a personal reply at <span className="text-paper">{a.email}</span> today.</> : <>I read every application myself. You&apos;ll have a personal reply at <span className="text-paper">{a.email}</span> by the end of the next working day, in your timezone.</>}</p>
             {(site.calendar || site.email) && <><p className="label mt-8">Want to move faster?</p><Actions /></>}
           </motion.div>
         )}

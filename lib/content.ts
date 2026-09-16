@@ -13,7 +13,7 @@ export const site = {
   whatsapp: "919944812223",
   whatsappDisplay: "+91 99448 12223",
   calendar: "", // pending — Cal.com / Calendly link
-  email: "", // pending
+  email: "hello@jothiswaroop.com",
   socials: {
     instagram: "https://instagram.com/jothi.swaroopa",
     linkedin: "", // pending
@@ -171,6 +171,8 @@ export type CaseStudy = {
   measured?: Measured;
   /** Raw screenshots — the receipts strip. */
   receipts?: string[];
+  /** What the leads turned into, in the client's words or numbers — e.g. "₹18L in wholesale orders in the first quarter". Renders only when present. */
+  outcome?: string;
   before: string;
   after: string;
   quote?: { text: string; author: string; verified: boolean };
@@ -271,7 +273,6 @@ export const cases: CaseStudy[] = [
     measured: { source: "Meta Ads Manager, lifetime view", window: "Feb → Mar 2026", counted: "Conversations = messaging conversations started (WhatsApp / Instagram). Clicks = link clicks on the video campaign. Total spend across six campaigns: ₹8,471.", screenshot: "/img/ads-tharunis.png" },
     receipts: ["/img/ads-tharunis.png"],
     image: "/img/ads-tharunis.png",
-    featured: true,
   },
   {
     slug: "kalavridhi",
@@ -287,6 +288,7 @@ export const cases: CaseStudy[] = [
     receipts: ["/img/ads-kalavridhi.png"],
     image: "/img/ads-kalavridhi.png",
     international: true,
+    featured: true,
   },
   {
     slug: "angel",
@@ -440,16 +442,20 @@ export const faq = [
 
 export type Currency = "inr" | "usd" | "gbp";
 export type ApplyStep =
-  | { key: string; q: string; type: "text"; placeholder: string }
+  | { key: string; q: string; type: "text"; placeholder: string; showIf?: { key: string; equals: string } }
+  | { key: string; q: string; type: "choice"; options: string[] }
   | { key: string; q: string; type: "currency" }
   | { key: string; q: string; type: "chips"; options: Record<Currency, string[]>; escape?: string }
   | { key: string; q: string; type: "contact" };
 
 export const apply = {
-  headline: "If the numbers above look like what you want, apply below.",
-  standaloneHeadline: "Tell me what you sell and what's broken. I'll tell you if I can help.",
-  sub: "Seven quick questions. Two minutes. I read every one myself.",
+  headline: "Most of my clients were introduced. You don't have to be.",
+  standaloneHeadline: "Most of my clients were introduced. You don't have to be.",
+  sub: "Introductions go to the top of the pile. Everyone else, I still read myself. Two minutes.",
+  introducedValue: "Introduced by someone you've worked with",
   steps: [
+    { key: "intro", q: "How did you find me?", type: "choice", options: ["Introduced by someone you've worked with", "Found you myself"] },
+    { key: "introducer", q: "Who introduced you?", type: "text", placeholder: "Their name and business — so I can thank them", showIf: { key: "intro", equals: "Introduced by someone you've worked with" } },
     { key: "sell", q: "What do you sell?", type: "text", placeholder: "e.g. Knitwear for UK retailers · MOQ 200 · £8 a unit" },
     { key: "currency", q: "Which currency do you think in?", type: "currency" },
     { key: "revenue", q: "Monthly revenue, roughly", type: "chips", options: {
