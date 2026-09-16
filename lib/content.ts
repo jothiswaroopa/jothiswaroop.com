@@ -23,7 +23,7 @@ export const site = {
 };
 
 export const hero = {
-  eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA · UK · US",
+  eyebrow: "// FOR FOUNDER-LED MANUFACTURERS & BRANDS · INDIA · UK · US",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
   headline: ["*4,248\u00a0leads* for one client.", "Four founders a\u00a0quarter.", "_Every\u00a0one_ _by\u00a0introduction._"],
   // alt A: "Every client since was introduced by the one before." · alt C: "Zero cold pitches, ever."
@@ -49,7 +49,7 @@ export type Receipt = {
 
 export const receipts: Receipt[] = [
   // Every number below is read off a Meta Ads Manager screenshot in public/img/ads-*.png
-  { value: 4248, label: "leads · Nova Attire · ₹16.58 per lead", caseSlug: "nova" },
+  { value: 4248, label: "buyer leads · Nova Attire · ₹16.58 each", caseSlug: "nova" },
   { value: 1589, label: "leads · Sathyam Labels · the first client", caseSlug: "sathyam" },
   { value: 1337, label: "leads · Five Elements · India + UK", caseSlug: "five-elements" },
   { value: 950, suffix: "K", label: "people reached · Ram Textiles · ₹12 per 1,000", caseSlug: "ram" },
@@ -58,8 +58,8 @@ export const receipts: Receipt[] = [
 
 // Only cities and niches that have a case study behind them. Add here only when you add a case.
 export const marquee = [
-  "Chennai", "Tirupur", "United Kingdom", "Coimbatore", "United States", "Canada",
-  "Fashion D2C", "Knitwear", "Labels · B2B", "Textiles", "Jewellery", "Kids education", "Bakery", "Compliance", "VROOM 2026 · Digital Partner",
+  "Tirupur", "Chennai", "Tindivanam", "United Kingdom", "United States", "Canada",
+  "Apparel manufacturing", "Knitwear", "Garment labels", "Textile retail", "Pooja products", "Imitation jewellery", "Tanjore painting", "Home bakery", "Company secretary", "VROOM 2026 · Digital Partner",
 ];
 
 export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[]; position?: string };
@@ -187,13 +187,13 @@ export const cases: CaseStudy[] = [
   {
     slug: "nova",
     client: "Nova Attire",
-    industry: "Fashion D2C",
-    location: "Chennai",
+    industry: "Apparel manufacturer · B2B",
+    location: "Tirupur",
     year: "2025–26",
     result: "4,248 leads at ₹16.58",
     headline: { value: 4248, suffix: " leads" },
-    before: "Boosting posts. No lead form, no follow-up, no idea what a lead cost.",
-    after: "4,248 form leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
+    before: "A Tirupur apparel manufacturer finding buyers the old way — references and trade visits. No inbound, no idea what a buyer enquiry cost.",
+    after: "4,248 wholesale buyer leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
     measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
     receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
     image: "/img/ads-nova-1.png",
@@ -202,7 +202,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "five-elements",
     client: "Five Elements",
-    industry: "Knitwear manufacturer · B2B + D2C",
+    industry: "Knitwear & garment manufacturer",
     location: "Tirupur → UK",
     year: "2025",
     result: "1,318 India leads + 19 UK wholesale leads",
@@ -218,7 +218,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "sathyam",
     client: "Sathyam Labels",
-    industry: "Label manufacturing · B2B",
+    industry: "Garment label manufacturer · B2B",
     location: "Tirupur",
     year: "2023–26",
     result: "1,589 leads — the first client",
@@ -233,8 +233,8 @@ export const cases: CaseStudy[] = [
   {
     slug: "ram",
     client: "Ram Textiles",
-    industry: "Textiles · Retail",
-    location: "Tirupur",
+    industry: "Textile showroom · D2C",
+    location: "Tindivanam",
     year: "2025–26",
     result: "950K people reached for festival sales",
     headline: { value: 950548, suffix: " reached" },
@@ -247,13 +247,13 @@ export const cases: CaseStudy[] = [
   {
     slug: "srr",
     client: "Sri Raja Rajeswari Traders",
-    industry: "Retail · Trading",
+    industry: "Pooja products · B2B manufacturer & distributor",
     location: "Chennai",
     year: "2025",
     result: "323 leads at ₹37",
     headline: { value: 323, suffix: " leads" },
-    before: "Walk-in dependent. Ads had never produced a trackable enquiry.",
-    after: "323 form leads at ₹37.15 on ₹12,000, plus a WhatsApp campaign at ₹13.71 per conversation.",
+    before: "A pooja-products manufacturer selling to retailers through the trade. Ads had never produced a trackable enquiry.",
+    after: "323 retailer and distributor leads at ₹37.15 on ₹12,000, plus a WhatsApp campaign at ₹13.71 per conversation.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Jun 2025 →", counted: "Lead = lead-form submission. WhatsApp campaign counted as messaging conversations started.", screenshot: "/img/ads-srr.png" },
     receipts: ["/img/ads-srr.png"],
     image: "/img/ads-srr.png",
@@ -261,12 +261,12 @@ export const cases: CaseStudy[] = [
   {
     slug: "tharunis",
     client: "Tharunis Jewellery",
-    industry: "Jewellery",
-    location: "Coimbatore",
+    industry: "Imitation jewellery · 4 showrooms",
+    location: "Chennai",
     year: "2026",
     result: "321 conversations · 5,687 clicks at ₹0.39",
     headline: { value: 321, suffix: " conversations" },
-    before: "A beautiful catalogue nobody was messaging about.",
+    before: "Four showrooms, a beautiful catalogue, and nobody messaging about it.",
     after: "321 WhatsApp and Instagram conversations across five campaigns, and a jhumka video that drove 5,687 link clicks at ₹0.39 each — 156K people reached on ₹2,214.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Feb → Mar 2026", counted: "Conversations = messaging conversations started (WhatsApp / Instagram). Clicks = link clicks on the video campaign. Total spend across six campaigns: ₹8,471.", screenshot: "/img/ads-tharunis.png" },
     receipts: ["/img/ads-tharunis.png"],
@@ -276,13 +276,13 @@ export const cases: CaseStudy[] = [
   {
     slug: "kalavridhi",
     client: "Kalavridhi Arts",
-    industry: "Kids folk-art workshops",
+    industry: "Tanjore painting mentorship",
     location: "Tamil Nadu → US & Canada",
     year: "2025–26",
     result: "315 conversations · 1,815 profile visits at ₹1.23",
     headline: { value: 315, suffix: " conversations" },
-    before: "Workshops filled by word of mouth only. No way to reach the Tamil and Telugu diaspora.",
-    after: "315 WhatsApp conversations for workshops at ₹13–20 each, 1,815 Instagram profile visits at ₹1.23, and a US + Canada summer-camp campaign reaching diaspora families.",
+    before: "Tanjore painting mentorships filled by word of mouth only. No way to reach the Tamil and Telugu diaspora who want the craft.",
+    after: "315 WhatsApp conversations for mentorships at ₹13–20 each, 1,815 Instagram profile visits at ₹1.23, and a US + Canada summer-camp campaign reaching diaspora families.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Sep 2025 → Jun 2026", counted: "Conversations = messaging conversations started. Profile visits from the traffic campaign counted separately. US/CA campaign: 11 conversations at ₹455 on ₹5,000.", screenshot: "/img/ads-kalavridhi.png" },
     receipts: ["/img/ads-kalavridhi.png"],
     image: "/img/ads-kalavridhi.png",
@@ -291,12 +291,12 @@ export const cases: CaseStudy[] = [
   {
     slug: "angel",
     client: "Angel Homemade Cakes",
-    industry: "Bakery · Home business",
+    industry: "Home bakery · woman entrepreneur",
     location: "Chennai",
     year: "2025",
     result: "84 leads on ₹5,508",
     headline: { value: 84, suffix: " leads" },
-    before: "A home bakery running on Instagram DMs and repeat customers.",
+    before: "A home-maker turned entrepreneur, running on Instagram DMs and repeat customers.",
     after: "84 order leads across three small campaigns at ₹47–77 each — proof the engine works at ₹200 a day.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "2025", counted: "Lead = lead-form submission (47) + Meta leads (37). Three campaigns, ₹200/day budgets, ₹5,508 total.", screenshot: "/img/ads-angel.png" },
     receipts: ["/img/ads-angel.png"],
@@ -304,8 +304,8 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: "dsc",
-    client: "A Chennai compliance practice",
-    industry: "Company secretary · Compliance",
+    client: "CS S R Parath Kumar",
+    industry: "Practising Company Secretary",
     location: "Chennai",
     year: "2026",
     result: "Renewal reminders on autopilot",
