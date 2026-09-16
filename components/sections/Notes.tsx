@@ -4,17 +4,18 @@ import Scramble from "@/components/motion/Scramble";
 import { notes } from "@/lib/content";
 
 export default function Notes() {
+  const hasPosts = notes.posts.some((p) => !p.placeholder);
   return (
     <section id="notes" className="card-over relative bg-ink">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="label"><Scramble text={notes.label} /></p>
-            <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.5rem)]">Thinking in public.</h2></Reveal>
+            <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.5rem)]">{hasPosts ? "Thinking in public." : "One letter, every two weeks."}</h2></Reveal>
           </div>
-          <Reveal delay={0.1}><Link href="/notes" className="underline-slide text-sm text-paper/80 hover:text-paper">Read all →</Link></Reveal>
+          {hasPosts && <Reveal delay={0.1}><Link href="/notes" className="underline-slide text-sm text-paper/80 hover:text-paper">Read all →</Link></Reveal>}
         </div>
-        {notes.posts.some((p) => !p.placeholder) && (
+        {notes.posts.some((p) => !p.placeholder) ? (
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {notes.posts.filter((p) => !p.placeholder).map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
@@ -28,7 +29,7 @@ export default function Notes() {
               </Reveal>
             ))}
           </div>
-        )}
+        ) : null}
         <Reveal delay={0.3} className="bezel mt-12">
          <div className="bezel-core flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
           <p className="text-lg text-paper/85">{notes.optin}</p>

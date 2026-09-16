@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { site } from "@/lib/content";
@@ -24,13 +25,15 @@ export default function Nav() {
   const [hidden, setHidden] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const onPaper = ["/apply", "/audit", "/about"].some((p) => pathname?.startsWith(p));
 
   useEffect(() => {
     let last = 0;
     const onScroll = () => {
       const y = window.scrollY;
       setHidden(y > last && y > 160 && !open);
-      setPastHero(y > window.innerHeight * 0.8);
+      setPastHero(y > 40);
       last = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -49,7 +52,7 @@ export default function Nav() {
           hidden ? "-translate-y-[130%]" : "translate-y-0"
         )}
       >
-        <div className="glass flex w-full max-w-[1200px] items-center justify-between gap-6 rounded-full border border-paper/10 py-2 pl-5 pr-2">
+        <div className={clsx("glass flex w-full max-w-[1200px] items-center justify-between gap-6 rounded-full border py-2 pl-5 pr-2", onPaper ? "theme-paper border-paper/10" : "border-paper/10")}>
           <Link href="/" className="display text-xl tracking-tight text-paper" onClick={() => setOpen(false)}>
             {site.name}
           </Link>
@@ -126,6 +129,7 @@ export default function Nav() {
       <div
         className={clsx(
           "glass scroll-edge-top fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-expo md:hidden",
+          onPaper && "theme-paper",
           pastHero && !open ? "translate-y-0" : "translate-y-full"
         )}
       >

@@ -18,7 +18,7 @@ export default function Hero() {
       <div className="mx-auto grid max-w-[1440px] gap-8 px-5 pb-16 pt-6 md:px-10 lg:grid-cols-[55fr_45fr] lg:items-end lg:gap-12 lg:pb-14 lg:pt-10">
         {/* Video / portrait — first on mobile */}
         <motion.div
-          className="bezel relative order-1 h-[min(48svh,520px)] w-full lg:order-2 lg:h-[min(72vh,760px)]"
+          className="bezel relative order-1 h-[min(30svh,380px)] w-full lg:order-2 lg:h-[min(72vh,760px)]"
           initial={{ clipPath: "inset(6% 6% 6% 6% round 24px)", scale: 1.1 }}
           animate={{ clipPath: "inset(0% 0% 0% 0% round 24px)", scale: 1 }}
           transition={{ duration: 1.4, ease: EASE, delay: settle * 0.6 }}
@@ -28,7 +28,7 @@ export default function Hero() {
             <video className="h-full w-full object-cover" src={hero.videoSrc} poster={hero.posterSrc} autoPlay muted loop playsInline />
           ) : (
             <div className="duotone relative h-full w-full">
-              <Image src={hero.posterSrc} alt={`${site.name}, portrait`} fill priority sizes="(min-width:1024px) 45vw, 100vw" className="object-cover object-[50%_12%]" />
+              <Image src={hero.posterSrc} alt={`${site.name}, portrait`} fill priority sizes="(min-width:1024px) 45vw, 100vw" className="object-cover object-[50%_18%]" />
             </div>
           )}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
@@ -55,7 +55,7 @@ export default function Hero() {
             delay={0.2}
           />
           <motion.p
-            className="mt-8 max-w-xl text-base leading-relaxed text-paper/80 md:text-lg"
+            className="mt-6 max-w-xl text-base leading-relaxed text-paper/80 md:mt-8 md:text-lg"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: settle + 0.2 }}
@@ -63,7 +63,7 @@ export default function Hero() {
             {hero.sub}
           </motion.p>
           <motion.div
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4 md:mt-10"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: settle + 0.4 }}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { audit, site } from "@/lib/content";
+import { submit } from "@/lib/submit";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 // Spatial consistency: forward enters from the right and leaves left; back mirrors it exactly.
@@ -30,7 +31,7 @@ export default function AuditForm() {
   const [dir, setDir] = useState(1); // +1 forward, -1 back — enter/exit share the same axis and direction
   const [a, setA] = useState<Record<string, string>>({});
   const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState<false | "delivered" | "manual" | "sending">(false);
   const qs = audit.questions;
   const done = step >= qs.length;
   const cur = qs[step];
@@ -58,7 +59,7 @@ export default function AuditForm() {
             </div>
             {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="mt-8 text-sm text-paper/65 hover:text-paper">← Back</button>}
           </motion.div>
-        ) : !sent ? (
+        ) : !sent || sent === "sending" ? (
           <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="label">// YOUR DIAGNOSIS</p>
             <p className="display mt-4 text-3xl text-paper md:text-5xl">
@@ -78,17 +79,21 @@ export default function AuditForm() {
                 ? "This is fixable, and worth fixing. Drop your email and I'll record a 10-minute teardown of your setup within 48 hours."
                 : "You're in better shape than most. Drop your email and I'll send the one thing I'd still change."}
             </p>
-            <form className="mt-6 flex flex-col gap-2 sm:flex-row" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+            <form className="mt-6 flex flex-col gap-2 sm:flex-row" onSubmit={async (e) => { e.preventDefault(); setSent("sending"); const r = await submit("Bottleneck Audit — jothiswaroop.com", { email, biggest_leak: top[0].name, second_leak: top[1].name, score: String(total), ...a }); setSent(r.delivered ? "delivered" : "manual"); }}>
               <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com"
                 className="w-full rounded-full border border-line-strong bg-transparent px-5 py-3.5 text-sm text-paper placeholder:text-paper/30 focus:border-signal focus:outline-none" />
-              <button className="press shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper">{qualified ? "Send me the teardown" : "Send it"}</button>
+              <button disabled={sent === "sending"} className="press shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper disabled:opacity-40">{sent === "sending" ? "Sending…" : qualified ? "Send me the teardown" : "Send it"}</button>
             </form>
             <p className="mt-3 text-xs text-paper/55">No list-bombing. One letter every two weeks, and you can leave any time.</p>
           </motion.div>
         ) : (
           <motion.div key="sent" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-            <p className="display text-3xl text-paper md:text-4xl">Done. Check your inbox.</p>
-            <p className="mt-4 text-paper/80">{qualified ? "Teardown lands within 48 hours." : "It's on its way."} Want to skip the wait?</p>
+            <p className="display text-3xl text-paper md:text-4xl">{sent === "delivered" ? "Got it." : "One more tap."}</p>
+            <p className="mt-4 text-paper/80">
+              {sent === "delivered"
+                ? (qualified ? "Your teardown lands within 48 hours. Want to skip the wait?" : "It's on its way. Want to skip the wait?")
+                : "Send me your result directly and I'll take it from there."}
+            </p>
             <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi Jothi — just ran the Bottleneck Audit. Biggest leak: ${top[0].name}. Email: ${email}`)}`} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full border border-line-strong px-5 py-3 text-sm hover:border-signal hover:text-signal">Message me on WhatsApp →</a>
           </motion.div>
         )}

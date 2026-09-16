@@ -23,7 +23,7 @@ export const site = {
 };
 
 export const hero = {
-  eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA & INTERNATIONAL",
+  eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA · UK · US",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
   headline: ["3,222 leads for one client.", "Every client I have came from the last one."],
   // A/B alt (kept for testing): "Zero cold pitches for me."
@@ -123,6 +123,13 @@ export const method: Move[] = [
   },
 ];
 
+export type Measured = {
+  source: string;   // e.g. "Meta Ads Manager"
+  window: string;   // e.g. "Mar–Sep 2026"
+  counted: string;  // e.g. "Lead = form fill or WhatsApp click from the ad"
+  screenshot?: string;
+};
+
 export type CaseStudy = {
   slug: string;
   client: string;
@@ -130,6 +137,10 @@ export type CaseStudy = {
   location: string;
   year: string;
   result: string;
+  /** The headline number, explicit — never parsed out of prose. */
+  headline: { value: number; prefix?: string; suffix?: string; decimals?: number };
+  /** How the number was counted. Renders as "How this was counted". Required before a case goes live. */
+  measured?: Measured;
   before: string;
   after: string;
   quote?: { text: string; author: string; verified: boolean };
@@ -150,6 +161,8 @@ export const cases: CaseStudy[] = [
     location: "Chennai",
     year: "2026",
     result: "3,222 leads",
+    headline: { value: 3222, suffix: " leads" },
+    measured: { source: "Meta Ads Manager", window: "Placeholder · 7 months", counted: "Lead = form fill or WhatsApp click from the ad. Enquiries = replies with a product question.", screenshot: "/img/case-1.svg" },
     before: "Boosting posts. 40 enquiries a month, mostly price-shoppers.",
     after: "3,222 qualified leads and 438 direct enquiries in 7 months.",
     quote: { text: "[Real client words go here.]", author: "Founder, Placeholder Fashion Co.", verified: false },
@@ -165,6 +178,8 @@ export const cases: CaseStudy[] = [
     location: "Tirupur",
     year: "2026",
     result: "+162% leads",
+    headline: { value: 162, prefix: "+", suffix: "% leads" },
+    measured: { source: "Meta Ads Manager, year-on-year", window: "Placeholder · same 12-month window", counted: "Leads compared like-for-like against the previous year at the same spend.", screenshot: "/img/case-2.svg" },
     before: "Flat enquiries for two seasons. Same budget, same creatives.",
     after: "6,842 leads, up 162% year on year, on the same spend.",
     quote: { text: "[Real client words go here.]", author: "Director, Placeholder Textiles", verified: false },
@@ -180,6 +195,8 @@ export const cases: CaseStudy[] = [
     location: "Chennai",
     year: "2025",
     result: "3.2X ROAS",
+    headline: { value: 3.2, suffix: "X ROAS", decimals: 1 },
+    measured: { source: "Meta Ads Manager + store revenue", window: "Placeholder · 90 days", counted: "Attributed revenue ÷ ad spend, 7-day click attribution.", screenshot: "/img/case-3.svg" },
     before: "Ads running at break-even. No one could say which creative worked.",
     after: "3.2X return on ad spend inside 90 days.",
     image: "/img/case-3.svg",
@@ -194,6 +211,8 @@ export const cases: CaseStudy[] = [
     location: "London · Manchester · Leicester",
     year: "2026",
     result: "300+ UK leads in 30 days",
+    headline: { value: 300, suffix: "+ UK leads" },
+    measured: { source: "Meta Ads Manager (UK campaigns)", window: "Placeholder · first 30 days", counted: "Lead = lead form submission. Enquiries = DMs and site messages.", screenshot: "/img/case-4.svg" },
     before: "An Indian brand with zero footprint in the UK market.",
     after: "300+ leads and 412 enquiries across five UK cities in the first month.",
     image: "/img/case-4.svg",
@@ -209,6 +228,8 @@ export const cases: CaseStudy[] = [
     location: "Chennai",
     year: "2026",
     result: "247 clients on autopilot",
+    headline: { value: 247, suffix: " clients on autopilot" },
+    measured: { source: "Automation dashboard (n8n)", window: "Placeholder · live", counted: "Clients tracked by the renewal-reminder system; renewed / upcoming / overdue from its log.", screenshot: "/img/case-5.svg" },
     before: "Renewal deadlines tracked in a spreadsheet. Missed dates cost clients.",
     after: "An automated reminder system tracking 247 clients — 77% renewed, 1% overdue.",
     image: "/img/case-5.svg",
@@ -222,6 +243,8 @@ export const cases: CaseStudy[] = [
     location: "Coimbatore",
     year: "2025",
     result: "2K → 5K followers, 0 → 4,500 enquiries",
+    headline: { value: 4500, suffix: " enquiries" },
+    measured: { source: "Instagram Insights + WhatsApp Business", window: "Placeholder · one quarter", counted: "Enquiries = WhatsApp messages tagged from Instagram.", screenshot: "/img/case-6.svg" },
     before: "A beautiful catalogue nobody saw.",
     after: "Followers up 2.5X and 4,500 enquiries in a quarter.",
     image: "/img/case-6.svg",
@@ -275,13 +298,13 @@ export const apply = {
   headline: "If the numbers above look like what you want, apply below.",
   sub: "Five questions. Takes two minutes. I read every one myself.",
   steps: [
-    { key: "sell", q: "What do you sell?", type: "text", placeholder: "e.g. Handloom sarees, D2C, ₹2,400 average order" },
-    { key: "revenue", q: "Monthly revenue, roughly", type: "chips", options: ["Under ₹50L / $60K", "₹50L–2Cr / $60–250K", "₹2Cr+ / $250K+", "Pre-revenue"] },
-    { key: "spend", q: "Current monthly ad spend", type: "chips", options: ["Nothing yet", "Under ₹1L / $1.2K", "₹1–5L / $1.2–6K", "₹5L+ / $6K+"] },
+    { key: "sell", q: "What do you sell?", type: "text", placeholder: "e.g. Women's ethnic wear, D2C, ₹2,400 / $30 average order" },
+    { key: "revenue", q: "Monthly revenue, roughly", type: "chips", options: ["Under ₹50L · $60K · £45K", "₹50L–2Cr · $60–250K · £45–190K", "₹2Cr+ · $250K+ · £190K+", "Pre-revenue"] },
+    { key: "spend", q: "Current monthly ad spend", type: "chips", options: ["Nothing yet", "Under ₹1L · $1.2K · £900", "₹1–5L · $1.2–6K · £900–4.5K", "₹5L+ · $6K+ · £4.5K+"] },
     { key: "broken", q: "What's broken right now?", type: "text", placeholder: "One line. Be blunt." },
-    { key: "budget", q: "Budget you're ready to commit monthly", type: "chips", options: ["Not yet — send me the audit", "₹30–60K / $800–1.5K", "₹60K+ / $1.5K+"] },
+    { key: "budget", q: "Budget you're ready to commit monthly", type: "chips", options: ["₹30–60K · $800–1.5K · £600–1.2K", "₹60K+ · $1.5K+ · £1.2K+", "Not yet — send me the audit"] },
   ],
-  followup: "Instant WhatsApp confirmation · a personal reply the same day · IST · English / Tamil · international calls in your timezone",
+  followup: "A personal reply the same working day · IST · English / Tamil · calls in your timezone",
 };
 
 export const audit = {
@@ -289,9 +312,9 @@ export const audit = {
   headline: "Find out where your marketing is leaking — in two minutes.",
   sub: "Seven questions. An instant diagnosis. If it's fixable, I'll record a 10-minute teardown of your setup and send it within 48 hours. Free.",
   questions: [
-    { key: "source", q: "Where do most of your customers come from today?", options: ["Referrals / word of mouth", "Instagram / organic", "Paid ads", "Marketplace (Amazon, Meesho…)", "Walk-ins"] },
+    { key: "source", q: "Where do most of your customers come from today?", options: ["Referrals / word of mouth", "Instagram / organic", "Paid ads", "Marketplaces (Amazon, Etsy, Meesho…)", "Walk-ins"] },
     { key: "ads", q: "Are you running paid ads?", options: ["No", "Yes — boosting posts", "Yes — Meta / Google campaigns", "Yes — with an agency"] },
-    { key: "track", q: "Do you know your cost per lead?", options: ["Yes, to the rupee", "Roughly", "No idea"] },
+    { key: "track", q: "Do you know your cost per lead?", options: ["Yes, exactly", "Roughly", "No idea"] },
     { key: "followup", q: "What happens to a lead who doesn't buy on day one?", options: ["Nothing", "I message them if I remember", "A team member follows up manually", "Automated sequence"] },
     { key: "creative", q: "How often do you ship new creatives?", options: ["Weekly", "Monthly", "When I have time", "Never — same ones for months"] },
     { key: "report", q: "What does your marketing report look like?", options: ["A weekly number I trust", "A monthly PDF I skim", "Screenshots on WhatsApp", "There isn't one"] },

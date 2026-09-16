@@ -10,8 +10,8 @@ import { burn } from "@/lib/content";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Desktop: pinned, scroll-scrubbed. Each line lands and gets struck; payoff mask-reveals.
- * Mobile / reduced-motion: never pinned — same reveals on normal scroll.
+ * Not pinned on any viewport: each line lands and gets struck as it enters; payoff mask-reveals.
+ * (The pinned version held 2.2 viewports for four words — a waiting valley between trust and method.)
  */
 export default function Burn() {
   const root = useRef<HTMLElement>(null);
@@ -31,21 +31,7 @@ export default function Burn() {
 
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 1024px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: el, start: "top top", end: "+=220%", pin: true, scrub: 0.6 },
-      });
-      lines.forEach((l, i) => {
-        tl.fromTo(l, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6 }, i * 0.9)
-          .add(() => l.classList.add("on"), i * 0.9 + 0.5)
-          .to(l, { opacity: 0.35, duration: 0.4 }, i * 0.9 + 1.0);
-      });
-      tl.fromTo(payoff, { clipPath: "inset(0 0 100% 0)", y: 30 }, { clipPath: "inset(0 0 0% 0)", y: 0, duration: 1.2 }, ">-0.2")
-        .fromTo(mech, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, ">-0.4");
-      return () => tl.scrollTrigger?.kill();
-    });
-
-    mm.add("(max-width: 1023px)", () => {
+    mm.add("(min-width: 0px)", () => {
       lines.forEach((l, i) => {
         gsap.fromTo(l, { opacity: 0, y: 24 }, {
           opacity: 1, y: 0, duration: 0.8, ease: "expo.out",
@@ -60,7 +46,7 @@ export default function Burn() {
   }, []);
 
   return (
-    <section ref={root} className="card-over relative flex items-center overflow-hidden bg-ink-2 lg:min-h-[100svh]">
+    <section ref={root} className="card-over relative flex items-center overflow-hidden bg-ink-2">
       <span className="display pointer-events-none absolute -right-[4vw] -top-[10vw] select-none text-[46vw] leading-none text-paper/[0.04]" aria-hidden>×</span>
       <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-10">
         <p className="label"><Scramble text={burn.label} /></p>

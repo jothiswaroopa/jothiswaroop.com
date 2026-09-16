@@ -40,7 +40,7 @@ export default function Work() {
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-3 via-ink-3/30 to-transparent" />
                   <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-4">
                     <p className={`num text-signal ${c.result.length > 14 ? "text-[clamp(1.25rem,2vw,1.75rem)]" : "text-[clamp(1.75rem,3vw,2.75rem)]"}`}>{c.result}</p>
-                    {c.international && <span className="label rounded-full border border-paper/25 px-2 py-1 !text-paper/80">International</span>}
+                    {c.international && <span className="label rounded-full border border-paper/25 px-2 py-1 !text-paper/80">UK</span>}
                   </div>
                 </div>
                 <div className="grid gap-4 p-5 md:grid-cols-2 md:p-6">

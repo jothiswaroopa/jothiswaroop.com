@@ -18,7 +18,7 @@ export default function Receipts() {
                 </p>
                 <p className="mt-3 text-sm text-paper/80">{r.label}</p>
                 <p className="label mt-2 !text-paper/55 transition-colors group-hover:!text-signal">
-                  ↗ verified{r.placeholder ? " · placeholder" : ""}
+                  ↗ how it was counted{r.placeholder ? " · placeholder" : ""}
                 </p>
               </Link>
             </Reveal>

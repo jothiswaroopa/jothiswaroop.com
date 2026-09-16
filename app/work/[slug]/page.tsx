@@ -14,15 +14,15 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const c = cases.find((x) => x.slug === slug);
   if (!c) notFound();
   const next = cases.find((x) => x.referredBy === c.slug);
-  const num = parseFloat(c.result.replace(/[^0-9.]/g, ""));
+  const h = c.headline;
 
   return (
     <article className="pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <Link href="/#work" className="label hover:text-paper">← All work</Link>
         <p className="mt-10 text-paper/72">{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</p>
-        <h1 className="num mt-4 text-[clamp(3rem,10vw,10rem)] text-signal">
-          {isNaN(num) ? c.result : <Counter value={num} decimals={c.result.includes(".") ? 1 : 0} suffix={c.result.replace(/^[^a-zA-Z%+]*/, "").split(" ")[0]} />}
+        <h1 className="num mt-4 text-[clamp(2.5rem,8vw,8rem)] text-signal">
+          <Counter value={h.value} prefix={h.prefix} suffix={h.suffix} decimals={h.decimals} />
         </h1>
         <p className="mono mt-4 text-sm text-paper/65">{c.industry} · {c.location} · {c.year}</p>
 
@@ -32,6 +32,26 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <div><p className="label !text-strike">Before</p><p className="mt-4 text-xl text-paper/80">{c.before}</p></div>
           <div><p className="label !text-signal">After</p><p className="mt-4 text-xl text-paper">{c.after}</p></div>
         </div>
+
+        {/* How this was counted — the receipt behind the number. A case without this block is a claim. */}
+        {c.measured && (
+          <section className="theme-paper card-over mt-16 rounded-3xl px-6 py-10 md:px-10 md:py-12">
+            <p className="label">// HOW THIS WAS COUNTED</p>
+            <div className="mt-6 grid gap-8 md:grid-cols-[1fr_1.2fr] md:gap-12">
+              <dl className="space-y-5">
+                <div><dt className="label">Source</dt><dd className="mt-1 text-lg text-paper">{c.measured.source}</dd></div>
+                <div><dt className="label">Window</dt><dd className="mono mt-1 text-paper">{c.measured.window}</dd></div>
+                <div><dt className="label">What counts</dt><dd className="mt-1 text-paper/80">{c.measured.counted}</dd></div>
+              </dl>
+              {c.measured.screenshot && (
+                <div className="bezel"><div className="bezel-core relative aspect-[16/10]">
+                  <Image src={c.measured.screenshot} alt={`Screenshot — ${c.measured.source}`} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
+                  {c.placeholder && <span className="label absolute bottom-3 right-3 rounded bg-ink/80 px-2 py-1 !text-strike">placeholder screenshot</span>}
+                </div></div>
+              )}
+            </div>
+          </section>
+        )}
 
         {c.quote && (
           <blockquote className="mt-16 border-l-2 border-signal pl-6">
