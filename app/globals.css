@@ -374,9 +374,13 @@ h1, h2, h3, .display {
 .strike-line.on::after,
 .on .strike-line::after { --s: 1; }
 
+/* the signature at the bottom of the letter: present, quiet, never amber */
 .outline-text {
-  -webkit-text-stroke: 1px var(--paper-20);
+  -webkit-text-stroke: 1px rgba(242, 237, 228, 0.32);
   color: transparent;
+}
+@media (max-width: 767px) {
+  .outline-text { -webkit-text-stroke: 0.75px rgba(242, 237, 228, 0.38); } /* thinner stroke, a touch brighter, for small glyphs in daylight */
 }
 
 /* reduced motion means gentler, not none: keep opacity/colour, drop travel and parallax */
