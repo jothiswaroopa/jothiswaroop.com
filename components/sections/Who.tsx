@@ -18,9 +18,18 @@ export default function Who() {
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[2fr_3fr] md:px-10 md:py-28 md:gap-16">
         <div ref={ref} className="bezel">
           <div className="bezel-core relative aspect-[4/5]">
-            <motion.div style={{ y }} className="duotone absolute inset-[-8%]">
-              <Image src={who.portrait} alt={`${site.name} at work`} fill sizes="(min-width:768px) 40vw, 100vw" className="object-cover" />
+            <motion.div style={{ y }} className="absolute inset-[-8%]">
+              <Image
+                src={who.portrait}
+                alt={`${site.name} receiving an award at Tamil Nadu Digital Summit 2026`}
+                fill
+                sizes="(min-width:768px) 40vw, 100vw"
+                className="object-cover [filter:saturate(0.85)_contrast(1.05)]"
+                style={{ objectPosition: who.portraitPosition }}
+              />
             </motion.div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-3/70 via-transparent to-transparent" />
+            <p className="label absolute bottom-4 left-4 !text-paper/80">TN Digital Summit 2026 · Award ceremony</p>
           </div>
         </div>
         <div className="flex flex-col justify-center">

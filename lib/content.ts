@@ -30,7 +30,7 @@ export const hero = {
   ctaPrimary: { label: "Apply to work with me", href: "/apply" },
   ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
   videoSrc: "", // pending — 60–90s straight-to-lens
-  posterSrc: "/img/portrait-hero.svg", // fallback portrait (placeholder file)
+  posterSrc: "/img/portrait-hero.jpg", // real — blue shirt, outdoor
   placeholder: true,
 };
 
@@ -64,8 +64,9 @@ export const who = {
     "Recognised at Tamil Nadu Digital Summit 2026 — award presented by CK Kumaravel, founder of Naturals.",
     "I don't chase clients. Every founder I work with was introduced by a founder I work with.",
   ],
-  portrait: "/img/portrait-candid.svg", // placeholder file
-  placeholder: true,
+  portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
+  portraitPosition: "42% 35%", // keep Jothi + trophy in frame when cropped to 4:5
+  placeholder: false,
 };
 
 export const burn = {

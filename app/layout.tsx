@@ -12,8 +12,16 @@ const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "Jothi Swaroop — Performance marketing & AI systems",
   description: "I find and remove the bottlenecks in your marketing and automation. Founder-led growth operator, Chennai → worldwide.",
+  openGraph: {
+    title: "Jothi Swaroop — Performance marketing & AI systems",
+    description: "3,222 leads for one client. Zero cold pitches for me. Founder-led growth operator, Chennai → worldwide.",
+    type: "website",
+    siteName: "Jothi Swaroop",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
