@@ -45,7 +45,7 @@ export default function AboutPage() {
                   <p className="mt-2 max-w-lg text-paper/75">{r.detail}</p>
                   <div className={`mt-5 grid gap-3 ${r.extra ? "grid-cols-3" : "grid-cols-1 max-w-md"}`}>
                     {[r.image, ...(r.extra ?? [])].map((src, i) => (
-                      <div key={src} className={`bezel !p-1 ${i === 0 && r.extra ? "col-span-3 sm:col-span-2 sm:row-span-2" : ""}`}><div className={`bezel-core relative ${i === 0 ? "aspect-[3/2]" : "aspect-[3/4]"}`}><Image src={src} alt={r.caption} fill sizes="50vw" className="object-cover [filter:saturate(0.9)]" /></div></div>
+                      <div key={src} className={`bezel !p-1 ${i === 0 && r.extra ? "col-span-3 sm:col-span-2 sm:row-span-2" : ""}`}><div className={`bezel-core relative ${i === 0 ? "aspect-[3/2]" : "aspect-[3/4]"}`}><Image src={src} alt={r.caption} fill sizes="50vw" className="object-cover [filter:saturate(0.9)]" style={{ objectPosition: i === 0 ? r.position : undefined }} /></div></div>
                     ))}
                   </div>
                 </div>

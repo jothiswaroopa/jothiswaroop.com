@@ -46,13 +46,14 @@ export default function Who() {
               </Reveal>
             ))}
           </ul>
-          <Reveal delay={0.45} className="mt-10 grid grid-cols-2 gap-3">
+          <Reveal delay={0.45} className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3">
             {recognition.map((r) => (
               <Link key={r.title} href="/about" className="bezel press block !p-1">
-                <div className="bezel-core relative aspect-[4/3]">
-                  <Image src={r.image} alt={r.caption} fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover [filter:saturate(0.85)]" />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-3/80 via-transparent to-transparent" />
-                  <p className="label absolute bottom-3 left-3 right-3 !text-paper/90">{r.title}</p>
+                <div className="bezel-core">
+                  <div className="relative aspect-[4/3]">
+                    <Image src={r.image} alt={r.caption} fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover [filter:saturate(0.85)]" style={{ objectPosition: r.position }} />
+                  </div>
+                  <p className="label px-3 py-2.5 !text-paper/80">{r.title}</p>
                 </div>
               </Link>
             ))}

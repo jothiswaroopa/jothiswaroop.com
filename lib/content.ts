@@ -62,7 +62,7 @@ export const marquee = [
   "Fashion D2C", "Knitwear", "Labels · B2B", "Textiles", "Jewellery", "Kids education", "Bakery", "Compliance", "VROOM 2026 · Digital Partner",
 ];
 
-export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[] };
+export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[]; position?: string };
 export const recognition: Recognition[] = [
   {
     title: "Tamil Nadu Digital Summit 2026",
@@ -77,13 +77,20 @@ export const recognition: Recognition[] = [
     caption: "VROOM 2026 · recognised on stage",
     extra: ["/img/vroom-trophy.jpg", "/img/vroom-poster.jpg"],
   },
+  {
+    title: "Prompt Engineering Champion · Social Eagle AI",
+    detail: "Won the Social Eagle AI prompt battle — recognised for skill and creativity in crafting effective AI prompts. The craft behind every automation on this page.",
+    image: "/img/recognition-prompt-battle.jpg",
+    caption: "Prompt battle · Social Eagle AI",
+    position: "38% 45%",
+  },
 ];
 
 export const who = {
   role: "I run the marketing myself. One person, no account managers.",
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
-    "Recognised twice in 2026: an award at Tamil Nadu Digital Summit, and Official Digital Partner of VROOM 2026.",
+    "Recognised three times in 2026: an award at Tamil Nadu Digital Summit, Official Digital Partner of VROOM 2026, and Prompt Engineering Champion at the Social Eagle AI prompt battle.",
     "Every number on this page links to how it was measured. If I can't prove it, it isn't here.",
   ],
   portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
