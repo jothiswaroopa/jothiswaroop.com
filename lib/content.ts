@@ -25,14 +25,14 @@ export const site = {
 export const hero = {
   eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA · UK · US",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
-  headline: ["3,222 leads for one client.", "Every client I have came from the last one."],
+  headline: ["4,248 leads for one client.", "Every client I have came from the last one."],
   // A/B alt (kept for testing): "Zero cold pitches for me."
   sub: "I watched agencies sell reports. I decided to sell customers. Now I build lead engines and the automation that follows up — for founders who are done waiting.",
   ctaPrimary: { label: "Apply to work with me", href: "/apply" },
   ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
   videoSrc: "", // pending — 60–90s straight-to-lens
   posterSrc: "/img/portrait-hero.jpg", // real — blue shirt, outdoor
-  placeholder: true,
+  placeholder: false,
 };
 
 export type Receipt = {
@@ -46,17 +46,18 @@ export type Receipt = {
 };
 
 export const receipts: Receipt[] = [
-  { value: 3222, label: "leads · fashion D2C · 7 months", caseSlug: "nova", placeholder: true },
-  { value: 162, prefix: "+", suffix: "%", label: "leads YoY · textiles", caseSlug: "ram", placeholder: true },
-  { value: 3.2, suffix: "X", decimals: 1, label: "ROAS · retail", caseSlug: "srr", placeholder: true },
-  { value: 300, suffix: "+", label: "UK leads in 30 days", caseSlug: "uk", placeholder: true },
-  { value: 247, label: "clients on autopilot · AI system", caseSlug: "dsc", placeholder: true },
+  // Every number below is read off a Meta Ads Manager screenshot in public/img/ads-*.png
+  { value: 4248, label: "leads · Nova Attire · ₹16.58 per lead", caseSlug: "nova" },
+  { value: 1589, label: "leads · Sathyam Labels · the first client", caseSlug: "sathyam" },
+  { value: 1337, label: "leads · Five Elements · India + UK", caseSlug: "five-elements" },
+  { value: 950, suffix: "K", label: "people reached · Ram Textiles · ₹12 per 1,000", caseSlug: "ram" },
+  { value: 5687, label: "clicks at ₹0.39 · Tharunis Jewellery", caseSlug: "tharunis" },
 ];
 
 // Only cities and niches that have a case study behind them. Add here only when you add a case.
 export const marquee = [
-  "Chennai", "London", "Tirupur", "Manchester", "Coimbatore", "Leicester",
-  "Fashion D2C", "Textiles", "Retail", "Jewellery", "Compliance",
+  "Chennai", "Tirupur", "United Kingdom", "Coimbatore", "United States", "Canada",
+  "Fashion D2C", "Knitwear", "Labels · B2B", "Textiles", "Jewellery", "Kids education", "Bakery", "Compliance",
 ];
 
 export const who = {
@@ -87,6 +88,7 @@ export type Move = {
   duration: string;
   need: string;
   artefact: string; // screenshot path — block hides if empty
+  artefactCaption?: string;
   placeholder?: boolean;
 };
 
@@ -98,8 +100,8 @@ export const method: Move[] = [
     gets: "A one-page bottleneck map. Plain words, real numbers.",
     duration: "Days 1–7",
     need: "Ad account access and 45 minutes of your time.",
-    artefact: "/img/artefact-diagnose.svg",
-    placeholder: true,
+    artefact: "/img/ads-nova-1.png",
+    artefactCaption: "Nova Attire — six campaigns, cost per lead visible on every row",
   },
   {
     n: "02",
@@ -108,8 +110,8 @@ export const method: Move[] = [
     gets: "A live engine you can watch in a dashboard.",
     duration: "Days 8–30",
     need: "The real story on your product — what sells, what doesn't. A yes or no on approvals within a day.",
-    artefact: "/img/artefact-build.svg",
-    placeholder: true,
+    artefact: "/img/auto-order-invoice-bot.png",
+    artefactCaption: "A voice-order → invoice system, built in n8n",
   },
   {
     n: "03",
@@ -118,8 +120,8 @@ export const method: Move[] = [
     gets: "A weekly number, not a monthly PDF.",
     duration: "Month 2 →",
     need: "One 20-minute call a week.",
-    artefact: "/img/artefact-compound.svg",
-    placeholder: true,
+    artefact: "/img/ads-five-elements.png",
+    artefactCaption: "Five Elements — domestic at ₹19 a lead, then the UK",
   },
 ];
 
@@ -141,6 +143,8 @@ export type CaseStudy = {
   headline: { value: number; prefix?: string; suffix?: string; decimals?: number };
   /** How the number was counted. Renders as "How this was counted". Required before a case goes live. */
   measured?: Measured;
+  /** Raw screenshots — the receipts strip. */
+  receipts?: string[];
   before: string;
   after: string;
   quote?: { text: string; author: string; verified: boolean };
@@ -151,106 +155,165 @@ export type CaseStudy = {
   placeholder?: boolean;
 };
 
-// ─── PLACEHOLDER CASE STUDIES ────────────────────────────────────────────────
-// Every entry below is invented to demonstrate layout. Replace with intake §E.
+// ─── CASE STUDIES — numbers read from Meta Ads Manager screenshots (public/img/ads-*.png) ───
+// Client names are as they appear in the ad accounts; confirm each client is happy to be named.
 export const cases: CaseStudy[] = [
   {
     slug: "nova",
-    client: "Placeholder Fashion Co.",
+    client: "Nova Attire",
     industry: "Fashion D2C",
     location: "Chennai",
-    year: "2026",
-    result: "3,222 leads",
-    headline: { value: 3222, suffix: " leads" },
-    measured: { source: "Meta Ads Manager", window: "Placeholder · 7 months", counted: "Lead = form fill or WhatsApp click from the ad. Enquiries = replies with a product question.", screenshot: "/img/case-1.svg" },
-    before: "Boosting posts. 40 enquiries a month, mostly price-shoppers.",
-    after: "3,222 qualified leads and 438 direct enquiries in 7 months.",
-    quote: { text: "[Real client words go here.]", author: "Founder, Placeholder Fashion Co.", verified: false },
-    image: "/img/case-1.svg",
+    year: "2025–26",
+    result: "4,248 leads at ₹16.58",
+    headline: { value: 4248, suffix: " leads" },
+    before: "Boosting posts. No lead form, no follow-up, no idea what a lead cost.",
+    after: "4,248 form leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
+    measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
+    receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
+    image: "/img/ads-nova-1.png",
     featured: true,
     referredBy: "srr",
-    placeholder: true,
+  },
+  {
+    slug: "five-elements",
+    client: "Five Elements",
+    industry: "Knitwear manufacturer · B2B + D2C",
+    location: "Tirupur → UK",
+    year: "2025",
+    result: "1,318 India leads + 19 UK wholesale leads",
+    headline: { value: 1337, suffix: " leads" },
+    before: "A Tirupur manufacturer with no inbound pipeline and zero presence in the UK.",
+    after: "1,318 domestic knitwear leads at ₹19.34 each, and 19 UK apparel buyers (MOQ 200) at ₹443 — a wholesale enquiry for under $6.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Jul 2025", counted: "Lead = lead-form submission. Domestic and UK campaigns counted separately; the UK campaign targeted apparel buyers with a 200-piece minimum order.", screenshot: "/img/ads-five-elements.png" },
+    receipts: ["/img/ads-five-elements.png"],
+    image: "/img/ads-five-elements.png",
+    featured: true,
+    international: true,
+    referredBy: "nova",
+  },
+  {
+    slug: "sathyam",
+    client: "Sathyam Labels",
+    industry: "Label manufacturing · B2B",
+    location: "Tirupur",
+    year: "2023–26",
+    result: "1,589 leads — the first client",
+    headline: { value: 1589, suffix: " leads" },
+    before: "A label manufacturer selling on relationships alone. The very first campaign I ever ran for a client.",
+    after: "1,349 form leads at ₹19–33 each plus 240 WhatsApp and Instagram conversations at under ₹6.50 — 1,589 in total on ₹28,178. The result that started the referral chain.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Aug 2023 → Sep 2026", counted: "Leads = lead-form submissions across three campaigns (1,229 + 91 + 29). Conversations = messaging conversations started (224 WhatsApp + 16 Instagram).", screenshot: "/img/ads-sathyam.png" },
+    receipts: ["/img/ads-sathyam.png"],
+    image: "/img/ads-sathyam.png",
+    featured: true,
+    referredBy: "first",
   },
   {
     slug: "ram",
-    client: "Placeholder Textiles",
-    industry: "Textiles · Wholesale",
+    client: "Ram Textiles",
+    industry: "Textiles · Retail",
     location: "Tirupur",
-    year: "2026",
-    result: "+162% leads",
-    headline: { value: 162, prefix: "+", suffix: "% leads" },
-    measured: { source: "Meta Ads Manager, year-on-year", window: "Placeholder · same 12-month window", counted: "Leads compared like-for-like against the previous year at the same spend.", screenshot: "/img/case-2.svg" },
-    before: "Flat enquiries for two seasons. Same budget, same creatives.",
-    after: "6,842 leads, up 162% year on year, on the same spend.",
-    quote: { text: "[Real client words go here.]", author: "Director, Placeholder Textiles", verified: false },
-    image: "/img/case-2.svg",
-    featured: true,
-    referredBy: "nova",
-    placeholder: true,
+    year: "2025–26",
+    result: "950K people reached for festival sales",
+    headline: { value: 950548, suffix: " reached" },
+    before: "Festival-season footfall depended on word of mouth and a hoarding.",
+    after: "Diwali and Aadi Sale awareness campaigns reached 950,548 people — 1.46M impressions — on ₹11,440. ₹12 for every thousand people reached.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Aug 2023 → Sep 2026", counted: "Reach = unique Meta accounts reached (477,456 Diwali + 525,781 Aadi Sale, de-duplicated total 950,548). Cost per 1,000 reached = spend ÷ reach × 1,000.", screenshot: "/img/ads-ram-textiles.png" },
+    receipts: ["/img/ads-ram-textiles.png"],
+    image: "/img/ads-ram-textiles.png",
+    referredBy: "sathyam",
   },
   {
     slug: "srr",
-    client: "Placeholder Retail",
-    industry: "Retail",
+    client: "Sri Raja Rajeswari Traders",
+    industry: "Retail · Trading",
     location: "Chennai",
     year: "2025",
-    result: "3.2X ROAS",
-    headline: { value: 3.2, suffix: "X ROAS", decimals: 1 },
-    measured: { source: "Meta Ads Manager + store revenue", window: "Placeholder · 90 days", counted: "Attributed revenue ÷ ad spend, 7-day click attribution.", screenshot: "/img/case-3.svg" },
-    before: "Ads running at break-even. No one could say which creative worked.",
-    after: "3.2X return on ad spend inside 90 days.",
-    image: "/img/case-3.svg",
-    featured: true,
-    referredBy: "first",
-    placeholder: true,
+    result: "323 leads at ₹37",
+    headline: { value: 323, suffix: " leads" },
+    before: "Walk-in dependent. Ads had never produced a trackable enquiry.",
+    after: "323 form leads at ₹37.15 on ₹12,000, plus a WhatsApp campaign at ₹13.71 per conversation.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Jun 2025 →", counted: "Lead = lead-form submission. WhatsApp campaign counted as messaging conversations started.", screenshot: "/img/ads-srr.png" },
+    receipts: ["/img/ads-srr.png"],
+    image: "/img/ads-srr.png",
+    referredBy: "ram",
   },
   {
-    slug: "uk",
-    client: "Placeholder Apparel — UK",
-    industry: "Fashion · International",
-    location: "London · Manchester · Leicester",
+    slug: "tharunis",
+    client: "Tharunis Jewellery",
+    industry: "Jewellery",
+    location: "Coimbatore",
     year: "2026",
-    result: "300+ UK leads in 30 days",
-    headline: { value: 300, suffix: "+ UK leads" },
-    measured: { source: "Meta Ads Manager (UK campaigns)", window: "Placeholder · first 30 days", counted: "Lead = lead form submission. Enquiries = DMs and site messages.", screenshot: "/img/case-4.svg" },
-    before: "An Indian brand with zero footprint in the UK market.",
-    after: "300+ leads and 412 enquiries across five UK cities in the first month.",
-    image: "/img/case-4.svg",
+    result: "321 conversations · 5,687 clicks at ₹0.39",
+    headline: { value: 321, suffix: " conversations" },
+    before: "A beautiful catalogue nobody was messaging about.",
+    after: "321 WhatsApp and Instagram conversations across five campaigns, and a jhumka video that drove 5,687 link clicks at ₹0.39 each — 156K people reached on ₹2,214.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Feb → Mar 2026", counted: "Conversations = messaging conversations started (WhatsApp / Instagram). Clicks = link clicks on the video campaign. Total spend across six campaigns: ₹8,471.", screenshot: "/img/ads-tharunis.png" },
+    receipts: ["/img/ads-tharunis.png"],
+    image: "/img/ads-tharunis.png",
     featured: true,
+    referredBy: "five-elements",
+  },
+  {
+    slug: "kalavridhi",
+    client: "Kalavridhi Arts",
+    industry: "Kids folk-art workshops",
+    location: "Tamil Nadu → US & Canada",
+    year: "2025–26",
+    result: "315 conversations · 1,815 profile visits at ₹1.23",
+    headline: { value: 315, suffix: " conversations" },
+    before: "Workshops filled by word of mouth only. No way to reach the Tamil and Telugu diaspora.",
+    after: "315 WhatsApp conversations for workshops at ₹13–20 each, 1,815 Instagram profile visits at ₹1.23, and a US + Canada summer-camp campaign reaching diaspora families.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Sep 2025 → Jun 2026", counted: "Conversations = messaging conversations started. Profile visits from the traffic campaign counted separately. US/CA campaign: 11 conversations at ₹455 on ₹5,000.", screenshot: "/img/ads-kalavridhi.png" },
+    receipts: ["/img/ads-kalavridhi.png"],
+    image: "/img/ads-kalavridhi.png",
     international: true,
-    referredBy: "ram",
-    placeholder: true,
+    referredBy: "tharunis",
+  },
+  {
+    slug: "angel",
+    client: "Angel Homemade Cakes",
+    industry: "Bakery · Home business",
+    location: "Chennai",
+    year: "2025",
+    result: "84 leads on ₹5,508",
+    headline: { value: 84, suffix: " leads" },
+    before: "A home bakery running on Instagram DMs and repeat customers.",
+    after: "84 order leads across three small campaigns at ₹47–77 each — proof the engine works at ₹200 a day.",
+    measured: { source: "Meta Ads Manager, lifetime view", window: "2025", counted: "Lead = lead-form submission (47) + Meta leads (37). Three campaigns, ₹200/day budgets, ₹5,508 total.", screenshot: "/img/ads-angel.png" },
+    receipts: ["/img/ads-angel.png"],
+    image: "/img/ads-angel.png",
+    referredBy: "kalavridhi",
   },
   {
     slug: "dsc",
-    client: "Placeholder Compliance Firm",
-    industry: "Professional services",
+    client: "A Chennai compliance practice",
+    industry: "Company secretary · Compliance",
     location: "Chennai",
     year: "2026",
-    result: "247 clients on autopilot",
-    headline: { value: 247, suffix: " clients on autopilot" },
-    measured: { source: "Automation dashboard (n8n)", window: "Placeholder · live", counted: "Clients tracked by the renewal-reminder system; renewed / upcoming / overdue from its log.", screenshot: "/img/case-5.svg" },
-    before: "Renewal deadlines tracked in a spreadsheet. Missed dates cost clients.",
-    after: "An automated reminder system tracking 247 clients — 77% renewed, 1% overdue.",
-    image: "/img/case-5.svg",
-    referredBy: "uk",
-    placeholder: true,
+    result: "Renewal reminders on autopilot",
+    headline: { value: 247, suffix: " clients tracked" },
+    before: "Digital-signature and trademark renewal dates tracked in a spreadsheet. Missed dates cost clients.",
+    after: "A scheduled system reads the client sheet, checks what's due, and emails reminders — nobody has to remember.",
+    measured: { source: "n8n workflow + client sheet", window: "Live since 2026", counted: "Clients tracked = rows in the renewal sheet the workflow scans. Renewed / upcoming / overdue from its own log. ⚠ 247 / 77% / 1% are from the client deck — confirm from the sheet before launch.", screenshot: "/img/auto-reminders.png" },
+    receipts: ["/img/auto-reminders.png"],
+    image: "/img/auto-reminders.png",
+    referredBy: "angel",
+    placeholder: true, // numbers await the sheet; the workflow screenshot is real
   },
-  {
-    slug: "jewel",
-    client: "Placeholder Jewellers",
-    industry: "Jewellery",
-    location: "Coimbatore",
-    year: "2025",
-    result: "2K → 5K followers, 0 → 4,500 enquiries",
-    headline: { value: 4500, suffix: " enquiries" },
-    measured: { source: "Instagram Insights + WhatsApp Business", window: "Placeholder · one quarter", counted: "Enquiries = WhatsApp messages tagged from Instagram.", screenshot: "/img/case-6.svg" },
-    before: "A beautiful catalogue nobody saw.",
-    after: "Followers up 2.5X and 4,500 enquiries in a quarter.",
-    image: "/img/case-6.svg",
-    referredBy: "dsc",
-    placeholder: true,
-  },
+];
+
+// ─── AUTOMATION GALLERY — real n8n builds (public/img/auto-*.png) ───
+export type Automation = { title: string; what: string; image: string };
+export const automations: Automation[] = [
+  { title: "AI receptionist for a dental clinic", what: "Voice agent → intent routing → Google Calendar booking, reschedule, cancel, or escalate to the front desk by SMS.", image: "/img/auto-dental-receptionist.png" },
+  { title: "Voice-order → invoice bot", what: "Telegram voice or text order → transcription → menu match → sales log → invoice PDF generated and sent back.", image: "/img/auto-order-invoice-bot.png" },
+  { title: "Inventory reorder agent", what: "Sales webhook → Supabase stock update → AI agent decides reorders → approval by email before anything is placed.", image: "/img/auto-inventory-agent.png" },
+  { title: "Renewal reminder system", what: "Scheduled scan of a client sheet → due-date logic → Gmail reminders. The compliance case above.", image: "/img/auto-reminders.png" },
+  { title: "Receipt & card OCR intake", what: "Photo on Telegram → OpenAI Vision → confidence check → duplicate check → Google Sheets.", image: "/img/auto-receipt-ocr.png" },
+  { title: "Knowledge agent with RAG", what: "Drive folder → Pinecone embeddings → Telegram agent that answers from your documents and the web.", image: "/img/auto-rag-agent.png" },
+  { title: "Event registration codes", what: "Form webhook → unique code → sheet → confirmation email → team notified on Telegram.", image: "/img/auto-event-codes.png" },
+  { title: "Expense bot with weekly roast", what: "Log an expense by message; every Sunday it aggregates the week and tells you the truth.", image: "/img/auto-expense-bot.png" },
+  { title: "Content pipeline", what: "Sheet rows → fetch → files → two OpenAI passes → rendered output, end to end.", image: "/img/auto-content-pipeline.png" },
 ];
 
 export const externalProof = {

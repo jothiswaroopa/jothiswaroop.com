@@ -26,7 +26,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         </h1>
         <p className="mono mt-4 text-sm text-paper/65">{c.industry} · {c.location} · {c.year}</p>
 
-        <div className="relative mt-14 aspect-[16/8] overflow-hidden rounded-2xl bg-ink-2"><Image src={c.image} alt={c.client} fill className="duotone object-cover" sizes="100vw" priority /></div>
+        <div className="bezel mt-14"><div className="bezel-core relative aspect-[16/8]"><Image src={c.image} alt={`Ads Manager — ${c.client}`} fill className="object-cover object-left-top" sizes="100vw" priority /></div></div>
 
         <div className="mt-16 grid gap-12 md:grid-cols-2">
           <div><p className="label !text-strike">Before</p><p className="mt-4 text-xl text-paper/80">{c.before}</p></div>
@@ -46,10 +46,16 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
               {c.measured.screenshot && (
                 <div className="bezel"><div className="bezel-core relative aspect-[16/10]">
                   <Image src={c.measured.screenshot} alt={`Screenshot — ${c.measured.source}`} fill className="object-cover" sizes="(min-width:768px) 50vw, 100vw" />
-                  {c.placeholder && <span className="label absolute bottom-3 right-3 rounded bg-ink/80 px-2 py-1 !text-strike">placeholder screenshot</span>}
                 </div></div>
               )}
             </div>
+            {c.receipts && c.receipts.length > 1 && (
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                {c.receipts.slice(1).map((src) => (
+                  <div key={src} className="bezel"><div className="bezel-core relative aspect-[16/9]"><Image src={src} alt={`Ads Manager — ${c.client}`} fill className="object-cover object-left-top" sizes="50vw" /></div></div>
+                ))}
+              </div>
+            )}
           </section>
         )}
 

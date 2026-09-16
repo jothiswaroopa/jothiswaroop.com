@@ -34,9 +34,9 @@ function Block({ m, i }: { m: Move; i: number }) {
         <div className="bezel">
          <div className="bezel-core relative aspect-[16/10]">
           <motion.div style={{ y }} className="absolute inset-[-8%]">
-            <Image src={m.artefact} alt={`${m.title} — real artefact`} fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover" />
+            <Image src={m.artefact} alt={m.artefactCaption ?? `${m.title} — artefact`} fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover object-left-top" />
           </motion.div>
-          {m.placeholder && <span className="label absolute bottom-3 right-3 rounded bg-ink/80 px-2 py-1 !text-strike">placeholder artefact</span>}
+          {m.artefactCaption && <span className="label absolute bottom-3 left-3 rounded bg-ink/85 px-2 py-1 !text-paper/85">{m.artefactCaption}</span>}
          </div>
         </div>
       </article>

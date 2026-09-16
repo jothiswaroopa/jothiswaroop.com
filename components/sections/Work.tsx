@@ -7,7 +7,7 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motio
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import Button from "@/components/Button";
-import { cases, externalProof } from "@/lib/content";
+import { cases, externalProof, automations } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -36,7 +36,7 @@ export default function Work() {
               <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-paper/20">
                <div className="bezel-core">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image src={c.image} alt={c.client} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.04]" />
+                  <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover object-left-top transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.03]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-3 via-ink-3/30 to-transparent" />
                   <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-4">
                     <p className={`num text-signal ${c.result.length > 14 ? "text-[clamp(1.25rem,2vw,1.75rem)]" : "text-[clamp(1.75rem,3vw,2.75rem)]"}`}>{c.result}</p>
@@ -63,19 +63,38 @@ export default function Work() {
           ))}
         </div>
 
-        {/* Raw proof strip */}
+        {/* Raw receipts — the actual Ads Manager screens, account IDs cropped */}
         <Reveal className="mt-16">
-          <p className="label">// RAW RECEIPTS</p>
+          <p className="label">// RAW RECEIPTS · META ADS MANAGER</p>
           <div className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [touch-action:pan-x_pan-y]" data-lenis-prevent>
-            {cases.map((c) => (
-              <div key={c.slug} className="bezel relative w-[280px] shrink-0 snap-start !p-1 !rounded-xl"><div className="bezel-core relative aspect-[4/3] !rounded-lg">
-                <Image src={c.image} alt={`Screenshot — ${c.client}`} fill sizes="280px" className="object-cover opacity-80" />
-                <span className="label absolute bottom-2 left-2 rounded bg-ink/80 px-2 py-1 !text-paper/80">{c.placeholder ? "placeholder screenshot" : c.client}</span>
-              </div></div>
-            ))}
+            {cases.flatMap((c) => (c.receipts ?? []).map((src, i) => (
+              <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[360px] shrink-0 snap-start !rounded-xl !p-1"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
+                <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="360px" className="object-cover object-left-top" />
+                <span className="label absolute bottom-2 left-2 rounded bg-ink/85 px-2 py-1 !text-paper/85">{c.client}{i > 0 ? ` · ${i + 1}` : ""}</span>
+              </div></Link>
+            )))}
           </div>
         </Reveal>
 
+        {/* Systems — the automation half of the positioning, with the actual builds */}
+        <Reveal className="mt-16">
+          <p className="label">// SYSTEMS I&apos;VE BUILT · n8n</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {automations.map((a) => (
+              <div key={a.image} className="bezel">
+                <div className="bezel-core">
+                  <div className="relative aspect-[16/9]">
+                    <Image src={a.image} alt={a.title} fill sizes="(min-width:1024px) 30vw, (min-width:640px) 50vw, 100vw" className="object-cover object-left" />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-paper">{a.title}</p>
+                    <p className="mt-1 text-sm text-paper/70">{a.what}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
         {/* External proof */}
         {/* Proof I don't host — only rendered when real links exist. A dead link is worse than no link. */}
         {Object.values(externalProof).some((p) => p.href) && (
@@ -119,7 +138,7 @@ export default function Work() {
                 exit={{ opacity: 0, scale: 0.97, transition: { duration: 0.2 } }}
                 transition={{ duration: 0.3, ease: EASE }}
               >
-                <Image src={active.image} alt="" fill sizes="300px" className="object-cover" />
+                <Image src={active.image} alt="" fill sizes="300px" className="object-cover object-left-top" />
               </motion.div>
             )}
           </AnimatePresence>
