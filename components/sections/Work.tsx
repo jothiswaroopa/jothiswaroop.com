@@ -26,6 +26,19 @@ export default function Work() {
         {/* Featured 4 — Before → After; international first for visitors outside India */}
         <FeaturedGrid cases={featured} />
 
+        {/* Raw receipts — every Ads Manager screen, big enough to read, swipe sideways */}
+        <Reveal className="mt-12">
+          <p className="label">// RAW RECEIPTS · EVERY AD ACCOUNT</p>
+          <div className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [touch-action:pan-x_pan-y] [&::-webkit-scrollbar]:hidden" data-lenis-prevent>
+            {live.flatMap((c) => (c.receipts ?? []).map((src, i) => (
+              <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
+                <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:640px) 520px, 86vw" className="object-cover object-left-top" />
+                <span className="label absolute bottom-2 left-2 rounded bg-ink/85 px-2 py-1 !text-paper/85">{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
+              </div></Link>
+            )))}
+          </div>
+        </Reveal>
+
         <Showreel />
         <CreativeGallery />
 
@@ -70,23 +83,17 @@ export default function Work() {
           </Reveal>
         )}
 
-        {/* The rest — one row each with its own Ads Manager receipt. Every account on the page, nothing repeated. */}
+        {/* The rest — one row each */}
         <Reveal className="mt-14">
-          <p className="label">// AND — EVERY OTHER ACCOUNT</p>
+          <p className="label">// AND</p>
           <ul className="mt-4 border-t hairline">
             {rest.map((c) => (
               <li key={c.slug}>
-                <Link href={`/work/${c.slug}`} className="group grid grid-cols-[112px_1fr] items-center gap-4 border-b hairline py-4 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[160px_2fr_1.6fr_1.4fr_auto] md:gap-6 md:px-3">
-                  <span className="bezel block !rounded-lg !p-0.5"><span className="bezel-core relative block aspect-[16/9] !rounded-md">
-                    <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="160px" className="object-cover object-left-top" />
-                  </span></span>
-                  <span className="min-w-0">
-                    <span className="display block text-xl text-paper transition-transform duration-300 ease-out-expo group-hover:translate-x-1 md:text-2xl">{c.client}</span>
-                    <span className="mt-0.5 block text-sm text-paper/70 md:hidden">{c.result}</span>
-                  </span>
-                  <span className="hidden text-sm text-paper/70 md:block">{c.industry} · {c.location}</span>
-                  <span className="mono hidden text-sm text-signal md:block">{c.result}</span>
-                  <span className="label hidden md:block md:text-right">{c.year}</span>
+                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
+                  <span className="display text-2xl text-paper transition-transform duration-300 ease-out-expo group-hover:translate-x-2">{c.client}</span>
+                  <span className="text-sm text-paper/70">{c.industry} · {c.location}</span>
+                  <span className="mono text-sm text-signal">{c.result}</span>
+                  <span className="label md:text-right">{c.year}</span>
                 </Link>
               </li>
             ))}
