@@ -1,3 +1,4 @@
+import BackLink from "@/components/BackLink";
 import { notes } from "@/lib/content";
 
 export const metadata = { title: "Notes — Jothi Swaroop" };
@@ -6,6 +7,7 @@ export default function NotesPage() {
   return (
     <section className="min-h-[100svh] pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
+        <BackLink className="mb-8" />
         <p className="label">{notes.label}</p>
         <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)]">Thinking in public.</h1>
         <p className="mt-6 max-w-lg text-paper/75">{notes.optin}</p>

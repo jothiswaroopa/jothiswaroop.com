@@ -1,3 +1,4 @@
+import BackLink from "@/components/BackLink";
 import Image from "next/image";
 import Button from "@/components/Button";
 import { site, who, recognition } from "@/lib/content";
@@ -21,7 +22,8 @@ export default function AboutPage() {
           <div className="bezel"><div className="bezel-core relative aspect-[3/2]"><Image src={who.portrait} alt="Award ceremony, TN Digital Summit 2026" fill className="object-cover [filter:saturate(0.85)]" sizes="40vw" /><p className="label absolute bottom-3 left-3 !text-paper/80">TN Digital Summit 2026</p></div></div>
         </div>
         <div>
-          <p className="label">// THE FULL STORY</p>
+          <BackLink className="mb-8" />
+        <p className="label">// THE FULL STORY</p>
           <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)]">{site.name}</h1>
           <p className="mt-4 text-paper/75">{who.role}</p>
           <ol className="mt-14 border-l hairline">
@@ -50,7 +52,7 @@ export default function AboutPage() {
               ))}
             </div>
           </section>
-          <div className="mt-14 flex flex-wrap gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button></div>
+          <div className="mt-14 flex flex-wrap items-center gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button><BackLink className="ml-2" /></div>
         </div>
       </div>
     </section>

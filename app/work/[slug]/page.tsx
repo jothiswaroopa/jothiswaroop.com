@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Button from "@/components/Button";
+import BackLink from "@/components/BackLink";
 import Counter from "@/components/motion/Counter";
 import { cases, chain } from "@/lib/content";
 
@@ -21,7 +22,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   return (
     <article className="pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
-        <Link href="/#work" className="label hover:text-paper">← All work</Link>
+        <BackLink label="All work" fallback="/#work" />
         <p className="mt-10 text-paper/72">{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</p>
         <h1 className="num mt-4 text-[clamp(2.5rem,8vw,8rem)] text-signal">
           <Counter value={h.value} prefix={h.prefix} suffix={h.suffix} decimals={h.decimals} />
