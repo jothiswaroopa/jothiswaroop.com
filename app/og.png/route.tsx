@@ -38,11 +38,11 @@ export async function GET() {
             {`// ${site.role.toUpperCase()} · ${site.base.toUpperCase()}`}
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            {hero.headline.map((l, i) => (
+            {hero.headline.map((raw, i) => { const l = raw.replace(/[*_]/g, ""); return (
               <div key={i} style={{ display: "flex", fontFamily: serif ? "Instrument Serif" : "serif", fontSize: 76, lineHeight: 0.98, letterSpacing: -2, color: i === 0 ? "#ffb020" : "#f2ede4" }}>
                 {l}
               </div>
-            ))}
+            ); })}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div style={{ width: 10, height: 10, borderRadius: 999, background: "#ffb020" }} />

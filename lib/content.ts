@@ -25,7 +25,8 @@ export const site = {
 export const hero = {
   eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA · UK · US",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
-  headline: ["4,248 leads for one client.", "Every client I\u00a0have\u00a0came\u00a0from the last one."], // NBSPs: "I have came from" never splits across lines
+  headline: ["*4,248\u00a0leads* for one client.", "Every client I\u00a0have\u00a0came\u00a0from _the\u00a0last\u00a0one._"],
+  // *…* = amber (the proof number) · _…_ = italic (the payoff) · NBSPs keep each marked phrase on one line
   // A/B alt (kept for testing): "Zero cold pitches for me."
   sub: "I watched agencies sell reports. I decided to sell customers. Now I build lead engines and the automation that follows up — for founders who are done waiting.",
   ctaPrimary: { label: "Apply to work with me", href: "/apply" },
