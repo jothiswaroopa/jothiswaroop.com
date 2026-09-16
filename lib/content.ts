@@ -384,9 +384,14 @@ export const filter = {
 
 // ─── VIDEO TESTIMONIALS — clients on camera. YouTube Unlisted; poster + tap to play.
 // Add one entry per video. Section renders only when this array has entries; case pages pick up theirs by caseSlug.
-export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote: string; caseSlug?: string; language?: string; vertical?: boolean };
+// `quote` = a sentence they actually say (send it and it replaces `context`). `context` = factual line shown until then. Never invent a quote.
+export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote?: string; context: string; caseSlug?: string; language?: string; vertical?: boolean };
 export const videoTestimonials: VideoTestimonial[] = [
-  // { youtubeId: "…", name: "…", business: "Nova Attire", quote: "…", caseSlug: "nova", language: "Tamil · English subtitles", vertical: true },
+  { youtubeId: "A1BGfc9Uxqg", name: "Sathyam Labels", business: "Garment label manufacturer · Tirupur", context: "The first client. 1,589 leads since.", caseSlug: "sathyam", vertical: true },
+  { youtubeId: "PDhEzmseFkE", name: "Nova Attire", business: "Apparel manufacturer · Tirupur", context: "4,248 wholesale buyer leads at ₹16.58.", caseSlug: "nova", vertical: true },
+  { youtubeId: "ezCbWV8w2Cs", name: "Cynosure Architects", business: "Architecture practice · Chennai", context: "On working with Jothi.", vertical: true },
+  { youtubeId: "xsOodldPC9s", name: "VROOM 2026", business: "Vysya Rally of Our Madras · organising team", context: "On Be The Brand as Official Digital Partner.", vertical: true },
+  { youtubeId: "_-ZU5bM_iAs", name: "BSHIP Chennai Tycoons", business: "VROOM 2026 · host network", context: "On the digital partnership for VROOM 2026.", vertical: true },
 ];
 
 // ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time.

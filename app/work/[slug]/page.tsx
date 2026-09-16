@@ -68,7 +68,11 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <section className="mt-16">
             <p className="label">// {video.name.toUpperCase()}, ON CAMERA</p>
             <div className={`bezel mt-5 ${video.vertical ? "max-w-sm" : "max-w-3xl"}`}><div className="bezel-core"><VideoTile youtubeId={video.youtubeId} title={`${video.name}, ${video.business}`} vertical={video.vertical} /></div></div>
-            <blockquote className="display mt-6 max-w-2xl text-2xl italic text-paper/90 md:text-3xl">&ldquo;{video.quote}&rdquo;</blockquote>
+            {video.quote ? (
+              <blockquote className="display mt-6 max-w-2xl text-2xl italic text-paper/90 md:text-3xl">&ldquo;{video.quote}&rdquo;</blockquote>
+            ) : (
+              <p className="mt-6 max-w-2xl text-paper/80">{video.context}</p>
+            )}
             <p className="mt-3 text-sm text-paper/65">— {video.name}, {video.business}</p>
           </section>
         )}
