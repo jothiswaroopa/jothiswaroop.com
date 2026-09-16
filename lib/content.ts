@@ -25,7 +25,8 @@ export const site = {
 export const hero = {
   eyebrow: "// FOR FOUNDER-LED BRANDS · INDIA & INTERNATIONAL",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
-  headline: ["3,222 leads for one client.", "Zero cold pitches for me."],
+  headline: ["3,222 leads for one client.", "Every client I have came from the last one."],
+  // A/B alt (kept for testing): "Zero cold pitches for me."
   sub: "I watched agencies sell reports. I decided to sell customers. Now I build lead engines and the automation that follows up — for founders who are done waiting.",
   ctaPrimary: { label: "Apply to work with me", href: "/apply" },
   ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
@@ -52,17 +53,18 @@ export const receipts: Receipt[] = [
   { value: 247, label: "clients on autopilot · AI system", caseSlug: "dsc", placeholder: true },
 ];
 
+// Only cities and niches that have a case study behind them. Add here only when you add a case.
 export const marquee = [
-  "Chennai", "London", "Tirupur", "Manchester", "Coimbatore", "Leicester", "Fashion D2C",
-  "Textiles", "Jewellery", "Compliance", "F&B", "Education", "Salons", "Automotive",
+  "Chennai", "London", "Tirupur", "Manchester", "Coimbatore", "Leicester",
+  "Fashion D2C", "Textiles", "Retail", "Jewellery", "Compliance",
 ];
 
 export const who = {
-  role: "Founder-led growth operator. One person, no account managers.",
+  role: "I run the marketing myself. One person, no account managers.",
   lines: [
-    "Left a salaried equity-advisory job with no safety net to do this full-time.",
+    "MBA in finance and marketing. I read your numbers before I touch your ads.",
     "Recognised at Tamil Nadu Digital Summit 2026 — award presented by CK Kumaravel, founder of Naturals.",
-    "I don't chase clients. Every founder I work with was introduced by a founder I work with.",
+    "Every number on this page links to how it was measured. If I can't prove it, it isn't here.",
   ],
   portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
   portraitPosition: "42% 35%", // keep Jothi + trophy in frame when cropped to 4:5
@@ -105,7 +107,7 @@ export const method: Move[] = [
     what: "Creatives, campaigns, landing flow and the follow-up automation — built as one system, not four vendors.",
     gets: "A live engine you can watch in a dashboard.",
     duration: "Days 8–30",
-    need: "Product truth. Approvals within 24 hours.",
+    need: "The real story on your product — what sells, what doesn't. A yes or no on approvals within a day.",
     artefact: "/img/artefact-build.svg",
     placeholder: true,
   },
@@ -245,14 +247,15 @@ export const filter = {
     "You want the cheapest option.",
     "You want likes and followers as the goal.",
     "You need results by Friday with no budget.",
-    "You want to approve every word before it ships.",
+    "You'll judge it in week one. Engines need 30 days.",
   ],
 };
 
 export const faq = [
   {
     q: "What if it doesn't work?",
-    a: "Then I haven't found the bottleneck yet, and finding it is the job. You get a weekly number, not a monthly excuse — and we cut what isn't working the week it stops working.",
+    // ⚠ APPROVE BEFORE LAUNCH — this is a commitment, not copy: 30-day checkpoint, no lock-in.
+    a: "Every engagement has a 30-day checkpoint. If the weekly number isn't moving by day 30, I show you exactly what I tried and what I'd change — and you decide whether we continue. No notice period, no lock-in. I don't hold anyone to a contract that isn't working.",
   },
   {
     q: "Why you and not an agency?",
@@ -278,7 +281,7 @@ export const apply = {
     { key: "broken", q: "What's broken right now?", type: "text", placeholder: "One line. Be blunt." },
     { key: "budget", q: "Budget you're ready to commit monthly", type: "chips", options: ["Not yet — send me the audit", "₹30–60K / $800–1.5K", "₹60K+ / $1.5K+"] },
   ],
-  followup: "You'll hear from me within the hour · IST · English / Tamil · international calls in your timezone",
+  followup: "Instant WhatsApp confirmation · a personal reply the same day · IST · English / Tamil · international calls in your timezone",
 };
 
 export const audit = {

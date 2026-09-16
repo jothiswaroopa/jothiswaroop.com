@@ -77,14 +77,17 @@ export default function Work() {
         </Reveal>
 
         {/* External proof */}
-        <Reveal className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-y hairline py-5">
-          <p className="label">// PROOF I DON'T HOST</p>
-          {Object.values(externalProof).map((p) => (
-            <a key={p.label} href={p.href || "#"} className="underline-slide text-sm text-paper/80 hover:text-paper" target={p.href ? "_blank" : undefined} rel="noreferrer">
-              {p.label}{p.count ? ` · ${p.count}` : ""} →
-            </a>
-          ))}
-        </Reveal>
+        {/* Proof I don't host — only rendered when real links exist. A dead link is worse than no link. */}
+        {Object.values(externalProof).some((p) => p.href) && (
+          <Reveal className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-y hairline py-5">
+            <p className="label">// PROOF I DON'T HOST</p>
+            {Object.values(externalProof).filter((p) => p.href).map((p) => (
+              <a key={p.label} href={p.href} className="underline-slide text-sm text-paper/80 hover:text-paper" target="_blank" rel="noreferrer">
+                {p.label}{p.count ? ` · ${p.count}` : ""} →
+              </a>
+            ))}
+          </Reveal>
+        )}
 
         {/* Full list — hover swaps a floating image that follows the cursor */}
         <div

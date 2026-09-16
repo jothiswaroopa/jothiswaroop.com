@@ -14,9 +14,9 @@ export default function Notes() {
           </div>
           <Reveal delay={0.1}><Link href="/notes" className="underline-slide text-sm text-paper/80 hover:text-paper">Read all →</Link></Reveal>
         </div>
-        {notes.posts.length > 0 && (
+        {notes.posts.some((p) => !p.placeholder) && (
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {notes.posts.map((p, i) => (
+            {notes.posts.filter((p) => !p.placeholder).map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
                 <a href={p.href} className="group bezel press block h-full transition-colors duration-300 hover:border-paper/20">
                  <div className="bezel-core h-full p-6">
