@@ -5,7 +5,7 @@ import { notes } from "@/lib/content";
 
 export default function Notes() {
   return (
-    <section id="notes" className="bg-ink">
+    <section id="notes" className="card-over relative bg-ink">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>

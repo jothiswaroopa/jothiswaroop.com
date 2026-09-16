@@ -14,7 +14,7 @@ const timeline = [
 
 export default function AboutPage() {
   return (
-    <section className="pt-[96px]">
+    <section className="theme-paper min-h-[100svh] pt-[96px]">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-5 py-16 md:grid-cols-[2fr_3fr] md:px-10 md:py-24">
         <div className="flex flex-col gap-4">
           <div className="bezel"><div className="bezel-core relative aspect-[4/5]"><div className="duotone absolute inset-0"><Image src="/img/portrait-hero.jpg" alt={site.name} fill className="object-cover" sizes="40vw" priority /></div></div></div>

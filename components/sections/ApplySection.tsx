@@ -5,7 +5,7 @@ import { apply } from "@/lib/content";
 
 export default function ApplySection() {
   return (
-    <section id="apply" className="card-over relative bg-ink-2">
+    <section id="apply" className="theme-paper card-over relative">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <div>

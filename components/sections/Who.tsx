@@ -14,7 +14,7 @@ export default function Who() {
   const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <section className="bg-ink">
+    <section className="theme-paper card-over relative">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[2fr_3fr] md:px-10 md:py-28 md:gap-16">
         <div ref={ref} className="bezel">
           <div className="bezel-core relative aspect-[4/5]">

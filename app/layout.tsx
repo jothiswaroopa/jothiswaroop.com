@@ -5,6 +5,7 @@ import SmoothScroll from "@/components/motion/SmoothScroll";
 import Preloader from "@/components/motion/Preloader";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ThemeSwitch from "@/components/ThemeSwitch";
 import { site } from "@/lib/content";
 
 const display = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
@@ -36,7 +37,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="grain">
         <SmoothScroll />
         <Preloader name={site.name} />
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Nav />
+        <ThemeSwitch />
         <main id="main">{children}</main>
         <Footer />
       </body>
