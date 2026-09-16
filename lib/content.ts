@@ -81,7 +81,7 @@ export const recognition: Recognition[] = [
 export const who = {
   role: "I run the marketing myself. One person, no account managers.",
   lines: [
-    "MBA in finance and marketing. I read your numbers before I touch your ads.",
+    "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
     "Recognised twice in 2026: an award at Tamil Nadu Digital Summit, and Official Digital Partner of VROOM 2026.",
     "Every number on this page links to how it was measured. If I can't prove it, it isn't here.",
   ],
@@ -326,6 +326,17 @@ export type Video = { title: string; client: string; kind: "AI video" | "AI comm
 export const videos: Video[] = [
   { title: "VROOM 2026 sponsor film", client: "Vysya Rally of Our Madras · Chennai Tycoons", kind: "AI video", youtubeId: "yiw8Qmsx7rA" },
   { title: "House of Vummudi — jewellery commercial", client: "VBC Jewellery", kind: "AI commercial", youtubeId: "8CF9gKUf3VY", vertical: true },
+];
+
+// ─── CREATIVE & DECKS — the actual ads that ran, and decks put in front of investors / media.
+// Files: public/img/creative-NN.jpg, public/img/deck-<name>-NN.jpg. Sections render only when populated.
+export type Creative = { src: string; client: string; caseSlug?: string; note?: string };
+export const creatives: Creative[] = [
+  // { src: "/img/creative-01.jpg", client: "Nova Attire", caseSlug: "nova", note: "The lead-form ad behind 1,913 leads at ₹11.75" },
+];
+export type Deck = { title: string; client: string; audience: string; outcome?: string; slides: string[]; link?: string };
+export const decks: Deck[] = [
+  // { title: "VROOM 2026 sponsorship deck", client: "Chennai Tycoons", audience: "Presented to corporate sponsors", outcome: "…", slides: ["/img/deck-vroom-01.jpg", "/img/deck-vroom-02.jpg"] },
 ];
 
 // ─── AUTOMATION GALLERY — real n8n builds (public/img/auto-*.png) ───
