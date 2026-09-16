@@ -139,10 +139,13 @@ body {
 h1, h2, h3, .display {
   font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
+  font-optical-sizing: auto;
   letter-spacing: -0.02em;
   line-height: 0.95;
   text-wrap: balance;
 }
+/* tracking is size-specific: the bigger the type, the tighter it wants to be */
+.tracking-display { letter-spacing: -0.035em; line-height: 0.92; }
 
 .mono {
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -196,6 +199,22 @@ h1, h2, h3, .display {
 }
 
 .hairline { border-color: var(--line); }
+
+/* translucent material: blur + saturate keeps colour alive underneath; bright top edge = light catching glass */
+.glass {
+  background: rgba(10, 10, 12, 0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: inset 0 1px 0 rgba(242, 237, 228, 0.07), 0 20px 60px -30px rgba(0, 0, 0, 0.9);
+}
+/* where content meets floating chrome: a soft edge, not a 1px divider */
+.scroll-edge-top::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -28px; height: 28px;
+  background: linear-gradient(to top, rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0));
+  pointer-events: none;
+}
 
 .duotone {
   filter: grayscale(1) contrast(1.15) brightness(0.9);
@@ -301,13 +320,28 @@ h1, h2, h3, .display {
   color: transparent;
 }
 
-/* reduced motion: everything visible, nothing moves */
+/* reduced motion means gentler, not none: keep opacity/colour, drop travel and parallax */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-property: opacity, color, background-color, border-color !important;
+    transition-duration: 200ms !important;
   }
   .grain::before { animation: none; }
+  .marquee-track { animation: none; }
   .rv { opacity: 1; transform: none; filter: none; }
+  .mask-line > * { transform: none !important; }
+}
+/* frosted glass goes solid when the user asks for less transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .glass, .glass-strong {
+    background: var(--ink-2);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .glass, .glass-strong, .bezel { border-color: rgba(242, 237, 228, 0.35); }
+  .label { color: var(--paper-70); }
 }

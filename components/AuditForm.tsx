@@ -5,6 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { audit, site } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+// Spatial consistency: forward enters from the right and leaves left; back mirrors it exactly.
+const stepVariants = {
+  enter: (d: number) => ({ opacity: 0, x: 24 * d, filter: "blur(4px)" }),
+  center: { opacity: 1, x: 0, filter: "blur(0px)" },
+  exit: (d: number) => ({ opacity: 0, x: -24 * d, filter: "blur(4px)", transition: { duration: 0.2, ease: EASE } }),
+};
 
 /** Scores each answer 0–2; higher = bigger bottleneck. Instant diagnosis, then email capture. */
 const SCORE: Record<string, Record<string, number>> = {
@@ -21,6 +27,7 @@ const NAMES: Record<string, string> = { source: "Acquisition", ads: "Paid reach"
 
 export default function AuditForm() {
   const [step, setStep] = useState(0);
+  const [dir, setDir] = useState(1); // +1 forward, -1 back — enter/exit share the same axis and direction
   const [a, setA] = useState<Record<string, string>>({});
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
@@ -39,17 +46,17 @@ export default function AuditForm() {
         <span className="mono text-xs text-paper/50">{String(Math.min(step + 1, qs.length)).padStart(2, "0")} / {String(qs.length).padStart(2, "0")}</span>
         <div className="h-px flex-1 bg-line"><motion.div className="h-full bg-signal" animate={{ width: `${(Math.min(step, qs.length) / qs.length) * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" custom={dir}>
         {!done ? (
-          <motion.div key={step} initial={{ opacity: 0, x: 24, filter: "blur(4px)" }} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={{ opacity: 0, x: -24, filter: "blur(4px)", transition: { duration: 0.2 } }} transition={{ duration: 0.4, ease: EASE }}>
+          <motion.div key={step} custom={dir} variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">{cur.q}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {cur.options.map((o) => (
-                <button key={o} onClick={() => { setA({ ...a, [cur.key]: o }); setTimeout(() => setStep(step + 1), 220); }}
+                <button key={o} onClick={() => { setA({ ...a, [cur.key]: o }); setTimeout(() => { setDir(1); setStep(step + 1); }, 220); }}
                   className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/80 hover:border-paper"}`}>{o}</button>
               ))}
             </div>
-            {step > 0 && <button onClick={() => setStep(step - 1)} className="mt-8 text-sm text-paper/50 hover:text-paper">← Back</button>}
+            {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="mt-8 text-sm text-paper/50 hover:text-paper">← Back</button>}
           </motion.div>
         ) : !sent ? (
           <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>

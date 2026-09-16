@@ -49,7 +49,7 @@ export default function Nav() {
           hidden ? "-translate-y-[130%]" : "translate-y-0"
         )}
       >
-        <div className="flex w-full max-w-[1200px] items-center justify-between gap-6 rounded-full border border-paper/10 bg-ink/60 py-2 pl-5 pr-2 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(242,237,228,0.06)] backdrop-blur-xl">
+        <div className="glass flex w-full max-w-[1200px] items-center justify-between gap-6 rounded-full border border-paper/10 py-2 pl-5 pr-2">
           <Link href="/" className="display text-xl tracking-tight text-paper" onClick={() => setOpen(false)}>
             {site.name}
           </Link>
@@ -84,11 +84,12 @@ export default function Nav() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col justify-end bg-ink/85 px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-28 backdrop-blur-2xl md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: EASE }}
+            className="glass-strong fixed inset-0 z-40 flex flex-col justify-end bg-ink/85 px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-28 md:hidden"
+            style={{ transformOrigin: "top right" }}
+            initial={{ opacity: 0, scale: 0.98, backdropFilter: "blur(0px) saturate(100%)" }}
+            animate={{ opacity: 1, scale: 1, backdropFilter: "blur(24px) saturate(160%)" }}
+            exit={{ opacity: 0, scale: 0.98, backdropFilter: "blur(0px) saturate(100%)", transition: { duration: 0.25, ease: EASE } }}
+            transition={{ duration: 0.45, ease: EASE }}
           >
             <nav className="flex flex-col gap-2">
               {links.map((l, i) => (
@@ -124,7 +125,7 @@ export default function Nav() {
       {/* Mobile sticky bar — both exits, appears after hero */}
       <div
         className={clsx(
-          "fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t border-paper/10 bg-ink/85 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-xl transition-transform duration-500 ease-out-expo md:hidden",
+          "glass scroll-edge-top fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-expo md:hidden",
           pastHero && !open ? "translate-y-0" : "translate-y-full"
         )}
       >

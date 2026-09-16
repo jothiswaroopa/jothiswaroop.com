@@ -51,7 +51,7 @@ export default function Hero() {
           </motion.p>
           <SplitText
             lines={hero.headline}
-            className="mt-6 text-[clamp(2.75rem,7vw,6.75rem)] text-paper"
+            className="tracking-display mt-6 text-[clamp(2.75rem,7vw,6.75rem)] text-paper"
             delay={0.2}
           />
           <motion.p
