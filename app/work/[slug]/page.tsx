@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import Button from "@/components/Button";
 import BackLink from "@/components/BackLink";
 import Counter from "@/components/motion/Counter";
-import { cases, chain } from "@/lib/content";
+import { cases, chain, videoTestimonials } from "@/lib/content";
+import VideoTile from "@/components/VideoTile";
 
 export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
@@ -17,6 +18,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const idx = chain.map((n) => n.slug).lastIndexOf(c.slug);
   const nextNode = idx >= 0 ? chain.slice(idx + 1).find((n) => n.slug !== c.slug) : undefined;
   const next = nextNode ? cases.find((x) => x.slug === nextNode.slug) : undefined;
+  const video = videoTestimonials.find((v) => v.caseSlug === c.slug);
   const h = c.headline;
 
   return (
@@ -62,7 +64,16 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </section>
         )}
 
-        {c.quote && (
+        {video && (
+          <section className="mt-16">
+            <p className="label">// {video.name.toUpperCase()}, ON CAMERA</p>
+            <div className={`bezel mt-5 ${video.vertical ? "max-w-sm" : "max-w-3xl"}`}><div className="bezel-core"><VideoTile youtubeId={video.youtubeId} title={`${video.name}, ${video.business}`} vertical={video.vertical} /></div></div>
+            <blockquote className="display mt-6 max-w-2xl text-2xl italic text-paper/90 md:text-3xl">&ldquo;{video.quote}&rdquo;</blockquote>
+            <p className="mt-3 text-sm text-paper/65">— {video.name}, {video.business}</p>
+          </section>
+        )}
+
+        {c.quote && !video && (
           <blockquote className="mt-16 border-l-2 border-signal pl-6">
             <p className="display text-2xl italic text-paper/90 md:text-4xl">“{c.quote.text}”</p>
             <p className="mt-4 text-sm text-paper/70">— {c.quote.author}{c.quote.verified ? "" : " · awaiting sign-off"}</p>

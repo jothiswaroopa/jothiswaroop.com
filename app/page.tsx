@@ -5,6 +5,7 @@ import Burn from "@/components/sections/Burn";
 import Method from "@/components/sections/Method";
 import Work from "@/components/sections/Work";
 import Chain from "@/components/sections/Chain";
+import Testimonials from "@/components/sections/Testimonials";
 import Filter from "@/components/sections/Filter";
 import Faq from "@/components/sections/Faq";
 import Accelerator from "@/components/sections/Accelerator";
@@ -20,6 +21,7 @@ export default function Home() {
       <Burn />
       <Method />
       <Work />
+      <Testimonials />
       <Chain />
       <Filter />
       <Accelerator />

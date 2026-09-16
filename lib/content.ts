@@ -382,6 +382,13 @@ export const filter = {
   ],
 };
 
+// ─── VIDEO TESTIMONIALS — clients on camera. YouTube Unlisted; poster + tap to play.
+// Add one entry per video. Section renders only when this array has entries; case pages pick up theirs by caseSlug.
+export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote: string; caseSlug?: string; language?: string; vertical?: boolean };
+export const videoTestimonials: VideoTestimonial[] = [
+  // { youtubeId: "…", name: "…", business: "Nova Attire", quote: "…", caseSlug: "nova", language: "Tamil · English subtitles", vertical: true },
+];
+
 // ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time.
 export const accelerator = {
   label: "// THE OTHER DOOR",
