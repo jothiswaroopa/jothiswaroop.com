@@ -3,9 +3,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { site, hero } from "@/lib/content";
 
-export const alt = `${site.name} — ${site.role}`;
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+// Served as a real .png so GitHub Pages sends image/png (an extensionless file would be octet-stream and social scrapers reject it).
+export const dynamic = "force-static";
+const size = { width: 1200, height: 630 };
 
 /** Fonts are vendored in assets/fonts so the OG image never depends on network at build time. */
 async function loadFont(file: string) {
@@ -18,7 +18,7 @@ async function loadFont(file: string) {
 }
 
 /** Shared-link card: portrait right, fact headline left, amber signal. Built at deploy time. */
-export default async function OG() {
+export async function GET() {
   const [portrait, serif, mono] = await Promise.all([
     readFile(join(process.cwd(), "public", "img", "portrait-hero.jpg")).then((b) => `data:image/jpeg;base64,${b.toString("base64")}`),
     loadFont("instrument-serif.woff"),

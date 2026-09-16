@@ -20,8 +20,10 @@ export const metadata: Metadata = {
     description: "3,222 leads for one client. Zero cold pitches for me. Founder-led growth operator, Chennai → worldwide.",
     type: "website",
     siteName: "Jothi Swaroop",
+    url: "/",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Jothi Swaroop — Performance marketing & AI systems" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = {
