@@ -92,7 +92,7 @@ export const who = {
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
     "Recognised three times in 2026: an award at Tamil Nadu Digital Summit, Official Digital Partner of VROOM 2026, and Prompt Engineering Champion at the Social Eagle AI prompt battle.",
-    "Every number on this page links to how it was measured. If I can't prove it, it isn't here.",
+    "Every ad number on this page links to how it was measured. Anything a client told me is marked as client-reported.",
   ],
   portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
   portraitPosition: "42% 35%", // keep Jothi + trophy in frame when cropped to 4:5
@@ -148,13 +148,13 @@ export const story = {
     {
       year: "Now",
       title: "Four founders a quarter. India, UK, US.",
-      body: "Paid media, creative, film, decks and automation — the full skill set of an agency, carried by one brain, so strategy and execution never drift apart. You get the person who built every result here, and the machines that keep following up while I sleep. If a number is on this site, it links to the screenshot it came from.",
+      body: "Paid media, creative, film, decks and automation — the full skill set of an agency, carried by one brain, so strategy and execution never drift apart. You get the person who built every result here, and the machines that keep following up while I sleep. Every ad number on this site links to the screenshot it came from; what clients report is marked as reported.",
     },
   ],
   objection: {
     label: "// WHY TRUST SOMEONE 8,000 KM AWAY",
     points: [
-      { k: "Proof, not promises", v: "Every figure on this site is read from Meta Ads Manager and shown with its screenshot. Click any number and see how it was counted." },
+      { k: "Proof, not promises", v: "Every ad figure on this site is read from Meta Ads Manager and shown with its screenshot. Client-reported results are labelled as exactly that." },
       { k: "Already done abroad", v: "A UK wholesale-buyer campaign for a manufacturer with zero presence there, and a US–Canada summer-camp campaign for a Tamil Nadu art mentorship reaching diaspora families — both on the Results page." },
       { k: "Your hours, your currency", v: "Calls in your timezone. Reporting in GBP or USD. WhatsApp replies inside the day, not inside the week." },
       { k: "Every skill, one brain", v: "An agency splits your growth across five departments and a junior joins the dots. Here the strategist, the media buyer, the creative and the automation engineer are the same mind — and I take four founders a quarter so that mind stays on your account." },
@@ -398,6 +398,16 @@ export const byTheNumbers = {
     { value: 1.36, suffix: "M+", decimals: 2, k: "people reached", v: "Across India, the UK, the US and Canada" },
     { value: 16.58, prefix: "₹", suffix: "", decimals: 2, k: "per wholesale buyer lead", v: "Under 25¢ — Nova Attire, 4,248 of them" },
   ],
+  // CLIENT-REPORTED — figures as told to Jothi by clients (B2B and D2C together), not read from Ads Manager.
+  // Published on Jothi's decision, 2026-09-17. Kept visually separate from screenshot numbers and labelled as reported.
+  reported: {
+    label: "// WHAT CLIENTS REPORT",
+    stats: [
+      { value: 65, suffix: "%", k: "average conversion", v: "Enquiries that became business — B2B orders and D2C purchases together, as reported by clients" },
+      { value: 1, prefix: "₹", suffix: " Cr+", k: "in client revenue", v: "Attributed to these campaigns across all clients, 2023–2026, as reported by clients" },
+    ],
+    source: "Client-reported figures, not from Ads Manager. Ad numbers above are screenshot-backed; these are what clients told me their results were.",
+  },
   after: {
     label: "// WHAT THE LEADS TURNED INTO",
     facts: [

@@ -71,6 +71,23 @@ export default function Work() {
           </dl>
         </Reveal>
 
+        {/* Client-reported — kept apart from the screenshot totals, on paper tone, with its source line */}
+        <Reveal className="mt-14 grid gap-8 border-t hairline pt-10 lg:grid-cols-[1fr_1.4fr]">
+          <div>
+            <p className="label"><Scramble text={n.reported.label} /></p>
+            <p className="mt-5 max-w-sm text-sm text-paper/60">{n.reported.source}</p>
+          </div>
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
+            {n.reported.stats.map((st) => (
+              <div key={st.k}>
+                <dd className="mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-paper"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} /></dd>
+                <dt className="mt-3 text-paper">{st.k}</dt>
+                <p className="mt-1 text-sm text-paper/65">{st.v}</p>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
         <Reveal className="mt-14">
           <p className="label"><Scramble text={n.after.label} /></p>
           <dl className="mt-6 grid gap-x-6 gap-y-6 sm:grid-cols-3">
