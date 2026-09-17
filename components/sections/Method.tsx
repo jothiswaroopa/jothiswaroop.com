@@ -14,7 +14,7 @@ function Block({ m, i }: { m: Move; i: number }) {
 
   return (
     <Reveal delay={i * 0.1}>
-      <article ref={ref} className="grid gap-5 border-t hairline py-7 md:grid-cols-[1fr_1.2fr] md:gap-14 md:py-16">
+      <article ref={ref} className="grid h-full gap-5 rounded-2xl border hairline p-5 md:rounded-none md:border-0 md:border-t md:p-0 md:grid-cols-[1fr_1.2fr] md:gap-14 md:py-16">
         <div>
           <p className="mono text-sm text-paper/60">{m.n}</p>
           <h3 className="mt-3 text-[clamp(2rem,4vw,3.5rem)]">{m.title}</h3>
@@ -31,13 +31,15 @@ function Block({ m, i }: { m: Move; i: number }) {
             </div>
           </dl>
         </div>
-        <div className="bezel">
-         <div className="bezel-core relative aspect-[2/1] md:aspect-[16/10]">
+        <div className="bezel order-first md:order-none">
+         <div className="bezel-core relative aspect-[16/10]">
           <motion.div style={{ y }} className="absolute inset-[-8%]">
             <Image src={m.artefact} alt={m.artefactCaption ?? `${m.title} — artefact`} fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover object-left-top" />
           </motion.div>
-          {m.artefactCaption && <span className="label absolute bottom-3 left-3 rounded bg-ink/85 px-2 py-1 !text-paper/85">{m.artefactCaption}</span>}
+          {m.artefactCaption && <span className="label absolute bottom-3 left-3 hidden rounded bg-ink/85 px-2 py-1 !text-paper/85 md:inline">{m.artefactCaption}</span>}
          </div>
+         {/* phones: caption sits under the image instead of covering it */}
+         {m.artefactCaption && <p className="label mt-2 truncate !normal-case !tracking-normal md:hidden">{m.artefactCaption}</p>}
         </div>
       </article>
     </Reveal>
@@ -51,7 +53,9 @@ export default function Method() {
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <p className="label"><Scramble text="// THE SYSTEM" /></p>
         <Reveal><h2 className="mt-6 max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)]">Three moves. One engine. A weekly number you can trust.</h2></Reveal>
-        <div className="mt-14">
+        {/* phones: the three moves become a swipe row (m-scroller is scoped to <768px); desktop stacks as before */}
+        <p className="label mt-8 flex items-center gap-2 md:hidden" aria-hidden><span className="!normal-case !tracking-normal">3 moves · swipe</span><span className="text-signal animate-[nudge_1.4s_ease-in-out_infinite]">→</span></p>
+        <div className="m-scroller mt-3 md:mt-14">
           {visible.map((m, i) => <Block key={m.n} m={m} i={i} />)}
         </div>
       </div>

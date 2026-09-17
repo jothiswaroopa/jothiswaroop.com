@@ -20,8 +20,16 @@ export default function Filter() {
             </ul>
           </div>
           <div>
-            <p className="label !text-strike">Not for</p>
-            <ul className="mt-6 space-y-5">
+            <details className="md:hidden">
+              <summary className="press label cursor-pointer list-none !text-strike">Not for ↓</summary>
+              <ul className="mt-6 space-y-5">
+                {filter.notList.map((l, i) => (
+                  <li key={i} className="flex gap-4 border-b hairline pb-4 text-base text-paper/70"><span className="mono text-xs text-strike mt-1.5">×</span>{l}</li>
+                ))}
+              </ul>
+            </details>
+            <p className="label hidden !text-strike md:block">Not for</p>
+            <ul className="mt-6 hidden space-y-5 md:block">
               {filter.notList.map((l, i) => (
                 <Reveal key={i} delay={0.1 + i * 0.08} y={16}>
                   <li className="flex gap-4 border-b hairline pb-4 text-base text-paper/70 md:pb-5 md:text-lg"><span className="mono text-xs text-strike mt-1.5">×</span>{l}</li>

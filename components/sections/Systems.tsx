@@ -49,11 +49,21 @@ export default function Systems() {
                 <h3 className="mt-3 text-2xl text-paper md:text-3xl">{hero.title}</h3>
                 <p className="mt-4 text-paper/80">{hero.what}</p>
                 {hero.flow && (
-                  <ol className="mt-6 space-y-3 border-t hairline pt-5">
-                    {hero.flow.map((step, i) => (
-                      <li key={i} className="flex gap-3 text-sm text-paper/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
-                    ))}
-                  </ol>
+                  <>
+                    <details className="mt-5 border-t hairline pt-4 sm:hidden">
+                      <summary className="press label cursor-pointer list-none !normal-case !tracking-normal text-paper/80">How it runs · 3 steps ↓</summary>
+                      <ol className="mt-4 space-y-3">
+                        {hero.flow.map((step, i) => (
+                          <li key={i} className="flex gap-3 text-sm text-paper/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
+                        ))}
+                      </ol>
+                    </details>
+                    <ol className="mt-6 hidden space-y-3 border-t hairline pt-5 sm:block">
+                      {hero.flow.map((step, i) => (
+                        <li key={i} className="flex gap-3 text-sm text-paper/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
+                      ))}
+                    </ol>
+                  </>
                 )}
                 <div className="mt-auto pt-6">
                   <p className="label">Replaces</p>

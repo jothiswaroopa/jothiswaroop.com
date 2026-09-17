@@ -247,7 +247,8 @@ h1, h2, h3, .display {
 @media (max-width: 767px) {
   .m-scroller { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x pan-y; padding-bottom: 6px; margin-inline: -20px; padding-inline: 20px; }
   .m-scroller::-webkit-scrollbar { display: none; }
-  .m-scroller > * { flex: 0 0 82vw; scroll-snap-align: start; }
+  .m-scroller > * { flex: 0 0 82vw; max-width: 82vw; min-width: 0; scroll-snap-align: start; }
+  .m-scroller > * * { min-width: 0; }
   .m-scroller.m-scroller-narrow > * { flex-basis: 62vw; }
 }
 /* where content meets floating chrome: a soft edge, not a 1px divider */
