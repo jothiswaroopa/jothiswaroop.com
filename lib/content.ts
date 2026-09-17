@@ -105,9 +105,8 @@ export const who = {
 // three recognitions in 2026. Every number below is one already counted on this site.
 export const story = {
   label: "// THE FULL STORY",
-  titles: "Self-taught performance marketer · AI automation engineer · Gen AI architect",
+  titles: "Certified Performance Marketer · AI Automation Engineer · Gen AI Architect",
   lede: [
-    "You probably got here from a cold email. Fair. So here is the whole thing, in order, with the receipts — and you can decide in four minutes whether I'm worth a call.",
     "I am one person from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. For three years I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
   ],
   chapters: [

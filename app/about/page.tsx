@@ -19,7 +19,7 @@ export default function AboutPage() {
           <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)]">{site.name}</h1>
           <p className="mono mt-4 text-sm text-paper/75">{story.titles}</p>
           <div className="mt-8 max-w-2xl space-y-5">
-            {story.lede.map((p, i) => <p key={i} className={i === 0 ? "text-xl leading-relaxed text-paper" : "text-lg leading-relaxed text-paper/80"}>{p}</p>)}
+            {story.lede.map((p, i) => <p key={i} className="text-xl leading-relaxed text-paper">{p}</p>)}
           </div>
 
           <ol className="mt-14 border-l hairline">
