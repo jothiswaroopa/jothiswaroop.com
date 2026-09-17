@@ -7,7 +7,8 @@ import Showreel from "@/components/Showreel";
 import FeaturedGrid from "@/components/FeaturedGrid";
 import HScroller from "@/components/HScroller";
 import CreativeGallery from "@/components/CreativeGallery";
-import { outcomeNote, cases, externalProof } from "@/lib/content";
+import { byTheNumbers as n, cases, externalProof } from "@/lib/content";
+import Counter from "@/components/motion/Counter";
 
 
 /** Proof reads truer on paper: real screenshots are light UIs; on dark they look like pitch-deck slides. Flip to "ink" to compare. */
@@ -56,16 +57,26 @@ export default function Work() {
           </Reveal>
         )}
 
-        {/* The outcome I can prove: retention, scale, expansion, referral — not a revenue number I'd be guessing */}
-        <Reveal className="mt-16 grid gap-8 border-t hairline pt-10 lg:grid-cols-[1.1fr_1fr]">
-          <div>
-            <p className="label"><Scramble text={outcomeNote.label} /></p>
-            <p className="mt-5 max-w-xl text-xl text-paper/85">{outcomeNote.text}</p>
-          </div>
-          <dl className="grid gap-x-6 gap-y-6 sm:grid-cols-3">
-            {outcomeNote.facts.map((f) => (
+        {/* Totals across every account — each addend is a screenshot number (see lib/content.ts) */}
+        <Reveal className="mt-16 border-t hairline pt-10">
+          <p className="label"><Scramble text={n.label} /></p>
+          <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+            {n.stats.map((st) => (
+              <div key={st.k}>
+                <dd className="mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
+                <dt className="mt-3 text-paper">{st.k}</dt>
+                <p className="mt-1 text-sm text-paper/65">{st.v}</p>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
+        <Reveal className="mt-14">
+          <p className="label"><Scramble text={n.after.label} /></p>
+          <dl className="mt-6 grid gap-x-6 gap-y-6 sm:grid-cols-3">
+            {n.after.facts.map((f) => (
               <div key={f.k}>
-                <dt className="display text-2xl text-signal">{f.k}</dt>
+                <dt className="display text-2xl text-paper">{f.k}</dt>
                 <dd className="mt-1 text-sm text-paper/75">{f.v}</dd>
               </div>
             ))}

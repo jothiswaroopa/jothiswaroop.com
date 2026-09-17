@@ -384,15 +384,25 @@ export const cases: CaseStudy[] = [
 ];
 
 // ─── THE REFERRAL CHAIN — the actual order, from Jothi. Explicit, not derived from cases.
-// Why there is no revenue figure on this site — shown on the Results section and every case page.
-export const outcomeNote = {
-  label: "// WHY NO REVENUE FIGURES",
-  text: "My clients don't disclose their sales, and I won't publish a number I can't prove. What I can show is what only happens when leads turn into orders: they scaled, they expanded into new markets, and each one introduced the next.",
-  facts: [
-    { k: "Scaled", v: "Nova Attire — a year together, and a second ad account after ten months" },
-    { k: "Expanded", v: "Five Elements → UK · Kalavridhi → US & Canada" },
-    { k: "Introduced", v: "Sathyam → Five Elements → Nova, every one by referral" },
+// ─── BY THE NUMBERS — totals across every ad account on this page. Each addend is a screenshot number.
+// 7,341 form leads = Nova 4,248 + Five Elements 1,337 + Sathyam 1,349 + SRR 323 + Angel 84.
+// 876 conversations = Sathyam 240 + Tharunis 321 + Kalavridhi 315.  Reach = Ram 950,548 + Nova 260K + Tharunis 156K.
+export const byTheNumbers = {
+  label: "// ACROSS EVERY ACCOUNT ON THIS PAGE",
+  stats: [
+    { value: 7341, suffix: "", k: "form leads", v: "Wholesale buyers, retailers, distributors and customers who filled in a form" },
+    { value: 876, suffix: "", k: "conversations", v: "WhatsApp and Instagram enquiries started from an ad" },
+    { value: 1.36, suffix: "M+", decimals: 2, k: "people reached", v: "Across India, the UK, the US and Canada" },
+    { value: 16.58, prefix: "₹", suffix: "", decimals: 2, k: "per wholesale buyer lead", v: "Under 25¢ — Nova Attire, 4,248 of them" },
   ],
+  after: {
+    label: "// WHAT THE LEADS TURNED INTO",
+    facts: [
+      { k: "Scaled", v: "Nova Attire — a year together, and a second ad account after ten months" },
+      { k: "Expanded", v: "Five Elements → UK · Kalavridhi → US & Canada" },
+      { k: "Introduced", v: "Sathyam → Five Elements → Nova, every one by referral" },
+    ],
+  },
 };
 
 export type ChainNode = { slug: string; label: string; result: string; how: string };
