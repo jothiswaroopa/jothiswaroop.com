@@ -62,7 +62,7 @@ export const marquee = [
   "Apparel manufacturing", "Knitwear", "Garment labels", "Textile retail", "Pooja products", "Imitation jewellery", "Tanjore painting", "Home bakery", "Company secretary", "VROOM 2026 · Digital Partner",
 ];
 
-export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[]; position?: string };
+export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[]; extraPositions?: string[]; position?: string };
 export const recognition: Recognition[] = [
   {
     title: "Tamil Nadu Digital Summit 2026",
@@ -76,6 +76,7 @@ export const recognition: Recognition[] = [
     image: "/img/vroom-stage.jpg",
     caption: "VROOM 2026 · recognised on stage",
     extra: ["/img/vroom-trophy.jpg", "/img/vroom-poster.jpg"],
+    extraPositions: ["50% 50%", "50% 42%"], // poster: keep "Digital Partner · Be The Brand" in the crop
   },
   {
     title: "Prompt Engineering Champion · Social Eagle AI",

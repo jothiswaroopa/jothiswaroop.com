@@ -43,10 +43,18 @@ export default function AboutPage() {
                 <div key={r.title}>
                   <p className="display text-2xl text-paper md:text-3xl">{r.title}</p>
                   <p className="mt-2 max-w-lg text-paper/75">{r.detail}</p>
-                  <div className={`mt-5 grid gap-3 ${r.extra ? "grid-cols-3" : "grid-cols-1 max-w-md"}`}>
-                    {[r.image, ...(r.extra ?? [])].map((src, i) => (
-                      <div key={src} className={`bezel !p-1 ${i === 0 && r.extra ? "col-span-3 sm:col-span-2 sm:row-span-2" : ""}`}><div className={`bezel-core relative ${i === 0 ? "aspect-[3/2]" : "aspect-[3/4]"}`}><Image src={src} alt={r.caption} fill sizes="50vw" className="object-cover [filter:saturate(0.9)]" style={{ objectPosition: i === 0 ? r.position : undefined }} /></div></div>
-                    ))}
+                  {/* mosaic: the stage photo fills the full height of the two side tiles — no dead space under it */}
+                  <div className={`mt-5 grid gap-3 ${r.extra ? "grid-cols-2 sm:grid-cols-3 sm:grid-rows-2" : "grid-cols-1 max-w-md"}`}>
+                    {[r.image, ...(r.extra ?? [])].map((src, i) => {
+                      const main = i === 0 && !!r.extra;
+                      return (
+                        <div key={src} className={`bezel !p-1 ${main ? "col-span-2 sm:col-span-2 sm:row-span-2" : ""}`}>
+                          <div className={`bezel-core relative ${main ? "aspect-[3/2] sm:aspect-auto sm:h-full" : "aspect-[4/3]"}`}>
+                            <Image src={src} alt={r.caption} fill sizes={main ? "60vw" : "30vw"} className="object-cover [filter:saturate(0.9)]" style={{ objectPosition: i === 0 ? r.position : r.extraPositions?.[i - 1] }} />
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
