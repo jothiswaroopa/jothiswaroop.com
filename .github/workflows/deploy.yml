@@ -27,6 +27,9 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://jothiswaroop.com
+          # Web3Forms access key is public by design (client-side); submissions go to hello@jothiswaroop.com
+          NEXT_PUBLIC_FORM_ENDPOINT: https://api.web3forms.com/submit
+          NEXT_PUBLIC_FORM_KEY: f9ca4a8f-3aae-4f17-8282-70cae56124d5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
