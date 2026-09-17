@@ -406,7 +406,7 @@ export const byTheNumbers = {
       { value: 65, suffix: "%", k: "average conversion", v: "Enquiries that became business — an average across B2B orders and D2C purchases; it differs from niche to niche. As reported by clients" },
       { value: 1, prefix: "₹", suffix: " Cr+", k: "in client revenue", v: "Attributed to these campaigns across all clients, as reported by clients" },
     ],
-    source: "Ad numbers come from Ads Manager and are shown with their screenshots. Business results happen inside the client's company, so these two come from the clients themselves — shared with me, and quoted here with their permission.",
+    source: "Ad numbers come from Ads Manager and are shown with their screenshots. Business results happen inside each client's company, so these two are based on what clients have shared with me.",
   },
   after: {
     label: "// WHAT THE LEADS TURNED INTO",
