@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import SplitText from "@/components/motion/SplitText";
 import Button from "@/components/Button";
 import Scramble from "@/components/motion/Scramble";
-import { hero, site, byTheNumbers } from "@/lib/content";
+import { hero, site, byTheNumbers, story } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -50,16 +50,26 @@ export default function Hero() {
             <motion.p className="label" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
               <Scramble text={hero.eyebrow} />
             </motion.p>
+            {/* desktop only: who this is, before the pitch — name, credentials, then the counted proof line */}
+            <motion.div
+              className="mt-7 hidden lg:block"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
+            >
+              <p className="display text-[2.4rem] leading-none tracking-display text-paper">{site.name}</p>
+              <p className="mono mt-3 text-[13px] text-paper/70">{story.titles}</p>
+            </motion.div>
             <motion.ul
-              className="mt-6 hidden gap-x-10 gap-y-3 border-t hairline pt-5 lg:flex lg:flex-wrap"
+              className="mt-6 hidden gap-x-8 gap-y-3 border-t hairline pt-5 lg:flex lg:flex-wrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               aria-label="Counted across every ad account on this page"
             >
               {byTheNumbers.stats.slice(0, 3).map((st) => (
                 <li key={st.k} className="flex items-baseline gap-2">
-                  <span className="mono text-sm text-paper">{st.prefix ?? ""}{st.value.toLocaleString("en-IN")}{st.suffix ?? ""}</span>
+                  <span className="mono text-sm text-signal">{st.prefix ?? ""}{st.value.toLocaleString("en-IN")}{st.suffix ?? ""}</span>
                   <span className="label !normal-case !tracking-normal">{st.k}</span>
                 </li>
               ))}
