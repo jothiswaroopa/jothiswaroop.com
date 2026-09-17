@@ -410,23 +410,37 @@ export const videoTestimonials: VideoTestimonial[] = [
 // ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time.
 export const accelerator = {
   label: "// THE OTHER DOOR",
-  headline: "Don't want to hand it over? Learn to run it yourself.",
-  body: "The AI Accelerator is five days, one business owner, at your office. I build the curriculum around your business and sit next to you until the tools are yours — not a course, not a webinar. I take one owner at a time.",
+  headline: "Five days at your desk. You leave running it yourself.",
+  body: "Not a course. Not a webinar. The AI Accelerator is one owner, one office, five days. I build the curriculum around your business, on your real work, and sit beside you until the tools are yours.",
   facts: [
-    { k: "Format", v: "1:1 · at your place of work" },
+    { k: "Format", v: "1:1 · at your office" },
     { k: "Length", v: "5 days" },
+    { k: "Curriculum", v: "Built around your business" },
     { k: "Intake", v: "One owner at a time" },
   ],
+  // ⚠ CONFIRM BEFORE LAUNCH — the shape of the five days, in Jothi's words. Adjust to how it actually runs.
+  arc: [
+    { k: "Day 1", v: "I sit in your day. Every task you repeat gets written down." },
+    { k: "Days 2–4", v: "We build the tools on your real work — your invoices, your enquiries, your follow-ups. No sample data." },
+    { k: "Day 5", v: "You run it. I watch, and fix what breaks." },
+  ],
+  fit: {
+    yes: "Owners who want to keep the keys and understand what they're running.",
+    no: "Teams, or anyone who wants it done for them. That's the other door — apply above.",
+  },
   cta: { label: "Apply for the Accelerator", href: "/apply?program=accelerator" },
+  ctaNote: "One owner at a time. I read every application myself.",
+  proofLabel: "// PROOF · VERBATIM",
   testimonial: {
     // Verbatim from the BSHIP Chennai Tycoons WhatsApp group (400+ members). Confirm Balaji is happy to be quoted by name.
     text: "He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth — making complex concepts easy to follow even for someone technologically challenged like me.",
     full: "Today, I started a customised AI productivity training program with Jothi Swaroopa. He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth by making complex concepts easy to follow even for someone technologically challenged like me. I already feel confident that I will master these AI tools in no time. I highly recommend his custom training packages to all of you looking to build confidence and prepare for a tech-driven future.",
     author: "D Balaji",
     role: "Centralised AC · BSHIP Chennai Tycoons",
-    where: "Posted in the BSHIP Chennai Tycoons group, 400+ members",
+    where: "Posted in the BSHIP Chennai Tycoons WhatsApp group · 400+ members",
     image: "/img/accelerator-balaji.jpg",
     receipt: "/img/accelerator-balaji-review.png", // the actual WhatsApp message — proof the quote is real
+    receiptCaption: "The original message, as posted. Unedited.",
     verified: true,
   },
 };
