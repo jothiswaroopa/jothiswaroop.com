@@ -37,6 +37,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <div className="mt-14 border-l-2 border-signal pl-6">
             <p className="label">// WHAT IT TURNED INTO</p>
             <p className="display mt-3 text-2xl text-paper md:text-4xl">{c.outcome}</p>
+            {c.outcomeSource && <p className="mono mt-3 text-xs text-paper/60">{c.outcomeSource}</p>}
           </div>
         )}
 

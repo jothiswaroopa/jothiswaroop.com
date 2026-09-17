@@ -246,6 +246,8 @@ export type CaseStudy = {
   receipts?: string[];
   /** What the leads turned into, in the client's words or numbers — e.g. "₹18L in wholesale orders in the first quarter". Renders only when present. */
   outcome?: string;
+  /** Where the outcome figure came from — shown under it. e.g. "Figure from Nova Attire, Sep 2026 — quoted with permission." Required if the outcome contains a revenue or order number. */
+  outcomeSource?: string;
   before: string;
   after: string;
   quote?: { text: string; author: string; verified: boolean };
@@ -271,6 +273,7 @@ export const cases: CaseStudy[] = [
     after: "4,248 wholesale buyer leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
     measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Lifetime view (Jun 2023 → Jul 2026); campaigns ran Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
     receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
+    // When Nova confirms: outcome: "About N orders — roughly ₹X — from the 4,248 leads.", outcomeSource: "Figure from Nova Attire, <month> 2026 — quoted with permission."
     outcome: "A year together, and a second ad account. Ten months in, Nova added an August launch account on top of the first — you scale a campaign that is selling, not one that isn't.",
     image: "/img/ads-nova-1.png",
     featured: true,
