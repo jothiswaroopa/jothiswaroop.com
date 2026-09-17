@@ -398,16 +398,6 @@ export const byTheNumbers = {
     { value: 1.36, suffix: "M+", decimals: 2, k: "people reached", v: "Across India, the UK, the US and Canada" },
     { value: 16.58, prefix: "₹", suffix: "", decimals: 2, k: "per wholesale buyer lead", v: "Under 25¢ — Nova Attire, 4,248 of them" },
   ],
-  // Conditional arithmetic on screenshot inputs — the reader supplies conversion rate and order value. Never phrased as a result.
-  math: {
-    label: "// DO THE MATH",
-    lead: "Lead counts and ad spend are on the screenshots. Conversion rate and order value are yours — so run your own numbers:",
-    rows: [
-      { setup: "Nova Attire: 4,248 wholesale buyer leads on ₹70,444 of ads.", then: "If just 1 buyer in 50 places a single ₹25,000 order, that is ₹21 lakh in orders — 30× the ad spend — before anyone reorders." },
-      { setup: "Five Elements UK: 19 wholesale buyers with a 200-piece minimum, on about ₹8,400 of ads.", then: "One buyer taking 200 pieces at £8 is £1,600 from roughly £75 of ads. Two is £3,200. The minimum order does the work." },
-    ],
-    note: "Your close rate and your order size decide the real figure. The leads and the spend are counted; the rest is your business.",
-  },
   after: {
     label: "// WHAT THE LEADS TURNED INTO",
     facts: [
