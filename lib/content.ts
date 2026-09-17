@@ -29,7 +29,7 @@ export const hero = {
   // alt A: "Every client since was introduced by the one before." · alt C: "Zero cold pitches, ever."
   // *…* = amber (the proof number) · _…_ = italic (the payoff) · NBSPs keep each marked phrase on one line
   // A/B alt (kept for testing): "Zero cold pitches for me."
-  sub: "I watched agencies sell reports. I decided to sell customers. Paid acquisition, creative and follow-up automation — one person, for founders in India, the\u00a0UK and the\u00a0US.",
+  sub: "I watched agencies sell reports. I decided to sell customers. Paid acquisition, creative, film and follow-up automation — every discipline under one roof, for founders in India, the\u00a0UK and the\u00a0US.",
   ctaPrimary: { label: "Apply to work with me", href: "/apply" },
   ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
   videoSrc: "", // pending — 60–90s straight-to-lens
@@ -88,7 +88,7 @@ export const recognition: Recognition[] = [
 ];
 
 export const who = {
-  role: "I run the marketing myself. One person, no account managers.",
+  role: "Performance marketing, AI automation and Gen AI creative — every skill in the chain, run by one brain, so nothing gets lost between departments.",
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
     "Recognised three times in 2026: an award at Tamil Nadu Digital Summit, Official Digital Partner of VROOM 2026, and Prompt Engineering Champion at the Social Eagle AI prompt battle.",
@@ -107,7 +107,7 @@ export const story = {
   label: "// THE FULL STORY",
   titles: "Certified Performance Marketer · AI Automation Engineer · Gen AI Architect",
   lede: [
-    "I am one person from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. For three years I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
+    "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. For three years I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
   ],
   chapters: [
     {
@@ -148,7 +148,7 @@ export const story = {
     {
       year: "Now",
       title: "Four founders a quarter. India, UK, US.",
-      body: "No account managers, no juniors, no monthly PDF. You get the person who built every result here, and the automation that keeps following up while I sleep. If a number is on this site, it links to the screenshot it came from.",
+      body: "Paid media, creative, film, decks and automation — the full skill set of an agency, carried by one brain, so strategy and execution never drift apart. You get the person who built every result here, and the machines that keep following up while I sleep. If a number is on this site, it links to the screenshot it came from.",
     },
   ],
   objection: {
@@ -157,7 +157,7 @@ export const story = {
       { k: "Proof, not promises", v: "Every figure on this site is read from Meta Ads Manager and shown with its screenshot. Click any number and see how it was counted." },
       { k: "Already done abroad", v: "A UK wholesale-buyer campaign for a manufacturer with zero presence there, and a US–Canada summer-camp campaign for a Tamil Nadu art mentorship reaching diaspora families — both on the Results page." },
       { k: "Your hours, your currency", v: "Calls in your timezone. Reporting in GBP or USD. WhatsApp replies inside the day, not inside the week." },
-      { k: "One operator, on purpose", v: "An agency sells you a team and hands you a junior. I take four founders a quarter so that the person on the call is the person doing the work." },
+      { k: "Every skill, one brain", v: "An agency splits your growth across five departments and a junior joins the dots. Here the strategist, the media buyer, the creative and the automation engineer are the same mind — and I take four founders a quarter so that mind stays on your account." },
     ],
   },
   roles: [
@@ -526,7 +526,7 @@ export const faq = [
   },
   {
     q: "Why you and not an agency?",
-    a: "An agency sells you a team and gives you a junior. You get me — the person who built every result on this page — and the automation that keeps following up when I'm asleep.",
+    a: "An agency splits your growth across departments and a junior joins the dots. Here the strategy, the media buying, the creative, the film and the automation come from the same brain — the one that built every result on this page — plus the machines that keep following up when I'm asleep.",
   },
   {
     q: "Do you work with international clients?",
