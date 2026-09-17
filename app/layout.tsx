@@ -5,7 +5,6 @@ import SmoothScroll from "@/components/motion/SmoothScroll";
 import Preloader from "@/components/motion/Preloader";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ThemeSwitch from "@/components/ThemeSwitch";
 import NavTracker from "@/components/NavTracker";
 import { site, hero } from "@/lib/content";
 
@@ -50,7 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <NavTracker />
         <Nav />
-        <ThemeSwitch />
         <main id="main">{children}</main>
         <Footer />
       </body>

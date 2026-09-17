@@ -41,32 +41,7 @@
   --ease-out-expo: var(--ease);
 }
 
-/* ─────────────────────────────────────────────────────────────
-   THEME MODES (comparison switch — data-theme on <html>)
-   ledger (default): ink base, cream islands, amber
-   cream: cream base, ink islands, amber-dark
-   mono: ink base, cream islands, NO accent — colour lives only in photography/video
-   ───────────────────────────────────────────────────────────── */
-:root[data-theme="cream"] {
-  --ink: #f2ede4; --ink-2: #ebe5d9; --ink-3: #e4ddcf;
-  --paper: #0a0a0c; --paper-70: rgba(10,10,12,0.78); --paper-45: rgba(10,10,12,0.55); --paper-20: rgba(10,10,12,0.2);
-  --line: rgba(10,10,12,0.1); --line-strong: rgba(10,10,12,0.22);
-  --signal: #a85f00; --signal-dim: rgba(168,95,0,0.12); --strike: #c42b2b;
-}
-:root[data-theme="cream"] .theme-paper {
-  --ink: #0a0a0c; --ink-2: #111114; --ink-3: #18181d;
-  --paper: #f2ede4; --paper-70: rgba(242,237,228,0.8); --paper-45: rgba(242,237,228,0.55); --paper-20: rgba(242,237,228,0.2);
-  --line: rgba(242,237,228,0.1); --line-strong: rgba(242,237,228,0.22);
-  --signal: #ffb020; --signal-dim: rgba(255,176,32,0.14); --strike: #ff4d4d;
-}
-:root[data-theme="cream"] .theme-paper .bezel { background: rgba(242,237,228,0.035); border-color: rgba(242,237,228,0.08); }
-:root[data-theme="cream"] .theme-paper .bezel-core { box-shadow: inset 0 1px 0 rgba(242,237,228,0.08), 0 20px 60px -30px rgba(0,0,0,0.8); }
-:root[data-theme="cream"] .glass { background: rgba(242,237,228,0.7); }
-:root[data-theme="cream"] .duotone::after { opacity: 0.06; }
-
-:root[data-theme="mono"] { --signal: #f2ede4; --signal-dim: rgba(242,237,228,0.1); }
-:root[data-theme="mono"] .theme-paper { --signal: #0a0a0c; --signal-dim: rgba(10,10,12,0.08); }
-:root[data-theme="mono"] .duotone::after { display: none; }
+/* THEME: Ledger — locked 2026-09-17. Ink base, cream proof islands, one amber accent. (Cream/Mono comparison modes removed.) */
 
 /* PAPER SURFACE — scoped inversion for the proof sections: screenshots and receipts read as
    native on light, not "presented" on dark. Amber darkens for contrast on cream. */
