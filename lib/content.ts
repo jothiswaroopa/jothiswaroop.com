@@ -403,8 +403,8 @@ export const byTheNumbers = {
   reported: {
     label: "// WHAT CLIENTS REPORT",
     stats: [
-      { value: 65, suffix: "%", k: "average conversion", v: "Enquiries that became business — B2B orders and D2C purchases together, as reported by clients" },
-      { value: 1, prefix: "₹", suffix: " Cr+", k: "in client revenue", v: "Attributed to these campaigns across all clients, 2023–2026, as reported by clients" },
+      { value: 65, suffix: "%", k: "average conversion", v: "Enquiries that became business — an average across B2B orders and D2C purchases; it differs from niche to niche. As reported by clients" },
+      { value: 1, prefix: "₹", suffix: " Cr+", k: "in client revenue", v: "Attributed to these campaigns across all clients, as reported by clients" },
     ],
     source: "Client-reported figures, not from Ads Manager. Ad numbers above are screenshot-backed; these are what clients told me their results were.",
   },
