@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
+import SwipeCue from "@/components/SwipeCue";
 import { method, type Move } from "@/lib/content";
 
 function Block({ m, i }: { m: Move; i: number }) {
@@ -54,8 +55,8 @@ export default function Method() {
         <p className="label"><Scramble text="// THE SYSTEM" /></p>
         <Reveal><h2 className="mt-6 max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)]">Three moves. One engine. A weekly number you can trust.</h2></Reveal>
         {/* phones: the three moves become a swipe row (m-scroller is scoped to <768px); desktop stacks as before */}
-        <p className="label mt-8 flex items-center gap-2 md:hidden" aria-hidden><span className="!normal-case !tracking-normal">3 moves · swipe</span><span className="text-signal animate-[nudge_1.4s_ease-in-out_infinite]">→</span></p>
-        <div className="m-scroller mt-3 md:mt-14">
+        <SwipeCue target="method-moves" count={visible.length} noun="moves" className="mt-8" />
+        <div id="method-moves" className="m-scroller mt-3 md:mt-14">
           {visible.map((m, i) => <Block key={m.n} m={m} i={i} />)}
         </div>
       </div>

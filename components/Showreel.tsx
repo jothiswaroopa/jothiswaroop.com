@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "@/components/motion/Reveal";
+import SwipeCue from "@/components/SwipeCue";
 import { videos } from "@/lib/content";
 
 import VideoTile from "@/components/VideoTile";
@@ -27,7 +28,8 @@ export default function Showreel() {
   return (
     <Reveal className="mt-16">
       <p className="label">// VIDEO & COMMERCIALS</p>
-      <div className="m-scroller mt-5 grid gap-4 md:grid-cols-3">
+      <SwipeCue target="showreel-row" count={videos.length} noun="films" className="mt-4" />
+      <div id="showreel-row" className="m-scroller mt-3 grid gap-4 md:mt-5 md:grid-cols-3">
         {videos.map((v) => (
           <div key={v.title} className={v.vertical ? "md:col-span-1" : "md:col-span-2"}><Tile v={v} /></div>
         ))}

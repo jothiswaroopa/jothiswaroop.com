@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Reveal from "@/components/motion/Reveal";
+import SwipeCue from "@/components/SwipeCue";
 import type { CaseStudy } from "@/lib/content";
 
 /**
@@ -21,7 +22,9 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
   }, [cases]);
 
   return (
-    <div className="m-scroller mt-14 grid gap-5 md:grid-cols-2">
+    <>
+    <SwipeCue target="featured-cases" count={list.length} noun="ad accounts" className="mt-10" />
+    <div id="featured-cases" className="m-scroller mt-4 grid gap-5 md:mt-14 md:grid-cols-2">
       {list.map((c, i) => (
         <Reveal key={c.slug} delay={i * 0.08}>
           <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-paper/20">
@@ -47,5 +50,6 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
         </Reveal>
       ))}
     </div>
+    </>
   );
 }
