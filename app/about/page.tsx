@@ -18,6 +18,11 @@ export default function AboutPage() {
           <p className="label">{story.label}</p>
           <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)]">{site.name}</h1>
           <p className="mono mt-4 text-sm text-paper/75">{story.titles}</p>
+          <p className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {site.socials.linkedin && <a href={site.socials.linkedin} target="_blank" rel="noreferrer" className="underline-slide text-paper/75 hover:text-paper">LinkedIn →</a>}
+            {site.socials.instagram && <a href={site.socials.instagram} target="_blank" rel="noreferrer" className="underline-slide text-paper/75 hover:text-paper">Instagram →</a>}
+            {site.email && <a href={`mailto:${site.email}`} className="underline-slide text-paper/75 hover:text-paper">{site.email}</a>}
+          </p>
           <div className="mt-8 max-w-2xl space-y-5">
             {story.lede.map((p, i) => <p key={i} className="text-xl leading-relaxed text-paper">{p}</p>)}
           </div>

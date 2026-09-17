@@ -51,6 +51,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        {/* Person schema — ties the domain to the LinkedIn/Instagram profiles for search engines */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: site.name,
+            url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com",
+            email: site.email || undefined,
+            jobTitle: "Performance marketer & AI automation engineer",
+            address: { "@type": "PostalAddress", addressLocality: "Chennai", addressRegion: "Tamil Nadu", addressCountry: "IN" },
+            sameAs: [site.socials.linkedin, site.socials.instagram].filter(Boolean),
+          }) }}
+        />
       </body>
     </html>
   );

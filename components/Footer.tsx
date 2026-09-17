@@ -20,6 +20,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col gap-2">
             {site.socials.instagram && <a href={site.socials.instagram} className="underline-slide w-fit hover:text-paper" target="_blank" rel="noreferrer">Instagram</a>}
+            {site.socials.linkedin && <a href={site.socials.linkedin} className="underline-slide w-fit hover:text-paper" target="_blank" rel="noreferrer">LinkedIn</a>}
             {site.calendar && <a href={site.calendar} className="underline-slide w-fit hover:text-paper" target="_blank" rel="noreferrer">Book a call</a>}
             {site.email && <a href={`mailto:${site.email}`} className="underline-slide w-fit hover:text-paper">{site.email}</a>}
             <a href={`https://wa.me/${site.whatsapp}`} className="underline-slide w-fit hover:text-paper" target="_blank" rel="noreferrer">WhatsApp</a>
