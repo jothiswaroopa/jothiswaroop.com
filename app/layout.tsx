@@ -6,6 +6,7 @@ import Preloader from "@/components/motion/Preloader";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import NavTracker from "@/components/NavTracker";
+import SectionLabels from "@/components/SectionLabels";
 import { site, hero } from "@/lib/content";
 
 // Share-card description mirrors the live headline — never a second copy that can drift.
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <NavTracker />
+        <SectionLabels />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

@@ -11,7 +11,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="card-over relative bg-ink pt-16 md:pt-20">
+    <section className="card-over relative bg-ink pt-16 md:pt-20" aria-label="Before you ask — frequently asked questions">
       <div className="mx-auto max-w-[1440px] px-5 pb-20 md:px-10 md:pb-28">
         <p className="label"><Scramble text="// BEFORE YOU ASK" /></p>
         <div className="mt-8 border-t hairline">

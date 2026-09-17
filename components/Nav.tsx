@@ -60,7 +60,7 @@ export default function Nav() {
         )}
       >
         <div className={clsx("glass flex w-full items-center justify-between gap-6 rounded-full border py-2 pl-5 pr-2 lg:w-max lg:gap-14 lg:pl-6", onPaper ? "theme-paper border-paper/10" : "border-paper/10")}>
-          <Link href="/" className="display text-xl tracking-tight text-paper" onClick={() => setOpen(false)}>
+          <Link href="/" className="display -my-3 py-3 text-xl tracking-tight text-paper" aria-label="Jothi Swaroop — home" onClick={() => setOpen(false)}>
             {site.name}
           </Link>
           <nav className="hidden items-center gap-8 lg:flex">

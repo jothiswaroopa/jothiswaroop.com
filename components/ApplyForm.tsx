@@ -114,7 +114,7 @@ export default function ApplyForm() {
             {cur.type === "currency" && (
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 {CURRENCIES.map((c) => (
-                  <button key={c.id} onClick={() => setA({ ...a, currency: c.id })} aria-pressed={currency === c.id && !!a.currency}
+                  <button key={c.id} type="button" onClick={() => setA({ ...a, currency: c.id })} aria-pressed={currency === c.id && !!a.currency} aria-label={`${c.label} · ${c.sub}`}
                     className={`press rounded-2xl border px-4 py-4 text-left ${a.currency === c.id ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/85 hover:border-paper"}`}>
                     <span className="display block text-2xl">{c.label}</span>
                     <span className={`mono mt-1 block text-xs ${a.currency === c.id ? "text-ink/70" : "text-paper/55"}`}>{c.sub}</span>

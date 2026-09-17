@@ -14,11 +14,11 @@ function Block({ m, i }: { m: Move; i: number }) {
 
   return (
     <Reveal delay={i * 0.1}>
-      <article ref={ref} className="grid gap-6 border-t hairline py-9 md:grid-cols-[1fr_1.2fr] md:gap-14 md:py-16">
+      <article ref={ref} className="grid gap-5 border-t hairline py-7 md:grid-cols-[1fr_1.2fr] md:gap-14 md:py-16">
         <div>
           <p className="mono text-sm text-paper/60">{m.n}</p>
           <h3 className="mt-3 text-[clamp(2rem,4vw,3.5rem)]">{m.title}</h3>
-          <p className="mt-6 text-lg text-paper/80">{m.what}</p>
+          <p className="mt-5 text-base text-paper/80 md:mt-6 md:text-lg">{m.what}</p>
           <p className="mt-4 text-paper/72">→ {m.gets}</p>
           <dl className="mt-6 grid grid-cols-2 gap-5 border-t hairline pt-5 md:mt-8 md:gap-6 md:pt-6">
             <div>

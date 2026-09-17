@@ -7,7 +7,7 @@ import { receipts, marquee } from "@/lib/content";
 
 export default function Receipts() {
   return (
-    <section className="relative border-t hairline bg-ink">
+    <section className="relative border-t hairline bg-ink" aria-label="Results at a glance">
       <div className="mx-auto max-w-[1440px] px-5 py-14 md:px-10 md:py-20">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-5 md:gap-x-8">
           {receipts.map((r, i) => (
