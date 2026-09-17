@@ -107,7 +107,7 @@ export const story = {
   label: "// THE FULL STORY",
   titles: "Certified Performance Marketer · AI Automation Engineer · Gen AI Architect",
   lede: [
-    "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. For three years I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
+    "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. Since 2023 I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
   ],
   chapters: [
     {
@@ -128,7 +128,7 @@ export const story = {
     {
       year: "Aug 2023",
       title: "The first client. 1,589 leads since.",
-      body: "Sathyam Labels, a garment-label manufacturer selling on relationships alone. The first campaign I ever ran for money is still running. Every client I have had since came from the last one.",
+      body: "Sathyam Labels, a garment-label manufacturer selling on relationships alone. The first campaign I ever ran for money — 1,589 leads in four months. Every client I have had since came from the last one.",
     },
     {
       year: "2025",
@@ -271,6 +271,7 @@ export const cases: CaseStudy[] = [
     after: "4,248 wholesale buyer leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
     measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Lifetime view (Jun 2023 → Jul 2026); campaigns ran Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
     receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
+    outcome: "A year together, and a second ad account. Ten months in, Nova added an August launch account on top of the first — you scale a campaign that is selling, not one that isn't.",
     image: "/img/ads-nova-1.png",
     featured: true,
   },
@@ -286,6 +287,7 @@ export const cases: CaseStudy[] = [
     after: "1,318 domestic knitwear leads at ₹19.34 each, and 19 UK apparel buyers (MOQ 200) at ₹443 — a wholesale enquiry for under $6.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Jul 2025", counted: "Lead = lead-form submission. Domestic and UK campaigns counted separately; the UK campaign targeted apparel buyers with a 200-piece minimum order.", screenshot: "/img/ads-five-elements.png" },
     receipts: ["/img/ads-five-elements.png"],
+    outcome: "They asked me to open Britain. After the domestic campaign, the same client funded a UK buyer campaign — and later introduced Nova Attire.",
     image: "/img/ads-five-elements.png",
     featured: true,
     international: true,
@@ -295,13 +297,14 @@ export const cases: CaseStudy[] = [
     client: "Sathyam Labels",
     industry: "Garment label manufacturer · B2B",
     location: "Tirupur",
-    year: "2023–26",
+    year: "2023",
     result: "1,589 leads",
     headline: { value: 1589, suffix: " leads" },
     before: "A label manufacturer selling on relationships alone. The very first campaign I ever ran for a client.",
     after: "1,349 form leads at ₹19–33 each plus 240 WhatsApp and Instagram conversations at under ₹6.50 — 1,589 in total on ₹28,178. The result that started the referral chain.",
-    measured: { source: "Meta Ads Manager, lifetime view", window: "Aug 2023 → Sep 2026", counted: "Leads = lead-form submissions across three campaigns (1,229 + 91 + 29). Conversations = messaging conversations started (224 WhatsApp + 16 Instagram).", screenshot: "/img/ads-sathyam.png" },
+    measured: { source: "Meta Ads Manager, lifetime view", window: "Lifetime view (Aug 2023 → Sep 2026); the engagement ran about four months in 2023", counted: "Leads = lead-form submissions across three campaigns (1,229 + 91 + 29). Conversations = messaging conversations started (224 WhatsApp + 16 Instagram).", screenshot: "/img/ads-sathyam.png" },
     receipts: ["/img/ads-sathyam.png"],
+    outcome: "It introduced the next client. Sathyam Labels sent Five Elements my way — and Five Elements later sent Nova. Nobody refers a vendor who lost them money.",
     image: "/img/ads-sathyam.png",
     featured: true,
   },
@@ -359,6 +362,7 @@ export const cases: CaseStudy[] = [
     after: "315 WhatsApp conversations for mentorships at ₹13–20 each, 1,815 Instagram profile visits at ₹1.23, and a US + Canada summer-camp campaign reaching diaspora families.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Sep 2025 → Jun 2026", counted: "Conversations = messaging conversations started. Profile visits from the traffic campaign counted separately. US/CA campaign: 11 conversations at ₹455 on ₹5,000.", screenshot: "/img/ads-kalavridhi.png" },
     receipts: ["/img/ads-kalavridhi.png"],
+    outcome: "From Tamil Nadu to US and Canada. The mentorship campaign was extended to diaspora families abroad on the back of the domestic result.",
     image: "/img/ads-kalavridhi.png",
     international: true,
     featured: true,
@@ -395,6 +399,17 @@ export const cases: CaseStudy[] = [
 ];
 
 // ─── THE REFERRAL CHAIN — the actual order, from Jothi. Explicit, not derived from cases.
+// Why there is no revenue figure on this site — shown on the Results section and every case page.
+export const outcomeNote = {
+  label: "// WHY NO REVENUE FIGURES",
+  text: "My clients don't disclose their sales, and I won't publish a number I can't prove. What I can show is what only happens when leads turn into orders: they scaled, they expanded into new markets, and each one introduced the next.",
+  facts: [
+    { k: "Scaled", v: "Nova Attire — a year together, and a second ad account after ten months" },
+    { k: "Expanded", v: "Five Elements → UK · Kalavridhi → US & Canada" },
+    { k: "Introduced", v: "Sathyam → Five Elements → Nova, every one by referral" },
+  ],
+};
+
 export type ChainNode = { slug: string; label: string; result: string; how: string };
 export const chain: ChainNode[] = [
   { slug: "sathyam", label: "Sathyam Labels", result: "1,589 leads", how: "The first client" },

@@ -7,7 +7,7 @@ import Showreel from "@/components/Showreel";
 import FeaturedGrid from "@/components/FeaturedGrid";
 import HScroller from "@/components/HScroller";
 import CreativeGallery from "@/components/CreativeGallery";
-import { cases, externalProof } from "@/lib/content";
+import { outcomeNote, cases, externalProof } from "@/lib/content";
 
 
 /** Proof reads truer on paper: real screenshots are light UIs; on dark they look like pitch-deck slides. Flip to "ink" to compare. */
@@ -55,6 +55,22 @@ export default function Work() {
             ))}
           </Reveal>
         )}
+
+        {/* The outcome I can prove: retention, scale, expansion, referral — not a revenue number I'd be guessing */}
+        <Reveal className="mt-16 grid gap-8 border-t hairline pt-10 lg:grid-cols-[1.1fr_1fr]">
+          <div>
+            <p className="label"><Scramble text={outcomeNote.label} /></p>
+            <p className="mt-5 max-w-xl text-xl text-paper/85">{outcomeNote.text}</p>
+          </div>
+          <dl className="grid gap-x-6 gap-y-6 sm:grid-cols-3">
+            {outcomeNote.facts.map((f) => (
+              <div key={f.k}>
+                <dt className="display text-2xl text-signal">{f.k}</dt>
+                <dd className="mt-1 text-sm text-paper/75">{f.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
 
         {/* The rest — one row each */}
         <Reveal className="mt-14">
