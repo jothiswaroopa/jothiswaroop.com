@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { apply, site, type Currency } from "@/lib/content";
-import { submit } from "@/lib/submit";
+import { submit, calHref } from "@/lib/submit";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const stepVariants = {
@@ -70,7 +70,12 @@ export default function ApplyForm() {
   const waHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(body)}`;
   const mailHref = site.email ? `mailto:${site.email}?subject=${encodeURIComponent("Application — jothiswaroop.com")}&body=${encodeURIComponent(body)}` : "";
 
-  const Cal = () => site.calendar ? <a href={site.calendar} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a> : null;
+  const calUrl = calHref(site.calendar, {
+    email: a.email,
+    adspend: a.spend,
+    notes: [a.sell && `Sells: ${a.sell}`, a.broken && `Broken: ${a.broken}`, a.introducer && `Introduced by: ${a.introducer}`, programLabel && `Programme: ${programLabel}`].filter(Boolean).join(" · "),
+  });
+  const Cal = () => site.calendar ? <a href={calUrl} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a> : null;
   const Mail = () => mailHref ? <a href={mailHref} className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${intl && !site.calendar ? "bg-signal font-medium text-ink hover:bg-paper" : "border border-line-strong hover:border-paper/50"}`}>Send by email <span className="mono text-xs opacity-70">{site.email}</span></a> : null;
   const Wa = () => <a href={waHref} target="_blank" rel="noreferrer" className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${!intl ? "bg-signal font-medium text-ink hover:bg-paper" : "border border-line-strong hover:border-paper/50"}`}>Send on WhatsApp <span className="mono text-xs opacity-70">{site.whatsappDisplay}</span></a>;
   const Actions = () => <div className="mt-8 flex flex-wrap gap-3">{intl ? <><Cal /><Mail /><Wa /></> : <><Wa /><Cal /><Mail /></>}</div>;

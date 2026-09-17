@@ -28,3 +28,15 @@ export function currencyOf(answer: string | undefined): "inr" | "intl" {
   if (!answer) return "inr";
   return /\$|£/.test(answer) && !/^₹/.test(answer.trim()) ? "intl" : "inr";
 }
+
+/**
+ * Cal.com booking link with the visitor's answers pre-filled, so nobody types things twice.
+ * Cal reads `email`, `name`, `notes` and any custom question by its identifier (ours: `adspend`).
+ */
+export function calHref(base: string, prefill: Record<string, string | undefined>): string {
+  if (!base) return "";
+  const q = new URLSearchParams();
+  for (const [k, v] of Object.entries(prefill)) if (v && v.trim()) q.set(k, v.trim());
+  const s = q.toString();
+  return s ? `${base}${base.includes("?") ? "&" : "?"}${s}` : base;
+}

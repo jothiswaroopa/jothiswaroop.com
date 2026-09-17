@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { audit, site } from "@/lib/content";
-import { submit } from "@/lib/submit";
+import { submit, calHref } from "@/lib/submit";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 // Spatial consistency: forward enters from the right and leaves left; back mirrors it exactly.
@@ -95,7 +95,7 @@ export default function AuditForm() {
                 : "Send me your result directly and I'll take it from there."}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {site.calendar && <a href={site.calendar} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a>}
+              {site.calendar && <a href={calHref(site.calendar, { email, adspend: a.ads === "No" ? "Not yet" : undefined, notes: `Bottleneck Audit — biggest leak: ${top[0].name}${top[1].s > 0 ? `, then ${top[1].name}` : ""} · score ${total}` })} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a>}
               <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi Jothi — just ran the Bottleneck Audit. Biggest leak: ${top[0].name}. Email: ${email}`)}`} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full border border-line-strong px-5 py-3 text-sm hover:border-signal hover:text-signal">Send it on WhatsApp</a>
             </div>
           </motion.div>
