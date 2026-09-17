@@ -71,6 +71,25 @@ export default function Work() {
           </dl>
         </Reveal>
 
+        <Reveal className="mt-14 grid gap-8 border-t hairline pt-10 lg:grid-cols-[1fr_1.4fr]">
+          <div>
+            <p className="label"><Scramble text={n.math.label} /></p>
+            <p className="mt-5 max-w-sm text-lg text-paper/85">{n.math.lead}</p>
+            <p className="mt-6 max-w-sm text-sm text-paper/60">{n.math.note}</p>
+          </div>
+          <ol className="divide-y hairline border-y hairline">
+            {n.math.rows.map((r, i) => (
+              <li key={i} className="grid gap-2 py-5 sm:grid-cols-[40px_1fr]">
+                <span className="mono text-xs text-signal sm:pt-1.5">0{i + 1}</span>
+                <div>
+                  <p className="mono text-sm text-paper">{r.setup}</p>
+                  <p className="mt-2 text-lg text-paper/85">{r.then}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+
         <Reveal className="mt-14">
           <p className="label"><Scramble text={n.after.label} /></p>
           <dl className="mt-6 grid gap-x-6 gap-y-6 sm:grid-cols-3">
