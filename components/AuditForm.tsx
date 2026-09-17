@@ -94,7 +94,10 @@ export default function AuditForm() {
                 ? (qualified ? "Your teardown lands within 48 hours. Want to skip the wait?" : "It's on its way. Want to skip the wait?")
                 : "Send me your result directly and I'll take it from there."}
             </p>
-            <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi Jothi — just ran the Bottleneck Audit. Biggest leak: ${top[0].name}. Email: ${email}`)}`} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full border border-line-strong px-5 py-3 text-sm hover:border-signal hover:text-signal">Message me on WhatsApp →</a>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {site.calendar && <a href={site.calendar} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a>}
+              <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi Jothi — just ran the Bottleneck Audit. Biggest leak: ${top[0].name}. Email: ${email}`)}`} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full border border-line-strong px-5 py-3 text-sm hover:border-signal hover:text-signal">Send it on WhatsApp</a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

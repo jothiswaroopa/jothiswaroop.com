@@ -70,7 +70,7 @@ export default function ApplyForm() {
   const waHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(body)}`;
   const mailHref = site.email ? `mailto:${site.email}?subject=${encodeURIComponent("Application — jothiswaroop.com")}&body=${encodeURIComponent(body)}` : "";
 
-  const Cal = () => site.calendar ? <a href={site.calendar} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Pick a time →</a> : null;
+  const Cal = () => site.calendar ? <a href={site.calendar} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a> : null;
   const Mail = () => mailHref ? <a href={mailHref} className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${intl && !site.calendar ? "bg-signal font-medium text-ink hover:bg-paper" : "border border-line-strong hover:border-paper/50"}`}>Send by email <span className="mono text-xs opacity-70">{site.email}</span></a> : null;
   const Wa = () => <a href={waHref} target="_blank" rel="noreferrer" className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${!intl ? "bg-signal font-medium text-ink hover:bg-paper" : "border border-line-strong hover:border-paper/50"}`}>Send on WhatsApp <span className="mono text-xs opacity-70">{site.whatsappDisplay}</span></a>;
   const Actions = () => <div className="mt-8 flex flex-wrap gap-3">{intl ? <><Cal /><Mail /><Wa /></> : <><Wa /><Cal /><Mail /></>}</div>;
