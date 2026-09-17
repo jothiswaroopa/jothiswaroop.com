@@ -536,7 +536,7 @@ export const accelerator = {
 export const faq = [
   {
     q: "What if it doesn't work?",
-    // ⚠ APPROVE BEFORE LAUNCH — this is a commitment, not copy: 30-day checkpoint, no lock-in.
+    // APPROVED 2026-09-17 — this is a commitment, not copy: 30-day checkpoint, no notice period, no lock-in.
     a: "Every engagement has a 30-day checkpoint. If the weekly number isn't moving by day 30, I show you exactly what I tried and what I'd change — and you decide whether we continue. No notice period, no lock-in. I don't hold anyone to a contract that isn't working.",
   },
   {
