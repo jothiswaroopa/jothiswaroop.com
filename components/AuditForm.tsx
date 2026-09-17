@@ -79,7 +79,7 @@ export default function AuditForm() {
                 ? "This is fixable, and worth fixing. Drop your email and I'll record a 10-minute teardown of your setup within 48 hours."
                 : "You're in better shape than most. Drop your email and I'll send the one thing I'd still change."}
             </p>
-            <form className="mt-6 flex flex-col gap-2 sm:flex-row" onSubmit={async (e) => { e.preventDefault(); setSent("sending"); const r = await submit("Bottleneck Audit — jothiswaroop.com", { email, biggest_leak: top[0].name, second_leak: top[1].name, score: String(total), ...a }); setSent(r.delivered ? "delivered" : "manual"); }}>
+            <form className="mt-6 flex flex-col gap-2 sm:flex-row" onSubmit={async (e) => { e.preventDefault(); setSent("sending"); const r = await submit("Bottleneck Audit — jothiswaroop.com", { email, replyto: email, biggest_leak: top[0].name, second_leak: top[1].name, score: String(total), ...a }); setSent(r.delivered ? "delivered" : "manual"); }}>
               <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com"
                 className="w-full rounded-full border border-line-strong bg-transparent px-5 py-3.5 text-sm text-paper placeholder:text-paper/30 focus:border-signal focus:outline-none" />
               <button disabled={sent === "sending"} className="press shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper disabled:opacity-40">{sent === "sending" ? "Sending…" : qualified ? "Send me the teardown" : "Send it"}</button>

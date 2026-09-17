@@ -11,7 +11,7 @@ export default function NewsletterForm() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState("sending");
-    const r = await submit("Letter opt-in — jothiswaroop.com", { email });
+    const r = await submit("Letter opt-in — jothiswaroop.com", { email, replyto: email });
     setState(r.delivered ? "delivered" : "manual");
   };
   if (state === "delivered") return <p className="text-paper">You&apos;re in. First letter within two weeks.</p>;

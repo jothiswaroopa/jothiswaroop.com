@@ -60,7 +60,7 @@ export default function ApplyForm() {
       else if (s.type === "choice") fields[s.q] = a[s.key] ?? "";
       else fields[s.q] = a[s.key] ?? "";
     }
-    const r = await submit(programLabel ? `Application — ${programLabel}` : "Application — jothiswaroop.com", { ...(programLabel ? { program: programLabel } : {}), ...fields });
+    const r = await submit(programLabel ? `Application — ${programLabel}` : "Application — jothiswaroop.com", { replyto: a.email ?? "", ...(programLabel ? { program: programLabel } : {}), ...fields });
     setPhase(r.delivered ? "delivered" : "manual");
   };
   const back = () => { setDir(-1); if (phase !== "steps") { setPhase("steps"); return; } setStep(step - 1); };
