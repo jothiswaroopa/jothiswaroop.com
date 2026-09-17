@@ -58,7 +58,7 @@ export const receipts: Receipt[] = [
 
 // Only cities and niches that have a case study behind them. Add here only when you add a case.
 export const marquee = [
-  "Tirupur", "Chennai", "Tindivanam", "United Kingdom", "United States", "Canada",
+  "Villupuram", "Chennai", "Tirupur", "Tindivanam", "United Kingdom", "United States", "Canada",
   "Apparel manufacturing", "Knitwear", "Garment labels", "Textile retail", "Pooja products", "Imitation jewellery", "Tanjore painting", "Home bakery", "Company secretary", "VROOM 2026 · Digital Partner",
 ];
 
@@ -108,7 +108,7 @@ export const story = {
   titles: "Self-taught performance marketer · AI automation engineer · Gen AI architect",
   lede: [
     "You probably got here from a cold email. Fair. So here is the whole thing, in order, with the receipts — and you can decide in four minutes whether I'm worth a call.",
-    "I am one person in Tirupur, India — the town that knits a large share of what hangs in your high-street shops. For three years I have found buyers for the manufacturers here, then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
+    "I am one person from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. For three years I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
   ],
   chapters: [
     {
