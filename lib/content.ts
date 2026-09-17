@@ -381,21 +381,6 @@ export const cases: CaseStudy[] = [
     receipts: ["/img/ads-angel.png"],
     image: "/img/ads-angel.png",
   },
-  {
-    slug: "dsc",
-    client: "CS S R Parath Kumar",
-    industry: "Practising Company Secretary",
-    location: "Chennai",
-    year: "2026",
-    result: "Renewal reminders on autopilot",
-    headline: { value: 247, suffix: " clients tracked" },
-    before: "Digital-signature and trademark renewal dates tracked in a spreadsheet. Missed dates cost clients.",
-    after: "A scheduled system reads the client sheet, checks what's due, and emails reminders — nobody has to remember.",
-    measured: { source: "n8n workflow + client sheet", window: "Live since 2026", counted: "Clients tracked = rows in the renewal sheet the workflow scans. Renewed / upcoming / overdue from its own log. ⚠ 247 / 77% / 1% are from the client deck — confirm from the sheet before launch.", screenshot: "/img/auto-reminders.png" },
-    receipts: ["/img/auto-reminders.png"],
-    image: "/img/auto-reminders.png",
-    placeholder: true, // numbers await the sheet; the workflow screenshot is real
-  },
 ];
 
 // ─── THE REFERRAL CHAIN — the actual order, from Jothi. Explicit, not derived from cases.
@@ -454,7 +439,7 @@ export const automations: Automation[] = [
     flow: ["Patient calls · the voice agent listens", "Intent is routed: book · reschedule · cancel · question · escalate", "Calendar is checked and written; the front desk gets an SMS only when a human is needed"] },
   { title: "Voice-order → invoice bot", what: "Send a voice note or text on Telegram; it transcribes the order, matches the menu, logs the sale, and sends back a finished invoice PDF.", replaces: "order-taking and billing by hand", stack: ["Telegram", "OpenAI Whisper", "OpenAI", "Google Sheets", "Google Docs", "Drive"], image: "/img/auto-order-invoice-bot.png" },
   { title: "Inventory reorder agent", what: "Every sale updates stock in Supabase; an AI agent decides what to reorder and asks the owner by email before anything is placed.", replaces: "stock checks and reorder emails", stack: ["Supabase", "OpenAI", "DeepSeek", "Gmail approval", "Sheets", "Error alerts"], image: "/img/auto-inventory-agent.png" },
-  { title: "Renewal reminder system", what: "Scans a client sheet on a schedule, works out what's due, and emails reminders — the compliance case on this page.", replaces: "a spreadsheet someone forgets to check", stack: ["Schedule", "Google Sheets", "Gmail"], image: "/img/auto-reminders.png" },
+  { title: "DSC & trademark expiry reminders", what: "Built for a practising Company Secretary in Chennai. A digital signature certificate is valid two years, a trademark ten — so every client's dates sit in one sheet, and the workflow emails a reminder 10 days before a DSC expires and 90 days before a trademark does. Nobody has to remember.", replaces: "a spreadsheet someone forgets to check — and the client who finds out too late", stack: ["Schedule", "Google Sheets", "Gmail"], image: "/img/auto-reminders.png" },
   { title: "Receipt & card OCR intake", what: "Photograph a receipt or card on Telegram; OpenAI Vision reads it, a confidence check asks for a clearer shot if needed, duplicates are caught, and the row lands in Sheets.", replaces: "typing receipts into a spreadsheet", stack: ["Telegram", "OpenAI Vision", "Google Sheets"], image: "/img/auto-receipt-ocr.png" },
   { title: "Knowledge agent with RAG", what: "Drop documents in a Drive folder; they're embedded into Pinecone and a Telegram agent answers from them — and from the web when they don't cover it.", replaces: "asking the one person who knows", stack: ["Google Drive", "Pinecone", "OpenAI embeddings", "SerpAPI", "Telegram"], image: "/img/auto-rag-agent.png" },
   { title: "Event registration codes", what: "A form submission generates a unique code, writes it to the sheet, emails the confirmation, and pings the events team on Telegram.", replaces: "manual confirmations before an event", stack: ["Webhook", "Google Sheets", "Gmail", "Telegram"], image: "/img/auto-event-codes.png" },
@@ -506,7 +491,7 @@ export const accelerator = {
     { k: "Curriculum", v: "Built around your business" },
     { k: "Intake", v: "One owner at a time" },
   ],
-  // ⚠ CONFIRM BEFORE LAUNCH — the shape of the five days, in Jothi's words. Adjust to how it actually runs.
+  // APPROVED 2026-09-17 — the shape of the five days, confirmed by Jothi.
   arc: [
     { k: "Day 1", v: "I sit in your day. Every task you repeat gets written down." },
     { k: "Days 2–4", v: "We build the tools on your real work — your invoices, your enquiries, your follow-ups. No sample data." },
