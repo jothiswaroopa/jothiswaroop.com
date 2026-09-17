@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import SplitText from "@/components/motion/SplitText";
 import Button from "@/components/Button";
 import Scramble from "@/components/motion/Scramble";
-import { hero, site } from "@/lib/content";
+import { hero, site, byTheNumbers } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -44,14 +44,31 @@ export default function Hero() {
          </div>
         </motion.div>
 
-        {/* Copy */}
-        <div className="order-2 lg:order-1">
-          <motion.p className="label" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
-            <Scramble text={hero.eyebrow} />
-          </motion.p>
+        {/* Copy — on desktop the column is as tall as the portrait: eyebrow + counted totals at the top, the pitch at the bottom */}
+        <div className="order-2 lg:order-1 lg:flex lg:h-[min(72vh,760px)] lg:flex-col lg:justify-between">
+          <div>
+            <motion.p className="label" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
+              <Scramble text={hero.eyebrow} />
+            </motion.p>
+            <motion.ul
+              className="mt-6 hidden gap-x-10 gap-y-3 border-t hairline pt-5 lg:flex lg:flex-wrap"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              aria-label="Counted across every ad account on this page"
+            >
+              {byTheNumbers.stats.slice(0, 3).map((st) => (
+                <li key={st.k} className="flex items-baseline gap-2">
+                  <span className="mono text-sm text-paper">{st.prefix ?? ""}{st.value.toLocaleString("en-IN")}{st.suffix ?? ""}</span>
+                  <span className="label !normal-case !tracking-normal">{st.k}</span>
+                </li>
+              ))}
+            </motion.ul>
+          </div>
+          <div>
           <SplitText
             lines={hero.headline}
-            className="tracking-display mt-5 text-[clamp(2.5rem,4.6vw,4.5rem)] text-paper"
+            className="tracking-display mt-5 text-[clamp(2.5rem,4.6vw,4.5rem)] text-paper lg:mt-0"
             delay={0.2}
           />
           <motion.p
@@ -71,6 +88,7 @@ export default function Hero() {
             <Button href={hero.ctaPrimary.href}>{hero.ctaPrimary.label}</Button>
             <Button href={hero.ctaSecondary.href} variant="ghost">{hero.ctaSecondary.label}</Button>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>
