@@ -1,17 +1,9 @@
 import BackLink from "@/components/BackLink";
 import Image from "next/image";
 import Button from "@/components/Button";
-import { site, who, recognition } from "@/lib/content";
+import { site, who, recognition, story } from "@/lib/content";
 
 export const metadata = { title: "About — Jothi Swaroop" };
-
-// PLACEHOLDER timeline — replace with intake §B
-const timeline = [
-  { year: "2020", title: "The world shut down. I doubled down.", body: "Taught myself digital marketing mid-lockdown — relentless, unglamorous repetition." },
-  { year: "MBA", title: "The business mind behind the marketing.", body: "Finance & Marketing. Led seminars for other students before ever charging anyone." },
-  { year: "The leap", title: "Left the salary. Backed the conviction.", body: "Resigned as an equity advisor. No safety net." },
-  { year: "Now", title: "One operator. Every client by introduction.", body: "Chennai → worldwide. Founders who want customers, not reports." },
-];
 
 export default function AboutPage() {
   return (
@@ -23,11 +15,15 @@ export default function AboutPage() {
         </div>
         <div>
           <BackLink className="mb-8" />
-        <p className="label">// THE FULL STORY</p>
+          <p className="label">{story.label}</p>
           <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)]">{site.name}</h1>
-          <p className="mt-4 text-paper/75">{who.role}</p>
+          <p className="mono mt-4 text-sm text-paper/75">{story.titles}</p>
+          <div className="mt-8 max-w-2xl space-y-5">
+            {story.lede.map((p, i) => <p key={i} className={i === 0 ? "text-xl leading-relaxed text-paper" : "text-lg leading-relaxed text-paper/80"}>{p}</p>)}
+          </div>
+
           <ol className="mt-14 border-l hairline">
-            {timeline.map((t) => (
+            {story.chapters.map((t) => (
               <li key={t.year} className="relative pb-12 pl-8">
                 <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-paper/60" />
                 <p className="mono text-xs text-paper/60">{t.year}</p>
@@ -36,6 +32,32 @@ export default function AboutPage() {
               </li>
             ))}
           </ol>
+
+          <section className="mt-6 border-t hairline pt-10">
+            <p className="label">{story.objection.label}</p>
+            <dl className="mt-6 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+              {story.objection.points.map((p) => (
+                <div key={p.k}>
+                  <dt className="display text-xl text-paper">{p.k}</dt>
+                  <dd className="mt-2 text-sm text-paper/75">{p.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="mt-12 border-t hairline pt-10">
+            <p className="label">// WHAT I ACTUALLY DO</p>
+            <dl className="mt-6 divide-y hairline">
+              {story.roles.map((r, i) => (
+                <div key={r.k} className="grid gap-2 py-5 sm:grid-cols-[40px_220px_1fr] sm:gap-6">
+                  <span className="mono text-xs text-paper/55 sm:pt-1">0{i + 1}</span>
+                  <dt className="text-paper">{r.k}</dt>
+                  <dd className="text-sm text-paper/75">{r.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
           <section className="mt-6 border-t hairline pt-10">
             <p className="label">// RECOGNITION</p>
             <div className="mt-6 space-y-10">
@@ -60,7 +82,11 @@ export default function AboutPage() {
               ))}
             </div>
           </section>
-          <div className="mt-14 flex flex-wrap items-center gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button><BackLink className="ml-2" /></div>
+          <section className="mt-14 border-t hairline pt-10">
+            <p className="display text-[clamp(1.75rem,3.2vw,2.5rem)] leading-tight text-paper">{story.close.headline}</p>
+            <p className="mt-4 max-w-lg text-paper/75">{story.close.body}</p>
+          </section>
+          <div className="mt-8 flex flex-wrap items-center gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button><BackLink className="ml-2" /></div>
         </div>
       </div>
     </section>

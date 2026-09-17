@@ -99,6 +99,79 @@ export const who = {
   placeholder: false,
 };
 
+// ─── THE FULL STORY (/about) — written for a founder who arrived from a cold email and has never heard the name.
+// Facts: lockdown self-taught (2020), MBA Finance & Marketing + student seminars, resigned as Equity Advisor at
+// Cholamandalam Securities, first client campaign Aug 2023 (Sathyam), chain → Five Elements → UK → Nova, 9 automations,
+// three recognitions in 2026. Every number below is one already counted on this site.
+export const story = {
+  label: "// THE FULL STORY",
+  titles: "Self-taught performance marketer · AI automation engineer · Gen AI architect",
+  lede: [
+    "You probably got here from a cold email. Fair. So here is the whole thing, in order, with the receipts — and you can decide in four minutes whether I'm worth a call.",
+    "I am one person in Tirupur, India — the town that knits a large share of what hangs in your high-street shops. For three years I have found buyers for the manufacturers here, then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
+  ],
+  chapters: [
+    {
+      year: "2020",
+      title: "The world locked down. I locked in.",
+      body: "No agency, no mentor, no clients. I taught myself paid media from the dashboards and the documentation, and learned the only question that matters in marketing: what does one customer cost, and can I make it cheaper next week?",
+    },
+    {
+      year: "MBA",
+      title: "Learned to read a P&L before I wrote an ad.",
+      body: "Finance and Marketing. I ran seminars for other students before anyone paid me a rupee — which is why I still read your numbers before I touch your campaigns, and why I can sit in a boardroom as easily as in Ads Manager.",
+    },
+    {
+      year: "The leap",
+      title: "Resigned as an equity advisor. No safety net.",
+      body: "At Cholamandalam Securities my job was telling people where to put their money. I left it to build something I could prove instead of predict.",
+    },
+    {
+      year: "Aug 2023",
+      title: "The first client. 1,589 leads since.",
+      body: "Sathyam Labels, a garment-label manufacturer selling on relationships alone. The first campaign I ever ran for money is still running. Every client I have had since came from the last one.",
+    },
+    {
+      year: "2025",
+      title: "The same client asked me to open Britain.",
+      body: "Five Elements — 1,318 domestic knitwear leads at ₹19 — then asked for UK buyers. I found 19 wholesale apparel buyers with a 200-piece minimum order for under $6 an enquiry. That campaign is why this site speaks to you.",
+    },
+    {
+      year: "2025–26",
+      title: "4,248 leads for one client. Then the machines.",
+      body: "Nova Attire, introduced by Five Elements: 4,248 wholesale buyer leads at ₹16.58 each. At that volume the leak is never the ads — it's the follow-up. So I became the engineer too: nine automations now run inside client businesses, from a voice AI receptionist that books dental appointments to a bot that turns a voice note into a finished invoice.",
+    },
+    {
+      year: "2026",
+      title: "Recognised three times in one year.",
+      body: "An award at the Tamil Nadu Digital Summit, Official Digital Partner of VROOM 2026, and Prompt Engineering Champion at the Social Eagle AI prompt battle. The last one is the craft behind every creative, film, pitch deck and automation on this page.",
+    },
+    {
+      year: "Now",
+      title: "Four founders a quarter. India, UK, US.",
+      body: "No account managers, no juniors, no monthly PDF. You get the person who built every result here, and the automation that keeps following up while I sleep. If a number is on this site, it links to the screenshot it came from.",
+    },
+  ],
+  objection: {
+    label: "// WHY TRUST SOMEONE 8,000 KM AWAY",
+    points: [
+      { k: "Proof, not promises", v: "Every figure on this site is read from Meta Ads Manager and shown with its screenshot. Click any number and see how it was counted." },
+      { k: "Already done abroad", v: "A UK wholesale-buyer campaign for a manufacturer with zero presence there, and a US–Canada summer-camp campaign for a Tamil Nadu art mentorship reaching diaspora families — both on the Results page." },
+      { k: "Your hours, your currency", v: "Calls in your timezone. Reporting in GBP or USD. WhatsApp replies inside the day, not inside the week." },
+      { k: "One operator, on purpose", v: "An agency sells you a team and hands you a junior. I take four founders a quarter so that the person on the call is the person doing the work." },
+    ],
+  },
+  roles: [
+    { k: "Performance marketing", v: "Meta and Google campaigns for manufacturers and D2C brands — measured by leads and cost per lead, never by reach." },
+    { k: "AI automation", v: "n8n, voice AI and LLM agents that answer, qualify, book, invoice and follow up — so nothing a campaign produces is lost." },
+    { k: "Gen AI", v: "AI creatives, films and investor decks, built by a prompt-battle champion who also knows what a CFO wants to see on slide two." },
+  ],
+  close: {
+    headline: "If you read this far, you are exactly who I built this for.",
+    body: "Two doors. Apply, and I read it myself within the day. Or run the free audit and I'll tell you where your marketing is leaking before we ever speak.",
+  },
+};
+
 export const burn = {
   label: "// WHAT YOU WERE SOLD",
   strikes: ["Impressions.", "Reach.", "A monthly PDF.", "“Brand awareness.”"],
