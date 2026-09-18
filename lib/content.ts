@@ -16,7 +16,7 @@ export const site = {
   email: "hello@jothiswaroop.com",
   socials: {
     instagram: "https://instagram.com/jothi.swaroopa",
-    linkedin: "https://www.linkedin.com/in/jothi-swaroopa-s-b776b31a1",
+    linkedin: "https://www.linkedin.com/in/jothiswaroop",
   },
   seatsLine: "Accepting applications",
   promise: "I find and remove the bottlenecks in your marketing and automation.",
