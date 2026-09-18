@@ -10,7 +10,7 @@ import SectionLabels from "@/components/SectionLabels";
 import { site, hero } from "@/lib/content";
 
 // Share-card description mirrors the live headline — never a second copy that can drift.
-const ogLine = hero.headline.map((l) => l.replace(/[*_]/g, "").replace(/\u00a0/g, " ")).join(" ");
+const ogLine = hero.headline.map((l) => l.replace(/[*_]/g, "").replace(/\u00a0/g, " ")).join(" ") + " Performance marketing and AI automation for founder-led manufacturers and brands — India, UK, US. Every number screenshot-backed.";
 
 const display = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap", preload: false }); // discovered via CSS; keeps the pipe free for the LCP image
