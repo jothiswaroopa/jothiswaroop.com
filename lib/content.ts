@@ -68,7 +68,7 @@ export const recognition: Recognition[] = [
     title: "Tamil Nadu Digital Summit 2026",
     detail: "Award presented by CK Kumaravel, founder of Naturals.",
     image: "/img/award.jpg",
-    caption: "TN Digital Summit 2026 · award ceremony",
+    caption: "TN Digital Summit · May 2026 · award ceremony",
   },
   {
     title: "Official Digital Partner · VROOM 2026",
@@ -80,9 +80,9 @@ export const recognition: Recognition[] = [
   },
   {
     title: "Prompt Engineering Champion · Social Eagle AI",
-    detail: "Won the Social Eagle AI prompt battle — recognised for skill and creativity in crafting effective AI prompts. The craft behind every automation on this page.",
+    detail: "Won the Social Eagle AI prompt battle in 2025 — recognised for skill and creativity in crafting effective AI prompts. The craft behind every automation on this page.",
     image: "/img/recognition-prompt-battle.jpg",
-    caption: "Prompt battle · Social Eagle AI",
+    caption: "Prompt battle · Social Eagle AI · 2025",
     position: "38% 45%",
   },
 ];
@@ -91,7 +91,7 @@ export const who = {
   role: "Performance marketing, AI automation and Gen AI creative — every skill in the chain, run by one brain, so nothing gets lost between departments.",
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
-    "Recognised three times in 2026: an award at Tamil Nadu Digital Summit, Official Digital Partner of VROOM 2026, and Prompt Engineering Champion at the Social Eagle AI prompt battle.",
+    "Recognised three times in a year: Prompt Engineering Champion at the Social Eagle AI prompt battle (2025), an award at the Tamil Nadu Digital Summit (May 2026), and Official Digital Partner of VROOM 2026.",
     "Every ad number on this page links to how it was measured. Anything a client told me is marked as client-reported.",
   ],
   portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
@@ -142,8 +142,8 @@ export const story = {
     },
     {
       year: "2026",
-      title: "Recognised three times in one year.",
-      body: "An award at the Tamil Nadu Digital Summit, Official Digital Partner of VROOM 2026, and Prompt Engineering Champion at the Social Eagle AI prompt battle. The last one is the craft behind every creative, film, pitch deck and automation on this page.",
+      title: "Recognised three times in a year.",
+      body: "Prompt Engineering Champion at the Social Eagle AI prompt battle in 2025, then in 2026 an award at the Tamil Nadu Digital Summit and Official Digital Partner of VROOM 2026. The first one is the craft behind every creative, film, pitch deck and automation on this page.",
     },
     {
       year: "Now",
