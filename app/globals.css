@@ -283,6 +283,14 @@ h1, h2, h3, .display {
   padding-bottom: 0.08em;
   margin-bottom: -0.08em;
 }
+/* hero word reveal — CSS, not JS, so the headline paints before hydration on slow connections */
+.word-rise {
+  transform: translateY(110%);
+  animation: word-rise 1s var(--ease) forwards;
+}
+@keyframes word-rise {
+  to { transform: translateY(0); }
+}
 
 .underline-slide {
   position: relative;
@@ -384,7 +392,7 @@ h1, h2, h3, .display {
   .grain::before { animation: none; }
   .marquee-track { animation: none; }
   .rv { opacity: 1; transform: none; filter: none; }
-  .mask-line > * { transform: none !important; }
+  .mask-line > * { transform: none !important; animation: none !important; }
 }
 /* frosted glass goes solid when the user asks for less transparency */
 @media (prefers-reduced-transparency: reduce) {
