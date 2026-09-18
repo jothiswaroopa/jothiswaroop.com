@@ -2,7 +2,7 @@ import BackLink from "@/components/BackLink";
 import ApplyForm from "@/components/ApplyForm";
 import { apply } from "@/lib/content";
 
-export const metadata = { title: "Apply — Jothi Swaroop" };
+export const metadata = { title: "Apply — Jothi Swaroop", description: "Four founders a quarter, India, UK and US. A two-minute application; introductions go to the top of the pile, everyone else is still read personally.", alternates: { canonical: "/apply/" }, openGraph: { title: "Apply — Jothi Swaroop", url: "/apply/" } };
 
 export default function ApplyPage() {
   return (

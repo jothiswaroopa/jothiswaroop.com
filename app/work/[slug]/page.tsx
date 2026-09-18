@@ -1,11 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Button from "@/components/Button";
 import BackLink from "@/components/BackLink";
 import Counter from "@/components/motion/Counter";
 import { cases, chain, videoTestimonials } from "@/lib/content";
 import VideoTile from "@/components/VideoTile";
+
+/** Per-case title/description/canonical so each result is its own page in Google and its own card on LinkedIn. */
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const c = cases.find((x) => x.slug === slug && !x.placeholder);
+  if (!c) return {};
+  const title = `${c.client} — ${c.result} | Jothi Swaroop`;
+  const description = `${c.after} ${c.measured ? `Measured in ${c.measured.source}. ` : ""}${c.industry}, ${c.location}.`.slice(0, 300);
+  return {
+    title,
+    description,
+    alternates: { canonical: `/work/${c.slug}/` },
+    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article" },
+    twitter: { title, description },
+  };
+}
 
 export function generateStaticParams() {
   return cases.filter((c) => !c.placeholder).map((c) => ({ slug: c.slug }));

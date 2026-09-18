@@ -1,7 +1,7 @@
 import BackLink from "@/components/BackLink";
 import { notes } from "@/lib/content";
 
-export const metadata = { title: "Notes — Jothi Swaroop" };
+export const metadata = { title: "Notes — Jothi Swaroop", description: "Short notes on performance marketing and AI automation for founder-led manufacturers and brands.", alternates: { canonical: "/notes/" } };
 
 export default function NotesPage() {
   return (

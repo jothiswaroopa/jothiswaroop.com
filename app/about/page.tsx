@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import { site, who, recognition, story } from "@/lib/content";
 
-export const metadata = { title: "About — Jothi Swaroop" };
+export const metadata = { title: "About — Jothi Swaroop", description: "From Villupuram to Chennai to UK and US clients: the full story of Jothi Swaroop — Certified Performance Marketer, AI Automation Engineer and Gen AI Architect. MBA in Finance & Marketing, first client 2023, 7,341 leads across nine ad accounts.", alternates: { canonical: "/about/" }, openGraph: { title: "About — Jothi Swaroop", url: "/about/" } };
 
 export default function AboutPage() {
   return (

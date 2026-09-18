@@ -17,13 +17,13 @@ const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", preload: false });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"),
   title: "Jothi Swaroop — Performance marketing & AI systems",
   description: "Jothi Swaroop is a Certified Performance Marketer, AI Automation Engineer and Gen AI Architect in Chennai, India — Meta and Google campaigns and AI follow-up systems for founder-led manufacturers and brands in India, the UK and the US. 7,341 leads across nine ad accounts, every number screenshot-backed.",
   keywords: ["Jothi Swaroop", "Jothi Swaroopa", "performance marketer Chennai", "Meta ads Tirupur manufacturers", "AI automation engineer India", "n8n automation", "Gen AI architect", "lead generation for manufacturers UK", "digital marketing consultant Chennai"],
   authors: [{ name: "Jothi Swaroop", url: "https://jothiswaroop.com" }],
   creator: "Jothi Swaroop",
-  alternates: { canonical: "https://jothiswaroop.com/" },
+  alternates: { canonical: "./" }, // resolves per route against metadataBase — never point every page at the home
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     title: "Jothi Swaroop — Performance marketing & AI systems",

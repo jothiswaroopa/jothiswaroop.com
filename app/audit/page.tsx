@@ -2,7 +2,7 @@ import BackLink from "@/components/BackLink";
 import AuditForm from "@/components/AuditForm";
 import { audit } from "@/lib/content";
 
-export const metadata = { title: "The Bottleneck Audit — Jothi Swaroop" };
+export const metadata = { title: "The Bottleneck Audit — Jothi Swaroop", description: "Seven questions, an instant diagnosis of where your marketing is leaking, and a recorded teardown of your setup within 48 hours. Free.", alternates: { canonical: "/audit/" }, openGraph: { title: "The Bottleneck Audit — Jothi Swaroop", url: "/audit/" } };
 
 export default function AuditPage() {
   return (
