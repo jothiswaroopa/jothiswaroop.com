@@ -427,3 +427,9 @@ h1, h2, h3, .display {
     inset: -12px -8px;
   }
 }
+
+/* phones/tablets: the portrait paints at its final size immediately (no clip/scale entrance),
+   so it can be the LCP at first paint instead of after hydration + 1.4s. Desktop keeps the reveal. */
+@media (max-width: 1023px) {
+  .hero-media { clip-path: none !important; transform: none !important; }
+}
