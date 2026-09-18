@@ -28,7 +28,7 @@ export default function Hero() {
             <video className="h-full w-full object-cover" src={hero.videoSrc} poster={hero.posterSrc} autoPlay muted loop playsInline />
           ) : (
             <div className="duotone relative h-full w-full">
-              <Image src={hero.posterSrc} alt={`${site.name}, portrait`} fill priority sizes="(min-width:1024px) 45vw, 100vw" className="object-cover object-[50%_32%]" />
+              <Image src={hero.posterSrc} alt={`${site.name}, portrait`} fill priority fetchPriority="high" sizes="(min-width:1024px) 45vw, 100vw" className="object-cover object-[50%_32%]" />
             </div>
           )}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
