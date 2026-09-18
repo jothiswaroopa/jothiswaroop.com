@@ -18,6 +18,7 @@ export default function Preloader({ name }: { name: string }) {
     } catch {}
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (document.hidden) return; // background tabs freeze rAF — never trap the user behind the curtain
+    if (window.innerWidth < 768 || (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return; // phones and data-saver: straight to content
     setShow(true);
     const start = performance.now();
     let raf = 0;
