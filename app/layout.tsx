@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/motion/SmoothScroll";
+import SmoothScrollLoader from "@/components/motion/SmoothScrollLoader";
 import Preloader from "@/components/motion/Preloader";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="grain">
-        <SmoothScroll />
+        <SmoothScrollLoader />
         <Preloader name={site.name} />
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-ink">
           Skip to content

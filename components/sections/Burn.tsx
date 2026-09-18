@@ -1,13 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "@/components/Button";
 import Scramble from "@/components/motion/Scramble";
 import { burn } from "@/lib/content";
 
-gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Not pinned on any viewport: each line lands and gets struck as it enters; payoff mask-reveals.
@@ -20,7 +17,7 @@ export default function Burn() {
     const el = root.current;
     if (!el) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const lines = gsap.utils.toArray<HTMLElement>(el.querySelectorAll("[data-line]"));
+    const lines = Array.from(el.querySelectorAll<HTMLElement>("[data-line]"));
     const payoff = el.querySelector<HTMLElement>("[data-payoff]");
     const mech = el.querySelector<HTMLElement>("[data-mech]");
 
@@ -29,20 +26,28 @@ export default function Burn() {
       return;
     }
 
-    const mm = gsap.matchMedia();
+    // GSAP is loaded on demand — this section is well below the fold, so it never delays first paint
+    let mm: { revert: () => void } | null = null;
+    let cancelled = false;
+    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([g, st]) => {
+      if (cancelled) return;
+      const gsap = g.default;
+      gsap.registerPlugin(st.ScrollTrigger);
+      mm = gsap.matchMedia();
 
-    mm.add("(min-width: 0px)", () => {
-      lines.forEach((l, i) => {
-        gsap.fromTo(l, { opacity: 0, y: 24 }, {
-          opacity: 1, y: 0, duration: 0.8, ease: "expo.out",
-          scrollTrigger: { trigger: l, start: "top 85%", once: true, onEnter: () => setTimeout(() => l.classList.add("on"), 300 + i * 80) },
+      (mm as ReturnType<typeof gsap.matchMedia>).add("(min-width: 0px)", () => {
+        lines.forEach((l, i) => {
+          gsap.fromTo(l, { opacity: 0, y: 24 }, {
+            opacity: 1, y: 0, duration: 0.8, ease: "expo.out",
+            scrollTrigger: { trigger: l, start: "top 85%", once: true, onEnter: () => setTimeout(() => l.classList.add("on"), 300 + i * 80) },
+          });
         });
+        gsap.fromTo(payoff, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: payoff, start: "top 85%", once: true } });
+        gsap.fromTo(mech, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: mech, start: "top 90%", once: true } });
       });
-      gsap.fromTo(payoff, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: payoff, start: "top 85%", once: true } });
-      gsap.fromTo(mech, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: mech, start: "top 90%", once: true } });
     });
 
-    return () => mm.revert();
+    return () => { cancelled = true; mm?.revert(); };
   }, []);
 
   return (
