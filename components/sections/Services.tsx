@@ -31,26 +31,16 @@ export default function Services() {
 
         <Reveal className="mt-14 border-t hairline">
           <ul className="divide-y divide-[var(--line)]">
-            {services.more.map((s, i) => {
-              const external = s.href?.startsWith("http");
-              const inner = (
-                <>
-                  <div className="flex items-baseline gap-4 md:col-span-4">
-                    <span className="mono text-xs text-paper/45">0{i + 3}</span>
-                    <h3 className={`display text-2xl text-paper md:text-3xl ${s.href ? "transition-colors group-hover:text-signal" : ""}`}>{s.name}</h3>
-                  </div>
-                  <p className="text-paper/75 md:col-span-4">{s.what}</p>
-                  <p className="mono text-xs leading-relaxed text-paper/60 md:col-span-4 md:text-right">{s.proof}{s.href ? " ↗" : ""}</p>
-                </>
-              );
-              return (
-                <li key={s.name} className="grid gap-3 py-7 md:grid-cols-12 md:items-start md:gap-8">
-                  {s.href ? (
-                    <Link href={s.href} className="contents group" target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{inner}</Link>
-                  ) : inner}
-                </li>
-              );
-            })}
+            {services.more.map((s, i) => (
+              <li key={s.name} className="grid gap-3 py-7 md:grid-cols-12 md:items-start md:gap-8">
+                <div className="flex items-baseline gap-4 md:col-span-4">
+                  <span className="mono text-xs text-paper/45">0{i + 3}</span>
+                  <h3 className="display text-2xl text-paper md:text-3xl">{s.name}</h3>
+                </div>
+                <p className="text-paper/75 md:col-span-4">{s.what}</p>
+                <p className="mono text-xs leading-relaxed text-paper/60 md:col-span-4 md:text-right">{s.proof}</p>
+              </li>
+            ))}
           </ul>
         </Reveal>
       </div>

@@ -463,9 +463,9 @@ export const services: { label: string; headline: string; sub: string; core: Ser
     { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP LLP Enterprises · Vaasavi IVF Micro Finance · jothiswaroop.com" },
     { name: "Script writing", what: "Ad scripts, reels and brand films written to the number they need to move.", proof: "Arkstorie · Tharunis Jewellery · the VROOM 2026 sponsor film" },
     { name: "Social media management", what: "Calendars, creatives and community, run to a monthly plan rather than a mood.", proof: "Retail · F&B · jewellery · spiritual products" },
-    { name: "Media production & content", what: "Event films, product shoots, AI-assisted creatives and investor decks.", proof: "VROOM 2026 sponsor film · House of Vummudi commercial — both in the showreel below", href: "/#work" },
-    { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn positioning, so the right buyer finds you before you find them.", proof: "Practised on this site and on my own profile — both are the case study", href: "https://www.linkedin.com/in/jothiswaroop" },
-    { name: "AI consultation", what: "The five-day Accelerator at your desk, or a half-day working session on what to automate first and what to leave alone.", proof: "Balaji's unedited message is further down this page", href: "/#accelerator" },
+    { name: "Media production & content", what: "Event films, product shoots, AI-assisted creatives and investor decks.", proof: "VROOM 2026 sponsor film · House of Vummudi commercial — both in the showreel below" },
+    { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn positioning, so the right buyer finds you before you find them.", proof: "Practised on this site and on my own profile — both are the case study" },
+    { name: "AI consultation", what: "The five-day Accelerator at your desk, or a half-day working session on what to automate first and what to leave alone.", proof: "Balaji's unedited message is further down this page" },
   ],
 };
 
