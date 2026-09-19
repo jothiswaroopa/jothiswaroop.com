@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Receipts from "@/components/sections/Receipts";
 import Who from "@/components/sections/Who";
+import Services from "@/components/sections/Services";
 import Burn from "@/components/sections/Burn";
 import Method from "@/components/sections/Method";
 import Work from "@/components/sections/Work";
@@ -20,6 +21,7 @@ export default function Home() {
       <Receipts />
       <Chain />
       <Who />
+      <Services />
       <Burn />
       <Method />
       <Work />

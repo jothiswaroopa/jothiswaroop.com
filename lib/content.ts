@@ -446,6 +446,28 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
   ],
 };
 
+/** Services — the two things clients hire for, and the disciplines around them that are done in-house.
+ *  `clients` are names only where there is no case; marks come from `logos` by file. Never add a number here
+ *  that isn't on the Work section. */
+export type Service = { name: string; what: string; clients?: string[]; marks?: string[]; href?: string };
+export const services: { label: string; headline: string; sub: string; core: Service[]; more: Service[] } = {
+  label: "// WHAT I DO",
+  headline: "Two things I'm hired for. Everything around them, done in-house.",
+  sub: "Founders come for the leads or the automations. They stay because the creative, the site, the scripts and the follow-up all come from the same brain — nothing is handed to a third vendor and lost in between.",
+  core: [
+    { name: "Performance marketing", what: "Meta and Google lead generation for founder-led manufacturers and brands — wholesale buyers, distributors, patients, students. Every number links to its Ads Manager screenshot.", marks: ["nova-attire", "five-elements", "sathyam-labels", "kalavridhi"], href: "/#work" },
+    { name: "AI automation & agents", what: "Voice receptionists, invoice bots, reorder agents, renewal reminders — nine automations running inside client businesses so no enquiry is dropped after the ad.", href: "/#systems" },
+  ],
+  more: [
+    { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", clients: ["GVP LLP Enterprises", "Vaasavi IVF Micro Finance"], marks: ["vaasaviivf-microfinance-bank"] },
+    { name: "Script writing", what: "Ad scripts, reels and brand films written to the number they need to move.", clients: ["Arkstorie", "Tharunis Jewellery"], marks: ["arkstorie", "tharunis"] },
+    { name: "Social media management", what: "Calendars, creatives and community for retail, F&B, jewellery and spiritual-products brands." },
+    { name: "Media production & content", what: "Event films, product shoots, AI-assisted creatives and investor decks — VROOM 2026's sponsor film among them.", marks: ["vroom", "chennai-tycoons"] },
+    { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn profile positioning, so the right buyer finds you before you find them." },
+    { name: "AI consultation", what: "The five-day Accelerator, or a half-day working session on what to automate first and what to leave alone.", href: "/#accelerator" },
+  ],
+};
+
 export type ChainNode = { slug: string; label: string; result: string; how: string };
 export const chain: ChainNode[] = [
   { slug: "sathyam", label: "Sathyam Labels", result: "1,589 leads", how: "The first client" },
