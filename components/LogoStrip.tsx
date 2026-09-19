@@ -3,7 +3,7 @@ import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import { logos, type ClientLogo } from "@/lib/content";
 
-/** Two rows of client marks on paper: the accounts with a case on this page, then the other brands.
+/** One row of every client mark on paper (cases first — those link to their case page).
  *  Every mark sits in the same box (contain-fit) so a wide wordmark and a square badge read at one
  *  optical size. Greyscale at rest; hover brings the colour back (see .logo-row in globals.css). */
 const BOX_H = "clamp(48px, 4.8vw, 68px)"; // one box for every mark; width is 2× that
@@ -32,12 +32,11 @@ function Row({ items }: { items: ClientLogo[] }) {
 }
 
 export default function LogoStrip() {
+  const all = [...logos.primary, ...logos.more];
   return (
     <Reveal className="mt-12 border-t hairline pt-8">
-      <p className="label"><Scramble text={`// CLIENTS ON THIS PAGE · ${logos.primary.length}`} /></p>
-      <Row items={logos.primary} />
-      <p className="label mt-10">{`// SMALLER BRIEFS, SAME STANDARD · ${logos.more.length} BRANDS`}</p>
-      <Row items={logos.more} />
+      <p className="label"><Scramble text={`// CLIENTS I'VE WORKED WITH · ${all.length} BRANDS`} /></p>
+      <Row items={all} />
     </Reveal>
   );
 }
