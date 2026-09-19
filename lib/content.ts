@@ -420,7 +420,7 @@ export const byTheNumbers = {
 
 /** Client marks — processed by scripts/logos.mjs from assets/logos-raw (background keyed out, fitted to 480×200).
  *  Only clients who agreed to be shown. `caseSlug` links the mark to its case; partners link to /about. */
-export type ClientLogo = { name: string; file: string; caseSlug?: string; href?: string; wide?: boolean };
+export type ClientLogo = { name: string; file: string; caseSlug?: string; href?: string; wide?: boolean; /** filled shapes that turn to blobs when flattened to one tone — strip only */ noSilhouette?: boolean };
 export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
   primary: [
     { name: "Nova Attire", file: "nova-attire", caseSlug: "nova" },
@@ -429,19 +429,19 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     { name: "Ram Textiles", file: "ram", caseSlug: "ram" },
     { name: "Sri Raja Rajeswari Traders", file: "srr", caseSlug: "srr" },
     { name: "Tharunis Jewellery", file: "tharunis", caseSlug: "tharunis" },
-    { name: "Kalavridhi Arts", file: "kalavridhi", caseSlug: "kalavridhi" },
+    { name: "Kalavridhi Arts", file: "kalavridhi", caseSlug: "kalavridhi" , noSilhouette: true },
     { name: "Angel Homemade Cakes", file: "angel", caseSlug: "angel" },
     { name: "BSHIP Chennai Tycoons", file: "chennai-tycoons", href: "/about", wide: true },
-    { name: "VROOM 2026", file: "vroom", href: "/about" },
+    { name: "VROOM 2026", file: "vroom", href: "/about" , noSilhouette: true },
   ],
   more: [
     { name: "Arkstorie", file: "arkstorie" },
-    { name: "Balavinayaka Constructions", file: "balavinayaka", wide: true },
-    { name: "Bodyzeal Fitworks", file: "bodyzeal" },
+    { name: "Balavinayaka Constructions", file: "balavinayaka", wide: true , noSilhouette: true },
+    { name: "Bodyzeal Fitworks", file: "bodyzeal" , noSilhouette: true },
     { name: "The Divine Bowl", file: "divinebowl" },
     { name: "Humopod", file: "humopod" },
     { name: "Theerthaa", file: "theerthaa", wide: true },
-    { name: "Top-5 El Alimentos", file: "top5" },
+    { name: "Top-5 El Alimentos", file: "top5" , noSilhouette: true },
     { name: "Vaasavi IVF Micro Finance", file: "vaasaviivf-microfinance-bank", wide: true },
   ],
 };
