@@ -35,7 +35,7 @@ export default function LogoStrip() {
   const all = [...logos.primary, ...logos.more];
   return (
     <Reveal className="mt-12 border-t hairline pt-8">
-      <p className="label"><Scramble text={`// CLIENTS I'VE WORKED WITH · ${all.length} BRANDS`} /></p>
+      <p className="label"><Scramble text="// CLIENTS I'VE WORKED WITH" /></p>
       <Row items={all} />
     </Reveal>
   );
