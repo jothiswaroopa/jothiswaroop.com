@@ -434,10 +434,20 @@ h1, h2, h3, .display {
   .hero-media { clip-path: none !important; transform: none !important; }
 }
 
-/* client marks: quiet by default, colour when pointed at */
-.logo-mark { filter: grayscale(1) contrast(1.05); opacity: 0.82; transition: filter 0.35s ease, opacity 0.35s ease; }
+/* client marks: quiet by default; pointed at, the mark comes back in colour and lifts a touch */
+.logo-mark {
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.82;
+  transform: translateZ(0);
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
 @media (hover: hover) and (pointer: fine) {
-  a:hover .logo-mark { filter: none; opacity: 1; }
+  .logo-row li:hover .logo-mark { filter: none; opacity: 1; transform: translateY(-2px) scale(1.08); }
+  /* the rest of the row steps back slightly so the hovered mark reads as the focus */
+  .logo-row:hover li:not(:hover) .logo-mark { opacity: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-row li:hover .logo-mark { transform: none; }
 }
 /* marks on ink: paper silhouettes, one tone; a touch brighter when pointed at */
 .logo-mark-ink { filter: brightness(0) invert(1); opacity: 0.55; transition: opacity 0.3s ease; }

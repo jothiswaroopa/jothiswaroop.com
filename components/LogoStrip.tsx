@@ -10,7 +10,7 @@ const fluid = (px: number) => `clamp(${Math.round(px * 0.58)}px, ${(px / 14.4).t
 
 function Row({ items, size, muted }: { items: ClientLogo[]; size: number; muted?: boolean }) {
   return (
-    <ul className={`mt-6 flex flex-wrap items-center gap-x-6 gap-y-5 md:gap-x-14 md:gap-y-6 ${muted ? "opacity-80" : ""}`}>
+    <ul className={`logo-row mt-6 flex flex-wrap items-center gap-x-6 gap-y-5 md:gap-x-14 md:gap-y-6 ${muted ? "opacity-80" : ""}`}>
       {items.map((l) => {
         const img = (
           <img src={`/img/logos/${l.file}.png`} alt={l.name} loading="lazy" decoding="async"
@@ -18,7 +18,7 @@ function Row({ items, size, muted }: { items: ClientLogo[]; size: number; muted?
         );
         const href = l.caseSlug ? `/work/${l.caseSlug}` : l.href;
         return (
-          <li key={l.file} className="flex items-center">
+          <li key={l.file} className="flex items-center py-1">
             {href ? <Link href={href} title={l.name} className="block press">{img}</Link> : <span title={l.name}>{img}</span>}
           </li>
         );
