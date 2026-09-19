@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Counter from "@/components/motion/Counter";
 import Reveal from "@/components/motion/Reveal";
-import LogoMarquee from "@/components/motion/LogoMarquee";
+import Marquee from "@/components/motion/Marquee";
 import Button from "@/components/Button";
-import { receipts } from "@/lib/content";
+import { receipts, marquee } from "@/lib/content";
 
 export default function Receipts() {
   return (
@@ -28,7 +28,7 @@ export default function Receipts() {
           <Button href="/audit" variant="quiet">Want numbers like these? Run the free audit</Button>
         </Reveal>
       </div>
-      <LogoMarquee />
+      <Marquee items={marquee} />
     </section>
   );
 }

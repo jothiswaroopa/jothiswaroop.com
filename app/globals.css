@@ -439,7 +439,3 @@ h1, h2, h3, .display {
 @media (hover: hover) and (pointer: fine) {
   a:hover .logo-mark { filter: none; opacity: 1; }
 }
-/* marks inside the ink marquee: paper silhouettes, one tone */
-.logo-mark-ink { filter: brightness(0) invert(1); opacity: 0.72; }
-.theme-paper .logo-mark-ink { filter: brightness(0); opacity: 0.6; }
-.marquee-track--slow { animation-duration: 90s; }
