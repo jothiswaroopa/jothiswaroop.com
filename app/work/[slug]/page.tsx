@@ -7,6 +7,7 @@ import BackLink from "@/components/BackLink";
 import Counter from "@/components/motion/Counter";
 import { cases, chain, videoTestimonials } from "@/lib/content";
 import VideoTile from "@/components/VideoTile";
+import ClientLogo, { logoFor } from "@/components/ClientLogo";
 
 /** Per-case title/description/canonical so each result is its own page in Google and its own card on LinkedIn. */
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -42,7 +43,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     <article className="pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink label="All work" fallback="/#work" />
-        <p className="mt-10 text-paper/72">{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</p>
+        <p className="mt-10 flex items-center gap-3 text-paper/72">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={34} />}<span>{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</span></p>
         <h1 className="num mt-4 text-[clamp(2.5rem,8vw,8rem)] text-signal">
           <Counter value={h.value} prefix={h.prefix} suffix={h.suffix} decimals={h.decimals} />
         </h1>

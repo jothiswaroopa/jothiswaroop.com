@@ -7,6 +7,7 @@ import Showreel from "@/components/Showreel";
 import FeaturedGrid from "@/components/FeaturedGrid";
 import HScroller from "@/components/HScroller";
 import CreativeGallery from "@/components/CreativeGallery";
+import LogoStrip from "@/components/LogoStrip";
 import { byTheNumbers as n, cases, externalProof } from "@/lib/content";
 import Counter from "@/components/motion/Counter";
 
@@ -24,6 +25,9 @@ export default function Work() {
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <p className="label"><Scramble text="// SELECTED WORK" /></p>
         <Reveal><h2 className="mt-6 max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)]">Before, after, and the receipts in between.</h2></Reveal>
+
+        {/* Every mark below belongs to a client who agreed to be shown; the first row links to its case */}
+        <LogoStrip />
 
         {/* Featured 4 — Before → After; international first for visitors outside India */}
         <FeaturedGrid cases={featured} />

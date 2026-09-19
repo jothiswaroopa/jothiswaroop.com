@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Reveal from "@/components/motion/Reveal";
 import SwipeCue from "@/components/SwipeCue";
 import type { CaseStudy } from "@/lib/content";
+import ClientLogo, { logoFor } from "@/components/ClientLogo";
 
 /**
  * Same four cases, ordered for the reader: a visitor outside India sees the international
@@ -42,7 +43,7 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
                 <div><p className="label !text-paper/80">After</p><p className="mt-2 text-sm text-paper/90">{c.after}</p></div>
               </div>
               <div className="flex items-center justify-between border-t hairline px-5 py-3 md:px-6">
-                <p className="text-sm text-paper/70">{c.client} · {c.industry}</p>
+                <p className="flex items-center gap-3 text-sm text-paper/70">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={26} />}<span>{c.client} · {c.industry}</span></p>
                 <p className="label">{c.year}</p>
               </div>
             </div>

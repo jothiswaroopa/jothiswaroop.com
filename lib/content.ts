@@ -418,6 +418,34 @@ export const byTheNumbers = {
   },
 };
 
+/** Client marks — processed by scripts/logos.mjs from assets/logos-raw (background keyed out, fitted to 480×200).
+ *  Only clients who agreed to be shown. `caseSlug` links the mark to its case; partners link to /about. */
+export type ClientLogo = { name: string; file: string; caseSlug?: string; href?: string; wide?: boolean };
+export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
+  primary: [
+    { name: "Nova Attire", file: "nova-attire", caseSlug: "nova" },
+    { name: "Five Elements", file: "five-elements", caseSlug: "five-elements" },
+    { name: "Sathyam Labels", file: "sathyam-labels", caseSlug: "sathyam", wide: true },
+    { name: "Ram Textiles", file: "ram", caseSlug: "ram" },
+    { name: "Sri Raja Rajeswari Traders", file: "srr", caseSlug: "srr" },
+    { name: "Tharunis Jewellery", file: "tharunis", caseSlug: "tharunis" },
+    { name: "Kalavridhi Arts", file: "kalavridhi", caseSlug: "kalavridhi" },
+    { name: "Angel Homemade Cakes", file: "angel", caseSlug: "angel" },
+    { name: "BSHIP Chennai Tycoons", file: "chennai-tycoons", href: "/about", wide: true },
+    { name: "VROOM 2026", file: "vroom", href: "/about" },
+  ],
+  more: [
+    { name: "Arkstorie", file: "arkstorie" },
+    { name: "Balavinayaka Constructions", file: "balavinayaka", wide: true },
+    { name: "Bodyzeal Fitworks", file: "bodyzeal" },
+    { name: "The Divine Bowl", file: "divinebowl" },
+    { name: "Humopod", file: "humopod" },
+    { name: "Theerthaa", file: "theerthaa", wide: true },
+    { name: "Top-5 El Alimentos", file: "top5" },
+    { name: "Vaasavi IVF Micro Finance", file: "vaasaviivf-microfinance-bank", wide: true },
+  ],
+};
+
 export type ChainNode = { slug: string; label: string; result: string; how: string };
 export const chain: ChainNode[] = [
   { slug: "sathyam", label: "Sathyam Labels", result: "1,589 leads", how: "The first client" },

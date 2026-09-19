@@ -433,3 +433,9 @@ h1, h2, h3, .display {
 @media (max-width: 1023px) {
   .hero-media { clip-path: none !important; transform: none !important; }
 }
+
+/* client marks: quiet by default, colour when pointed at */
+.logo-mark { filter: grayscale(1) contrast(1.05); opacity: 0.82; transition: filter 0.35s ease, opacity 0.35s ease; }
+@media (hover: hover) and (pointer: fine) {
+  a:hover .logo-mark { filter: none; opacity: 1; }
+}
