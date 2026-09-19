@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import { chain as chainNodes } from "@/lib/content";
+import { logoFor } from "@/components/ClientLogo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -36,8 +37,14 @@ export default function Chain() {
           {chain.map((c, i) => (
             <motion.li key={`${c.slug}-${i}`} className="relative pb-10 pl-6"
               initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}>
-              <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-ink-3" />
-              <Link href={`/work/${c.slug}`} className="group block">
+              {logoFor(c.slug) ? (
+                <span className="absolute -left-[15px] top-0 flex h-[30px] w-[30px] items-center justify-center rounded-full border border-signal/60 bg-[#f2ede4]">
+                  <img src={`/img/logos/${logoFor(c.slug)!.file}.png`} alt="" className="h-[18px] w-[18px] object-contain grayscale" />
+                </span>
+              ) : (
+                <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-ink-3" />
+              )}
+              <Link href={`/work/${c.slug}`} className="group block pl-3">
                 <p className="mono text-xs text-paper/55">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                 <p className="display mt-1 text-xl text-paper group-hover:text-signal">{c.label}</p>
                 <p className="mono mt-1 text-xs text-paper/70">{c.result}</p>
@@ -58,12 +65,23 @@ export default function Chain() {
                 transition={{ duration: 0.6, delay: 0.2 + i * (2.2 / chain.length), ease: EASE }} style={{ transformOrigin: `${p.x}px ${p.y}px` }} />
             ))}
           </svg>
+          {/* marks over the nodes: a paper disc so dark marks read on ink */}
+          <ul className="pointer-events-none absolute inset-0" aria-hidden>
+            {chain.map((c, i) => logoFor(c.slug) && (
+              <motion.li key={`m-${i}`} className="absolute flex items-center justify-center rounded-full border border-signal/60 bg-[#f2ede4]"
+                style={{ width: 56, height: 56, left: `${pts[i].x / 10}%`, top: `${(pts[i].y / h) * 100}%` }}
+                initial={{ opacity: 0, scale: 0.6, x: "-50%", y: "-50%" }} animate={inView ? { opacity: 1, scale: 1, x: "-50%", y: "-50%" } : {}}
+                transition={{ duration: 0.6, delay: 0.3 + i * (2.2 / chain.length), ease: EASE }}>
+                <img src={`/img/logos/${logoFor(c.slug)!.file}.png`} alt="" className="h-[34px] w-[38px] object-contain grayscale" />
+              </motion.li>
+            ))}
+          </ul>
           <ul className="pointer-events-none absolute inset-0">
             {chain.map((c, i) => {
               const left = i % 2 === 0;
               return (
                 <motion.li key={`${c.slug}-${i}`} className="pointer-events-auto absolute w-[27%]"
-                  style={{ top: `${((50 + i * stepY) / h) * 100}%`, [left ? "right" : "left"]: "71.5%", transform: "translateY(-50%)" }}
+                  style={{ top: `${((50 + i * stepY) / h) * 100}%`, [left ? "right" : "left"]: "72.5%", transform: "translateY(-50%)" }}
                   initial={{ opacity: 0, x: left ? -12 : 12 }} animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * (2.2 / chain.length), ease: EASE }}>
                   <Link href={`/work/${c.slug}`} className={`group block ${left ? "text-right" : ""}`}>

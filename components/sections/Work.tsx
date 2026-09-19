@@ -8,6 +8,7 @@ import FeaturedGrid from "@/components/FeaturedGrid";
 import HScroller from "@/components/HScroller";
 import CreativeGallery from "@/components/CreativeGallery";
 import LogoStrip from "@/components/LogoStrip";
+import ClientLogo, { logoFor } from "@/components/ClientLogo";
 import { byTheNumbers as n, cases, externalProof } from "@/lib/content";
 import Counter from "@/components/motion/Counter";
 
@@ -39,7 +40,7 @@ export default function Work() {
             {live.flatMap((c) => (c.receipts ?? []).map((src, i) => (
               <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
                 <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:640px) 520px, 86vw" className="object-cover object-left-top" />
-                <span className="label absolute bottom-2 left-2 rounded bg-ink/85 px-2 py-1 !text-paper/85">{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
+                <span className="label absolute bottom-2 left-2 flex items-center gap-2 rounded bg-ink/85 py-1 pl-1 pr-2 !text-paper/85">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={22} />}{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
               </div></Link>
             )))}
           </HScroller>

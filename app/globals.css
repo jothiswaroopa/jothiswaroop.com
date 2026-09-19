@@ -439,3 +439,7 @@ h1, h2, h3, .display {
 @media (hover: hover) and (pointer: fine) {
   a:hover .logo-mark { filter: none; opacity: 1; }
 }
+/* marks on ink: paper silhouettes, one tone; a touch brighter when pointed at */
+.logo-mark-ink { filter: brightness(0) invert(1); opacity: 0.55; transition: opacity 0.3s ease; }
+@media (hover: hover) and (pointer: fine) { a:hover .logo-mark-ink { opacity: 0.95; } }
+.theme-paper .logo-mark-ink { filter: brightness(0); }

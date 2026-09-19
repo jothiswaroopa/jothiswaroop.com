@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import SplitText from "@/components/motion/SplitText";
 import Button from "@/components/Button";
 import Scramble from "@/components/motion/Scramble";
-import { hero, site, byTheNumbers, story } from "@/lib/content";
+import Link from "next/link";
+import { hero, site, byTheNumbers, story, logos } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -71,6 +72,22 @@ export default function Hero() {
                 <li key={st.k} className="flex items-baseline gap-2">
                   <span className="mono text-sm text-signal">{st.prefix ?? ""}{st.value.toLocaleString("en-IN")}{st.suffix ?? ""}</span>
                   <span className="label !normal-case !tracking-normal">{st.k}</span>
+                </li>
+              ))}
+            </motion.ul>
+            {/* the brands behind those numbers — case marks only, flattened to paper so the hero stays two-tone */}
+            <motion.ul
+              className="mt-4 mb-8 hidden items-center gap-x-6 lg:flex"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              aria-label="Clients with a case study on this page"
+            >
+              {logos.primary.filter((l) => l.caseSlug && !l.noSilhouette).map((l) => (
+                <li key={l.file}>
+                  <Link href={`/work/${l.caseSlug}`} title={l.name} className="block">
+                    <img src={`/img/logos/${l.file}.png`} alt={l.name} className="logo-mark-ink w-auto" style={{ height: l.wide ? 14 : 22, maxWidth: l.wide ? 96 : 48 }} />
+                  </Link>
                 </li>
               ))}
             </motion.ul>
