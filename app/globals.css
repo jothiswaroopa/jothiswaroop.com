@@ -436,8 +436,9 @@ h1, h2, h3, .display {
 
 /* client marks: quiet by default; pointed at, the mark comes back in colour and lifts a touch */
 .logo-mark {
-  filter: grayscale(1) contrast(1.05);
-  opacity: 0.82;
+  /* brightness pulls gold/pale marks down to a readable grey; contrast keeps the dark ones crisp */
+  filter: grayscale(1) brightness(0.72) contrast(1.15);
+  opacity: 0.9;
   transform: translateZ(0);
   transition: filter 0.4s ease, opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
