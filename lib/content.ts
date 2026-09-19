@@ -25,7 +25,7 @@ export const site = {
 export const hero = {
   eyebrow: "// FOR FOUNDER-LED MANUFACTURERS & BRANDS · INDIA · UK · US",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
-  headline: ["*4,248\u00a0leads* for one client.", "Four founders a\u00a0quarter.", "_Every\u00a0one_ _by\u00a0introduction._"],
+  headline: ["*4,248\u00a0leads* for one client.", "Four founders a\u00a0quarter.", "_Every\u00a0one_ _by\u00a0introduction._ Until\u00a0now."],
   // alt A: "Every client since was introduced by the one before." · alt C: "Zero cold pitches, ever."
   // *…* = amber (the proof number) · _…_ = italic (the payoff) · NBSPs keep each marked phrase on one line
   // A/B alt (kept for testing): "Zero cold pitches for me."

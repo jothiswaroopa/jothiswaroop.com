@@ -30,7 +30,7 @@ export default function Chain() {
             One client. One <span className="italic text-signal">introduction</span>. Then the next.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-paper/75">Zero cold pitches, zero ads for myself — every client came by introduction. This is the chain that started it, in the order it actually happened: a label manufacturer, a knitwear brand, that brand&apos;s UK expansion, and the fashion label they sent my way.</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-paper/75">Zero ads for myself and, until this quarter, zero cold pitches — every client came by introduction, in this order: a label manufacturer, a knitwear brand, that brand&apos;s UK expansion, and the fashion label they sent my way. That chain is why I can now write to founders directly. If you got an email from me, this page is the introduction.</p></Reveal>
 
         {/* Mobile: vertical rail */}
         <ol className="mt-14 border-l border-signal/40 md:hidden">
