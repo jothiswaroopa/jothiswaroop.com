@@ -1,4 +1,4 @@
-// Client logos: assets/logos-raw/*.png → public/img/logos/<name>.png
+// Client logos: assets/logos-raw/*.png → public/img/logos/<name>.{png,webp}
 // Keys out the flat background colour (sampled from the corners), trims, and fits each mark into a
 // 480×200 box so the strip renders at a uniform optical size. CSS handles greyscale.
 import { readdir, mkdir } from "node:fs/promises";
@@ -39,10 +39,11 @@ for (const f of files) {
     if (d < tol || data[i + 3] < (KEY[name]?.minAlpha ?? 1)) { data[i + 3] = 0; keyed++; }
     else if (d < tol * 2) data[i + 3] = Math.round(data[i + 3] * ((d - tol) / tol)); // soft edge
   }
-  const out = await sharp(data, { raw: { width, height, channels } })
+  const fitted = sharp(data, { raw: { width, height, channels } })
     .trim({ threshold: 10 })
-    .resize(BOX.w, BOX.h, { fit: "inside", withoutEnlargement: false })
-    .png({ compressionLevel: 9, palette: false })
-    .toFile(path.join(OUT, `${name}.png`));
-  console.log(`${name}: bg rgb(${bg}) keyed ${Math.round((keyed / (data.length / channels)) * 100)}% → ${out.width}×${out.height} ${Math.round(out.size / 1024)}KB`);
+    .resize(BOX.w, BOX.h, { fit: "inside", withoutEnlargement: false });
+  const out = await fitted.clone().png({ compressionLevel: 9, palette: false }).toFile(path.join(OUT, `${name}.png`));
+  // WebP is what the site actually serves (≈¼ the bytes); the PNG stays as the lossless master
+  const webp = await fitted.clone().webp({ quality: 86, alphaQuality: 90, effort: 6 }).toFile(path.join(OUT, `${name}.webp`));
+  console.log(`${name}: bg rgb(${bg}) keyed ${Math.round((keyed / (data.length / channels)) * 100)}% → ${out.width}×${out.height} png ${Math.round(out.size / 1024)}KB · webp ${Math.round(webp.size / 1024)}KB`);
 }

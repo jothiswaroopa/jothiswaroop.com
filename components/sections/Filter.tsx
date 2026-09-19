@@ -13,9 +13,7 @@ export default function Filter() {
             <p className="label !text-paper/80">For</p>
             <ul className="mt-6 space-y-5">
               {filter.forList.map((l, i) => (
-                <Reveal key={i} delay={i * 0.08} y={16}>
-                  <li className="flex gap-4 border-b hairline pb-4 text-base text-paper/90 md:pb-5 md:text-lg"><span className="mono text-xs text-paper/60 mt-1.5">✓</span>{l}</li>
-                </Reveal>
+                <Reveal key={i} as="li" delay={i * 0.08} y={16} className="flex gap-4 border-b hairline pb-4 text-base text-paper/90 md:pb-5 md:text-lg"><span className="mono text-xs text-paper/60 mt-1.5">✓</span>{l}</Reveal>
               ))}
             </ul>
           </div>
@@ -31,9 +29,7 @@ export default function Filter() {
             <p className="label hidden !text-strike md:block">Not for</p>
             <ul className="mt-6 hidden space-y-5 md:block">
               {filter.notList.map((l, i) => (
-                <Reveal key={i} delay={0.1 + i * 0.08} y={16}>
-                  <li className="flex gap-4 border-b hairline pb-4 text-base text-paper/70 md:pb-5 md:text-lg"><span className="mono text-xs text-strike mt-1.5">×</span>{l}</li>
-                </Reveal>
+                <Reveal key={i} as="li" delay={0.1 + i * 0.08} y={16} className="flex gap-4 border-b hairline pb-4 text-base text-paper/70 md:pb-5 md:text-lg"><span className="mono text-xs text-strike mt-1.5">×</span>{l}</Reveal>
               ))}
             </ul>
           </div>

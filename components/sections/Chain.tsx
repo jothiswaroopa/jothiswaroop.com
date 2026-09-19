@@ -39,7 +39,7 @@ export default function Chain() {
               initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}>
               {logoFor(c.slug) ? (
                 <span className="absolute -left-[15px] top-0 flex h-[30px] w-[30px] items-center justify-center rounded-full border border-signal/60 bg-[#f2ede4]">
-                  <img src={`/img/logos/${logoFor(c.slug)!.file}.png`} alt="" className="h-[18px] w-[18px] object-contain grayscale" />
+                  <img src={`/img/logos/${logoFor(c.slug)!.file}.webp`} alt="" loading="lazy" decoding="async" className="h-[18px] w-[18px] object-contain" />
                 </span>
               ) : (
                 <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-ink-3" />
@@ -72,7 +72,7 @@ export default function Chain() {
                 style={{ width: 56, height: 56, left: `${pts[i].x / 10}%`, top: `${(pts[i].y / h) * 100}%` }}
                 initial={{ opacity: 0, scale: 0.6, x: "-50%", y: "-50%" }} animate={inView ? { opacity: 1, scale: 1, x: "-50%", y: "-50%" } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + i * (2.2 / chain.length), ease: EASE }}>
-                <img src={`/img/logos/${logoFor(c.slug)!.file}.png`} alt="" className="h-[34px] w-[38px] object-contain grayscale" />
+                <img src={`/img/logos/${logoFor(c.slug)!.file}.webp`} alt="" loading="lazy" decoding="async" className="h-[34px] w-[38px] object-contain grayscale" />
               </motion.li>
             ))}
           </ul>

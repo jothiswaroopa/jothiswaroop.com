@@ -16,7 +16,7 @@ function Row({ items }: { items: ClientLogo[] }) {
       {items.map((l) => {
         const img = (
           <span className="flex items-center justify-center" style={{ height: BOX_H, width: l.wide ? BOX_W_WIDE : BOX_W }}>
-            <img src={`/img/logos/${l.file}.png`} alt={l.name} loading="lazy" decoding="async"
+            <img src={`/img/logos/${l.file}.webp`} alt={l.name} loading="lazy" decoding="async"
               className="logo-mark max-h-full max-w-full object-contain" />
           </span>
         );

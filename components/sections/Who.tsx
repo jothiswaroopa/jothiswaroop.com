@@ -38,11 +38,9 @@ export default function Who() {
           <Reveal delay={0.1}><p className="mt-3 text-paper/72">{who.role}</p></Reveal>
           <ul className="mt-10 space-y-5 border-t hairline pt-8">
             {who.lines.map((l, i) => (
-              <Reveal key={i} delay={0.15 + i * 0.1}>
-                <li className="flex gap-5 text-lg text-paper/85">
-                  <span className="mono mt-1.5 text-xs text-paper/55">0{i + 1}</span>
-                  <span>{l}</span>
-                </li>
+              <Reveal key={i} as="li" delay={0.15 + i * 0.1} className="flex gap-5 text-lg text-paper/85">
+                <span className="mono mt-1.5 text-xs text-paper/55">0{i + 1}</span>
+                <span>{l}</span>
               </Reveal>
             ))}
           </ul>

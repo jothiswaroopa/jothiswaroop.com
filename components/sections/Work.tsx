@@ -67,10 +67,10 @@ export default function Work() {
           <p className="label"><Scramble text={n.label} /></p>
           <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {n.stats.map((st) => (
-              <div key={st.k}>
-                <dd className="mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
-                <dt className="mt-3 text-paper">{st.k}</dt>
-                <p className="mt-1 text-sm text-paper/65">{st.v}</p>
+              <div key={st.k} className="flex flex-col">
+                <dt className="order-2 mt-3 text-paper">{st.k}</dt>
+                <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
+                <dd className="order-3 mt-1 text-sm text-paper/65">{st.v}</dd>
               </div>
             ))}
           </dl>
@@ -84,10 +84,10 @@ export default function Work() {
           </div>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
             {n.reported.stats.map((st) => (
-              <div key={st.k}>
-                <dd className="mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-paper"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} /></dd>
-                <dt className="mt-3 text-paper">{st.k}</dt>
-                <p className="mt-1 text-sm text-paper/65">{st.v}</p>
+              <div key={st.k} className="flex flex-col">
+                <dt className="order-2 mt-3 text-paper">{st.k}</dt>
+                <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-paper"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} /></dd>
+                <dd className="order-3 mt-1 text-sm text-paper/65">{st.v}</dd>
               </div>
             ))}
           </dl>

@@ -6,11 +6,25 @@ import SplitText from "@/components/motion/SplitText";
 import Button from "@/components/Button";
 import Scramble from "@/components/motion/Scramble";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { hero, site, byTheNumbers, story, logos } from "@/lib/content";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/** display:none doesn't stop <img> downloads — so the mark row only mounts once we know the screen is wide */
+function useWide() {
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const on = () => setWide(mq.matches);
+    on(); mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return wide;
+}
+
 export default function Hero() {
+  const wide = useWide();
   const wordCount = hero.headline.join(" ").split(" ").length;
   const settle = 0.2 + wordCount * 0.04;
 
@@ -76,7 +90,7 @@ export default function Hero() {
               ))}
             </motion.ul>
             {/* the brands behind those numbers — case marks only, flattened to paper so the hero stays two-tone */}
-            <motion.ul
+            {wide && <motion.ul
               className="mt-4 mb-8 hidden items-center gap-x-6 lg:flex"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -86,11 +100,11 @@ export default function Hero() {
               {logos.primary.filter((l) => l.caseSlug && !l.noSilhouette).map((l) => (
                 <li key={l.file}>
                   <Link href={`/work/${l.caseSlug}`} title={l.name} className="block">
-                    <img src={`/img/logos/${l.file}.png`} alt={l.name} className="logo-mark-ink w-auto" style={{ height: l.wide ? 14 : 22, maxWidth: l.wide ? 96 : 48 }} />
+                    <img src={`/img/logos/${l.file}.webp`} alt={l.name} className="logo-mark-ink w-auto" style={{ height: l.wide ? 14 : 22, maxWidth: l.wide ? 96 : 48 }} />
                   </Link>
                 </li>
               ))}
-            </motion.ul>
+            </motion.ul>}
           </div>
           <div>
           <SplitText

@@ -7,7 +7,7 @@ export const logoFor = (caseSlug: string): Mark | undefined => all.find((l) => l
 export default function ClientLogo({ mark, h = 28, className = "" }: { mark: Mark; h?: number; className?: string }) {
   return (
     <span className={`inline-flex shrink-0 items-center rounded-md bg-[#f2ede4] px-2 ${className}`} style={{ height: h }} title={mark.name}>
-      <img src={`/img/logos/${mark.file}.png`} alt={mark.name} height={h - 10} className="w-auto" style={{ height: h - 10, maxWidth: mark.wide ? h * 4.2 : h * 2.6 }} loading="lazy" decoding="async" />
+      <img src={`/img/logos/${mark.file}.webp`} alt={mark.name} height={h - 10} className="w-auto" style={{ height: h - 10, maxWidth: mark.wide ? h * 4.2 : h * 2.6 }} loading="lazy" decoding="async" />
     </span>
   );
 }

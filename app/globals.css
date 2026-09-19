@@ -57,7 +57,7 @@
   --line-strong: rgba(10, 10, 12, 0.22);
   --signal: #a85f00;
   --signal-dim: rgba(168, 95, 0, 0.12);
-  --strike: #c42b2b;
+  --strike: #a32020; /* 5.6:1 on the cream card tone (#e4ddcf) — 12px labels need 4.5 */
   background: var(--ink);
   color: var(--paper);
 }
@@ -434,15 +434,16 @@ h1, h2, h3, .display {
   .hero-media { clip-path: none !important; transform: none !important; }
 }
 
-/* client marks: quiet by default; pointed at, the mark comes back in colour and lifts a touch */
+/* client marks: on touch screens they show in their own colours (nothing to hover); with a pointer they
+   rest in greyscale and come back in colour, lifting a touch, when pointed at */
 .logo-mark {
-  /* brightness pulls gold/pale marks down to a readable grey; contrast keeps the dark ones crisp */
-  filter: grayscale(1) brightness(0.72) contrast(1.15);
-  opacity: 0.9;
+  opacity: 0.95;
   transform: translateZ(0);
   transition: filter 0.4s ease, opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @media (hover: hover) and (pointer: fine) {
+  /* brightness pulls gold/pale marks down to a readable grey; contrast keeps the dark ones crisp */
+  .logo-mark { filter: grayscale(1) brightness(0.72) contrast(1.15); opacity: 0.9; }
   .logo-row li:hover .logo-mark { filter: none; opacity: 1; transform: translateY(-2px) scale(1.08); }
   /* the rest of the row steps back slightly so the hovered mark reads as the focus */
   .logo-row:hover li:not(:hover) .logo-mark { opacity: 0.5; }
