@@ -47,21 +47,21 @@ export default function CardPage() {
       <div className="relative mx-auto max-w-[420px]">
         <p className="mono text-center text-[10.5px] uppercase tracking-[0.18em] text-paper/55">// Performance marketing &amp; AI systems</p>
 
-        {/* portrait — bottom fades into the ink */}
-        <div className="relative mx-auto mt-6 h-[250px] w-[250px]">
-          <div aria-hidden className="absolute inset-[-14px] rounded-full border border-paper/10" />
-          <div aria-hidden className="absolute inset-[-1px] rounded-full border border-signal/40" />
+        {/* portrait cutout — the AI halo above the head, hoodie fading into the ink */}
+        <div className="relative mx-auto mt-2 h-[340px] w-full">
+          <div aria-hidden className="absolute left-1/2 top-[50%] h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-signal/30" />
+          <div aria-hidden className="absolute left-1/2 top-[50%] h-[270px] w-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-paper/8" />
           {/* plain img: served raw, not through the _w variant pipeline */}
           <img
             src="/img/portrait-ai.webp"
             alt={site.name}
-            width={250}
-            height={250}
-            className="h-full w-full rounded-full object-cover object-top [mask-image:linear-gradient(to_bottom,#000_78%,transparent_100%)]"
+            width={700}
+            height={1000}
+            className="relative mx-auto h-full w-auto object-contain [mask-image:linear-gradient(to_bottom,#000_72%,transparent_98%)]"
           />
         </div>
 
-        <h1 className="display mt-4 text-center text-[2.85rem] leading-none tracking-[-0.01em]">
+        <h1 className="display -mt-3 text-center text-[2.85rem] leading-none tracking-[-0.01em]">
           {site.name}<span className="text-signal">.</span>
         </h1>
         <p className="mono mt-3 text-center text-[11px] uppercase tracking-[0.14em] text-paper/60">Ads · Websites · Content · AI systems</p>
@@ -97,7 +97,7 @@ export default function CardPage() {
         <div className="theme-paper mt-6 overflow-hidden rounded-2xl bg-ink text-paper shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
           <div className="flex items-center justify-between border-b hairline px-5 py-3">
             <p className="mono text-[10.5px] uppercase tracking-[0.16em] text-strike">// The receipts</p>
-            <p className="mono text-[10.5px] uppercase tracking-[0.12em] text-paper/50">Screenshot-backed</p>
+            <p className="mono text-[10.5px] uppercase tracking-[0.12em] text-paper/50">Ask to see them</p>
           </div>
           <dl className="grid grid-cols-3 divide-x divide-paper/15">
             {RECEIPTS.map((r) => (
