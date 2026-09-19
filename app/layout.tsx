@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import NavTracker from "@/components/NavTracker";
 import SectionLabels from "@/components/SectionLabels";
 import { site, hero } from "@/lib/content";
+import ChromeGate from "@/components/ChromeGate";
 
 // Share-card description mirrors the live headline — never a second copy that can drift.
 const ogLine = hero.headline.map((l) => l.replace(/[*_]/g, "").replace(/\u00a0/g, " ")).join(" ") + " Performance marketing and AI automation for founder-led manufacturers and brands — India, UK, US. Every number screenshot-backed.";
@@ -59,10 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <NavTracker />
-        <SectionLabels />
-        <Nav />
+        <ChromeGate><SectionLabels /><Nav /></ChromeGate>
         <main id="main">{children}</main>
-        <Footer />
+        <ChromeGate><Footer /></ChromeGate>
         {/* Person schema — ties the domain to the LinkedIn/Instagram profiles for search engines */}
         <script
           type="application/ld+json"
