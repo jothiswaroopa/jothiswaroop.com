@@ -72,6 +72,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             sameAs: [site.socials.linkedin, site.socials.instagram].filter(Boolean),
           }) }}
         />
+        {/* Cloudflare Web Analytics — cookieless, no consent banner needed; loads after everything else.
+            Skipped on localhost so dev sessions don't count as visits. */}
+        {process.env.NODE_ENV === "production" && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "190178a9bb5a4ba6bdaea040a85daafa"}'
+          />
+        )}
       </body>
     </html>
   );
