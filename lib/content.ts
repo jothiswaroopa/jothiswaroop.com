@@ -465,7 +465,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
     { name: "Social media management", what: "Calendars, creatives and community, run to a monthly plan rather than a mood.", proof: "Retail · F&B · jewellery · spiritual products" },
     { name: "Media production & content", what: "Event films, product shoots, AI-assisted creatives and investor decks.", proof: "VROOM 2026 sponsor film · House of Vummudi commercial — both in the showreel below" },
     { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn positioning, so the right buyer finds you before you find them.", proof: "Practised on this site and on my own profile — both are the case study" },
-    { name: "AI consultation", what: "The five-day Accelerator at your desk, or a half-day working session on what to automate first and what to leave alone.", proof: "Balaji's unedited message is further down this page" },
+    { name: "AI consultation", what: "Advisory for founders and their teams: where AI genuinely saves money in your operation, what to build, what to buy off the shelf, and what to leave alone — delivered as a written plan your own people can execute.", proof: "Fixed-scope audits or monthly advisory · remote, in your timezone · India, UK, US" },
   ],
 };
 
