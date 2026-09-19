@@ -47,6 +47,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+      <head>
+        {/* Stable, query-free icon URLs for Google's favicon crawler — the app/icon.* files above get a cache-busting query on every build */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
+      </head>
       <body className="grain">
         <SmoothScrollLoader />
         <Preloader name={site.name} />
