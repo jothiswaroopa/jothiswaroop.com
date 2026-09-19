@@ -4,6 +4,8 @@
  * POST { access_key, subject, ...fields } → { success: boolean }). Until configured, submit()
  * returns { delivered: false } and the UI must show an honest manual path — never a fake success.
  */
+import { sourceFields } from "@/lib/source";
+
 export type SubmitResult = { delivered: boolean; error?: string };
 
 export async function submit(subject: string, fields: Record<string, string>): Promise<SubmitResult> {
@@ -14,7 +16,7 @@ export async function submit(subject: string, fields: Record<string, string>): P
     const r = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ access_key: key, subject, from_name: "jothiswaroop.com", ...fields }),
+      body: JSON.stringify({ access_key: key, subject, from_name: "jothiswaroop.com", ...fields, ...sourceFields(), page: typeof location !== "undefined" ? location.pathname : "" }),
     });
     const j = (await r.json().catch(() => ({}))) as { success?: boolean; message?: string };
     return r.ok && j.success !== false ? { delivered: true } : { delivered: false, error: j.message || `http_${r.status}` };
