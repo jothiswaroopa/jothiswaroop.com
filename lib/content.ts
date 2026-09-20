@@ -87,9 +87,9 @@ export const recognition: Recognition[] = [
   },
   {
     title: "Speaker · \"The Importance of Digital Marketing & AI Automation\"",
-    detail: "My first business presentation: a seminar for 50+ entrepreneurs at a business networking meeting in Salem, Tamil Nadu, July 2025 — the two halves of this site, ads and automation, in one room.",
+    detail: "My first business presentation: a seminar for 60+ entrepreneurs at a business networking meeting in Salem, Tamil Nadu, July 2025 — the two halves of this site, ads and automation, in one room.",
     image: "/img/seminar-salem.jpg",
-    caption: "Salem · July 2025 · 50+ entrepreneurs",
+    caption: "Salem · July 2025 · 60+ entrepreneurs",
     position: "70% 40%",
   },
 ];
@@ -145,7 +145,7 @@ export const story = {
     },
     {
       year: "Jul 2025",
-      title: "A room of 50+ founders in Salem.",
+      title: "A room of 60+ founders in Salem.",
       body: "My first business presentation — invited to speak on the importance of digital marketing and AI automation at a business networking meeting. Founders with decades more experience than me, listening. The two subjects of that talk are the two halves of this site.",
     },
     {
