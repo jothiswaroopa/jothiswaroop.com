@@ -458,7 +458,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
   sub: "Founders come for the leads or the automations. They stay because the creative, the site, the scripts and the follow-up all come from the same brain — nothing is handed to a third vendor and lost in between.",
   core: [
     { name: "Performance marketing", what: "Meta and Google lead generation for founder-led manufacturers and brands — wholesale buyers, distributors, patients, students. Every number links to its Ads Manager screenshot.", proof: "7,341 form leads · 876 conversations · 9 ad accounts · India, UK, US, Canada", href: "/#work" },
-    { name: "AI automation & agents", what: "Voice receptionists, invoice bots, reorder agents, renewal reminders — built inside client businesses so no enquiry is dropped after the ad.", proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice — all shown below", href: "/#systems" },
+    { name: "AI automation & agents", what: "Any repeated task, built into a system that runs while you sleep — WhatsApp and voice receptionists, invoice bots, reorder agents, renewal reminders, reports. The receptionist is one build; the product is whatever your operation repeats.", proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice — all shown below", href: "/#systems" },
   ],
   more: [
     { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP LLP Enterprises · Vaasavi IVF Micro Finance · jothiswaroop.com" },

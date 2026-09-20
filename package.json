@@ -13,7 +13,8 @@
     "og": "node scripts/blog/og.mjs",
     "blog:generate": "node scripts/blog/generate.mjs",
     "blog:validate": "node scripts/blog/validate.mjs",
-    "dash:collect": "node scripts/dash/collect.mjs"
+    "dash:collect": "node scripts/dash/collect.mjs",
+    "postbuild": "node scripts/defer-hydration.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",
