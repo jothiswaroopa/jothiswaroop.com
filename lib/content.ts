@@ -108,7 +108,7 @@ export const story = {
   titles: "Certified Performance Marketer · AI Automation Engineer · Gen AI Architect",
   lede: [
     "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. Since 2023 I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
-    "Be The Brand is the studio name I worked under for the Chennai projects you'll hear in the videos below — same person, same receipts.",
+    "Be The Brand is the studio name I worked under for the Chennai projects — the name you'll hear in the client videos. Same person, same receipts.",
   ],
   chapters: [
     {
