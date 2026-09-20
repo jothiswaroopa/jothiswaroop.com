@@ -676,5 +676,5 @@ export const notes = {
 
 export const footer = {
   line: "Results that introduce the next client.",
-  built: "Built in Chennai",
+  built: "Designed, written and built by Jothi Swaroop in Chennai.",
 };

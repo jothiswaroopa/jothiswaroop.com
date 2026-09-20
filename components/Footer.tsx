@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
           <div className="mono text-xs text-paper/60 md:text-right">
             <p>{footer.built}</p>
-            <p>© {new Date().getFullYear()}</p>
+            <p>© {new Date().getFullYear()} Jothi Swaroop</p>
           </div>
         </div>
       </div>
