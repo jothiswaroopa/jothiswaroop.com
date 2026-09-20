@@ -455,3 +455,29 @@ h1, h2, h3, .display {
 .logo-mark-ink { filter: brightness(0) invert(1); opacity: 0.55; transition: opacity 0.3s ease; }
 @media (hover: hover) and (pointer: fine) { a:hover .logo-mark-ink { opacity: 0.95; } }
 .theme-paper .logo-mark-ink { filter: brightness(0); }
+
+/* ── Blog article typography (Ledger) ─────────────────────────────────────── */
+.prose { max-width: 42rem; color: var(--paper-70); font-size: 1.0625rem; line-height: 1.75; }
+.prose > * + * { margin-top: 1.25em; }
+.prose p strong { color: var(--paper); font-weight: 500; }
+.prose h2, .prose h3 { font-family: var(--font-display); color: var(--paper); line-height: 1.1; letter-spacing: -0.01em; scroll-margin-top: 6rem; }
+.prose h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-top: 2.6em; }
+.prose h3 { font-size: clamp(1.35rem, 2.2vw, 1.6rem); margin-top: 2em; }
+.prose a { color: var(--paper); text-decoration: underline; text-decoration-color: rgba(242,237,228,.35); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+.prose a:hover { text-decoration-color: var(--signal); }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: .5em; }
+.prose li::marker { color: var(--signal); font-family: var(--font-mono); font-size: .85em; }
+.prose blockquote { border-left: 2px solid var(--signal); padding: .25em 0 .25em 1.25em; font-family: var(--font-display); font-style: italic; font-size: 1.35em; line-height: 1.35; color: var(--paper); }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 3em 0; }
+.prose code { font-family: var(--font-mono); font-size: .875em; background: rgba(242,237,228,.06); padding: .15em .4em; border-radius: .3em; color: var(--paper); }
+.prose pre { background: var(--ink-3); border: 1px solid var(--line); border-radius: .75rem; padding: 1.25rem; overflow-x: auto; }
+.prose pre code { background: none; padding: 0; }
+.prose img { border-radius: .75rem; border: 1px solid var(--line); }
+.prose table { width: 100%; border-collapse: collapse; font-size: .95em; }
+.prose th, .prose td { text-align: left; padding: .6em .75em; border-bottom: 1px solid var(--line); vertical-align: top; }
+.prose th { font-family: var(--font-mono); font-size: .75em; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-45); }
+/* "Key facts" box the generator emits for answer engines: a blockquote whose first line is KEY FACTS */
+.prose .facts { border: 1px solid var(--line); border-radius: .75rem; padding: 1.25rem 1.5rem; background: rgba(242,237,228,.03); }
+.prose .facts p:first-child { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); margin: 0 0 .75em; }
+.prose .facts ul { margin: 0; }

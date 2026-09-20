@@ -4,21 +4,30 @@
   "private": true,
   "scripts": {
     "images": "node scripts/images.mjs",
-    "predev": "node scripts/images.mjs",
+    "predev": "node scripts/images.mjs && node scripts/blog/og.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/images.mjs",
+    "prebuild": "node scripts/images.mjs && node scripts/blog/og.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "og": "node scripts/blog/og.mjs",
+    "blog:generate": "node scripts/blog/generate.mjs",
+    "blog:validate": "node scripts/blog/validate.mjs",
+    "dash:collect": "node scripts/dash/collect.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@resvg/resvg-js": "^2.6.2",
     "clsx": "^2.1.1",
     "framer-motion": "^13.3.0",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.15.0",
     "lenis": "^1.3.26",
+    "marked": "^18.0.13",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "satori": "^0.33.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

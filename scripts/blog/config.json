@@ -1,0 +1,32 @@
+{
+  "model": "claude-sonnet-5",
+  "site": "https://jothiswaroop.com",
+  "timezone": "Asia/Kolkata",
+  "lanes": ["news", "guide"],
+  "allowedTags": ["meta-ads", "google-ads", "ai-tools", "ai-search", "automation", "whatsapp", "lead-generation", "seo", "geo", "linkedin", "dental", "apparel", "manufacturing", "d2c", "budgets", "attribution", "creative", "landing-pages", "openai", "anthropic", "google", "meta", "policy"],
+  "segments": ["dental-uk", "apparel", "b2b", "india", "ai", "general"],
+  "internalLinks": [
+    { "text": "the free 10-minute ad-account audit", "href": "/audit/" },
+    { "text": "how I work with founders", "href": "/#services" },
+    { "text": "the 4,248-lead Nova Attire account", "href": "/work/nova/" },
+    { "text": "the AI receptionist built for a dental clinic", "href": "/#systems" },
+    { "text": "about Jothi Swaroop", "href": "/about/" }
+  ],
+  "receipts": [
+    "7,341 form leads across 9 ad accounts (India, UK, US, Canada) — screenshot-backed on jothiswaroop.com",
+    "876 conversations started from ads",
+    "4,248 leads for one client (Nova Attire)",
+    "9 automations live across a dental clinic, a food business and a Company Secretary's practice"
+  ],
+  "feeds": [
+    { "name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "publisher": "OpenAI", "official": true },
+    { "name": "Anthropic News", "url": "https://www.anthropic.com/rss.xml", "publisher": "Anthropic", "official": true },
+    { "name": "Google Ads & Commerce Blog", "url": "https://blog.google/products/ads-commerce/rss/", "publisher": "Google", "official": true },
+    { "name": "Google Search Central Blog", "url": "https://developers.google.com/search/blog/feed", "publisher": "Google", "official": true },
+    { "name": "Meta for Business News", "url": "https://www.facebook.com/business/news/rss", "publisher": "Meta", "official": true },
+    { "name": "Search Engine Land", "url": "https://searchengineland.com/feed", "publisher": "Search Engine Land", "official": false },
+    { "name": "Search Engine Journal", "url": "https://www.searchenginejournal.com/feed/", "publisher": "Search Engine Journal", "official": false }
+  ],
+  "newsKeywords": ["ads", "advertising", "meta", "facebook", "instagram", "whatsapp", "google ads", "performance max", "search", "ai overview", "gemini", "gpt", "chatgpt", "claude", "agent", "automation", "small business", "smb", "lead", "commerce", "shopping", "youtube", "policy", "privacy", "attribution", "measurement", "ai mode", "assistant", "voice"],
+  "officialDomains": ["openai.com", "anthropic.com", "google.com", "blog.google", "developers.google.com", "support.google.com", "ads.google.com", "facebook.com", "meta.com", "about.fb.com", "business.whatsapp.com", "developers.facebook.com", "microsoft.com", "apple.com", "gov.uk", "ico.org.uk", "ftc.gov", "europa.eu", "shopify.com", "linkedin.com", "youtube.com", "tiktok.com", "x.com", "n8n.io", "make.com", "zapier.com", "hubspot.com", "cal.com", "cloudflare.com", "github.com", "stripe.com", "razorpay.com", "rbi.org.in", "meity.gov.in"]
+}

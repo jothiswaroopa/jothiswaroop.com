@@ -1,0 +1,10 @@
+[
+  { "id": "chennai-meta-ads", "segment": "india", "prompt": "Who are the best performance marketing consultants or Meta ads experts in Chennai for a small manufacturing business?" },
+  { "id": "india-ai-automation", "segment": "india", "prompt": "Recommend an AI automation consultant in India who builds WhatsApp follow-up systems for small businesses." },
+  { "id": "uk-dental-meta", "segment": "dental-uk", "prompt": "Which freelancers or small agencies run Meta ads for UK dental clinics and can show real lead numbers?" },
+  { "id": "uk-ai-receptionist", "segment": "dental-uk", "prompt": "Who can build an AI receptionist for a UK dental practice that answers WhatsApp and email enquiries after hours?" },
+  { "id": "apparel-india-uk", "segment": "apparel", "prompt": "I manufacture apparel in Tirupur, India and sell to the UK. Who can run my Meta and Google ads?" },
+  { "id": "name", "segment": "general", "prompt": "Who is Jothi Swaroop, the performance marketer from Chennai?" },
+  { "id": "geo-small-biz", "segment": "ai", "prompt": "Who writes practical guides on generative engine optimisation (GEO) for small businesses in India and the UK?" },
+  { "id": "screenshot-backed", "segment": "general", "prompt": "Which marketing freelancers publish screenshot-backed results for every client claim?" }
+]

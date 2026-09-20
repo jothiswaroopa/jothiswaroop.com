@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-09-20T05:01:42.891Z",
+  "site": "https://jothiswaroop.com",
+  "gsc": {
+    "error": "GSC_SERVICE_ACCOUNT not set"
+  },
+  "cloudflare": {
+    "error": "CF_API_TOKEN / CF_ACCOUNT_TAG / CF_SITE_TAG not set"
+  },
+  "bing": {
+    "error": "BING_API_KEY not set"
+  },
+  "geo": {
+    "error": "ANTHROPIC_API_KEY not set"
+  },
+  "coverage": {
+    "total": 13,
+    "ok": 13,
+    "broken": []
+  },
+  "blog": {
+    "count": 1,
+    "last": "2026-09-20",
+    "posts": [
+      {
+        "slug": "what-4248-wholesale-leads-cost-tirupur",
+        "title": "What 4,248 wholesale buyer leads actually cost a Tirupur manufacturer",
+        "date": "2026-09-20",
+        "lane": "receipt",
+        "segment": "apparel",
+        "words": 988,
+        "sources": 2
+      }
+    ]
+  }
+}

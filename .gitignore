@@ -51,3 +51,5 @@ assets/logos-raw/
 public/img/logos/*.png
 assets/portrait-ai-cut.png
 public/brand/card/portrait-ai.png
+content/drafts/
+.blog-published
