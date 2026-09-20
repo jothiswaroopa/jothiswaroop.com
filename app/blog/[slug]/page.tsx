@@ -71,7 +71,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             {p.faq.length > 0 && (
               <section className="mt-14 border-t hairline pt-10" aria-labelledby="faq">
-                <p className="label" id="faq">// QUESTIONS FOUNDERS ASK</p>
+                <p className="label" id="faq">{"// QUESTIONS FOUNDERS ASK"}</p>
                 <dl className="mt-6 divide-y hairline">
                   {p.faq.map((f) => (
                     <div key={f.q} className="py-5">
@@ -85,7 +85,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             {p.sources.length > 0 && (
               <section className="mt-14 border-t hairline pt-10">
-                <p className="label">// SOURCES</p>
+                <p className="label">{"// SOURCES"}</p>
                 <ol className="mt-6 space-y-2 text-sm">
                   {p.sources.map((s, i) => (
                     <li key={s.url} className="grid grid-cols-[28px_1fr] gap-2">
@@ -100,8 +100,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <aside className="bezel mt-14">
               <div className="bezel-core flex flex-col gap-5 p-7 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <p className="label">// FREE 10-MINUTE AD-ACCOUNT AUDIT</p>
-                  <p className="mt-3 max-w-md text-paper/85">If you run Meta or Google ads and want to know where the spend is leaking, I'll look and tell you. No pitch deck.</p>
+                  <p className="label">{"// FREE 10-MINUTE AD-ACCOUNT AUDIT"}</p>
+                  <p className="mt-3 max-w-md text-paper/85">If you run Meta or Google ads and want to know where the spend is leaking, I&apos;ll look and tell you. No pitch deck.</p>
                 </div>
                 <Link href={`/audit/?s=blog&c=${p.slug}`} className="press inline-flex shrink-0 items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Get the audit →</Link>
               </div>
@@ -112,7 +112,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <div className="sticky top-28">
               {p.headings.length > 0 && (
                 <>
-                  <p className="label">// IN THIS POST</p>
+                  <p className="label">{"// IN THIS POST"}</p>
                   <ol className="mt-4 space-y-2 border-l hairline text-sm">
                     {p.headings.map((h) => (
                       <li key={h.id} className={h.depth === 3 ? "pl-6" : "pl-4"}>
@@ -122,7 +122,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                   </ol>
                 </>
               )}
-              <p className="label mt-10">// TAGS</p>
+              <p className="label mt-10">{"// TAGS"}</p>
               <p className="mono mt-3 flex flex-wrap gap-2 text-xs text-paper/60">{p.tags.map((t) => <span key={t} className="rounded-full border hairline px-2 py-0.5">{t}</span>)}</p>
             </div>
           </aside>
@@ -130,7 +130,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
         {rel.length > 0 && (
           <section className="mt-20 border-t hairline pt-10">
-            <p className="label">// KEEP READING</p>
+            <p className="label">{"// KEEP READING"}</p>
             <ul className="mt-6 grid gap-5 md:grid-cols-3">
               {rel.map((r) => (
                 <li key={r.slug}>

@@ -19,9 +19,9 @@ export default function BlogIndex() {
     <section className="min-h-[100svh] pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink className="mb-8" />
-        <p className="label">// BLOG</p>
+        <p className="label">{"// BLOG"}</p>
         <h1 className="mt-6 text-[clamp(2.5rem,6vw,5.5rem)]">Thinking in public.</h1>
-        <p className="mt-6 max-w-xl text-paper/75">What's changing in ads, AI and search — and what it means if you run a founder-led business. Sources linked. Numbers with receipts.</p>
+        <p className="mt-6 max-w-xl text-paper/75">What&apos;s changing in ads, AI and search — and what it means if you run a founder-led business. Sources linked. Numbers with receipts.</p>
 
         {lead && (
           <Link href={`/blog/${lead.slug}/`} className="group bezel press mt-14 block">

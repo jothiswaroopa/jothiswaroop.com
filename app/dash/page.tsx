@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+/* eslint-disable @typescript-eslint/no-explicit-any -- read-only viewer over a loosely typed JSON snapshot */
 import Link from "next/link";
 
 /**
@@ -87,7 +88,7 @@ export default function Dash() {
       <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-10 md:py-16">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="label">// SEO & GEO · ONE WINDOW</p>
+            <p className="label">{"// SEO & GEO · ONE WINDOW"}</p>
             <h1 className="mt-4 text-[clamp(2rem,4vw,3.5rem)]">How the site is being found.</h1>
           </div>
           <p className="mono text-xs text-paper/50">{d.generatedAt ? `data as of ${new Date(d.generatedAt).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST · refreshes daily 05:00` : "no collection yet — add the secrets and run the workflow"}</p>
@@ -106,7 +107,7 @@ export default function Dash() {
         <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_2fr]">
           <Tile label="// AI MENTION RATE" value={geo ? pct(geo.rate) : "—"} sub={geo ? `${geo.results.filter((r: any) => r.mentioned).length} of ${geo.results.length} tracked prompts name jothiswaroop.com` : "runs with the daily collection"} spark={geo?.history?.map((h: any) => h.rate)} />
           <section className="bezel"><div className="bezel-core p-5">
-            <p className="label">// GEO TRACKER · WHAT AI ENGINES SAY</p>
+            <p className="label">{"// GEO TRACKER · WHAT AI ENGINES SAY"}</p>
             {geo?.results?.length ? (
               <ul className="mt-4 divide-y hairline text-sm">
                 {geo.results.map((r: any) => (
@@ -129,7 +130,7 @@ export default function Dash() {
           <Table title="// COUNTRIES · GOOGLE · 28D" rows={g?.countries ?? []} cols={[{ k: "key", label: "country" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }]} />
           {d.bing && !d.bing.error && <Table title="// TOP QUERIES · BING" rows={d.bing.queries ?? []} cols={[{ k: "key", label: "query" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "position", label: "pos", fmt: pos }]} />}
           <section className="bezel"><div className="bezel-core p-5">
-            <p className="label">// INDEX COVERAGE</p>
+            <p className="label">{"// INDEX COVERAGE"}</p>
             <p className="display mt-3 text-4xl tabular-nums">{cov ? `${cov.ok}/${cov.total}` : "—"}</p>
             <p className="mono mt-1 text-xs text-paper/50">sitemap URLs returning 200</p>
             {cov?.broken?.length ? <ul className="mono mt-3 text-xs text-strike">{cov.broken.map((b: any) => <li key={b.url}>{b.status} {b.url}</li>)}</ul> : null}
@@ -139,7 +140,7 @@ export default function Dash() {
         {/* blog */}
         <section className="bezel mt-4"><div className="bezel-core p-5">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <p className="label">// BLOG · {d.blog.count} POSTS{d.blog.last ? ` · LAST ${d.blog.last}` : ""}</p>
+            <p className="label">{`// BLOG · ${d.blog.count} POSTS${d.blog.last ? ` · LAST ${d.blog.last}` : ""}`}</p>
             <Link href="/blog/" className="underline-slide text-sm text-paper/70">Open blog →</Link>
           </div>
           {d.blog.posts.length ? (
