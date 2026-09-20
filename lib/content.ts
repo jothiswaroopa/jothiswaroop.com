@@ -92,7 +92,7 @@ export const who = {
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
     "Recognised three times in a year: Prompt Engineering Champion at the Social Eagle AI prompt battle (2025), an award at the Tamil Nadu Digital Summit (May 2026), and Official Digital Partner of VROOM 2026.",
-    "Every ad number on this page links to how it was measured. Anything a client told me is marked as client-reported.",
+    "Every ad number on this page links to how it was measured. Anything a client told me is marked as client-reported. I work with founders in the United Kingdom, the United States and India, in your timezone.",
   ],
   portrait: "/img/award.jpg", // real — TN Digital Summit 2026 award ceremony
   portraitPosition: "42% 35%", // keep Jothi + trophy in frame when cropped to 4:5
@@ -502,7 +502,7 @@ export type Automation = { title: string; what: string; replaces: string; stack:
 export const systemsIntro = {
   label: "// SYSTEMS I'VE BUILT",
   headline: "Ads get the lead. These make sure nobody drops it.",
-  sub: "Nine systems running for real businesses — a clinic's phone, a restaurant's orders, a company secretary's renewal dates. Built in n8n, wired to the tools the owner already uses, and running while they sleep.",
+  sub: "Nine systems running for real businesses — an AI receptionist on a clinic's phone, WhatsApp automation for a restaurant's orders, a company secretary's renewal dates. Built in n8n, wired to the tools the owner already uses, and running while they sleep.",
   facts: [
     { value: 9, label: "systems live" },
     { value: 14, label: "tools wired together" },

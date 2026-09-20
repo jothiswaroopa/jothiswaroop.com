@@ -16,6 +16,7 @@ export default function Footer() {
             <Link href="/#work" className="underline-slide w-fit hover:text-paper">Results</Link>
             <Link href="/#method" className="underline-slide w-fit hover:text-paper">Method</Link>
             <Link href="/about" className="underline-slide w-fit hover:text-paper">About</Link>
+            <Link href="/services/" className="underline-slide w-fit hover:text-paper">Services</Link>
             <Link href="/blog/" className="underline-slide w-fit hover:text-paper">Blog</Link>
           </div>
           <div className="flex flex-col gap-2">

@@ -73,8 +73,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com",
             email: site.email || undefined,
             jobTitle: "Performance marketer & AI automation engineer",
+            description: "Performance marketer and AI-systems builder in Chennai, working with founder-led businesses in the UK, US and India.",
             address: { "@type": "PostalAddress", addressLocality: "Chennai", addressRegion: "Tamil Nadu", addressCountry: "IN" },
-            sameAs: [site.socials.linkedin, site.socials.instagram].filter(Boolean),
+            sameAs: [site.socials.linkedin, site.socials.instagram, "https://instagram.com/jothiswaroop.ai"].filter(Boolean),
+            knowsAbout: ["Meta Ads", "Google Ads", "Lead generation", "WhatsApp automation", "AI agents", "n8n", "Generative engine optimisation", "Performance marketing"],
+            award: ["Prompt Engineering Champion 2025", "Tamil Nadu Digital Summit award 2026", "Official Digital Partner, VROOM 2026"],
+            areaServed: ["IN", "GB", "US"],
+            worksFor: { "@type": "ProfessionalService", name: "Jothi Swaroop — Performance marketing & AI systems", url: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"}/services/` },
           }) }}
         />
         {/* Cloudflare Web Analytics — cookieless, no consent banner needed; loads after everything else.
