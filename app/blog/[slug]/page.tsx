@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!p) return {};
   const og = `/blog/og/${p.slug}.png`;
   return {
-    title: `${p.title} — Jothi Swaroop`,
+    title: `${p.seoTitle ?? p.title} — Jothi Swaroop`,
     description: p.description,
     alternates: { canonical: `/blog/${p.slug}/` },
     openGraph: { type: "article", title: p.title, description: p.description, url: `/blog/${p.slug}/`, publishedTime: p.date, modifiedTime: p.updated ?? p.date, authors: [site.name], tags: p.tags, images: [{ url: og, width: 1200, height: 630, alt: p.title }] },
@@ -47,6 +47,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       image: `${base}/blog/og/${p.slug}.png`,
       keywords: p.tags.join(", "),
       citation: p.sources.map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url, publisher: s.publisher })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: base + "/" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${base}/blog/` },
+        { "@type": "ListItem", position: 3, name: p.title, item: `${base}/blog/${p.slug}/` },
+      ],
     },
     p.faq.length
       ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: p.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }

@@ -5,9 +5,9 @@ import { getAllPosts, fmtDate } from "@/lib/blog";
 
 export const metadata = {
   title: "Blog — Jothi Swaroop",
-  description: "Performance marketing, AI systems and what's changing in ads and search — written for founders who run the numbers. Every claim sourced, every result screenshot-backed.",
+  description: "Performance marketing, AI systems and what's changing in ads and search, written for founders who run the numbers. Every claim sourced.",
   alternates: { canonical: "/blog/", types: { "application/rss+xml": "/feed.xml" } },
-  openGraph: { title: "Blog — Jothi Swaroop", url: "/blog/" },
+  openGraph: { title: "Blog — Jothi Swaroop", url: "/blog/", images: ["/og.png"] },
 };
 
 const LANE: Record<string, string> = { news: "// NEWS", guide: "// GUIDE", receipt: "// RECEIPT" };

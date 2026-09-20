@@ -1,5 +1,6 @@
 ---
 title: "What 4,248 wholesale buyer leads actually cost a Tirupur manufacturer"
+seoTitle: "What 4,248 wholesale leads cost a Tirupur manufacturer"
 description: "One apparel manufacturer, two Meta ad accounts, ₹70,444 spent, 4,248 buyer leads at ₹16.58 each. Here is the full account, what was counted, and what I would change."
 date: 2026-09-20
 lane: receipt

@@ -17,6 +17,7 @@ export type Faq = { q: string; a: string };
 export type Post = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
   updated?: string;
@@ -80,6 +81,7 @@ export function getPost(slug: string): Post | null {
   return {
     slug,
     title: data.title,
+    seoTitle: data.seoTitle,
     description: data.description,
     date: iso(data.date),
     updated: data.updated ? iso(data.updated) : undefined,

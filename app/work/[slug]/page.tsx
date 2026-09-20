@@ -15,12 +15,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = cases.find((x) => x.slug === slug && !x.placeholder);
   if (!c) return {};
   const title = `${c.client} — ${c.result} | Jothi Swaroop`;
-  const description = `${c.after} ${c.measured ? `Measured in ${c.measured.source}. ` : ""}${c.industry}, ${c.location}.`.slice(0, 300);
+  const full = `${c.after} ${c.industry}, ${c.location}.`;
+  const description = full.length > 158 ? full.slice(0, 155).replace(/\s+\S*$/, "") + "…" : full;
   return {
     title,
     description,
     alternates: { canonical: `/work/${c.slug}/` },
-    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article" },
+    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article", images: [{ url: c.image ?? "/og.png", width: 1200, height: 630, alt: `${c.client} — ${c.result}` }] },
     twitter: { title, description },
   };
 }
