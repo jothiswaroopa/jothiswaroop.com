@@ -81,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             sameAs: [site.socials.linkedin, site.socials.instagram, "https://instagram.com/jothiswaroop.ai"].filter(Boolean),
             knowsAbout: ["Meta Ads", "Google Ads", "Lead generation", "WhatsApp automation", "AI agents", "n8n", "Generative engine optimisation", "Performance marketing"],
             award: ["Prompt Engineering Champion 2025", "Tamil Nadu Digital Summit award 2026", "Official Digital Partner, VROOM 2026"],
+            performerIn: { "@type": "EducationEvent", name: "The Importance of Digital Marketing & AI Automation", description: "Seminar for 100+ entrepreneurs at a business networking meeting", location: { "@type": "Place", name: "Salem, Tamil Nadu, India" }, startDate: "2025-07" },
             areaServed: ["IN", "GB", "US"],
             worksFor: { "@type": "ProfessionalService", name: "Jothi Swaroop — Performance marketing & AI systems", url: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"}/services/` },
           }) }}

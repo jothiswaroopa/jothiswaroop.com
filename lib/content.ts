@@ -85,6 +85,13 @@ export const recognition: Recognition[] = [
     caption: "Prompt battle · Social Eagle AI · 2025",
     position: "38% 45%",
   },
+  {
+    title: "Speaker · \"The Importance of Digital Marketing & AI Automation\"",
+    detail: "A seminar for 100+ entrepreneurs at a business networking meeting in Salem, Tamil Nadu, July 2025 — the two halves of this site, ads and automation, in one room.",
+    image: "/img/seminar-salem.jpg",
+    caption: "Salem · July 2025 · 100+ entrepreneurs",
+    position: "70% 40%",
+  },
 ];
 
 export const who = {
@@ -135,6 +142,11 @@ export const story = {
       year: "2025",
       title: "The same client asked me to open Britain.",
       body: "Five Elements — 1,318 domestic knitwear leads at ₹19 — then asked for UK buyers. I found 19 wholesale apparel buyers with a 200-piece minimum order for under $6 an enquiry. That campaign is why this site speaks to you.",
+    },
+    {
+      year: "Jul 2025",
+      title: "A room of 100+ founders in Salem.",
+      body: "Invited to speak on the importance of digital marketing and AI automation at a business networking meeting. The two subjects of that talk are the two halves of this site.",
     },
     {
       year: "2025–26",
