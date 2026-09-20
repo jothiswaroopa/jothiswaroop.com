@@ -19,17 +19,19 @@ export default function Testimonials() {
               <figure key={t.youtubeId} className="bezel w-[74vw] shrink-0 snap-start sm:w-[320px]">
                 <div className="bezel-core flex h-full flex-col">
                   <VideoTile youtubeId={t.youtubeId} title={`${t.name}, ${t.business}`} vertical={t.vertical} />
-                  <figcaption className="flex flex-1 flex-col p-4">
+                  <figcaption className="flex flex-1 flex-col gap-5 p-5">
                     {t.quote ? (
-                      <blockquote className="display text-lg leading-snug text-paper">&ldquo;{t.quote}&rdquo;</blockquote>
+                      <blockquote className="text-[15px] leading-[1.65] text-paper/90">&ldquo;{t.quote}&rdquo;</blockquote>
                     ) : (
-                      <p className="text-sm text-paper/80">{t.context}</p>
+                      <p className="text-[15px] leading-[1.65] text-paper/80">{t.context}</p>
                     )}
-                    <div className="mt-auto pt-4">
-                      <p className="text-paper">{t.name}</p>
-                      <p className="text-xs text-paper/70">{t.business}</p>
-                      {t.language && <p className="label mt-1 !normal-case !tracking-normal">{t.language}</p>}
-                      {t.caseSlug && <Link href={`/work/${t.caseSlug}`} className="underline-slide mt-2 inline-block text-xs text-paper/70 hover:text-paper">The numbers →</Link>}
+                    <div className="mt-auto border-t hairline pt-4">
+                      <p className="text-[15px] font-medium text-paper">{t.name}</p>
+                      <p className="mt-0.5 text-[13px] leading-snug text-paper/65">{t.business}</p>
+                      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
+                        {t.language && <span className="mono text-[11px] uppercase tracking-[0.1em] text-paper/50">{t.language}</span>}
+                        {t.caseSlug && <Link href={`/work/${t.caseSlug}`} className="underline-slide text-[13px] text-paper/75 hover:text-paper">The numbers →</Link>}
+                      </div>
                     </div>
                   </figcaption>
                 </div>
