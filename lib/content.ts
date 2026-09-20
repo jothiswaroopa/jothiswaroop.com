@@ -547,9 +547,9 @@ export const filter = {
 // `quote` = a sentence they actually say (send it and it replaces `context`). `context` = factual line shown until then. Never invent a quote.
 export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote?: string; context: string; caseSlug?: string; language?: string; vertical?: boolean };
 export const videoTestimonials: VideoTestimonial[] = [
-  { youtubeId: "A1BGfc9Uxqg", name: "Sathyam Labels", business: "Garment label manufacturer · Tirupur", context: "The first client. 1,589 leads since.", caseSlug: "sathyam", vertical: true },
+  { youtubeId: "A1BGfc9Uxqg", name: "Sriram", business: "Executive Director, Sathyam Labels · Tirupur", quote: "I had meetings with other agencies also. I never got to this stage, but Swaroop did. The response is very good — I never expected such a response.", context: "The first client. 1,589 leads since.", caseSlug: "sathyam", vertical: true }, // quote verbatim from the video transcript (trimmed, not reworded)
   { youtubeId: "PDhEzmseFkE", name: "Nova Attire", business: "Apparel manufacturer · Tirupur", context: "4,248 wholesale buyer leads at ₹16.58.", caseSlug: "nova", vertical: true },
-  { youtubeId: "ezCbWV8w2Cs", name: "Cynosure Architects", business: "Architecture practice · Chennai", context: "On working with Jothi.", vertical: true },
+  { youtubeId: "ezCbWV8w2Cs", name: "Kala Praveen", business: "Architect · Cynosure Architects, Chennai", quote: "Amazing, holistic deliverables — right from the registration to the promo videos to the social media throughout the entire programme.", context: "On working with Jothi.", vertical: true }, // verbatim from the video transcript (trimmed)
   { youtubeId: "xsOodldPC9s", name: "VROOM 2026", business: "Vysya Rally of Our Madras · organising team", context: "On Be The Brand as Official Digital Partner.", vertical: true },
   { youtubeId: "_-ZU5bM_iAs", name: "BSHIP Chennai Tycoons", business: "VROOM 2026 · host network", context: "On the digital partnership for VROOM 2026.", vertical: true },
 ];
