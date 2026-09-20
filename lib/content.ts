@@ -108,6 +108,7 @@ export const story = {
   titles: "Certified Performance Marketer · AI Automation Engineer · Gen AI Architect",
   lede: [
     "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. Since 2023 I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
+    "Be The Brand is the studio name I worked under for the Chennai projects you'll hear in the videos below — same person, same receipts.",
   ],
   chapters: [
     {
@@ -548,10 +549,10 @@ export const filter = {
 export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote?: string; context: string; caseSlug?: string; language?: string; vertical?: boolean };
 export const videoTestimonials: VideoTestimonial[] = [
   { youtubeId: "A1BGfc9Uxqg", name: "Sriram", business: "Executive Director, Sathyam Labels · Tirupur", quote: "I had meetings with other agencies also. I never got to this stage, but Swaroop did. The response is very good — I never expected such a response.", context: "The first client. 1,589 leads since.", caseSlug: "sathyam", vertical: true }, // quote verbatim from the video transcript (trimmed, not reworded)
-  { youtubeId: "PDhEzmseFkE", name: "Nova Attire", business: "Apparel manufacturer · Tirupur", context: "4,248 wholesale buyer leads at ₹16.58.", caseSlug: "nova", vertical: true },
+  { youtubeId: "PDhEzmseFkE", name: "Nova Attire", business: "Apparel manufacturer · Tirupur", quote: "Within ten days, 150-plus enquiries came in, and we are converting many of them.", context: "4,248 wholesale buyer leads at ₹16.58.", caseSlug: "nova", language: "Tamil · translated", vertical: true }, // translated from the video's Tamil ("விதின் 10 டேஸ்ல 150 பிளஸ் கிளையண்ட்ஸ் உள்ள வந்துருக்கு")
   { youtubeId: "ezCbWV8w2Cs", name: "Kala Praveen", business: "Architect · Cynosure Architects, Chennai", quote: "Amazing, holistic deliverables — right from the registration to the promo videos to the social media throughout the entire programme.", context: "On working with Jothi.", vertical: true }, // verbatim from the video transcript (trimmed)
-  { youtubeId: "xsOodldPC9s", name: "VROOM 2026", business: "Vysya Rally of Our Madras · organising team", context: "On Be The Brand as Official Digital Partner.", vertical: true },
-  { youtubeId: "_-ZU5bM_iAs", name: "BSHIP Chennai Tycoons", business: "VROOM 2026 · host network", context: "On the digital partnership for VROOM 2026.", vertical: true },
+  { youtubeId: "xsOodldPC9s", name: "Lakshmi Sridhar", business: "B-SHIP Chennai Tycoons · VROOM 2026", quote: "The deliverables were top-notch. Timelines were met, and the quality was very good. Appreciated throughout the community.", context: "On Be The Brand as Official Digital Partner.", vertical: true }, // verbatim from the video (trimmed)
+  { youtubeId: "_-ZU5bM_iAs", name: "VROOM 2026 organising committee", business: "B-SHIP Chennai Tycoons · Vysya Rally of Our Madras", quote: "They did posters, email automation, AI videos — all our sponsors enjoyed the AI videos. All the big brands were very appreciative.", context: "On the digital partnership for VROOM 2026.", vertical: true }, // verbatim (trimmed). TODO: speaker's name from Jothi → replace the committee attribution
 ];
 
 // ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time.
