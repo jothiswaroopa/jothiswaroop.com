@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "framer-motion";
 
 /** Element leans toward the cursor. Desktop / fine pointer only. */
 export default function Magnetic({ children, strength = 0.35, className }: { children: ReactNode; strength?: number; className?: string }) {
@@ -23,8 +23,8 @@ export default function Magnetic({ children, strength = 0.35, className }: { chi
   };
 
   return (
-    <motion.div ref={ref} style={{ x: sx, y: sy }} onMouseMove={onMove} onMouseLeave={onLeave} className={className}>
+    <m.div ref={ref} style={{ x: sx, y: sy }} onMouseMove={onMove} onMouseLeave={onLeave} className={className}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { apply, site, type Currency } from "@/lib/content";
 import { submit, calHref } from "@/lib/submit";
 import { sourceNote } from "@/lib/source";
@@ -89,12 +89,12 @@ export default function ApplyForm() {
       {programLabel && <p className="label mb-6 inline-block rounded-full border border-line-strong px-3 py-1.5 !normal-case !tracking-normal">Applying for: {programLabel}</p>}
       <div className="mb-10 flex items-center gap-4">
         <span className="mono text-xs text-paper/65">{phase === "delivered" ? "Sent" : `${String(Math.min(step + 1, total)).padStart(2, "0")} / ${String(total).padStart(2, "0")}`}</span>
-        <div className="h-px flex-1 bg-line"><motion.div className="h-full bg-signal" animate={{ width: `${progress * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
+        <div className="h-px flex-1 bg-line"><m.div className="h-full bg-signal" animate={{ width: `${progress * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
 
       <AnimatePresence mode="wait" custom={dir}>
         {phase === "steps" && (
-          <motion.div key={step} custom={dir} variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4, ease: EASE }}>
+          <m.div key={step} custom={dir} variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">{cur.q}</p>
 
             {cur.type === "text" && (
@@ -155,30 +155,30 @@ export default function ApplyForm() {
               {step > 0 && <button onClick={back} className="press py-2 text-sm text-paper/65 hover:text-paper">← Back</button>}
             </div>
             <p className="mt-6 text-xs text-paper/50">Not ready? <Link href="/audit" className="underline-slide text-paper/80">Run the free Bottleneck Audit instead →</Link></p>
-          </motion.div>
+          </m.div>
         )}
 
         {phase === "sending" && (
-          <motion.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3 text-paper/80">
+          <m.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3 text-paper/80">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-signal" /> Sending…
-          </motion.div>
+          </m.div>
         )}
 
         {phase === "delivered" && (
-          <motion.div key="delivered" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
+          <m.div key="delivered" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">Received.</p>
             <p className="mt-4 text-paper/80">{introduced ? <>You were introduced, so you go first — a personal reply at <span className="text-paper">{a.email}</span> today.</> : <>I read every application myself. You&apos;ll have a personal reply at <span className="text-paper">{a.email}</span> by the end of the next working day, in your timezone.</>}</p>
             {(site.calendar || site.email) && <><p className="label mt-8">Want to move faster?</p><Actions /></>}
-          </motion.div>
+          </m.div>
         )}
 
         {phase === "manual" && (
-          <motion.div key="manual" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
+          <m.div key="manual" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">Almost there — send it to me directly.</p>
             <p className="mt-4 text-paper/80">Your answers are packed and ready. {intl ? "Pick a time, or send it by whichever you prefer." : "One tap and it lands in my hand."}</p>
             <Actions />
             <button onClick={back} className="press mt-8 py-2 text-sm text-paper/65 hover:text-paper">← Back to edit an answer</button>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 

@@ -9,6 +9,7 @@ import NavTracker from "@/components/NavTracker";
 import SectionLabels from "@/components/SectionLabels";
 import { site, hero } from "@/lib/content";
 import ChromeGate from "@/components/ChromeGate";
+import MotionProvider from "@/components/motion/MotionProvider";
 
 // Share-card description mirrors the live headline — never a second copy that can drift.
 const ogLine = hero.headline.map((l) => l.replace(/[*_]/g, "").replace(/\u00a0/g, " ")).join(" ") + " Performance marketing and AI automation for founder-led manufacturers and brands — India, UK, US. Every number screenshot-backed.";
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
       </head>
       <body className="grain">
+       <MotionProvider>
         <SmoothScrollLoader />
         <Preloader name={site.name} />
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-ink">
@@ -63,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChromeGate><SectionLabels /><Nav /></ChromeGate>
         <main id="main">{children}</main>
         <ChromeGate><Footer /></ChromeGate>
+       </MotionProvider>
         {/* Person schema — ties the domain to the LinkedIn/Instagram profiles for search engines */}
         <script
           type="application/ld+json"

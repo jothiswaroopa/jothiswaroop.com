@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m as Motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import SwipeCue from "@/components/SwipeCue";
@@ -34,9 +34,9 @@ function Block({ m, i }: { m: Move; i: number }) {
         </div>
         <div className="bezel order-first md:order-none">
          <div className="bezel-core relative aspect-[16/10]">
-          <motion.div style={{ y }} className="absolute inset-[-8%]">
+          <Motion.div style={{ y }} className="absolute inset-[-8%]">
             <Image src={m.artefact} alt={m.artefactCaption ?? `${m.title} — artefact`} fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover object-left-top" />
-          </motion.div>
+          </Motion.div>
           {m.artefactCaption && <span className="label absolute bottom-3 left-3 hidden rounded bg-ink/85 px-2 py-1 !text-paper/85 md:inline">{m.artefactCaption}</span>}
          </div>
          {/* phones: caption sits under the image instead of covering it */}

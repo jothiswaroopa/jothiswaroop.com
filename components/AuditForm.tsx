@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { audit, site } from "@/lib/content";
 import { submit, calHref } from "@/lib/submit";
 import { sourceNote } from "@/lib/source";
@@ -46,11 +46,11 @@ export default function AuditForm() {
     <div className="w-full max-w-2xl">
       <div className="mb-10 flex items-center gap-4">
         <span className="mono text-xs text-paper/65">{String(Math.min(step + 1, qs.length)).padStart(2, "0")} / {String(qs.length).padStart(2, "0")}</span>
-        <div className="h-px flex-1 bg-line"><motion.div className="h-full bg-signal" animate={{ width: `${(Math.min(step, qs.length) / qs.length) * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
+        <div className="h-px flex-1 bg-line"><m.div className="h-full bg-signal" animate={{ width: `${(Math.min(step, qs.length) / qs.length) * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
       <AnimatePresence mode="wait" custom={dir}>
         {!done ? (
-          <motion.div key={step} custom={dir} variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4, ease: EASE }}>
+          <m.div key={step} custom={dir} variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">{cur.q}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {cur.options.map((o) => (
@@ -59,9 +59,9 @@ export default function AuditForm() {
               ))}
             </div>
             {step > 0 && <button onClick={() => { setDir(-1); setStep(step - 1); }} className="mt-8 text-sm text-paper/65 hover:text-paper">← Back</button>}
-          </motion.div>
+          </m.div>
         ) : !sent || sent === "sending" ? (
-          <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
+          <m.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="label">// YOUR DIAGNOSIS</p>
             <p className="display mt-4 text-3xl text-paper md:text-5xl">
               Your biggest leak is <span className="text-signal">{top[0].name.toLowerCase()}</span>{top[1].s > 0 ? <>, then <span className="text-signal">{top[1].name.toLowerCase()}</span></> : null}.
@@ -70,7 +70,7 @@ export default function AuditForm() {
               {scored.map((x) => (
                 <li key={x.k} className="flex items-center gap-4 text-sm">
                   <span className="w-36 text-paper/80">{x.name}</span>
-                  <span className="h-px flex-1 bg-line"><motion.span className={`block h-full ${x.s === 2 ? "bg-strike" : x.s === 1 ? "bg-signal" : "bg-paper/40"}`} initial={{ width: 0 }} animate={{ width: `${(x.s / 2) * 100}%` }} transition={{ duration: 0.9, ease: EASE }} /></span>
+                  <span className="h-px flex-1 bg-line"><m.span className={`block h-full ${x.s === 2 ? "bg-strike" : x.s === 1 ? "bg-signal" : "bg-paper/40"}`} initial={{ width: 0 }} animate={{ width: `${(x.s / 2) * 100}%` }} transition={{ duration: 0.9, ease: EASE }} /></span>
                   <span className="mono w-16 text-right text-xs text-paper/65">{["healthy", "leaking", "broken"][x.s]}</span>
                 </li>
               ))}
@@ -86,9 +86,9 @@ export default function AuditForm() {
               <button disabled={sent === "sending"} className="press shrink-0 rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper disabled:opacity-40">{sent === "sending" ? "Sending…" : qualified ? "Send me the teardown" : "Send it"}</button>
             </form>
             <p className="mt-3 text-xs text-paper/55">No list-bombing. One letter every two weeks, and you can leave any time.</p>
-          </motion.div>
+          </m.div>
         ) : (
-          <motion.div key="sent" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
+          <m.div key="sent" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-paper md:text-4xl">{sent === "delivered" ? "Got it." : "One more tap."}</p>
             <p className="mt-4 text-paper/80">
               {sent === "delivered"
@@ -99,7 +99,7 @@ export default function AuditForm() {
               {site.calendar && <a href={calHref(site.calendar, { email, adspend: a.ads === "No" ? "Not yet" : undefined, notes: `Bottleneck Audit — biggest leak: ${top[0].name}${top[1].s > 0 ? `, then ${top[1].name}` : ""} · score ${total}` + (sourceNote() ? ` · ${sourceNote()}` : "") })} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a>}
               <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi Jothi — just ran the Bottleneck Audit. Biggest leak: ${top[0].name}. Email: ${email}`)}`} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full border border-line-strong px-5 py-3 text-sm hover:border-signal hover:text-signal">Send it on WhatsApp</a>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

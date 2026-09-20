@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import clsx from "clsx";
 import { site } from "@/lib/content";
 
@@ -96,7 +96,7 @@ export default function Nav() {
       {/* Mobile full-screen menu */}
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             className="glass-strong fixed inset-0 z-40 flex flex-col justify-end bg-ink/85 px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-28 md:hidden"
             style={{ transformOrigin: "top right" }}
             initial={{ opacity: 0, scale: 0.98, backdropFilter: "blur(0px) saturate(100%)" }}
@@ -107,7 +107,7 @@ export default function Nav() {
             <nav className="flex flex-col gap-2">
               {links.map((l, i) => (
                 <span key={l.href} className="mask-line">
-                  <motion.span
+                  <m.span
                     className="block"
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
@@ -117,11 +117,11 @@ export default function Nav() {
                     <Link href={l.href} onClick={() => setOpen(false)} className="display block py-2 text-5xl text-paper">
                       {l.label}
                     </Link>
-                  </motion.span>
+                  </m.span>
                 </span>
               ))}
             </nav>
-            <motion.div
+            <m.div
               className="mt-10 grid grid-cols-2 gap-3"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,9 +129,9 @@ export default function Nav() {
             >
               <Link href="/audit" onClick={() => setOpen(false)} className="press rounded-full border border-paper/20 py-3.5 text-center text-sm">Free audit</Link>
               <Link href="/apply" onClick={() => setOpen(false)} className="press rounded-full bg-signal py-3.5 text-center text-sm font-medium text-ink">Apply</Link>
-            </motion.div>
+            </m.div>
             <p className="label mt-8 !text-paper/55">{site.base} · {site.whatsappDisplay}</p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 

@@ -39,16 +39,16 @@ const SERVICES = [
     faq: { q: "Meta or Google — which should a small business start with?", a: "Meta if you need to create demand (a new product, a new market, wholesale buyers who aren't searching yet). Google Search if demand already exists and you need to capture it (a clinic, a service, an urgent B2B need). Most of my accounts start on one and add the other once the first is producing." },
   },
   {
-    id: "whatsapp-automation-ai-receptionist",
-    name: "WhatsApp automation & AI receptionist",
-    lead: "The follow-up nobody builds: every enquiry answered in seconds, at 2 a.m., in your tone.",
+    id: "ai-automation-agents",
+    name: "AI automation & agents — WhatsApp, voice, email, back office",
+    lead: "Any repeated task in your business, built into a system that runs while you sleep: follow-up, booking, invoicing, reordering, reminders, reporting.",
     body: [
-      "Ads bring the enquiry; this is what happens next. An AI receptionist on WhatsApp, email or voice that answers, qualifies, books and hands over to a human with the full context. Reminders, reorders, invoices and renewals run on the same rails.",
-      "Built on n8n, OpenAI or Claude, and your existing tools (Google Sheets, your CRM, Cal.com, Razorpay or Stripe). You own every workflow; nothing lives in a vendor account you can't open.",
+      "Ads bring the enquiry; automation is everything that happens next, and everything else in the operation that a person currently does by hand. Nine systems are live: an AI receptionist on a dental clinic's phone, WhatsApp automation for a food business's orders and invoices, compliance and renewal reminders for a Company Secretary's practice, voice-to-invoice bots, reorder agents, document collection, weekly reports. The receptionist is one build, not the product — the product is whatever your operation repeats.",
+      "Built on n8n, OpenAI or Claude, and your existing tools (WhatsApp Business, Google Sheets, your CRM, Cal.com, Razorpay or Stripe). You own every workflow; nothing lives in a vendor account you can't open. UK and US builds run in your timezone with your data staying in your accounts.",
     ],
     proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice",
     links: [{ t: "See the systems", h: "/#systems" }, { t: "The five-day Accelerator", h: "/apply/?program=accelerator" }],
-    faq: { q: "What does an AI receptionist for a clinic actually do?", a: "It replies to every WhatsApp, email or web enquiry within seconds, answers the standard questions (hours, prices, availability), books the appointment into your calendar, and sends a summary to your front desk. After hours it does the same thing while your team sleeps. A human still handles anything it isn't sure about." },
+    faq: { q: "What can AI automation actually do for a small business?", a: "Anything a person does the same way every time: reply to every WhatsApp, email or web enquiry within seconds, book appointments into your calendar, send invoices and payment reminders, chase renewals, collect documents, log orders to a sheet, and send you a weekly summary. A dental clinic's AI receptionist, a food business's order-to-invoice flow and a Company Secretary's compliance reminders are three of the nine systems live today. A human still handles anything the system isn't sure about." },
   },
   {
     id: "website-development-landing-pages",

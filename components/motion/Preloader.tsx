@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const CAP_MS = 800;
@@ -38,7 +38,7 @@ export default function Preloader({ name }: { name: string }) {
   return (
     <AnimatePresence>
       {show && (
-        <motion.div
+        <m.div
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink"
           initial={{ y: 0 }}
           exit={{ y: "-100%" }}
@@ -50,7 +50,7 @@ export default function Preloader({ name }: { name: string }) {
           <span className="mt-6 h-px w-40 overflow-hidden bg-line">
             <span className="block h-full bg-signal" style={{ width: `${n}%` }} />
           </span>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );
