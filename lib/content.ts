@@ -15,7 +15,7 @@ export const site = {
   calendar: "https://cal.com/jothi-swaroopa-ccbqmw/30min", // Cal.com · 30 min
   email: "hello@jothiswaroop.com",
   socials: {
-    instagram: "https://instagram.com/jothi.swaroopa",
+    instagram: "https://instagram.com/jothi.swaroop_",
     linkedin: "https://www.linkedin.com/in/jothiswaroop",
   },
   seatsLine: "Accepting applications",
