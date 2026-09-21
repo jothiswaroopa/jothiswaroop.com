@@ -495,16 +495,16 @@ export const chain: ChainNode[] = [
 // Add { title, client, kind, youtubeId } per video. Section renders only when this array has entries.
 export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "Concept film" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
 export const videos: Video[] = [
-  // Client work first, then the concept reel. Concept films are marked as such — they were made to show the craft, not for a brief.
-  { title: "Ultra-premium brand reveal", client: "Top-5 El Alimentos · FMCG food", kind: "AI commercial", youtubeId: "_3n9P6FXZ-U", vertical: true },
-  { title: "Premium Indian food commercial", client: "Top-5 El Alimentos · FMCG food", kind: "AI commercial", youtubeId: "epLndi7gVcM", vertical: true },
-  { title: "Jewellery commercial", client: "House of Vummudi · VBC Jewellery", kind: "AI commercial", youtubeId: "8CF9gKUf3VY", vertical: true },
-  { title: "VROOM 2026 sponsor film", client: "Vysya Rally of Our Madras · Chennai Tycoons", kind: "AI video", youtubeId: "yiw8Qmsx7rA" },
+  // Order set by Jothi 2026-09-21. Concept films are marked as such — made to show the craft, not for a brief.
+  { title: "Playful Gen Z beauty", client: "Concept · beauty", kind: "Concept film", youtubeId: "TmMzVnkIVv8", vertical: true },
+  { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
   { title: "Luxury skincare", client: "Concept · skincare", kind: "Concept film", youtubeId: "Q1-mBwLufVg", vertical: true },
   { title: "Dark luxe fragrance", client: "Concept · fragrance", kind: "Concept film", youtubeId: "3rHdggLUB6E", vertical: true },
-  { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
   { title: "Earthy organic skincare", client: "Concept · organic beauty", kind: "Concept film", youtubeId: "ZklaLkE5RpU", vertical: true },
-  { title: "Playful Gen Z beauty", client: "Concept · beauty", kind: "Concept film", youtubeId: "TmMzVnkIVv8", vertical: true },
+  { title: "VROOM 2026 sponsor film", client: "Vysya Rally of Our Madras · Chennai Tycoons", kind: "AI video", youtubeId: "yiw8Qmsx7rA" },
+  { title: "Jewellery commercial", client: "House of Vummudi · VBC Jewellery", kind: "AI commercial", youtubeId: "8CF9gKUf3VY", vertical: true },
+  { title: "Ultra-premium brand reveal", client: "Top-5 El Alimentos · FMCG food", kind: "AI commercial", youtubeId: "_3n9P6FXZ-U", vertical: true },
+  { title: "Premium Indian food commercial", client: "Top-5 El Alimentos · FMCG food", kind: "AI commercial", youtubeId: "epLndi7gVcM", vertical: true },
 ];
 
 // ─── CREATIVE & DECKS — the actual ads that ran, and decks put in front of investors / media.
