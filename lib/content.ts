@@ -493,10 +493,11 @@ export const chain: ChainNode[] = [
 
 // ─── VIDEO & COMMERCIALS — hosted on YouTube (Unlisted) / Vimeo; GitHub Pages can't stream large files.
 // Add { title, client, kind, youtubeId } per video. Section renders only when this array has entries.
-export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "Concept film" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
+export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "AI UGC" | "Concept film" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
 export const videos: Video[] = [
   // Order set by Jothi 2026-09-21. Concept films are marked as such — made to show the craft, not for a brief.
   { title: "Playful Gen Z beauty", client: "Concept · beauty", kind: "Concept film", youtubeId: "TmMzVnkIVv8", vertical: true },
+  { title: "Imitation jewellery — UGC ad", client: "Concept · jewellery", kind: "AI UGC", youtubeId: "H3hhwC4Oroc", vertical: true },
   { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
   { title: "Luxury skincare", client: "Concept · skincare", kind: "Concept film", youtubeId: "Q1-mBwLufVg", vertical: true },
   { title: "Dark luxe fragrance", client: "Concept · fragrance", kind: "Concept film", youtubeId: "3rHdggLUB6E", vertical: true },
