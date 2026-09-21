@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T05:01:42.891Z",
+  "generatedAt": "2026-09-21T01:22:29.925Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "error": "GSC_SERVICE_ACCOUNT not set"
@@ -14,8 +14,8 @@
     "error": "ANTHROPIC_API_KEY not set"
   },
   "coverage": {
-    "total": 13,
-    "ok": 13,
+    "total": 15,
+    "ok": 15,
     "broken": []
   },
   "blog": {
