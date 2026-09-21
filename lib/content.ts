@@ -12,7 +12,7 @@ export const site = {
   base: "Chennai → worldwide",
   whatsapp: "919944812223",
   whatsappDisplay: "+91 99448 12223",
-  calendar: "https://cal.com/jothi-swaroopa-ccbqmw/30min", // Cal.com · 30 min
+  calendar: "https://cal.com/jothi-swaroop-ccbqmw/30min", // Cal.com · 30 min
   email: "hello@jothiswaroop.com",
   socials: {
     instagram: "https://instagram.com/jothi.swaroop_",
