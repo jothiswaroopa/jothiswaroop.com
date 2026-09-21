@@ -64,15 +64,15 @@ const SERVICES = [
   },
   {
     id: "video-content-production",
-    name: "Video production, scripts & content",
-    lead: "Ad scripts, reels, brand films, product shoots and AI-assisted creatives — written to the number they need to move.",
+    name: "AI commercials, video production & content",
+    lead: "Finished product commercials generated end to end — script, visuals, sound and the vertical cut — sold by the film or as a monthly set. Plus ad scripts, reels, brand films and shoots.",
     body: [
-      "Creative is the biggest lever in a Meta account and the most under-invested. I write the scripts, direct or produce the shoots, and cut the versions the algorithm needs to test. Event and sponsor films for VROOM 2026 and a commercial for House of Vummudi are in the showreel.",
-      "Social media management runs to a monthly plan: calendar, creatives, captions, community replies, and a report that says what moved.",
+      "An AI commercial here is a finished short film, under a minute: a written concept, generated footage and product shots, sound design and a cut for Reels, Shorts and TikTok, with a 16:9 master when you need one. Two are live for Top-5 El Alimentos, an FMCG food brand; the House of Vummudi jewellery commercial and the VROOM 2026 sponsor film are in the same showreel, alongside five concept films made to show the range — skincare, fragrance, haircare, organic beauty, Gen Z beauty.",
+      "Brands buy this one of two ways: a single film for a launch, or a monthly set so there is always something new to test in the ad account. Creative is the biggest lever in a Meta account and the most under-invested; a set of ten fresh commercials a month is how you keep finding the winner. Scripts, shoots and social media management run alongside to the same monthly plan.",
     ],
-    proof: "Arkstorie · Tharunis Jewellery · VROOM 2026 sponsor film · House of Vummudi commercial",
+    proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 sponsor film · Arkstorie · Tharunis Jewellery",
     links: [{ t: "Watch the showreel", h: "/#work" }],
-    faq: { q: "Do you handle social media management too?", a: "Yes — calendar, creatives, captions and replies, run to a monthly plan with a monthly report. It works best alongside ads, because the content and the campaigns then test the same messages." },
+    faq: { q: "Are AI commercials good enough to run as real ads?", a: "The two Top-5 El Alimentos films and the House of Vummudi commercial were made for real brands, and the VROOM 2026 committee said on camera that all their sponsors enjoyed the AI videos. The honest test is the same as any creative: run it in the account next to what you have and see which one buyers respond to. Watch the showreel first and judge the craft yourself." },
   },
   {
     id: "seo-geo-linkedin",

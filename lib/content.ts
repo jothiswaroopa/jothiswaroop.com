@@ -477,7 +477,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
     { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP LLP Enterprises · Vaasavi IVF Micro Finance · jothiswaroop.com" },
     { name: "Script writing", what: "Ad scripts, reels and brand films written to the number they need to move.", proof: "Arkstorie · Tharunis Jewellery · the VROOM 2026 sponsor film" },
     { name: "Social media management", what: "Calendars, creatives and community, run to a monthly plan rather than a mood.", proof: "Retail · F&B · jewellery · spiritual products" },
-    { name: "Media production & content", what: "Event films, product shoots, AI-assisted creatives and investor decks.", proof: "VROOM 2026 sponsor film · House of Vummudi commercial — both in the showreel below" },
+    { name: "AI commercials & media production", what: "Finished product commercials generated end to end — script, visuals, sound, cut for Reels, Shorts and TikTok — sold by the film or as a monthly set. Plus event films, product shoots and investor decks.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · five concept films — all in the showreel below" },
     { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn positioning, so the right buyer finds you before you find them.", proof: "Practised on this site and on my own profile — both are the case study" },
     { name: "AI consultation", what: "Advisory for founders and their teams: where AI genuinely saves money in your operation, what to build, what to buy off the shelf, and what to leave alone — delivered as a written plan your own people can execute.", proof: "Fixed-scope audits or monthly advisory · remote, in your timezone · India, UK, US" },
   ],
@@ -493,10 +493,18 @@ export const chain: ChainNode[] = [
 
 // ─── VIDEO & COMMERCIALS — hosted on YouTube (Unlisted) / Vimeo; GitHub Pages can't stream large files.
 // Add { title, client, kind, youtubeId } per video. Section renders only when this array has entries.
-export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
+export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "Concept film" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
 export const videos: Video[] = [
+  // Client work first, then the concept reel. Concept films are marked as such — they were made to show the craft, not for a brief.
+  { title: "Ultra-premium brand reveal", client: "Top-5 El Alimentos · FMCG food", kind: "AI commercial", youtubeId: "_3n9P6FXZ-U", vertical: true },
+  { title: "Premium Indian food commercial", client: "Top-5 El Alimentos · FMCG food", kind: "AI commercial", youtubeId: "epLndi7gVcM", vertical: true },
+  { title: "Jewellery commercial", client: "House of Vummudi · VBC Jewellery", kind: "AI commercial", youtubeId: "8CF9gKUf3VY", vertical: true },
   { title: "VROOM 2026 sponsor film", client: "Vysya Rally of Our Madras · Chennai Tycoons", kind: "AI video", youtubeId: "yiw8Qmsx7rA" },
-  { title: "House of Vummudi — jewellery commercial", client: "VBC Jewellery", kind: "AI commercial", youtubeId: "8CF9gKUf3VY", vertical: true },
+  { title: "Luxury skincare", client: "Concept · skincare", kind: "Concept film", youtubeId: "Q1-mBwLufVg", vertical: true },
+  { title: "Dark luxe fragrance", client: "Concept · fragrance", kind: "Concept film", youtubeId: "3rHdggLUB6E", vertical: true },
+  { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
+  { title: "Earthy organic skincare", client: "Concept · organic beauty", kind: "Concept film", youtubeId: "ZklaLkE5RpU", vertical: true },
+  { title: "Playful Gen Z beauty", client: "Concept · beauty", kind: "Concept film", youtubeId: "TmMzVnkIVv8", vertical: true },
 ];
 
 // ─── CREATIVE & DECKS — the actual ads that ran, and decks put in front of investors / media.
