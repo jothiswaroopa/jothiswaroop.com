@@ -32,6 +32,7 @@ const LINKS = [
   { k: "Instagram", v: "@jothiswaroop.ai", href: "https://instagram.com/jothiswaroop.ai" },
   { k: "Free 10-minute ad-account audit", v: "Where your spend is leaking", href: "/audit/?s=card&c=page" },
   { k: "The receipts", v: "Every number, screenshot-backed", href: "/?s=card&c=page#work" },
+  { k: "Worked with me? Leave a Google review", v: "Two lines is plenty", href: site.google.review },
 ];
 
 /**

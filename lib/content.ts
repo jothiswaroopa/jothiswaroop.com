@@ -14,6 +14,7 @@ export const site = {
   whatsappDisplay: "+91 99448 12223",
   calendar: "https://cal.com/jothi-swaroop-ccbqmw/30min", // Cal.com · 30 min
   email: "hello@jothiswaroop.com",
+  google: { profile: "https://g.page/r/CQtFDN_FGbUgEBM", review: "https://g.page/r/CQtFDN_FGbUgEBM/review" }, // Google Business Profile (verified 2026-09-21)
   socials: {
     instagram: "https://instagram.com/jothi.swaroop_",
     linkedin: "https://www.linkedin.com/in/jothiswaroop",
