@@ -1,0 +1,10 @@
+{
+  "updated": null,
+  "state": "paused",
+  "startDate": "2026-10-06",
+  "cap": 0,
+  "totals": { "leads": 0, "contacted": 0, "replied": 0, "bounced": 0, "stopped": 0, "sent": 0,
+    "pipeline": { "new": 0, "step1": 0, "step2": 0, "step3": 0, "done": 0 } },
+  "daily": [],
+  "segments": []
+}

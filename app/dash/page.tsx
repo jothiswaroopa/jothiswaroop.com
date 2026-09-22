@@ -7,7 +7,7 @@ import Link from "next/link";
  * SEO + GEO in one window. Reads public/dash/data.json (written daily by scripts/dash/collect.mjs via GitHub Actions)
  * at build time, so the page is static and needs no keys in the browser. Not indexed, not in the sitemap, not in the nav.
  */
-export const metadata = { title: "Dashboard — SEO & GEO", robots: { index: false, follow: false, nocache: true }, alternates: { canonical: "/dash/" } };
+export const metadata = { title: "Dashboard — SEO, GEO & outreach", robots: { index: false, follow: false, nocache: true }, alternates: { canonical: "/dash/" } };
 
 type Row = { key: string; clicks?: number; impressions?: number; ctr?: number; position?: number; views?: number; visits?: number | null };
 type Data = {
@@ -17,6 +17,8 @@ type Data = {
 };
 
 const load = (): Data => JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/data.json"), "utf8"));
+/** Aggregates only — the outreach engine never publishes a prospect's name or address to this public file. */
+const loadOutreach = (): any => { try { return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/outreach.json"), "utf8")); } catch { return null; } };
 const n = (v?: number) => (v == null ? "—" : Math.round(v).toLocaleString("en-GB"));
 const pct = (v?: number) => (v == null ? "—" : (v * 100).toFixed(1) + "%");
 const pos = (v?: number) => (v == null || v === 0 ? "—" : v.toFixed(1));
@@ -81,6 +83,7 @@ export default function Dash() {
   const cf = d.cloudflare && !d.cloudflare.error ? d.cloudflare : d.cloudflare?.stale;
   const geo = d.geo && !d.geo.error ? d.geo : d.geo?.stale;
   const cov = d.coverage && !d.coverage.error ? d.coverage : null;
+  const o = loadOutreach();
   const clicksByPage: Record<string, number> = Object.fromEntries((g?.pages ?? []).map((r: Row) => [r.key.replace("https://jothiswaroop.com", ""), r.clicks]));
 
   return (
@@ -88,7 +91,7 @@ export default function Dash() {
       <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-10 md:py-16">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="label">{"// SEO & GEO · ONE WINDOW"}</p>
+            <p className="label">{"// SEO · GEO · OUTREACH · ONE WINDOW"}</p>
             <h1 className="mt-4 text-[clamp(2rem,4vw,3.5rem)]">How the site is being found.</h1>
           </div>
           <p className="mono text-xs text-paper/50">{d.generatedAt ? `data as of ${new Date(d.generatedAt).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST · refreshes daily 05:00` : "no collection yet — add the secrets and run the workflow"}</p>
@@ -161,7 +164,48 @@ export default function Dash() {
           ) : <p className="mt-4 text-sm text-paper/50">No posts yet. The generator runs every two days at 06:30 IST.</p>}
         </div></section>
 
-        <p className="mono mt-10 text-xs text-paper/40">Sources: Google Search Console API · Cloudflare Web Analytics GraphQL · Bing Webmaster API · GEO checks via Claude + web search · sitemap HEAD checks. Collected by .github/workflows/dash.yml.</p>
+        {/* outreach */}
+        {o && (
+          <div className="mt-10">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <p className="label">{"// OUTREACH ENGINE"}</p>
+              <p className="mono text-xs text-paper/50">
+                {o.state === "live" ? `live · cap ${o.cap}/mailbox/day` : o.state === "warm-up" ? `warm-up · sending starts ${o.startDate}` : "paused"}
+                {o.updated ? ` · updated ${new Date(o.updated).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST` : " · no run yet"}
+              </p>
+            </div>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <Tile label="// EMAILS SENT" value={n(o.totals.sent)} sub={`${n(o.totals.contacted)} prospects contacted`} spark={o.daily?.map((r: any) => r.sent ?? 0)} />
+              <Tile label="// REPLIES" value={n(o.totals.replied)} sub="to answer today" />
+              <Tile label="// REPLY RATE" value={o.totals.contacted ? ((100 * o.totals.replied) / o.totals.contacted).toFixed(1) + "%" : "—"} sub="replies ÷ contacted" />
+              <Tile label="// LEADS IN QUEUE" value={n(o.totals.pipeline.new)} sub={`${n(o.totals.leads)} total · ${n(o.totals.bounced)} bounced · ${n(o.totals.stopped)} opted out`} />
+            </div>
+            {o.segments?.length > 0 && (
+              <section className="bezel mt-4"><div className="bezel-core p-5">
+                <p className="label">{"// BY SEGMENT"}</p>
+                <table className="mt-4 w-full text-sm">
+                  <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-paper/40"><th className="pb-2 text-left font-normal">Segment</th><th className="pb-2 text-right font-normal">Leads</th><th className="pb-2 text-right font-normal">Contacted</th><th className="pb-2 text-right font-normal">Replied</th><th className="pb-2 text-right font-normal">Rate</th><th className="pb-2 text-right font-normal">Bounced</th></tr></thead>
+                  <tbody className="divide-y hairline">
+                    {o.segments.map((s: any) => (
+                      <tr key={s.segment}>
+                        <td className="py-2 pr-4 text-paper/85">{s.name}</td>
+                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.leads)}</td>
+                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.contacted)}</td>
+                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.replied)}</td>
+                        <td className="py-2 text-right tabular-nums text-paper/70">{s.contacted ? ((100 * s.replied) / s.contacted).toFixed(1) + "%" : "—"}</td>
+                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.bounced)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="mono mt-4 text-[10px] text-paper/40">Pipeline: {n(o.totals.pipeline.new)} waiting · {n(o.totals.pipeline.step1)} after email 1 · {n(o.totals.pipeline.step2)} after 2 · {n(o.totals.pipeline.step3)} after 3 · {n(o.totals.pipeline.done)} sequence finished</p>
+              </div></section>
+            )}
+            <p className="mono mt-3 text-xs text-paper/40">Counts only. Prospect names, addresses and replies stay in the private engine repo — open it to answer a reply.</p>
+          </div>
+        )}
+
+        <p className="mono mt-10 text-xs text-paper/40">Sources: Google Search Console API · Cloudflare Web Analytics GraphQL · Bing Webmaster API · GEO checks via Claude + web search · sitemap HEAD checks · outreach aggregates from the private engine. Collected by .github/workflows/dash.yml.</p>
       </div>
     </section>
   );
