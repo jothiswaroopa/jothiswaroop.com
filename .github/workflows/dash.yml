@@ -38,7 +38,7 @@ jobs:
           git config user.name "dash-bot"
           git config user.email "dash-bot@jothiswaroop.com"
           git add public/dash/data.json
-          git diff --cached --quiet || (git commit -m "Dash: $(date -u +%F)" && git push && echo "CHANGED=1" >> "$GITHUB_ENV")
+          git diff --cached --quiet || (git commit -m "Dash: $(date -u +%F)" && (git push || (git pull --rebase && git push)) && echo "CHANGED=1" >> "$GITHUB_ENV")
       - name: Deploy
         if: env.CHANGED == '1'
         env:
