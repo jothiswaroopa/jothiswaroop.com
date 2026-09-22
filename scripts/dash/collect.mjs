@@ -68,7 +68,10 @@ async function gsc() {
 
 // ── Cloudflare Web Analytics (RUM) ──
 async function cloudflare() {
-  const { CF_API_TOKEN: t, CF_ACCOUNT_TAG: acct, CF_SITE_TAG: siteTag } = process.env;
+  // Secrets pasted through a browser often carry a stray newline or space — trim before they reach a header.
+  const t = (process.env.CF_API_TOKEN || "").trim();
+  const acct = (process.env.CF_ACCOUNT_TAG || "").trim();
+  const siteTag = (process.env.CF_SITE_TAG || "").trim();
   if (!t || !acct || !siteTag) throw new Error("CF_API_TOKEN / CF_ACCOUNT_TAG / CF_SITE_TAG not set");
   const gql = async (query, variables) => {
     const r = await fetch("https://api.cloudflare.com/client/v4/graphql", { method: "POST", headers: { authorization: `Bearer ${t}`, "content-type": "application/json" }, body: JSON.stringify({ query, variables }) });
