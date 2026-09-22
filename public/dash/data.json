@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T11:43:47.280Z",
+  "generatedAt": "2026-09-22T11:48:59.004Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
@@ -93,7 +93,7 @@
     ]
   },
   "cloudflare": {
-    "error": "CF_API_TOKEN has unexpected characters (length 139) — re-copy it from Cloudflare"
+    "error": "CF: unknown field \"lcpP75\""
   },
   "bing": {
     "traffic": [
@@ -119,7 +119,7 @@
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-22T11:46:03.554Z",
+    "checkedAt": "2026-09-22T11:51:39.116Z",
     "results": [
       {
         "id": "chennai-meta-ads",
@@ -155,7 +155,12 @@
         "engine": "claude+search",
         "mentioned": false,
         "cited": [],
-        "competitors": []
+        "competitors": [
+          "dentaai.com",
+          "thevoipshop.co.uk",
+          "meetlinda.ai",
+          "softomatesolutions.com"
+        ]
       },
       {
         "id": "apparel-india-uk",
@@ -196,6 +201,10 @@
     ],
     "rate": 0.125,
     "history": [
+      {
+        "date": "2026-09-22",
+        "rate": 0.125
+      },
       {
         "date": "2026-09-22",
         "rate": 0.125
