@@ -44,7 +44,7 @@ But CPL only tells you what Meta charged you to get a click. It says nothing abo
 
 The fix here isn't a better bid strategy. It's accepting that CPL is a cost metric, not a business metric, and building your reporting around patients booked, not leads generated.
 
-## The compliance floor you can't optimise around meta ads for dental clinics uk cost per new patient
+## The compliance floor you can't optimise around
 
 Before you touch targeting or creative spend, there's a floor set by regulators — and it's lower than most clinics think they're clearing.
 

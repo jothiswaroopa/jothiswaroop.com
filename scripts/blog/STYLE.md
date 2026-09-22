@@ -69,3 +69,7 @@ faq:
 
 (body in Markdown)
 ```
+
+
+## Headings
+Write headings as a human would say them out loud. Never paste the raw target keyword into a heading, and never append it to the end of one — a heading like "The compliance floor you can't optimise around meta ads for dental clinics uk cost per new patient" is an instant tell that a machine wrote the page.
