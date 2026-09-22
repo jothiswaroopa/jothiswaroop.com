@@ -69,9 +69,12 @@ async function gsc() {
 // ── Cloudflare Web Analytics (RUM) ──
 async function cloudflare() {
   // Secrets pasted through a browser often carry a stray newline or space — trim before they reach a header.
-  const t = (process.env.CF_API_TOKEN || "").trim();
-  const acct = (process.env.CF_ACCOUNT_TAG || "").trim();
-  const siteTag = (process.env.CF_SITE_TAG || "").trim();
+  // A pasted secret can carry newlines, spaces or a "Bearer " prefix — none are valid in a header value.
+  const clean = (v) => (v || "").replace(/^\s*bearer\s+/i, "").replace(/\s+/g, "");
+  const t = clean(process.env.CF_API_TOKEN);
+  const acct = clean(process.env.CF_ACCOUNT_TAG);
+  const siteTag = clean(process.env.CF_SITE_TAG);
+  if (t && !/^[A-Za-z0-9_.~-]+$/.test(t)) throw new Error(`CF_API_TOKEN has unexpected characters (length ${t.length}) — re-copy it from Cloudflare`);
   if (!t || !acct || !siteTag) throw new Error("CF_API_TOKEN / CF_ACCOUNT_TAG / CF_SITE_TAG not set");
   const gql = async (query, variables) => {
     const r = await fetch("https://api.cloudflare.com/client/v4/graphql", { method: "POST", headers: { authorization: `Bearer ${t}`, "content-type": "application/json" }, body: JSON.stringify({ query, variables }) });
