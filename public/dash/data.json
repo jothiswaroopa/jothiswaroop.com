@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T11:28:24.350Z",
+  "generatedAt": "2026-09-22T11:43:47.280Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
@@ -93,7 +93,7 @@
     ]
   },
   "cloudflare": {
-    "error": "CF_API_TOKEN / CF_ACCOUNT_TAG / CF_SITE_TAG not set"
+    "error": "CF_API_TOKEN has unexpected characters (length 139) — re-copy it from Cloudflare"
   },
   "bing": {
     "traffic": [
@@ -119,7 +119,7 @@
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-22T11:30:56.595Z",
+    "checkedAt": "2026-09-22T11:46:03.554Z",
     "results": [
       {
         "id": "chennai-meta-ads",
@@ -196,6 +196,10 @@
     ],
     "rate": 0.125,
     "history": [
+      {
+        "date": "2026-09-22",
+        "rate": 0.125
+      },
       {
         "date": "2026-09-22",
         "rate": 0.125
