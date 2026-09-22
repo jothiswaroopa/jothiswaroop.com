@@ -78,6 +78,19 @@ async function pickTopic() {
 }
 
 // ── 2. research ─────────────────────────────────────────────────────────────
+/** Models sometimes return almost-JSON (comments, trailing commas, a stray quote). Try hard, then ask for a repair. */
+async function parseJsonLoose(text) {
+  const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  let raw = (fence ? fence[1] : text).trim();
+  raw = raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1);
+  const attempts = [raw, raw.replace(/^\s*\/\/.*$/gm, "").replace(/,\s*([}\]])/g, "$1")];
+  for (const a of attempts) { try { return JSON.parse(a); } catch {} }
+  log("research JSON malformed — asking for a repair");
+  const fix = await client.messages.create({ model: cfg.model, max_tokens: 4000, messages: [{ role: "user", content: `Return this as strict, valid JSON only (same content, fix quoting/commas, no comments, no fences):\n\n${raw}` }] });
+  const t = fix.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
+  return JSON.parse(t.slice(t.indexOf("{"), t.lastIndexOf("}") + 1));
+}
+
 async function research(topic) {
   const prompt = `Research this for a blog post on jothiswaroop.com (audience: founders running ads/AI follow-up in UK, US, India).
 
@@ -87,14 +100,15 @@ ${topic.newsUrl ? `PRIMARY SOURCE TO FETCH FIRST: ${topic.newsUrl}` : ""}
 
 Use web search. Prefer primary/official sources (the company's own announcement or docs, regulators, platform help centres) and one or two named publications. Reject aggregators and listicles.
 
-Return ONLY JSON:
+When the research is done, reply with ONE fenced \`\`\`json block and nothing else — strict JSON, no comments, no trailing commas, double quotes escaped inside strings:
 {
   "summary": "what happened / what the honest answer is, 120 words",
-  "facts": [ { "fact": "one specific, quotable fact with its number or date", "url": "exact source URL" } ],   // 6-12 items
-  "sources": [ { "title": "page title", "url": "exact URL", "publisher": "org name" } ],                          // 3-6 items, must include the URLs used in facts
+  "facts": [ { "fact": "one specific, quotable fact with its number or date", "url": "exact source URL" } ],
+  "sources": [ { "title": "page title", "url": "exact URL", "publisher": "org name" } ],
   "founderAngle": "2-3 sentences on why a founder-led business should care this week",
   "contrarian": "one defensible opinion a cautious agency would not say"
-}`;
+}
+facts: 6-12 items. sources: 3-6 items and must include every URL used in facts.`;
   const res = await client.messages.create({
     model: cfg.model,
     max_tokens: 4000,
@@ -102,7 +116,7 @@ Return ONLY JSON:
     messages: [{ role: "user", content: prompt }],
   });
   const text = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
-  const json = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
+  const json = await parseJsonLoose(text);
   // fetch every source ourselves: this text is what the number-check validates against
   let sourceText = "";
   const okSources = [];
