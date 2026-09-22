@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T11:48:59.004Z",
+  "generatedAt": "2026-09-22T11:52:38.324Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
@@ -93,7 +93,20 @@
     ]
   },
   "cloudflare": {
-    "error": "CF: unknown field \"lcpP75\""
+    "range": {
+      "start": "2026-08-23",
+      "end": "2026-09-22"
+    },
+    "totals": {
+      "views": 0,
+      "visits": 0
+    },
+    "daily": [],
+    "paths": [],
+    "referrers": [],
+    "countries": [],
+    "devices": [],
+    "perf": null
   },
   "bing": {
     "traffic": [
@@ -119,87 +132,58 @@
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-22T11:51:39.116Z",
+    "checkedAt": "2026-09-22T11:52:42.574Z",
     "results": [
       {
         "id": "chennai-meta-ads",
         "prompt": "Who are the best performance marketing consultants or Meta ads experts in Chennai for a small manufacturing business?",
         "segment": "india",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRwzU1iw3C6Azdh4iNm\"}"
       },
       {
         "id": "india-ai-automation",
         "prompt": "Recommend an AI automation consultant in India who builds WhatsApp follow-up systems for small businesses.",
         "segment": "india",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx1odiHmDC7TFkDQ7K\"}"
       },
       {
         "id": "uk-dental-meta",
         "prompt": "Which freelancers or small agencies run Meta ads for UK dental clinics and can show real lead numbers?",
         "segment": "dental-uk",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx2aGa1G87okhAyCwZ\"}"
       },
       {
         "id": "uk-ai-receptionist",
         "prompt": "Who can build an AI receptionist for a UK dental practice that answers WhatsApp and email enquiries after hours?",
         "segment": "dental-uk",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": [
-          "dentaai.com",
-          "thevoipshop.co.uk",
-          "meetlinda.ai",
-          "softomatesolutions.com"
-        ]
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx3P8hV1HW7tqNd1Qb\"}"
       },
       {
         "id": "apparel-india-uk",
         "prompt": "I manufacture apparel in Tirupur, India and sell to the UK. Who can run my Meta and Google ads?",
         "segment": "apparel",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx44p1U8BHuTNdHa38\"}"
       },
       {
         "id": "name",
         "prompt": "Who is Jothi Swaroop, the performance marketer from Chennai?",
         "segment": "general",
-        "engine": "claude+search",
-        "mentioned": true,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx4gXEpcoCgsYFZt6q\"}"
       },
       {
         "id": "geo-small-biz",
         "prompt": "Who writes practical guides on generative engine optimisation (GEO) for small businesses in India and the UK?",
         "segment": "ai",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx5TuGKmhAskUJ1xDK\"}"
       },
       {
         "id": "screenshot-backed",
         "prompt": "Which marketing freelancers publish screenshot-backed results for every client claim?",
         "segment": "general",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfJRx68axx6gnUAXbc5Lh\"}"
       }
     ],
-    "rate": 0.125,
+    "rate": 0,
     "history": [
       {
         "date": "2026-09-22",
@@ -212,6 +196,10 @@
       {
         "date": "2026-09-22",
         "rate": 0.125
+      },
+      {
+        "date": "2026-09-22",
+        "rate": 0
       }
     ]
   },
