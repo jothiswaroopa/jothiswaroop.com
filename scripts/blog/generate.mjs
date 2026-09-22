@@ -108,15 +108,29 @@ When the research is done, reply with ONE fenced \`\`\`json block and nothing el
   "founderAngle": "2-3 sentences on why a founder-led business should care this week",
   "contrarian": "one defensible opinion a cautious agency would not say"
 }
-facts: 6-12 items. sources: 3-6 items and must include every URL used in facts.`;
-  const res = await client.messages.create({
-    model: cfg.model,
-    max_tokens: 4000,
-    tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 8 }],
-    messages: [{ role: "user", content: prompt }],
-  });
-  const text = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
-  const json = await parseJsonLoose(text);
+facts: 6-10 items, each under 40 words. sources: 3-6 items and must include every URL used in facts. Keep the whole reply under 900 words.`;
+  let json = null;
+  for (let attempt = 1; attempt <= 2 && !json; attempt++) {
+    const res = await client.messages.create({
+      model: cfg.model,
+      max_tokens: 8000,
+      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 8 }],
+      messages: [{ role: "user", content: prompt }],
+    });
+    if (res.stop_reason === "max_tokens") log("research hit max_tokens on attempt", attempt);
+    const text = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
+    try {
+      const j = await parseJsonLoose(text);
+      if (!Array.isArray(j.facts) || !j.facts.length) throw new Error("no facts");
+      if (!Array.isArray(j.sources) || !j.sources.length) {
+        // rebuild sources from the facts' URLs so one missing array does not sink the run
+        const seen = new Set();
+        j.sources = j.facts.filter((f) => f.url && !seen.has(f.url) && seen.add(f.url)).map((f) => ({ title: f.fact.slice(0, 80), url: f.url, publisher: new URL(f.url).hostname.replace(/^www\./, "") }));
+      }
+      json = j;
+    } catch (e) { log(`research attempt ${attempt} unusable: ${e.message}`); }
+  }
+  if (!json) throw new Error("research failed twice — no usable JSON");
   // fetch every source ourselves: this text is what the number-check validates against
   let sourceText = "";
   const okSources = [];
