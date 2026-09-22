@@ -90,14 +90,22 @@ async function cloudflare() {
       byRef: rumPageloadEventsAdaptiveGroups(${base}, limit: 20, orderBy: [count_DESC]) { count sum { visits } dimensions { refererHost } }
       byCountry: rumPageloadEventsAdaptiveGroups(${base}, limit: 12, orderBy: [count_DESC]) { count sum { visits } dimensions { countryName } }
       byDevice: rumPageloadEventsAdaptiveGroups(${base}, limit: 5, orderBy: [count_DESC]) { count dimensions { deviceType } }
-      perf: rumPerformanceEventsAdaptiveGroups(${base}, limit: 1) { quantiles { lcpP75 firstContentfulPaintP75 } }
     } } }`, { acct, siteTag, since, until });
+  // Web-vitals live in their own dataset and its field names have changed before — never let it sink the whole block.
+  let perf = null;
+  try {
+    const p = await gql(`query($acct:String!,$siteTag:String!,$since:Time!,$until:Time!){ viewer { accounts(filter:{accountTag:$acct}) {
+      v: rumWebVitalsEventsAdaptiveGroups(${base}, limit: 1) { aggregation { lcp { p75 } fid { p75 } cls { p75 } } }
+    } } }`, { acct, siteTag, since, until });
+    const a = p.v?.[0]?.aggregation;
+    if (a) perf = { lcpP75: a.lcp?.p75 ?? null, fidP75: a.fid?.p75 ?? null, clsP75: a.cls?.p75 ?? null };
+  } catch (e) { console.log("  (web vitals unavailable:", e.message.slice(0, 80) + ")"); }
   const m = (rows, k) => rows.map((r) => ({ key: r.dimensions[k], views: r.count, visits: r.sum?.visits ?? null }));
   return {
     range: { start: since.slice(0, 10), end: until.slice(0, 10) },
     totals: { views: d.byDay.reduce((a, r) => a + r.count, 0), visits: d.byDay.reduce((a, r) => a + (r.sum?.visits ?? 0), 0) },
     daily: m(d.byDay, "date"), paths: m(d.byPath, "requestPath"), referrers: m(d.byRef, "refererHost"), countries: m(d.byCountry, "countryName"), devices: m(d.byDevice, "deviceType"),
-    perf: d.perf[0]?.quantiles ?? null,
+    perf,
   };
 }
 
