@@ -568,13 +568,13 @@ export const filter = {
 // ─── VIDEO TESTIMONIALS — clients on camera. YouTube Unlisted; poster + tap to play.
 // Add one entry per video. Section renders only when this array has entries; case pages pick up theirs by caseSlug.
 // `quote` = a sentence they actually say (send it and it replaces `context`). `context` = factual line shown until then. Never invent a quote.
-export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote?: string; context: string; caseSlug?: string; language?: string; vertical?: boolean };
+export type VideoTestimonial = { youtubeId: string; name: string; business: string; quote?: string; context: string; caseSlug?: string; language?: string; vertical?: boolean; poster?: string };
 export const videoTestimonials: VideoTestimonial[] = [
   { youtubeId: "A1BGfc9Uxqg", name: "Sriram", business: "Executive Director, Sathyam Labels · Tirupur", quote: "I had meetings with other agencies also. I never got to this stage, but Swaroop did. The response is very good — I never expected such a response.", context: "The first client. 1,589 leads since.", caseSlug: "sathyam", vertical: true }, // quote verbatim from the video transcript (trimmed, not reworded)
   { youtubeId: "PDhEzmseFkE", name: "Nova Attire", business: "Apparel manufacturer · Tirupur", quote: "Within ten days, 150-plus enquiries came in, and we are converting many of them.", context: "4,248 wholesale buyer leads at ₹16.58.", caseSlug: "nova", language: "Tamil · translated", vertical: true }, // translated from the video's Tamil ("விதின் 10 டேஸ்ல 150 பிளஸ் கிளையண்ட்ஸ் உள்ள வந்துருக்கு")
   { youtubeId: "ezCbWV8w2Cs", name: "Kala Praveen", business: "Architect · Cynosure Architects, Chennai", quote: "Amazing, holistic deliverables — right from the registration to the promo videos to the social media throughout the entire programme.", context: "On working with Jothi.", vertical: true }, // verbatim from the video transcript (trimmed)
   { youtubeId: "xsOodldPC9s", name: "Lakshmi Sridhar", business: "B-SHIP Chennai Tycoons · VROOM 2026", quote: "The deliverables were top-notch. Timelines were met, and the quality was very good. Appreciated throughout the community.", context: "On Be The Brand as Official Digital Partner.", vertical: true }, // verbatim from the video (trimmed)
-  { youtubeId: "7ASRs2d-BUs", name: "D Balaji", business: "Centralised AC design · BSHIP Chennai Tycoons", quote: "Frankly speaking, I am not that tech savvy. I was not sure where to start. Jothi Swaroop designed a course content specifically for me — now I am very confident of using AI tools.", context: "On the five-day AI Accelerator.", vertical: true }, // verbatim from the video (trimmed, not reworded)
+  { youtubeId: "7ASRs2d-BUs", poster: "/img/poster-balaji.jpg", name: "D Balaji", business: "Centralised AC design · BSHIP Chennai Tycoons", quote: "Frankly speaking, I am not that tech savvy. I was not sure where to start. Jothi Swaroop designed a course content specifically for me — now I am very confident of using AI tools.", context: "On the five-day AI Accelerator.", vertical: true }, // verbatim from the video (trimmed, not reworded)
   { youtubeId: "_-ZU5bM_iAs", name: "VROOM 2026 organising committee", business: "B-SHIP Chennai Tycoons · Vysya Rally of Our Madras", quote: "They did posters, email automation, AI videos — all our sponsors enjoyed the AI videos. All the big brands were very appreciative.", context: "On the digital partnership for VROOM 2026.", vertical: true }, // verbatim (trimmed). TODO: speaker's name from Jothi → replace the committee attribution
 ];
 
@@ -610,6 +610,7 @@ export const accelerator = {
     role: "Centralised AC · BSHIP Chennai Tycoons",
     where: "Posted in the BSHIP Chennai Tycoons WhatsApp group · 400+ members",
     image: "/img/accelerator-balaji.jpg",
+    videoPoster: "/img/poster-balaji.jpg", // YouTube's own still has a burned-in caption across his arms
     video: "7ASRs2d-BUs", // on camera, after the programme — the WhatsApp message below was day one
     videoQuote: "Frankly speaking, I am not that tech savvy. I was not sure where to start and how to go about. Jothi Swaroop designed a course content specifically for me, considering my special needs. Now I am very confident of using AI tools.", // verbatim from the video, trimmed
     receipt: "/img/accelerator-balaji-review.png", // the actual WhatsApp message — proof the quote is real

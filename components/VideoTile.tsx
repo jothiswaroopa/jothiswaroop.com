@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /** Poster first, iframe only after a tap — no third-party scripts until the visitor asks for them. */
-export default function VideoTile({ youtubeId, title, vertical, className = "" }: { youtubeId: string; title: string; vertical?: boolean; className?: string }) {
+export default function VideoTile({ youtubeId, title, vertical, poster: posterOverride, className = "" }: { youtubeId: string; title: string; vertical?: boolean; poster?: string; className?: string }) {
   const [play, setPlay] = useState(false);
   // Touch devices: a tap on the poster cannot start sound inside an iframe created by that tap (iOS Safari
   // needs the gesture inside the player), so the visitor had to tap twice. There, mount YouTube's own player
@@ -13,14 +13,15 @@ export default function VideoTile({ youtubeId, title, vertical, className = "" }
   // YouTube returns a 120px grey placeholder (HTTP 200, so onError never fires) when a size isn't ready; walk the chain on load.
   const chain = vertical ? ["oardefault", "oar2", "hq720", "hqdefault"] : ["maxresdefault", "hq720", "sddefault", "hqdefault"];
   const [pi, setPi] = useState(0);
-  const poster = `https://i.ytimg.com/vi/${youtubeId}/${chain[pi]}.jpg`;
+  // A burned-in caption or a bad auto-frame can make YouTube's own still unusable; posterOverride wins.
+  const poster = posterOverride || `https://i.ytimg.com/vi/${youtubeId}/${chain[pi]}.jpg`;
   const imgRef = useRef<HTMLImageElement>(null);
   const advance = () => { if (pi < chain.length - 1) setPi((n) => n + 1); };
-  const onPoster = (e: React.SyntheticEvent<HTMLImageElement>) => { if (e.currentTarget.naturalWidth < 200) advance(); };
+  const onPoster = (e: React.SyntheticEvent<HTMLImageElement>) => { if (!posterOverride && e.currentTarget.naturalWidth < 200) advance(); };
   // Static HTML: the image may be complete before React attaches onLoad — check once on mount / after each swap.
   useEffect(() => {
     const i = imgRef.current;
-    if (i && i.complete && i.naturalWidth > 0 && i.naturalWidth < 200) advance();
+    if (!posterOverride && i && i.complete && i.naturalWidth > 0 && i.naturalWidth < 200) advance();
   }, [pi]); // eslint-disable-line react-hooks/exhaustive-deps
   const base = `https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1&cc_load_policy=1&playsinline=1`;
   return (

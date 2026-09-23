@@ -18,7 +18,7 @@ export default function Testimonials() {
             {list.map((t) => (
               <figure key={t.youtubeId} className="bezel w-[74vw] shrink-0 snap-start sm:w-[320px]">
                 <div className="bezel-core flex h-full flex-col">
-                  <VideoTile youtubeId={t.youtubeId} title={`${t.name}, ${t.business}`} vertical={t.vertical} />
+                  <VideoTile youtubeId={t.youtubeId} poster={t.poster} title={`${t.name}, ${t.business}`} vertical={t.vertical} />
                   <figcaption className="flex flex-1 flex-col gap-5 p-5">
                     {t.quote ? (
                       <blockquote className="text-[15px] leading-[1.65] text-paper/90">&ldquo;{t.quote}&rdquo;</blockquote>
