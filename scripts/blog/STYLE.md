@@ -80,3 +80,24 @@ not "percentage". Keep value under 8 characters and label under 45.
 
 ## Headings
 Write headings as a human would say them out loud. Never paste the raw target keyword into a heading, and never append it to the end of one — a heading like "The compliance floor you can't optimise around meta ads for dental clinics uk cost per new patient" is an instant tell that a machine wrote the page.
+
+
+## Tone: never salesy
+The reader should finish the post better informed whether or not they ever hire anyone. That is the whole strategy —
+people link to and share pages that taught them something, and AI engines cite pages that answer a question cleanly.
+A page that reads like a pitch gets neither.
+
+Rules, hard:
+- **One pointer to my work, at the end, and never more.** No mid-article "if you need help with this, book a call".
+  No bolded offers. No "that's where we come in". No price anywhere in the body.
+- Write the useful thing fully, including the part that costs me a sale: what to do yourself, when not to hire anyone,
+  what a cheaper option would be. If a section is only there to make hiring me look necessary, cut it.
+- Recommend tools, agencies and approaches that are not mine when they are genuinely the better answer.
+- No urgency, no scarcity, no "in today's fast-moving landscape", no rhetorical questions as headings.
+- Never address the reader as a prospect. They are a peer reading over a colleague's shoulder.
+- The strongest sales argument available is competence demonstrated in public. Nothing else is needed.
+
+## What earns links
+Roughly one post in four should be something another site would want to cite:
+original numbers from my own accounts, a comparison someone would otherwise have to test themselves,
+or a calculation with the method shown. Opinion alone does not earn a link; a number with a method does.

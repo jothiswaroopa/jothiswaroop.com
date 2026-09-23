@@ -106,14 +106,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </section>
             )}
 
-            <aside className="bezel mt-14">
-              <div className="bezel-core flex flex-col gap-5 p-7 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p className="label">{"// FREE 10-MINUTE AD-ACCOUNT AUDIT"}</p>
-                  <p className="mt-3 max-w-md text-paper/85">If you run Meta or Google ads and want to know where the spend is leaking, I&apos;ll look and tell you. No pitch deck.</p>
-                </div>
-                <Link href={`/audit/?s=blog&c=${p.slug}`} className="press inline-flex shrink-0 items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Get the audit →</Link>
-              </div>
+            {/* One pointer, deliberately quiet. A banner here makes every post read like a pitch. */}
+            <aside className="mt-14 border-t hairline pt-6">
+              <p className="text-sm text-paper/70">
+                I run Meta and Google accounts for founder-led businesses, and write these from what the accounts actually show.
+                If you want a second pair of eyes on yours, <Link href={`/audit/?s=blog&c=${p.slug}`} className="text-paper underline-slide">the 10-minute audit</Link> is free and there is no deck at the end of it.
+              </p>
             </aside>
           </div>
 
