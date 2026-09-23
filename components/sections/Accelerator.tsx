@@ -1,4 +1,5 @@
 import Image from "next/image";
+import VideoTile from "@/components/VideoTile";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import Button from "@/components/Button";
@@ -78,6 +79,15 @@ export default function Accelerator() {
                     <p className="label mt-1 !normal-case !tracking-normal">{t.where}</p>
                   </div>
                 </figcaption>
+
+                {t.video && (
+                  <div className="mt-8 border-t hairline pt-6">
+                    <p className="label">{"// ON CAMERA"}</p>
+                    <div className="mt-4 overflow-hidden rounded-xl border hairline">
+                      <VideoTile youtubeId={t.video} title={`${t.author} on the AI Accelerator`} vertical className="mx-auto max-h-[420px] w-full" />
+                    </div>
+                  </div>
+                )}
 
                 {t.receipt && (
                   <>
