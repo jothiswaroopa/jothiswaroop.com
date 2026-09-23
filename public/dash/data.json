@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T01:39:29.754Z",
+  "generatedAt": "2026-09-23T12:57:59.281Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
@@ -148,63 +148,93 @@
         "Clicks": 0,
         "Date": "/Date(1789862400000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1789948800000)/",
+        "Impressions": 0
       }
     ],
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-23T01:39:33.759Z",
+    "checkedAt": "2026-09-23T13:00:06.403Z",
     "results": [
       {
         "id": "chennai-meta-ads",
         "prompt": "Who are the best performance marketing consultants or Meta ads experts in Chennai for a small manufacturing business?",
         "segment": "india",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX11vVcZcMMox7eTAmq\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "india-ai-automation",
         "prompt": "Recommend an AI automation consultant in India who builds WhatsApp follow-up systems for small businesses.",
         "segment": "india",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX13axQ6nSCdfdASCXg\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "uk-dental-meta",
         "prompt": "Which freelancers or small agencies run Meta ads for UK dental clinics and can show real lead numbers?",
         "segment": "dental-uk",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX14PLDb9U2QX54XMpX\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "uk-ai-receptionist",
         "prompt": "Who can build an AI receptionist for a UK dental practice that answers WhatsApp and email enquiries after hours?",
         "segment": "dental-uk",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX159U7gS1BVVGhvYvN\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "apparel-india-uk",
         "prompt": "I manufacture apparel in Tirupur, India and sell to the UK. Who can run my Meta and Google ads?",
         "segment": "apparel",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX15x61j6cYw13iUqq3\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "name",
         "prompt": "Who is Jothi Swaroop, the performance marketer from Chennai?",
         "segment": "general",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX16tPkfKm9NTsxS8mU\"}"
+        "engine": "claude+search",
+        "mentioned": true,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "geo-small-biz",
         "prompt": "Who writes practical guides on generative engine optimisation (GEO) for small businesses in India and the UK?",
         "segment": "ai",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX18GjsV7niemLQK8TG\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       },
       {
         "id": "screenshot-backed",
         "prompt": "Which marketing freelancers publish screenshot-backed results for every client claim?",
         "segment": "general",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfKX19AKRWkeYw7RHb2wr\"}"
+        "engine": "claude+search",
+        "mentioned": false,
+        "cited": [],
+        "competitors": []
       }
     ],
-    "rate": 0,
+    "rate": 0.125,
     "history": [
       {
         "date": "2026-09-22",
@@ -225,18 +255,31 @@
       {
         "date": "2026-09-23",
         "rate": 0
+      },
+      {
+        "date": "2026-09-23",
+        "rate": 0.125
       }
     ]
   },
   "coverage": {
-    "total": 16,
-    "ok": 16,
+    "total": 17,
+    "ok": 17,
     "broken": []
   },
   "blog": {
-    "count": 2,
-    "last": "2026-09-22",
+    "count": 3,
+    "last": "2026-09-23",
     "posts": [
+      {
+        "slug": "dental-clinic-missed-calls-after-hours",
+        "title": "Dental clinic missed calls after hours: what an AI receptionist does",
+        "date": "2026-09-23",
+        "lane": "guide",
+        "segment": "dental-uk",
+        "words": 1204,
+        "sources": 5
+      },
       {
         "slug": "meta-ads-dental-clinics-uk-real",
         "title": "Meta Ads for Dental Clinics UK: The Real Cost Per New Patient",
