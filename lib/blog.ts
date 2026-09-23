@@ -26,6 +26,7 @@ export type Post = {
   segment: string;
   sources: Source[];
   faq: Faq[];
+  cover?: { value: string; label?: string };
   draft?: boolean;
   html: string;
   words: number;

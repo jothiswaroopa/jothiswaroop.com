@@ -11,6 +11,7 @@ sources:
   - { title: "Health and Wellness | Transparency Center", url: "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/", publisher: "Meta" }
   - { title: "Advertising and facial aesthetics in primary care: how compliant are practice websites and social media with published guidance?", url: "https://www.nature.com/articles/s41415-021-2718-4", publisher: "British Dental Journal" }
   - { title: "Lead Response Time: The 5-Minute Rule Explained", url: "https://voiso.com/articles/lead-response-time-metrics/", publisher: "Voiso" }
+cover: { value: "1.8%", label: "of 450 UK practices met GDC ad rules" }
 faq:
   - { q: "Can a UK dental clinic advertise Botox or fillers on Meta?", a: "No. Meta's Personal Health policy restricts ads for health products and services to prevent harmful experiences, and its Transparency Center rules require any health, wellness or cosmetic-procedure ad to target only people 18 or over — prescription-only treatments like Botox sit outside what Meta allows to run to a general audience." }
   - { q: "How fast do I need to call back a Meta lead from my dental clinic?", a: "Within the hour, ideally within minutes. Harvard Business Review's study of leads found firms contacting a lead within one hour were nearly 7x more likely to qualify it than firms that waited longer — and a separate study of 15,000+ leads found calling within 5 minutes made contact 100x more likely than calling at 30 minutes." }

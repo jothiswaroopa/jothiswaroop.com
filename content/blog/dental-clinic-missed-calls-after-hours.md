@@ -11,6 +11,7 @@ sources:
   - { title: "July 17, 2024 FCC Fact Sheet on AI-Generated Calls NPRM", url: "https://docs.fcc.gov/public/attachments/DOC-404036A1.pdf", publisher: "Federal Communications Commission" }
   - { title: "FCC Makes AI-Generated Voices in Robocalls Illegal", url: "https://www.fcc.gov/document/fcc-makes-ai-generated-voices-robocalls-illegal", publisher: "Federal Communications Commission" }
   - { title: "The Hidden Cost of Missed Dental Calls", url: "https://schedulinginstitute.com/blog/hidden-cost-of-missed-dental-calls/", publisher: "Scheduling Institute" }
+cover: { value: "20–30%", label: "of new-patient calls missed in hours" }
 faq:
   - { q: "How many calls does a dental clinic actually miss?", a: "There's no government audit of this, but call-tracking data from Scheduling Institute across client practices reports 20-30% or more of incoming new-patient calls missed even during business hours, with the share far higher outside opening hours." }
   - { q: "Is it legal to use AI to answer patient calls in the US?", a: "Yes. The FCC's July 2024 fact sheet clarifies that TCPA restrictions on artificial or prerecorded voices apply to outbound calls the system initiates, not to technology used to answer inbound calls." }

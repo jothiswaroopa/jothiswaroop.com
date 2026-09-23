@@ -6,7 +6,7 @@
     "images": "node scripts/images.mjs",
     "predev": "node scripts/images.mjs && node scripts/blog/og.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/images.mjs && node scripts/blog/og.mjs",
+    "prebuild": "node scripts/images.mjs && node scripts/blog/og.mjs && node scripts/blog/cover.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -14,7 +14,8 @@
     "blog:generate": "node scripts/blog/generate.mjs",
     "blog:validate": "node scripts/blog/validate.mjs",
     "dash:collect": "node scripts/dash/collect.mjs",
-    "postbuild": "node scripts/defer-hydration.mjs"
+    "postbuild": "node scripts/defer-hydration.mjs",
+    "covers": "node scripts/blog/cover.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

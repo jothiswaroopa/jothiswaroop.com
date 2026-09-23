@@ -63,6 +63,7 @@ segment: dental-uk | apparel | b2b | india | ai | general
 tags: [ … ]
 sources:
   - { title: "…", url: "https://…", publisher: "…" }
+cover: { value: "4,248", label: "wholesale buyer leads at ₹16.58" }
 faq:
   - { q: "…", a: "…" }
 ---
@@ -70,6 +71,12 @@ faq:
 (body in Markdown)
 ```
 
+
+## The cover number
+`cover.value` is the one figure the post is about — it becomes the card art on the blog index, set in large type.
+Pick the number a reader would repeat to someone else, not the biggest number in the post. It must appear in the body
+and be traceable to a source. `label` is the short phrase that makes it mean something: "of 450 UK practices met GDC ad rules",
+not "percentage". Keep value under 8 characters and label under 45.
 
 ## Headings
 Write headings as a human would say them out loud. Never paste the raw target keyword into a heading, and never append it to the end of one — a heading like "The compliance floor you can't optimise around meta ads for dental clinics uk cost per new patient" is an instant tell that a machine wrote the page.

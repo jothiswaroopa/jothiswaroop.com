@@ -9,6 +9,7 @@ tags: [meta-ads, manufacturing, lead-generation, budgets]
 sources:
   - { title: "Lead ads", url: "https://www.facebook.com/business/ads/lead-ads", publisher: "Meta" }
   - { title: "About lead ads and instant forms", url: "https://www.facebook.com/business/help/1462876307360828", publisher: "Meta Business Help Centre" }
+cover: { value: "4,248", label: "wholesale buyer leads at ₹16.58" }
 faq:
   - { q: "How much does a wholesale buyer lead cost on Meta in India?", a: "In this account it cost ₹16.58 per lead across 4,248 leads and ₹70,444 of spend, measured lifetime in Meta Ads Manager. Costs vary with product, creative and season, so treat that as one real data point, not a benchmark." }
   - { q: "What counts as a lead in a Meta lead ad?", a: "A completed instant form submitted inside Facebook or Instagram. Meta records it the moment the buyer taps submit, before anyone has called them back, so a lead is an enquiry, not an order." }
