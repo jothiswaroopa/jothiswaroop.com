@@ -35,7 +35,11 @@ export async function validate(file, { sourcesText = "", checkLinks = true } = {
   const sources = Array.isArray(d.sources) ? d.sources : [];
   if (sources.length < 2 || sources.length > 6) errors.push(`2–6 sources required (${sources.length})`);
   const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
-  const isOfficial = (u) => cfg.officialDomains.some((dm) => host(u) === dm || host(u).endsWith("." + dm));
+  // Official = a government, regulator, standards body, university or journal, OR a named platform's own
+  // domain. Rule first, allowlist second — a hand-kept list will always miss a real regulator (fcc.gov,
+  // federalregister.gov, nhs.uk …) and reject a perfectly sourced post.
+  const OFFICIAL_RULE = /(^|\.)(gov|mil)$|(^|\.)gov\.[a-z]{2}$|(^|\.)gov\.uk$|(^|\.)nhs\.uk$|(^|\.)europa\.eu$|(^|\.)edu$|(^|\.)ac\.[a-z]{2}$|(^|\.)who\.int$|(^|\.)un\.org$|(^|\.)nature\.com$|(^|\.)nih\.gov$|(^|\.)org\.uk$/i;
+  const isOfficial = (u) => { const h = host(u); return OFFICIAL_RULE.test(h) || cfg.officialDomains.some((dm) => h === dm || h.endsWith("." + dm)); };
   if (!sources.some((s) => isOfficial(s.url))) errors.push("at least one source must be an official/primary domain");
   for (const s of sources) {
     if (!s.title || !s.url || !s.publisher) errors.push(`source missing title/url/publisher: ${JSON.stringify(s)}`);
