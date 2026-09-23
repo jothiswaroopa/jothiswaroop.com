@@ -82,7 +82,8 @@ export default function Accelerator() {
 
                 {t.video && (
                   <div className="mt-8 border-t hairline pt-6">
-                    <p className="label">{"// ON CAMERA"}</p>
+                    <p className="label">{"// ON CAMERA · AFTER THE PROGRAMME"}</p>
+                    {t.videoQuote && <blockquote className="mt-4 text-lg !leading-snug text-paper/90">&ldquo;{t.videoQuote}&rdquo;</blockquote>}
                     <div className="mt-4 overflow-hidden rounded-xl border hairline">
                       <VideoTile youtubeId={t.video} title={`${t.author} on the AI Accelerator`} vertical className="mx-auto max-h-[420px] w-full" />
                     </div>
