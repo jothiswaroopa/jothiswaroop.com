@@ -66,6 +66,44 @@ async function gsc() {
   return { site, range: { start: start28, end }, totals: tot(last28), previous: tot(prevDaily), daily: daily.map(row), queries: queries.map(row), pages: pages.map(row), countries: countries.map(row), devices: devices.map(row) };
 }
 
+// ── Index coverage, per URL, straight from Google ──
+// The Pages report in Search Console is refreshed on Google's own schedule and is usually days behind.
+// URL Inspection answers "is this specific page indexed, and if not why" right now.
+async function indexStatus() {
+  if (!process.env.GSC_SERVICE_ACCOUNT) throw new Error("GSC_SERVICE_ACCOUNT not set");
+  const sa = JSON.parse(process.env.GSC_SERVICE_ACCOUNT);
+  const site = process.env.GSC_SITE ?? "sc-domain:jothiswaroop.com";
+  const token = await gscToken(sa);
+  const xml = await (await fetch(`${SITE}/sitemap.xml`)).text();
+  const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const out = [];
+  for (const url of urls) {
+    try {
+      const r = await fetch("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect", {
+        method: "POST",
+        headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
+        body: JSON.stringify({ inspectionUrl: url, siteUrl: site }),
+      });
+      const j = await r.json();
+      if (j.error) { out.push({ url, verdict: "ERROR", detail: j.error.message.slice(0, 90) }); continue; }
+      const i = j.inspectionResult?.indexStatusResult ?? {};
+      out.push({
+        url,
+        verdict: i.verdict ?? "UNKNOWN",                    // PASS / NEUTRAL / FAIL
+        coverage: i.coverageState ?? "",                     // "Submitted and indexed", "Discovered – currently not indexed", …
+        crawledAs: i.crawledAs ?? "",
+        lastCrawl: i.lastCrawlTime ?? null,
+        robots: i.robotsTxtState ?? "",
+        indexing: i.indexingState ?? "",
+        canonical: i.googleCanonical && i.googleCanonical !== url ? i.googleCanonical : null,
+      });
+    } catch (e) { out.push({ url, verdict: "ERROR", detail: String(e.message).slice(0, 90) }); }
+    await new Promise((r) => setTimeout(r, 400)); // be gentle with the quota
+  }
+  const indexed = out.filter((r) => /indexed/i.test(r.coverage) && !/not indexed/i.test(r.coverage)).length;
+  return { checked: out.length, indexed, notIndexed: out.length - indexed, urls: out };
+}
+
 // ── Cloudflare Web Analytics (RUM) ──
 async function cloudflare() {
   // Secrets pasted through a browser often carry a stray newline or space — trim before they reach a header.
@@ -159,6 +197,7 @@ await block("bing", bing);
 await block("geo", geo);
 await block("coverage", coverage);
 out.blog = blog();
+await block("indexStatus", indexStatus);
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
 log("wrote", path.relative(ROOT, OUT));

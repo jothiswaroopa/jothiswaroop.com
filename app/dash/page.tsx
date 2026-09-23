@@ -13,7 +13,7 @@ export const metadata = { title: "Dashboard — SEO, GEO & outreach", robots: { 
 type Row = { key: string; clicks?: number; impressions?: number; ctr?: number; position?: number; views?: number; visits?: number | null };
 type Data = {
   generatedAt: string | null;
-  gsc?: any; cloudflare?: any; bing?: any; geo?: any; coverage?: any;
+  gsc?: any; cloudflare?: any; bing?: any; geo?: any; coverage?: any; indexStatus?: any;
   blog: { count: number; last: string | null; posts: { slug: string; title: string; date: string; lane: string; segment: string; words: number; sources: number }[] };
 };
 
@@ -84,6 +84,7 @@ export default function Dash() {
   const cf = d.cloudflare && !d.cloudflare.error ? d.cloudflare : d.cloudflare?.stale;
   const geo = d.geo && !d.geo.error ? d.geo : d.geo?.stale;
   const cov = d.coverage && !d.coverage.error ? d.coverage : null;
+  const idx = d.indexStatus && !d.indexStatus.error ? d.indexStatus : null;
   const o = loadOutreach();
   // Blog inventory is local data — read it at build time so a new post shows the moment the site deploys,
   // instead of waiting for tomorrow's collector run.
@@ -172,6 +173,27 @@ export default function Dash() {
             </table>
           ) : <p className="mt-4 text-sm text-paper/50">No posts yet. The generator runs every two days at 06:30 IST.</p>}
         </div></section>
+
+        {idx && (
+          <section className="bezel mt-4"><div className="bezel-core p-5">
+            <p className="label">{`// INDEX STATUS · ${idx.indexed}/${idx.checked} INDEXED BY GOOGLE`}</p>
+            <table className="mt-4 w-full text-sm">
+              <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-paper/40"><th className="pb-2 text-left font-normal">Page</th><th className="pb-2 text-left font-normal">Google says</th><th className="pb-2 text-right font-normal">Last crawl</th></tr></thead>
+              <tbody className="divide-y hairline">
+                {idx.urls.map((u: any) => {
+                  const ok = /indexed/i.test(u.coverage) && !/not indexed/i.test(u.coverage);
+                  return (
+                    <tr key={u.url}>
+                      <td className="py-2 pr-4 text-paper/85">{u.url.replace("https://jothiswaroop.com", "") || "/"}</td>
+                      <td className={`py-2 pr-4 ${ok ? "text-paper/70" : "text-signal"}`}>{u.coverage || u.verdict}{u.canonical ? ` → ${u.canonical.replace("https://jothiswaroop.com", "")}` : ""}</td>
+                      <td className="mono py-2 text-right text-[10px] text-paper/50">{u.lastCrawl ? u.lastCrawl.slice(0, 10) : "never"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div></section>
+        )}
 
         {/* outreach */}
         {o && (
