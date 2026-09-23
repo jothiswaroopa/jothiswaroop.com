@@ -23,8 +23,6 @@ const SEGMENT: Record<string, string> = {
 export default function BlogIndex() {
   const posts = getAllPosts();
   const [lead, ...rest] = posts;
-  const sources = posts.reduce((n, p) => n + (p.sources?.length ?? 0), 0);
-  const words = posts.reduce((n, p) => n + p.words, 0);
 
   return (
     <section className="min-h-[100svh] pt-[96px]">
@@ -38,22 +36,7 @@ export default function BlogIndex() {
           </p>
         </div>
 
-        {/* The standard, stated up front — the reason to read these rather than the other thousand posts. */}
-        {posts.length > 0 && (
-          <dl className="mono mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border hairline bg-line/60 text-xs sm:grid-cols-4">
-            {([
-              [String(posts.length), posts.length === 1 ? "post" : "posts"],
-              [String(sources), "sources cited"],
-              [words >= 1000 ? `${(words / 1000).toFixed(1)}k` : String(words), "words, no filler"],
-              ["0", "numbers without a receipt"],
-            ] as [string, string][]).map(([v, k]) => (
-              <div key={k} className="bg-ink px-4 py-5">
-                <dd className="display text-2xl text-paper md:text-3xl">{v}</dd>
-                <dt className="mt-1 uppercase tracking-[0.16em] text-paper/50">{k}</dt>
-              </div>
-            ))}
-          </dl>
-        )}
+        <p className="mono mt-8 text-xs uppercase tracking-[0.16em] text-paper/45">Every number here is linked to the source it came from.</p>
 
         {lead && (
           <Link href={`/blog/${lead.slug}/`} className="group bezel press mt-10 block">
