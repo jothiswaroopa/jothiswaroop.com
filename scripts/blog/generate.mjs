@@ -72,8 +72,22 @@ async function pickTopic() {
     }
     log("no fresh news matched; falling back to a guide");
   }
-  const next = topics.find((t) => !covered.covered.some((c) => c.keyword === t.keyword));
-  if (!next) throw new Error("topic queue exhausted — add topics to scripts/blog/topics.json");
+  // Round-robin by segment, not queue order. Two dental posts in a row makes the blog look like a dental
+  // blog; a reader (and an AI engine) should see the whole practice, and every segment should keep earning pages.
+  const open = topics.filter((t) => !covered.covered.some((c) => c.keyword === t.keyword));
+  if (!open.length) throw new Error("topic queue exhausted — add topics to scripts/blog/topics.json");
+  const publishedBySeg = {};
+  for (const c of covered.covered) {
+    const t = topics.find((x) => x.keyword === c.keyword);
+    if (t) publishedBySeg[t.segment] = (publishedBySeg[t.segment] ?? 0) + 1;
+  }
+  const lastSeg = (() => {
+    const last = covered.covered[covered.covered.length - 1];
+    return last ? topics.find((x) => x.keyword === last.keyword)?.segment : null;
+  })();
+  const score = (t) => (publishedBySeg[t.segment] ?? 0) * 10 + (t.segment === lastSeg ? 5 : 0) + topics.indexOf(t) / 1000;
+  const next = open.sort((a, b) => score(a) - score(b))[0];
+  log(`segment rotation: ${JSON.stringify(publishedBySeg)} → picking ${next.segment}`);
   return next;
 }
 

@@ -1,14 +1,154 @@
 [
-  { "lane": "guide", "segment": "dental-uk", "keyword": "meta ads for dental clinics uk cost per new patient", "angle": "What a new-patient lead really costs on Meta in the UK in 2026, and why most clinic ad accounts die at the front desk, not in the ad." },
-  { "lane": "guide", "segment": "dental-uk", "keyword": "dental clinic missed calls after hours ai receptionist", "angle": "The 2 a.m. enquiry problem: how many patient enquiries land outside opening hours and what an AI receptionist actually does with them." },
-  { "lane": "guide", "segment": "apparel", "keyword": "advertising indian manufactured apparel brand to uk customers", "angle": "Manufacturing in Tirupur, selling in London: what changes in the ad funnel when the brand is Indian and the buyer is British." },
-  { "lane": "guide", "segment": "apparel", "keyword": "whatsapp business for wholesale enquiries b2b", "angle": "Why apparel and home-textile wholesalers should run enquiries through WhatsApp Business, and how to stop losing them there." },
-  { "lane": "guide", "segment": "b2b", "keyword": "google ads for manufacturers b2b lead generation", "angle": "Google Ads for a manufacturer: why Search beats Performance Max for high-ticket B2B enquiries, and how to prove it in 30 days." },
-  { "lane": "guide", "segment": "india", "keyword": "meta ads budget under 1 lakh per month india small business", "angle": "What to do with a ₹50k–₹1L monthly ad budget in India, and what to stop doing." },
-  { "lane": "guide", "segment": "india", "keyword": "company secretary practice automation client follow up", "angle": "Automating a Company Secretary's practice: compliance reminders, document collection and follow-up without hiring." },
-  { "lane": "guide", "segment": "ai", "keyword": "how ai search chooses which businesses to recommend", "angle": "Generative engine optimisation for a small business: what ChatGPT, Perplexity and Google AI Mode actually look for before they name you." },
-  { "lane": "guide", "segment": "ai", "keyword": "ai lead follow up whatsapp email speed to lead", "angle": "Speed-to-lead: what the research says about replying in minutes vs hours, and how to get there with AI without sounding like a bot." },
-  { "lane": "guide", "segment": "general", "keyword": "how to read a meta ads report founder", "angle": "The five numbers a founder should read in a Meta ads report, and the fifteen to ignore." },
-  { "lane": "guide", "segment": "general", "keyword": "landing page vs website for paid ads conversion", "angle": "Why sending ads to your homepage is expensive, with the specific page elements that change conversion." },
-  { "lane": "guide", "segment": "general", "keyword": "marketing attribution small business 2026 privacy", "angle": "Attribution after cookies: what a small business can still measure honestly in 2026, and what it should stop pretending to know." }
+  {
+    "lane": "guide",
+    "segment": "dental-uk",
+    "keyword": "meta ads for dental clinics uk cost per new patient",
+    "angle": "What a new-patient lead really costs on Meta in the UK in 2026, and why most clinic ad accounts die at the front desk, not in the ad."
+  },
+  {
+    "lane": "guide",
+    "segment": "dental-uk",
+    "keyword": "dental clinic missed calls after hours ai receptionist",
+    "angle": "The 2 a.m. enquiry problem: how many patient enquiries land outside opening hours and what an AI receptionist actually does with them."
+  },
+  {
+    "lane": "guide",
+    "segment": "apparel",
+    "keyword": "advertising indian manufactured apparel brand to uk customers",
+    "angle": "Manufacturing in Tirupur, selling in London: what changes in the ad funnel when the brand is Indian and the buyer is British."
+  },
+  {
+    "lane": "guide",
+    "segment": "apparel",
+    "keyword": "whatsapp business for wholesale enquiries b2b",
+    "angle": "Why apparel and home-textile wholesalers should run enquiries through WhatsApp Business, and how to stop losing them there."
+  },
+  {
+    "lane": "guide",
+    "segment": "b2b",
+    "keyword": "google ads for manufacturers b2b lead generation",
+    "angle": "Google Ads for a manufacturer: why Search beats Performance Max for high-ticket B2B enquiries, and how to prove it in 30 days."
+  },
+  {
+    "lane": "guide",
+    "segment": "india",
+    "keyword": "meta ads budget under 1 lakh per month india small business",
+    "angle": "What to do with a \u20b950k\u2013\u20b91L monthly ad budget in India, and what to stop doing."
+  },
+  {
+    "lane": "guide",
+    "segment": "india",
+    "keyword": "company secretary practice automation client follow up",
+    "angle": "Automating a Company Secretary's practice: compliance reminders, document collection and follow-up without hiring."
+  },
+  {
+    "lane": "guide",
+    "segment": "ai",
+    "keyword": "how ai search chooses which businesses to recommend",
+    "angle": "Generative engine optimisation for a small business: what ChatGPT, Perplexity and Google AI Mode actually look for before they name you."
+  },
+  {
+    "lane": "guide",
+    "segment": "ai",
+    "keyword": "ai lead follow up whatsapp email speed to lead",
+    "angle": "Speed-to-lead: what the research says about replying in minutes vs hours, and how to get there with AI without sounding like a bot."
+  },
+  {
+    "lane": "guide",
+    "segment": "general",
+    "keyword": "how to read a meta ads report founder",
+    "angle": "The five numbers a founder should read in a Meta ads report, and the fifteen to ignore."
+  },
+  {
+    "lane": "guide",
+    "segment": "general",
+    "keyword": "landing page vs website for paid ads conversion",
+    "angle": "Why sending ads to your homepage is expensive, with the specific page elements that change conversion."
+  },
+  {
+    "lane": "guide",
+    "segment": "general",
+    "keyword": "marketing attribution small business 2026 privacy",
+    "angle": "Attribution after cookies: what a small business can still measure honestly in 2026, and what it should stop pretending to know."
+  },
+  {
+    "segment": "video",
+    "keyword": "ai generated product video ads for small brands",
+    "angle": "What an AI-generated commercial can and cannot do yet, judged by a person who makes them \u2014 with the honest failure cases."
+  },
+  {
+    "segment": "video",
+    "keyword": "ugc ads vs polished brand video which converts",
+    "angle": "Why a person holding the product out-tests a cinematic film on Meta, and when it does not."
+  },
+  {
+    "segment": "video",
+    "keyword": "how many ad creatives per month small brand",
+    "angle": "Creative fatigue in plain numbers: how fast a working ad stops working, and what a sustainable creative cadence looks like."
+  },
+  {
+    "segment": "india",
+    "keyword": "google business profile ranking local business india",
+    "angle": "What actually moves a business in Maps results, tested on my own profile, including what did nothing."
+  },
+  {
+    "segment": "india",
+    "keyword": "first 10 customers new business without ad budget",
+    "angle": "Cold outreach for a business with no budget: the channels that still work in 2026 and the order to try them."
+  },
+  {
+    "segment": "india",
+    "keyword": "should a small business hire or automate first",
+    "angle": "When a \u20b920,000/month hire beats an automation and when it does not \u2014 with the arithmetic."
+  },
+  {
+    "segment": "ai",
+    "keyword": "n8n vs zapier vs make for a small business",
+    "angle": "Three automation tools compared by what they actually cost to run a real workflow, not by feature table."
+  },
+  {
+    "segment": "ai",
+    "keyword": "what to automate first in a small business",
+    "angle": "The four repeated tasks worth automating before anything else, and the one everybody automates too early."
+  },
+  {
+    "segment": "ai",
+    "keyword": "ai voice agent answering business calls what breaks",
+    "angle": "The failure modes nobody demos: accents, interruptions, a caller changing their mind mid-sentence."
+  },
+  {
+    "segment": "general",
+    "keyword": "how much should a small business spend on ads",
+    "angle": "A budget framework tied to margin and payback, not a percentage-of-revenue rule of thumb."
+  },
+  {
+    "segment": "general",
+    "keyword": "why your ads work then stop working",
+    "angle": "Creative fatigue, auction pressure and audience exhaustion \u2014 how to tell which one is killing the account."
+  },
+  {
+    "segment": "general",
+    "keyword": "marketing agency vs freelancer vs in house 2026",
+    "angle": "An honest comparison from someone who is one of the three, including when to not hire me."
+  },
+  {
+    "segment": "b2b",
+    "keyword": "linkedin outreach for manufacturers b2b 2026",
+    "angle": "What still gets replies on LinkedIn when every founder gets twenty pitches a week."
+  },
+  {
+    "segment": "apparel",
+    "keyword": "export buyer leads for indian manufacturers online",
+    "angle": "Finding overseas wholesale buyers without a trade fair: the channels, the costs, the realistic conversion."
+  },
+  {
+    "segment": "learn",
+    "keyword": "how to learn performance marketing from zero 2026",
+    "angle": "The order I would learn it in today, what to ignore, and what a first paid campaign should cost you to learn on."
+  },
+  {
+    "segment": "learn",
+    "keyword": "ai skills worth learning for marketing jobs",
+    "angle": "Which AI skills are actually hired for versus which are course-seller hype, judged by what I use daily."
+  }
 ]

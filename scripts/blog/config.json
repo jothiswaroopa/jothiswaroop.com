@@ -32,12 +32,14 @@
     "policy"
   ],
   "segments": [
-    "dental-uk",
+    "ai",
     "apparel",
     "b2b",
+    "dental-uk",
+    "general",
     "india",
-    "ai",
-    "general"
+    "learn",
+    "video"
   ],
   "internalLinks": [
     {
