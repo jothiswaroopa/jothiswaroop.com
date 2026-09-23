@@ -100,6 +100,8 @@ ${topic.newsUrl ? `PRIMARY SOURCE TO FETCH FIRST: ${topic.newsUrl}` : ""}
 
 Use web search. Prefer primary/official sources (the company's own announcement or docs, regulators, platform help centres) and one or two named publications. Reject aggregators and listicles.
 
+AT LEAST ONE source MUST be on an official or primary domain: a platform's own docs or policy pages, a regulator, a government body, a standards body, or a peer-reviewed journal. If the first search does not surface one, search again specifically for the regulator or the platform's own documentation on this topic before answering.
+
 When the research is done, reply with ONE fenced \`\`\`json block and nothing else — strict JSON, no comments, no trailing commas, double quotes escaped inside strings:
 {
   "summary": "what happened / what the honest answer is, 120 words",
