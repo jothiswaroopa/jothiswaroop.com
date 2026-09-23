@@ -80,40 +80,29 @@ export default function Accelerator() {
                   </div>
                 </figcaption>
 
-                {t.video && (
+                {(t.video || t.receipt) && (
                   <div className="mt-8 border-t hairline pt-6">
-                    <p className="label">{"// ON CAMERA · AFTER THE PROGRAMME"}</p>
-                    <p className="mt-3 text-sm text-paper/75">The message above was day one. This is him after the programme &mdash; and he opens by saying he isn&apos;t tech savvy.</p>
-                    {/* 9:16 — constrain the WIDTH and let the aspect ratio set the height, or the poster gets cropped. */}
-                    <div className="mx-auto mt-4 w-full max-w-[300px] overflow-hidden rounded-xl border hairline">
-                      <VideoTile youtubeId={t.video} poster={t.videoPoster} title={`${t.author} on the AI Accelerator`} vertical />
+                    <p className="label">{"// AFTER THE PROGRAMME, AND ON DAY ONE"}</p>
+                    {/* The reel keeps its 9:16; the screenshot sits beside it in the space that leaves. */}
+                    <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,260px)_1fr] sm:items-start">
+                      {t.video && (
+                        <div className="overflow-hidden rounded-xl border hairline">
+                          <VideoTile youtubeId={t.video} poster={t.videoPoster} title={`${t.author} on the AI Accelerator`} vertical />
+                        </div>
+                      )}
+                      {t.receipt && (
+                        <div className="sm:pt-1">
+                          <p className="text-sm text-paper/75">He opens the video by saying he isn&apos;t tech savvy. The message below is from the evening of day one, before the week was finished.</p>
+                          <div className="mt-4 overflow-hidden rounded-xl border hairline bg-ink/90 p-1.5">
+                            <Image src={t.receipt} alt="The original WhatsApp message from D Balaji" width={442} height={552} className="h-auto w-full rounded-lg" />
+                          </div>
+                          <p className="mt-3 text-sm text-paper/75">{t.receiptCaption} The line that matters is the last one: <span className="text-paper">&ldquo;technologically challenged like me.&rdquo;</span> That is who this is built for.</p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
 
-                {t.receipt && (
-                  <>
-                    {/* phones: the original message folds away so the section stays short */}
-                    <details className="mt-6 border-t hairline pt-5 sm:hidden">
-                      <summary className="press label cursor-pointer list-none !normal-case !tracking-normal text-paper/80 hover:text-paper">See the original message ↓</summary>
-                      <div className="mt-4 overflow-hidden rounded-xl border hairline bg-ink/90 p-1.5">
-                        <Image src={t.receipt} alt="The original WhatsApp message from D Balaji" width={442} height={552} className="h-auto w-full rounded-lg" />
-                      </div>
-                      <p className="mt-3 text-sm text-paper/75">{t.receiptCaption}</p>
-                    </details>
-                    {/* larger screens: shown inline — the proof does the selling */}
-                    <div className="mt-8 hidden gap-5 border-t hairline pt-6 sm:grid sm:grid-cols-[minmax(0,260px)_1fr] sm:items-start">
-                      <div className="overflow-hidden rounded-xl border hairline bg-ink/90 p-1.5">
-                        <Image src={t.receipt} alt="The original WhatsApp message from D Balaji" width={442} height={552} className="h-auto w-full rounded-lg" />
-                      </div>
-                      <div className="sm:pt-1">
-                        <p className="label">The original</p>
-                        <p className="mt-2 text-sm text-paper/75">{t.receiptCaption}</p>
-                        <p className="mt-4 text-sm text-paper/75">Posted the evening of day one — before the week was finished. The line that matters is the last one: <span className="text-paper">&ldquo;technologically challenged like me.&rdquo;</span> That is who this is built for.</p>
-                      </div>
-                    </div>
-                  </>
-                )}
               </div>
             </figure>
           </Reveal>
