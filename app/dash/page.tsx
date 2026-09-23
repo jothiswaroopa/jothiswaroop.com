@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 /* eslint-disable @typescript-eslint/no-explicit-any -- read-only viewer over a loosely typed JSON snapshot */
 import Link from "next/link";
+import { getAllPosts } from "@/lib/blog";
 
 /**
  * SEO + GEO in one window. Reads public/dash/data.json (written daily by scripts/dash/collect.mjs via GitHub Actions)
@@ -84,6 +85,14 @@ export default function Dash() {
   const geo = d.geo && !d.geo.error ? d.geo : d.geo?.stale;
   const cov = d.coverage && !d.coverage.error ? d.coverage : null;
   const o = loadOutreach();
+  // Blog inventory is local data — read it at build time so a new post shows the moment the site deploys,
+  // instead of waiting for tomorrow's collector run.
+  const posts = getAllPosts();
+  const blog = {
+    count: posts.length,
+    last: posts[0]?.date ?? null,
+    posts: posts.map((p) => ({ slug: p.slug, title: p.title, date: p.date, lane: p.lane, segment: p.segment, words: p.words, sources: p.sources?.length ?? 0 })),
+  };
   const clicksByPage: Record<string, number> = Object.fromEntries((g?.pages ?? []).map((r: Row) => [r.key.replace("https://jothiswaroop.com", ""), r.clicks]));
 
   return (
@@ -143,14 +152,14 @@ export default function Dash() {
         {/* blog */}
         <section className="bezel mt-4"><div className="bezel-core p-5">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <p className="label">{`// BLOG · ${d.blog.count} POSTS${d.blog.last ? ` · LAST ${d.blog.last}` : ""}`}</p>
+            <p className="label">{`// BLOG · ${blog.count} POSTS${blog.last ? ` · LAST ${blog.last}` : ""}`}</p>
             <Link href="/blog/" className="underline-slide text-sm text-paper/70">Open blog →</Link>
           </div>
-          {d.blog.posts.length ? (
+          {blog.posts.length ? (
             <table className="mt-4 w-full text-sm">
               <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-paper/45"><th className="pb-2 font-normal">post</th><th className="pb-2 font-normal">lane</th><th className="pb-2 text-right font-normal">words</th><th className="pb-2 text-right font-normal">sources</th><th className="pb-2 text-right font-normal">google clicks 28d</th></tr></thead>
               <tbody className="divide-y hairline">
-                {d.blog.posts.map((p) => (
+                {blog.posts.map((p) => (
                   <tr key={p.slug}>
                     <td className="py-2 pr-4"><Link href={`/blog/${p.slug}/`} className="text-paper/85 hover:text-signal">{p.title}</Link><span className="mono ml-2 text-[10px] text-paper/40">{p.date}</span></td>
                     <td className="mono py-2 text-[10px] uppercase tracking-[0.1em] text-paper/50">{p.lane} · {p.segment}</td>
