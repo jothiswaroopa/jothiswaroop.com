@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T12:57:59.281Z",
+  "generatedAt": "2026-09-23T13:04:28.100Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
@@ -159,7 +159,7 @@
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-23T13:00:06.403Z",
+    "checkedAt": "2026-09-23T13:06:56.235Z",
     "results": [
       {
         "id": "chennai-meta-ads",
@@ -177,7 +177,11 @@
         "engine": "claude+search",
         "mentioned": false,
         "cited": [],
-        "competitors": []
+        "competitors": [
+          "aurenonline.in",
+          "automationintelligence.in",
+          "eaca.in"
+        ]
       },
       {
         "id": "uk-dental-meta",
@@ -195,7 +199,10 @@
         "engine": "claude+search",
         "mentioned": false,
         "cited": [],
-        "competitors": []
+        "competitors": [
+          "dentaai.com",
+          "thevoipshop.co.uk"
+        ]
       },
       {
         "id": "apparel-india-uk",
@@ -212,7 +219,9 @@
         "segment": "general",
         "engine": "claude+search",
         "mentioned": true,
-        "cited": [],
+        "cited": [
+          "https://github.com/jothiswaroopa/getjothiswaroop.com"
+        ],
         "competitors": []
       },
       {
@@ -259,6 +268,10 @@
       {
         "date": "2026-09-23",
         "rate": 0.125
+      },
+      {
+        "date": "2026-09-23",
+        "rate": 0.125
       }
     ]
   },
@@ -297,6 +310,183 @@
         "segment": "apparel",
         "words": 988,
         "sources": 2
+      }
+    ]
+  },
+  "indexStatus": {
+    "checked": 17,
+    "indexed": 15,
+    "notIndexed": 2,
+    "urls": [
+      {
+        "url": "https://jothiswaroop.com/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-19T22:23:40Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/about/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-18T11:15:36Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/services/",
+        "verdict": "NEUTRAL",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/apply/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-20T02:12:24Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/audit/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-18T09:38:47Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:00:46Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/nova/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T04:59:04Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/five-elements/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-19T18:11:21Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/sathyam/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:07:45Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/ram/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:07:45Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/srr/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-19T22:44:11Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/tharunis/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:07:02Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/kalavridhi/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:09:18Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/work/angel/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:07:02Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-23T09:57:43Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-21T05:11:15Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
       }
     ]
   }
