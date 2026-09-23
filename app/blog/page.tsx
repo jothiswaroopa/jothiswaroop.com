@@ -30,13 +30,13 @@ export default function BlogIndex() {
         <BackLink className="mb-8" />
         <p className="label">{"// BLOG"}</p>
         <div className="mt-6 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
-          <h1 className="text-[clamp(2.5rem,6vw,5.5rem)]">Thinking in public.</h1>
+          <h1 className="text-[clamp(2.5rem,6vw,5.5rem)]">What worked, what didn&apos;t.</h1>
           <p className="max-w-xl text-paper/75 lg:pb-3">
-            What&apos;s changing in ads, AI and search — and what it means if you run a founder-led business. Sources linked. Numbers with receipts.
+            Ads, AI systems and search, written from real accounts and real builds — including the parts that failed. For founders who read their own numbers.
           </p>
         </div>
 
-        <p className="mono mt-8 text-xs uppercase tracking-[0.16em] text-paper/45">Every number here is linked to the source it came from.</p>
+        <p className="mono mt-8 text-xs uppercase tracking-[0.16em] text-paper/45">New post every two days · every number linked to its source</p>
 
         {lead && (
           <Link href={`/blog/${lead.slug}/`} className="group bezel press mt-10 block">
