@@ -136,7 +136,11 @@ Lines 1 and 2 together stay under 210 characters.
 - **framework** — a named, repeatable method. Give the model a name and hand it over whole. This is
   the single strongest thing he can publish: frameworks are what people save, screenshot and credit
   you for months later, and nobody can take a name off you once it sticks.
-- **proof** — one of his own aggregate numbers and what it taught him. His totals across accounts,
+- **proof** — state one of his own numbers, say precisely what it does and does not mean, and stop.
+  **Never report a finding.** He has not run an analysis comparing which leads converted, which
+  forms performed better, or what separated one outcome from another — that data was never captured.
+  So no "the pattern was", no "what separated them was", no "we looked at and found". Describe what
+  an ad asked for and how many responded. The lesson is allowed; a discovered result is not. His totals across accounts,
   never a walk through any individual client's account or settings.
 - **build** — how an automation works and what it is for. Mechanism, not war stories.
 - **contrarian** — a common belief his numbers contradict. Evidence, not attitude.
