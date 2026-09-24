@@ -94,6 +94,10 @@ ${newsBlock}
 
 ${shape}
 
+THE BAR: could a 23-year-old freelancer screenshot this and use it on Monday? If not, it is commentary, and nobody follows anyone for commentary. Give a method they can run today, or a number with a receipt behind it, or the true uncomfortable sentence everyone thinks and nobody writes. The best posts do all three.
+
+Never put a URL in the post text — LinkedIn suppresses posts carrying links. The website and handles are already on the images.
+
 Audience: mostly people learning this trade — junior marketers, freelancers, founders running their own ads for the first time. Write so a beginner finishes it able to do something. Explain every piece of jargon in the same sentence you use it.
 
 The ONLY figures you may state are these, in exactly these amounts (anything else must carry a source URL in the same sentence):

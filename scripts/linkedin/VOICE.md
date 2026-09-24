@@ -194,3 +194,34 @@ Published 2026 benchmarks across the platform, not preference:
 
 **A poster post is not a text post with a picture stuck on.** The writing carries it; the image
 states the single sharpest line in the post, and nothing else.
+
+## What makes a post worth following someone for
+
+Every draft has to pass one test before it is worth publishing:
+
+**Could a 23-year-old freelancer screenshot this and use it on Monday?**
+
+If not, it is commentary, and commentary is free and infinite. Nobody follows anyone for commentary.
+
+What earns a follow:
+
+- **A method they can run today**, in the order they would actually do it. "Ads Manager → your campaign → the ad set → the line that says Performance goal" is a gift. "Review your settings" is nothing.
+- **A named thing.** The Six Leaks. The Four Clicks. The 60-Second Rule. People save and credit a name; they forget a paragraph.
+- **A number with a receipt behind it.** Almost nobody in this niche can post one. He can. Use that advantage on every post where it fits honestly.
+- **Something that costs him a sale to publish.** Tell them how to do it without him. That is the single strongest signal that he is not selling, and it is why people come back.
+- **The sentence everyone thinks and nobody writes.** "Cheap leads and leads that close are two different products." Say the true, slightly uncomfortable thing plainly.
+
+What does not earn a follow, whatever the engagement looks like:
+
+- Summarising an announcement anyone can read
+- Advice that could have been written five years ago
+- A list of things everyone already agrees with
+- Anything that reads as a warm-up to an offer
+
+**Assume the reader has seen four hundred marketing posts this week.** The only reasons to stop on this one are that it teaches something specific, proves something with a real number, or says something true that others avoid. Every draft must do at least one, and the best ones do all three.
+
+## Where the handles go
+
+Website and handles live **in the images only** — the last carousel slide and the poster footer, which are already built.
+
+**Never put a URL in the post text.** LinkedIn suppresses the reach of posts carrying external links, so a link in the body works directly against the goal. If a link genuinely has to be shared, it goes in the first comment after posting, never in the post itself.

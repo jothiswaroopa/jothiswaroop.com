@@ -94,11 +94,15 @@ function last(text, m) {
   return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.endBg, color: m.endFg, fontFamily: "G" } },
     h("div", { style: { display: "flex", width: 96, height: 3, background: m.endFg } }),
     h("div", { style: { fontFamily: "IS", fontSize: fit(text, 96, 60, 2.8), lineHeight: 1.1, letterSpacing: -0.8, maxWidth: 880 } }, text),
-    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
-      h("div", { style: { display: "flex", flexDirection: "column" } },
-        h("div", { style: { display: "flex", fontFamily: "IS", fontSize: 44 } }, h("span", {}, "Jothi Swaroop"), h("span", { style: { color: SIGNAL } }, ".")),
-        h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.endDim, marginTop: 10 } }, "PERFORMANCE MARKETING & AI SYSTEMS")),
-      mark(72, m.endFg, m.endBg)));
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { display: "flex", width: "100%", height: 1, background: m.endFg, opacity: 0.18, marginBottom: 26 } }),
+      h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
+        h("div", { style: { display: "flex", flexDirection: "column" } },
+          h("div", { style: { display: "flex", fontFamily: "IS", fontSize: 46 } }, h("span", {}, "Jothi Swaroop"), h("span", { style: { color: SIGNAL } }, ".")),
+          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 3, color: m.endDim, marginTop: 8 } }, "PERFORMANCE MARKETING & AI SYSTEMS"),
+          h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 2, color: SIGNAL, marginTop: 20 } }, "JOTHISWAROOP.COM"),
+          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.endDim, marginTop: 8 } }, "@JOTHISWAROOP.AI  ·  IN/JOTHISWAROOP")),
+        mark(76, m.endFg, m.endBg))));
 }
 
 /** A single poster: one line that earns the whole frame. */
@@ -115,9 +119,15 @@ function poster(text, kicker, m) {
       h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL } }, kicker),
       mark(76, m.fg, m.bg)),
     headline,
-    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
-      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "JOTHISWAROOP.COM"),
-      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "EVERY NUMBER HAS A RECEIPT")));
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { display: "flex", width: "100%", height: 1, background: m.fg, opacity: 0.16, marginBottom: 24 } }),
+      h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
+        h("div", { style: { display: "flex", flexDirection: "column" } },
+          h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 2, color: SIGNAL } }, "JOTHISWAROOP.COM"),
+          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.dim, marginTop: 8 } }, "@JOTHISWAROOP.AI  ·  IN/JOTHISWAROOP")),
+        h("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end" } },
+          h("div", { style: { fontFamily: "GM", fontSize: 20, letterSpacing: 3, color: m.dim } }, "EVERY NUMBER"),
+          h("div", { style: { fontFamily: "GM", fontSize: 20, letterSpacing: 3, color: m.dim, marginTop: 6 } }, "HAS A RECEIPT")))));
 }
 
 async function png(tree) {
