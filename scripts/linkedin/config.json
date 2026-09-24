@@ -7,23 +7,22 @@
   "minChars": 380,
   "hookMaxChars": 210,
   "maxHashtags": 3,
-  "carouselDay": 3,
   "pillars": [
     "trending",
+    "framework",
     "teach",
-    "carousel",
-    "receipt",
-    "teardown",
-    "build",
+    "proof",
     "contrarian",
-    "story"
+    "build",
+    "story",
+    "carousel"
   ],
   "weekShape": {
     "1": "trending",
-    "2": "teach",
-    "3": "carousel",
-    "4": "receipt",
-    "5": "teardown"
+    "2": "framework",
+    "3": "teach",
+    "4": "proof",
+    "5": "contrarian"
   },
   "approvedFacts": [
     "7,341 lead-form submissions across nine Meta ad accounts (India, UK, US, Canada)",
@@ -120,8 +119,15 @@
   "maxSalesPerWeek": 1,
   "maxAvgWords": 19,
   "posterPillars": [
-    "receipt",
+    "proof",
     "contrarian"
   ],
-  "fridayAlternate": "story"
+  "fridayAlternate": "story",
+  "carouselDays": [
+    2,
+    4
+  ],
+  "slidesMin": 8,
+  "slidesMax": 12,
+  "hookMaxWords": 12
 }

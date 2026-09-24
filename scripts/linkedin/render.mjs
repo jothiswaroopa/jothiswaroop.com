@@ -42,14 +42,25 @@ function cover(text, kicker) {
     footer("JOTHI SWAROOP", "SWIPE"));
 }
 
-/** Middle slides — one idea, numbered, with a rule above it. */
+/** How far through the deck this slide sits — a visible reason to keep going. */
+function rail(n, total) {
+  const done = Math.round(((n - 1) / (total - 1)) * 928);
+  return h("div", { style: { display: "flex", width: 928, height: 3, background: "rgba(242,237,228,.16)" } },
+    h("div", { style: { display: "flex", width: Math.max(done, 6), height: 3, background: SIGNAL } }));
+}
+
+/** Middle slides — one idea, numbered, with the progress rail underneath. */
 function body(text, n, total) {
   return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: INK, color: PAPER, fontFamily: "G" } },
     h("div", { style: { display: "flex", flexDirection: "column" } },
       h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: SIGNAL } }, String(n).padStart(2, "0")),
       h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL, marginTop: 26 } })),
     h("div", { style: { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 } }, text),
-    footer("JOTHISWAROOP.COM", `${n} / ${total}`));
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      rail(n, total),
+      h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: 22 } },
+        h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: DIM } }, "JOTHISWAROOP.COM"),
+        h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: DIM } }, `${n} / ${total}`))));
 }
 
 /** Last slide — the takeaway, inverted so the swipe ends on a different colour. */
@@ -106,7 +117,8 @@ export async function renderPoster(text, date, kicker = "// RECEIPT") {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const demo = [
-    { text: "Your ads are fine. Nobody is answering the phone." },
+    { text: "Your ads are fine. Nobody answers the phone." },
+    { text: "That gap is costing you more than your ad budget." },
     { text: "A lead fills your form while looking at their phone, with three competitors one tab away." },
     { text: "You call them tomorrow morning. They bought last night." },
     { text: "Your team records it as a bad lead. It was a good lead, handled late." },

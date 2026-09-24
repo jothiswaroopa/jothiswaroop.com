@@ -29,7 +29,10 @@ if (cfg.weekdaysOnly && dayNum > 5) { log(`${weekday} — weekends off`); proces
 if (fs.existsSync(path.join(OUT, `${today}.json`)) && !process.env.LI_FORCE) { log(`${today} already drafted`); process.exit(0); }
 
 const pillar = process.env.LI_PILLAR || cfg.weekShape[String(dayNum)] || "teach";
-const format = pillar === "carousel" ? "carousel" : "text";
+// Carousels are the strongest format on the platform, so two weekdays are reserved for them —
+// the pillar stays the same, only the shape changes.
+const wantsCarousel = pillar === "carousel" || (cfg.carouselDays || []).includes(dayNum);
+const format = process.env.LI_FORMAT === "text" ? "text" : wantsCarousel ? "carousel" : "text";
 const isSales = cfg.salesDays.includes(dayNum) && !process.env.LI_NO_SALES;
 
 /** Least-used pillar first, so nothing runs dry while something else repeats. */
@@ -37,7 +40,7 @@ function pickTopic() {
   if (process.env.LI_ANGLE) return { pillar, angle: process.env.LI_ANGLE, forced: true };
   const open = topics.filter((t) => !covered.used[t.angle]);
   if (!open.length) { covered.used = {}; log("topic bank exhausted — starting over"); return topics[0]; }
-  const want = pillar === "carousel" ? ["carousel", "teach"] : [pillar];
+  const want = pillar === "carousel" ? ["carousel", "framework", "teach"] : [pillar];
   const inPillar = open.filter((t) => want.includes(t.pillar));
   const pool = inPillar.length ? inPillar : open;
   const usedBy = {};
@@ -51,7 +54,7 @@ function pickTopic() {
 function prompt(topic, news, fixes) {
   const facts = cfg.approvedFacts.map((f) => `- ${f}`).join("\n");
   const shape = format === "carousel"
-    ? `Return strict JSON only: {"slides":[{"text":"..."}],"body":"the caption to post with the carousel"}. 7 to 9 slides. Slide 1 is the claim in under 12 words. Middle slides are one idea each, under 18 words. The last slide is the takeaway with no call to action.`
+    ? `Return strict JSON only: {"slides":[{"text":"..."}],"body":"the caption to post with the carousel"}. ${cfg.slidesMin} to ${cfg.slidesMax} slides. Slide 1 is the hook in under 10 words, never a question. Slide 2 is the stakes. Middle slides are one idea each, under 18 words, and each must leave something unfinished so the reader swipes. The second-to-last slide is the payoff slide 1 promised. The last slide is the takeaway, no call to action. Never number a slide in its text and never tell the reader to swipe.`
     : `Return strict JSON only: {"body":"the post, with real line breaks as \\n"${cfg.posterPillars.includes(topic.pillar) ? `, "posterLine":"one sentence under 90 characters for a poster image — the sharpest idea in the post"` : ""}}.`;
 
   const newsBlock = news?.length

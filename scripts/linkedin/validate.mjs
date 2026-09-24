@@ -46,8 +46,12 @@ export function validate(draft, { isSales = false } = {}) {
 
   // the hook — first two lines are all LinkedIn shows before "see more"
   const hook = lines.slice(0, 2).join(" ");
+  const line1 = (lines[0] || "").trim();
   if (hook.length > cfg.hookMaxChars) errors.push(`hook is ${hook.length} chars, must be under ${cfg.hookMaxChars}`);
-  if (/^[^.!\n]*\?\s*$/.test(lines[0] || "")) errors.push("opens with a rhetorical question");
+  const l1w = line1.split(/\s+/).filter(Boolean).length;
+  if (l1w > cfg.hookMaxWords) errors.push(`first line is ${l1w} words (max ${cfg.hookMaxWords}) — short openers get expanded far more often`);
+  if (line1.includes("?")) errors.push("first line contains a question — question openers measurably underperform");
+  if (!/\d/.test(line1)) warnings.push("no number in the first line — openers with a figure tend to do better");
 
   // generated-sounding language
   for (const p of cfg.bannedPhrases) if (lower.includes(p)) errors.push(`banned phrase: "${p}"`);
@@ -121,12 +125,24 @@ export function validateCarousel(draft) {
   const errors = [];
   const warnings = [];
   const slides = draft.slides || [];
-  if (slides.length < 7 || slides.length > 9) errors.push(`${slides.length} slides (need 7–9)`);
+  if (slides.length < cfg.slidesMin || slides.length > cfg.slidesMax) {
+    errors.push(`${slides.length} slides (need ${cfg.slidesMin}–${cfg.slidesMax})`);
+  }
   slides.forEach((s, i) => {
-    const words = String(s.text || "").trim().split(/\s+/).filter(Boolean).length;
-    if (!s.text) errors.push(`slide ${i + 1} empty`);
-    else if (i > 0 && words > 22) errors.push(`slide ${i + 1}: ${words} words (max 22)`);
-    if (EMOJI.test(String(s.text))) errors.push(`slide ${i + 1} has emoji`);
+    const text = String(s.text || "").trim();
+    const words = text.split(/\s+/).filter(Boolean).length;
+    if (!text) { errors.push(`slide ${i + 1} empty`); return; }
+    if (EMOJI.test(text)) errors.push(`slide ${i + 1} has emoji`);
+    if (i === 0) {
+      if (words > 10) errors.push(`cover slide is ${words} words (max 10) — it carries most of the result`);
+      if (text.includes("?")) errors.push("cover slide is a question — those underperform");
+    } else if (i < slides.length - 1 && words > 18) {
+      errors.push(`slide ${i + 1}: ${words} words (max 18)`);
+    } else if (words > 24) {
+      errors.push(`slide ${i + 1}: ${words} words (max 24)`);
+    }
+    if (/^slide\s*\d|^\d+[.)]\s/i.test(text)) errors.push(`slide ${i + 1} numbers itself — the design does that`);
+    if (/next slide|swipe|keep reading|read on/i.test(text)) errors.push(`slide ${i + 1} tells the reader to swipe instead of earning it`);
   });
   const all = slides.map((s) => s.text).join(" ");
   const bad = unbackedNumbers(all);

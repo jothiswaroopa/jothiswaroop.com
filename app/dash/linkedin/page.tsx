@@ -31,8 +31,10 @@ const load = (): Queue | null => {
 };
 
 const PILLAR: Record<string, string> = {
-  trending: "What changed this week, explained simply",
+  trending: "What changed this week, then what to do about it",
   carousel: "Teaching value, built to be swiped",
+  framework: "A named method, handed over whole",
+  proof: "Your own totals, and what they taught you",
   receipt: "A real number from your own accounts",
   teach: "Give away one complete method",
   teardown: "A live ad, what's wrong with it",
@@ -96,16 +98,25 @@ export default function LinkedInQueue() {
           <div className="bezel-core p-5 md:p-6">
             <p className="label">{"// THE WEEK"}</p>
             <ul className="mt-3 grid gap-2 text-sm text-paper/80 sm:grid-cols-2">
-              <li><span className="mono text-signal">MON</span> &nbsp;What changed &mdash; then what you&apos;d do about it in a real account</li>
-              <li><span className="mono text-signal">TUE</span> &nbsp;One complete method, given away</li>
-              <li><span className="mono text-signal">WED</span> &nbsp;Carousel &mdash; the follower engine</li>
-              <li><span className="mono text-signal">THU</span> &nbsp;Your own numbers &mdash; the one day a free thing gets mentioned</li>
-              <li><span className="mono text-signal">FRI</span> &nbsp;A live ad taken apart, or a story</li>
+              <li><span className="mono text-signal">MON</span> &nbsp;What changed &mdash; then what you&apos;d actually do about it</li>
+              <li><span className="mono text-signal">TUE</span> &nbsp;<strong className="text-paper">Carousel</strong> &mdash; a named framework, handed over whole</li>
+              <li><span className="mono text-signal">WED</span> &nbsp;One complete method, given away</li>
+              <li><span className="mono text-signal">THU</span> &nbsp;<strong className="text-paper">Carousel</strong> &mdash; your own totals; the one day a free thing is mentioned</li>
+              <li><span className="mono text-signal">FRI</span> &nbsp;An argument worth having, or a story</li>
             </ul>
             <p className="mt-3 text-sm text-paper/60">
               The content never sells &mdash; your profile does. Four days ask for nothing at all. One day
               mentions something free, once, as help. The bot refuses to write a call to action on any
               other day.
+            </p>
+            <p className="mt-2 text-sm text-paper/60">
+              Two carousels a week, because published analyses of large post samples put carousel
+              engagement far above text and video. Eight to twelve slides, a hook under ten words,
+              and every middle slide leaves something unfinished so the swipe keeps going.
+            </p>
+            <p className="mt-2 text-sm text-paper/60">
+              No client&apos;s ad account is ever discussed &mdash; not their settings, not their campaigns,
+              named or not. Only patterns, methods, and your own totals.
             </p>
             <p className="mt-2 text-sm text-paper/60">
               News days never stop at the news. Four hundred accounts post the same announcement within

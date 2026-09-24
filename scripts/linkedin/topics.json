@@ -1,26 +1,26 @@
 [
   {
-    "pillar": "receipt",
+    "pillar": "proof",
     "angle": "4,248 leads at ₹16.58 looked like the best campaign I'd ever run. The client stopped it. Cheap leads are not the same as leads that close."
   },
   {
-    "pillar": "receipt",
+    "pillar": "proof",
     "angle": "19 leads beat 1,318 leads. The UK campaign that stated a 200-piece minimum order and got 19 buyers, next to the domestic one that got 1,318 enquiries."
   },
   {
-    "pillar": "receipt",
+    "pillar": "proof",
     "angle": "Nine ad accounts, 7,341 form leads, and the number I could not tell you for any of them until recently: how many actually paid."
   },
   {
-    "pillar": "receipt",
+    "pillar": "proof",
     "angle": "876 conversations from ads. What separated the ones that became clients was never the ad — it was how fast somebody replied."
   },
   {
-    "pillar": "receipt",
+    "pillar": "proof",
     "angle": "One client opened a second ad account after ten months. That is the only campaign metric I fully trust."
   },
   {
-    "pillar": "receipt",
+    "pillar": "proof",
     "angle": "Reaching 1.36 million people taught me that reach is the cheapest number to buy and the least useful one to report."
   },
   {
@@ -58,30 +58,6 @@
   {
     "pillar": "teach",
     "angle": "What a learning phase actually is, and why changing budgets every morning keeps an ad set stuck in it."
-  },
-  {
-    "pillar": "teardown",
-    "angle": "A jewellery brand running four static catalogue photos as ads. What a single 15-second film would change and why."
-  },
-  {
-    "pillar": "teardown",
-    "angle": "A clinic advertising a free consultation while hoping for high-value treatment. The offer is recruiting the wrong person."
-  },
-  {
-    "pillar": "teardown",
-    "angle": "An instant form with three pre-filled fields and no questions, live for 61 days. What that costs over two months."
-  },
-  {
-    "pillar": "teardown",
-    "angle": "A wholesale manufacturer running consumer creative to shop owners. Same product, wrong buyer, wrong pictures."
-  },
-  {
-    "pillar": "teardown",
-    "angle": "An ad whose first second is a logo animation. What happens to the viewer in that second."
-  },
-  {
-    "pillar": "teardown",
-    "angle": "A D2C brand whose best-performing creative has not changed in four months. Why the next three weeks will hurt."
   },
   {
     "pillar": "build",
@@ -250,5 +226,57 @@
   {
     "pillar": "story",
     "angle": "What running nine ad accounts teaches you about the gap between a good campaign and a good business."
+  },
+  {
+    "pillar": "framework",
+    "angle": "The Six Leaks: a named checklist for why lead ads produce people who never buy. Give it a name and give it away."
+  },
+  {
+    "pillar": "framework",
+    "angle": "The 60-Second Rule: what has to happen in the first minute after an enquiry arrives, as a repeatable system."
+  },
+  {
+    "pillar": "framework",
+    "angle": "The Four Clicks: a fixed path through Ads Manager that tells you what a campaign is really chasing."
+  },
+  {
+    "pillar": "framework",
+    "angle": "Cost per lead, cost per conversation, cost per customer — the three-number ladder and why most people only watch the first."
+  },
+  {
+    "pillar": "framework",
+    "angle": "The Qualifier Test: one question to add to any lead form, and how to choose it for your business."
+  },
+  {
+    "pillar": "framework",
+    "angle": "Before you touch the creative: a fixed order for fixing an underperforming account, top to bottom."
+  },
+  {
+    "pillar": "framework",
+    "angle": "The Receipt Rule: never report a number you cannot screenshot. How to run a business on that rule."
+  },
+  {
+    "pillar": "framework",
+    "angle": "The three questions to ask any agency before you hire them, and what the answers tell you."
+  },
+  {
+    "pillar": "framework",
+    "angle": "A weekly one-hour routine for someone running their own ads. What to look at, in what order."
+  },
+  {
+    "pillar": "framework",
+    "angle": "How to decide whether a problem is an ads problem, an offer problem, or a follow-up problem."
+  },
+  {
+    "pillar": "proof",
+    "angle": "Nine ad accounts and 7,341 leads later, the one habit that changed the most: every number links to the screenshot it came from."
+  },
+  {
+    "pillar": "proof",
+    "angle": "What running lead campaigns across four countries taught me about the gap between cheap leads and real buyers."
+  },
+  {
+    "pillar": "proof",
+    "angle": "876 conversations started from ads. What the ones that turned into work had in common."
   }
 ]
