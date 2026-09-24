@@ -134,13 +134,17 @@ if (topic.pillar === "trending") {
 log(`${today} ${weekday} · ${format} · ${topic.pillar}${isSales ? " · SELLING DAY" : ""}`);
 log(`angle: ${topic.angle.slice(0, 88)}`);
 
+/** Cosmetic misses — a few words over a limit. Never a fabricated number or a banned phrase. */
+const SOFT = /(words \(max|chars, must be under|words \(max \d+\) — shorten|is \d+ chars)/;
+const attempts = cfg.attempts || 3;
+
 let draft = null, report = null, fixes = null;
-for (let attempt = 1; attempt <= 3; attempt++) {
+for (let attempt = 1; attempt <= attempts; attempt++) {
   try {
     draft = await ask(topic, news, fixes);
   } catch (e) {
-    log(`attempt ${attempt} failed to parse: ${e.message.slice(0, 90)}`);
-    if (attempt === 3) throw e;
+    log(`attempt ${attempt} failed: ${e.message.slice(0, 90)}`);
+    if (attempt === attempts) throw e;
     continue;
   }
   const text = validate({ body: draft.body || "" }, { isSales });
@@ -148,9 +152,17 @@ for (let attempt = 1; attempt <= 3; attempt++) {
   report = { ok: text.ok && extra.ok, errors: [...text.errors, ...extra.errors], warnings: [...text.warnings, ...extra.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
   if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); break; }
   log(`attempt ${attempt} rejected: ${report.errors.join(" | ")}`);
+  // Last try: if only length limits are left, take it and flag them rather than skip the day.
+  if (attempt === attempts && report.errors.every((e) => SOFT.test(e))) {
+    log(`accepting with ${report.errors.length} length miss(es) — nothing substantive left`);
+    report.warnings.push(...report.errors.map((e) => `over a limit: ${e}`));
+    report.errors = [];
+    report.ok = true;
+    break;
+  }
   fixes = report.errors;
 }
-if (!report.ok) { console.error("[li] no clean draft after 3 attempts"); process.exit(1); }
+if (!report.ok) { console.error(`[li] no clean draft after ${attempts} attempts: ${report.errors.join(" | ")}`); process.exit(1); }
 
 const body = (draft.body || "").trim();
 let images = [];

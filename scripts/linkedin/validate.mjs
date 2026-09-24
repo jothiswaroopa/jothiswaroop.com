@@ -136,10 +136,10 @@ export function validateCarousel(draft) {
     if (i === 0) {
       if (words > 10) errors.push(`cover slide is ${words} words (max 10) — it carries most of the result`);
       if (text.includes("?")) errors.push("cover slide is a question — those underperform");
-    } else if (i < slides.length - 1 && words > 18) {
-      errors.push(`slide ${i + 1}: ${words} words (max 18)`);
-    } else if (words > 24) {
-      errors.push(`slide ${i + 1}: ${words} words (max 24)`);
+    } else if (i < slides.length - 1 && words > cfg.slideMaxWords) {
+      errors.push(`slide ${i + 1}: ${words} words (max ${cfg.slideMaxWords})`);
+    } else if (words > cfg.slideMaxWords + 6) {
+      errors.push(`slide ${i + 1}: ${words} words (max ${cfg.slideMaxWords + 6})`);
     }
     if (/^slide\s*\d|^\d+[.)]\s/i.test(text)) errors.push(`slide ${i + 1} numbers itself — the design does that`);
     if (/next slide|swipe|keep reading|read on/i.test(text)) errors.push(`slide ${i + 1} tells the reader to swipe instead of earning it`);

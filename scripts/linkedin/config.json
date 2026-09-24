@@ -129,5 +129,7 @@
   ],
   "slidesMin": 8,
   "slidesMax": 12,
-  "hookMaxWords": 12
+  "hookMaxWords": 12,
+  "attempts": 5,
+  "slideMaxWords": 20
 }
