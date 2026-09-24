@@ -1,1 +1,19 @@
-{"generated":"","changes":[]}
+{
+  "generated": "2026-09-24T13:13:40.020Z",
+  "changes": [],
+  "scans": [
+    {
+      "date": "2026-09-24",
+      "whatsWorking": "\n<parameter name=\"whatsWorking\">[\"LinkedIn replaced its old ranking system with an AI model called 360Brew; multiple August-September breakdowns (Botdog, Buldrr) say this rewards saves, sends and comment depth in the first 60-90 minutes over fast, shallow likes — quick-reaction posts now plateau instead of spreading.\", \"A 30,360-post analysis by ViralBrain (May 2026) found stat-led hooks deliver 1.67x baseline engagement, while imperative hooks like 'Stop doing this' or 'Read this' are down to 0.02x — functionally dead despite being a staple of generic LinkedIn advice.\", \"Carousels keep winning on reach because of dwell time (Socialinsider's 1.3M-post 2026 benchmark puts native documents at 7.00% engagement vs 4.50% for text), but the specificity of the title is what separates winners from filler — a marketing-mob breakdown this April showed a carousel titled around one specific finding beat a generic '10 trends' version on the identical topic and format.\", \"Text posts are still the comment-generation format: Metricool's June 2026 study of live accounts found posts with a direct question get 77% more comments, and a specific comment CTA pushes that to 80%.\", \"Challenger/stance content is outperforming neutral thought leadership with the B2B buyers who actually gatekeep deals — a marketing-mob piece citing 2026 buyer research found 86% of hidden B2B stakeholders (finance, legal, procurement) prefer content that challenges their assumptions, and generic trend-observation content is losing ground to creators who take a clear position people can disagree with.\", \"Hashtags are confirmed dead as a distribution mechanism — Forbes' January piece quoting an analysis of 300,000 posts states the algorithm now reads the actual sentence content via interest graphs, and links can now sit in the post body instead of being hidden in the first comment.\"]",
+      "suitsUs": [
+        "Stat-led hooks over imperative ones — this is not a style preference, it's the account's whole model. A post that opens with '7,341 lead-form submissions' is already the exact shape the data shows working best; nothing to change, just confirmation the current habit is correctly aimed.",
+        "Narrow, single-finding carousels over generic listicles — this maps directly onto the existing carousel pillar. Instead of '5 things about Meta ads,' the finding says to build the whole carousel around one specific number from one specific account (Nova Attire, Five Elements) — which is already the only kind of carousel this account can defensibly publish.",
+        "Stance-taking / contrarian content resonating with the actual buyers who veto vendors — this validates keeping the contrarian pillar and sharpening it: a contrarian claim only lands as 'clarity' if it's backed by an account-level number, which is exactly the constraint already in place here.",
+        "Direct-question CTAs on text posts — low-risk, format-only change that fits any pillar without inventing a new claim; can be layered onto existing drafts, not a new topic."
+      ],
+      "doesNotSuitUs": [],
+      "added": [],
+      "retired": 0
+    }
+  ]
+}
