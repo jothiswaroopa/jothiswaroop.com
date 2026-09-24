@@ -1,28 +1,29 @@
 {
-  "generated": "2026-09-24T12:13:24.940Z",
+  "generated": "2026-09-24T12:19:02.104Z",
   "posts": [
     {
       "date": "2026-09-24",
       "weekday": "Thu",
       "pillar": "proof",
       "format": "carousel",
-      "angle": "4,248 leads at ₹16.58 looked like the best campaign I'd ever run. The client stopped it. Cheap leads are not the same as leads that close.",
+      "angle": "19 leads beat 1,318 leads. The UK campaign that stated a 200-piece minimum order and got 19 buyers, next to the domestic one that got 1,318 enquiries.",
       "isSales": true,
       "autopostSafe": false,
       "heldBecause": "selling day — you approve anything that makes an offer",
-      "hook": "4,248 leads. ₹16.58 each. About 20 cents. For a Tirupur apparel manufacturer, across six campaigns. On paper, the best cost-per-lead I had ever produced.",
-      "body": "4,248 leads. ₹16.58 each. About 20 cents.\n\nFor a Tirupur apparel manufacturer, across six campaigns. On paper, the best cost-per-lead I had ever produced.\n\nThe client stopped the campaign anyway.\n\nCheap leads and leads that close are two different things, and nobody tells you that when you're starting out. A lead form on Meta (Facebook and Instagram's ad platform) just means someone tapped a button and typed a phone number. It says nothing about whether they can place a 200-piece minimum order, or whether they were even looking to buy.\n\nIf you're running lead ads for a founder, check one thing before you celebrate the cost-per-lead: pull ten leads and call them yourself. Not glance at the sheet — call. Ask what they actually want to order, and how many pieces. That one call tells you more than any dashboard.\n\nCheap is easy to produce. A buyer who can place the order is the only number that pays rent.\n\nI still run an audit like this for a few brands a month, free, if you want a second pair of eyes on your leads.\n\n#metaads #leadgen #d2c",
-      "chars": 1050,
-      "avgWords": 12.2,
+      "hook": "Two apparel campaigns. One got 1,318 leads. The other got 19. If you only looked at the count, you'd think the first one won.",
+      "body": "Two apparel campaigns. One got 1,318 leads. The other got 19.\n\nIf you only looked at the count, you'd think the first one won.\n\n1,318 was a domestic knitwear campaign, ₹19 a lead. Cheap, fast, the form open to anyone who wanted to fill it.\n\n19 was a UK wholesale campaign for apparel buyers. The ad form said it upfront: 200-piece minimum order. Under $6 an enquiry, and every single one was a buyer who could actually place that order.\n\nThe form did the filtering before the sales team had to.\n\nMost people building a lead form think their job is to get the number up. It isn't. Your job is to make the wrong person leave before they click submit.\n\nIf you sell in bulk, put the minimum quantity in the ad or the form itself. If you have a price floor, say it. You will lose volume. You will stop wasting time on leads that were never going to convert.\n\nNova Attire, a Tirupur manufacturer, generated 4,248 wholesale buyer leads at ₹16.58 each across six campaigns over the ten months we ran their account. Even there, we never captured how many became actual orders — nothing sent that outcome back to Meta. That's a gap I'd fix differently now: qualify harder in the form, and always track the sale, not just the lead.\n\nIf you want a second pair of eyes on your own lead form, I open up free audits some weeks — happy to look at yours.\n\n#leadgeneration #metaads #tirupur",
+      "chars": 1372,
+      "avgWords": 12,
       "warnings": [
-        "one paragraph is 344 chars — may read as a wall",
-        "UNVERIFIED: \"The client stopped the campaign anyway.\" — Approved facts don't establish that the client stopped the campaign; this is an invented client action.",
-        "UNVERIFIED: \"So the client called the leads himself. What he heard changed everything.\" — Invented first-hand narrative about the client's actions and experience with no support in approved facts.",
-        "UNVERIFIED: \"Most hadn't placed a wholesale order in their life. Some barely knew what they'd clicked.\" — Specific claim about lead quality/behavior that is not in the approved facts; appears fabricated detail.",
-        "check: \"Cheap leads can quietly bankrupt the follow-up team chasing them.\" — Presented as a fact/outcome but nothing in the approved facts supports this claim about bankrupting a follow-up team.",
-        "check: \"Cheap leads were the good campaign. Real buyers were the good business.\" — Presents a specific framing/conclusion about the two campaigns as established fact rather than opinion, implying a comparison not substantiated by approved facts.",
-        "check: \"A lead form on Meta (Facebook and Instagram's ad platform) just means someone ta\" — Stated as an absolute platform mechanic/certain fact, oversimplifying what a lead form indicates - it's a generalization presented as certain.",
-        "check: \"I still run an audit like this for a few brands a month, free, if you want a sec\" — Claims an ongoing personal practice/service not included in or supported by the approved facts."
+        "one paragraph is 366 chars — may read as a wall",
+        "UNVERIFIED: \"every single one was a buyer who could actually place that order\" — No approved fact confirms that all 19 UK leads were verified as able to place a 200-piece order; this is an inferred outcome, not a documented fact.",
+        "UNVERIFIED: \"Only buyers who could actually order 200 pieces bothered to fill it in.\" — States as fact that only qualified buyers filled the form; this is an inferred outcome not confirmed by any approved data (conversion/order data was never captured for Nova Attire, and no such verification exists for the UK campaign either).",
+        "UNVERIFIED: \"Every one already qualified before the first call.\" — Asserts pre-qualification of all 19 leads as fact; no approved data supports this outcome.",
+        "check: \"1,318 was a domestic knitwear campaign, ₹19 a lead. Cheap, fast, the form open t\" — Approved facts state 1,318 domestic knitwear leads at ₹19 each, but the claim that the form was 'open to anyone who wanted to fill it' is an added characterization not supported by the facts.",
+        "check: \"The form did the filtering before the sales team had to.\" — This presents a causal claim about the form's function as established fact, not supported by any approved data on sales team involvement or filtering mechanics.",
+        "check: \"over the ten months we ran their account\" — Approved facts say the engagement ran from October 2025 to July 2026, but does not specify that this is exactly 'ten months' in this context, and pairs an unverified duration claim with the lead figures.",
+        "check: \"Get this wrong and you pay a sales team to chase people who were never buying.\" — Implies a specific client consequence (paying a sales team to chase unqualified leads) not established by any approved fact.",
+        "check: \"1,318 people said yes to a knitwear ad. Nobody asked how much they wanted to buy\" — Claims no one asked about purchase quantity — an assumption about the form's design not confirmed by approved facts."
       ],
       "images": [
         "/linkedin/2026-09-24/slide-01.png",
@@ -35,41 +36,45 @@
         "/linkedin/2026-09-24/slide-08.png",
         "/linkedin/2026-09-24/slide-09.png",
         "/linkedin/2026-09-24/slide-10.png",
-        "/linkedin/2026-09-24/slide-11.png"
+        "/linkedin/2026-09-24/slide-11.png",
+        "/linkedin/2026-09-24/slide-12.png"
       ],
       "slides": [
         {
-          "text": "4,248 leads at ₹16.58 each. Client stopped it."
+          "text": "19 leads beat 1,318 leads. Here's why."
         },
         {
-          "text": "Cheap leads can quietly bankrupt the follow-up team chasing them."
+          "text": "Get this wrong and you pay a sales team to chase people who were never buying."
         },
         {
-          "text": "This was for a Tirupur apparel manufacturer, across six Meta campaigns."
+          "text": "Campaign one: domestic knitwear leads. Anyone could fill the form. ₹19 each."
         },
         {
-          "text": "₹16.58 is about 20 cents. Lowest cost-per-lead I had ever hit."
+          "text": "1,318 people said yes to a knitwear ad. Nobody asked how much they wanted to buy."
         },
         {
-          "text": "A lead form just means someone typed a phone number in. Nothing more."
+          "text": "Campaign two: UK wholesale apparel buyers. The form said 200-piece minimum order, upfront."
         },
         {
-          "text": "It doesn't tell you if they can place a 200-piece minimum order."
+          "text": "Only buyers who could actually order 200 pieces bothered to fill it in."
         },
         {
-          "text": "So the client called the leads himself. What he heard changed everything."
+          "text": "Result: 19 leads. Under $6 an enquiry. Every one already qualified before the first call."
         },
         {
-          "text": "Most hadn't placed a wholesale order in their life. Some barely knew what they'd clicked."
+          "text": "Same product category. Same platform. One number 69 times bigger than the other."
         },
         {
-          "text": "Compare: 19 UK wholesale buyers, 200-piece minimum, under $6 an enquiry. Slower, pricier, real."
+          "text": "The bigger number wasn't the win. The form that filtered people out was."
         },
         {
-          "text": "Cheap leads were the good campaign. Real buyers were the good business."
+          "text": "1,318 wide leads vs 19 narrow ones — the form decides which one you get."
         },
         {
-          "text": "Before you celebrate a low cost-per-lead, call ten of them yourself."
+          "text": "Put your minimum order, your price floor, your real requirement inside the form itself."
+        },
+        {
+          "text": "A smaller number of the right people beats a bigger number of the wrong ones."
         }
       ],
       "status": "draft"
