@@ -17,6 +17,9 @@ on:
       force:
         description: "Set to 1 to redraft a day that already has a post"
         required: false
+      skip_post:
+        description: "Set to 1 to draft only and not publish, whatever LI_AUTOPOST says"
+        required: false
 
 permissions:
   contents: write
@@ -49,7 +52,7 @@ jobs:
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
           LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}   # optional — derived from the token when unset
-          LI_AUTOPOST: ${{ vars.LI_AUTOPOST }}
+          LI_AUTOPOST: ${{ inputs.skip_post == '1' && '0' || vars.LI_AUTOPOST }}
         run: node scripts/linkedin/publish.mjs "$(cat .li-drafted)"
       - name: Commit and deploy
         run: |

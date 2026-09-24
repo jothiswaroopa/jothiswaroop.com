@@ -14,7 +14,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const API = "https://api.linkedin.com/rest";
-const VERSION = "202405";
+const VERSION = process.env.LINKEDIN_VERSION || "202606"; // LinkedIn retires versions after about a year
 const ROOT = process.cwd();
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), "[li-publish]", ...a);
 
@@ -100,6 +100,7 @@ export async function publish(post) {
 
   const res = await fetch(`${API}/posts`, { method: "POST", headers: headers(), body: JSON.stringify(body) });
   if (res.status === 401) return { skipped: "LINKEDIN_TOKEN has expired — generate a new one", expired: true };
+  if (res.status === 426) return { skipped: `LinkedIn API version ${VERSION} is no longer active — bump VERSION in publish.mjs`, staleVersion: true };
   if (!res.ok) throw new Error(`posts ${res.status}: ${(await res.text()).slice(0, 220)}`);
   const id = res.headers.get("x-restli-id") || "(no id returned)";
   log(`posted ${id}`);
