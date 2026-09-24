@@ -185,18 +185,32 @@ try {
   if (fc.blocking.length) {
     log(`fact-check blocked ${fc.blocking.length} claim(s) — redrafting`);
     for (const f of fc.blocking) log(`  blocked: "${f.quote.slice(0, 70)}" — ${f.issue.slice(0, 70)}`);
-    const redraft = await ask(topic, news, fc.blocking.map((f) => `Remove or rewrite this — nothing supports it: "${f.quote}" (${f.issue})`));
-    const recheck = validate({ body: redraft.body || "" }, { isSales });
-    const reextra = format === "carousel" ? validateCarousel(redraft) : { ok: true, errors: [], warnings: [] };
-    if (recheck.ok && reextra.ok) {
-      draft = redraft;
-      report = { ...report, chars: recheck.chars, avgWords: recheck.avgWords, warnings: [...report.warnings, ...recheck.warnings, ...reextra.warnings] };
+    const notes = fc.blocking.map((f) => `Remove or rewrite this — nothing supports it: "${f.quote}" (${f.issue})`);
+    let fixed = null, fixedReport = null;
+    // Two goes, and a near-miss on length still counts — otherwise one stray word throws away a
+    // redraft that correctly removed an unsupported claim, which is the whole point of the pass.
+    for (let r = 1; r <= 2 && !fixed; r++) {
+      const redraft = await ask(topic, news, r === 1 ? notes : [...notes, ...fixedReport.errors]);
+      const recheck = validate({ body: redraft.body || "" }, { isSales });
+      const reextra = format === "carousel" ? validateCarousel(redraft) : { ok: true, errors: [], warnings: [] };
+      const errs = [...recheck.errors, ...reextra.errors];
+      fixedReport = { errors: errs, warnings: [...recheck.warnings, ...reextra.warnings], chars: recheck.chars, avgWords: recheck.avgWords };
+      if (errs.length === 0) { fixed = redraft; log(`redraft ${r} clean`); }
+      else if (errs.every((e) => SOFT.test(e))) {
+        fixed = redraft;
+        log(`redraft ${r} accepted with ${errs.length} length miss(es)`);
+        fixedReport.warnings.push(...errs.map((e) => `over a limit: ${e}`));
+      } else log(`redraft ${r} rejected: ${errs.join(" | ")}`);
+    }
+    if (fixed) {
+      draft = fixed;
+      report = { ...report, chars: fixedReport.chars, avgWords: fixedReport.avgWords, warnings: [...report.warnings, ...fixedReport.warnings] };
       const again = await verify({ body: draft.body, slides: draft.slides }, news);
       checks = again.check;
       if (again.blocking.length) report.warnings.push(...again.blocking.map((f) => `STILL UNVERIFIED: "${f.quote}" — ${f.issue}`));
       else log("redraft passed the fact-check");
     } else {
-      log("redraft failed the rules — keeping the original and flagging the claims");
+      log("redraft could not satisfy the rules — keeping the original and flagging the claims");
       report.warnings.push(...fc.blocking.map((f) => `UNVERIFIED: "${f.quote}" — ${f.issue}`));
     }
   } else {
