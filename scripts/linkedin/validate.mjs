@@ -69,10 +69,13 @@ export function validate(draft, { isSales = false } = {}) {
   const bad = unbackedNumbers(body);
   if (bad.length) errors.push(`number with no receipt: ${bad.join(", ")}`);
 
-  // price talk
-  if (/(₹|\$|£)\s?\d|\bper month\b.*(₹|\$)|\bcosts? (₹|\$|£)/i.test(body) && !/https?:\/\//.test(body)) {
-    const priceish = /(my|our|we charge|i charge|package|retainer|per film|per video)/i.test(body);
-    if (priceish) errors.push("looks like it states our price");
+  // Price talk — but his own receipts are full of currency figures (₹16.58, $6 a buyer), so only
+  // an amount that is NOT one of the approved facts can be a price he is quoting.
+  const amounts = [...body.matchAll(/[₹$£]\s?([\d][\d,]*(?:\.\d+)?)/g)].map((m) => m[1].replace(/,/g, ""));
+  const unapproved = amounts.filter((a) => !FACTS.includes(a));
+  if (unapproved.length) {
+    const quoting = /\b(i charge|we charge|my (rate|price|fee)|our (rate|price|fee)|costs? (you|from)|starts? (at|from)|per (film|video|month|post) (is|starts))\b/i.test(body);
+    if (quoting) errors.push(`looks like it states our price (${unapproved.join(", ")})`);
   }
 
   // punctuation tics
