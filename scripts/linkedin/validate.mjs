@@ -91,7 +91,9 @@ export function validate(draft, { isSales = false, allowQuestion = false } = {})
   if (!isSales && ctas > 0) errors.push(`call to action on a non-selling day (${ctas} found) — this post must simply end`);
   // A closing discussion question is not a call to action. Text posts live on comments, and the
   // ranking model rewards comment depth, so one genuine question at the end earns its place.
-  const lastLine = (lines[lines.length - 1] || "").replace(/#[\w-]+/g, "").trim();
+  // Hashtags sit on their own final line, so walk back past any line that is only tags.
+  const realLines = lines.filter((l) => l.replace(/#[\w-]+/g, "").trim().length > 0);
+  const lastLine = (realLines[realLines.length - 1] || "").trim();
   const asks = lastLine.endsWith("?");
   if (allowQuestion && !asks) warnings.push("no closing question — text posts with one draw far more comments");
   if (!allowQuestion && asks && lines.length > 3) warnings.push("ends on a question; carousels are saved, not debated");
