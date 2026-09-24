@@ -1,9 +1,16 @@
 {
   "used": {
     "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one.": "2026-09-24",
-    "How to tell in four clicks whether a Meta campaign is optimising for buyers or for form-fillers. Exact path, no tools.": "2026-09-24"
+    "How to tell in four clicks whether a Meta campaign is optimising for buyers or for form-fillers. Exact path, no tools.": "2026-09-24",
+    "The Six Leaks: a named checklist for why lead ads produce people who never buy. Give it a name and give it away.": "2026-09-24"
   },
   "log": [
+    {
+      "date": "2026-09-24",
+      "pillar": "framework",
+      "format": "carousel",
+      "angle": "The Six Leaks: a named checklist for why lead ads produce people who never buy. Give it a name and give it away."
+    },
     {
       "date": "2026-09-24",
       "pillar": "teach",
