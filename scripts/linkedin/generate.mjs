@@ -86,28 +86,55 @@ ${isSales
 ${fixes ? `\nYour previous attempt was rejected for these reasons. Fix every one:\n${fixes.map((e) => `- ${e}`).join("\n")}` : ""}`;
 }
 
-/** Models occasionally emit an unescaped quote mid-string. Try the cheap fixes, then ask for a repair. */
+/** Pull the first balanced {...} out of a blob, ignoring braces inside strings. */
+function braced(s) {
+  const i = s.indexOf("{");
+  if (i < 0) return null;
+  let depth = 0, inStr = false, esc = false;
+  for (let j = i; j < s.length; j++) {
+    const c = s[j];
+    if (esc) { esc = false; continue; }
+    if (c === "\\") { esc = true; continue; }
+    if (c === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (c === "{") depth++;
+    else if (c === "}" && --depth === 0) return s.slice(i, j + 1);
+  }
+  return null;
+}
+
+/**
+ * Models sometimes wrap JSON in prose or leave a quote unescaped. Prefilling the reply with "{"
+ * makes prose impossible; the repair pass is the fallback when the body itself is malformed.
+ */
 async function parseJsonLoose(raw) {
-  const stripped = raw.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
-  try { return JSON.parse(stripped); } catch {}
-  const braced = stripped.match(/\{[\s\S]*\}/);
-  if (braced) { try { return JSON.parse(braced[0]); } catch {} }
+  const cleaned = raw.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
+  for (const candidate of [cleaned, braced(cleaned)]) {
+    if (!candidate) continue;
+    try { return JSON.parse(candidate); } catch { /* try the next shape */ }
+  }
   log("JSON malformed — asking for a repair");
   const fix = await client.messages.create({
     model: cfg.model, max_tokens: 3000,
-    messages: [{ role: "user", content: `Return this as strict, valid JSON only. Same content, same wording — only fix quoting, escaping and commas. No fences, no commentary:\n\n${stripped}` }],
+    messages: [
+      { role: "user", content: `Fix this into strict valid JSON. Keep every word of the content identical — only correct quoting, escaping and commas. Reply with the JSON object and nothing else.\n\n${cleaned}` },
+      { role: "assistant", content: "{" },
+    ],
   });
-  const repaired = fix.content.map((c) => (c.type === "text" ? c.text : "")).join("").replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
-  return JSON.parse(repaired);
+  const repaired = "{" + fix.content.map((c) => (c.type === "text" ? c.text : "")).join("");
+  const span = braced(repaired.replace(/```/g, ""));
+  return JSON.parse(span || repaired);
 }
 
 async function ask(topic, news, fixes) {
   const res = await client.messages.create({
     model: cfg.model, max_tokens: 2500, system: VOICE,
-    messages: [{ role: "user", content: prompt(topic, news, fixes) }],
+    messages: [
+      { role: "user", content: prompt(topic, news, fixes) },
+      { role: "assistant", content: "{" }, // forces a JSON object, so no preamble is possible
+    ],
   });
-  const raw = res.content.map((c) => (c.type === "text" ? c.text : "")).join("").trim();
-  return parseJsonLoose(raw);
+  return parseJsonLoose("{" + res.content.map((c) => (c.type === "text" ? c.text : "")).join(""));
 }
 
 const topic = pickTopic();
