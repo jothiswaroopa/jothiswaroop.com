@@ -1,77 +1,30 @@
 {
-  "generated": "2026-09-24T12:55:33.340Z",
+  "generated": "2026-09-24T13:23:03.798Z",
   "posts": [
     {
       "date": "2026-09-24",
       "weekday": "Thu",
-      "pillar": "framework",
-      "format": "carousel",
-      "angle": "Cost per lead, cost per conversation, cost per customer — the three-number ladder and why most people only watch the first.",
+      "pillar": "teach",
+      "format": "text",
+      "angle": "The one question to add to a lead form that filters out most of the people who were never going to buy.",
       "isSales": true,
       "videoPrompt": null,
-      "autopostSafe": true,
-      "heldBecause": null,
-      "hook": "Four clicks tell you what your ad is chasing. Most people open Ads Manager, look at the creative, and judge the campaign from there. Wrong screen entirely.",
-      "body": "Four clicks tell you what your ad is chasing.\n\nMost people open Ads Manager, look at the creative, and judge the campaign from there. Wrong screen entirely.\n\nThe number that matters is hiding one level down: cost per lead, cost per conversation, cost per customer. Three different numbers. Most accounts only ever watch the first one.\n\nAcross nine Meta ad accounts we ran, 7,341 people submitted a lead form. Only 876 of those turned into an actual conversation. Nobody tracks what happened after that, because Meta doesn't ask, and most people never make it ask.\n\nSay a clinic runs ads and gets leads at a low cost. Cheap does not mean it will talk to you, and talking to you does not mean it will buy. Those are three separate jobs, and each one has its own cost.\n\nCost per lead tells you if your ad is efficient. Cost per conversation tells you if your form and follow-up are working. Cost per customer is the only one that pays your rent.\n\nIf you're only checking the first number, you're reading a third of the dashboard and calling it the whole picture.\n\nI put a short guide on checking all three on my site, free, if it helps.\n\n#metaads #digitalmarketing #leadgeneration",
-      "chars": 1177,
-      "avgWords": 11.7,
+      "autopostSafe": false,
+      "heldBecause": "selling day — you approve anything that makes an offer",
+      "hook": "4,248 leads at ₹16.58 each. Cheap leads and leads that close are two different products.",
+      "body": "4,248 leads at ₹16.58 each.\n\nCheap leads and leads that close are two different products.\n\nThat number came from a Tirupur apparel manufacturer, across six campaigns, spending ₹70,444 in total. The ad asked for the least effort possible. So Meta went looking for the cheapest person who would submit a form — which is exactly what it was asked to find.\n\nNobody ever recorded how many of those 4,248 became orders. Including me. Nothing ever sent that outcome back to Meta, so it kept optimising for form fills, not for buyers.\n\nCompare that to a different campaign, for a UK wholesale apparel brand. The ad and form stated a 200-piece minimum order upfront. It brought in 19 responses, at under $6 an enquiry each. Far fewer people, but every one of them had read the one line that scares off anyone not actually placing a bulk order.\n\nThat is the whole method. Before you launch a lead form, add the one line that describes the real cost of being your customer — a minimum order, a price range, a commitment. It will not make your cost per lead look good on a report. It will make the leads underneath it worth something.\n\nI put a free checklist for writing that line on my site, if you want to run it against your own form this week.\n\nWhat does your lead form currently ask a stranger to do?\n\n#leadgen #metaads #d2c",
+      "chars": 1317,
+      "avgWords": 13.2,
       "warnings": [
-        "no number in the first line — openers with a figure tend to do better",
-        "check: \"Nobody tracks what happened after that, because Meta doesn't ask, and most peopl\" — Presents a platform mechanic/generalisation as absolute fact about what 'nobody' tracks; also overlaps with unverified claim about Meta's behavior stated with certainty.",
-        "check: \"Say a clinic runs ads and gets leads at a low cost.\" — Hypothetical clearly marked as such (\"Say a clinic...\"), not a factual claim about a real client.",
-        "check: \"Meta never sees whether a lead became a sale, unless you build that back in your\" — Stated as a certain platform mechanic/generalisation rather than a confirmed fact from the approved material.",
-        "check: \"That gap between a form fill and a reply is where most budgets quietly leak.\" — General industry claim/opinion presented as established fact, not tied to approved figures.",
-        "check: \"Check this before the creative. It decides who Meta goes and finds.\" — Asserts a specific platform mechanic (that this metric decides Meta's targeting) not established in approved facts."
+        "no closing question — text posts with one draw far more comments",
+        "STILL UNVERIFIED: \"The ad asked for the least effort possible. So Meta went looking for the cheapest person who would submit a form — which is exactly what it was asked to find.\" — Approved facts don't state anything about the specific wording or effort-level of the Nova Attire ad; this is an invented claim about the ad's content and a stated-as-fact platform mechanic tied to this specific client.",
+        "STILL UNVERIFIED: \"Including me.\" — This implies a first-hand personal admission/involvement in not tracking the outcome, which is not established in the approved facts.",
+        "STILL UNVERIFIED: \"Far fewer people, but every one of them had read the one line that scares off anyone not actually placing a bulk order.\" — Claims certainty about what every respondent read/understood — an invented claim about lead behavior not supported by approved facts.",
+        "check: \"so it kept optimising for form fills, not for buyers\" — States as certain fact a specific platform optimization behavior for this campaign that isn't confirmed in the approved facts.",
+        "check: \"It will not make your cost per lead look good on a report. It will make the lead\" — General advice/opinion, not a fabricated figure or client fact."
       ],
-      "images": [
-        "/linkedin/2026-09-24/slide-01.png",
-        "/linkedin/2026-09-24/slide-02.png",
-        "/linkedin/2026-09-24/slide-03.png",
-        "/linkedin/2026-09-24/slide-04.png",
-        "/linkedin/2026-09-24/slide-05.png",
-        "/linkedin/2026-09-24/slide-06.png",
-        "/linkedin/2026-09-24/slide-07.png",
-        "/linkedin/2026-09-24/slide-08.png",
-        "/linkedin/2026-09-24/slide-09.png",
-        "/linkedin/2026-09-24/slide-10.png",
-        "/linkedin/2026-09-24/slide-11.png"
-      ],
-      "pdf": "/linkedin/2026-09-24/carousel.pdf",
-      "slides": [
-        {
-          "text": "Four clicks tell you what your ad is chasing."
-        },
-        {
-          "text": "Most people judge it by the creative. Wrong screen entirely."
-        },
-        {
-          "text": "Ads Manager shows one number by default: cost per lead. That's step one of three."
-        },
-        {
-          "text": "Cost per lead only tells you if the ad is cheap. Not if it works."
-        },
-        {
-          "text": "Step two: cost per conversation. How much you paid for someone to actually reply."
-        },
-        {
-          "text": "Across nine ad accounts, 7,341 people submitted a lead form. Only 876 became a real conversation."
-        },
-        {
-          "text": "That gap between a form fill and a reply is where most budgets quietly leak."
-        },
-        {
-          "text": "Step three: cost per customer. The number nobody puts on a dashboard for you."
-        },
-        {
-          "text": "Meta never sees whether a lead became a sale, unless you build that back in yourself."
-        },
-        {
-          "text": "Check this before the creative. It decides who Meta goes and finds."
-        },
-        {
-          "text": "Three numbers, not one. Cheap leads and paying customers are two different products."
-        }
-      ],
+      "images": [],
+      "pdf": null,
       "status": "draft"
     }
   ]
