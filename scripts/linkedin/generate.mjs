@@ -83,18 +83,28 @@ ${isSales
 ${fixes ? `\nYour previous attempt was rejected for these reasons. Fix every one:\n${fixes.map((e) => `- ${e}`).join("\n")}` : ""}`;
 }
 
+/** Models occasionally emit an unescaped quote mid-string. Try the cheap fixes, then ask for a repair. */
+async function parseJsonLoose(raw) {
+  const stripped = raw.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
+  try { return JSON.parse(stripped); } catch {}
+  const braced = stripped.match(/\{[\s\S]*\}/);
+  if (braced) { try { return JSON.parse(braced[0]); } catch {} }
+  log("JSON malformed — asking for a repair");
+  const fix = await client.messages.create({
+    model: cfg.model, max_tokens: 3000,
+    messages: [{ role: "user", content: `Return this as strict, valid JSON only. Same content, same wording — only fix quoting, escaping and commas. No fences, no commentary:\n\n${stripped}` }],
+  });
+  const repaired = fix.content.map((c) => (c.type === "text" ? c.text : "")).join("").replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
+  return JSON.parse(repaired);
+}
+
 async function ask(topic, news, fixes) {
   const res = await client.messages.create({
     model: cfg.model, max_tokens: 2500, system: VOICE,
     messages: [{ role: "user", content: prompt(topic, news, fixes) }],
   });
   const raw = res.content.map((c) => (c.type === "text" ? c.text : "")).join("").trim();
-  const json = raw.replace(/^```(?:json)?\s*|\s*```$/g, "");
-  try { return JSON.parse(json); } catch {
-    const m = json.match(/\{[\s\S]*\}/);
-    if (m) return JSON.parse(m[0]);
-    throw new Error("model did not return JSON");
-  }
+  return parseJsonLoose(raw);
 }
 
 const topic = pickTopic();
@@ -109,7 +119,13 @@ log(`angle: ${topic.angle.slice(0, 88)}`);
 
 let draft = null, report = null, fixes = null;
 for (let attempt = 1; attempt <= 3; attempt++) {
-  draft = await ask(topic, news, fixes);
+  try {
+    draft = await ask(topic, news, fixes);
+  } catch (e) {
+    log(`attempt ${attempt} failed to parse: ${e.message.slice(0, 90)}`);
+    if (attempt === 3) throw e;
+    continue;
+  }
   const text = validate({ body: draft.body || "" }, { isSales });
   const extra = format === "carousel" ? validateCarousel(draft) : { ok: true, errors: [], warnings: [] };
   report = { ok: text.ok && extra.ok, errors: [...text.errors, ...extra.errors], warnings: [...text.warnings, ...extra.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
