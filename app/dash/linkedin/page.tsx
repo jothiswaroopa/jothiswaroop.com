@@ -128,12 +128,37 @@ export default function LinkedInQueue() {
 
         <div className="bezel mt-4">
           <div className="bezel-core p-5 md:p-6">
-            <p className="label">{"// BEFORE YOU POST — 15 MINUTES"}</p>
-            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-paper/80">
-              <li>Comment on five posts from people in your segments &mdash; apparel founders, UK clinic owners, D2C operators. Something useful, two sentences, no pitch. <strong className="text-paper">This is where the leads come from, not the post.</strong></li>
-              <li>Post yours between 9:30 and 11:00 IST on a weekday.</li>
-              <li>Stay on the app for the next 45 minutes and reply to every comment. Early replies are what decide reach.</li>
-              <li>Anyone who comments twice or views your profile: look at what they do. If they fit, message them about their own work &mdash; never about yours.</li>
+            <p className="label">{"// YOUR DAY — ABOUT 30 MINUTES"}</p>
+            <p className="mt-3 text-sm text-paper/70">
+              The bot writes. This is the half that decides whether anyone sees it.
+            </p>
+
+            <p className="mono mt-5 text-[11px] uppercase tracking-[0.14em] text-signal">Before &mdash; 15 min</p>
+            <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-paper/80">
+              <li><strong className="text-paper">Read the draft properly.</strong> It goes out under your name. Check every claim about what you did or saw &mdash; the bot cannot verify those, only the numbers.</li>
+              <li><strong className="text-paper">Change one line</strong> so the voice is yours.</li>
+              <li><strong className="text-paper">Comment on five posts</strong> from founders in your segments. Two useful sentences, no pitch.</li>
+              <li><strong className="text-paper">20 connection requests</strong> to founders, not marketers.</li>
+            </ol>
+
+            <p className="mono mt-5 text-[11px] uppercase tracking-[0.14em] text-signal">Post &mdash; 10:00 to 11:30 IST</p>
+            <p className="mt-2 text-sm text-paper/80">
+              Published analyses agree on mid-morning, Tuesday to Thursday &mdash; that window carries
+              the bulk of B2B engagement, and weekday posts far outperform weekend ones. Your network is
+              mostly Indian today, and early engagement from your own network is what decides whether
+              LinkedIn pushes a post wider, so post to India time and let it travel.
+            </p>
+            <p className="mt-2 text-sm text-paper/60">
+              Carousel? Upload the images in order as a multi-image post. Paste the caption. No link in
+              the post &mdash; put any link in the first comment instead.
+            </p>
+
+            <p className="mono mt-5 text-[11px] uppercase tracking-[0.14em] text-signal">After &mdash; the first 60 minutes</p>
+            <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-paper/80">
+              <li><strong className="text-paper">Stay on the app and reply to every comment</strong> within the first hour. Reply with a sentence that adds something, never just &ldquo;thanks&rdquo;. Early replies decide reach more than anything else you control.</li>
+              <li>Anyone who comments twice, or views your profile: look at what they do. If they fit, message them <strong className="text-paper">about their business</strong> &mdash; never about yours.</li>
+              <li>Do not edit the post in the first hour. Editing resets its distribution.</li>
+              <li>At the end of the day, note which post got the most profile views. That is the signal worth following, not likes.</li>
             </ol>
           </div>
         </div>

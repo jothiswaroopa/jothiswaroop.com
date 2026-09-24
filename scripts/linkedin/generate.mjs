@@ -201,10 +201,10 @@ const body = (draft.body || "").trim();
 let images = [];
 try {
   if (format === "carousel") {
-    images = await renderCarousel(draft.slides, today, `// ${topic.pillar.toUpperCase()}`);
+    images = await renderCarousel(draft.slides, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
     log(`rendered ${images.length} slides`);
   } else if (draft.posterLine) {
-    images = await renderPoster(draft.posterLine, today, `// ${topic.pillar.toUpperCase()}`);
+    images = await renderPoster(draft.posterLine, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
     log("rendered poster");
   }
 } catch (e) {

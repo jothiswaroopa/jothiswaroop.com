@@ -18,74 +18,106 @@ const h = (type, props, ...kids) => ({ type, props: { ...props, children: kids.l
 const W = 1080, H = 1350;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
 const DIM = "rgba(242,237,228,.55)";
+const DIM_ON_PAPER = "rgba(10,10,12,.55)";
+
+// One identity, two grounds. The palette and the type never change — only which colour carries the
+// deck. A feed should recognise the slide before it reads the name, so varying the theme per post
+// would throw away the only thing that compounds. Varying the composition costs nothing.
+const MOODS = {
+  dark:  { bg: INK,   fg: PAPER, dim: DIM,           endBg: PAPER, endFg: INK,   endDim: DIM_ON_PAPER, rail: "rgba(242,237,228,.16)" },
+  light: { bg: PAPER, fg: INK,   dim: DIM_ON_PAPER,  endBg: INK,   endFg: PAPER, endDim: DIM,          rail: "rgba(10,10,12,.14)" },
+};
+/** Which ground a pillar gets. Fixed per pillar so a reader starts to associate one with the other. */
+const MOOD_FOR = { framework: "dark", proof: "light", teach: "dark", trending: "light", contrarian: "dark", story: "light", build: "dark", carousel: "dark" };
+export const moodFor = (pillar) => MOODS[MOOD_FOR[pillar] || "dark"];
 
 /** Big type has to shrink as the line count grows, or it overflows the frame. */
 const fit = (text, max, min, per) => Math.max(min, Math.min(max, Math.round(max - (text.length / per))));
 
-const mark = (size = 72) =>
-  h("div", { style: { display: "flex", width: size, height: size, borderRadius: size / 4.5, background: PAPER, alignItems: "center", justifyContent: "center", position: "relative" } },
-    h("div", { style: { fontFamily: "IS", fontSize: size * 0.68, color: INK, marginRight: size * 0.15, marginTop: -size * 0.06 } }, "J"),
+const mark = (size = 72, bg = PAPER, fg = INK) =>
+  h("div", { style: { display: "flex", width: size, height: size, borderRadius: size / 4.5, background: bg, alignItems: "center", justifyContent: "center", position: "relative" } },
+    h("div", { style: { fontFamily: "IS", fontSize: size * 0.68, color: fg, marginRight: size * 0.15, marginTop: -size * 0.06 } }, "J"),
     h("div", { style: { position: "absolute", right: size * 0.17, bottom: size * 0.18, width: size * 0.15, height: size * 0.15, borderRadius: size * 0.08, background: SIGNAL } }));
+
+/** A hook that opens on a figure gets the figure set huge — the number is the hook. */
+const leadNumber = (text) => {
+  const m = text.match(/^([₹$£]?\s?[\d][\d,.]*\s?%?)\s+(.*)$/);
+  return m && m[2].length > 8 ? { fig: m[1].trim(), rest: m[2].trim() } : null;
+};
 
 const footer = (left, right) =>
   h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
     h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: DIM } }, left),
     h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: right === "SWIPE" ? SIGNAL : DIM } }, right));
 
-/** Slide 1 — the claim. Nothing else on it. */
-function cover(text, kicker) {
-  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: INK, color: PAPER, fontFamily: "G" } },
+/** Slide 1 — the claim, nothing else. Sets huge if it opens on a figure. */
+function cover(text, kicker, m) {
+  const n = leadNumber(text);
+  const headline = n
+    ? h("div", { style: { display: "flex", flexDirection: "column", maxWidth: 920 } },
+        h("div", { style: { fontFamily: "IS", fontSize: 210, lineHeight: 0.92, letterSpacing: -6, color: SIGNAL } }, n.fig),
+        h("div", { style: { fontFamily: "IS", fontSize: fit(n.rest, 92, 56, 2.6), lineHeight: 1.06, letterSpacing: -1, marginTop: 22 } }, n.rest))
+    : h("div", { style: { fontFamily: "IS", fontSize: fit(text, 112, 64, 2.4), lineHeight: 1.04, letterSpacing: -1.5, maxWidth: 900 } }, text);
+  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
       h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL } }, kicker),
-      mark(76)),
-    h("div", { style: { fontFamily: "IS", fontSize: fit(text, 112, 64, 2.4), lineHeight: 1.04, letterSpacing: -1.5, maxWidth: 900 } }, text),
-    footer("JOTHI SWAROOP", "SWIPE"));
+      mark(76, m.fg, m.bg)),
+    headline,
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "JOTHI SWAROOP"),
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: SIGNAL } }, "SWIPE")));
 }
 
 /** How far through the deck this slide sits — a visible reason to keep going. */
-function rail(n, total) {
+function rail(n, total, m) {
   const done = Math.round(((n - 1) / (total - 1)) * 928);
-  return h("div", { style: { display: "flex", width: 928, height: 3, background: "rgba(242,237,228,.16)" } },
+  return h("div", { style: { display: "flex", width: 928, height: 3, background: m.rail } },
     h("div", { style: { display: "flex", width: Math.max(done, 6), height: 3, background: SIGNAL } }));
 }
 
 /** Middle slides — one idea, numbered, with the progress rail underneath. */
-function body(text, n, total) {
-  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: INK, color: PAPER, fontFamily: "G" } },
+function body(text, n, total, m) {
+  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", flexDirection: "column" } },
       h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: SIGNAL } }, String(n).padStart(2, "0")),
       h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL, marginTop: 26 } })),
     h("div", { style: { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 } }, text),
     h("div", { style: { display: "flex", flexDirection: "column" } },
-      rail(n, total),
+      rail(n, total, m),
       h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: 22 } },
-        h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: DIM } }, "JOTHISWAROOP.COM"),
-        h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: DIM } }, `${n} / ${total}`))));
+        h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "JOTHISWAROOP.COM"),
+        h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, `${n} / ${total}`))));
 }
 
 /** Last slide — the takeaway, inverted so the swipe ends on a different colour. */
-function last(text) {
-  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: PAPER, color: INK, fontFamily: "G" } },
-    h("div", { style: { display: "flex", width: 96, height: 3, background: INK } }),
+function last(text, m) {
+  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.endBg, color: m.endFg, fontFamily: "G" } },
+    h("div", { style: { display: "flex", width: 96, height: 3, background: m.endFg } }),
     h("div", { style: { fontFamily: "IS", fontSize: fit(text, 96, 60, 2.8), lineHeight: 1.1, letterSpacing: -0.8, maxWidth: 880 } }, text),
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
       h("div", { style: { display: "flex", flexDirection: "column" } },
         h("div", { style: { display: "flex", fontFamily: "IS", fontSize: 44 } }, h("span", {}, "Jothi Swaroop"), h("span", { style: { color: SIGNAL } }, ".")),
-        h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: "rgba(10,10,12,.55)", marginTop: 10 } }, "PERFORMANCE MARKETING & AI SYSTEMS")),
-      h("div", { style: { display: "flex", width: 72, height: 72, borderRadius: 16, background: INK, alignItems: "center", justifyContent: "center", position: "relative" } },
-        h("div", { style: { fontFamily: "IS", fontSize: 49, color: PAPER, marginRight: 11, marginTop: -4 } }, "J"),
-        h("div", { style: { position: "absolute", right: 12, bottom: 13, width: 11, height: 11, borderRadius: 6, background: SIGNAL } }))));
+        h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.endDim, marginTop: 10 } }, "PERFORMANCE MARKETING & AI SYSTEMS")),
+      mark(72, m.endFg, m.endBg)));
 }
 
 /** A single poster: one line that earns the whole frame. */
-function poster(text, kicker) {
+function poster(text, kicker, m) {
+  const n = leadNumber(text);
   const long = text.length > 90;
-  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "88px 76px", background: INK, color: PAPER, fontFamily: "G" } },
+  const headline = n
+    ? h("div", { style: { display: "flex", flexDirection: "column", maxWidth: 920 } },
+        h("div", { style: { fontFamily: "IS", fontSize: 240, lineHeight: 0.9, letterSpacing: -7, color: SIGNAL } }, n.fig),
+        h("div", { style: { fontFamily: "IS", fontSize: fit(n.rest, 88, 54, 2.6), lineHeight: 1.08, letterSpacing: -1, marginTop: 24 } }, n.rest))
+    : h("div", { style: { fontFamily: "IS", fontSize: long ? fit(text, 100, 62, 2.6) : 130, lineHeight: 1.04, letterSpacing: -2, maxWidth: 920 } }, text);
+  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "88px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
       h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL } }, kicker),
-      mark(76)),
-    h("div", { style: { fontFamily: "IS", fontSize: long ? fit(text, 100, 62, 2.6) : 130, lineHeight: 1.04, letterSpacing: -2, maxWidth: 920 } }, text),
-    footer("JOTHISWAROOP.COM", "EVERY NUMBER HAS A RECEIPT"));
+      mark(76, m.fg, m.bg)),
+    headline,
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "JOTHISWAROOP.COM"),
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "EVERY NUMBER HAS A RECEIPT")));
 }
 
 async function png(tree) {
@@ -94,13 +126,14 @@ async function png(tree) {
 }
 
 /** Writes slide-01.png … slide-0n.png into public/linkedin/<date>/ and returns the web paths. */
-export async function renderCarousel(slides, date, kicker = "// GUIDE") {
+export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar = "carousel") {
+  const m = moodFor(pillar);
   const dir = path.join(ROOT, "public/linkedin", date);
   fs.mkdirSync(dir, { recursive: true });
   const out = [];
   for (let i = 0; i < slides.length; i++) {
     const text = String(slides[i].text || "").trim();
-    const tree = i === 0 ? cover(text, kicker) : i === slides.length - 1 ? last(text) : body(text, i + 1, slides.length);
+    const tree = i === 0 ? cover(text, kicker, m) : i === slides.length - 1 ? last(text, m) : body(text, i + 1, slides.length, m);
     const file = `slide-${String(i + 1).padStart(2, "0")}.png`;
     fs.writeFileSync(path.join(dir, file), await png(tree));
     out.push(`/linkedin/${date}/${file}`);
@@ -108,10 +141,11 @@ export async function renderCarousel(slides, date, kicker = "// GUIDE") {
   return out;
 }
 
-export async function renderPoster(text, date, kicker = "// RECEIPT") {
+export async function renderPoster(text, date, kicker = "// RECEIPT", pillar = "proof") {
+  const m = moodFor(pillar);
   const dir = path.join(ROOT, "public/linkedin", date);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "poster.png"), await png(poster(String(text).trim(), kicker)));
+  fs.writeFileSync(path.join(dir, "poster.png"), await png(poster(String(text).trim(), kicker, m)));
   return [`/linkedin/${date}/poster.png`];
 }
 
@@ -126,7 +160,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     { text: "Then tell Meta which ones paid you, so it stops looking for browsers." },
     { text: "Cheap leads are not the same product as leads that close." },
   ];
-  const files = await renderCarousel(demo, "demo");
-  await renderPoster("4,248 leads at ₹16.58. The client stopped the campaign.", "demo");
+  const files = await renderCarousel(demo, "demo", "// FRAMEWORK", "framework");
+  await renderCarousel(demo, "demo-light", "// PROOF", "proof");
+  await renderPoster("4,248 leads at ₹16.58 each. The client stopped the campaign anyway.", "demo", "// PROOF", "proof");
   console.log("wrote:\n" + files.concat("/linkedin/demo/poster.png").join("\n"));
 }
