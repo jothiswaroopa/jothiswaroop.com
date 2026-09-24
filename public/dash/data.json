@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-23T13:04:28.100Z",
+  "generatedAt": "2026-09-24T01:35:44.305Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-24",
-      "end": "2026-09-21"
+      "start": "2026-08-25",
+      "end": "2026-09-22"
     },
     "totals": {
-      "clicks": 5,
-      "impressions": 17,
-      "ctr": 0.29411764705882354,
-      "position": 1.8235294117647058
+      "clicks": 6,
+      "impressions": 33,
+      "ctr": 0.18181818181818182,
+      "position": 2.121212121212121
     },
     "previous": {
       "clicks": 0,
@@ -54,39 +54,67 @@
         "impressions": 9,
         "ctr": 0.2222222222222222,
         "position": 1.7777777777777777
+      },
+      {
+        "key": "2026-09-21",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr": 0.0625,
+        "position": 2.4375
       }
     ],
     "queries": [],
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 3,
-        "impressions": 17,
-        "ctr": 0.17647058823529413,
-        "position": 3.235294117647059
+        "clicks": 4,
+        "impressions": 32,
+        "ctr": 0.125,
+        "position": 3.15625
       },
       {
         "key": "http://jothiswaroop.com/",
         "clicks": 1,
-        "impressions": 5,
-        "ctr": 0.2,
-        "position": 1.4
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 1.3333333333333333
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 6,
-        "ctr": 0.16666666666666666,
-        "position": 4.833333333333334
+        "impressions": 20,
+        "ctr": 0.05,
+        "position": 4.4
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
       }
     ],
     "countries": [
       {
         "key": "ind",
-        "clicks": 5,
-        "impressions": 16,
-        "ctr": 0.3125,
-        "position": 1.4375
+        "clicks": 6,
+        "impressions": 30,
+        "ctr": 0.2,
+        "position": 1.7333333333333334
+      },
+      {
+        "key": "bih",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "key": "tha",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
       },
       {
         "key": "usa",
@@ -99,24 +127,24 @@
     "devices": [
       {
         "key": "MOBILE",
-        "clicks": 4,
-        "impressions": 8,
-        "ctr": 0.5,
-        "position": 1.5
+        "clicks": 5,
+        "impressions": 11,
+        "ctr": 0.45454545454545453,
+        "position": 1.3636363636363638
       },
       {
         "key": "DESKTOP",
         "clicks": 1,
-        "impressions": 9,
-        "ctr": 0.1111111111111111,
-        "position": 2.111111111111111
+        "impressions": 22,
+        "ctr": 0.045454545454545456,
+        "position": 2.5
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-24",
-      "end": "2026-09-23"
+      "start": "2026-08-25",
+      "end": "2026-09-24"
     },
     "totals": {
       "views": 0,
@@ -159,7 +187,7 @@
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-23T13:06:56.235Z",
+    "checkedAt": "2026-09-24T01:37:45.784Z",
     "results": [
       {
         "id": "chennai-meta-ads",
@@ -177,11 +205,7 @@
         "engine": "claude+search",
         "mentioned": false,
         "cited": [],
-        "competitors": [
-          "aurenonline.in",
-          "automationintelligence.in",
-          "eaca.in"
-        ]
+        "competitors": []
       },
       {
         "id": "uk-dental-meta",
@@ -201,6 +225,8 @@
         "cited": [],
         "competitors": [
           "dentaai.com",
+          "viveoai.com",
+          "meetlinda.ai",
           "thevoipshop.co.uk"
         ]
       },
@@ -219,9 +245,7 @@
         "segment": "general",
         "engine": "claude+search",
         "mentioned": true,
-        "cited": [
-          "https://github.com/jothiswaroopa/getjothiswaroop.com"
-        ],
+        "cited": [],
         "competitors": []
       },
       {
@@ -272,6 +296,10 @@
       {
         "date": "2026-09-23",
         "rate": 0.125
+      },
+      {
+        "date": "2026-09-24",
+        "rate": 0.125
       }
     ]
   },
@@ -315,8 +343,8 @@
   },
   "indexStatus": {
     "checked": 17,
-    "indexed": 15,
-    "notIndexed": 2,
+    "indexed": 16,
+    "notIndexed": 1,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -460,12 +488,12 @@
       },
       {
         "url": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
-        "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-09-23T15:35:13Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
