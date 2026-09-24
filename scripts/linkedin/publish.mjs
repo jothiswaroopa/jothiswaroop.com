@@ -50,6 +50,12 @@ async function uploadImage(absPath, alt) {
 export async function publish(post) {
   if (!armed) return { skipped: "LI_AUTOPOST not set" };
   if (!token || !author) return { skipped: "LINKEDIN_TOKEN or LINKEDIN_URN missing" };
+  // The gate: a draft the fact-check questioned, or one that makes an offer, never goes out
+  // unread. Automation is worth having right up until it publishes something nobody checked.
+  if (post.autopostSafe === false) {
+    const why = Array.isArray(post.heldBecause) ? `${post.heldBecause.length} open question(s)` : post.heldBecause;
+    return { skipped: `held for review — ${why}` };
+  }
 
   const images = (post.images || []).map((p) => path.join(ROOT, "public", p.replace(/^\//, "")));
   let content;

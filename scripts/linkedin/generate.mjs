@@ -212,8 +212,18 @@ try {
   report.warnings.push("image could not be rendered — post as text only");
 }
 
+// Autopost only what came through clean. Anything the fact-check questioned, anything that had to
+// be accepted over a limit, and every selling-day post waits for Jothi — those are exactly the
+// posts where a human read is worth more than the convenience.
+const unresolved = report.warnings.filter((w) => /^(UNVERIFIED|STILL UNVERIFIED|check:|over a limit|fact-check did not run)/.test(w));
+const autopostSafe = unresolved.length === 0 && !isSales;
+if (!autopostSafe) {
+  log(`held for review: ${isSales ? "selling day" : `${unresolved.length} open question(s)`}`);
+}
+
 const post = {
   date: today, weekday, pillar: topic.pillar, format, angle: topic.angle, isSales,
+  autopostSafe, heldBecause: autopostSafe ? null : (isSales ? "selling day — you approve anything that makes an offer" : unresolved),
   hook: body.split("\n").filter((l) => l.trim()).slice(0, 2).join(" "),
   body, chars: report.chars, avgWords: report.avgWords, warnings: report.warnings, images,
   ...(format === "carousel" ? { slides: draft.slides } : {}),

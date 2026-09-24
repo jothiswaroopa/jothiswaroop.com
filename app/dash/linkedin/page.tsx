@@ -19,6 +19,7 @@ type Post = {
   hook: string; body: string; chars: number; avgWords?: number; warnings: string[];
   slides?: { text: string }[]; images?: string[]; isSales?: boolean;
   sources?: { title: string; url: string; publisher: string }[]; status: string;
+  autopostSafe?: boolean; heldBecause?: string[] | string | null; postedAt?: string;
 };
 type Queue = { generated: string; posts: Post[] };
 
@@ -207,6 +208,13 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           {p.format === "carousel" && (
             <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/70">carousel</span>
           )}
+          {p.status === "posted" ? (
+            <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">posted</span>
+          ) : p.autopostSafe === false ? (
+            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/70">waiting for you</span>
+          ) : p.autopostSafe === true ? (
+            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/50">clean</span>
+          ) : null}
           {p.isSales && (
             <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">may mention the free audit</span>
           )}
@@ -251,6 +259,15 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+        )}
+
+        {p.autopostSafe === false && p.heldBecause && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label text-signal">{"// HELD FOR YOU — WILL NOT AUTO-POST"}</p>
+            <ul className="mt-2 space-y-1 text-sm text-paper/75">
+              {(Array.isArray(p.heldBecause) ? p.heldBecause : [p.heldBecause]).map((w, i) => <li key={i}>&middot; {w}</li>)}
             </ul>
           </div>
         )}
