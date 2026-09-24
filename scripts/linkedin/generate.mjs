@@ -113,6 +113,9 @@ Clients you may name: ${cfg.namedPublicly.join(", ")}. All others stay anonymous
 
 Limits: under ${cfg.maxChars} characters, at least ${cfg.minChars}. First two lines together under ${cfg.hookMaxChars} characters. Average sentence under ${cfg.maxAvgWords} words. No emoji. At most ${cfg.maxHashtags} hashtags, lowercase, final line. Never state a price.
 
+${(cfg.allowDiscussionQuestion || []).includes(format)
+  ? `END ON A REAL QUESTION. Not "thoughts?" or "agree?" — a specific question only someone who read the post can answer, about their own account or their own numbers. Posts that do this draw far more comments, and the ranking model rewards comment depth over quick likes. It is not a call to action and it is not selling.\n`
+  : `End flat. A carousel is saved, not debated — do not ask anything.\n`}
 ${isSales
   ? `This is the one selling day this week. You may end with ONE soft line pointing at something free — an audit, a guide on his site. It must read as an offer of help, not a pitch. No urgency, no "DM me".`
   : `This is NOT a selling day. The post must end with NO call to action of any kind. No asking for comments, no offering anything, no directing anywhere. Just stop when the point is made.`}
@@ -182,7 +185,7 @@ for (let attempt = 1; attempt <= attempts; attempt++) {
     if (attempt === attempts && !best) throw e;
     continue;
   }
-  const text = validate({ body: draft.body || "" }, { isSales });
+  const text = validate({ body: draft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format) });
   const extra = format === "carousel" ? validateCarousel(draft) : { ok: true, errors: [], warnings: [] };
   report = { ok: text.ok && extra.ok, errors: [...text.errors, ...extra.errors], warnings: [...text.warnings, ...extra.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
   if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); best = null; break; }
@@ -226,7 +229,7 @@ try {
     // redraft that correctly removed an unsupported claim, which is the whole point of the pass.
     for (let r = 1; r <= 2 && !fixed; r++) {
       const redraft = await ask(topic, news, r === 1 ? notes : [...notes, ...fixedReport.errors]);
-      const recheck = validate({ body: redraft.body || "" }, { isSales });
+      const recheck = validate({ body: redraft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format) });
       const reextra = format === "carousel" ? validateCarousel(redraft) : { ok: true, errors: [], warnings: [] };
       const errs = [...recheck.errors, ...reextra.errors];
       fixedReport = { errors: errs, warnings: [...recheck.warnings, ...reextra.warnings], chars: recheck.chars, avgWords: recheck.avgWords };

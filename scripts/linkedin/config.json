@@ -117,7 +117,12 @@
     "nobody talks about",
     "save this post",
     "follow for more",
-    "repost if"
+    "repost if",
+    "stop doing",
+    "read this",
+    "do this instead",
+    "never do this",
+    "avoid this"
   ],
   "internalLinks": [
     "https://jothiswaroop.com/work/nova/",
@@ -153,5 +158,9 @@
   "posterDays": [
     5
   ],
-  "videoPromptWeek": 2
+  "videoPromptWeek": 2,
+  "allowDiscussionQuestion": [
+    "text",
+    "poster"
+  ]
 }

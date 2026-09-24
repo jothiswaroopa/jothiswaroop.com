@@ -116,6 +116,9 @@ number do better, and short openers beat long ones. So:
   "Nine ad accounts. One habit changed everything."
 - **Never open with a question.** Not rhetorical, not real.
 - **Never open with the conclusion.** Open with the gap, then close it in the body.
+- **Never open with an imperative.** "Stop doing X", "Read this", "Never do Y" — a 30,000-post
+  analysis puts these at roughly a fiftieth of baseline engagement. They are a staple of generic
+  LinkedIn advice and they are dead. Open on a fact or a number.
 
 Line 2: the turn — why it isn't what they'd assume.
 Body: short paragraphs, one idea each, in the order someone would actually do them.
@@ -225,3 +228,16 @@ What does not earn a follow, whatever the engagement looks like:
 Website and handles live **in the images only** — the last carousel slide and the poster footer, which are already built.
 
 **Never put a URL in the post text.** LinkedIn suppresses the reach of posts carrying external links, so a link in the body works directly against the goal. If a link genuinely has to be shared, it goes in the first comment after posting, never in the post itself.
+
+
+## Ending a text post
+
+A **text or poster post ends on a real question** — specific enough that only someone who read the
+post can answer it, and about their own account or their own numbers. "What does your Performance
+goal actually say?" earns a comment. "Thoughts?" does not, and "Agree?" is worse.
+
+This is not a call to action and it is not selling. Text days exist to produce comments, the ranking
+model rewards comment depth in the first hour and a half far more than quick likes, and a question
+is how a post earns that.
+
+**A carousel ends flat.** Carousels are saved and re-read, not argued with. Do not ask anything.

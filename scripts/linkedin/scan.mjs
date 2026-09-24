@@ -84,6 +84,14 @@ For new angles: every one must be answerable from what he actually knows — nin
 const call = res.content.find((c) => c.type === "tool_use" && c.name === "report_scan");
 if (!call) { log("no report returned"); process.exit(0); }
 const out = call.input;
+// A schema can say "array of strings" and still come back as one string; logging that character
+// by character is how you find out. Normalise before touching any of it.
+const list = (v) => (Array.isArray(v) ? v : typeof v === "string" && v.trim() ? v.split(/\n+|(?<=\.)\s+(?=[A-Z])/).map((s) => s.trim()).filter(Boolean) : []);
+out.whatsWorking = list(out.whatsWorking);
+out.suitsUs = list(out.suitsUs);
+out.doesNotSuitUs = list(out.doesNotSuitUs);
+out.retire = Array.isArray(out.retire) ? out.retire : [];
+out.newTopics = Array.isArray(out.newTopics) ? out.newTopics : [];
 
 log("what's working on LinkedIn now:");
 for (const w of out.whatsWorking || []) log(`  · ${w}`);

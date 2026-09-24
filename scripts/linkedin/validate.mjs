@@ -30,7 +30,7 @@ function unbackedNumbers(text) {
   return [...new Set(bad)];
 }
 
-export function validate(draft, { isSales = false } = {}) {
+export function validate(draft, { isSales = false, allowQuestion = false } = {}) {
   const errors = [];
   const warnings = [];
   const body = (draft.body || "").trim();
@@ -51,6 +51,9 @@ export function validate(draft, { isSales = false } = {}) {
   const l1w = line1.split(/\s+/).filter(Boolean).length;
   if (l1w > cfg.hookMaxWords) errors.push(`first line is ${l1w} words (max ${cfg.hookMaxWords}) — short openers get expanded far more often`);
   if (line1.includes("?")) errors.push("first line contains a question — question openers measurably underperform");
+  if (/^(stop|start|never|always|read|do|don't|quit|avoid)\b/i.test(line1)) {
+    errors.push("imperative opener — large-sample analysis puts these near zero engagement; open on a fact or a number");
+  }
   if (!/\d/.test(line1)) warnings.push("no number in the first line — openers with a figure tend to do better");
 
   // generated-sounding language
@@ -86,6 +89,12 @@ export function validate(draft, { isSales = false } = {}) {
   // CTA discipline — rationed to selling days
   const ctas = (body.match(/\b(reply|message me|get in touch|book a call|reach out|happy to share|send me|drop me|i'll send|ping me|follow me|connect with me)\b/gi) || []).length;
   if (!isSales && ctas > 0) errors.push(`call to action on a non-selling day (${ctas} found) — this post must simply end`);
+  // A closing discussion question is not a call to action. Text posts live on comments, and the
+  // ranking model rewards comment depth, so one genuine question at the end earns its place.
+  const lastLine = (lines[lines.length - 1] || "").replace(/#[\w-]+/g, "").trim();
+  const asks = lastLine.endsWith("?");
+  if (allowQuestion && !asks) warnings.push("no closing question — text posts with one draw far more comments");
+  if (!allowQuestion && asks && lines.length > 3) warnings.push("ends on a question; carousels are saved, not debated");
   if (isSales && ctas > 1) errors.push(`${ctas} calls to action (max 1, even on a selling day)`);
 
   // plain language — the audience is people learning, not peers
