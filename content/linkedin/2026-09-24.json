@@ -59,5 +59,6 @@
       "text": "The leak is rarely the ad. It's what happens in the ninety seconds after."
     }
   ],
-  "status": "draft"
+  "status": "draft",
+  "notPosted": "LINKEDIN_TOKEN not set"
 }
