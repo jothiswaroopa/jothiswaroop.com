@@ -1,0 +1,35 @@
+name: Record LinkedIn engagement
+
+on:
+  workflow_dispatch:
+    inputs:
+      stats:
+        description: "One post per line or separated by ; — date impressions reactions comments. e.g. 2026-09-24 1240 18 4"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: linkedin-record
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Save the numbers
+        env:
+          LI_STATS: ${{ inputs.stats }}
+        run: node scripts/linkedin/record.mjs
+      - name: Commit
+        run: |
+          rm -f .li-recorded
+          git config user.name "linkedin-bot"
+          git config user.email "linkedin-bot@jothiswaroop.com"
+          git add scripts/linkedin/learning.json
+          git diff --staged --quiet && echo "nothing new" && exit 0
+          git commit -m "LinkedIn engagement recorded"
+          git push

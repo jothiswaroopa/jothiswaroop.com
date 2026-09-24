@@ -1,0 +1,41 @@
+name: LinkedIn weekly trend scan
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"   # 08:30 IST every Sunday
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: linkedin-scan
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Find what is working on LinkedIn now
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/linkedin/scan.mjs
+      - name: Commit
+        run: |
+          if [ ! -f .li-scanned ]; then echo "nothing"; exit 0; fi
+          rm -f .li-scanned
+          git config user.name "linkedin-bot"
+          git config user.email "linkedin-bot@jothiswaroop.com"
+          git add scripts/linkedin/topics.json scripts/linkedin/learning.json public/dash/linkedin-learning.json
+          git diff --staged --quiet && echo "no changes" && exit 0
+          git commit -m "LinkedIn weekly scan: $(date -u +%Y-%m-%d)"
+          git push
+          echo "DEPLOY=1" >> "$GITHUB_ENV"
+      - name: Deploy
+        if: env.DEPLOY == '1'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh workflow run deploy.yml --ref main

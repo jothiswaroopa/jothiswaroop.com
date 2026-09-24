@@ -24,7 +24,8 @@ type Post = {
 };
 type Queue = { generated: string; posts: Post[] };
 type Change = { date: string; findings: string[]; applied: { key: string; from: number; to: number; reason: string }[]; forReview: string[]; dropTopics?: string[] };
-type Learning = { generated: string; changes: Change[] };
+type Scan = { date: string; whatsWorking: string[]; suitsUs: string[]; doesNotSuitUs: string[]; added: { pillar: string; angle: string; why: string }[]; retired: number };
+type Learning = { generated: string; changes: Change[]; scans?: Scan[] };
 
 const load = (): Queue | null => {
   try {
@@ -174,6 +175,7 @@ export default function LinkedInQueue() {
               <li>Anyone who comments twice, or views your profile: look at what they do. If they fit, message them <strong className="text-paper">about their business</strong> &mdash; never about yours.</li>
               <li>Do not edit the post in the first hour. Editing resets its distribution.</li>
               <li>At the end of the day, note which post got the most profile views. That is the signal worth following, not likes.</li>
+              <li><strong className="text-paper">Note the impressions under each of your posts.</strong> LinkedIn will not give them to the engine &mdash; it refuses analytics to self-serve apps &mdash; so 30 seconds a week from you is the only way the monthly review learns what actually works for you rather than what works in general.</li>
             </ol>
           </div>
         </div>
@@ -200,6 +202,53 @@ export default function LinkedInQueue() {
                 <PostCard key={p.date} p={p} />
               ))}
             </div>
+          </>
+        )}
+
+        {learning?.scans && learning.scans.length > 0 && (
+          <>
+            <p className="label mt-14">{"// WHAT IT FOUND ON LINKEDIN THIS WEEK"}</p>
+            <p className="mt-2 max-w-2xl text-sm text-paper/65">
+              Every Sunday it searches for what is actually landing on LinkedIn right now, decides what
+              suits an account built on receipts, and adds angles worth writing. It can retire topics
+              that keep failing. It cannot touch your facts or the fabrication rules.
+            </p>
+            {learning.scans.slice(0, 2).map((s) => (
+              <div key={s.date} className="bezel mt-4">
+                <div className="bezel-core p-5 md:p-6">
+                  <p className="label">{s.date}</p>
+                  {s.whatsWorking?.length > 0 && (
+                    <>
+                      <p className="label mt-3">{"// WORKING NOW"}</p>
+                      <ul className="mt-2 space-y-1.5 text-sm text-paper/80">
+                        {s.whatsWorking.map((x, i) => <li key={i}>&middot; {x}</li>)}
+                      </ul>
+                    </>
+                  )}
+                  {s.doesNotSuitUs?.length > 0 && (
+                    <div className="mt-4 border-t hairline pt-3">
+                      <p className="label text-signal">{"// DELIBERATELY NOT COPYING"}</p>
+                      <ul className="mt-2 space-y-1.5 text-sm text-paper/75">
+                        {s.doesNotSuitUs.map((x, i) => <li key={i}>&middot; {x}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                  {s.added?.length > 0 && (
+                    <div className="mt-4 border-t hairline pt-3">
+                      <p className="label">{`// ${s.added.length} ANGLE${s.added.length === 1 ? "" : "S"} ADDED`}</p>
+                      <ul className="mt-2 space-y-2 text-sm text-paper/75">
+                        {s.added.map((a, i) => (
+                          <li key={i}>
+                            <span className="mono text-signal">{a.pillar}</span> {a.angle}
+                            <span className="block text-paper/50">{a.why}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </>
         )}
 
