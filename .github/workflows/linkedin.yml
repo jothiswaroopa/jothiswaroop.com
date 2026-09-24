@@ -1,0 +1,58 @@
+name: LinkedIn draft
+
+on:
+  schedule:
+    - cron: "30 0 * * 1-5"   # 06:00 IST, weekdays
+  workflow_dispatch:
+    inputs:
+      pillar:
+        description: "Force pillar (receipt | teach | teardown | build | contrarian | story)"
+        required: false
+      angle:
+        description: "Force an angle — leave blank to use the topic bank"
+        required: false
+      format:
+        description: "Force format (text) — blank follows the weekday shape"
+        required: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: linkedin
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Draft the post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LI_PILLAR: ${{ inputs.pillar }}
+          LI_ANGLE: ${{ inputs.angle }}
+          LI_FORMAT: ${{ inputs.format }}
+        run: node scripts/linkedin/generate.mjs
+      - name: Commit and deploy
+        run: |
+          if [ ! -f .li-drafted ]; then echo "nothing drafted (weekend or already done)"; exit 0; fi
+          DAY=$(cat .li-drafted); rm -f .li-drafted
+          git config user.name "linkedin-bot"
+          git config user.email "linkedin-bot@jothiswaroop.com"
+          git add content/linkedin public/dash/linkedin.json scripts/linkedin/covered.json
+          git commit -m "LinkedIn draft: $DAY"
+          git push
+          echo "DEPLOY=1" >> "$GITHUB_ENV"
+      # a push with GITHUB_TOKEN doesn't trigger other workflows, so kick Pages off explicitly
+      - name: Deploy
+        if: env.DEPLOY == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

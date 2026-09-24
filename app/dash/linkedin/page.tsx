@@ -1,0 +1,160 @@
+import fs from "node:fs";
+import path from "node:path";
+import Link from "next/link";
+import CopyText from "@/components/CopyText";
+
+/**
+ * The LinkedIn review queue. Reads public/dash/linkedin.json, written each weekday morning by
+ * scripts/linkedin/generate.mjs via GitHub Actions. Nothing here posts anything — Jothi reads,
+ * edits one line, copies, posts.
+ */
+export const metadata = {
+  title: "LinkedIn queue",
+  robots: { index: false, follow: false, nocache: true },
+  alternates: { canonical: "/dash/linkedin/" },
+};
+
+type Post = {
+  date: string; weekday: string; pillar: string; format: string; angle: string;
+  hook: string; body: string; chars: number; warnings: string[];
+  slides?: { text: string }[]; status: string;
+};
+type Queue = { generated: string; posts: Post[] };
+
+const load = (): Queue | null => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/linkedin.json"), "utf8"));
+  } catch {
+    return null;
+  }
+};
+
+const PILLAR: Record<string, string> = {
+  receipt: "A real number from your own accounts",
+  teach: "Give away one complete method",
+  teardown: "A live ad, what's wrong with it",
+  build: "An automation you actually built",
+  contrarian: "A belief your numbers contradict",
+  story: "A human moment from the work",
+};
+
+const fmtDate = (d: string) =>
+  new Date(d + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+
+export default function LinkedInQueue() {
+  const q = load();
+  const posts = q?.posts ?? [];
+  const today = posts[0];
+
+  return (
+    <section className="min-h-[100svh] pt-[96px]">
+      <div className="mx-auto max-w-[900px] px-5 py-16 md:px-10 md:py-20">
+        <p className="label">{"// LINKEDIN QUEUE"}</p>
+        <h1 className="mt-5 text-[clamp(2rem,5vw,3.25rem)]">One post a weekday.</h1>
+        <p className="mt-4 max-w-2xl text-paper/75">
+          Drafted at 06:00 IST, Monday to Friday. Read it, change one line so it&apos;s yours, copy, post.
+          Nothing here posts by itself — that is on purpose.
+        </p>
+
+        <div className="bezel mt-8">
+          <div className="bezel-core p-5 md:p-6">
+            <p className="label">{"// BEFORE YOU POST — 15 MINUTES"}</p>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-paper/80">
+              <li>Comment on five posts from people in your segments &mdash; apparel founders, UK clinic owners, D2C operators. Something useful, two sentences, no pitch. <strong className="text-paper">This is where the leads come from, not the post.</strong></li>
+              <li>Post yours between 9:30 and 11:00 IST on a weekday.</li>
+              <li>Stay on the app for the next 45 minutes and reply to every comment. Early replies are what decide reach.</li>
+              <li>Anyone who comments twice or views your profile: look at what they do. If they fit, message them about their own work &mdash; never about yours.</li>
+            </ol>
+          </div>
+        </div>
+
+        {!q && (
+          <p className="mono mt-10 text-sm text-paper/60">
+            No queue yet. The first draft lands on the next weekday morning, or trigger the{" "}
+            <span className="text-paper">LinkedIn draft</span> workflow by hand.
+          </p>
+        )}
+
+        {today && (
+          <>
+            <p className="label mt-14">{"// TODAY"}</p>
+            <PostCard p={today} lead />
+          </>
+        )}
+
+        {posts.length > 1 && (
+          <>
+            <p className="label mt-14">{"// EARLIER"}</p>
+            <div className="mt-4 space-y-4">
+              {posts.slice(1).map((p) => (
+                <PostCard key={p.date} p={p} />
+              ))}
+            </div>
+          </>
+        )}
+
+        <p className="mono mt-14 text-xs text-paper/45">
+          <Link href="/dash/" className="underline-slide">&larr; Back to the dashboard</Link>
+          {q && <span className="ml-4">Queue written {new Date(q.generated).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST</span>}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
+  return (
+    <div className="bezel mt-4">
+      <div className="bezel-core p-5 md:p-6">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span className="label">{fmtDate(p.date)} &middot; {p.weekday}</span>
+          <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">{p.pillar}</span>
+          {p.format === "carousel" && (
+            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/70">carousel</span>
+          )}
+          <span className="mono text-[10px] uppercase tracking-[0.12em] text-paper/45">{p.chars} chars</span>
+        </div>
+
+        <p className="mono mt-2 text-[11px] text-paper/50">{PILLAR[p.pillar] ?? p.pillar}</p>
+
+        <p
+          className={`mt-4 whitespace-pre-wrap ${lead ? "text-[1.05rem] text-paper" : "text-sm text-paper/85"}`}
+        >
+          {p.body}
+        </p>
+
+        {p.slides && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label">{"// SLIDES"}</p>
+            <ol className="mt-3 space-y-2">
+              {p.slides.map((s, i) => (
+                <li key={i} className="grid grid-cols-[28px_1fr] gap-3 text-sm text-paper/85">
+                  <span className="mono text-[11px] text-paper/45">{String(i + 1).padStart(2, "0")}</span>
+                  <span>{s.text}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mono mt-3 text-[11px] text-paper/50">
+              Build these as a 1080&times;1350 PDF or image set. One idea per slide, nothing smaller than 28px.
+            </p>
+          </div>
+        )}
+
+        {p.warnings?.length > 0 && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label text-signal">{"// CHECK BEFORE POSTING"}</p>
+            <ul className="mt-2 space-y-1 text-sm text-paper/70">
+              {p.warnings.map((w, i) => <li key={i}>&middot; {w}</li>)}
+            </ul>
+          </div>
+        )}
+
+        <div className="mt-5 flex flex-wrap items-center gap-3 border-t hairline pt-4">
+          <CopyText text={p.body} />
+          {p.slides && <CopyText text={p.slides.map((s, i) => `${i + 1}. ${s.text}`).join("\n")} label="Copy slides" />}
+          <span className="mono text-[10px] uppercase tracking-[0.12em] text-paper/40">Edit one line so it&apos;s yours</span>
+        </div>
+      </div>
+    </div>
+  );
+}

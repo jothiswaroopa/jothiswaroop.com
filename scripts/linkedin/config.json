@@ -1,0 +1,45 @@
+{
+  "model": "claude-sonnet-5",
+  "timezone": "Asia/Kolkata",
+  "site": "https://jothiswaroop.com",
+  "weekdaysOnly": true,
+  "maxChars": 1500,
+  "minChars": 380,
+  "hookMaxChars": 210,
+  "maxHashtags": 3,
+  "carouselDay": 3,
+  "pillars": ["receipt", "teach", "teardown", "build", "contrarian", "story"],
+  "weekShape": { "1": "receipt", "2": "teach", "3": "teardown", "4": "build", "5": "story" },
+  "approvedFacts": [
+    "7,341 lead-form submissions across nine Meta ad accounts (India, UK, US, Canada)",
+    "876 conversations started from ads",
+    "reach of more than 1.36 million people",
+    "4,248 wholesale buyer leads for a Tirupur apparel manufacturer at ₹16.58 each, about 20 cents, across six campaigns",
+    "1,318 domestic knitwear leads at ₹19 each",
+    "19 UK wholesale apparel buyers at a 200-piece minimum order, under $6 an enquiry",
+    "1,349 leads for a labels manufacturer",
+    "323 leads for SRR, 84 for Angel",
+    "nine automations running inside client businesses today",
+    "an audit of 450 UK practice websites found only 7 fully met GDC advertising guidance",
+    "a voice AI receptionist that answers a dental clinic's phone and books into its calendar",
+    "MBA in Finance and Marketing with Distinction; two years as an equity advisor before running ads",
+    "Tamil Nadu Digital Summit 2026; Official Digital Partner of VROOM 2026; Prompt Engineering Champion, Social Eagle AI prompt battle 2025"
+  ],
+  "namedPublicly": ["Nova Attire", "Five Elements", "Sathyam Labels", "El Alimentos", "VROOM"],
+  "bannedPhrases": [
+    "in today's", "let's be honest", "here's the thing", "picture this", "i'll be blunt",
+    "unpopular opinion", "hot take", "let that sink in", "read that again", "i'm excited to",
+    "thrilled to", "delighted to announce", "game-changer", "game changer", "leverage",
+    "supercharge", "unlock", "needle-mover", "synergy", "seamless", "holistic", "cutting-edge",
+    "delve", "tapestry", "testament to", "at the end of the day", "the bottom line is",
+    "moving forward", "circle back", "comment below", "what's your experience", "agree?",
+    "thoughts?", "drop a comment", "let me know in the comments", "double tap", "link in bio",
+    "dm me", "smash that", "food for thought", "just my two cents", "in a nutshell",
+    "the digital landscape", "marketing journey", "growth journey"
+  ],
+  "internalLinks": [
+    "https://jothiswaroop.com/work/nova/",
+    "https://jothiswaroop.com/work/five-elements/",
+    "https://jothiswaroop.com/blog/"
+  ]
+}
