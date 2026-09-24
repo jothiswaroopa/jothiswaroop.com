@@ -3,20 +3,31 @@
   "weekday": "Thu",
   "pillar": "proof",
   "format": "carousel",
-  "angle": "Reaching 1.36 million people taught me that reach is the cheapest number to buy and the least useful one to report.",
+  "angle": "Nine ad accounts and 7,341 leads later, the one habit that changed the most: every number links to the screenshot it came from.",
   "isSales": true,
   "autopostSafe": false,
   "heldBecause": "selling day — you approve anything that makes an offer",
-  "hook": "1.36 million people reached. Here's the number I stopped reporting. Reach means an ad was shown to a screen. It costs nothing to grow and tells you nothing about money.",
-  "body": "1.36 million people reached. Here's the number I stopped reporting.\n\nReach means an ad was shown to a screen. It costs nothing to grow and tells you nothing about money.\n\nAcross nine Meta ad accounts, in India, UK, US and Canada, I've generated 7,341 lead-form submissions and 876 conversations started from ads. Those numbers I still watch closely.\n\nFor a Tirupur apparel manufacturer, Nova Attire, one campaign set brought 4,248 wholesale buyer leads at ₹16.58 each, about 20 cents. Good cost. Real enquiries.\n\nWhat we never captured: how many of those 4,248 became actual orders. That number was never sent back into Meta, so the system never learned what a real buyer looked like from a lead.\n\nReach would have made that campaign look even better than it already was.\n\nIf you're running ads and can only track one number properly, track the one after the lead: did it become money. Everything before that is context, not proof.\n\nI put together a short audit checklist for exactly this — happy to share it if it's useful.\n\n#advertising #meta #tirupur",
-  "chars": 1053,
-  "avgWords": 12.5,
+  "hook": "7,341 lead-form submissions. Nine Meta ad accounts. India, UK, US, Canada. Every one of those numbers can be traced back to a screenshot, a report, or an ad account login.",
+  "body": "7,341 lead-form submissions. Nine Meta ad accounts. India, UK, US, Canada.\n\nEvery one of those numbers can be traced back to a screenshot, a report, or an ad account login.\n\nThat habit sounds small. It is the one thing that separates a number you can trust from a number someone just typed into a slide.\n\nHere is what it means in practice. A lead count in a report should link to the actual Meta Ads Manager screen it came from — not a summary someone wrote a week later.\n\nSay a manufacturer gets 1,349 leads in a month. Anyone can write \"1,349\" in a report. Far fewer can open Ads Manager and show you the exact campaign, the exact date range, and the exact number sitting there.\n\nThat gap is where most trust in this industry quietly breaks.\n\nFor a Tirupur apparel manufacturer, 4,248 wholesale buyer leads came in at ₹16.58 each across six campaigns. Every one of those leads sits in Meta's own lead center, tied to a specific ad and form.\n\nWhat that habit could not fix: how many of those 4,248 leads became actual orders. That number was never captured, and nothing ever sent it back to Meta to close the loop.\n\nA traceable lead count and a traceable sales outcome are two different disciplines. Most people only build the first one.\n\n#metaads #leadgeneration #digitalmarketing",
+  "chars": 1282,
+  "avgWords": 12,
   "warnings": [
-    "UNVERIFIED: \"one campaign set brought 4,248 wholesale buyer leads at ₹16.58 each, about 20 cents.\" — Approved facts state 4,248 leads came across six campaigns (3,585 in main account + 663 in second), not from 'one campaign set.'",
-    "check: \"Under 20 cents an enquiry. On paper, one of the best-performing campaigns I've r\" — Characterizing it as 'one of the best-performing campaigns' is an unsupported first-hand judgment/ranking not in approved facts; also repeats the single-campaign framing error.",
-    "check: \"So the algorithm never learned what a real buyer looked like.\" — Presents a certain factual claim about how Meta's algorithm works/learns as established fact, which is a generalization beyond approved facts.",
-    "check: \"Reach would have made that same campaign look even more impressive. It still wou\" — Speculative claim about how reach would have appeared, not supported by approved facts.",
-    "check: \"Reach means Meta showed your ad to a screen. Nobody promised a person read it.\" — Stated as certain fact/platform mechanic in a way that goes beyond simple well-known mechanics; borders on unsupported generalization."
+    "possible client name to check: \"Nine Meta\"",
+    "possible client name to check: \"Across India\"",
+    "over a limit: first line is 13 words (max 12) — short openers get expanded far more often",
+    "over a limit: slide 10: 22 words (max 20)",
+    "possible client name to check: \"Nine Meta\"",
+    "possible client name to check: \"Meta Ads Manager\"",
+    "STILL UNVERIFIED: \"Every one of those numbers can be traced back to a screenshot, a report, or an ad account login.\" — Claims a first-hand documentation habit/practice for all 7,341 leads that is not established by the approved facts.",
+    "STILL UNVERIFIED: \"Every one of those leads sits in Meta's own lead center, tied to a specific ad and form.\" — Asserts a specific first-hand fact about the Nova Attire leads (lead center storage) not confirmed in approved facts.",
+    "STILL UNVERIFIED: \"The habit: every lead count traces back to its source screen.\" — States this as an established personal habit/fact, unsupported by approved facts.",
+    "STILL UNVERIFIED: \"Each one traceable to its ad, its form, its exact submission.\" — Asserts specific traceability detail about the 4,248 leads not confirmed in approved facts.",
+    "check: \"A lead count in a report should link to the actual Meta Ads Manager screen it ca\" — Presents a personal methodology/rule as an established practice without support.",
+    "check: \"That gap is where most trust in this industry quietly breaks.\" — Unsupported generalization about the industry presented as fact.",
+    "check: \"Without it, every number in a report is just a claim.\" — Absolute claim implying a universal rule not established by facts.",
+    "check: \"Not a summary written later. The actual Meta Ads Manager screen, live.\" — Implies real-time verification practice not confirmed by approved facts.",
+    "check: \"Meta Ads Manager: campaign, ad set, ad, then the results column.\" — Presents platform navigation as certain established fact/workflow specific to his process, not confirmed.",
+    "check: \"That column shows leads for the exact dates you're checking, nothing else.\" — States platform behavior as absolute fact; overly certain generalization about Meta Ads Manager functionality."
   ],
   "images": [
     "/linkedin/2026-09-24/slide-01.png",
@@ -29,41 +40,45 @@
     "/linkedin/2026-09-24/slide-08.png",
     "/linkedin/2026-09-24/slide-09.png",
     "/linkedin/2026-09-24/slide-10.png",
-    "/linkedin/2026-09-24/slide-11.png"
+    "/linkedin/2026-09-24/slide-11.png",
+    "/linkedin/2026-09-24/slide-12.png"
   ],
   "slides": [
     {
-      "text": "1.36 million people reached. Taught me nothing."
+      "text": "7,341 leads. Nine ad accounts. One habit mattered most."
     },
     {
-      "text": "Reach is the easiest number to buy and the emptiest one to report."
+      "text": "Without it, every number in a report is just a claim."
     },
     {
-      "text": "Reach means Meta showed your ad to a screen. Nobody promised a person read it."
+      "text": "The habit: every lead count traces back to its source screen."
     },
     {
-      "text": "Across nine ad accounts, in India, UK, US, Canada, I've collected 7,341 lead-form submissions."
+      "text": "Not a summary written later. The actual Meta Ads Manager screen, live."
     },
     {
-      "text": "876 of those turned into an actual conversation started from the ad. That's the number that matters more."
+      "text": "Meta Ads Manager: campaign, ad set, ad, then the results column."
     },
     {
-      "text": "For Nova Attire, a Tirupur apparel manufacturer, one campaign set brought 4,248 wholesale buyer leads at ₹16.58 each."
+      "text": "That column shows leads for the exact dates you're checking, nothing else."
     },
     {
-      "text": "Under 20 cents an enquiry. On paper, one of the best-performing campaigns I've run."
+      "text": "Anyone can write '1,349 leads' in a report or a message."
     },
     {
-      "text": "But nobody ever recorded how many of those 4,248 leads placed an order."
+      "text": "Fewer can open the account and show you where that number sits."
     },
     {
-      "text": "That number was never sent back into Meta. So the algorithm never learned what a real buyer looked like."
+      "text": "For a Tirupur manufacturer: 4,248 wholesale leads, ₹16.58 each, six campaigns."
     },
     {
-      "text": "Reach would have made that same campaign look even more impressive. It still wouldn't know what sold."
+      "text": "Each one traceable to its ad, its form, its exact submission."
     },
     {
-      "text": "The cheapest number to report is reach. The only one worth reporting is what came after the lead."
+      "text": "What tracing leads can't do: tell you how many became orders."
+    },
+    {
+      "text": "That number was never captured. Traceable leads, untraceable sales. Two different jobs."
     }
   ],
   "status": "draft",
