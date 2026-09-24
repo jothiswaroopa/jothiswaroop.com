@@ -139,29 +139,40 @@ log(`angle: ${topic.angle.slice(0, 88)}`);
 const SOFT = /(words \(max|chars, must be under|words \(max \d+\) — shorten|is \d+ chars)/;
 const attempts = cfg.attempts || 3;
 
-let draft = null, report = null, fixes = null;
+let draft = null, report = null, fixes = null, best = null;
 for (let attempt = 1; attempt <= attempts; attempt++) {
   try {
     draft = await ask(topic, news, fixes);
   } catch (e) {
     log(`attempt ${attempt} failed: ${e.message.slice(0, 90)}`);
-    if (attempt === attempts) throw e;
+    if (attempt === attempts && !best) throw e;
     continue;
   }
   const text = validate({ body: draft.body || "" }, { isSales });
   const extra = format === "carousel" ? validateCarousel(draft) : { ok: true, errors: [], warnings: [] };
   report = { ok: text.ok && extra.ok, errors: [...text.errors, ...extra.errors], warnings: [...text.warnings, ...extra.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
-  if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); break; }
+  if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); best = null; break; }
   log(`attempt ${attempt} rejected: ${report.errors.join(" | ")}`);
-  // Last try: if only length limits are left, take it and flag them rather than skip the day.
-  if (attempt === attempts && report.errors.every((e) => SOFT.test(e))) {
-    log(`accepting with ${report.errors.length} length miss(es) — nothing substantive left`);
-    report.warnings.push(...report.errors.map((e) => `over a limit: ${e}`));
-    report.errors = [];
-    report.ok = true;
-    break;
+
+  // Keep the closest near-miss. A retry often comes back worse, and a draft that is one word over
+  // a limit is worth far more than no post at all — so remember it rather than discarding it.
+  if (report.errors.every((e) => SOFT.test(e))) {
+    if (!best || report.errors.length < best.report.errors.length) {
+      best = { draft, report, attempt };
+      log(`  kept as best so far (${report.errors.length} length miss${report.errors.length === 1 ? "" : "es"})`);
+    }
   }
   fixes = report.errors;
+}
+
+// Nothing came back clean — fall back to the closest near-miss and flag what it missed.
+if (report && !report.ok && best) {
+  draft = best.draft;
+  report = best.report;
+  log(`no clean draft; using attempt ${best.attempt} with ${report.errors.length} length miss(es)`);
+  report.warnings.push(...report.errors.map((e) => `over a limit: ${e}`));
+  report.errors = [];
+  report.ok = true;
 }
 if (!report.ok) { console.error(`[li] no clean draft after ${attempts} attempts: ${report.errors.join(" | ")}`); process.exit(1); }
 
