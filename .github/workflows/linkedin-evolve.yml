@@ -1,0 +1,41 @@
+name: LinkedIn monthly review
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"   # 07:30 IST on the 1st of each month
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: linkedin-evolve
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Review the month and research what changed
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/linkedin/evolve.mjs
+      - name: Commit what it learned
+        run: |
+          if [ ! -f .li-evolved ]; then echo "nothing to record"; exit 0; fi
+          rm -f .li-evolved
+          git config user.name "linkedin-bot"
+          git config user.email "linkedin-bot@jothiswaroop.com"
+          git add scripts/linkedin/config.json scripts/linkedin/learning.json public/dash/linkedin-learning.json
+          git diff --staged --quiet && echo "no changes" && exit 0
+          git commit -m "LinkedIn monthly review: $(date -u +%Y-%m)"
+          git push
+          echo "DEPLOY=1" >> "$GITHUB_ENV"
+      - name: Deploy
+        if: env.DEPLOY == '1'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh workflow run deploy.yml --ref main

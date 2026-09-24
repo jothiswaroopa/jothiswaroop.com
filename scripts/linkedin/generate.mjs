@@ -2,6 +2,7 @@
 // LINKEDIN_TOKEN is set (see publish.mjs) — the default is draft, review, post.
 import fs from "node:fs";
 import path from "node:path";
+const p_join = path.join;
 import Anthropic from "@anthropic-ai/sdk";
 import { validate, validateCarousel } from "./validate.mjs";
 import { renderCarousel, renderPoster } from "./render.mjs";
@@ -15,6 +16,9 @@ const topics = JSON.parse(fs.readFileSync(path.join(HERE, "topics.json"), "utf8"
 const VOICE = fs.readFileSync(path.join(HERE, "VOICE.md"), "utf8");
 const coveredPath = path.join(HERE, "covered.json");
 const covered = JSON.parse(fs.readFileSync(coveredPath, "utf8"));
+const learnPath = p_join(HERE, "learning.json");
+const learning = fs.existsSync(learnPath) ? JSON.parse(fs.readFileSync(learnPath, "utf8")) : { runs: [], ruleHits: {}, factBlocks: {}, performance: {}, changes: [] };
+const ruleFired = [];   // every validator error seen this run, for the monthly self-audit
 const OUT = path.join(ROOT, "content/linkedin");
 const QUEUE = path.join(ROOT, "public/dash/linkedin.json");
 const client = new Anthropic();
@@ -168,8 +172,9 @@ log(`angle: ${topic.angle.slice(0, 88)}`);
 const SOFT = /(words \(max|chars, must be under|words \(max \d+\) — shorten|is \d+ chars)/;
 const attempts = cfg.attempts || 3;
 
-let draft = null, report = null, fixes = null, best = null;
+let draft = null, report = null, fixes = null, best = null, attemptsUsed = 0;
 for (let attempt = 1; attempt <= attempts; attempt++) {
+  attemptsUsed = attempt;
   try {
     draft = await ask(topic, news, fixes);
   } catch (e) {
@@ -182,6 +187,7 @@ for (let attempt = 1; attempt <= attempts; attempt++) {
   report = { ok: text.ok && extra.ok, errors: [...text.errors, ...extra.errors], warnings: [...text.warnings, ...extra.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
   if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); best = null; break; }
   log(`attempt ${attempt} rejected: ${report.errors.join(" | ")}`);
+  ruleFired.push(...report.errors.map((e) => e.replace(/[:(].*$/, "").trim()));
 
   // Keep the closest near-miss. A retry often comes back worse, and a draft that is one word over
   // a limit is worth far more than no post at all — so remember it rather than discarding it.
@@ -304,6 +310,18 @@ const queue = fs.readdirSync(OUT).filter((f) => f.endsWith(".json")).sort().reve
   .map((f) => JSON.parse(fs.readFileSync(path.join(OUT, f), "utf8")));
 fs.mkdirSync(path.dirname(QUEUE), { recursive: true });
 fs.writeFileSync(QUEUE, JSON.stringify({ generated: new Date().toISOString(), posts: queue }, null, 2) + "\n");
+
+// Record how hard this run was, so the monthly audit can see which rules cost the most attempts
+// and which pillars keep tripping the fact-check. This is the engine watching itself.
+for (const r of ruleFired) learning.ruleHits[r] = (learning.ruleHits[r] || 0) + 1;
+const blockedClaims = report.warnings.filter((w) => /^(UNVERIFIED|STILL)/.test(w)).length;
+if (blockedClaims) learning.factBlocks[topic.pillar] = (learning.factBlocks[topic.pillar] || 0) + 1;
+learning.runs.unshift({
+  date: today, pillar: topic.pillar, format, attempts: attemptsUsed,
+  rulesFired: [...new Set(ruleFired)], blockedClaims, chars: report.chars, held: !autopostSafe,
+});
+learning.runs = learning.runs.slice(0, 120);
+fs.writeFileSync(learnPath, JSON.stringify(learning, null, 2) + "\n");
 
 covered.used[topic.angle] = today;
 covered.log = [{ date: today, pillar: topic.pillar, format, angle: topic.angle }, ...(covered.log || [])].slice(0, 120);

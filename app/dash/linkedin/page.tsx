@@ -23,10 +23,20 @@ type Post = {
   notPosted?: string; tokenExpired?: boolean; videoPrompt?: string | null;
 };
 type Queue = { generated: string; posts: Post[] };
+type Change = { date: string; findings: string[]; applied: { key: string; from: number; to: number; reason: string }[]; forReview: string[]; dropTopics?: string[] };
+type Learning = { generated: string; changes: Change[] };
 
 const load = (): Queue | null => {
   try {
     return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/linkedin.json"), "utf8"));
+  } catch {
+    return null;
+  }
+};
+
+const loadLearning = (): Learning | null => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/linkedin-learning.json"), "utf8"));
   } catch {
     return null;
   }
@@ -50,6 +60,7 @@ const fmtDate = (d: string) =>
 
 export default function LinkedInQueue() {
   const q = load();
+  const learning = loadLearning();
   const posts = q?.posts ?? [];
   const today = posts[0];
 
@@ -189,6 +200,50 @@ export default function LinkedInQueue() {
                 <PostCard key={p.date} p={p} />
               ))}
             </div>
+          </>
+        )}
+
+        {learning && learning.changes.length > 0 && (
+          <>
+            <p className="label mt-14">{"// WHAT IT CHANGED ABOUT ITSELF"}</p>
+            <p className="mt-2 max-w-2xl text-sm text-paper/65">
+              On the 1st of each month the engine reads its own failure record, researches what has
+              changed on LinkedIn, and adjusts. It may move its own limits within fixed bounds.
+              Anything touching your facts, your voice or the fabrication rules is listed for you to
+              approve &mdash; it cannot change those by itself.
+            </p>
+            {learning.changes.map((c) => (
+              <div key={c.date} className="bezel mt-4">
+                <div className="bezel-core p-5 md:p-6">
+                  <p className="label">{c.date}</p>
+                  {c.findings?.length > 0 && (
+                    <ul className="mt-3 space-y-1.5 text-sm text-paper/80">
+                      {c.findings.map((f, i) => <li key={i}>&middot; {f}</li>)}
+                    </ul>
+                  )}
+                  {c.applied?.length > 0 && (
+                    <div className="mt-4 border-t hairline pt-3">
+                      <p className="label">{"// APPLIED"}</p>
+                      <ul className="mt-2 space-y-1 text-sm text-paper/75">
+                        {c.applied.map((a, i) => (
+                          <li key={i}>
+                            <span className="mono text-signal">{a.key}</span> {a.from} &rarr; {a.to} &mdash; {a.reason}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {c.forReview?.length > 0 && (
+                    <div className="mt-4 border-t hairline pt-3">
+                      <p className="label text-signal">{"// NEEDS YOUR APPROVAL"}</p>
+                      <ul className="mt-2 space-y-1 text-sm text-paper/75">
+                        {c.forReview.map((r, i) => <li key={i}>&middot; {r}</li>)}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </>
         )}
 
