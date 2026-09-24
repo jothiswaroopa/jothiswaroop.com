@@ -3,22 +3,22 @@
   "weekday": "Thu",
   "pillar": "framework",
   "format": "carousel",
-  "angle": "The Four Clicks: a fixed path through Ads Manager that tells you what a campaign is really chasing.",
+  "angle": "Cost per lead, cost per conversation, cost per customer — the three-number ladder and why most people only watch the first.",
   "isSales": true,
   "videoPrompt": null,
   "autopostSafe": true,
   "heldBecause": null,
-  "hook": "Four clicks tell you what your ad is chasing. Most people open an ad account and go straight to the creative. Wrong screen entirely.",
-  "body": "Four clicks tell you what your ad is chasing.\n\nMost people open an ad account and go straight to the creative. Wrong screen entirely.\n\nMeta doesn't chase \"good leads.\" It chases whatever number you told it to chase, in a setting most people never open.\n\nHere's where that setting lives. Ads Manager → your campaign → the ad set → the line that says Performance goal.\n\nThat one line tells Meta what to go and find more of: cheapest lead, or a lead that matches people who did something specific after they filled the form.\n\nIf nobody ever told Meta what happened after the form, it can only optimise for the form itself. That's why cost per lead can look great while nothing after it improves.\n\nAcross nine Meta ad accounts we've run, generating 7,341 lead-form submissions, every lead is counted straight from Meta's lead centre. What we haven't always known — and what most advertisers never check — is what happened next in the business. That gap is the whole story.\n\nBefore you touch the creative on Monday, open that one screen and read what it's actually set to chase.\n\nIf you want someone to walk your account through this for free, that's what an audit is for.\n\n#metaads #digitalmarketing #adsmanager",
-  "chars": 1207,
-  "avgWords": 14.1,
+  "hook": "Four clicks tell you what your ad is chasing. Most people open Ads Manager, look at the creative, and judge the campaign from there. Wrong screen entirely.",
+  "body": "Four clicks tell you what your ad is chasing.\n\nMost people open Ads Manager, look at the creative, and judge the campaign from there. Wrong screen entirely.\n\nThe number that matters is hiding one level down: cost per lead, cost per conversation, cost per customer. Three different numbers. Most accounts only ever watch the first one.\n\nAcross nine Meta ad accounts we ran, 7,341 people submitted a lead form. Only 876 of those turned into an actual conversation. Nobody tracks what happened after that, because Meta doesn't ask, and most people never make it ask.\n\nSay a clinic runs ads and gets leads at a low cost. Cheap does not mean it will talk to you, and talking to you does not mean it will buy. Those are three separate jobs, and each one has its own cost.\n\nCost per lead tells you if your ad is efficient. Cost per conversation tells you if your form and follow-up are working. Cost per customer is the only one that pays your rent.\n\nIf you're only checking the first number, you're reading a third of the dashboard and calling it the whole picture.\n\nI put a short guide on checking all three on my site, free, if it helps.\n\n#metaads #digitalmarketing #leadgeneration",
+  "chars": 1177,
+  "avgWords": 11.7,
   "warnings": [
     "no number in the first line — openers with a figure tend to do better",
-    "no number in the first line — openers with a figure tend to do better",
-    "check: \"Across nine Meta ad accounts we've run, generating 7,341 lead-form submissions, \" — Approved facts state leads are recorded in Meta's lead centre against the ad and form, but do not support the specific claim that these 7,341 leads across nine accounts were personally verified 'straight from Meta's lead centre' by him in this context — this conflates two separate approved facts into a first-hand verification claim.",
-    "check: \"What we haven't always known — and what most advertisers never check — is what h\" — This is presented as a first-hand pattern he has observed across his work ('we haven't always known'), which is not established by the approved facts beyond the single Nova Attire case where the outcome wasn't tracked.",
-    "check: \"Meta doesn't chase \"good leads.\" It chases whatever number you told it to chase,\" — Stated as certain platform fact/generalisation rather than clearly marked opinion, but this is a standard practitioner claim about Meta's optimisation mechanics.",
-    "check: \"If nobody ever told Meta what happened after the form, it can only optimise for \" — General platform mechanic stated as fact — a reasonable practitioner generalisation, not tied to a specific client claim."
+    "check: \"Nobody tracks what happened after that, because Meta doesn't ask, and most peopl\" — Presents a platform mechanic/generalisation as absolute fact about what 'nobody' tracks; also overlaps with unverified claim about Meta's behavior stated with certainty.",
+    "check: \"Say a clinic runs ads and gets leads at a low cost.\" — Hypothetical clearly marked as such (\"Say a clinic...\"), not a factual claim about a real client.",
+    "check: \"Meta never sees whether a lead became a sale, unless you build that back in your\" — Stated as a certain platform mechanic/generalisation rather than a confirmed fact from the approved material.",
+    "check: \"That gap between a form fill and a reply is where most budgets quietly leak.\" — General industry claim/opinion presented as established fact, not tied to approved figures.",
+    "check: \"Check this before the creative. It decides who Meta goes and finds.\" — Asserts a specific platform mechanic (that this metric decides Meta's targeting) not established in approved facts."
   ],
   "images": [
     "/linkedin/2026-09-24/slide-01.png",
@@ -33,6 +33,7 @@
     "/linkedin/2026-09-24/slide-10.png",
     "/linkedin/2026-09-24/slide-11.png"
   ],
+  "pdf": "/linkedin/2026-09-24/carousel.pdf",
   "slides": [
     {
       "text": "Four clicks tell you what your ad is chasing."
@@ -41,34 +42,34 @@
       "text": "Most people judge it by the creative. Wrong screen entirely."
     },
     {
-      "text": "Open Ads Manager. Click into the campaign that's spending the most."
+      "text": "Ads Manager shows one number by default: cost per lead. That's step one of three."
     },
     {
-      "text": "Click into the ad set inside it. This is where the real setting hides."
+      "text": "Cost per lead only tells you if the ad is cheap. Not if it works."
     },
     {
-      "text": "Look for the line called Performance goal. Most people have never opened it."
+      "text": "Step two: cost per conversation. How much you paid for someone to actually reply."
     },
     {
-      "text": "It tells Meta what to go and find more of. Not creative. This."
+      "text": "Across nine ad accounts, 7,341 people submitted a lead form. Only 876 became a real conversation."
     },
     {
-      "text": "It might say cheapest lead possible. Or it might say something else."
+      "text": "That gap between a form fill and a reply is where most budgets quietly leak."
     },
     {
-      "text": "If it says cheapest lead, Meta stops looking the moment someone fills the form."
+      "text": "Step three: cost per customer. The number nobody puts on a dashboard for you."
     },
     {
-      "text": "It never learns what happened after. Nobody sent that back in."
+      "text": "Meta never sees whether a lead became a sale, unless you build that back in yourself."
     },
     {
       "text": "Check this before the creative. It decides who Meta goes and finds."
     },
     {
-      "text": "The creative gets the blame. The setting was never even opened."
+      "text": "Three numbers, not one. Cheap leads and paying customers are two different products."
     }
   ],
   "status": "posted",
-  "postedAt": "2026-09-24T12:48:33.569Z",
-  "linkedinId": "urn:li:ugcPost:7508869985851609088"
+  "postedAt": "2026-09-24T12:55:35.312Z",
+  "linkedinId": "urn:li:ugcPost:7508871757123047424"
 }
