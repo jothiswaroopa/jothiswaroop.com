@@ -5,20 +5,19 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Verify token and scopes
+      - name: Find an accepted LinkedIn-Version
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
         run: |
-          if [ -z "$LINKEDIN_TOKEN" ]; then echo "::error::LINKEDIN_TOKEN is empty"; exit 1; fi
-          echo "token length: ${#LINKEDIN_TOKEN} chars"
-          code=$(curl -s -o /tmp/me.json -w "%{http_code}" -H "Authorization: Bearer $LINKEDIN_TOKEN" https://api.linkedin.com/v2/userinfo)
-          echo "userinfo HTTP $code"
-          if [ "$code" != "200" ]; then echo "::error::token rejected"; cat /tmp/me.json; exit 1; fi
-          python3 -c "import json;d=json.load(open('/tmp/me.json'));print('name:',d.get('name'));print('member id resolved:', bool(d.get('sub')))"
-          echo "--- checking write scope (dry, expects 422 not 403) ---"
-          w=$(curl -s -o /tmp/w.json -w "%{http_code}" -X POST https://api.linkedin.com/rest/posts \
+          echo "426 body from the stale version:"
+          curl -s -X POST https://api.linkedin.com/rest/posts \
             -H "Authorization: Bearer $LINKEDIN_TOKEN" -H "LinkedIn-Version: 202405" \
-            -H "X-Restli-Protocol-Version: 2.0.0" -H "Content-Type: application/json" -d '{}')
-          echo "posts endpoint HTTP $w"
-          if [ "$w" = "403" ]; then echo "::error::no w_member_social scope on this token"; cat /tmp/w.json; exit 1; fi
-          echo "OK — token valid and has write access"
+            -H "X-Restli-Protocol-Version: 2.0.0" -H "Content-Type: application/json" -d '{}' | head -c 500
+          echo; echo "--- probing versions ---"
+          for v in 202606 202605 202604 202603 202602 202601 202512 202511 202510 202509 202508; do
+            code=$(curl -s -o /tmp/r.json -w "%{http_code}" -X POST https://api.linkedin.com/rest/posts \
+              -H "Authorization: Bearer $LINKEDIN_TOKEN" -H "LinkedIn-Version: $v" \
+              -H "X-Restli-Protocol-Version: 2.0.0" -H "Content-Type: application/json" -d '{}')
+            echo "$v -> HTTP $code"
+            if [ "$code" != "426" ]; then echo "ACCEPTED_VERSION=$v"; break; fi
+          done
