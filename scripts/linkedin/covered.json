@@ -1,1 +1,13 @@
-{"used": {}, "log": []}
+{
+  "used": {
+    "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one.": "2026-09-24"
+  },
+  "log": [
+    {
+      "date": "2026-09-24",
+      "pillar": "build",
+      "format": "text",
+      "angle": "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one."
+    }
+  ]
+}

@@ -1,1 +1,19 @@
-{"generated":"2026-09-24T01:30:00Z","posts":[]}
+{
+  "generated": "2026-09-24T07:33:56.591Z",
+  "posts": [
+    {
+      "date": "2026-09-24",
+      "weekday": "Thu",
+      "pillar": "build",
+      "format": "text",
+      "angle": "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one.",
+      "hook": "A dental clinic in the UK now has a voice AI answering its phone. It books into the calendar. It does not do anything else. That second part was the harder build.",
+      "body": "A dental clinic in the UK now has a voice AI answering its phone. It books into the calendar. It does not do anything else.\nThat second part was the harder build.\n\nWhat it books: new patient enquiries, reschedules, cancellations. It checks the calendar live and confirms a slot on the call, no callback needed.\n\nWhat it refuses: anything clinical. \"My filling hurts\" gets a redirect to the practice's emergency line, not a booking. Payment questions go to voicemail marked urgent. It does not try to sound like it knows dentistry, because it doesn't.\n\nWhat broke in week one: the calendar sync ran on a fifteen-minute refresh, not real time. Two callers got booked into the same 10am slot on a Tuesday because the second call came in before the first booking had synced back. The front desk caught it, but only because someone happened to look. We moved it to a webhook that fires the second a slot is taken. Should have built it that way from the start.\n\nThe other thing that surprised me: some callers hang up the moment they realise it isn't a person. Not many, but enough that we now open with a line that says exactly what it is, before it asks anything.\n\nThis is one of nine automations running inside client businesses right now. None of them started this clean.",
+      "chars": 1269,
+      "warnings": [
+        "one paragraph is 402 chars — may read as a wall"
+      ],
+      "status": "draft"
+    }
+  ]
+}
