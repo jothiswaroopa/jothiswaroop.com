@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
+import { PDFDocument } from "pdf-lib";
 
 const ROOT = process.cwd();
 const F = (n) => fs.readFileSync(path.join(ROOT, "assets/fonts", n));
@@ -135,6 +136,27 @@ async function png(tree) {
   return new Resvg(svg, { fitTo: { mode: "width", value: W } }).render().asPng();
 }
 
+/**
+ * Bundles the rendered slides into a single PDF.
+ *
+ * This is what LinkedIn actually treats as a carousel. A multi-image post is a gallery: it renders
+ * in the feed but carries less algorithmic weight. A document post opens in a viewer and is measured
+ * on dwell time and saves, which is the strongest signal available — and the right shape for ten
+ * slides of teaching rather than ten photographs.
+ */
+async function slidesToPdf(files, dir) {
+  const pdf = await PDFDocument.create();
+  for (const rel of files) {
+    const bytes = fs.readFileSync(path.join(ROOT, "public", rel.replace(/^\//, "")));
+    const png = await pdf.embedPng(bytes);
+    const page = pdf.addPage([W, H]);
+    page.drawImage(png, { x: 0, y: 0, width: W, height: H });
+  }
+  const out = path.join(dir, "carousel.pdf");
+  fs.writeFileSync(out, await pdf.save());
+  return `/linkedin/${path.basename(dir)}/carousel.pdf`;
+}
+
 /** Writes slide-01.png … slide-0n.png into public/linkedin/<date>/ and returns the web paths. */
 export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar = "carousel") {
   const m = moodFor(pillar);
@@ -148,7 +170,8 @@ export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar =
     fs.writeFileSync(path.join(dir, file), await png(tree));
     out.push(`/linkedin/${date}/${file}`);
   }
-  return out;
+  const pdf = await slidesToPdf(out, dir);
+  return { images: out, pdf };
 }
 
 export async function renderPoster(text, date, kicker = "// RECEIPT", pillar = "proof") {
@@ -170,8 +193,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     { text: "Then tell Meta which ones paid you, so it stops looking for browsers." },
     { text: "Cheap leads are not the same product as leads that close." },
   ];
-  const files = await renderCarousel(demo, "demo", "// FRAMEWORK", "framework");
+  const built = await renderCarousel(demo, "demo", "// FRAMEWORK", "framework");
   await renderCarousel(demo, "demo-light", "// PROOF", "proof");
   await renderPoster("4,248 leads at ₹16.58 each. The client stopped the campaign anyway.", "demo", "// PROOF", "proof");
-  console.log("wrote:\n" + files.concat("/linkedin/demo/poster.png").join("\n"));
+  console.log("wrote:\n" + [...built.images, built.pdf, "/linkedin/demo/poster.png"].join("\n"));
 }

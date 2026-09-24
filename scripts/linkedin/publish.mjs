@@ -42,6 +42,27 @@ const headers = () => ({
   "Content-Type": "application/json",
 });
 
+/**
+ * Documents are what LinkedIn actually treats as a carousel: the viewer opens in the feed and the
+ * post is measured on dwell time and saves. A multi-image post is a gallery and carries less weight.
+ * Same two-step shape as an image — register, then PUT the bytes.
+ */
+async function uploadDocument(absPath, title) {
+  const init = await fetch(`${API}/documents?action=initializeUpload`, {
+    method: "POST", headers: headers(),
+    body: JSON.stringify({ initializeUploadRequest: { owner: author } }),
+  });
+  if (!init.ok) throw new Error(`document initializeUpload ${init.status}: ${(await init.text()).slice(0, 180)}`);
+  const { value } = await init.json();
+  const put = await fetch(value.uploadUrl, {
+    method: "PUT",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/pdf" },
+    body: fs.readFileSync(absPath),
+  });
+  if (!put.ok) throw new Error(`document PUT ${put.status}`);
+  return { id: value.document, title: title.slice(0, 100) };
+}
+
 /** LinkedIn wants the image registered first, then the bytes PUT to the URL it hands back. */
 async function uploadImage(absPath, alt) {
   const init = await fetch(`${API}/images?action=initializeUpload`, {
@@ -77,11 +98,16 @@ export async function publish(post) {
 
   const images = (post.images || []).map((p) => path.join(ROOT, "public", p.replace(/^\//, "")));
   let content;
-  if (images.length > 1) {
+  if (post.pdf) {
+    // A carousel goes up as a document. The title shows above the viewer, so it uses the hook.
+    const doc = await uploadDocument(path.join(ROOT, "public", post.pdf.replace(/^\//, "")), post.hook || "Carousel");
+    content = { media: doc };
+    log(`uploaded carousel as a document (${images.length} pages)`);
+  } else if (images.length > 1) {
     const uploaded = [];
     for (let i = 0; i < images.length; i++) uploaded.push(await uploadImage(images[i], `Slide ${i + 1}`));
     content = { multiImage: { images: uploaded } };
-    log(`uploaded ${uploaded.length} slides`);
+    log(`uploaded ${uploaded.length} images`);
   } else if (images.length === 1) {
     const one = await uploadImage(images[0], post.hook.slice(0, 180));
     content = { media: one };

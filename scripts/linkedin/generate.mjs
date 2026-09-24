@@ -253,10 +253,13 @@ try {
 
 const body = (draft.body || "").trim();
 let images = [];
+let pdf = null;
 try {
   if (format === "carousel") {
-    images = await renderCarousel(draft.slides, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
-    log(`rendered ${images.length} slides`);
+    const built = await renderCarousel(draft.slides, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
+    images = built.images;
+    pdf = built.pdf;
+    log(`rendered ${images.length} slides and bundled them into ${pdf}`);
   } else if (draft.posterLine) {
     images = await renderPoster(draft.posterLine, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
     log(`rendered poster: "${draft.posterLine.slice(0, 60)}"`);
@@ -288,7 +291,7 @@ const post = {
   date: today, weekday, pillar: topic.pillar, format, angle: topic.angle, isSales, videoPrompt,
   autopostSafe, heldBecause: autopostSafe ? null : (isSales ? "selling day — you approve anything that makes an offer" : unresolved),
   hook: body.split("\n").filter((l) => l.trim()).slice(0, 2).join(" "),
-  body, chars: report.chars, avgWords: report.avgWords, warnings: report.warnings, images,
+  body, chars: report.chars, avgWords: report.avgWords, warnings: report.warnings, images, pdf,
   ...(format === "carousel" ? { slides: draft.slides } : {}),
   ...(news ? { sources: news.slice(0, 3).map((n) => ({ title: n.title, url: n.url, publisher: n.publisher })) } : {}),
   status: "draft",
