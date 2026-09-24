@@ -1,29 +1,31 @@
 {
-  "generated": "2026-09-24T12:31:35.144Z",
+  "generated": "2026-09-24T12:42:41.201Z",
   "posts": [
     {
       "date": "2026-09-24",
       "weekday": "Thu",
-      "pillar": "proof",
+      "pillar": "trending",
       "format": "carousel",
-      "angle": "876 conversations started from ads. What the ones that turned into work had in common.",
+      "angle": "A new AI model or feature launched this week. What it changes for someone running a small business.",
       "isSales": true,
+      "videoPrompt": null,
       "autopostSafe": false,
       "heldBecause": "selling day — you approve anything that makes an offer",
-      "hook": "876 conversations started from ads, across nine Meta ad accounts. That number sounds like a win. But a conversation is not a sale, and most posts stop right there.",
-      "body": "876 conversations started from ads, across nine Meta ad accounts.\n\nThat number sounds like a win. But a conversation is not a sale, and most posts stop right there.\n\nWe looked at what separated the ones that turned into real work from the ones that went quiet.\n\nIt wasn't the reach. Total reach crossed 1.36 million people across those accounts, and reach alone told us nothing about who replied.\n\nIt wasn't even the lead count. 7,341 people filled a form across nine accounts, and plenty of those never became a conversation at all.\n\nThe pattern was in what the ad asked for before someone clicked.\n\nSay a UK apparel campaign states a 200-piece minimum order right on the form. 19 buyers still responded, for under $6 an enquiry each. Every one of them already knew the minimum before they said hello.\n\nCompare that to a form that only asks for a name and number. It fills up fast, and most of that fast fill-up goes cold within a week.\n\nThe forms that pre-qualify feel slower to fill. They convert to real conversations at a much higher rate.\n\nIf you're running a lead form this week, add one line that filters: budget, quantity, timeline, anything true to your business. Fewer leads, more conversations.\n\nI put together a short audit checklist for reading your own lead-form numbers in Ads Manager. Happy to share it if it helps.\n\n#advertising #leadgeneration #metaads",
-      "chars": 1371,
-      "avgWords": 11.3,
+      "hook": "Four clicks tell you what your ad is chasing. Ringg's new AI agents now resolve up to 65% of customer calls (OpenAI, 2026-09-23: https://openai.com/index/ringg). Useful news. But it made me think about a simpler thing most small business owners never check.",
+      "body": "Four clicks tell you what your ad is chasing.\n\nRingg's new AI agents now resolve up to 65% of customer calls (OpenAI, 2026-09-23: https://openai.com/index/ringg). Useful news. But it made me think about a simpler thing most small business owners never check.\n\nEvery Meta ad has a setting called Performance goal. It tells Meta what to optimise for: clicks, messages, leads, or something called \"conversions\" further down your funnel.\n\nMost people never open this screen. They judge the ad by the creative, the image, the caption. Wrong screen entirely.\n\nIf your Performance goal is set to \"link clicks,\" Meta will find you people who click. Not people who buy, not people who book, not people who fill your form. Just clickers. Across our own accounts, we track over 7,341 lead-form submissions from nine Meta accounts in India, UK, US and Canada, and that setting is the difference between a form that fills and one that doesn't.\n\nHere's where to look: Ads Manager, your campaign, the ad set, the line that says Performance goal.\n\nCheck this before the creative. It decides who Meta goes and finds.\n\nIf you want a second pair of eyes on your own account's settings, our audit is free.\n\n#metaads #smallbusiness #digitalmarketing",
+      "chars": 1228,
+      "avgWords": 12.6,
       "warnings": [
-        "UNVERIFIED: \"We looked at what separated the ones that turned into real work from the ones that went quiet.\" — Claims a first-hand analysis distinguishing conversations that became 'real work' vs went quiet; no approved fact establishes this study or its findings.",
-        "UNVERIFIED: \"reach alone told us nothing about who replied\" — First-hand claim about what analysis showed regarding reach and replies; not established in approved facts.",
-        "UNVERIFIED: \"plenty of those never became a conversation at all\" — Asserts a specific first-hand finding about lead-to-conversation conversion that isn't in the approved facts.",
-        "UNVERIFIED: \"The pattern was in what the ad asked for before someone clicked.\" — States a discovered 'pattern' as fact without any approved data supporting this causal finding.",
-        "UNVERIFIED: \"Compare that to a form that only asks for a name and number. It fills up fast, and most of that fast fill-up goes cold within a week.\" — Invented specific claim (goes cold within a week) about form performance not in approved facts.",
-        "UNVERIFIED: \"The forms that pre-qualify feel slower to fill. They convert to real conversations at a much higher rate.\" — Presents an unverified comparative conversion-rate claim as established fact from his work.",
-        "UNVERIFIED: \"Fast fill-ups go quiet fast too. The conversation dies before it starts.\" — Invented first-hand-sounding claim about outcome of fast-filling forms with no supporting data.",
-        "UNVERIFIED: \"The forms that filtered hardest had the highest share of real conversations, not the most leads.\" — States a specific comparative finding as fact without approved data to support it.",
-        "check: \"Some forms just ask for a name and number. They fill up fast.\" — Generalized claim about form fill speed presented as observed fact, not supported by approved facts."
+        "no number in the first line — openers with a figure tend to do better",
+        "no number in the first line — openers with a figure tend to do better",
+        "one sentence is 35 words long",
+        "one paragraph is 376 chars — may read as a wall",
+        "over a limit: hook is 257 chars, must be under 210",
+        "STILL UNVERIFIED: \"Across our own accounts, we track over 7,341 lead-form submissions from nine Meta accounts in India, UK, US and Canada, and that setting is the difference between a form that fills and one that doesn't.\" — The approved fact states 7,341 lead-form submissions across nine Meta ad accounts, but it does not establish that this specific 'Performance goal' setting was the difference between forms filling or not — that is an invented causal claim about his own accounts.",
+        "check: \"If your Performance goal is set to \"link clicks,\" Meta will find you people who \" — Presented as a certain, absolute platform mechanic rather than a generalisation a practitioner would state with more nuance.",
+        "check: \"Set it to 'link clicks' and Meta finds people who click. Nothing more.\nSet it to\" — Stated as absolute platform fact/certainty without qualification.",
+        "check: \"hidden three menus deep\" — Specific navigational claim not verifiable from approved facts, presented as fact about the platform's UI.",
+        "check: \"Four clicks tell you what your ad is chasing.\" — Specific number of clicks to reach the setting is not supported by approved facts."
       ],
       "images": [
         "/linkedin/2026-09-24/slide-01.png",
@@ -40,37 +42,54 @@
       ],
       "slides": [
         {
-          "text": "876 conversations started from ads. One thing separated them."
+          "text": "Four clicks tell you what your ad is chasing."
         },
         {
-          "text": "A conversation is not a sale. Most people stop counting right there."
+          "text": "Most people judge it by the creative. Wrong screen entirely."
         },
         {
-          "text": "7,341 people filled a lead form across nine Meta ad accounts. Not all replied."
+          "text": "Every Meta ad has a setting called Performance goal, hidden three menus deep."
         },
         {
-          "text": "Reach crossed 1.36 million people. Reach told us nothing about who actually responded."
+          "text": "It tells Meta what kind of result to chase for you: clicks, messages, or leads."
         },
         {
-          "text": "Some forms just ask for a name and number. They fill up fast."
+          "text": "Set it to 'link clicks' and Meta finds people who click. Nothing more."
         },
         {
-          "text": "Fast fill-ups go quiet fast too. The conversation dies before it starts."
+          "text": "Set it to 'leads' and Meta hunts for people who actually fill your form."
         },
         {
-          "text": "Say a UK campaign states a 200-piece minimum order on the form itself."
+          "text": "Same budget, same photo, same headline. Totally different audience found."
         },
         {
-          "text": "19 buyers responded anyway, for under $6 an enquiry. Every one already knew the minimum."
+          "text": "Here's exactly where it lives: Ads Manager, your campaign, the ad set."
         },
         {
-          "text": "The forms that filtered hardest had the highest share of real conversations, not the most leads."
+          "text": "Then the line that says Performance goal, right above your daily budget."
         },
         {
-          "text": "Add one line to your form: budget, quantity, timeline, anything true to your business."
+          "text": "Check this before the creative. It decides who Meta goes and finds."
         },
         {
-          "text": "Fewer leads. More conversations that actually go somewhere."
+          "text": "One setting, checked in four clicks, before you touch a single word of copy."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+          "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "How invideo improves color grading 3x with GPT‑6 Astra",
+          "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
+          "url": "https://openai.com/index/ringg",
+          "publisher": "OpenAI"
         }
       ],
       "status": "draft"
