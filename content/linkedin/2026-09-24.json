@@ -1,14 +1,56 @@
 {
   "date": "2026-09-24",
   "weekday": "Thu",
-  "pillar": "build",
-  "format": "text",
-  "angle": "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one.",
-  "hook": "A dental clinic in the UK now has a voice AI answering its phone. It books into the calendar. It does not do anything else. That second part was the harder build.",
-  "body": "A dental clinic in the UK now has a voice AI answering its phone. It books into the calendar. It does not do anything else.\nThat second part was the harder build.\n\nWhat it books: new patient enquiries, reschedules, cancellations. It checks the calendar live and confirms a slot on the call, no callback needed.\n\nWhat it refuses: anything clinical. \"My filling hurts\" gets a redirect to the practice's emergency line, not a booking. Payment questions go to voicemail marked urgent. It does not try to sound like it knows dentistry, because it doesn't.\n\nWhat broke in week one: the calendar sync ran on a fifteen-minute refresh, not real time. Two callers got booked into the same 10am slot on a Tuesday because the second call came in before the first booking had synced back. The front desk caught it, but only because someone happened to look. We moved it to a webhook that fires the second a slot is taken. Should have built it that way from the start.\n\nThe other thing that surprised me: some callers hang up the moment they realise it isn't a person. Not many, but enough that we now open with a line that says exactly what it is, before it asks anything.\n\nThis is one of nine automations running inside client businesses right now. None of them started this clean.",
-  "chars": 1269,
+  "pillar": "teach",
+  "format": "carousel",
+  "angle": "How to tell in four clicks whether a Meta campaign is optimising for buyers or for form-fillers. Exact path, no tools.",
+  "isSales": true,
+  "hook": "Most people judge a campaign by the ad copy. The real answer is four clicks away in Ads Manager. Open Ads Manager. Click the campaign name, not the ad — that's click one.",
+  "body": "Most people judge a campaign by the ad copy. The real answer is four clicks away in Ads Manager.\n\nOpen Ads Manager. Click the campaign name, not the ad — that's click one.\n\nClick the ad set sitting under it. That's click two. An ad set is the layer that holds your budget, your audience and your optimisation choice.\n\nScroll to the section called 'Optimization & delivery.' That's click three.\n\nRead the line 'Performance goal.' Click four. It names the exact event Meta is optimising for — leads, messages, or purchases.\n\nIf you sell a product but the goal reads 'Leads,' Meta is finding you people who fill forms, not people who buy. Different skill, different audience, different result.\n\nI check this before I",
+  "chars": 713,
+  "avgWords": 9.5,
   "warnings": [
-    "one paragraph is 402 chars — may read as a wall"
+    "possible client name to check: \"Open Ads Manager\""
+  ],
+  "images": [
+    "/linkedin/2026-09-24/slide-01.png",
+    "/linkedin/2026-09-24/slide-02.png",
+    "/linkedin/2026-09-24/slide-03.png",
+    "/linkedin/2026-09-24/slide-04.png",
+    "/linkedin/2026-09-24/slide-05.png",
+    "/linkedin/2026-09-24/slide-06.png",
+    "/linkedin/2026-09-24/slide-07.png",
+    "/linkedin/2026-09-24/slide-08.png",
+    "/linkedin/2026-09-24/slide-09.png"
+  ],
+  "slides": [
+    {
+      "text": "Four clicks tell you what your ad is really chasing."
+    },
+    {
+      "text": "Most people guess from the creative. Wrong place to look."
+    },
+    {
+      "text": "Open Ads Manager. Click the campaign name, not the ad. Click one."
+    },
+    {
+      "text": "Click the ad set sitting under that campaign. Click two."
+    },
+    {
+      "text": "Scroll to the section called 'Optimization & delivery.' Click three."
+    },
+    {
+      "text": "Read the line 'Performance goal.' That's click four."
+    },
+    {
+      "text": "It names the exact event Meta is chasing: leads, messages, or purchases."
+    },
+    {
+      "text": "Says 'Leads' but you sell a product? You're buying form-fillers, not buyers."
+    },
+    {
+      "text": "Check this before the creative. It decides who Meta goes and finds for you."
+    }
   ],
   "status": "draft"
 }
