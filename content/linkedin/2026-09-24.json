@@ -3,22 +3,24 @@
   "weekday": "Thu",
   "pillar": "proof",
   "format": "carousel",
-  "angle": "What running lead campaigns across four countries taught me about the gap between cheap leads and real buyers.",
+  "angle": "876 conversations started from ads. What the ones that turned into work had in common.",
   "isSales": true,
   "autopostSafe": false,
   "heldBecause": "selling day — you approve anything that makes an offer",
-  "hook": "7,341 lead-form submissions. Nine Meta ad accounts. Four countries. Here is what the numbers actually show, and what they don't.",
-  "body": "7,341 lead-form submissions. Nine Meta ad accounts. Four countries.\n\nHere is what the numbers actually show, and what they don't.\n\nA lead-form submission just means someone filled a form on an ad and Meta logged it against that ad. That's the whole definition. Nothing about intent, budget, or whether they ever buy.\n\nSay a Tirupur apparel manufacturer runs a wholesale campaign. 19 UK buyers responded to an ad and form that both stated a 200-piece minimum order, at under $6 an enquiry. That's a qualified question, answered cheaply.\n\nCompare that to Nova Attire: 4,248 wholesale buyer leads at ₹16.58 each, across six campaigns, total spend ₹70,444. In their own words, translated from Tamil — within ten days, 150-plus enquiries came in, and they were converting many of them.\n\nBut how many of those 4,248 became actual orders? That number was never captured. Nothing sent it back into Meta.\n\nCheap leads and real buyers are two different measurements. One lives in Ads Manager. The other lives in a sales register nobody connected back to the ad.\n\nIf you're running lead ads and only tracking cost per lead, you're tracking half the story.\n\nFree resource on my site: an audit checklist for what to track after the lead, not just before it.\n\n#leadgen #metaads #d2c",
-  "chars": 1268,
-  "avgWords": 10.6,
+  "hook": "876 conversations started from ads, across nine Meta ad accounts. That number sounds like a win. But a conversation is not a sale, and most posts stop right there.",
+  "body": "876 conversations started from ads, across nine Meta ad accounts.\n\nThat number sounds like a win. But a conversation is not a sale, and most posts stop right there.\n\nWe looked at what separated the ones that turned into real work from the ones that went quiet.\n\nIt wasn't the reach. Total reach crossed 1.36 million people across those accounts, and reach alone told us nothing about who replied.\n\nIt wasn't even the lead count. 7,341 people filled a form across nine accounts, and plenty of those never became a conversation at all.\n\nThe pattern was in what the ad asked for before someone clicked.\n\nSay a UK apparel campaign states a 200-piece minimum order right on the form. 19 buyers still responded, for under $6 an enquiry each. Every one of them already knew the minimum before they said hello.\n\nCompare that to a form that only asks for a name and number. It fills up fast, and most of that fast fill-up goes cold within a week.\n\nThe forms that pre-qualify feel slower to fill. They convert to real conversations at a much higher rate.\n\nIf you're running a lead form this week, add one line that filters: budget, quantity, timeline, anything true to your business. Fewer leads, more conversations.\n\nI put together a short audit checklist for reading your own lead-form numbers in Ads Manager. Happy to share it if it helps.\n\n#advertising #leadgeneration #metaads",
+  "chars": 1371,
+  "avgWords": 11.3,
   "warnings": [
-    "possible client name to check: \"Nine Meta\"",
-    "possible client name to check: \"Nine Meta\"",
-    "STILL UNVERIFIED: \"Most campaigns never ask one.\" — Generalization about 'most campaigns' with no supporting data or first-hand claim basis in approved facts.",
-    "check: \"Say a Tirupur apparel manufacturer runs a wholesale campaign. 19 UK buyers respo\" — Framed as a hypothetical ('Say a...') but then states the real approved fact (19 UK buyers, 200-piece minimum) as if it were the hypothetical example, misrepresenting a real result as illustrative fiction.",
-    "check: \"That's a qualified question, answered cheaply.\" — Interpretive judgment presented as established fact about what the lead represents, not directly supported by approved facts.",
-    "check: \"In their own words, translated from Tamil — within ten days, 150-plus enquiries \" — Approved fact says 'we are converting many of them' (present tense, Nova Attire's own words) but draft paraphrases as 'they were converting many of them,' altering the quote.",
-    "check: \"The gap between cheap leads and real buyers isn't the ad cost. It's the missing \" — States a definitive causal/analytical claim as fact rather than opinion, not directly grounded in approved facts."
+    "UNVERIFIED: \"We looked at what separated the ones that turned into real work from the ones that went quiet.\" — Claims a first-hand analysis distinguishing conversations that became 'real work' vs went quiet; no approved fact establishes this study or its findings.",
+    "UNVERIFIED: \"reach alone told us nothing about who replied\" — First-hand claim about what analysis showed regarding reach and replies; not established in approved facts.",
+    "UNVERIFIED: \"plenty of those never became a conversation at all\" — Asserts a specific first-hand finding about lead-to-conversation conversion that isn't in the approved facts.",
+    "UNVERIFIED: \"The pattern was in what the ad asked for before someone clicked.\" — States a discovered 'pattern' as fact without any approved data supporting this causal finding.",
+    "UNVERIFIED: \"Compare that to a form that only asks for a name and number. It fills up fast, and most of that fast fill-up goes cold within a week.\" — Invented specific claim (goes cold within a week) about form performance not in approved facts.",
+    "UNVERIFIED: \"The forms that pre-qualify feel slower to fill. They convert to real conversations at a much higher rate.\" — Presents an unverified comparative conversion-rate claim as established fact from his work.",
+    "UNVERIFIED: \"Fast fill-ups go quiet fast too. The conversation dies before it starts.\" — Invented first-hand-sounding claim about outcome of fast-filling forms with no supporting data.",
+    "UNVERIFIED: \"The forms that filtered hardest had the highest share of real conversations, not the most leads.\" — States a specific comparative finding as fact without approved data to support it.",
+    "check: \"Some forms just ask for a name and number. They fill up fast.\" — Generalized claim about form fill speed presented as observed fact, not supported by approved facts."
   ],
   "images": [
     "/linkedin/2026-09-24/slide-01.png",
@@ -31,45 +33,41 @@
     "/linkedin/2026-09-24/slide-08.png",
     "/linkedin/2026-09-24/slide-09.png",
     "/linkedin/2026-09-24/slide-10.png",
-    "/linkedin/2026-09-24/slide-11.png",
-    "/linkedin/2026-09-24/slide-12.png"
+    "/linkedin/2026-09-24/slide-11.png"
   ],
   "slides": [
     {
-      "text": "7,341 leads. Four countries. One gap nobody measured."
+      "text": "876 conversations started from ads. One thing separated them."
     },
     {
-      "text": "A cheap lead can still be a stranger. That gap costs real money."
+      "text": "A conversation is not a sale. Most people stop counting right there."
     },
     {
-      "text": "A lead-form submission just means someone filled a form on an ad."
+      "text": "7,341 people filled a lead form across nine Meta ad accounts. Not all replied."
     },
     {
-      "text": "That's it. Nothing about budget, intent, or whether they ever buy."
+      "text": "Reach crossed 1.36 million people. Reach told us nothing about who actually responded."
     },
     {
-      "text": "19 UK buyers answered an ad stating a 200-piece minimum, under $6 each."
+      "text": "Some forms just ask for a name and number. They fill up fast."
     },
     {
-      "text": "That's a qualified question, answered cheap. Most campaigns never ask one."
+      "text": "Fast fill-ups go quiet fast too. The conversation dies before it starts."
     },
     {
-      "text": "Nova Attire: 4,248 wholesale leads at ₹16.58 each across six campaigns."
+      "text": "Say a UK campaign states a 200-piece minimum order on the form itself."
     },
     {
-      "text": "Their words, translated from Tamil: within ten days, 150-plus enquiries came in."
+      "text": "19 buyers responded anyway, for under $6 an enquiry. Every one already knew the minimum."
     },
     {
-      "text": "But how many of those 4,248 became orders? That number was never captured."
+      "text": "The forms that filtered hardest had the highest share of real conversations, not the most leads."
     },
     {
-      "text": "Cost per lead lives in Ads Manager. Buyer count lives in a sales register nobody connected."
+      "text": "Add one line to your form: budget, quantity, timeline, anything true to your business."
     },
     {
-      "text": "The gap between cheap leads and real buyers isn't the ad cost. It's the missing link back."
-    },
-    {
-      "text": "Track cost per lead, and you're tracking half the story."
+      "text": "Fewer leads. More conversations that actually go somewhere."
     }
   ],
   "status": "draft",
