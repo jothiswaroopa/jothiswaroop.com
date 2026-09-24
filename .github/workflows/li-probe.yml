@@ -1,0 +1,22 @@
+name: LinkedIn analytics probe
+on: { workflow_dispatch: {} }
+permissions: { contents: read }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Can we read engagement on our own posts?
+        env:
+          T: ${{ secrets.LINKEDIN_TOKEN }}
+        run: |
+          U="urn:li:ugcPost:7508871757123047424"
+          E=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1],safe=''))" "$U")
+          for path in "socialActions/$E" "socialMetadata/$E"; do
+            code=$(curl -s -o /tmp/r.json -w "%{http_code}" "https://api.linkedin.com/rest/$path" \
+              -H "Authorization: Bearer $T" -H "LinkedIn-Version: 202606" -H "X-Restli-Protocol-Version: 2.0.0")
+            echo "--- $path -> HTTP $code"
+            head -c 320 /tmp/r.json; echo
+          done
+          echo "--- v2 fallback ---"
+          code=$(curl -s -o /tmp/v2.json -w "%{http_code}" "https://api.linkedin.com/v2/socialActions/$E" -H "Authorization: Bearer $T")
+          echo "v2/socialActions -> HTTP $code"; head -c 320 /tmp/v2.json; echo
