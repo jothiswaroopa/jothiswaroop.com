@@ -1,45 +1,254 @@
 [
-  { "pillar": "receipt", "angle": "4,248 leads at ₹16.58 looked like the best campaign I'd ever run. The client stopped it. Cheap leads are not the same as leads that close." },
-  { "pillar": "receipt", "angle": "19 leads beat 1,318 leads. The UK campaign that stated a 200-piece minimum order and got 19 buyers, next to the domestic one that got 1,318 enquiries." },
-  { "pillar": "receipt", "angle": "Nine ad accounts, 7,341 form leads, and the number I could not tell you for any of them until recently: how many actually paid." },
-  { "pillar": "receipt", "angle": "876 conversations from ads. What separated the ones that became clients was never the ad — it was how fast somebody replied." },
-  { "pillar": "receipt", "angle": "One client opened a second ad account after ten months. That is the only campaign metric I fully trust." },
-  { "pillar": "receipt", "angle": "Reaching 1.36 million people taught me that reach is the cheapest number to buy and the least useful one to report." },
-
-  { "pillar": "teach", "angle": "How to tell in four clicks whether a Meta campaign is optimising for buyers or for form-fillers. Exact path, no tools." },
-  { "pillar": "teach", "angle": "The one question to add to a lead form that filters out most of the people who were never going to buy." },
-  { "pillar": "teach", "angle": "Why Meta has no idea which of your leads paid you, and how to tell it — in plain terms, no developer needed." },
-  { "pillar": "teach", "angle": "Test your own follow-up speed: fill in your own ad's form with your own number and time how long until somebody rings." },
-  { "pillar": "teach", "angle": "Exclusion audiences: the free hour of work that stops you paying to advertise to your own customers." },
-  { "pillar": "teach", "angle": "The six reasons lead-gen ads produce leads that never buy. Five of them are settings, not creative." },
-  { "pillar": "teach", "angle": "Why your cost per lead going up can be the sign that something finally started working." },
-  { "pillar": "teach", "angle": "How to read a Meta Ad Library page to find out what a competitor is actually testing, for free." },
-  { "pillar": "teach", "angle": "What a learning phase actually is, and why changing budgets every morning keeps an ad set stuck in it." },
-
-  { "pillar": "teardown", "angle": "A jewellery brand running four static catalogue photos as ads. What a single 15-second film would change and why." },
-  { "pillar": "teardown", "angle": "A clinic advertising a free consultation while hoping for high-value treatment. The offer is recruiting the wrong person." },
-  { "pillar": "teardown", "angle": "An instant form with three pre-filled fields and no questions, live for 61 days. What that costs over two months." },
-  { "pillar": "teardown", "angle": "A wholesale manufacturer running consumer creative to shop owners. Same product, wrong buyer, wrong pictures." },
-  { "pillar": "teardown", "angle": "An ad whose first second is a logo animation. What happens to the viewer in that second." },
-  { "pillar": "teardown", "angle": "A D2C brand whose best-performing creative has not changed in four months. Why the next three weeks will hurt." },
-
-  { "pillar": "build", "angle": "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one." },
-  { "pillar": "build", "angle": "A bot that turns a voice note into a finished invoice. Built for a business that would never open a spreadsheet." },
-  { "pillar": "build", "angle": "An inventory reorder agent that watches stock and drafts the purchase order. The boring automation nobody posts about." },
-  { "pillar": "build", "angle": "Renewal reminders for a Company Secretary's practice. Simple, unglamorous, and it stopped work slipping." },
-  { "pillar": "build", "angle": "The 60-second reply: why answering a lead inside a minute is an engineering problem, not a discipline problem." },
-  { "pillar": "build", "angle": "What I got wrong building my first automation for a client, and the rule I now follow because of it." },
-
-  { "pillar": "contrarian", "angle": "Cost per lead is the most confidently reported number in this industry and one of the least useful." },
-  { "pillar": "contrarian", "angle": "Most agencies would rather change your creative than ask how quickly you answer the phone. The phone is usually the problem." },
-  { "pillar": "contrarian", "angle": "Stating your price in the ad brings fewer leads and more customers. Clients resist this harder than anything else." },
-  { "pillar": "contrarian", "angle": "AI that runs your ads is mostly theatre. The part that genuinely works is unglamorous plumbing nobody demos." },
-  { "pillar": "contrarian", "angle": "Every agency shows you a dashboard. Almost none of them can tell you which leads became money." },
-  { "pillar": "contrarian", "angle": "Video ads are not better because they are video. They are better because a photo cannot prove a claim." },
-
-  { "pillar": "story", "angle": "Two years as an equity advisor before I ever ran an ad for money. Why I read a client's numbers before touching a campaign." },
-  { "pillar": "story", "angle": "Standing on a factory floor in Tirupur, understanding for the first time who the buyer actually was." },
-  { "pillar": "story", "angle": "A client explained his problem to me in Tamil in one sentence that was better than any brief I have been sent in English." },
-  { "pillar": "story", "angle": "The first client who referred me did it because I had made him money, not because I asked. Nobody refers a vendor who lost them money." },
-  { "pillar": "story", "angle": "The month I realised the ads were fine and I had been fixing the wrong half of the problem for a year." }
+  {
+    "pillar": "receipt",
+    "angle": "4,248 leads at ₹16.58 looked like the best campaign I'd ever run. The client stopped it. Cheap leads are not the same as leads that close."
+  },
+  {
+    "pillar": "receipt",
+    "angle": "19 leads beat 1,318 leads. The UK campaign that stated a 200-piece minimum order and got 19 buyers, next to the domestic one that got 1,318 enquiries."
+  },
+  {
+    "pillar": "receipt",
+    "angle": "Nine ad accounts, 7,341 form leads, and the number I could not tell you for any of them until recently: how many actually paid."
+  },
+  {
+    "pillar": "receipt",
+    "angle": "876 conversations from ads. What separated the ones that became clients was never the ad — it was how fast somebody replied."
+  },
+  {
+    "pillar": "receipt",
+    "angle": "One client opened a second ad account after ten months. That is the only campaign metric I fully trust."
+  },
+  {
+    "pillar": "receipt",
+    "angle": "Reaching 1.36 million people taught me that reach is the cheapest number to buy and the least useful one to report."
+  },
+  {
+    "pillar": "teach",
+    "angle": "How to tell in four clicks whether a Meta campaign is optimising for buyers or for form-fillers. Exact path, no tools."
+  },
+  {
+    "pillar": "teach",
+    "angle": "The one question to add to a lead form that filters out most of the people who were never going to buy."
+  },
+  {
+    "pillar": "teach",
+    "angle": "Why Meta has no idea which of your leads paid you, and how to tell it — in plain terms, no developer needed."
+  },
+  {
+    "pillar": "teach",
+    "angle": "Test your own follow-up speed: fill in your own ad's form with your own number and time how long until somebody rings."
+  },
+  {
+    "pillar": "teach",
+    "angle": "Exclusion audiences: the free hour of work that stops you paying to advertise to your own customers."
+  },
+  {
+    "pillar": "teach",
+    "angle": "The six reasons lead-gen ads produce leads that never buy. Five of them are settings, not creative."
+  },
+  {
+    "pillar": "teach",
+    "angle": "Why your cost per lead going up can be the sign that something finally started working."
+  },
+  {
+    "pillar": "teach",
+    "angle": "How to read a Meta Ad Library page to find out what a competitor is actually testing, for free."
+  },
+  {
+    "pillar": "teach",
+    "angle": "What a learning phase actually is, and why changing budgets every morning keeps an ad set stuck in it."
+  },
+  {
+    "pillar": "teardown",
+    "angle": "A jewellery brand running four static catalogue photos as ads. What a single 15-second film would change and why."
+  },
+  {
+    "pillar": "teardown",
+    "angle": "A clinic advertising a free consultation while hoping for high-value treatment. The offer is recruiting the wrong person."
+  },
+  {
+    "pillar": "teardown",
+    "angle": "An instant form with three pre-filled fields and no questions, live for 61 days. What that costs over two months."
+  },
+  {
+    "pillar": "teardown",
+    "angle": "A wholesale manufacturer running consumer creative to shop owners. Same product, wrong buyer, wrong pictures."
+  },
+  {
+    "pillar": "teardown",
+    "angle": "An ad whose first second is a logo animation. What happens to the viewer in that second."
+  },
+  {
+    "pillar": "teardown",
+    "angle": "A D2C brand whose best-performing creative has not changed in four months. Why the next three weeks will hurt."
+  },
+  {
+    "pillar": "build",
+    "angle": "The voice agent that answers a dental clinic's phone. What it books, what it refuses to handle, and what broke in week one."
+  },
+  {
+    "pillar": "build",
+    "angle": "A bot that turns a voice note into a finished invoice. Built for a business that would never open a spreadsheet."
+  },
+  {
+    "pillar": "build",
+    "angle": "An inventory reorder agent that watches stock and drafts the purchase order. The boring automation nobody posts about."
+  },
+  {
+    "pillar": "build",
+    "angle": "Renewal reminders for a Company Secretary's practice. Simple, unglamorous, and it stopped work slipping."
+  },
+  {
+    "pillar": "build",
+    "angle": "The 60-second reply: why answering a lead inside a minute is an engineering problem, not a discipline problem."
+  },
+  {
+    "pillar": "build",
+    "angle": "What I got wrong building my first automation for a client, and the rule I now follow because of it."
+  },
+  {
+    "pillar": "contrarian",
+    "angle": "Cost per lead is the most confidently reported number in this industry and one of the least useful."
+  },
+  {
+    "pillar": "contrarian",
+    "angle": "Most agencies would rather change your creative than ask how quickly you answer the phone. The phone is usually the problem."
+  },
+  {
+    "pillar": "contrarian",
+    "angle": "Stating your price in the ad brings fewer leads and more customers. Clients resist this harder than anything else."
+  },
+  {
+    "pillar": "contrarian",
+    "angle": "AI that runs your ads is mostly theatre. The part that genuinely works is unglamorous plumbing nobody demos."
+  },
+  {
+    "pillar": "contrarian",
+    "angle": "Every agency shows you a dashboard. Almost none of them can tell you which leads became money."
+  },
+  {
+    "pillar": "contrarian",
+    "angle": "Video ads are not better because they are video. They are better because a photo cannot prove a claim."
+  },
+  {
+    "pillar": "story",
+    "angle": "Two years as an equity advisor before I ever ran an ad for money. Why I read a client's numbers before touching a campaign."
+  },
+  {
+    "pillar": "story",
+    "angle": "Standing on a factory floor in Tirupur, understanding for the first time who the buyer actually was."
+  },
+  {
+    "pillar": "story",
+    "angle": "A client explained his problem to me in Tamil in one sentence that was better than any brief I have been sent in English."
+  },
+  {
+    "pillar": "story",
+    "angle": "The first client who referred me did it because I had made him money, not because I asked. Nobody refers a vendor who lost them money."
+  },
+  {
+    "pillar": "story",
+    "angle": "The month I realised the ads were fine and I had been fixing the wrong half of the problem for a year."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "Six reasons your ads bring leads that never buy. One slide each, in the order to check them."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "How to read any competitor's ads for free, using Meta's Ad Library. Step by step."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "The settings to check before you spend another rupee on lead ads."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "What a learning phase is, why it matters, and the four things that reset it."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "Seven questions that turn a cheap lead form into one that finds buyers."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "How money actually moves from an ad to a sale, and the three places it leaks."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "A beginner's first week running Meta ads: what to do on each day."
+  },
+  {
+    "pillar": "carousel",
+    "angle": "How to tell a good agency from a bad one, using questions you can ask in ten minutes."
+  },
+  {
+    "pillar": "teach",
+    "angle": "How to set up your first lead campaign without wasting the first week's budget."
+  },
+  {
+    "pillar": "teach",
+    "angle": "What to do in the first hour after a lead comes in. A script you can copy."
+  },
+  {
+    "pillar": "teach",
+    "angle": "How to write an ad that says the price, and why that brings you better customers."
+  },
+  {
+    "pillar": "teach",
+    "angle": "Reading an Ads Manager screen for the first time: which five columns actually matter."
+  },
+  {
+    "pillar": "teach",
+    "angle": "How to build a custom audience of your own customers, and why it saves money immediately."
+  },
+  {
+    "pillar": "teach",
+    "angle": "The difference between a lead, an enquiry and a customer, and why mixing them up costs you."
+  },
+  {
+    "pillar": "teach",
+    "angle": "How to test two ads properly so the result means something."
+  },
+  {
+    "pillar": "trending",
+    "angle": "A new AI model or feature launched this week. What it changes for someone running a small business."
+  },
+  {
+    "pillar": "trending",
+    "angle": "An advertising platform changed something. Plain explanation of who it affects and what to do."
+  },
+  {
+    "pillar": "trending",
+    "angle": "An AI announcement that sounds huge but changes nothing yet for a small advertiser, and why."
+  },
+  {
+    "pillar": "trending",
+    "angle": "Something new in AI search or assistants, and what it means for a small business being found."
+  },
+  {
+    "pillar": "trending",
+    "angle": "A platform policy or measurement change, explained for people who do not read release notes."
+  },
+  {
+    "pillar": "trending",
+    "angle": "A new tool everyone is posting about. What it is actually good at, and what it is not."
+  },
+  {
+    "pillar": "story",
+    "angle": "Two years reading company accounts as an equity advisor before ever running an ad. What that habit changed."
+  },
+  {
+    "pillar": "story",
+    "angle": "Learning the apparel trade well enough to know who the buyer really was, and why that beat any targeting setting."
+  },
+  {
+    "pillar": "story",
+    "angle": "Why every number on his site links to the screenshot it came from, and what that rule costs him."
+  },
+  {
+    "pillar": "story",
+    "angle": "What running nine ad accounts teaches you about the gap between a good campaign and a good business."
+  }
 ]

@@ -16,8 +16,9 @@ export const metadata = {
 
 type Post = {
   date: string; weekday: string; pillar: string; format: string; angle: string;
-  hook: string; body: string; chars: number; warnings: string[];
-  slides?: { text: string }[]; status: string;
+  hook: string; body: string; chars: number; avgWords?: number; warnings: string[];
+  slides?: { text: string }[]; images?: string[]; isSales?: boolean;
+  sources?: { title: string; url: string; publisher: string }[]; status: string;
 };
 type Queue = { generated: string; posts: Post[] };
 
@@ -30,6 +31,8 @@ const load = (): Queue | null => {
 };
 
 const PILLAR: Record<string, string> = {
+  trending: "What changed this week, explained simply",
+  carousel: "Teaching value, built to be swiped",
   receipt: "A real number from your own accounts",
   teach: "Give away one complete method",
   teardown: "A live ad, what's wrong with it",
@@ -65,6 +68,23 @@ export default function LinkedInQueue() {
               <strong className="text-paper"> Every story in the post is a guess until you confirm it.</strong>{" "}
               Rewrite anything that isn&apos;t true from memory. The numbers are checked against your
               receipts automatically; the anecdotes are not, and cannot be.
+            </p>
+          </div>
+        </div>
+
+        <div className="bezel mt-4">
+          <div className="bezel-core p-5 md:p-6">
+            <p className="label">{"// THE WEEK"}</p>
+            <ul className="mt-3 grid gap-2 text-sm text-paper/80 sm:grid-cols-2">
+              <li><span className="mono text-signal">MON</span> &nbsp;What changed in AI or ads this week, in plain words</li>
+              <li><span className="mono text-signal">TUE</span> &nbsp;One complete method, given away</li>
+              <li><span className="mono text-signal">WED</span> &nbsp;Carousel &mdash; the same value, built to be swiped</li>
+              <li><span className="mono text-signal">THU</span> &nbsp;Your own numbers &mdash; the one selling day</li>
+              <li><span className="mono text-signal">FRI</span> &nbsp;A story or an argument worth having</li>
+            </ul>
+            <p className="mt-3 text-sm text-paper/60">
+              Four days give value and ask for nothing. One day makes a soft offer. The bot refuses to
+              write a call to action on any other day.
             </p>
           </div>
         </div>
@@ -125,6 +145,9 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           {p.format === "carousel" && (
             <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/70">carousel</span>
           )}
+          {p.isSales && (
+            <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">selling day</span>
+          )}
           <span className="mono text-[10px] uppercase tracking-[0.12em] text-paper/45">{p.chars} chars</span>
         </div>
 
@@ -136,20 +159,37 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           {p.body}
         </p>
 
-        {p.slides && (
+        {p.images && p.images.length > 0 && (
           <div className="mt-5 border-t hairline pt-4">
-            <p className="label">{"// SLIDES"}</p>
-            <ol className="mt-3 space-y-2">
-              {p.slides.map((s, i) => (
-                <li key={i} className="grid grid-cols-[28px_1fr] gap-3 text-sm text-paper/85">
-                  <span className="mono text-[11px] text-paper/45">{String(i + 1).padStart(2, "0")}</span>
-                  <span>{s.text}</span>
+            <p className="label">
+              {p.images.length > 1 ? `// ${p.images.length} SLIDES — READY TO UPLOAD` : "// POSTER — READY TO UPLOAD"}
+            </p>
+            <div className="mt-3 flex gap-3 overflow-x-auto pb-2">
+              {p.images.map((src, i) => (
+                <a key={src} href={src} target="_blank" rel="noreferrer" className="press shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt={`Slide ${i + 1}`} width={160} height={200} className="w-[160px] border hairline" />
+                </a>
+              ))}
+            </div>
+            <p className="mono mt-2 text-[11px] text-paper/50">
+              1080&times;1350 PNG. Tap one to open it full size, then save and upload in order.
+            </p>
+          </div>
+        )}
+
+        {p.sources && p.sources.length > 0 && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label">{"// SOURCES BEHIND THIS"}</p>
+            <ul className="mt-2 space-y-1 text-sm">
+              {p.sources.map((s) => (
+                <li key={s.url}>
+                  <a href={s.url} target="_blank" rel="noreferrer" className="underline-slide text-paper/75">
+                    {s.publisher}: {s.title}
+                  </a>
                 </li>
               ))}
-            </ol>
-            <p className="mono mt-3 text-[11px] text-paper/50">
-              Build these as a 1080&times;1350 PDF or image set. One idea per slide, nothing smaller than 28px.
-            </p>
+            </ul>
           </div>
         )}
 

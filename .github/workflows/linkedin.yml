@@ -40,13 +40,20 @@ jobs:
           LI_ANGLE: ${{ inputs.angle }}
           LI_FORMAT: ${{ inputs.format }}
         run: node scripts/linkedin/generate.mjs
+      - name: Post to LinkedIn (only if credentials and the switch are set)
+        if: hashFiles('.li-drafted') != ''
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}
+          LI_AUTOPOST: ${{ vars.LI_AUTOPOST }}
+        run: node scripts/linkedin/publish.mjs "$(cat .li-drafted)"
       - name: Commit and deploy
         run: |
           if [ ! -f .li-drafted ]; then echo "nothing drafted (weekend or already done)"; exit 0; fi
           DAY=$(cat .li-drafted); rm -f .li-drafted
           git config user.name "linkedin-bot"
           git config user.email "linkedin-bot@jothiswaroop.com"
-          git add content/linkedin public/dash/linkedin.json scripts/linkedin/covered.json
+          git add content/linkedin public/linkedin public/dash/linkedin.json scripts/linkedin/covered.json
           git commit -m "LinkedIn draft: $DAY"
           git push
           echo "DEPLOY=1" >> "$GITHUB_ENV"
