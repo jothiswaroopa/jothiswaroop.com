@@ -245,4 +245,20 @@ covered.log = [{ date: today, pillar: topic.pillar, format, angle: topic.angle }
 fs.writeFileSync(coveredPath, JSON.stringify(covered, null, 2) + "\n");
 fs.writeFileSync(path.join(ROOT, ".li-drafted"), today);
 
+// Two carousels a week is roughly 800KB of PNGs a week, which would grow the repo forever.
+// Once a deck has been posted its images have done their job, so drop anything past the window.
+const KEEP_DAYS = 45;
+const imgRoot = path.join(ROOT, "public/linkedin");
+if (fs.existsSync(imgRoot)) {
+  const cutoff = new Date(Date.now() - KEEP_DAYS * 86400000).toISOString().slice(0, 10);
+  let freed = 0;
+  for (const dir of fs.readdirSync(imgRoot)) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dir) || dir >= cutoff) continue;
+    const full = path.join(imgRoot, dir);
+    for (const f of fs.readdirSync(full)) freed += fs.statSync(path.join(full, f)).size;
+    fs.rmSync(full, { recursive: true, force: true });
+  }
+  if (freed) log(`pruned images older than ${KEEP_DAYS} days (${Math.round(freed / 1024)}KB)`);
+}
+
 log(`drafted ${today} · ${topic.pillar} · ${format} · ${report.chars} chars · ${images.length} image(s)${report.warnings.length ? ` · ${report.warnings.length} warning(s)` : ""}`);

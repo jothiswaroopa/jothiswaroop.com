@@ -57,7 +57,7 @@ jobs:
           DAY=$(cat .li-drafted); rm -f .li-drafted
           git config user.name "linkedin-bot"
           git config user.email "linkedin-bot@jothiswaroop.com"
-          git add content/linkedin public/linkedin public/dash/linkedin.json scripts/linkedin/covered.json
+          git add -A content/linkedin public/linkedin public/dash/linkedin.json scripts/linkedin/covered.json
           git commit -m "LinkedIn draft: $DAY"
           git push
           echo "DEPLOY=1" >> "$GITHUB_ENV"
