@@ -14,6 +14,9 @@ on:
       format:
         description: "Force format (text) — blank follows the weekday shape"
         required: false
+      force:
+        description: "Set to 1 to redraft a day that already has a post"
+        required: false
 
 permissions:
   contents: write
@@ -39,6 +42,7 @@ jobs:
           LI_PILLAR: ${{ inputs.pillar }}
           LI_ANGLE: ${{ inputs.angle }}
           LI_FORMAT: ${{ inputs.format }}
+          LI_FORCE: ${{ inputs.force }}
         run: node scripts/linkedin/generate.mjs
       - name: Post to LinkedIn (only if credentials and the switch are set)
         if: hashFiles('.li-drafted') != ''
