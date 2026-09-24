@@ -6,6 +6,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { validate, validateCarousel } from "./validate.mjs";
 import { renderCarousel, renderPoster } from "./render.mjs";
 import { trendingItems } from "./trending.mjs";
+import { verify } from "./verify.mjs";
 
 const ROOT = process.cwd();
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -163,6 +164,38 @@ for (let attempt = 1; attempt <= attempts; attempt++) {
   fixes = report.errors;
 }
 if (!report.ok) { console.error(`[li] no clean draft after ${attempts} attempts: ${report.errors.join(" | ")}`); process.exit(1); }
+
+// Second pass: a sceptical read for claims nothing supports. The rules catch invented numbers;
+// this catches invented experience, which is the more believable and more damaging kind.
+let checks = [];
+try {
+  const fc = await verify({ body: draft.body, slides: draft.slides }, news);
+  checks = fc.check;
+  if (fc.blocking.length) {
+    log(`fact-check blocked ${fc.blocking.length} claim(s) — redrafting`);
+    for (const f of fc.blocking) log(`  blocked: "${f.quote.slice(0, 70)}" — ${f.issue.slice(0, 70)}`);
+    const redraft = await ask(topic, news, fc.blocking.map((f) => `Remove or rewrite this — nothing supports it: "${f.quote}" (${f.issue})`));
+    const recheck = validate({ body: redraft.body || "" }, { isSales });
+    const reextra = format === "carousel" ? validateCarousel(redraft) : { ok: true, errors: [], warnings: [] };
+    if (recheck.ok && reextra.ok) {
+      draft = redraft;
+      report = { ...report, chars: recheck.chars, avgWords: recheck.avgWords, warnings: [...report.warnings, ...recheck.warnings, ...reextra.warnings] };
+      const again = await verify({ body: draft.body, slides: draft.slides }, news);
+      checks = again.check;
+      if (again.blocking.length) report.warnings.push(...again.blocking.map((f) => `STILL UNVERIFIED: "${f.quote}" — ${f.issue}`));
+      else log("redraft passed the fact-check");
+    } else {
+      log("redraft failed the rules — keeping the original and flagging the claims");
+      report.warnings.push(...fc.blocking.map((f) => `UNVERIFIED: "${f.quote}" — ${f.issue}`));
+    }
+  } else {
+    log(`fact-check clean${checks.length ? ` · ${checks.length} to eyeball` : ""}`);
+  }
+  report.warnings.push(...checks.map((f) => `check: "${f.quote.slice(0, 80)}" — ${f.issue}`));
+} catch (e) {
+  log(`fact-check could not run: ${e.message.slice(0, 80)}`);
+  report.warnings.push("fact-check did not run — read every claim yourself before posting");
+}
 
 const body = (draft.body || "").trim();
 let images = [];
