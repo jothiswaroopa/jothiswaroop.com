@@ -1,19 +1,25 @@
 {
   "date": "2026-09-24",
   "weekday": "Thu",
-  "pillar": "framework",
+  "pillar": "proof",
   "format": "carousel",
-  "angle": "The Six Leaks: a named checklist for why lead ads produce people who never buy. Give it a name and give it away.",
+  "angle": "4,248 leads at ₹16.58 looked like the best campaign I'd ever run. The client stopped it. Cheap leads are not the same as leads that close.",
   "isSales": true,
-  "hook": "Six leaks. One checklist for why lead ads fill your sheet but not your sales calendar. Across 7,341 lead form submissions on nine Meta ad accounts, we kept tracing \"bad leads\" back to the same six spots. None of them are the ad.",
-  "body": "Six leaks. One checklist for why lead ads fill your sheet but not your sales calendar.\n\nAcross 7,341 lead form submissions on nine Meta ad accounts, we kept tracing \"bad leads\" back to the same six spots. None of them are the ad.\n\nCall it the Six Leaks. Save it before your next campaign, not after.\n\nIf you run your own ads, use this before you blame the creative or the audience again.\n\nFree to check yourself: an audit of your lead flow, no charge, just tell me where you're stuck.\n\n#leadgen #metaads #digitalmarketing",
-  "chars": 521,
-  "avgWords": 11.5,
+  "autopostSafe": false,
+  "heldBecause": "selling day — you approve anything that makes an offer",
+  "hook": "4,248 leads. ₹16.58 each. About 20 cents. For a Tirupur apparel manufacturer, across six campaigns. On paper, the best cost-per-lead I had ever produced.",
+  "body": "4,248 leads. ₹16.58 each. About 20 cents.\n\nFor a Tirupur apparel manufacturer, across six campaigns. On paper, the best cost-per-lead I had ever produced.\n\nThe client stopped the campaign anyway.\n\nCheap leads and leads that close are two different things, and nobody tells you that when you're starting out. A lead form on Meta (Facebook and Instagram's ad platform) just means someone tapped a button and typed a phone number. It says nothing about whether they can place a 200-piece minimum order, or whether they were even looking to buy.\n\nIf you're running lead ads for a founder, check one thing before you celebrate the cost-per-lead: pull ten leads and call them yourself. Not glance at the sheet — call. Ask what they actually want to order, and how many pieces. That one call tells you more than any dashboard.\n\nCheap is easy to produce. A buyer who can place the order is the only number that pays rent.\n\nI still run an audit like this for a few brands a month, free, if you want a second pair of eyes on your leads.\n\n#metaads #leadgen #d2c",
+  "chars": 1050,
+  "avgWords": 12.2,
   "warnings": [
-    "no number in the first line — openers with a figure tend to do better",
-    "possible client name to check: \"Six Leaks\"",
-    "over a limit: hook is 228 chars, must be under 210",
-    "over a limit: first line is 16 words (max 12) — short openers get expanded far more often"
+    "one paragraph is 344 chars — may read as a wall",
+    "UNVERIFIED: \"The client stopped the campaign anyway.\" — Approved facts don't establish that the client stopped the campaign; this is an invented client action.",
+    "UNVERIFIED: \"So the client called the leads himself. What he heard changed everything.\" — Invented first-hand narrative about the client's actions and experience with no support in approved facts.",
+    "UNVERIFIED: \"Most hadn't placed a wholesale order in their life. Some barely knew what they'd clicked.\" — Specific claim about lead quality/behavior that is not in the approved facts; appears fabricated detail.",
+    "check: \"Cheap leads can quietly bankrupt the follow-up team chasing them.\" — Presented as a fact/outcome but nothing in the approved facts supports this claim about bankrupting a follow-up team.",
+    "check: \"Cheap leads were the good campaign. Real buyers were the good business.\" — Presents a specific framing/conclusion about the two campaigns as established fact rather than opinion, implying a comparison not substantiated by approved facts.",
+    "check: \"A lead form on Meta (Facebook and Instagram's ad platform) just means someone ta\" — Stated as an absolute platform mechanic/certain fact, oversimplifying what a lead form indicates - it's a generalization presented as certain.",
+    "check: \"I still run an audit like this for a few brands a month, free, if you want a sec\" — Claims an ongoing personal practice/service not included in or supported by the approved facts."
   ],
   "images": [
     "/linkedin/2026-09-24/slide-01.png",
@@ -25,40 +31,44 @@
     "/linkedin/2026-09-24/slide-07.png",
     "/linkedin/2026-09-24/slide-08.png",
     "/linkedin/2026-09-24/slide-09.png",
-    "/linkedin/2026-09-24/slide-10.png"
+    "/linkedin/2026-09-24/slide-10.png",
+    "/linkedin/2026-09-24/slide-11.png"
   ],
   "slides": [
     {
-      "text": "Six leaks explain why lead ads never turn into buyers."
+      "text": "4,248 leads at ₹16.58 each. Client stopped it."
     },
     {
-      "text": "A lead can cost you 20 cents and still cost you a sale."
+      "text": "Cheap leads can quietly bankrupt the follow-up team chasing them."
     },
     {
-      "text": "Leak one: the form asks for an email before it asks for intent."
+      "text": "This was for a Tirupur apparel manufacturer, across six Meta campaigns."
     },
     {
-      "text": "Leak two: nobody replies inside the first hour a lead comes in."
+      "text": "₹16.58 is about 20 cents. Lowest cost-per-lead I had ever hit."
     },
     {
-      "text": "Leak three: the same reply goes to a wholesale buyer and a browser."
+      "text": "A lead form just means someone typed a phone number in. Nothing more."
     },
     {
-      "text": "Leak four: the ad promises one thing, the landing page shows another."
+      "text": "It doesn't tell you if they can place a 200-piece minimum order."
     },
     {
-      "text": "Leak five: WhatsApp opens the chat, then nobody's watching it after 6pm."
+      "text": "So the client called the leads himself. What he heard changed everything."
     },
     {
-      "text": "Leak six: nobody ever asks the lead why they clicked in the first place."
+      "text": "Most hadn't placed a wholesale order in their life. Some barely knew what they'd clicked."
     },
     {
-      "text": "Fix these six and the same ad spend starts producing buyers, not just names."
+      "text": "Compare: 19 UK wholesale buyers, 200-piece minimum, under $6 an enquiry. Slower, pricier, real."
     },
     {
-      "text": "The leak is rarely the ad. It's what happens in the ninety seconds after."
+      "text": "Cheap leads were the good campaign. Real buyers were the good business."
+    },
+    {
+      "text": "Before you celebrate a low cost-per-lead, call ten of them yourself."
     }
   ],
   "status": "draft",
-  "notPosted": "LINKEDIN_TOKEN not set"
+  "notPosted": "LI_AUTOPOST not set"
 }
