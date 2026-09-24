@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-24T15:30:35.285Z",
+  "updated": "2026-09-24T19:30:59.735Z",
   "state": "paused",
   "startDate": "2026-10-06",
   "cap": 0,
   "totals": {
-    "leads": 0,
+    "leads": 13,
     "contacted": 0,
     "replied": 0,
     "bounced": 0,
@@ -76,7 +76,24 @@
       "sent": 0
     }
   ],
-  "segments": [],
+  "segments": [
+    {
+      "segment": "E1",
+      "name": "E1",
+      "leads": 12,
+      "contacted": 0,
+      "replied": 0,
+      "bounced": 0
+    },
+    {
+      "segment": "E2",
+      "name": "E2",
+      "leads": 1,
+      "contacted": 0,
+      "replied": 0,
+      "bounced": 0
+    }
+  ],
   "warmup": {
     "total": 71,
     "rescued": 0,
