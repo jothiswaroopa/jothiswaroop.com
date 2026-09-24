@@ -57,6 +57,19 @@ export default function LinkedInQueue() {
         </p>
 
         <div className="bezel mt-8">
+          <div className="bezel-core border-l-2 border-signal p-5 md:p-6">
+            <p className="label text-signal">{"// READ THIS EVERY TIME"}</p>
+            <p className="mt-3 text-paper/85">
+              The draft invents narrative detail. It cannot know what actually broke, which day it
+              happened, or what a client really said &mdash; it only knows the figures it was given.
+              <strong className="text-paper"> Every story in the post is a guess until you confirm it.</strong>{" "}
+              Rewrite anything that isn&apos;t true from memory. The numbers are checked against your
+              receipts automatically; the anecdotes are not, and cannot be.
+            </p>
+          </div>
+        </div>
+
+        <div className="bezel mt-4">
           <div className="bezel-core p-5 md:p-6">
             <p className="label">{"// BEFORE YOU POST — 15 MINUTES"}</p>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-paper/80">
