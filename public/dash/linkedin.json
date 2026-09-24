@@ -1,29 +1,25 @@
 {
-  "generated": "2026-09-24T12:19:02.104Z",
+  "generated": "2026-09-24T12:23:30.002Z",
   "posts": [
     {
       "date": "2026-09-24",
       "weekday": "Thu",
       "pillar": "proof",
       "format": "carousel",
-      "angle": "19 leads beat 1,318 leads. The UK campaign that stated a 200-piece minimum order and got 19 buyers, next to the domestic one that got 1,318 enquiries.",
+      "angle": "Reaching 1.36 million people taught me that reach is the cheapest number to buy and the least useful one to report.",
       "isSales": true,
       "autopostSafe": false,
       "heldBecause": "selling day — you approve anything that makes an offer",
-      "hook": "Two apparel campaigns. One got 1,318 leads. The other got 19. If you only looked at the count, you'd think the first one won.",
-      "body": "Two apparel campaigns. One got 1,318 leads. The other got 19.\n\nIf you only looked at the count, you'd think the first one won.\n\n1,318 was a domestic knitwear campaign, ₹19 a lead. Cheap, fast, the form open to anyone who wanted to fill it.\n\n19 was a UK wholesale campaign for apparel buyers. The ad form said it upfront: 200-piece minimum order. Under $6 an enquiry, and every single one was a buyer who could actually place that order.\n\nThe form did the filtering before the sales team had to.\n\nMost people building a lead form think their job is to get the number up. It isn't. Your job is to make the wrong person leave before they click submit.\n\nIf you sell in bulk, put the minimum quantity in the ad or the form itself. If you have a price floor, say it. You will lose volume. You will stop wasting time on leads that were never going to convert.\n\nNova Attire, a Tirupur manufacturer, generated 4,248 wholesale buyer leads at ₹16.58 each across six campaigns over the ten months we ran their account. Even there, we never captured how many became actual orders — nothing sent that outcome back to Meta. That's a gap I'd fix differently now: qualify harder in the form, and always track the sale, not just the lead.\n\nIf you want a second pair of eyes on your own lead form, I open up free audits some weeks — happy to look at yours.\n\n#leadgeneration #metaads #tirupur",
-      "chars": 1372,
-      "avgWords": 12,
+      "hook": "1.36 million people reached. Here's the number I stopped reporting. Reach means an ad was shown to a screen. It costs nothing to grow and tells you nothing about money.",
+      "body": "1.36 million people reached. Here's the number I stopped reporting.\n\nReach means an ad was shown to a screen. It costs nothing to grow and tells you nothing about money.\n\nAcross nine Meta ad accounts, in India, UK, US and Canada, I've generated 7,341 lead-form submissions and 876 conversations started from ads. Those numbers I still watch closely.\n\nFor a Tirupur apparel manufacturer, Nova Attire, one campaign set brought 4,248 wholesale buyer leads at ₹16.58 each, about 20 cents. Good cost. Real enquiries.\n\nWhat we never captured: how many of those 4,248 became actual orders. That number was never sent back into Meta, so the system never learned what a real buyer looked like from a lead.\n\nReach would have made that campaign look even better than it already was.\n\nIf you're running ads and can only track one number properly, track the one after the lead: did it become money. Everything before that is context, not proof.\n\nI put together a short audit checklist for exactly this — happy to share it if it's useful.\n\n#advertising #meta #tirupur",
+      "chars": 1053,
+      "avgWords": 12.5,
       "warnings": [
-        "one paragraph is 366 chars — may read as a wall",
-        "UNVERIFIED: \"every single one was a buyer who could actually place that order\" — No approved fact confirms that all 19 UK leads were verified as able to place a 200-piece order; this is an inferred outcome, not a documented fact.",
-        "UNVERIFIED: \"Only buyers who could actually order 200 pieces bothered to fill it in.\" — States as fact that only qualified buyers filled the form; this is an inferred outcome not confirmed by any approved data (conversion/order data was never captured for Nova Attire, and no such verification exists for the UK campaign either).",
-        "UNVERIFIED: \"Every one already qualified before the first call.\" — Asserts pre-qualification of all 19 leads as fact; no approved data supports this outcome.",
-        "check: \"1,318 was a domestic knitwear campaign, ₹19 a lead. Cheap, fast, the form open t\" — Approved facts state 1,318 domestic knitwear leads at ₹19 each, but the claim that the form was 'open to anyone who wanted to fill it' is an added characterization not supported by the facts.",
-        "check: \"The form did the filtering before the sales team had to.\" — This presents a causal claim about the form's function as established fact, not supported by any approved data on sales team involvement or filtering mechanics.",
-        "check: \"over the ten months we ran their account\" — Approved facts say the engagement ran from October 2025 to July 2026, but does not specify that this is exactly 'ten months' in this context, and pairs an unverified duration claim with the lead figures.",
-        "check: \"Get this wrong and you pay a sales team to chase people who were never buying.\" — Implies a specific client consequence (paying a sales team to chase unqualified leads) not established by any approved fact.",
-        "check: \"1,318 people said yes to a knitwear ad. Nobody asked how much they wanted to buy\" — Claims no one asked about purchase quantity — an assumption about the form's design not confirmed by approved facts."
+        "UNVERIFIED: \"one campaign set brought 4,248 wholesale buyer leads at ₹16.58 each, about 20 cents.\" — Approved facts state 4,248 leads came across six campaigns (3,585 in main account + 663 in second), not from 'one campaign set.'",
+        "check: \"Under 20 cents an enquiry. On paper, one of the best-performing campaigns I've r\" — Characterizing it as 'one of the best-performing campaigns' is an unsupported first-hand judgment/ranking not in approved facts; also repeats the single-campaign framing error.",
+        "check: \"So the algorithm never learned what a real buyer looked like.\" — Presents a certain factual claim about how Meta's algorithm works/learns as established fact, which is a generalization beyond approved facts.",
+        "check: \"Reach would have made that same campaign look even more impressive. It still wou\" — Speculative claim about how reach would have appeared, not supported by approved facts.",
+        "check: \"Reach means Meta showed your ad to a screen. Nobody promised a person read it.\" — Stated as certain fact/platform mechanic in a way that goes beyond simple well-known mechanics; borders on unsupported generalization."
       ],
       "images": [
         "/linkedin/2026-09-24/slide-01.png",
@@ -36,45 +32,41 @@
         "/linkedin/2026-09-24/slide-08.png",
         "/linkedin/2026-09-24/slide-09.png",
         "/linkedin/2026-09-24/slide-10.png",
-        "/linkedin/2026-09-24/slide-11.png",
-        "/linkedin/2026-09-24/slide-12.png"
+        "/linkedin/2026-09-24/slide-11.png"
       ],
       "slides": [
         {
-          "text": "19 leads beat 1,318 leads. Here's why."
+          "text": "1.36 million people reached. Taught me nothing."
         },
         {
-          "text": "Get this wrong and you pay a sales team to chase people who were never buying."
+          "text": "Reach is the easiest number to buy and the emptiest one to report."
         },
         {
-          "text": "Campaign one: domestic knitwear leads. Anyone could fill the form. ₹19 each."
+          "text": "Reach means Meta showed your ad to a screen. Nobody promised a person read it."
         },
         {
-          "text": "1,318 people said yes to a knitwear ad. Nobody asked how much they wanted to buy."
+          "text": "Across nine ad accounts, in India, UK, US, Canada, I've collected 7,341 lead-form submissions."
         },
         {
-          "text": "Campaign two: UK wholesale apparel buyers. The form said 200-piece minimum order, upfront."
+          "text": "876 of those turned into an actual conversation started from the ad. That's the number that matters more."
         },
         {
-          "text": "Only buyers who could actually order 200 pieces bothered to fill it in."
+          "text": "For Nova Attire, a Tirupur apparel manufacturer, one campaign set brought 4,248 wholesale buyer leads at ₹16.58 each."
         },
         {
-          "text": "Result: 19 leads. Under $6 an enquiry. Every one already qualified before the first call."
+          "text": "Under 20 cents an enquiry. On paper, one of the best-performing campaigns I've run."
         },
         {
-          "text": "Same product category. Same platform. One number 69 times bigger than the other."
+          "text": "But nobody ever recorded how many of those 4,248 leads placed an order."
         },
         {
-          "text": "The bigger number wasn't the win. The form that filtered people out was."
+          "text": "That number was never sent back into Meta. So the algorithm never learned what a real buyer looked like."
         },
         {
-          "text": "1,318 wide leads vs 19 narrow ones — the form decides which one you get."
+          "text": "Reach would have made that same campaign look even more impressive. It still wouldn't know what sold."
         },
         {
-          "text": "Put your minimum order, your price floor, your real requirement inside the form itself."
-        },
-        {
-          "text": "A smaller number of the right people beats a bigger number of the wrong ones."
+          "text": "The cheapest number to report is reach. The only one worth reporting is what came after the lead."
         }
       ],
       "status": "draft"
