@@ -20,7 +20,7 @@ type Post = {
   slides?: { text: string }[]; images?: string[]; isSales?: boolean;
   sources?: { title: string; url: string; publisher: string }[]; status: string;
   autopostSafe?: boolean; heldBecause?: string[] | string | null; postedAt?: string;
-  notPosted?: string; tokenExpired?: boolean;
+  notPosted?: string; tokenExpired?: boolean; videoPrompt?: string | null;
 };
 type Queue = { generated: string; posts: Post[] };
 
@@ -100,11 +100,11 @@ export default function LinkedInQueue() {
           <div className="bezel-core p-5 md:p-6">
             <p className="label">{"// THE WEEK"}</p>
             <ul className="mt-3 grid gap-2 text-sm text-paper/80 sm:grid-cols-2">
-              <li><span className="mono text-signal">MON</span> &nbsp;What changed &mdash; then what you&apos;d actually do about it</li>
+              <li><span className="mono text-signal">MON</span> &nbsp;<strong className="text-paper">Text</strong> &mdash; what changed in AI or ads, then what to do about it</li>
               <li><span className="mono text-signal">TUE</span> &nbsp;<strong className="text-paper">Carousel</strong> &mdash; a named framework, handed over whole</li>
-              <li><span className="mono text-signal">WED</span> &nbsp;One complete method, given away</li>
-              <li><span className="mono text-signal">THU</span> &nbsp;<strong className="text-paper">Carousel</strong> &mdash; your own totals; the one day a free thing is mentioned</li>
-              <li><span className="mono text-signal">FRI</span> &nbsp;An argument worth having, or a story</li>
+              <li><span className="mono text-signal">WED</span> &nbsp;<strong className="text-paper">Text</strong> &mdash; one complete method, given away</li>
+              <li><span className="mono text-signal">THU</span> &nbsp;<strong className="text-paper">Carousel</strong> &mdash; your own numbers; the one day a free thing is mentioned</li>
+              <li><span className="mono text-signal">FRI</span> &nbsp;<strong className="text-paper">Poster</strong> &mdash; an argument worth having. Every fourth Friday, a film instead.</li>
             </ul>
             <p className="mt-3 text-sm text-paper/60">
               The content never sells &mdash; your profile does. Four days ask for nothing at all. One day
@@ -112,9 +112,11 @@ export default function LinkedInQueue() {
               other day.
             </p>
             <p className="mt-2 text-sm text-paper/60">
-              Two carousels a week, because published analyses of large post samples put carousel
-              engagement far above text and video. Eight to twelve slides, a hook under ten words,
-              and every middle slide leaves something unfinished so the swipe keeps going.
+              The mix is from 2026 platform benchmarks, not preference. Carousels lead on engagement
+              (~7%) and give the best reach for an account under 50,000 followers &mdash; two days a week.
+              Text engages least (~4%) but draws the most comments, and comments are what start
+              conversations &mdash; two days. One poster (~5%). Polls are excluded entirely: highest reach
+              on LinkedIn, lowest engagement, and poll voters rarely look at your profile.
             </p>
             <p className="mt-2 text-sm text-paper/60">
               No client&apos;s ad account is ever discussed &mdash; not their settings, not their campaigns,
@@ -263,6 +265,13 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {p.videoPrompt && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label text-signal">{"// VIDEO WEEK"}</p>
+            <p className="mt-2 text-sm text-paper/85">{p.videoPrompt}</p>
           </div>
         )}
 

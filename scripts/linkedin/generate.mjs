@@ -32,8 +32,8 @@ if (fs.existsSync(path.join(OUT, `${today}.json`)) && !process.env.LI_FORCE) { l
 const pillar = process.env.LI_PILLAR || cfg.weekShape[String(dayNum)] || "teach";
 // Carousels are the strongest format on the platform, so two weekdays are reserved for them —
 // the pillar stays the same, only the shape changes.
-const wantsCarousel = pillar === "carousel" || (cfg.carouselDays || []).includes(dayNum);
-const format = process.env.LI_FORMAT === "text" ? "text" : wantsCarousel ? "carousel" : "text";
+const dayFormat = (cfg.formatByDay || {})[String(dayNum)] || "text";
+const format = process.env.LI_FORMAT || (pillar === "carousel" ? "carousel" : dayFormat);
 const isSales = cfg.salesDays.includes(dayNum) && !process.env.LI_NO_SALES;
 
 /** Least-used pillar first, so nothing runs dry while something else repeats. */
@@ -62,7 +62,31 @@ function prompt(topic, news, fixes) {
     ? `\nThese are the ONLY news items you may write about. Use one. Quote its title accurately and include its URL in the post:\n${news.slice(0, 6).map((n) => `- [${n.publisher}, ${n.date}] ${n.title}\n  ${n.url}`).join("\n")}\n\nExplain what it means for a small business or a freelancer who is not technical. Do not speculate beyond what the headline and your general knowledge support.`
     : "";
 
-  return `Write ONE LinkedIn ${format === "carousel" ? "CAROUSEL (slides plus a caption)" : "text post"} for Jothi Swaroop.
+  const example = format === "carousel"
+    ? `A carousel that would pass on the first try:
+slide 1: "Four clicks tell you what your ad is chasing." (8 words, a number, not a question)
+slide 2: "Most people judge it by the creative. Wrong screen entirely."
+slides 3-9: one instruction each, under 18 words, each leaving the next one owed
+last slide: "Check this before the creative. It decides who Meta goes and finds."
+caption: opens on the same claim, 400-1200 characters, ends flat with no ask.`
+    : `A post that would pass on the first try:
+
+"4,248 leads at ₹16.58 each.
+That was the cheapest cost per lead I had ever produced.
+
+Cheap leads and leads that close are two different products.
+
+The form asked nothing. Two taps, every field pre-filled from Facebook. So Meta went looking for the cheapest person who would do a thing that costs nothing — which is exactly what it was asked for.
+
+Nobody ever recorded how many of those leads became orders. Including me.
+
+That is the number I would build first now."
+
+First line: 6 words, opens on a figure. No ask at the end. 520 characters.`;
+
+  return `Write ONE LinkedIn ${format === "carousel" ? "CAROUSEL (slides plus a caption)" : format === "poster" ? "text post with a poster image" : "text post"} for Jothi Swaroop.
+
+${example}
 
 PILLAR: ${topic.pillar}
 ANGLE: ${topic.angle}
@@ -106,8 +130,9 @@ function schemaFor(topic) {
       items: { type: "object", properties: { text: { type: "string" } }, required: ["text"] },
     };
     required.push("slides");
-  } else if (cfg.posterPillars.includes(topic.pillar)) {
-    props.posterLine = { type: "string", description: "One sentence under 90 characters for a poster image — the sharpest idea in the post." };
+  } else if (format === "poster" || cfg.posterPillars.includes(topic.pillar)) {
+    props.posterLine = { type: "string", description: "The single sharpest sentence in the post, under 90 characters, for the poster image." };
+    if (format === "poster") required.push("posterLine");
   }
   return { type: "object", properties: props, required };
 }
@@ -230,7 +255,7 @@ try {
     log(`rendered ${images.length} slides`);
   } else if (draft.posterLine) {
     images = await renderPoster(draft.posterLine, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
-    log("rendered poster");
+    log(`rendered poster: "${draft.posterLine.slice(0, 60)}"`);
   }
 } catch (e) {
   log(`image render failed (post is still fine): ${e.message.slice(0, 80)}`);
@@ -247,8 +272,16 @@ const unresolved = report.warnings.filter((w) => /^(UNVERIFIED|STILL UNVERIFIED|
 const autopostSafe = unresolved.length === 0;
 if (!autopostSafe) log(`held for review: ${unresolved.length} unsupported claim(s)`);
 
+// Video is the only format still climbing year on year and the films are already made, so every
+// fourth Friday the draft carries a reminder to post one instead of writing.
+const weekOfMonth = Math.ceil(Number(today.slice(8, 10)) / 7);
+const videoPrompt = dayNum === 5 && weekOfMonth === (cfg.videoPromptWeek || 2)
+  ? "Video week: post one of your own films today instead of this draft. Video is the only format still growing, and the films already exist. Upload it natively — never a YouTube link, which suppresses reach."
+  : null;
+if (videoPrompt) log("video week — reminder attached");
+
 const post = {
-  date: today, weekday, pillar: topic.pillar, format, angle: topic.angle, isSales,
+  date: today, weekday, pillar: topic.pillar, format, angle: topic.angle, isSales, videoPrompt,
   autopostSafe, heldBecause: autopostSafe ? null : (isSales ? "selling day — you approve anything that makes an offer" : unresolved),
   hook: body.split("\n").filter((l) => l.trim()).slice(0, 2).join(" "),
   body, chars: report.chars, avgWords: report.avgWords, warnings: report.warnings, images,

@@ -175,3 +175,22 @@ tricks like "you won't believe slide 6" — just don't finish the thought early.
 this is the selling day, and even then only a mention of something free.
 
 Never make a slide a title card for the next one. Never number slides in the text — the design does that.
+
+## Formats, and why each day is what it is
+
+Published 2026 benchmarks across the platform, not preference:
+
+- **Document and multi-image carousels** lead on engagement (~7%) and give creator accounts the best
+  reach. For an account under 50,000 followers, multi-image pulls the most impressions of any format.
+  Two days a week are carousels for this reason.
+- **Video** sits close behind (~6%) and is the only format still growing year on year. He has films
+  already made; once a month Friday should be one of those rather than a written post.
+- **Single images** (~5.2%) beat text on engagement but the evidence is mixed and moving. One strong
+  poster a week, never as a substitute for the writing.
+- **Text-only** (~4%) engages least but produces the most **comments** — and comments are what start
+  conversations, which is the whole point. Two days a week stay text.
+- **Polls** are excluded. Highest reach on the platform, lowest engagement, and people who vote in a
+  poll are far less likely to look at your profile afterwards. Reach without interest is worthless.
+
+**A poster post is not a text post with a picture stuck on.** The writing carries it; the image
+states the single sharpest line in the post, and nothing else.

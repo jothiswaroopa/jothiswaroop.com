@@ -140,7 +140,18 @@
   ],
   "slidesMin": 8,
   "slidesMax": 12,
-  "hookMaxWords": 12,
-  "attempts": 5,
-  "slideMaxWords": 20
+  "hookMaxWords": 14,
+  "attempts": 3,
+  "slideMaxWords": 20,
+  "formatByDay": {
+    "1": "text",
+    "2": "carousel",
+    "3": "text",
+    "4": "carousel",
+    "5": "poster"
+  },
+  "posterDays": [
+    5
+  ],
+  "videoPromptWeek": 2
 }
