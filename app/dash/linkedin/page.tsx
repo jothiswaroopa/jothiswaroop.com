@@ -73,18 +73,44 @@ export default function LinkedInQueue() {
         </div>
 
         <div className="bezel mt-4">
+          <div className="bezel-core border-l-2 border-signal p-5 md:p-6">
+            <p className="label text-signal">{"// THE HIGHEST-LEVERAGE THING ON THIS PAGE"}</p>
+            <p className="mt-3 text-lg text-paper">20 connection requests a day. Founders, not marketers.</p>
+            <p className="mt-3 text-paper/80">
+              LinkedIn shows a post to your own network first, then decides whether to push it wider.
+              So who you are connected to decides who ever sees your work. Right now that is mostly
+              other marketers, and other marketers will never pay you.
+            </p>
+            <p className="mt-3 text-paper/80">
+              Search apparel founders, D2C owners, clinic owners, manufacturers &mdash; the people whose
+              ad accounts you would want. Twenty a day, no pitch, no note or one line about their business.
+              That is 600 a month, and it permanently changes who every future post reaches.
+            </p>
+            <p className="mt-3 text-sm text-paper/60">
+              Boring, unglamorous, and worth more than the content. Do it while your coffee is brewing.
+            </p>
+          </div>
+        </div>
+
+        <div className="bezel mt-4">
           <div className="bezel-core p-5 md:p-6">
             <p className="label">{"// THE WEEK"}</p>
             <ul className="mt-3 grid gap-2 text-sm text-paper/80 sm:grid-cols-2">
-              <li><span className="mono text-signal">MON</span> &nbsp;What changed in AI or ads this week, in plain words</li>
+              <li><span className="mono text-signal">MON</span> &nbsp;What changed &mdash; then what you&apos;d do about it in a real account</li>
               <li><span className="mono text-signal">TUE</span> &nbsp;One complete method, given away</li>
-              <li><span className="mono text-signal">WED</span> &nbsp;Carousel &mdash; the same value, built to be swiped</li>
-              <li><span className="mono text-signal">THU</span> &nbsp;Your own numbers &mdash; the one selling day</li>
-              <li><span className="mono text-signal">FRI</span> &nbsp;A story or an argument worth having</li>
+              <li><span className="mono text-signal">WED</span> &nbsp;Carousel &mdash; the follower engine</li>
+              <li><span className="mono text-signal">THU</span> &nbsp;Your own numbers &mdash; the one day a free thing gets mentioned</li>
+              <li><span className="mono text-signal">FRI</span> &nbsp;A live ad taken apart, or a story</li>
             </ul>
             <p className="mt-3 text-sm text-paper/60">
-              Four days give value and ask for nothing. One day makes a soft offer. The bot refuses to
-              write a call to action on any other day.
+              The content never sells &mdash; your profile does. Four days ask for nothing at all. One day
+              mentions something free, once, as help. The bot refuses to write a call to action on any
+              other day.
+            </p>
+            <p className="mt-2 text-sm text-paper/60">
+              News days never stop at the news. Four hundred accounts post the same announcement within
+              a day; being fast is not being expert. Every trending post has to land on what you&apos;d
+              actually change in an account you run.
             </p>
           </div>
         </div>
@@ -146,7 +172,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
             <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/70">carousel</span>
           )}
           {p.isSales && (
-            <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">selling day</span>
+            <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">may mention the free audit</span>
           )}
           <span className="mono text-[10px] uppercase tracking-[0.12em] text-paper/45">{p.chars} chars</span>
         </div>

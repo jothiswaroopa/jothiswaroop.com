@@ -23,7 +23,7 @@
     "2": "teach",
     "3": "carousel",
     "4": "receipt",
-    "5": "story"
+    "5": "teardown"
   },
   "approvedFacts": [
     "7,341 lead-form submissions across nine Meta ad accounts (India, UK, US, Canada)",
@@ -117,10 +117,11 @@
   "salesDays": [
     4
   ],
-  "maxSalesPerWeek": 2,
+  "maxSalesPerWeek": 1,
   "maxAvgWords": 19,
   "posterPillars": [
     "receipt",
     "contrarian"
-  ]
+  ],
+  "fridayAlternate": "story"
 }
