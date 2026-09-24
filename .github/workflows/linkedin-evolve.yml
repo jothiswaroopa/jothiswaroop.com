@@ -2,7 +2,10 @@ name: LinkedIn monthly review
 
 on:
   schedule:
-    - cron: "0 2 1 * *"   # 07:30 IST on the 1st of each month
+    # Monthly, 07:30 IST on the 1st. A month is about 22 posts, which is roughly where its own
+    # failure data and Jothi's recorded impressions start to mean anything. Any shorter window and
+    # it would be tuning itself on noise.
+    - cron: "0 2 1 * *"
   workflow_dispatch: {}
 
 permissions:

@@ -74,6 +74,8 @@ Pillars whose drafts keep failing the fact-check: ${heldPillars}
 
 ${perfLine}
 
+Adding nothing is a valid answer. If the last fortnight turned up no real shift — just the same evergreen advice rephrased — say so and add no angles. A topic bank stuffed with marginal angles is worse than a small sharp one, and the bank already holds enough for months.
+
 Be willing to say that a popular tactic is wrong for him. Hook formulas that work for motivational or personal-brand accounts often read as hollow next to a screenshot-backed number, and copying them would cost him the one thing that makes him different. Name those explicitly under doesNotSuitUs.
 
 For new angles: every one must be answerable from what he actually knows — nine Meta ad accounts, 7,341 lead-form submissions, 876 conversations, the Nova Attire and Five Elements campaigns, nine live automations, an MBA and two years as an equity advisor. Never propose an angle that needs a result he never measured, because the fact-check will block it and the post will be wasted.` }],

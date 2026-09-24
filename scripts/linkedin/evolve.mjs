@@ -97,6 +97,8 @@ Then judge:
 3. Which pillars keep producing posts that get held? Those topics may be asking for claims that cannot be supported.
 4. What should be dropped entirely?
 
+CHANGING NOTHING IS A VALID AND OFTEN CORRECT ANSWER. A review that finds something to change every single month is chasing noise, and noise-chasing is how a working system degrades. Propose a change only where the evidence is strong enough that you would defend it out loud. If the month's data is thin — and ${recent.length} runs is thin — say so, change little or nothing, and wait. Stability is worth more than motion.
+
 This account belongs to a performance marketer in Chennai selling to founder-led manufacturers and brands in India, the UK and the US. He publishes nothing without a receipt behind it. A tactic that works for a motivational-content account is not automatically right here — say so when that applies.`;
 
 const res = await client.messages.create({

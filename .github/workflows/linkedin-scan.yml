@@ -1,8 +1,11 @@
-name: LinkedIn weekly trend scan
+name: LinkedIn trend scan
 
 on:
   schedule:
-    - cron: "0 3 * * 0"   # 08:30 IST every Sunday
+    # Fortnightly, the 1st and 15th at 08:30 IST. Weekly was wrong: what works on LinkedIn shifts
+    # over months, not weeks, so a weekly scan mostly rephrases last week's answer and grows the
+    # topic bank with marginal angles. Daily AI news is already covered by the RSS feeds.
+    - cron: "0 3 1,15 * *"
   workflow_dispatch: {}
 
 permissions:

@@ -207,11 +207,13 @@ export default function LinkedInQueue() {
 
         {learning?.scans && learning.scans.length > 0 && (
           <>
-            <p className="label mt-14">{"// WHAT IT FOUND ON LINKEDIN THIS WEEK"}</p>
+            <p className="label mt-14">{"// WHAT IT FOUND ON LINKEDIN"}</p>
             <p className="mt-2 max-w-2xl text-sm text-paper/65">
-              Every Sunday it searches for what is actually landing on LinkedIn right now, decides what
-              suits an account built on receipts, and adds angles worth writing. It can retire topics
-              that keep failing. It cannot touch your facts or the fabrication rules.
+              On the 1st and 15th it searches for what is actually landing on LinkedIn right now,
+              decides what suits an account built on receipts, and adds angles worth writing. It can
+              retire topics that keep failing. Finding nothing worth changing is a valid answer and
+              it is told so &mdash; a system that changes every week is chasing noise. It cannot touch
+              your facts or the fabrication rules.
             </p>
             {learning.scans.slice(0, 2).map((s) => (
               <div key={s.date} className="bezel mt-4">
