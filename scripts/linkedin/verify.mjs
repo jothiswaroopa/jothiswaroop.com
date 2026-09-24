@@ -31,7 +31,7 @@ const TOOL = {
             severity: {
               type: "string",
               enum: ["blocking", "check"],
-              description: "blocking = states a figure, a client outcome, or a first-hand experience nothing supports. check = an interpretation or generalisation a reasonable expert might defend.",
+              description: "blocking = a figure that is not in the approved facts, a claim about what a named or described client did, said, got or experienced, or a first-hand claim about what he personally saw, found or was told. Nothing else is blocking. check = an industry generalisation, an opinion, a rule of thumb, a platform mechanic stated plainly, or any interpretation a working practitioner would defend — these are flagged for a human to glance at, never treated as fabrication.",
             },
           },
           required: ["quote", "issue", "severity"],
@@ -78,7 +78,7 @@ Flag every claim that the material above does not support. In particular:
 - Any statement about how a platform works presented as certain fact, where it is actually a generalisation.
 - Any named framework or method presented as established or widely used when it is simply his own idea.
 
-Do NOT flag: general advice, opinions clearly framed as opinion, hypotheticals openly marked as hypothetical ("say a clinic runs..."), or well-known platform mechanics that any practitioner would confirm.
+Do NOT flag as blocking: general advice, industry generalisations ("most campaigns never ask"), rules of thumb, opinions, hypotheticals openly marked as such ("say a clinic runs..."), or platform mechanics any practitioner would confirm. Those are "check" at most, and often nothing at all. Blocking is reserved for an invented number, an invented client fact, or an invented personal experience — the three things that would genuinely embarrass him if a reader checked.
 
 Be strict about the first-hand-experience ones. Those are the claims that read as most credible and are easiest to invent.`,
     }],
