@@ -20,6 +20,7 @@ type Post = {
   slides?: { text: string }[]; images?: string[]; isSales?: boolean;
   sources?: { title: string; url: string; publisher: string }[]; status: string;
   autopostSafe?: boolean; heldBecause?: string[] | string | null; postedAt?: string;
+  notPosted?: string; tokenExpired?: boolean;
 };
 type Queue = { generated: string; posts: Post[] };
 
@@ -210,6 +211,8 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           )}
           {p.status === "posted" ? (
             <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">posted</span>
+          ) : p.tokenExpired ? (
+            <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">token expired</span>
           ) : p.autopostSafe === false ? (
             <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-paper/70">waiting for you</span>
           ) : p.autopostSafe === true ? (
@@ -260,6 +263,27 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {p.tokenExpired && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label text-signal">{"// LINKEDIN TOKEN EXPIRED — POST THIS ONE BY HAND"}</p>
+            <p className="mt-2 text-sm text-paper/80">
+              Tokens last about 60 days. Generate a new one at{" "}
+              <a href="https://www.linkedin.com/developers/tools/oauth/token-generator" target="_blank" rel="noreferrer" className="underline-slide">
+                linkedin.com/developers &rarr; token generator
+              </a>{" "}
+              and replace the <span className="mono">LINKEDIN_TOKEN</span> secret in the repo. Nothing is lost
+              meanwhile &mdash; the drafts keep arriving here.
+            </p>
+          </div>
+        )}
+
+        {p.notPosted && !p.tokenExpired && (
+          <div className="mt-5 border-t hairline pt-4">
+            <p className="label">{"// NOT POSTED AUTOMATICALLY"}</p>
+            <p className="mt-2 text-sm text-paper/75">{p.notPosted}</p>
           </div>
         )}
 

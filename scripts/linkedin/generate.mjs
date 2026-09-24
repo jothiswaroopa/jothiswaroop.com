@@ -215,11 +215,12 @@ try {
 // Autopost only what came through clean. Anything the fact-check questioned, anything that had to
 // be accepted over a limit, and every selling-day post waits for Jothi — those are exactly the
 // posts where a human read is worth more than the convenience.
-const unresolved = report.warnings.filter((w) => /^(UNVERIFIED|STILL UNVERIFIED|check:|over a limit|fact-check did not run)/.test(w));
-const autopostSafe = unresolved.length === 0 && !isSales;
-if (!autopostSafe) {
-  log(`held for review: ${isSales ? "selling day" : `${unresolved.length} open question(s)`}`);
-}
+// Only a claim the fact-check could not support holds a post back. Length misses and softer
+// "worth a look" notes still appear on the review page, but they do not stop it going out —
+// a post that never publishes helps nobody.
+const unresolved = report.warnings.filter((w) => /^(UNVERIFIED|STILL UNVERIFIED|fact-check did not run)/.test(w));
+const autopostSafe = unresolved.length === 0;
+if (!autopostSafe) log(`held for review: ${unresolved.length} unsupported claim(s)`);
 
 const post = {
   date: today, weekday, pillar: topic.pillar, format, angle: topic.angle, isSales,

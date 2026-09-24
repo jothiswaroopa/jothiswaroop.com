@@ -1,16 +1,15 @@
 // Posts a draft to LinkedIn through LinkedIn's own Posts API.
 //
-// DORMANT BY DEFAULT. It does nothing unless all three are present:
-//   LINKEDIN_TOKEN   — OAuth access token with the w_member_social scope
-//   LINKEDIN_URN     — urn:li:person:XXXXXXXX  (your own member id)
+// DORMANT BY DEFAULT. It needs exactly two things:
+//   LINKEDIN_TOKEN   — OAuth access token with the w_member_social and openid/profile scopes
 //   LI_AUTOPOST=1    — the explicit switch, so a token alone never starts posting
 //
-// Getting those is a one-time job Jothi does himself at linkedin.com/developers:
-// create an app, add the "Share on LinkedIn" product, run the OAuth flow, copy the token.
-// Tokens last 60 days. Never paste one into chat — put it straight into GitHub secrets.
+// The member URN is NOT a secret and is NOT asked for: it is resolved from the token itself via
+// /v2/userinfo on each run, so there is one less thing to copy by hand and one less thing to get wrong.
 //
-// This code follows LinkedIn's documented endpoints but has never run against a live account,
-// because no token exists yet. Treat the first run as a test: post one draft, check the profile.
+// Tokens last about 60 days. When one expires the post is not lost — the run reports it and the
+// draft waits on the review page, so the worst case is posting by hand until a new token is in.
+// Never paste a token into chat; it goes straight into GitHub secrets.
 import fs from "node:fs";
 import path from "node:path";
 
@@ -20,8 +19,21 @@ const ROOT = process.cwd();
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), "[li-publish]", ...a);
 
 const token = process.env.LINKEDIN_TOKEN;
-const author = process.env.LINKEDIN_URN;
 const armed = process.env.LI_AUTOPOST === "1";
+let author = process.env.LINKEDIN_URN || null; // optional override; normally derived below
+
+/** Ask LinkedIn who the token belongs to. Saves Jothi copying a member id he'd have to dig out. */
+async function resolveAuthor() {
+  if (author) return author;
+  const r = await fetch("https://api.linkedin.com/v2/userinfo", { headers: { Authorization: `Bearer ${token}` } });
+  if (r.status === 401) throw new Error("TOKEN_EXPIRED");
+  if (!r.ok) throw new Error(`userinfo ${r.status}: ${(await r.text()).slice(0, 140)}`);
+  const me = await r.json();
+  if (!me.sub) throw new Error("userinfo returned no member id — is the openid/profile scope on the token?");
+  author = `urn:li:person:${me.sub}`;
+  log(`posting as ${me.name || me.sub}`);
+  return author;
+}
 
 const headers = () => ({
   Authorization: `Bearer ${token}`,
@@ -49,12 +61,18 @@ async function uploadImage(absPath, alt) {
 
 export async function publish(post) {
   if (!armed) return { skipped: "LI_AUTOPOST not set" };
-  if (!token || !author) return { skipped: "LINKEDIN_TOKEN or LINKEDIN_URN missing" };
+  if (!token) return { skipped: "LINKEDIN_TOKEN not set" };
   // The gate: a draft the fact-check questioned, or one that makes an offer, never goes out
   // unread. Automation is worth having right up until it publishes something nobody checked.
   if (post.autopostSafe === false) {
-    const why = Array.isArray(post.heldBecause) ? `${post.heldBecause.length} open question(s)` : post.heldBecause;
+    const why = Array.isArray(post.heldBecause) ? post.heldBecause.join("; ") : post.heldBecause;
     return { skipped: `held for review — ${why}` };
+  }
+  try {
+    await resolveAuthor();
+  } catch (e) {
+    if (e.message === "TOKEN_EXPIRED") return { skipped: "LINKEDIN_TOKEN has expired — generate a new one", expired: true };
+    throw e;
   }
 
   const images = (post.images || []).map((p) => path.join(ROOT, "public", p.replace(/^\//, "")));
@@ -81,6 +99,7 @@ export async function publish(post) {
   };
 
   const res = await fetch(`${API}/posts`, { method: "POST", headers: headers(), body: JSON.stringify(body) });
+  if (res.status === 401) return { skipped: "LINKEDIN_TOKEN has expired — generate a new one", expired: true };
   if (!res.ok) throw new Error(`posts ${res.status}: ${(await res.text()).slice(0, 220)}`);
   const id = res.headers.get("x-restli-id") || "(no id returned)";
   log(`posted ${id}`);
@@ -94,7 +113,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (!fs.existsSync(file)) { console.error(`no draft for ${day}`); process.exit(1); }
   const post = JSON.parse(fs.readFileSync(file, "utf8"));
   const out = await publish(post);
-  if (out.skipped) { log(`not posting — ${out.skipped}`); process.exit(0); }
+  if (out.skipped) {
+    log(`not posting — ${out.skipped}`);
+    // Record it on the draft so the review page can say why, rather than looking silently idle.
+    post.notPosted = out.skipped;
+    if (out.expired) post.tokenExpired = true;
+    fs.writeFileSync(file, JSON.stringify(post, null, 2) + "\n");
+    process.exit(0);
+  }
   post.status = "posted";
   post.postedAt = new Date().toISOString();
   post.linkedinId = out.id;

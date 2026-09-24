@@ -48,7 +48,7 @@ jobs:
         if: hashFiles('.li-drafted') != ''
         env:
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
-          LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}
+          LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}   # optional — derived from the token when unset
           LI_AUTOPOST: ${{ vars.LI_AUTOPOST }}
         run: node scripts/linkedin/publish.mjs "$(cat .li-drafted)"
       - name: Commit and deploy
