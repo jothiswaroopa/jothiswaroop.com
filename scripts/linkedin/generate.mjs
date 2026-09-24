@@ -54,8 +54,8 @@ function pickTopic() {
 function prompt(topic, news, fixes) {
   const facts = cfg.approvedFacts.map((f) => `- ${f}`).join("\n");
   const shape = format === "carousel"
-    ? `Return strict JSON only: {"slides":[{"text":"..."}],"body":"the caption to post with the carousel"}. ${cfg.slidesMin} to ${cfg.slidesMax} slides. Slide 1 is the hook in under 10 words, never a question. Slide 2 is the stakes. Middle slides are one idea each, under 18 words, and each must leave something unfinished so the reader swipes. The second-to-last slide is the payoff slide 1 promised. The last slide is the takeaway, no call to action. Never number a slide in its text and never tell the reader to swipe.`
-    : `Return strict JSON only: {"body":"the post, with real line breaks as \\n"${cfg.posterPillars.includes(topic.pillar) ? `, "posterLine":"one sentence under 90 characters for a poster image — the sharpest idea in the post"` : ""}}.`;
+    ? `Slide 1 is the hook, under 10 words, never a question. Slide 2 is the stakes. Middle slides are one idea each under 18 words, and every one must leave something unfinished so the reader keeps swiping. The second-to-last slide pays off what slide 1 promised. The last slide is the takeaway with no call to action. Never number a slide in its own text, and never tell the reader to swipe — earn it.`
+    : `Write the post as flowing paragraphs separated by line breaks.`;
 
   const newsBlock = news?.length
     ? `\nThese are the ONLY news items you may write about. Use one. Quote its title accurately and include its URL in the post:\n${news.slice(0, 6).map((n) => `- [${n.publisher}, ${n.date}] ${n.title}\n  ${n.url}`).join("\n")}\n\nExplain what it means for a small business or a freelancer who is not technical. Do not speculate beyond what the headline and your general knowledge support.`
@@ -86,55 +86,42 @@ ${isSales
 ${fixes ? `\nYour previous attempt was rejected for these reasons. Fix every one:\n${fixes.map((e) => `- ${e}`).join("\n")}` : ""}`;
 }
 
-/** Pull the first balanced {...} out of a blob, ignoring braces inside strings. */
-function braced(s) {
-  const i = s.indexOf("{");
-  if (i < 0) return null;
-  let depth = 0, inStr = false, esc = false;
-  for (let j = i; j < s.length; j++) {
-    const c = s[j];
-    if (esc) { esc = false; continue; }
-    if (c === "\\") { esc = true; continue; }
-    if (c === '"') { inStr = !inStr; continue; }
-    if (inStr) continue;
-    if (c === "{") depth++;
-    else if (c === "}" && --depth === 0) return s.slice(i, j + 1);
-  }
-  return null;
-}
-
 /**
- * Models sometimes wrap JSON in prose or leave a quote unescaped. Prefilling the reply with "{"
- * makes prose impossible; the repair pass is the fallback when the body itself is malformed.
+ * The model returns the draft as a tool call, so the API guarantees a well-formed object against
+ * this schema. Free-text JSON kept arriving wrapped in prose or with an unescaped quote; this
+ * removes the parsing step entirely.
  */
-async function parseJsonLoose(raw) {
-  const cleaned = raw.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
-  for (const candidate of [cleaned, braced(cleaned)]) {
-    if (!candidate) continue;
-    try { return JSON.parse(candidate); } catch { /* try the next shape */ }
+function schemaFor(topic) {
+  const props = {
+    body: { type: "string", description: format === "carousel" ? "The caption to post alongside the carousel." : "The post itself. Use real line breaks between paragraphs." },
+  };
+  const required = ["body"];
+  if (format === "carousel") {
+    props.slides = {
+      type: "array",
+      minItems: cfg.slidesMin,
+      maxItems: cfg.slidesMax,
+      description: `${cfg.slidesMin}-${cfg.slidesMax} slides. Slide 1 is the hook, under 10 words, never a question. Slide 2 is the stakes. Middle slides are one idea each under 18 words, and each leaves something unfinished so the reader swipes. Second to last pays off the hook. The last is the takeaway.`,
+      items: { type: "object", properties: { text: { type: "string" } }, required: ["text"] },
+    };
+    required.push("slides");
+  } else if (cfg.posterPillars.includes(topic.pillar)) {
+    props.posterLine = { type: "string", description: "One sentence under 90 characters for a poster image — the sharpest idea in the post." };
   }
-  log("JSON malformed — asking for a repair");
-  const fix = await client.messages.create({
-    model: cfg.model, max_tokens: 3000,
-    messages: [
-      { role: "user", content: `Fix this into strict valid JSON. Keep every word of the content identical — only correct quoting, escaping and commas. Reply with the JSON object and nothing else.\n\n${cleaned}` },
-      { role: "assistant", content: "{" },
-    ],
-  });
-  const repaired = "{" + fix.content.map((c) => (c.type === "text" ? c.text : "")).join("");
-  const span = braced(repaired.replace(/```/g, ""));
-  return JSON.parse(span || repaired);
+  return { type: "object", properties: props, required };
 }
 
 async function ask(topic, news, fixes) {
+  const tool = { name: "draft_post", description: "Return the finished LinkedIn draft.", input_schema: schemaFor(topic) };
   const res = await client.messages.create({
     model: cfg.model, max_tokens: 2500, system: VOICE,
-    messages: [
-      { role: "user", content: prompt(topic, news, fixes) },
-      { role: "assistant", content: "{" }, // forces a JSON object, so no preamble is possible
-    ],
+    tools: [tool],
+    tool_choice: { type: "tool", name: "draft_post" },
+    messages: [{ role: "user", content: prompt(topic, news, fixes) }],
   });
-  return parseJsonLoose("{" + res.content.map((c) => (c.type === "text" ? c.text : "")).join(""));
+  const call = res.content.find((c) => c.type === "tool_use");
+  if (!call) throw new Error("model returned no draft");
+  return call.input;
 }
 
 const topic = pickTopic();
