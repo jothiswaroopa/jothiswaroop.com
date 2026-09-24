@@ -1,31 +1,25 @@
 {
-  "generated": "2026-09-24T12:42:41.201Z",
+  "generated": "2026-09-24T12:44:13.605Z",
   "posts": [
     {
       "date": "2026-09-24",
       "weekday": "Thu",
-      "pillar": "trending",
+      "pillar": "framework",
       "format": "carousel",
-      "angle": "A new AI model or feature launched this week. What it changes for someone running a small business.",
+      "angle": "The 60-Second Rule: what has to happen in the first minute after an enquiry arrives, as a repeatable system.",
       "isSales": true,
       "videoPrompt": null,
       "autopostSafe": false,
       "heldBecause": "selling day — you approve anything that makes an offer",
-      "hook": "Four clicks tell you what your ad is chasing. Ringg's new AI agents now resolve up to 65% of customer calls (OpenAI, 2026-09-23: https://openai.com/index/ringg). Useful news. But it made me think about a simpler thing most small business owners never check.",
-      "body": "Four clicks tell you what your ad is chasing.\n\nRingg's new AI agents now resolve up to 65% of customer calls (OpenAI, 2026-09-23: https://openai.com/index/ringg). Useful news. But it made me think about a simpler thing most small business owners never check.\n\nEvery Meta ad has a setting called Performance goal. It tells Meta what to optimise for: clicks, messages, leads, or something called \"conversions\" further down your funnel.\n\nMost people never open this screen. They judge the ad by the creative, the image, the caption. Wrong screen entirely.\n\nIf your Performance goal is set to \"link clicks,\" Meta will find you people who click. Not people who buy, not people who book, not people who fill your form. Just clickers. Across our own accounts, we track over 7,341 lead-form submissions from nine Meta accounts in India, UK, US and Canada, and that setting is the difference between a form that fills and one that doesn't.\n\nHere's where to look: Ads Manager, your campaign, the ad set, the line that says Performance goal.\n\nCheck this before the creative. It decides who Meta goes and finds.\n\nIf you want a second pair of eyes on your own account's settings, our audit is free.\n\n#metaads #smallbusiness #digitalmarketing",
-      "chars": 1228,
-      "avgWords": 12.6,
+      "hook": "Four clicks tell you what your ad is chasing. Most people never check this. They judge the ad by the creative, the image or video everyone spent hours on. That's the wrong screen.",
+      "body": "Four clicks tell you what your ad is chasing.\n\nMost people never check this. They judge the ad by the creative, the image or video everyone spent hours on. That's the wrong screen.\n\nThe screen that matters is Ads Manager, at the ad set level, the line called Performance goal. It tells you what Meta is actually optimising for — leads, messages, or something else entirely.\n\nIf that line doesn't match what you want to happen after someone clicks, no creative fixes it. Meta will keep sending you the wrong people, fast, and cheap, and confidently.\n\nAcross the accounts we've handled, 7,341 people have filled a lead form. Every one of those started because Meta was chasing a specific goal, set on a specific screen, before a single ad ran.\n\nCheck the goal before you touch the creative. It decides who Meta goes and finds.\n\nIf you want to see how your own account is set up, an audit is free on jothiswaroop.com.\n\n#metaads #digitalmarketing #leadgen",
+      "chars": 951,
+      "avgWords": 11.9,
       "warnings": [
         "no number in the first line — openers with a figure tend to do better",
+        "one paragraph is 331 chars — may read as a wall",
         "no number in the first line — openers with a figure tend to do better",
-        "one sentence is 35 words long",
-        "one paragraph is 376 chars — may read as a wall",
-        "over a limit: hook is 257 chars, must be under 210",
-        "STILL UNVERIFIED: \"Across our own accounts, we track over 7,341 lead-form submissions from nine Meta accounts in India, UK, US and Canada, and that setting is the difference between a form that fills and one that doesn't.\" — The approved fact states 7,341 lead-form submissions across nine Meta ad accounts, but it does not establish that this specific 'Performance goal' setting was the difference between forms filling or not — that is an invented causal claim about his own accounts.",
-        "check: \"If your Performance goal is set to \"link clicks,\" Meta will find you people who \" — Presented as a certain, absolute platform mechanic rather than a generalisation a practitioner would state with more nuance.",
-        "check: \"Set it to 'link clicks' and Meta finds people who click. Nothing more.\nSet it to\" — Stated as absolute platform fact/certainty without qualification.",
-        "check: \"hidden three menus deep\" — Specific navigational claim not verifiable from approved facts, presented as fact about the platform's UI.",
-        "check: \"Four clicks tell you what your ad is chasing.\" — Specific number of clicks to reach the setting is not supported by approved facts."
+        "fact-check did not run — read every claim yourself before posting"
       ],
       "images": [
         "/linkedin/2026-09-24/slide-01.png",
@@ -37,8 +31,7 @@
         "/linkedin/2026-09-24/slide-07.png",
         "/linkedin/2026-09-24/slide-08.png",
         "/linkedin/2026-09-24/slide-09.png",
-        "/linkedin/2026-09-24/slide-10.png",
-        "/linkedin/2026-09-24/slide-11.png"
+        "/linkedin/2026-09-24/slide-10.png"
       ],
       "slides": [
         {
@@ -48,48 +41,28 @@
           "text": "Most people judge it by the creative. Wrong screen entirely."
         },
         {
-          "text": "Every Meta ad has a setting called Performance goal, hidden three menus deep."
+          "text": "Open Ads Manager. Click into the campaign you want to check."
         },
         {
-          "text": "It tells Meta what kind of result to chase for you: clicks, messages, or leads."
+          "text": "Click one level down, into the ad set inside it."
         },
         {
-          "text": "Set it to 'link clicks' and Meta finds people who click. Nothing more."
+          "text": "Find the line called Performance goal. Most people never open this."
         },
         {
-          "text": "Set it to 'leads' and Meta hunts for people who actually fill your form."
+          "text": "This line tells Meta what to chase — leads, messages, something else."
         },
         {
-          "text": "Same budget, same photo, same headline. Totally different audience found."
+          "text": "Say it's set to messages, but you actually want form fills."
         },
         {
-          "text": "Here's exactly where it lives: Ads Manager, your campaign, the ad set."
+          "text": "Meta will keep sending people who message, not people who fill forms."
         },
         {
-          "text": "Then the line that says Performance goal, right above your daily budget."
+          "text": "No creative fixes a mismatch here. Not the image, not the copy."
         },
         {
           "text": "Check this before the creative. It decides who Meta goes and finds."
-        },
-        {
-          "text": "One setting, checked in four clicks, before you touch a single word of copy."
-        }
-      ],
-      "sources": [
-        {
-          "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
-          "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
-          "publisher": "OpenAI"
-        },
-        {
-          "title": "How invideo improves color grading 3x with GPT‑6 Astra",
-          "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
-          "publisher": "OpenAI"
-        },
-        {
-          "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
-          "url": "https://openai.com/index/ringg",
-          "publisher": "OpenAI"
         }
       ],
       "status": "draft"
