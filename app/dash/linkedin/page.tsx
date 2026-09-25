@@ -27,6 +27,15 @@ type Change = { date: string; findings: string[]; applied: { key: string; from: 
 type Scan = { date: string; whatsWorking: string[]; suitsUs: string[]; doesNotSuitUs: string[]; added: { pillar: string; angle: string; why: string }[]; retired: number };
 type Learning = { generated: string; changes: Change[]; scans?: Scan[] };
 
+/**
+ * Every list on this page comes from a model's tool call, and a schema that says "array of strings"
+ * can still hand back one string — which is how a scan record with a leaked `<parameter>` block
+ * took the whole site's deploy down. This page renders engine output; it must never be the reason
+ * jothiswaroop.com stops building.
+ */
+const arr = <T,>(v: T[] | T | null | undefined): T[] =>
+  Array.isArray(v) ? v : v === null || v === undefined || v === "" ? [] : [v];
+
 const load = (): Queue | null => {
   try {
     return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/linkedin.json"), "utf8"));
@@ -205,7 +214,7 @@ export default function LinkedInQueue() {
           </>
         )}
 
-        {learning?.scans && learning.scans.length > 0 && (
+        {arr(learning?.scans).length > 0 && (
           <>
             <p className="label mt-14">{"// WHAT IT FOUND ON LINKEDIN"}</p>
             <p className="mt-2 max-w-2xl text-sm text-paper/65">
@@ -215,23 +224,23 @@ export default function LinkedInQueue() {
               it is told so &mdash; a system that changes every week is chasing noise. It cannot touch
               your facts or the fabrication rules.
             </p>
-            {learning.scans.slice(0, 2).map((s) => (
+            {arr(learning?.scans).slice(0, 2).map((s) => (
               <div key={s.date} className="bezel mt-4">
                 <div className="bezel-core p-5 md:p-6">
                   <p className="label">{s.date}</p>
-                  {s.whatsWorking?.length > 0 && (
+                  {arr(s.whatsWorking).length > 0 && (
                     <>
                       <p className="label mt-3">{"// WORKING NOW"}</p>
                       <ul className="mt-2 space-y-1.5 text-sm text-paper/80">
-                        {s.whatsWorking.map((x, i) => <li key={i}>&middot; {x}</li>)}
+                        {arr(s.whatsWorking).map((x, i) => <li key={i}>&middot; {x}</li>)}
                       </ul>
                     </>
                   )}
-                  {s.doesNotSuitUs?.length > 0 && (
+                  {arr(s.doesNotSuitUs).length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label text-signal">{"// DELIBERATELY NOT COPYING"}</p>
                       <ul className="mt-2 space-y-1.5 text-sm text-paper/75">
-                        {s.doesNotSuitUs.map((x, i) => <li key={i}>&middot; {x}</li>)}
+                        {arr(s.doesNotSuitUs).map((x, i) => <li key={i}>&middot; {x}</li>)}
                       </ul>
                     </div>
                   )}
@@ -239,7 +248,7 @@ export default function LinkedInQueue() {
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label">{`// ${s.added.length} ANGLE${s.added.length === 1 ? "" : "S"} ADDED`}</p>
                       <ul className="mt-2 space-y-2 text-sm text-paper/75">
-                        {s.added.map((a, i) => (
+                        {arr(s.added).map((a, i) => (
                           <li key={i}>
                             <span className="mono text-signal">{a.pillar}</span> {a.angle}
                             <span className="block text-paper/50">{a.why}</span>
@@ -254,7 +263,7 @@ export default function LinkedInQueue() {
           </>
         )}
 
-        {learning && learning.changes.length > 0 && (
+        {arr(learning?.changes).length > 0 && (
           <>
             <p className="label mt-14">{"// WHAT IT CHANGED ABOUT ITSELF"}</p>
             <p className="mt-2 max-w-2xl text-sm text-paper/65">
@@ -263,20 +272,20 @@ export default function LinkedInQueue() {
               Anything touching your facts, your voice or the fabrication rules is listed for you to
               approve &mdash; it cannot change those by itself.
             </p>
-            {learning.changes.map((c) => (
+            {arr(learning?.changes).map((c) => (
               <div key={c.date} className="bezel mt-4">
                 <div className="bezel-core p-5 md:p-6">
                   <p className="label">{c.date}</p>
-                  {c.findings?.length > 0 && (
+                  {arr(c.findings).length > 0 && (
                     <ul className="mt-3 space-y-1.5 text-sm text-paper/80">
-                      {c.findings.map((f, i) => <li key={i}>&middot; {f}</li>)}
+                      {arr(c.findings).map((f, i) => <li key={i}>&middot; {f}</li>)}
                     </ul>
                   )}
-                  {c.applied?.length > 0 && (
+                  {arr(c.applied).length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label">{"// APPLIED"}</p>
                       <ul className="mt-2 space-y-1 text-sm text-paper/75">
-                        {c.applied.map((a, i) => (
+                        {arr(c.applied).map((a, i) => (
                           <li key={i}>
                             <span className="mono text-signal">{a.key}</span> {a.from} &rarr; {a.to} &mdash; {a.reason}
                           </li>
@@ -284,11 +293,11 @@ export default function LinkedInQueue() {
                       </ul>
                     </div>
                   )}
-                  {c.forReview?.length > 0 && (
+                  {arr(c.forReview).length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label text-signal">{"// NEEDS YOUR APPROVAL"}</p>
                       <ul className="mt-2 space-y-1 text-sm text-paper/75">
-                        {c.forReview.map((r, i) => <li key={i}>&middot; {r}</li>)}
+                        {arr(c.forReview).map((r, i) => <li key={i}>&middot; {r}</li>)}
                       </ul>
                     </div>
                   )}
@@ -346,7 +355,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
               {p.images.length > 1 ? `// ${p.images.length} SLIDES — READY TO UPLOAD` : "// POSTER — READY TO UPLOAD"}
             </p>
             <div className="mt-3 flex gap-3 overflow-x-auto pb-2">
-              {p.images.map((src, i) => (
+              {arr(p.images).map((src, i) => (
                 <a key={src} href={src} target="_blank" rel="noreferrer" className="press shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={src} alt={`Slide ${i + 1}`} width={160} height={200} className="w-[160px] border hairline" />
@@ -363,7 +372,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           <div className="mt-5 border-t hairline pt-4">
             <p className="label">{"// SOURCES BEHIND THIS"}</p>
             <ul className="mt-2 space-y-1 text-sm">
-              {p.sources.map((s) => (
+              {arr(p.sources).map((s) => (
                 <li key={s.url}>
                   <a href={s.url} target="_blank" rel="noreferrer" className="underline-slide text-paper/75">
                     {s.publisher}: {s.title}
@@ -406,7 +415,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           <div className="mt-5 border-t hairline pt-4">
             <p className="label text-signal">{"// HELD FOR YOU — WILL NOT AUTO-POST"}</p>
             <ul className="mt-2 space-y-1 text-sm text-paper/75">
-              {(Array.isArray(p.heldBecause) ? p.heldBecause : [p.heldBecause]).map((w, i) => <li key={i}>&middot; {w}</li>)}
+              {arr(p.heldBecause).map((w, i) => <li key={i}>&middot; {w}</li>)}
             </ul>
           </div>
         )}
@@ -415,14 +424,14 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           <div className="mt-5 border-t hairline pt-4">
             <p className="label text-signal">{"// CHECK BEFORE POSTING"}</p>
             <ul className="mt-2 space-y-1 text-sm text-paper/70">
-              {p.warnings.map((w, i) => <li key={i}>&middot; {w}</li>)}
+              {arr(p.warnings).map((w, i) => <li key={i}>&middot; {w}</li>)}
             </ul>
           </div>
         )}
 
         <div className="mt-5 flex flex-wrap items-center gap-3 border-t hairline pt-4">
           <CopyText text={p.body} />
-          {p.slides && <CopyText text={p.slides.map((s, i) => `${i + 1}. ${s.text}`).join("\n")} label="Copy slides" />}
+          {p.slides && <CopyText text={arr(p.slides).map((s, i) => `${i + 1}. ${s.text}`).join("\n")} label="Copy slides" />}
           <span className="mono text-[10px] uppercase tracking-[0.12em] text-paper/40">Edit one line so it&apos;s yours</span>
         </div>
       </div>

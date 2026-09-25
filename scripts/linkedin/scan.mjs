@@ -84,9 +84,23 @@ For new angles: every one must be answerable from what he actually knows — nin
 const call = res.content.find((c) => c.type === "tool_use" && c.name === "report_scan");
 if (!call) { log("no report returned"); process.exit(0); }
 const out = call.input;
-// A schema can say "array of strings" and still come back as one string; logging that character
-// by character is how you find out. Normalise before touching any of it.
-const list = (v) => (Array.isArray(v) ? v : typeof v === "string" && v.trim() ? v.split(/\n+|(?<=\.)\s+(?=[A-Z])/).map((s) => s.trim()).filter(Boolean) : []);
+// A schema can say "array of strings" and still come back as one string — and once it came back as
+// the raw tool-call syntax, `<parameter name="whatsWorking">["...", "..."]`, which then reached the
+// dashboard as a string and broke the site build. Recover the JSON inside before falling back to
+// splitting prose, and never let this leave here as anything but an array of strings.
+const list = (v) => {
+  if (Array.isArray(v)) return v.map((x) => String(x).trim()).filter(Boolean);
+  if (typeof v !== "string" || !v.trim()) return [];
+  const s = v.replace(/<\/?parameter[^>]*>/g, "").trim();
+  const bracket = s.match(/\[[\s\S]*\]/);
+  if (bracket) {
+    try {
+      const got = JSON.parse(bracket[0]);
+      if (Array.isArray(got)) return got.map((x) => String(x).trim()).filter(Boolean);
+    } catch { /* not JSON after all — fall through to the prose split */ }
+  }
+  return s.split(/\n+|(?<=\.)\s+(?=[A-Z])/).map((x) => x.trim()).filter(Boolean);
+};
 out.whatsWorking = list(out.whatsWorking);
 out.suitsUs = list(out.suitsUs);
 out.doesNotSuitUs = list(out.doesNotSuitUs);
