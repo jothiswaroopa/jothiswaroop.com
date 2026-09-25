@@ -1,19 +1,21 @@
 // Fiverr gig gallery images, 1280×769, three per gig.
 //
-// Measured rather than guessed. On the live search page, on desktop AND on a 375px phone, Fiverr
-// renders the thumbnail at 325×196 with object-fit: fill — so nothing is cropped (the widely
-// repeated "it gets cropped square" is wrong for search), but everything is reduced to 25%.
+// Built to Fiverr's own published rules for gig images, read from the help centre rather than from
+// blogs, plus what the live search page renders. The rules that shaped every decision here:
 //
-// At 25%, 76px type becomes 19px and reads; 26px becomes 6px and does not. Shrinking the first
-// version to its real size showed the sub-line, the chips and the domain plate were all illegible
-// noise taking up the space the headline needed. So the gallery splits the job:
+//   "Keep the text to no more than 10 words."
+//   "Avoid repeating text that already appears elsewhere on your Gig card."   ← the gig title is
+//        already printed under the thumbnail, so putting the service name on the image wastes it
+//   "Show real examples of your work."
+//   "Combine custom graphics, real photos, and a small amount of text."
+//   "We encourage you to use a picture of yourself" — front-facing, clean background, landscape
+//   "Never include private information on your Gig images, including contact information."
+//   "Do not add Fiverr logos, ratings, level badges" — we will flag your Gig and remove it
+//   "Clickbait or misleading content ... can lower your ranking in search results."
 //
-//   image 1  the card in search. Headline and face only, sized to survive 325px.
-//   image 2  what you get. Read at full size on the gig page, so it can carry detail.
-//   image 3  the proof. The figures nobody else on the marketplace can put on a card.
-//
-// Layout from the live first page and the published A/B work: text left, face right, keyword on a
-// solid block, under ten words.
+// And the measurement that decides the type sizes: on the live search page, desktop and a 375px
+// phone alike, the thumbnail renders at 325×196 — a quarter. So the caption band is set large
+// enough to survive that, and nothing else is asked to.
 //
 //   node scripts/fiverr/gig-images.mjs --out /tmp/gig-images
 import fs from "node:fs";
@@ -39,188 +41,143 @@ const h = (type, props, ...kids) => ({
 });
 
 const W = 1280, H = 769;
-const PHOTO_W = 500, LEFT_W = W - PHOTO_W;
+const BAND_H = 216, FACE = 268;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
 
-async function portrait() {
-  const src = path.join(ROOT, "public/img/portrait-hero.jpg");
-  const buf = await sharp(src)
-    .extract({ left: 300, top: 340, width: 820, height: Math.round(820 / (PHOTO_W / H)) })
-    .resize(PHOTO_W, H, { fit: "cover" })
-    .jpeg({ quality: 90 })
-    .toBuffer();
-  return `data:image/jpeg;base64,${buf.toString("base64")}`;
+const uri = (buf, mime = "image/jpeg") => `data:${mime};base64,${buf.toString("base64")}`;
+
+/** A square of head and shoulders, which the card then masks to a circle. */
+async function face() {
+  const buf = await sharp(path.join(ROOT, "public/img/portrait-hero.jpg"))
+    .extract({ left: 372, top: 356, width: 700, height: 700 })
+    .resize(FACE, FACE, { fit: "cover" })
+    .jpeg({ quality: 92 }).toBuffer();
+  return uri(buf);
 }
 
-/* ---------------------------------------------------------------- image 1: the search card
- * Everything here is sized against 325px. Nothing goes on this card that cannot be read there.
+/**
+ * The work itself, cropped to the region that carries the information and never stretched.
+ * A dashboard is a wide, shallow thing: filling the frame with it either zooms past the numbers or
+ * leaves half the card empty white. So those are laid on the ink ground at their own proportions
+ * ("contain"), which reads as a screenshot rather than as a mistake.
  */
-function cardOne({ ground, fg, block, blockFg, line1, line2, sub, photo }) {
-  const head = (text, onBlock) => h("div", {
-    style: {
-      display: "flex", fontFamily: "AB", fontSize: 97, lineHeight: 1.04, letterSpacing: "-0.02em",
-      color: onBlock ? blockFg : fg,
-      backgroundColor: onBlock ? block : "transparent",
-      padding: onBlock ? "6px 16px 14px" : "6px 0 14px",
-    },
-  }, text);
+async function work(file, crop, mode = "cover") {
+  let img = sharp(path.join(ROOT, "public/img", file));
+  if (crop) img = img.extract(crop);
+  if (mode !== "contain") {
+    const buf = await img.resize(W, H, { fit: "cover", position: "top" }).jpeg({ quality: 88 }).toBuffer();
+    return uri(buf);
+  }
+  // Fit it whole, then pad out to exactly the canvas — no second resize, or the padding gets
+  // scaled away again and the crop lands on an empty column.
+  const inner = await img.resize(W - 120, H - BAND_H - 150, { fit: "inside" }).toBuffer();
+  const m = await sharp(inner).metadata();
+  const left = Math.round((W - m.width) / 2);
+  const top = Math.round((H - BAND_H - m.height) / 2);
+  const buf = await sharp(inner)
+    .extend({
+      top, bottom: H - m.height - top,
+      left, right: W - m.width - left,
+      background: INK,
+    })
+    .jpeg({ quality: 90 }).toBuffer();
+  return uri(buf);
+}
 
-  return h("div", { style: { width: W, height: H, display: "flex", backgroundColor: ground } },
+/**
+ * One frame: the work full-bleed, a solid band across the foot carrying a handful of words, and his
+ * face on a ring where the band meets the image. Real photo + real work + a small amount of text is
+ * exactly the combination Fiverr asks for, and the band is the only thing that has to read at 325px.
+ */
+function frame({ bg, caption, bandBg, bandFg, faceUri, veil, noFace }) {
+  return h("div", { style: { width: W, height: H, display: "flex", position: "relative", backgroundColor: INK } },
+    h("img", { src: bg, width: W, height: H, style: { position: "absolute", top: 0, left: 0, objectFit: "cover" } }),
+    veil
+      ? h("div", { style: { position: "absolute", top: 0, left: 0, width: W, height: H, display: "flex", backgroundColor: veil } })
+      : h("div", { style: { display: "flex" } }),
+
     h("div", {
       style: {
-        width: LEFT_W, height: H, display: "flex", flexDirection: "column",
-        justifyContent: "center", alignItems: "flex-start", padding: "0 38px 0 48px",
+        position: "absolute", left: 0, bottom: 0, width: W, height: BAND_H, display: "flex",
+        alignItems: "center", backgroundColor: bandBg, padding: "0 56px",
       },
     },
-      head(line1, true),
-      head(line2, false),
       h("div", {
         style: {
-          display: "flex", fontFamily: "G", fontSize: 38, color: fg, opacity: 0.85,
-          marginTop: 12, maxWidth: 680, lineHeight: 1.25,
+          display: "flex", fontFamily: "AB", fontSize: 63, lineHeight: 1.08, color: bandFg,
+          letterSpacing: "-0.02em", maxWidth: noFace ? 1140 : 830,
         },
-      }, sub),
+      }, caption),
     ),
-    h("div", { style: { width: PHOTO_W, height: H, display: "flex" } },
-      h("img", { src: photo, width: PHOTO_W, height: H, style: { objectFit: "cover" } }),
-    ),
-  );
-}
 
-/* ---------------------------------------------------------------- image 2: what you get */
-function cardTwo({ title, items }) {
-  return h("div", {
-    style: {
-      width: W, height: H, display: "flex", flexDirection: "column", backgroundColor: INK,
-      padding: "62px 66px", justifyContent: "space-between",
-    },
-  },
-    h("div", { style: { display: "flex", flexDirection: "column" } },
-      h("div", {
-        style: {
-          display: "flex", fontFamily: "AB", fontSize: 62, color: PAPER, letterSpacing: "-0.015em",
-          marginBottom: 34,
-        },
-      }, title),
-      h("div", { style: { display: "flex", flexDirection: "column" } },
-        ...items.map((t) => h("div", {
-          style: { display: "flex", alignItems: "flex-start", marginBottom: 22 },
-        },
-          h("div", {
-            style: { display: "flex", width: 16, height: 16, backgroundColor: SIGNAL, marginTop: 13, marginRight: 22 },
-          }),
-          h("div", {
-            style: { display: "flex", fontFamily: "G", fontSize: 38, color: PAPER, opacity: 0.92, lineHeight: 1.3, maxWidth: 1040 },
-          }, t),
-        )),
-      ),
-    ),
-    h("div", {
-      style: { display: "flex", fontFamily: "GM", fontSize: 24, letterSpacing: "0.12em", color: SIGNAL },
-    }, "JOTHISWAROOP.COM"),
-  );
-}
-
-/* ---------------------------------------------------------------- image 3: the proof */
-function cardThree({ stats, footline, ground, fg }) {
-  return h("div", {
-    style: {
-      width: W, height: H, display: "flex", flexDirection: "column", backgroundColor: ground,
-      padding: "58px 66px", justifyContent: "space-between",
-    },
-  },
-    h("div", {
-      style: { display: "flex", fontFamily: "AB", fontSize: 46, color: fg, letterSpacing: "-0.01em" },
-    }, "THE RECEIPTS"),
-    h("div", { style: { display: "flex", flexWrap: "wrap", width: 1148 } },
-      ...stats.map((s) => h("div", {
-        style: { display: "flex", flexDirection: "column", width: 574, marginBottom: 26 },
+    // the circle is dropped when the background is already his portrait — one face per card
+    noFace ? h("div", { style: { display: "flex" } }) : h("img", {
+      src: faceUri, width: FACE, height: FACE,
+      style: {
+        position: "absolute", right: 54, bottom: BAND_H - 104, width: FACE, height: FACE,
+        borderRadius: FACE, border: `9px solid ${bandBg}`, objectFit: "cover",
       },
-        h("div", {
-          style: { display: "flex", fontFamily: "AB", fontSize: 84, color: SIGNAL, lineHeight: 1.05, letterSpacing: "-0.02em" },
-        }, s[0]),
-        h("div", {
-          style: { display: "flex", fontFamily: "GM", fontSize: 23, letterSpacing: "0.1em", color: fg, opacity: 0.72, marginTop: 4 },
-        }, s[1]),
-      )),
-    ),
-    h("div", {
-      style: { display: "flex", fontFamily: "G", fontSize: 30, color: fg, opacity: 0.85, maxWidth: 1100, lineHeight: 1.3 },
-    }, footline),
+    }),
   );
 }
 
+// Captions are the only words on any image. Every one is under ten words, and none of them repeats
+// the gig title, because the title is already printed directly beneath the thumbnail.
 const GIGS = [
   {
     slug: "gig-01-ai-product-video",
-    ground: SIGNAL, fg: INK, block: INK, blockFg: SIGNAL,
-    line1: "AI UGC", line2: "PRODUCT ADS",
-    sub: "From your own photos. No shoot.",
-    title: "WHAT YOU GET",
-    items: [
-      "A finished 15-second product film, made from your own photos",
-      "Exported vertical, square and feed — 9:16, 1:1 and 4:5",
-      "Captions burned in, so it works with the sound off",
-      "The file is yours to run anywhere, for as long as you like",
+    bandBg: SIGNAL, bandFg: INK,
+    gallery: [
+      { file: "portrait-hero.jpg", crop: { left: 60, top: 330, width: 1230, height: 740 },
+        caption: "Your product. Fifteen seconds. No shoot.", veil: "rgba(10,10,12,0.10)", noFace: true },
+      { file: "ads-five-elements.png", fit: "contain", crop: { left: 55, top: 185, width: 1545, height: 200 },
+        caption: "I run the ads, not just the edit.", veil: "rgba(10,10,12,0.05)" },
     ],
-    proofGround: INK, proofFg: PAPER,
-    stats: [["2", "COMMERCIALS RUNNING AS LIVE ADS"], ["1.36M", "PEOPLE REACHED"],
-            ["9", "META AD ACCOUNTS"], ["4", "COUNTRIES"]],
-    footline: "I run the ads as well as make the film, so it is built for the first second — not for a showreel.",
   },
   {
     slug: "gig-02-ai-automation",
-    ground: INK, fg: PAPER, block: SIGNAL, blockFg: INK,
-    line1: "AI", line2: "AUTOMATION",
-    sub: "Built in your account. Handed over on video.",
-    title: "WHAT YOU GET",
-    items: [
-      "A working automation in your own n8n or Make account",
-      "A recorded handover, so you can change it yourself later",
-      "Written documentation on the Premium package",
-      "Fourteen days of fixes after delivery",
+    bandBg: SIGNAL, bandFg: INK,
+    gallery: [
+      { file: "auto-dental-receptionist.png", crop: { left: 420, top: 60, width: 1180, height: 860 },
+        caption: "Runs in your account. Handed over.", veil: "rgba(10,10,12,0.25)" },
+      { file: "auto-order-invoice-bot.png", crop: null,
+        caption: "A voice note becomes an invoice.", veil: "rgba(10,10,12,0.25)" },
+      { file: "auto-inventory-agent.png", crop: null,
+        caption: "Nine of these running right now.", veil: "rgba(10,10,12,0.25)" },
     ],
-    proofGround: PAPER, proofFg: INK,
-    stats: [["9", "AUTOMATIONS RUNNING TODAY"], ["24/7", "VOICE AGENT ON A CLINIC PHONE"],
-            ["VOICE", "NOTE TO FINISHED INVOICE PDF"], ["n8n", "BUILT IN YOUR ACCOUNT, NOT MINE"]],
-    footline: "Real businesses, running now: a dental clinic, a food brand, a Company Secretary's practice.",
   },
   {
     slug: "gig-03-meta-ads-audit",
-    ground: PAPER, fg: INK, block: SIGNAL, blockFg: INK,
-    line1: "ADS AUDIT", line2: "IN 48 HOURS",
-    sub: "One page. No deck. The cause and the proof.",
-    title: "WHAT YOU GET",
-    items: [
-      "One page, plain English — no deck, no jargon",
-      "Which of the six usual causes is actually yours",
-      "The exact screen I would change first, and why",
-      "A recorded walkthrough of your own account on Premium",
+    bandBg: SIGNAL, bandFg: INK,
+    gallery: [
+      { file: "ads-five-elements.png", fit: "contain", crop: { left: 55, top: 185, width: 1545, height: 200 },
+        caption: "The cause, and the evidence for it.", veil: "rgba(10,10,12,0.05)" },
+      { file: "ads-nova-1.png", fit: "contain", crop: { left: 55, top: 185, width: 1545, height: 200 },
+        caption: "Read from your account, not a template.", veil: "rgba(10,10,12,0.05)" },
+      { file: "ads-tharunis.png", fit: "contain", crop: { left: 55, top: 185, width: 1545, height: 200 },
+        caption: "Nine accounts. Four countries.", veil: "rgba(10,10,12,0.05)" },
     ],
-    proofGround: INK, proofFg: PAPER,
-    stats: [["7,341", "LEAD-FORM SUBMISSIONS"], ["876", "CONVERSATIONS STARTED"],
-            ["9", "META AD ACCOUNTS"], ["4", "COUNTRIES"]],
-    footline: "Every number links to the Ads Manager screenshot it was counted from. Nothing is modelled.",
   },
 ];
 
-const png = async (node) => {
+const render = async (node) => {
   const svg = await satori(node, { width: W, height: H, fonts });
   return new Resvg(svg, { fitTo: { mode: "width", value: W } }).render().asPng();
 };
 
 fs.mkdirSync(OUT, { recursive: true });
-const photo = await portrait();
+const faceUri = await face();
+let over = 0;
 for (const g of GIGS) {
-  const files = [
-    [`${g.slug}-1-cover.png`, cardOne({ ...g, photo })],
-    [`${g.slug}-2-included.png`, cardTwo(g)],
-    [`${g.slug}-3-proof.png`, cardThree({ stats: g.stats, footline: g.footline, ground: g.proofGround, fg: g.proofFg })],
-  ];
-  for (const [name, node] of files) {
-    const buf = await png(node);
+  for (const [i, item] of g.gallery.entries()) {
+    const words = item.caption.trim().split(/\s+/).length;
+    if (words > 10) { console.log(`  !! ${g.slug} #${i + 1}: ${words} words — over Fiverr's limit`); over++; }
+    const bg = await work(item.file, item.crop, item.fit);
+    const buf = await render(frame({ ...item, bg, faceUri, bandBg: g.bandBg, bandFg: g.bandFg }));
+    const name = `${g.slug}-${i + 1}.png`;
     fs.writeFileSync(path.join(OUT, name), buf);
-    console.log(`${name.padEnd(36)} ${(buf.length / 1024).toFixed(0)} KB`);
+    console.log(`${name.padEnd(30)} ${String(words).padStart(2)} words  ${(buf.length / 1024).toFixed(0)} KB`);
   }
 }
-console.log(`\n${GIGS.length * 3} image(s) at ${W}×${H} in ${OUT}`);
+console.log(over ? `\n${over} caption(s) over the ten-word limit` : `\nAll captions within Fiverr's ten-word limit`);
+console.log(`${GIGS.length * 3} image(s) at ${W}×${H} in ${OUT}`);
