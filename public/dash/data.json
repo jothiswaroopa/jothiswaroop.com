@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-24T01:35:44.305Z",
+  "generatedAt": "2026-09-25T01:44:27.547Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-25",
-      "end": "2026-09-22"
+      "start": "2026-08-26",
+      "end": "2026-09-23"
     },
     "totals": {
-      "clicks": 6,
-      "impressions": 33,
-      "ctr": 0.18181818181818182,
-      "position": 2.121212121212121
+      "clicks": 7,
+      "impressions": 36,
+      "ctr": 0.19444444444444445,
+      "position": 2.5277777777777777
     },
     "previous": {
       "clicks": 0,
@@ -61,16 +61,23 @@
         "impressions": 16,
         "ctr": 0.0625,
         "position": 2.4375
+      },
+      {
+        "key": "2026-09-22",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.3333333333333333,
+        "position": 7
       }
     ],
     "queries": [],
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 4,
-        "impressions": 32,
-        "ctr": 0.125,
-        "position": 3.15625
+        "clicks": 5,
+        "impressions": 34,
+        "ctr": 0.14705882352941177,
+        "position": 3.0294117647058822
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -82,9 +89,9 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 20,
-        "ctr": 0.05,
-        "position": 4.4
+        "impressions": 22,
+        "ctr": 0.045454545454545456,
+        "position": 4.454545454545455
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -92,15 +99,22 @@
         "impressions": 1,
         "ctr": 0,
         "position": 5
+      },
+      {
+        "key": "https://jothiswaroop.com/work/kalavridhi/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
       }
     ],
     "countries": [
       {
         "key": "ind",
-        "clicks": 6,
-        "impressions": 30,
-        "ctr": 0.2,
-        "position": 1.7333333333333334
+        "clicks": 7,
+        "impressions": 32,
+        "ctr": 0.21875,
+        "position": 1.6875
       },
       {
         "key": "bih",
@@ -119,32 +133,32 @@
       {
         "key": "usa",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 8
+        "position": 13.5
       }
     ],
     "devices": [
       {
         "key": "MOBILE",
         "clicks": 5,
-        "impressions": 11,
-        "ctr": 0.45454545454545453,
-        "position": 1.3636363636363638
+        "impressions": 12,
+        "ctr": 0.4166666666666667,
+        "position": 1.3333333333333333
       },
       {
         "key": "DESKTOP",
-        "clicks": 1,
-        "impressions": 22,
-        "ctr": 0.045454545454545456,
-        "position": 2.5
+        "clicks": 2,
+        "impressions": 24,
+        "ctr": 0.08333333333333333,
+        "position": 3.125
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-25",
-      "end": "2026-09-24"
+      "start": "2026-08-26",
+      "end": "2026-09-25"
     },
     "totals": {
       "views": 0,
@@ -182,12 +196,18 @@
         "Clicks": 0,
         "Date": "/Date(1789948800000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790035200000)/",
+        "Impressions": 0
       }
     ],
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-24T01:37:45.784Z",
+    "checkedAt": "2026-09-25T01:46:38.038Z",
     "results": [
       {
         "id": "chennai-meta-ads",
@@ -225,8 +245,6 @@
         "cited": [],
         "competitors": [
           "dentaai.com",
-          "viveoai.com",
-          "meetlinda.ai",
           "thevoipshop.co.uk"
         ]
       },
@@ -299,6 +317,10 @@
       },
       {
         "date": "2026-09-24",
+        "rate": 0.125
+      },
+      {
+        "date": "2026-09-25",
         "rate": 0.125
       }
     ]
@@ -401,7 +423,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-21T05:00:46Z",
+        "lastCrawl": "2026-09-24T23:48:10Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
