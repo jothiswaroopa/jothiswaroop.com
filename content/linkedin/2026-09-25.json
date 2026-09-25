@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-25",
+  "weekday": "Fri",
+  "pillar": "contrarian",
+  "format": "poster",
+  "angle": "Cost per lead is the most confidently reported number in this industry and one of the least useful.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": [
+    "STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material."
+  ],
+  "hook": "4,248 leads at ₹16.58 each. That is a real number. Nova Attire, a Tirupur apparel manufacturer, spent ₹70,444 across six campaigns and Meta's Ads Manager counted every one of those leads against the ad and form that produced it.",
+  "body": "4,248 leads at ₹16.58 each.\n\nThat is a real number. Nova Attire, a Tirupur apparel manufacturer, spent ₹70,444 across six campaigns and Meta's Ads Manager counted every one of those leads against the ad and form that produced it.\n\nCheap leads and leads that close are two different products.\n\nThe form asked nothing hard. Fill a lead form on Facebook or Instagram, and it pre-fills your name, phone and email from your profile. Two taps and you are done. So Meta went looking for the cheapest person who would do a thing that cost them nothing to do — which is exactly what the form asked for.\n\nNova Attire tracked every lead live in a sheet and said only about 5-6% were junk. The rest were relevant to their niche. Leads turned into sample orders and one or two bulk orders each. But nothing was built to catch the second order — no reminder when a buyer's stock would run low, no follow-up on \"maybe later.\" A few of those buyers came back on their own anyway.\n\nNobody ever recorded how many of the 4,248 became repeat orders. Including me.\n\nThat is the number I would build a system to catch first, before I ever chased a cheaper cost per lead again.\n\nWhat does your own cost-per-lead number actually tell you about repeat business?",
+  "chars": 1236,
+  "avgWords": 14.8,
+  "warnings": [
+    "one paragraph is 476 chars — may read as a wall",
+    "possible client name to check: \"Google Sheet\"",
+    "one sentence is 35 words long",
+    "one paragraph is 368 chars — may read as a wall",
+    "over a limit: hook is 228 chars, must be under 210",
+    "STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material.",
+    "check: \"Fill a lead form on Facebook or Instagram, and it pre-fills your name, phone and\" — Platform mechanic stated as certain fact rather than a general description; plausible but not in approved facts, borderline generalisation.",
+    "check: \"So Meta went looking for the cheapest person who would do a thing that cost them\" — Presents an interpretive claim about Meta's ad delivery behavior as established fact rather than opinion/hypothesis.",
+    "check: \"A few of those buyers came back on their own anyway.\" — This softens/paraphrases the approved fact ('some Nova Attire leads who initially said they would get back later did return and place orders on their own') acceptably, but should be checked for exact fidelity to 'some' vs 'a few'."
+  ],
+  "images": [
+    "/linkedin/2026-09-25/poster.png"
+  ],
+  "pdf": null,
+  "status": "draft",
+  "notPosted": "held for review — STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material."
+}

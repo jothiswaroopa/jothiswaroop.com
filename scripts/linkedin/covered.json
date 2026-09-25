@@ -13,9 +13,16 @@
     "The 60-Second Rule: what has to happen in the first minute after an enquiry arrives, as a repeatable system.": "2026-09-24",
     "The Four Clicks: a fixed path through Ads Manager that tells you what a campaign is really chasing.": "2026-09-24",
     "Cost per lead, cost per conversation, cost per customer — the three-number ladder and why most people only watch the first.": "2026-09-24",
-    "The one question to add to a lead form that filters out most of the people who were never going to buy.": "2026-09-24"
+    "The one question to add to a lead form that filters out most of the people who were never going to buy.": "2026-09-24",
+    "Cost per lead is the most confidently reported number in this industry and one of the least useful.": "2026-09-25"
   },
   "log": [
+    {
+      "date": "2026-09-25",
+      "pillar": "contrarian",
+      "format": "poster",
+      "angle": "Cost per lead is the most confidently reported number in this industry and one of the least useful."
+    },
     {
       "date": "2026-09-24",
       "pillar": "teach",
