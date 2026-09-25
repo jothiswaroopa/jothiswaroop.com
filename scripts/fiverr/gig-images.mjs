@@ -1,16 +1,24 @@
-// Fiverr gig thumbnails at 1280×769, the size Fiverr recommends (min 712×430, max 5 MB, PNG for
-// text-heavy art). Same machinery and the same palette as the LinkedIn carousels, deliberately: a
-// buyer who saw a post should recognise the gig card. Type-led rather than stock-photo, because the
-// one thing no competitor can copy is a real figure with a screenshot behind it.
+// Fiverr gig thumbnails at 1280×769 — the size Fiverr recommends (min 712×430, PNG, max 5 MB).
+//
+// Drawn against what is actually ranking rather than against taste. From reading the live first
+// page for "ai ugc video ads", and the published A/B work on gig images, three things decide the
+// click:
+//
+//   1. A real human face. Faceless thumbnails lose, consistently.
+//   2. Text in the LEFT third, face in the RIGHT third — the layout that won the tests, because a
+//      buyer reads left to right.
+//   3. Very few words, very heavy type, very high contrast. Ten words is the ceiling; a card that
+//      cannot be read at 250px earns no clicks, and low click-through cuts impressions.
+//
+// So: Archivo Black, the keyword sitting on a solid block, his own photograph on the right, and a
+// strip of real figures along the bottom — the one thing nobody else on the marketplace can copy.
 //
 //   node scripts/fiverr/gig-images.mjs --out /tmp/gig-images
-//
-// A gig card is about 250px wide in search results, so the hero line is never more than five words
-// and the leading figure is set large enough to survive that reduction.
 import fs from "node:fs";
 import path from "node:path";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
+import sharp from "sharp";
 
 const args = process.argv.slice(2);
 const pick = (f, d) => { const i = args.indexOf(f); return i >= 0 ? args[i + 1] : d; };
@@ -19,7 +27,7 @@ const OUT = pick("--out", "/tmp/gig-images");
 const ROOT = process.cwd();
 const F = (n) => fs.readFileSync(path.join(ROOT, "assets/fonts", n));
 const fonts = [
-  { name: "IS", data: F("InstrumentSerif-Regular.ttf"), weight: 400, style: "normal" },
+  { name: "AB", data: F("ArchivoBlack-Regular.ttf"), weight: 400, style: "normal" },
   { name: "GM", data: F("GeistMono-Regular.ttf"), weight: 400, style: "normal" },
   { name: "G", data: F("Geist-Regular.ttf"), weight: 400, style: "normal" },
 ];
@@ -29,74 +37,83 @@ const h = (type, props, ...kids) => ({
 });
 
 const W = 1280, H = 769;
+const PHOTO_W = 520, LEFT_W = W - PHOTO_W;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
-const DIM = "rgba(242,237,228,.6)";
-const RULE = "rgba(242,237,228,.18)";
+
+/** Head and shoulders, cut to the panel's own ratio so the face is never squashed. */
+async function portrait() {
+  const src = path.join(ROOT, "public/img/portrait-hero.jpg");
+  const buf = await sharp(src)
+    .extract({ left: 300, top: 340, width: 820, height: Math.round(820 / (PHOTO_W / H)) })
+    .resize(PHOTO_W, H, { fit: "cover" })
+    .jpeg({ quality: 90 })
+    .toBuffer();
+  return `data:image/jpeg;base64,${buf.toString("base64")}`;
+}
 
 /**
- * One layout, three fillings. `figure` sets a number huge in amber and the claim beside it; without
- * one the claim carries the card on its own. Anything longer than this does not survive the
- * thumbnail, and a card nobody can read at 250px has no click-through to optimise.
+ * One composition, three grounds. The structure never changes, so the three cards read as one
+ * seller's shelf; only the colour does, so the profile grid is not wallpaper.
  */
-function card({ label, figure, figureNote, claim, claimAmber, proof }) {
-  return h("div", {
-    style: {
-      width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between",
-      backgroundColor: INK, padding: "52px 64px 48px", fontFamily: "G",
-    },
-  },
-    // eyebrow
-    h("div", { style: { display: "flex", alignItems: "center" } },
-      h("div", { style: { width: 34, height: 3, backgroundColor: SIGNAL, marginRight: 16, display: "flex" } }),
-      h("div", {
-        style: {
-          fontFamily: "GM", fontSize: 21, letterSpacing: "0.18em", color: SIGNAL,
-          textTransform: "uppercase", display: "flex",
-        },
-      }, label),
-    ),
-
-    // the hero
-    h("div", { style: { display: "flex", flexDirection: "column" } },
-      figure
-        ? h("div", { style: { display: "flex", alignItems: "flex-end", marginBottom: 6 } },
-            h("div", { style: { fontFamily: "IS", fontSize: 268, lineHeight: 0.78, color: SIGNAL, display: "flex" } }, figure),
-            figureNote
-              ? h("div", {
-                  style: {
-                    fontFamily: "GM", fontSize: 25, color: DIM, marginLeft: 24, marginBottom: 34,
-                    letterSpacing: "0.04em", display: "flex", maxWidth: 430, lineHeight: 1.4,
-                  },
-                }, figureNote)
-              : h("div", { style: { display: "flex" } }),
-          )
-        : h("div", { style: { display: "flex" } }),
-      h("div", {
-        style: {
-          fontFamily: "IS", fontSize: figure ? 92 : 118, lineHeight: 1.0, color: PAPER,
-          display: "flex", flexWrap: "wrap", maxWidth: 1000,
-        },
+function card({ ground, fg, block, blockFg, eyebrow, line1, line2, line3, sub, chips, photo }) {
+  const headline = (text, onBlock) =>
+    h("div", {
+      style: {
+        display: "flex", fontFamily: "AB", fontSize: 76, lineHeight: 1.05, letterSpacing: "-0.015em",
+        color: onBlock ? blockFg : fg,
+        backgroundColor: onBlock ? block : "transparent",
+        padding: onBlock ? "4px 14px 10px" : "4px 0 10px",
       },
-        h("div", { style: { display: "flex" } }, claim),
+    }, text);
+
+  return h("div", { style: { width: W, height: H, display: "flex", backgroundColor: ground } },
+    // ---- left: the words
+    h("div", {
+      style: {
+        width: LEFT_W, height: H, display: "flex", flexDirection: "column",
+        justifyContent: "space-between", padding: "46px 40px 40px 50px",
+      },
+    },
+      h("div", {
+        style: {
+          display: "flex", fontFamily: "GM", fontSize: 21, letterSpacing: "0.16em",
+          textTransform: "uppercase", color: fg, opacity: 0.7,
+        },
+      }, eyebrow),
+
+      h("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start" } },
+        headline(line1, true),
+        headline(line2, false),
+        line3 ? headline(line3, false) : h("div", { style: { display: "flex" } }),
+        h("div", {
+          style: {
+            display: "flex", fontFamily: "G", fontSize: 26, color: fg, opacity: 0.82,
+            marginTop: 14, maxWidth: 640, lineHeight: 1.3,
+          },
+        }, sub),
       ),
-      claimAmber
-        ? h("div", {
-            style: {
-              fontFamily: "IS", fontSize: figure ? 92 : 118, lineHeight: 1.0, color: SIGNAL, display: "flex",
-            },
-          }, claimAmber)
-        : h("div", { style: { display: "flex" } }),
+
+      h("div", { style: { display: "flex", alignItems: "center" } },
+        ...chips.map((c) => h("div", {
+          style: {
+            display: "flex", fontFamily: "GM", fontSize: 16, letterSpacing: "0.06em", color: fg,
+            border: `1.5px solid ${fg}`, opacity: 0.8, borderRadius: 3,
+            padding: "6px 10px", marginRight: 9,
+          },
+        }, c)),
+      ),
     ),
 
-    // the footing: what it is, and where the proof lives
-    h("div", { style: { display: "flex", flexDirection: "column" } },
-      h("div", { style: { width: "100%", height: 1, backgroundColor: RULE, display: "flex", marginBottom: 22 } }),
-      h("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between" } },
-        h("div", { style: { fontSize: 25, color: DIM, display: "flex", maxWidth: 840, lineHeight: 1.35 } }, proof),
-        h("div", {
-          style: { fontFamily: "GM", fontSize: 20, letterSpacing: "0.13em", color: PAPER, display: "flex" },
-        }, "JOTHISWAROOP.COM"),
-      ),
+    // ---- right: the face, with a name plate across the foot
+    h("div", { style: { width: PHOTO_W, height: H, display: "flex", position: "relative" } },
+      h("img", { src: photo, width: PHOTO_W, height: H, style: { objectFit: "cover" } }),
+      h("div", {
+        style: {
+          position: "absolute", bottom: 0, left: 0, width: PHOTO_W, display: "flex",
+          alignItems: "center", justifyContent: "center", backgroundColor: INK,
+          padding: "13px 0", fontFamily: "GM", fontSize: 19, letterSpacing: "0.15em", color: PAPER,
+        },
+      }, "JOTHISWAROOP.COM"),
     ),
   );
 }
@@ -104,37 +121,36 @@ function card({ label, figure, figureNote, claim, claimAmber, proof }) {
 const GIGS = [
   {
     file: "gig-01-ai-product-video.png",
-    label: "AI product film",
-    claim: "Product films,",
-    claimAmber: "no shoot.",
-    proof: "15-second vertical ads, built from your own product photos.",
+    ground: SIGNAL, fg: INK, block: INK, blockFg: SIGNAL,
+    eyebrow: "Ecommerce · DTC brands",
+    line1: "AI UGC", line2: "PRODUCT ADS",
+    sub: "From your own product photos. No shoot.",
+    chips: ["15 SEC VERTICAL", "9:16 · 1:1 · 4:5", "3 DAYS"],
   },
   {
     file: "gig-02-ai-automation.png",
-    label: "AI automation · n8n",
-    figure: "9",
-    figureNote: "automations running in real businesses",
-    claim: "Built in your account,",
-    claimAmber: "handed over on video.",
-    proof: "Voice receptionist · voice note to invoice · reorder agent",
+    ground: INK, fg: PAPER, block: SIGNAL, blockFg: INK,
+    eyebrow: "n8n · Make · AI agents",
+    line1: "AI", line2: "AUTOMATION",
+    sub: "Built in your account. Handed over on video.",
+    chips: ["9 RUNNING LIVE", "VOICE · WHATSAPP", "DOCS INCLUDED"],
   },
   {
     file: "gig-03-meta-ads-audit.png",
-    label: "Meta ads audit",
-    figure: "7,341",
-    figureNote: "leads across nine ad accounts",
-    claim: "One page.",
-    claimAmber: "No deck.",
-    proof: "Which of the six usual causes is yours — and the evidence for it.",
+    ground: PAPER, fg: INK, block: SIGNAL, blockFg: INK,
+    eyebrow: "Meta · Facebook · Instagram",
+    line1: "ADS AUDIT", line2: "IN 48 HOURS",
+    sub: "One page. No deck. The cause and the proof.",
+    chips: ["9 AD ACCOUNTS", "7,341 LEADS", "4 COUNTRIES"],
   },
 ];
 
 fs.mkdirSync(OUT, { recursive: true });
+const photo = await portrait();
 for (const g of GIGS) {
-  const svg = await satori(card(g), { width: W, height: H, fonts });
+  const svg = await satori(card({ ...g, photo }), { width: W, height: H, fonts });
   const png = new Resvg(svg, { fitTo: { mode: "width", value: W } }).render().asPng();
-  const dest = path.join(OUT, g.file);
-  fs.writeFileSync(dest, png);
+  fs.writeFileSync(path.join(OUT, g.file), png);
   console.log(`${g.file.padEnd(32)} ${(png.length / 1024).toFixed(0)} KB`);
 }
 console.log(`\n${GIGS.length} image(s) at ${W}×${H} in ${OUT}`);
