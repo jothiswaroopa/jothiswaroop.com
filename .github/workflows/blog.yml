@@ -36,6 +36,11 @@ jobs:
           BLOG_LANE: ${{ inputs.lane }}
           BLOG_TOPIC: ${{ inputs.topic }}
         run: node scripts/blog/generate.mjs
+      # A model can hand back a shape the site cannot render. Building here, before the push, means
+      # bad data fails THIS run instead of silently freezing jothiswaroop.com on an older version.
+      - name: Check the site still builds with this
+        if: hashFiles('.blog-published') != ''
+        run: npm run build
       - name: Commit the post
         run: |
           SLUG=$(cat .blog-published)

@@ -43,3 +43,30 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # The build failed silently for 13 hours on 24 Sep and Pages just kept serving the previous
+  # version, so nothing looked wrong. Open one issue and keep commenting on it — GitHub emails
+  # the repo owner, which is the only alert channel here that needs no secret.
+  alert:
+    needs: [build, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create deploy-broken --color B60205 --description "Pages deploy is failing" --repo "$REPO" 2>/dev/null || true
+          N=$(gh issue list --repo "$REPO" --state open --label deploy-broken --limit 1 --json number --jq '.[0].number // empty')
+          BODY="The site is still up, serving the last good build, but it is frozen at that version until this is fixed.
+
+          Failed run: $RUN"
+          if [ -n "$N" ]; then
+            gh issue comment "$N" --repo "$REPO" --body "$BODY"
+          else
+            gh issue create --repo "$REPO" --label deploy-broken \
+              --title "Pages deploy is failing — the site is frozen on an older build" --body "$BODY"
+          fi

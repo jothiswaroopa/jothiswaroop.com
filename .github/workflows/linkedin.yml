@@ -54,6 +54,11 @@ jobs:
           LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}   # optional — derived from the token when unset
           LI_AUTOPOST: ${{ inputs.skip_post == '1' && '0' || vars.LI_AUTOPOST }}
         run: node scripts/linkedin/publish.mjs "$(cat .li-drafted)"
+      # A model can hand back a shape the site cannot render. Building here, before the push, means
+      # bad data fails THIS run instead of silently freezing jothiswaroop.com on an older version.
+      - name: Check the site still builds with this
+        if: hashFiles('.li-drafted') != ''
+        run: npm run build
       - name: Commit and deploy
         run: |
           if [ ! -f .li-drafted ]; then echo "nothing drafted (weekend or already done)"; exit 0; fi

@@ -27,6 +27,10 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/linkedin/scan.mjs
+      # A model can hand back a shape the site cannot render. Building here, before the push, means
+      # bad data fails THIS run instead of silently freezing jothiswaroop.com on an older version.
+      - name: Check the site still builds with this
+        run: npm run build
       - name: Commit
         run: |
           if [ ! -f .li-scanned ]; then echo "nothing"; exit 0; fi

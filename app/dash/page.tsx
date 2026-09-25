@@ -17,7 +17,13 @@ type Data = {
   blog: { count: number; last: string | null; posts: { slug: string; title: string; date: string; lane: string; segment: string; words: number; sources: number }[] };
 };
 
-const load = (): Data => JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/data.json"), "utf8"));
+const load = (): Data | null => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/data.json"), "utf8"));
+  } catch {
+    return null; // a half-written collection should show an empty dashboard, not fail the site build
+  }
+};
 /** Aggregates only — the outreach engine never publishes a prospect's name or address to this public file. */
 const loadOutreach = (): any => { try { return JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/dash/outreach.json"), "utf8")); } catch { return null; } };
 const n = (v?: number) => (v == null ? "—" : Math.round(v).toLocaleString("en-GB"));
@@ -79,7 +85,7 @@ function Err({ block, err }: { block: string; err?: string }) {
 }
 
 export default function Dash() {
-  const d = load();
+  const d = load() ?? ({} as Data);
   const g = d.gsc && !d.gsc.error ? d.gsc : d.gsc?.stale;
   const cf = d.cloudflare && !d.cloudflare.error ? d.cloudflare : d.cloudflare?.stale;
   const geo = d.geo && !d.geo.error ? d.geo : d.geo?.stale;
@@ -196,7 +202,7 @@ export default function Dash() {
         )}
 
         {/* outreach */}
-        {o && (
+        {o?.totals?.pipeline && (
           <div className="mt-10">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <p className="label">{"// OUTREACH ENGINE"}</p>
@@ -211,7 +217,7 @@ export default function Dash() {
               <Tile label="// REPLY RATE" value={o.totals.contacted ? ((100 * o.totals.replied) / o.totals.contacted).toFixed(1) + "%" : "—"} sub="replies ÷ contacted" />
               <Tile label="// LEADS IN QUEUE" value={n(o.totals.pipeline.new)} sub={`${n(o.totals.leads)} total · ${n(o.totals.bounced)} bounced · ${n(o.totals.stopped)} opted out`} />
             </div>
-            {o.segments?.length > 0 && (
+            {Array.isArray(o.segments) && o.segments.length > 0 && (
               <section className="bezel mt-4"><div className="bezel-core p-5">
                 <p className="label">{"// BY SEGMENT"}</p>
                 <table className="mt-4 w-full text-sm">
