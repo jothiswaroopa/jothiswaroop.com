@@ -32,6 +32,9 @@ jobs:
           CF_SITE_TAG: ${{ secrets.CF_SITE_TAG }}
           BING_API_KEY: ${{ secrets.BING_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # The GEO sweep is the expensive block; collect.mjs runs it weekly on its own.
+          # A manual dispatch means someone wants it now, so force it then.
+          GEO_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
         run: node scripts/dash/collect.mjs
       # A model can hand back a shape the site cannot render. Building here, before the push, means
       # bad data fails THIS run instead of silently freezing jothiswaroop.com on an older version.

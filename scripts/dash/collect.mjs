@@ -157,7 +157,22 @@ async function bing() {
 }
 
 // ── GEO: does an AI answer engine mention us for the prompts we care about? ──
+//
+// This is the only block here that costs money, and it is not cheap: eight prompts, each allowed
+// four web searches, is 32 searches a run. Daily, that was ~960 searches a month at $10/1,000 plus
+// every result landing in the context as input tokens — around $21/month, roughly 70% of the whole
+// API bill, to measure the one number on this dashboard that moves over months rather than days.
+// So the sweep runs once a week and every other day republishes the last real reading untouched:
+// same eight prompts, same depth, same honesty about when it was taken (checkedAt does not move).
+// GEO_FORCE=1 runs it on demand — the workflow sets that for a manual dispatch.
+const GEO_WEEKDAY = 1; // Monday, UTC
 async function geo() {
+  const forced = process.env.GEO_FORCE === "1";
+  const due = new Date().getUTCDay() === GEO_WEEKDAY;
+  if (!forced && !due && prev.geo && !prev.geo.error) {
+    log("· geo not due today — keeping the reading from", prev.geo.checkedAt);
+    return prev.geo;
+  }
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY not set");
   const { default: Anthropic } = await import("@anthropic-ai/sdk");
   const client = new Anthropic();
