@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-25T01:44:27.547Z",
+  "generatedAt": "2026-09-26T01:48:33.562Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-26",
-      "end": "2026-09-23"
+      "start": "2026-08-27",
+      "end": "2026-09-24"
     },
     "totals": {
       "clicks": 7,
-      "impressions": 36,
-      "ctr": 0.19444444444444445,
-      "position": 2.5277777777777777
+      "impressions": 40,
+      "ctr": 0.175,
+      "position": 4.75
     },
     "previous": {
       "clicks": 0,
@@ -68,16 +68,31 @@
         "impressions": 3,
         "ctr": 0.3333333333333333,
         "position": 7
+      },
+      {
+        "key": "2026-09-23",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 24.75
       }
     ],
-    "queries": [],
+    "queries": [
+      {
+        "key": "jyothi swaroop",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 41.5
+      }
+    ],
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 5,
-        "impressions": 34,
-        "ctr": 0.14705882352941177,
-        "position": 3.0294117647058822
+        "impressions": 35,
+        "ctr": 0.14285714285714285,
+        "position": 4.057142857142857
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -89,9 +104,16 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 22,
-        "ctr": 0.045454545454545456,
-        "position": 4.454545454545455
+        "impressions": 23,
+        "ctr": 0.043478260869565216,
+        "position": 6.173913043478261
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -99,6 +121,13 @@
         "impressions": 1,
         "ctr": 0,
         "position": 5
+      },
+      {
+        "key": "https://jothiswaroop.com/work/five-elements",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
@@ -124,6 +153,20 @@
         "position": 5
       },
       {
+        "key": "isr",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "key": "mar",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
         "key": "tha",
         "clicks": 0,
         "impressions": 1,
@@ -133,32 +176,32 @@
       {
         "key": "usa",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 4,
         "ctr": 0,
-        "position": 13.5
+        "position": 27.5
       }
     ],
     "devices": [
       {
         "key": "MOBILE",
         "clicks": 5,
-        "impressions": 12,
-        "ctr": 0.4166666666666667,
-        "position": 1.3333333333333333
+        "impressions": 13,
+        "ctr": 0.38461538461538464,
+        "position": 1.9230769230769231
       },
       {
         "key": "DESKTOP",
         "clicks": 2,
-        "impressions": 24,
-        "ctr": 0.08333333333333333,
-        "position": 3.125
+        "impressions": 27,
+        "ctr": 0.07407407407407407,
+        "position": 6.111111111111111
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-26",
-      "end": "2026-09-25"
+      "start": "2026-08-27",
+      "end": "2026-09-26"
     },
     "totals": {
       "views": 0,
@@ -202,90 +245,75 @@
         "Clicks": 0,
         "Date": "/Date(1790035200000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790121600000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790208000000)/",
+        "Impressions": 0
       }
     ],
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-25T01:46:38.038Z",
+    "checkedAt": "2026-09-26T01:48:37.812Z",
     "results": [
       {
         "id": "chennai-meta-ads",
         "prompt": "Who are the best performance marketing consultants or Meta ads experts in Chennai for a small manufacturing business?",
         "segment": "india",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7sHhpJPyPoN6VZmfn\"}"
       },
       {
         "id": "india-ai-automation",
         "prompt": "Recommend an AI automation consultant in India who builds WhatsApp follow-up systems for small businesses.",
         "segment": "india",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7uDYLxg4N3pjuh5dq\"}"
       },
       {
         "id": "uk-dental-meta",
         "prompt": "Which freelancers or small agencies run Meta ads for UK dental clinics and can show real lead numbers?",
         "segment": "dental-uk",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7v8cBwCnjFzcbVVfq\"}"
       },
       {
         "id": "uk-ai-receptionist",
         "prompt": "Who can build an AI receptionist for a UK dental practice that answers WhatsApp and email enquiries after hours?",
         "segment": "dental-uk",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": [
-          "dentaai.com",
-          "thevoipshop.co.uk"
-        ]
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7vzxBghTAjxZFMqfn\"}"
       },
       {
         "id": "apparel-india-uk",
         "prompt": "I manufacture apparel in Tirupur, India and sell to the UK. Who can run my Meta and Google ads?",
         "segment": "apparel",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7wumbkNnBbwqGKB9t\"}"
       },
       {
         "id": "name",
         "prompt": "Who is Jothi Swaroop, the performance marketer from Chennai?",
         "segment": "general",
-        "engine": "claude+search",
-        "mentioned": true,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7xobVjg8troggw8kD\"}"
       },
       {
         "id": "geo-small-biz",
         "prompt": "Who writes practical guides on generative engine optimisation (GEO) for small businesses in India and the UK?",
         "segment": "ai",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7yfw5cqKMYLbazRdN\"}"
       },
       {
         "id": "screenshot-backed",
         "prompt": "Which marketing freelancers publish screenshot-backed results for every client claim?",
         "segment": "general",
-        "engine": "claude+search",
-        "mentioned": false,
-        "cited": [],
-        "competitors": []
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7zZ1hP6uVxgYjfxfT\"}"
       }
     ],
-    "rate": 0.125,
+    "rate": 0,
     "history": [
       {
         "date": "2026-09-22",
@@ -322,6 +350,10 @@
       {
         "date": "2026-09-25",
         "rate": 0.125
+      },
+      {
+        "date": "2026-09-26",
+        "rate": 0
       }
     ]
   },
