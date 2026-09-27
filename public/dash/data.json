@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-26T01:48:33.562Z",
+  "generatedAt": "2026-09-27T01:39:03.832Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-27",
-      "end": "2026-09-24"
+      "start": "2026-08-28",
+      "end": "2026-09-25"
     },
     "totals": {
       "clicks": 7,
-      "impressions": 40,
-      "ctr": 0.175,
-      "position": 4.75
+      "impressions": 42,
+      "ctr": 0.16666666666666666,
+      "position": 4.833333333333333
     },
     "previous": {
       "clicks": 0,
@@ -75,6 +75,13 @@
         "impressions": 4,
         "ctr": 0,
         "position": 24.75
+      },
+      {
+        "key": "2026-09-24",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6.5
       }
     ],
     "queries": [
@@ -90,9 +97,9 @@
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 5,
-        "impressions": 35,
-        "ctr": 0.14285714285714285,
-        "position": 4.057142857142857
+        "impressions": 36,
+        "ctr": 0.1388888888888889,
+        "position": 3.9722222222222223
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -104,9 +111,9 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 23,
-        "ctr": 0.043478260869565216,
-        "position": 6.173913043478261
+        "impressions": 24,
+        "ctr": 0.041666666666666664,
+        "position": 6.083333333333333
       },
       {
         "key": "https://jothiswaroop.com/blog/",
@@ -116,11 +123,32 @@
         "position": 50
       },
       {
+        "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
         "position": 5
+      },
+      {
+        "key": "https://jothiswaroop.com/work/angel/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements",
@@ -135,15 +163,22 @@
         "impressions": 1,
         "ctr": 0,
         "position": 19
+      },
+      {
+        "key": "https://jothiswaroop.com/work/ram/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
       }
     ],
     "countries": [
       {
         "key": "ind",
         "clicks": 7,
-        "impressions": 32,
-        "ctr": 0.21875,
-        "position": 1.6875
+        "impressions": 33,
+        "ctr": 0.21212121212121213,
+        "position": 1.6666666666666665
       },
       {
         "key": "bih",
@@ -176,32 +211,32 @@
       {
         "key": "usa",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 27.5
+        "position": 24.4
       }
     ],
     "devices": [
       {
         "key": "MOBILE",
         "clicks": 5,
-        "impressions": 13,
-        "ctr": 0.38461538461538464,
-        "position": 1.9230769230769231
+        "impressions": 14,
+        "ctr": 0.35714285714285715,
+        "position": 1.8571428571428572
       },
       {
         "key": "DESKTOP",
         "clicks": 2,
-        "impressions": 27,
-        "ctr": 0.07407407407407407,
-        "position": 6.111111111111111
+        "impressions": 28,
+        "ctr": 0.07142857142857142,
+        "position": 6.321428571428571
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-27",
-      "end": "2026-09-26"
+      "start": "2026-08-28",
+      "end": "2026-09-27"
     },
     "totals": {
       "views": 0,
