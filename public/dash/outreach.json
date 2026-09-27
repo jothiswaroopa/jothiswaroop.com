@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T00:26:57.353Z",
+  "updated": "2026-09-27T02:34:38.248Z",
   "state": "paused",
   "startDate": "2026-10-06",
   "cap": 0,
@@ -103,7 +103,7 @@
     }
   ],
   "warmup": {
-    "total": 116,
+    "total": 118,
     "rescued": 0,
     "daily": [
       {
@@ -160,7 +160,7 @@
       },
       {
         "date": "2026-09-27",
-        "count": 0
+        "count": 2
       }
     ],
     "accounts": [
@@ -181,12 +181,12 @@
       },
       {
         "mailbox": "growth@…",
-        "sent": 18,
+        "sent": 19,
         "replies": 4
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 18,
+        "sent": 19,
         "replies": 14
       }
     ],
