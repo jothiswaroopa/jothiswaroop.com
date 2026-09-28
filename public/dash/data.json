@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-27T01:39:03.832Z",
+  "generatedAt": "2026-09-28T01:52:28.982Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-28",
-      "end": "2026-09-25"
+      "start": "2026-08-29",
+      "end": "2026-09-26"
     },
     "totals": {
       "clicks": 7,
-      "impressions": 42,
-      "ctr": 0.16666666666666666,
-      "position": 4.833333333333333
+      "impressions": 49,
+      "ctr": 0.14285714285714285,
+      "position": 5.081632653061225
     },
     "previous": {
       "clicks": 0,
@@ -82,6 +82,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 6.5
+      },
+      {
+        "key": "2026-09-25",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 6.571428571428571
       }
     ],
     "queries": [
@@ -91,6 +98,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 41.5
+      },
+      {
+        "key": "sathyam labels",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
       }
     ],
     "pages": [
@@ -111,9 +125,9 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 24,
-        "ctr": 0.041666666666666664,
-        "position": 6.083333333333333
+        "impressions": 25,
+        "ctr": 0.04,
+        "position": 6.08
       },
       {
         "key": "https://jothiswaroop.com/blog/",
@@ -132,9 +146,9 @@
       {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 3,
         "ctr": 0,
-        "position": 18
+        "position": 7.333333333333333
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -146,7 +160,7 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
         "position": 12
       },
@@ -156,6 +170,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 8
+      },
+      {
+        "key": "https://jothiswaroop.com/work/five-elements/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
@@ -170,15 +191,22 @@
         "impressions": 1,
         "ctr": 0,
         "position": 14
+      },
+      {
+        "key": "https://jothiswaroop.com/work/sathyam/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
       }
     ],
     "countries": [
       {
         "key": "ind",
         "clicks": 7,
-        "impressions": 33,
-        "ctr": 0.21212121212121213,
-        "position": 1.6666666666666665
+        "impressions": 38,
+        "ctr": 0.18421052631578946,
+        "position": 2.552631578947368
       },
       {
         "key": "bih",
@@ -186,6 +214,13 @@
         "impressions": 1,
         "ctr": 0,
         "position": 5
+      },
+      {
+        "key": "bra",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
       },
       {
         "key": "isr",
@@ -220,23 +255,23 @@
       {
         "key": "MOBILE",
         "clicks": 5,
-        "impressions": 14,
-        "ctr": 0.35714285714285715,
-        "position": 1.8571428571428572
+        "impressions": 19,
+        "ctr": 0.2631578947368421,
+        "position": 3.5789473684210527
       },
       {
         "key": "DESKTOP",
         "clicks": 2,
-        "impressions": 28,
-        "ctr": 0.07142857142857142,
-        "position": 6.321428571428571
+        "impressions": 30,
+        "ctr": 0.06666666666666667,
+        "position": 6.033333333333333
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-28",
-      "end": "2026-09-27"
+      "start": "2026-08-29",
+      "end": "2026-09-28"
     },
     "totals": {
       "views": 0,
@@ -292,60 +327,66 @@
         "Clicks": 0,
         "Date": "/Date(1790208000000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790294400000)/",
+        "Impressions": 0
       }
     ],
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-09-26T01:48:37.812Z",
+    "checkedAt": "2026-09-28T01:52:33.313Z",
     "results": [
       {
         "id": "chennai-meta-ads",
         "prompt": "Who are the best performance marketing consultants or Meta ads experts in Chennai for a small manufacturing business?",
         "segment": "india",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7sHhpJPyPoN6VZmfn\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV13528TZoFTWJDwzM7M\"}"
       },
       {
         "id": "india-ai-automation",
         "prompt": "Recommend an AI automation consultant in India who builds WhatsApp follow-up systems for small businesses.",
         "segment": "india",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7uDYLxg4N3pjuh5dq\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV136k4j1itMB6xep4cH\"}"
       },
       {
         "id": "uk-dental-meta",
         "prompt": "Which freelancers or small agencies run Meta ads for UK dental clinics and can show real lead numbers?",
         "segment": "dental-uk",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7v8cBwCnjFzcbVVfq\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV137ZRoNwM64CvNLkXd\"}"
       },
       {
         "id": "uk-ai-receptionist",
         "prompt": "Who can build an AI receptionist for a UK dental practice that answers WhatsApp and email enquiries after hours?",
         "segment": "dental-uk",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7vzxBghTAjxZFMqfn\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV138PnLyFeDdd3pXYTX\"}"
       },
       {
         "id": "apparel-india-uk",
         "prompt": "I manufacture apparel in Tirupur, India and sell to the UK. Who can run my Meta and Google ads?",
         "segment": "apparel",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7wumbkNnBbwqGKB9t\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV139G822m9y6mt2xgzx\"}"
       },
       {
         "id": "name",
         "prompt": "Who is Jothi Swaroop, the performance marketer from Chennai?",
         "segment": "general",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7xobVjg8troggw8kD\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV13A4jiEDvrL7YQCvZ1\"}"
       },
       {
         "id": "geo-small-biz",
         "prompt": "Who writes practical guides on generative engine optimisation (GEO) for small businesses in India and the UK?",
         "segment": "ai",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7yfw5cqKMYLbazRdN\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV13As7Cs95XKjFB5Zow\"}"
       },
       {
         "id": "screenshot-backed",
         "prompt": "Which marketing freelancers publish screenshot-backed results for every client claim?",
         "segment": "general",
-        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfRD7zZ1hP6uVxgYjfxfT\"}"
+        "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CfV13BgitGJGuoUv7rtvd\"}"
       }
     ],
     "rate": 0,
@@ -388,6 +429,10 @@
       },
       {
         "date": "2026-09-26",
+        "rate": 0
+      },
+      {
+        "date": "2026-09-28",
         "rate": 0
       }
     ]
