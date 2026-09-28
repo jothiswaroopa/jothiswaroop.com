@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollLoader from "@/components/motion/SmoothScrollLoader";
@@ -66,6 +67,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <ChromeGate><Footer /></ChromeGate>
        </MotionProvider>
+        {/* Microsoft Clarity — session recordings and heatmaps, so the page can be judged by what
+            visitors actually do rather than by taste. afterInteractive (next/script's default) keeps
+            it off the critical path: the LCP image and fonts load first, which is why the sans and
+            mono faces above are deliberately not preloaded. The project id is not a secret — it ships
+            in client JS and is visible to every visitor. An id prop is required on inline scripts. */}
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "yp7ob83rop");`}
+        </Script>
         {/* Person schema — ties the domain to the LinkedIn/Instagram profiles for search engines */}
         <script
           type="application/ld+json"
