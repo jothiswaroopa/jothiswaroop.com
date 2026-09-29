@@ -42,8 +42,11 @@ export default function Hero() {
           {hero.videoSrc ? (
             <video className="h-full w-full object-cover" src={hero.videoSrc} poster={hero.posterSrc} autoPlay muted loop playsInline />
           ) : (
-            <div className="duotone relative h-full w-full">
-              <Image src={hero.posterSrc} alt={`${site.name}, portrait`} fill priority fetchPriority="high" sizes="(min-width:1024px) 45vw, 70vw" className="object-cover object-[50%_32%]" />
+            // The duotone is baked into this file by scripts/images.mjs rather than applied with a
+            // CSS filter and a blend layer. This is the LCP element, and on a throttled phone the
+            // runtime version cost 4.4s of render delay after the image had already arrived.
+            <div className="relative h-full w-full">
+              <Image src="/img/portrait-hero-duotone.jpg" alt={`${site.name}, portrait`} fill priority fetchPriority="high" sizes="(min-width:1024px) 45vw, 70vw" className="object-cover object-[50%_32%]" />
             </div>
           )}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />

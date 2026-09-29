@@ -11,6 +11,42 @@ const OUT = "public/img/_w";
 export const WIDTHS = [384, 640, 960, 1280, 1920];
 
 await mkdir(OUT, { recursive: true });
+
+/**
+ * Bake the duotone into the portrait instead of asking the browser to compute it.
+ *
+ * The hero portrait is the LCP element, and it was wrapped in `.duotone` — a CSS filter plus a
+ * mix-blend-mode overlay. On a throttled phone that means rasterise, filter, then composite a blend
+ * layer, all AFTER the image has loaded: a Lighthouse mobile run showed the image arriving in 306ms
+ * and then 4.4s of render delay, which is 79% of a 5.6s LCP. Precomputing it makes the browser paint
+ * an ordinary bitmap.
+ *
+ * Matching the CSS exactly, in order:
+ *   grayscale(1) contrast(1.15) brightness(0.9)  →  out = in*1.035 - 17.2  (on 0-255)
+ *   then #ffb020 at 12% multiply                 →  per-channel factors below
+ *     multiply at opacity o:  out = base * (1 - o + o * blend/255)
+ *     R 0.88 + 0.12*(255/255) = 1.000
+ *     G 0.88 + 0.12*(176/255) = 0.963
+ *     B 0.88 + 0.12*( 32/255) = 0.895
+ */
+const DUOTONE_SRC = "portrait-hero.jpg";
+const DUOTONE_OUT = path.join(SRC, "portrait-hero-duotone.jpg");
+if (existsSync(path.join(SRC, DUOTONE_SRC))) {
+  await sharp(path.join(SRC, DUOTONE_SRC))
+    // .grayscale() collapses to one band and a per-channel linear cannot expand it back, so the
+    // desaturation is done with a 3x3 recombination that keeps three bands throughout.
+    .recomb([
+      [0.2126, 0.7152, 0.0722],
+      [0.2126, 0.7152, 0.0722],
+      [0.2126, 0.7152, 0.0722],
+    ])
+    .linear(1.035, -17.2)
+    .linear([1.0, 0.963, 0.895], [0, 0, 0])
+    .jpeg({ quality: 88, mozjpeg: true })
+    .toFile(DUOTONE_OUT);
+  console.log("images: baked the duotone into portrait-hero-duotone.jpg");
+}
+
 const files = (await readdir(SRC)).filter((f) => /\.(jpe?g|png)$/i.test(f));
 let made = 0;
 for (const f of files) {
