@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-28T01:52:28.982Z",
+  "generatedAt": "2026-09-29T02:39:53.830Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-29",
-      "end": "2026-09-26"
+      "start": "2026-08-30",
+      "end": "2026-09-27"
     },
     "totals": {
       "clicks": 7,
@@ -89,6 +89,13 @@
         "impressions": 7,
         "ctr": 0,
         "position": 6.571428571428571
+      },
+      {
+        "key": "2026-09-26",
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0
       }
     ],
     "queries": [
@@ -270,8 +277,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-29",
-      "end": "2026-09-28"
+      "start": "2026-08-30",
+      "end": "2026-09-29"
     },
     "totals": {
       "views": 0,
@@ -332,6 +339,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1790294400000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790380800000)/",
         "Impressions": 0
       }
     ],
@@ -485,7 +498,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-19T22:23:40Z",
+        "lastCrawl": "2026-09-28T11:17:48Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -503,8 +516,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
