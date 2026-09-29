@@ -99,6 +99,10 @@ export const who = {
   role: "Performance marketing, AI automation and Gen AI creative — every skill in the chain, run by one brain, so nothing gets lost between departments.",
   lines: [
     "MBA in finance and marketing. I read your numbers before I touch your ads — then I make the creatives, the films, and the decks that go in front of investors.",
+    // A count of my own output, not an ad result — which is why it sits here and not in `receipts`,
+    // where every number promises a Meta Ads Manager screenshot behind it. The second clause carries
+    // the weight: it is the reason a brand priced out of a studio can still afford the work.
+    "1,000+ creatives and 500+ films produced — most of them without a camera, a studio or a model.",
     "Recognised three times in a year: Prompt Engineering Champion at the Social Eagle AI prompt battle (2025), an award at the Tamil Nadu Digital Summit (May 2026), and Official Digital Partner of VROOM 2026.",
     "Every ad number on this page links to how it was measured. Anything a client told me is marked as client-reported. I work with founders in the United Kingdom, the United States and India, in your timezone.",
   ],
