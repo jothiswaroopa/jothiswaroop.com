@@ -1,6 +1,38 @@
 {
-  "generated": "2026-09-25T05:09:29.676Z",
+  "generated": "2026-09-30T12:34:40.269Z",
   "posts": [
+    {
+      "date": "2026-09-30",
+      "weekday": "Wed",
+      "pillar": "teach",
+      "format": "text",
+      "angle": "Why Meta has no idea which of your leads paid you, and how to tell it — in plain terms, no developer needed.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": [
+        "STILL UNVERIFIED: \"That was the cheapest cost per lead I had ever produced\" — No approved fact establishes this was the cheapest cost per lead he has ever produced across his career; this is an invented personal superlative claim.",
+        "STILL UNVERIFIED: \"The form asked nothing. Two taps, every field pre-filled from Facebook.\" — No approved fact describes the actual structure of the Nova Attire lead form (that it asked nothing, required two taps, or was pre-filled from Facebook). This is an invented specific detail about a client's form.",
+        "STILL UNVERIFIED: \"A lead who said \"not interested\" was marked closed for good, even though some came back on their own, months later, and ordered.\" — The approved facts state a lead saying 'not interested' was treated as final, and some leads did return and place orders on their own — but 'months later' is an added specific detail not in the approved facts."
+      ],
+      "hook": "4,248 leads at ₹16.58 each. That was the cheapest cost per lead I had ever produced, for a Tirupur apparel manufacturer, across six campaigns.",
+      "body": "4,248 leads at ₹16.58 each.\n\nThat was the cheapest cost per lead I had ever produced, for a Tirupur apparel manufacturer, across six campaigns.\n\nCheap leads and leads that close are two different products.\n\nThe form asked nothing. Two taps, every field pre-filled from Facebook. So Meta went and found the cheapest person who would do a thing that costs nothing to do — because that is exactly what the ad and form asked for.\n\nThat business, Nova Attire, did convert some of those leads into sample orders and a bulk order or two each. But nothing in the setup captured the second order. No reorder timing, no follow-up when a buyer's stock would run low. A lead who said \"not interested\" was marked closed for good, even though some came back on their own, months later, and ordered.\n\nIf your cost per lead dropped last month, open Ads Manager and check what the form actually asked for. A form with no real question gets you the cheapest person willing to tap twice, not the buyer who reorders.\n\nWhat does your cheapest-performing ad set actually ask someone to do before they count as a lead?",
+      "chars": 1095,
+      "avgWords": 15,
+      "warnings": [
+        "one sentence is 48 words long",
+        "one paragraph is 330 chars — may read as a wall",
+        "one paragraph is 357 chars — may read as a wall",
+        "STILL UNVERIFIED: \"That was the cheapest cost per lead I had ever produced\" — No approved fact establishes this was the cheapest cost per lead he has ever produced across his career; this is an invented personal superlative claim.",
+        "STILL UNVERIFIED: \"The form asked nothing. Two taps, every field pre-filled from Facebook.\" — No approved fact describes the actual structure of the Nova Attire lead form (that it asked nothing, required two taps, or was pre-filled from Facebook). This is an invented specific detail about a client's form.",
+        "STILL UNVERIFIED: \"A lead who said \"not interested\" was marked closed for good, even though some came back on their own, months later, and ordered.\" — The approved facts state a lead saying 'not interested' was treated as final, and some leads did return and place orders on their own — but 'months later' is an added specific detail not in the approved facts.",
+        "check: \"So Meta went and found the cheapest person who would do a thing that costs nothi\" — Presented as a certain factual mechanic of how Meta's algorithm behaved for this specific campaign, but no approved fact supports this characterization of what happened.",
+        "check: \"did convert some of those leads into sample orders and a bulk order or two each\" — This is supported by approved facts (converted leads into sample orders and one or two bulk orders each) - not an issue."
+      ],
+      "images": [],
+      "pdf": null,
+      "status": "draft"
+    },
     {
       "date": "2026-09-25",
       "weekday": "Fri",
@@ -32,7 +64,8 @@
         "/linkedin/2026-09-25/poster.png"
       ],
       "pdf": null,
-      "status": "draft"
+      "status": "draft",
+      "notPosted": "held for review — STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material."
     },
     {
       "date": "2026-09-24",
