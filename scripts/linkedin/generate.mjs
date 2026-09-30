@@ -78,6 +78,14 @@ function pickTopic() {
 
 function prompt(topic, news, fixes) {
   const facts = cfg.approvedFacts.map((f) => `- ${f}`).join("\n");
+  // What the fact-checker has actually held, in its own words, from recent runs. The engine was
+  // already counting these per pillar and never telling the writer, so every day it reached for the
+  // same kind of invented detail and got held for it. Naming the real sentences is cheaper and
+  // blunter than any rule: these are not hypothetical failures, they are this account's.
+  const pastBlocks = [...new Set((learning.blockedQuotes ?? []).slice(0, 8))];
+  const blockBlock = pastBlocks.length
+    ? `\nCLAIMS THAT WERE HELD BEFORE — do not write these or anything like them:\n${pastBlocks.map((q) => `- "${q}"`).join("\n")}\n`
+    : "";
   const shape = format === "carousel"
     ? `Slide 1 is the hook, under 10 words, never a question. Slide 2 is the stakes. Middle slides are one idea each under 18 words, and every one must leave something unfinished so the reader keeps swiping. The second-to-last slide pays off what slide 1 promised. The last slide is the takeaway with no call to action. Never number a slide in its own text, and never tell the reader to swipe — earn it.`
     : `Write the post as flowing paragraphs separated by line breaks.`;
@@ -91,22 +99,31 @@ function prompt(topic, news, fixes) {
 slide 1: "Four clicks tell you what your ad is chasing." (8 words, a number, not a question)
 slide 2: "Most people judge it by the creative. Wrong screen entirely."
 slides 3-9: one instruction each, under 18 words, each leaving the next one owed
-last slide: "Check this before the creative. It decides who Meta goes and finds."
+last slide: "Read that one line before you judge the creative." (an instruction, not a claim about how Meta behaves — the fact-check flags platform mechanics asserted as certain fact)
 caption: opens on the same claim, 400-1200 characters, ends flat with no ask.`
-    : `A post that would pass on the first try:
+    // Every sentence of this example is traceable to an approved fact, and it has to stay that way.
+    // The previous version was written freehand and contained three claims nothing supports — "the
+    // cheapest cost per lead I had ever produced", the two-tap pre-filled form, and "nobody ever
+    // recorded how many became orders". The model copied them, because a worked example is the
+    // strongest instruction in a prompt, and the fact-checker then held the post. Three days running.
+    // An example that invents is an instruction to invent. Before editing this, check each sentence
+    // against cfg.approvedFacts.
+    : `A post that would pass on the first try. Every claim in it comes from the approved facts — that
+is what makes it passable, and it is the part to copy:
 
 "4,248 leads at ₹16.58 each.
-That was the cheapest cost per lead I had ever produced.
 
 Cheap leads and leads that close are two different products.
 
-The form asked nothing. Two taps, every field pre-filled from Facebook. So Meta went looking for the cheapest person who would do a thing that costs nothing — which is exactly what it was asked for.
+Nova Attire tracked every one live in a Google Sheet. Only 5-6% were junk — the rest were right for their niche. Sample orders followed, then one or two bulk orders each.
 
-Nobody ever recorded how many of those leads became orders. Including me.
+Then nothing. No reorder timing. No follow-up for when a buyer's stock would run low. A lead that said "not interested" was closed for good — and some of those came back and ordered anyway, on their own.
 
-That is the number I would build first now."
+The leads were never the problem. The second order was.
 
-First line: 6 words, opens on a figure. No ask at the end. 520 characters.`;
+That is the system I would build first now."
+
+First line: 5 words, opens on a figure. No ask at the end. About 560 characters.`;
 
   return `Write ONE LinkedIn ${format === "carousel" ? "CAROUSEL (slides plus a caption)" : format === "poster" ? "text post with a poster image" : "text post"} for Jothi Swaroop.
 
@@ -128,6 +145,12 @@ The ONLY figures you may state are these, in exactly these amounts (anything els
 ${facts}
 
 Do not invent incidents, dialogue, dates or details about his work. If you need an example, make it openly hypothetical ("say a clinic runs...").
+
+Two kinds of sentence get this post held, and they are the two that keep happening:
+- A detail about how a client's business or account actually worked — a form's fields, a timeline, what somebody said — that is not in the list above word for word. Not "two taps", not "months later". If the list does not say it, you do not know it.
+- A superlative about his own record: "the cheapest I ever", "the best", "the first time anyone". Nothing above establishes a career-wide comparison, so nothing above can support one.
+Write the mechanics of the platform, which any reader can check, and keep the client facts to the exact ones listed.
+${blockBlock}
 
 Clients you may name: ${cfg.namedPublicly.join(", ")}. All others stay anonymous and described.
 
@@ -275,7 +298,7 @@ try {
     if (fixed) {
       draft = fixed;
       report = { ...report, chars: fixedReport.chars, avgWords: fixedReport.avgWords, warnings: [...report.warnings, ...fixedReport.warnings] };
-      const again = await verify({ body: draft.body, slides: draft.slides }, news);
+      const again = await verify({ body: draft.body, slides: draft.slides }, news, spend);
       checks = again.check;
       if (again.blocking.length) report.warnings.push(...again.blocking.map((f) => `STILL UNVERIFIED: "${f.quote}" — ${f.issue}`));
       else log("redraft passed the fact-check");
@@ -351,6 +374,14 @@ fs.writeFileSync(QUEUE, JSON.stringify({ generated: new Date().toISOString(), po
 for (const r of ruleFired) learning.ruleHits[r] = (learning.ruleHits[r] || 0) + 1;
 const blockedClaims = report.warnings.filter((w) => /^(UNVERIFIED|STILL)/.test(w)).length;
 if (blockedClaims) learning.factBlocks[topic.pillar] = (learning.factBlocks[topic.pillar] || 0) + 1;
+// Keep the sentences themselves, not just a count per pillar. A count tells the monthly review that
+// teach posts get held a lot; the sentence tells tomorrow's draft what not to write, which is the
+// only version of this that prevents the next hold. Newest first, capped so the prompt stays small.
+const heldQuotes = report.warnings
+  .filter((w) => /^(UNVERIFIED|STILL UNVERIFIED): "/.test(w))
+  .map((w) => w.replace(/^(UNVERIFIED|STILL UNVERIFIED): "/, "").replace(/" — .*$/s, ""))
+  .filter((q) => q.length > 12 && q.length < 240);
+if (heldQuotes.length) learning.blockedQuotes = [...new Set([...heldQuotes, ...(learning.blockedQuotes ?? [])])].slice(0, 24);
 learning.runs.unshift({
   date: today, pillar: topic.pillar, format, attempts: attemptsUsed,
   rulesFired: [...new Set(ruleFired)], blockedClaims, chars: report.chars, held: !autopostSafe,
