@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-29T02:39:53.830Z",
+  "generatedAt": "2026-09-30T02:17:11.458Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-30",
-      "end": "2026-09-27"
+      "start": "2026-08-31",
+      "end": "2026-09-28"
     },
     "totals": {
-      "clicks": 7,
-      "impressions": 49,
-      "ctr": 0.14285714285714285,
-      "position": 5.081632653061225
+      "clicks": 8,
+      "impressions": 51,
+      "ctr": 0.1568627450980392,
+      "position": 5
     },
     "previous": {
       "clicks": 0,
@@ -96,6 +96,13 @@
         "impressions": 0,
         "ctr": 0,
         "position": 0
+      },
+      {
+        "key": "2026-09-27",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 3
       }
     ],
     "queries": [
@@ -117,10 +124,10 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 5,
-        "impressions": 36,
-        "ctr": 0.1388888888888889,
-        "position": 3.9722222222222223
+        "clicks": 6,
+        "impressions": 37,
+        "ctr": 0.16216216216216217,
+        "position": 3.891891891891892
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -132,9 +139,9 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 25,
-        "ctr": 0.04,
-        "position": 6.08
+        "impressions": 26,
+        "ctr": 0.038461538461538464,
+        "position": 5.961538461538462
       },
       {
         "key": "https://jothiswaroop.com/blog/",
@@ -153,9 +160,9 @@
       {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 7.333333333333333
+        "position": 6.75
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -210,10 +217,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 7,
-        "impressions": 38,
-        "ctr": 0.18421052631578946,
-        "position": 2.552631578947368
+        "clicks": 8,
+        "impressions": 39,
+        "ctr": 0.20512820512820512,
+        "position": 2.5128205128205128
       },
       {
         "key": "bih",
@@ -244,6 +251,13 @@
         "position": 7
       },
       {
+        "key": "sau",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
         "key": "tha",
         "clicks": 0,
         "impressions": 1,
@@ -268,17 +282,17 @@
       },
       {
         "key": "DESKTOP",
-        "clicks": 2,
-        "impressions": 30,
-        "ctr": 0.06666666666666667,
-        "position": 6.033333333333333
+        "clicks": 3,
+        "impressions": 32,
+        "ctr": 0.09375,
+        "position": 5.84375
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-30",
-      "end": "2026-09-29"
+      "start": "2026-08-31",
+      "end": "2026-09-30"
     },
     "totals": {
       "views": 0,
@@ -345,6 +359,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1790380800000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790467200000)/",
         "Impressions": 0
       }
     ],
@@ -516,8 +536,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
