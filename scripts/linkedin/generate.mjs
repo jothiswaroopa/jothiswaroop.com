@@ -35,7 +35,23 @@ const weekday = get("weekday");
 const dayNum = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7 }[weekday];
 
 if (cfg.weekdaysOnly && dayNum > 5) { log(`${weekday} — weekends off`); process.exit(0); }
-if (fs.existsSync(path.join(OUT, `${today}.json`)) && !process.env.LI_FORCE) { log(`${today} already drafted`); process.exit(0); }
+
+const todayFile = path.join(OUT, `${today}.json`);
+const existingToday = fs.existsSync(todayFile) ? JSON.parse(fs.readFileSync(todayFile, "utf8")) : null;
+if (existingToday && !process.env.LI_FORCE) { log(`${today} already drafted`); process.exit(0); }
+// LI_FORCE used to be enough to overwrite this file whatever was in it, and that cost us the record
+// of a real post: on 2026-09-24 a carousel went out (urn:li:ugcPost:7508871757123047424) and a
+// forced redraft the same day replaced status "posted" with "draft" and dropped postedAt and the
+// LinkedIn id. Two things were wrong with that. The receipt for something already public is gone,
+// so nothing downstream can tell the post happened; and the fresh draft is eligible to publish
+// again, which would put a second post on the same day under his name. A redraft of a posted day
+// now needs its own switch, so it can only ever happen on purpose.
+if (existingToday?.status === "posted" && process.env.LI_REDRAFT_POSTED !== "1") {
+  log(`${today} is already POSTED to LinkedIn (${existingToday.linkedinId ?? "id not recorded"}, ${existingToday.postedAt}).`);
+  log("Refusing to redraft: it would erase that record and could post a second time today.");
+  log("Set LI_REDRAFT_POSTED=1 alongside LI_FORCE if you really mean to replace it.");
+  process.exit(0);
+}
 
 const pillar = process.env.LI_PILLAR || cfg.weekShape[String(dayNum)] || "teach";
 // Carousels are the strongest format on the platform, so two weekdays are reserved for them —
