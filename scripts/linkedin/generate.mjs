@@ -154,7 +154,7 @@ ${blockBlock}
 
 Clients you may name: ${cfg.namedPublicly.join(", ")}. All others stay anonymous and described.
 
-Limits: under ${cfg.maxChars} characters, at least ${cfg.minChars}. First two lines together under ${cfg.hookMaxChars} characters. Average sentence under ${cfg.maxAvgWords} words. No emoji. At most ${cfg.maxHashtags} hashtags, lowercase, final line. Never state a price.
+Limits: under ${cfg.maxChars} characters, at least ${cfg.minChars}. First two lines together under ${cfg.hookMaxChars} characters. Average sentence under ${cfg.maxAvgWords} words. No emoji. ${cfg.maxHashtags === 0 ? "No hashtags at all — posts without them reach further, and the ranking model reads the text of the post, not tags." : `At most ${cfg.maxHashtags} hashtags, lowercase, final line.`} Never state a price.
 
 ${(cfg.allowDiscussionQuestion || []).includes(format)
   ? `END ON A REAL QUESTION. Not "thoughts?" or "agree?" — a specific question only someone who read the post can answer, about their own account or their own numbers. Posts that do this draw far more comments, and the ranking model rewards comment depth over quick likes. It is not a call to action and it is not selling.\n`

@@ -6,7 +6,7 @@
   "maxChars": 1500,
   "minChars": 380,
   "hookMaxChars": 210,
-  "maxHashtags": 3,
+  "maxHashtags": 0,
   "pillars": [
     "trending",
     "framework",
@@ -145,7 +145,8 @@
   "fridayAlternate": "story",
   "carouselDays": [
     2,
-    4
+    4,
+    5
   ],
   "slidesMin": 8,
   "slidesMax": 12,
@@ -157,14 +158,14 @@
     "2": "carousel",
     "3": "text",
     "4": "carousel",
-    "5": "poster"
+    "5": "carousel"
   },
-  "posterDays": [
-    5
-  ],
+  "posterDays": [],
   "videoPromptWeek": 2,
   "allowDiscussionQuestion": [
     "text",
     "poster"
-  ]
+  ],
+  "_maxHashtags": "0 on purpose. Posts with no hashtags outperform by 5-10% (AuthoredUp, 8 months; 3-5 tags slightly REDUCE visibility), and the 24 Sep trend scan reached the same conclusion from a 300,000-post analysis: 360Brew reads the text, so a tag line is a wasted line. Raise this only against new evidence.",
+  "_carouselDays": "Tue, Thu and Fri. Native documents run 7.00% engagement against ~2% for text-only, and a save is the strongest single signal in 360Brew. Friday moved here from a single-image poster, which is the one format no 2026 benchmark supports - multi-image is second best at 6.45%, single images are not in the winning set at all."
 }
