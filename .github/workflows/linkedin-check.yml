@@ -1,0 +1,27 @@
+name: LinkedIn prompt check
+
+# Runs the moment the LinkedIn engine is edited, so a poisoned worked example is caught at the point
+# someone writes it rather than at 06:00 the next weekday — or, as actually happened, a week later
+# after three of five days had been silently held. Free: no API key, no tokens, a couple of seconds.
+on:
+  push:
+    paths:
+      - "scripts/linkedin/**"
+      - ".github/workflows/linkedin-check.yml"
+  pull_request:
+    paths:
+      - "scripts/linkedin/**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: The prompt's examples must pass the bar a post has to pass
+        run: node scripts/linkedin/check-prompt.mjs

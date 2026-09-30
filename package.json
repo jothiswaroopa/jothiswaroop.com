@@ -15,7 +15,8 @@
     "blog:validate": "node scripts/blog/validate.mjs",
     "dash:collect": "node scripts/dash/collect.mjs",
     "postbuild": "node scripts/defer-hydration.mjs",
-    "covers": "node scripts/blog/cover.mjs"
+    "covers": "node scripts/blog/cover.mjs",
+    "check:prompt": "node scripts/linkedin/check-prompt.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

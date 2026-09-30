@@ -39,6 +39,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Free, offline, and before the first API call: if the prompt's worked examples have drifted
+      # into claims the fact-checker will hold, the draft is doomed and there is no point paying for
+      # it. This is the gate that would have caught the week when three of five days were held.
+      - name: Check the drafting prompt teaches the truth
+        run: node scripts/linkedin/check-prompt.mjs
       - name: Draft the post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

@@ -139,6 +139,25 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const file = path.join(ROOT, "content/linkedin", `${day}.json`);
   if (!fs.existsSync(file)) { console.error(`no draft for ${day}`); process.exit(1); }
   const post = JSON.parse(fs.readFileSync(file, "utf8"));
+
+  /**
+   * The queue is what /dash renders, and it was only ever written at draft time — so a post that went
+   * live stayed "draft" on the review page for good. That is how the 24th carousel came to look
+   * unpublished while it was sitting on LinkedIn, and why it looked as though autoposting had never
+   * worked. Whatever happens to a post, the page that reports on it now gets told.
+   */
+  const queueFile = path.join(ROOT, "public/dash/linkedin.json");
+  const syncQueue = (fields) => {
+    try {
+      if (!fs.existsSync(queueFile)) return;
+      const q = JSON.parse(fs.readFileSync(queueFile, "utf8"));
+      const row = (q.posts ?? []).find((p) => p.date === day);
+      if (!row) return;
+      Object.assign(row, fields);
+      fs.writeFileSync(queueFile, JSON.stringify(q, null, 2) + "\n");
+    } catch (e) { log(`could not update the queue: ${e.message}`); }  // never fail a real post over bookkeeping
+  };
+
   const out = await publish(post);
   if (out.skipped) {
     log(`not posting — ${out.skipped}`);
@@ -146,11 +165,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     post.notPosted = out.skipped;
     if (out.expired) post.tokenExpired = true;
     fs.writeFileSync(file, JSON.stringify(post, null, 2) + "\n");
+    syncQueue({ notPosted: out.skipped, ...(out.expired ? { tokenExpired: true } : {}) });
     process.exit(0);
   }
   post.status = "posted";
   post.postedAt = new Date().toISOString();
   post.linkedinId = out.id;
   fs.writeFileSync(file, JSON.stringify(post, null, 2) + "\n");
+  syncQueue({ status: "posted", postedAt: post.postedAt, linkedinId: out.id, notPosted: null });
   log("marked as posted");
 }
