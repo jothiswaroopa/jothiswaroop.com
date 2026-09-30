@@ -8,6 +8,7 @@ import { validate, validateCarousel } from "./validate.mjs";
 import { renderCarousel, renderPoster } from "./render.mjs";
 import { trendingItems } from "./trending.mjs";
 import { verify } from "./verify.mjs";
+import { ledger, isBudgetError } from "../lib/spend.mjs";
 
 const ROOT = process.cwd();
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -22,6 +23,9 @@ const ruleFired = [];   // every validator error seen this run, for the monthly 
 const OUT = path.join(ROOT, "content/linkedin");
 const QUEUE = path.join(ROOT, "public/dash/linkedin.json");
 const client = new Anthropic();
+// Weekdays add up: 22 drafts a month, each with up to three attempts and a fact-check pass. Cheap
+// per call, but it is the job most likely to loop, which is what maxRunUsd is for.
+const spend = ledger("linkedin");
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), "[li]", ...a);
 
 const parts = new Intl.DateTimeFormat("en-GB", { timeZone: cfg.timezone, weekday: "short", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
@@ -150,15 +154,25 @@ function schemaFor(topic) {
 
 async function ask(topic, news, fixes) {
   const tool = { name: "draft_post", description: "Return the finished LinkedIn draft.", input_schema: schemaFor(topic) };
+  spend.guard("li.draft");
   const res = await client.messages.create({
     model: cfg.model, max_tokens: 2500, system: VOICE,
     tools: [tool],
     tool_choice: { type: "tool", name: "draft_post" },
     messages: [{ role: "user", content: prompt(topic, news, fixes) }],
   });
+  spend.record("li.draft", res);
   const call = res.content.find((c) => c.type === "tool_use");
   if (!call) throw new Error("model returned no draft");
   return call.input;
+}
+
+// Out of budget is a designed stop, not a failure: exit 0 so a month that ran dry doesn't fill
+// Actions with red crosses and hide a real break.
+if (!spend.affords(["li.draft", "li.verify"])) {
+  const s = spend.status();
+  log(`no draft: LinkedIn has $${(s.share - s.jobTotal).toFixed(2)} left of its $${s.share} for ${s.month} (all jobs: $${s.total.toFixed(2)} of $${s.cap}). Skipping.`);
+  process.exit(0);
 }
 
 const topic = pickTopic();
@@ -182,6 +196,8 @@ for (let attempt = 1; attempt <= attempts; attempt++) {
     draft = await ask(topic, news, fixes);
   } catch (e) {
     log(`attempt ${attempt} failed: ${e.message.slice(0, 90)}`);
+    // No point burning the remaining attempts on a wall that will not move.
+    if (isBudgetError(e)) { if (!best) throw e; break; }
     if (attempt === attempts && !best) throw e;
     continue;
   }
@@ -218,7 +234,7 @@ if (!report.ok) { console.error(`[li] no clean draft after ${attempts} attempts:
 // this catches invented experience, which is the more believable and more damaging kind.
 let checks = [];
 try {
-  const fc = await verify({ body: draft.body, slides: draft.slides }, news);
+  const fc = await verify({ body: draft.body, slides: draft.slides }, news, spend);
   checks = fc.check;
   if (fc.blocking.length) {
     log(`fact-check blocked ${fc.blocking.length} claim(s) — redrafting`);

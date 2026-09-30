@@ -12,6 +12,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
+import { ledger } from "../lib/spend.mjs";
 
 const ROOT = process.cwd();
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -20,6 +21,7 @@ const learnPath = path.join(HERE, "learning.json");
 const cfg = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
 const learning = JSON.parse(fs.readFileSync(learnPath, "utf8"));
 const client = new Anthropic();
+const spend = ledger("evolve");
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), "[evolve]", ...a);
 
 /** Only these may change themselves, and only inside these bounds. Everything else needs a human. */
@@ -101,6 +103,7 @@ CHANGING NOTHING IS A VALID AND OFTEN CORRECT ANSWER. A review that finds someth
 
 This account belongs to a performance marketer in Chennai selling to founder-led manufacturers and brands in India, the UK and the US. He publishes nothing without a receipt behind it. A tactic that works for a motivational-content account is not automatically right here — say so when that applies.`;
 
+spend.guard("evolve");
 const res = await client.messages.create({
   model: cfg.model,
   max_tokens: 4000,
@@ -108,6 +111,7 @@ const res = await client.messages.create({
   tool_choice: { type: "auto" },
   messages: [{ role: "user", content: brief }],
 });
+spend.record("evolve", res);
 
 const call = res.content.find((c) => c.type === "tool_use" && c.name === "propose_changes");
 if (!call) {

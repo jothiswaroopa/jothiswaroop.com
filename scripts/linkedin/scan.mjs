@@ -8,6 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
+import { ledger } from "../lib/spend.mjs";
 
 const ROOT = process.cwd();
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -18,6 +19,7 @@ const learnPath = path.join(HERE, "learning.json");
 const learning = JSON.parse(fs.readFileSync(learnPath, "utf8"));
 const covered = JSON.parse(fs.readFileSync(path.join(HERE, "covered.json"), "utf8"));
 const client = new Anthropic();
+const spend = ledger("scan");
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), "[scan]", ...a);
 
 const TOOL = {
@@ -55,6 +57,7 @@ const perfLine = perf.length >= 3
   ? `What his own posts did (impressions he read off LinkedIn by hand):\n${perf.slice(-12).map(([d, v]) => `    ${d}  ${v.impressions} impressions  ${v.format || "?"} · ${v.pillar || "?"}`).join("\n")}\n${perf.length < 20 ? "    Fewer than 20 posts — treat this as a hint, not a finding." : "    Enough posts to lean on."}`
   : "He has not recorded engagement yet, so there is no evidence of what works for HIM specifically. Do not invent any.";
 
+spend.guard("scan");
 const res = await client.messages.create({
   model: cfg.model,
   max_tokens: 4000,
@@ -80,6 +83,8 @@ Be willing to say that a popular tactic is wrong for him. Hook formulas that wor
 
 For new angles: every one must be answerable from what he actually knows — nine Meta ad accounts, 7,341 lead-form submissions, 876 conversations, the Nova Attire and Five Elements campaigns, nine live automations, an MBA and two years as an equity advisor. Never propose an angle that needs a result he never measured, because the fact-check will block it and the post will be wasted.` }],
 });
+
+spend.record("scan", res);
 
 const call = res.content.find((c) => c.type === "tool_use" && c.name === "report_scan");
 if (!call) { log("no report returned"); process.exit(0); }

@@ -27,6 +27,18 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/linkedin/evolve.mjs
+      # "Change nothing" is the review's most common correct answer, and its commit step exits early
+      # on it — but the call still cost money. So the ledger commits separately.
+      - name: Record what this run spent
+        if: always()
+        run: |
+          git config user.name "spend-bot"
+          git config user.email "spend-bot@jothiswaroop.com"
+          git add scripts/spend 2>/dev/null || true
+          git diff --cached --quiet && echo "no API calls to record" && exit 0
+          git commit -m "Spend: evolve $(date -u +%F)"
+          for i in 1 2 3 4 5; do git push && exit 0; git pull --rebase --autostash || true; done
+          echo "could not push the ledger — the next run will under-count the month" >&2; exit 1
       # A model can hand back a shape the site cannot render. Building here, before the push, means
       # bad data fails THIS run instead of silently freezing jothiswaroop.com on an older version.
       - name: Check the site still builds with this

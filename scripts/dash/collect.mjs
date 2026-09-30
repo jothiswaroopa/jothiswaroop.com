@@ -11,6 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import matter from "gray-matter";
+import { ledger, isBudgetError, summary as spendSummary } from "../lib/spend.mjs";
 const iso = (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : String(v).slice(0, 10));
 
 const ROOT = process.cwd();
@@ -159,16 +160,31 @@ async function bing() {
 // ── GEO: does an AI answer engine mention us for the prompts we care about? ──
 //
 // This is the only block here that costs money, and it is not cheap: eight prompts, each allowed
-// four web searches, is 32 searches a run. Daily, that was ~960 searches a month at $10/1,000 plus
-// every result landing in the context as input tokens — around $21/month, roughly 70% of the whole
-// API bill, to measure the one number on this dashboard that moves over months rather than days.
-// So the sweep runs once a week and every other day republishes the last real reading untouched:
-// same eight prompts, same depth, same honesty about when it was taken (checkedAt does not move).
-// GEO_FORCE=1 runs it on demand — the workflow sets that for a manual dispatch.
-const GEO_WEEKDAY = 1; // Monday, UTC
+// four web searches, is 32 searches a run. Priced properly (scripts/lib/spend.mjs) one prompt is
+// about 10.8c — 4c of search fees and the rest the results landing in the context as input tokens —
+// so a full sweep is about 87c. Daily, that was ~$26 a month. Weekly was ~$3.75, still more than
+// the whole GEO budget for a month on a $10 account.
+//
+// Fortnightly is where it settles, and the honest reason is not only the money: this measures
+// whether an answer engine names us, which moves over months. A weekly reading mostly reprints
+// last week's, and two readings a month is still 26 a year — plenty to see a trend.
+//
+// Every other day republishes the last real reading untouched: same eight prompts, same depth, same
+// honesty about when it was taken (checkedAt does not move).
+//
+// GEO_FORCE=1 runs it on demand — the workflow sets that for a manual dispatch, so be aware that
+// hitting "Run workflow" on the dash costs about 87c.
+const GEO_WEEKDAY = 1;                // Monday, UTC
+const GEO_WEEKS = [[1, 7], [15, 21]]; // ...but only the Monday in the 1st and 3rd week of the month
 async function geo() {
   const forced = process.env.GEO_FORCE === "1";
-  const due = new Date().getUTCDay() === GEO_WEEKDAY;
+  const now = new Date();
+  const dom = now.getUTCDate();
+  // Exactly two sweeps a month, 14 days apart, except where a month starts late enough that the gap
+  // stretches to 21 (Nov 16 → Dec 7, 2026). Anchoring to the day of the month rather than counting
+  // 14 days is what buys that: no drift, two readings every month whatever the calendar does, and
+  // you can tell from a date alone whether a reading was due.
+  const due = now.getUTCDay() === GEO_WEEKDAY && GEO_WEEKS.some(([a, b]) => dom >= a && dom <= b);
   if (!forced && !due && prev.geo && !prev.geo.error) {
     log("· geo not due today — keeping the reading from", prev.geo.checkedAt);
     return prev.geo;
@@ -177,18 +193,33 @@ async function geo() {
   const { default: Anthropic } = await import("@anthropic-ai/sdk");
   const client = new Anthropic();
   const prompts = JSON.parse(fs.readFileSync(path.join(HERE, "geo-prompts.json"), "utf8"));
+  const spend = ledger("geo");
   const results = [];
   for (const p of prompts) {
     try {
+      spend.guard("geo.prompt");
       const res = await client.messages.create({ model: "claude-sonnet-5", max_tokens: 900, tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }], messages: [{ role: "user", content: `${p.prompt}\n\nAnswer as you would for a real user, naming specific businesses or people with their websites where relevant.` }] });
+      spend.record("geo.prompt", res);
       const text = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
       const cited = res.content.flatMap((c) => c.type === "text" ? (c.citations ?? []) : []).map((c) => c.url).filter(Boolean);
       const mentioned = /jothi\s*swaroop|jothiswaroop\.com/i.test(text) || cited.some((u) => u.includes("jothiswaroop.com"));
       results.push({ id: p.id, prompt: p.prompt, segment: p.segment, engine: "claude+search", mentioned, cited: cited.filter((u) => u.includes("jothiswaroop.com")), competitors: [...new Set((text.match(/https?:\/\/[^\s)\]]+/g) ?? []).map((u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return null; } }).filter(Boolean))].slice(0, 6) });
-    } catch (e) { results.push({ id: p.id, prompt: p.prompt, segment: p.segment, error: e.message }); }
+    } catch (e) {
+      // A budget stop is not a reading. Half a sweep would put a rate on the chart that says "we
+      // are mentioned less" when all it means is that we stopped asking — so abandon the whole
+      // sweep and leave last week's honest number in place.
+      if (isBudgetError(e)) {
+        log("· geo:", e.message, "— keeping the reading from", prev.geo?.checkedAt ?? "never");
+        if (prev.geo && !prev.geo.error) return prev.geo;
+        throw e;
+      }
+      results.push({ id: p.id, prompt: p.prompt, segment: p.segment, error: e.message });
+    }
   }
-  const history = [...(prev.geo?.history ?? []), { date: day(new Date()), rate: results.filter((r) => r.mentioned).length / Math.max(1, results.length) }].slice(-60);
-  return { checkedAt: new Date().toISOString(), results, rate: history.at(-1).rate, history };
+  // Rate over the prompts that actually answered: a failed call is missing data, not a non-mention.
+  const answered = results.filter((r) => !r.error);
+  const history = [...(prev.geo?.history ?? []), { date: day(new Date()), rate: answered.filter((r) => r.mentioned).length / Math.max(1, answered.length) }].slice(-60);
+  return { checkedAt: new Date().toISOString(), results, asked: answered.length, rate: history.at(-1).rate, history };
 }
 
 // ── Blog inventory (from the repo itself) ──
@@ -212,6 +243,9 @@ await block("bing", bing);
 await block("geo", geo);
 await block("coverage", coverage);
 out.blog = blog();
+// Read last, so it includes the GEO sweep this run just paid for. Cheap and local — it only reads
+// the committed ledger — and it is the number that answers "will the $10 reach the end of the month".
+out.spend = spendSummary();
 await block("indexStatus", indexStatus);
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(out, null, 2));

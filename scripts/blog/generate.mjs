@@ -9,6 +9,7 @@ import matter from "gray-matter";
 import Anthropic from "@anthropic-ai/sdk";
 import { validate } from "./validate.mjs";
 import { ogFor } from "./og.mjs";
+import { ledger } from "../lib/spend.mjs";
 
 const ROOT = process.cwd();
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -20,6 +21,10 @@ const STYLE = fs.readFileSync(path.join(HERE, "STYLE.md"), "utf8");
 const POSTS = path.join(ROOT, "content/blog");
 const DRAFTS = path.join(ROOT, "content/drafts");
 const client = new Anthropic();
+// Research is the most expensive call the site makes — eight web searches at a cent each plus every
+// result landing in the context. The ledger prices each call and stops the job before it passes the
+// blog's slice of the month, so a bad week of retries costs us a post, never the whole budget.
+const spend = ledger("blog");
 
 const today = new Date().toLocaleDateString("en-CA", { timeZone: cfg.timezone }); // YYYY-MM-DD in IST
 const existing = fs.existsSync(POSTS) ? fs.readdirSync(POSTS).filter((f) => f.endsWith(".md")).map((f) => f.replace(/\.md$/, "")) : [];
@@ -100,7 +105,9 @@ async function parseJsonLoose(text) {
   const attempts = [raw, raw.replace(/^\s*\/\/.*$/gm, "").replace(/,\s*([}\]])/g, "$1")];
   for (const a of attempts) { try { return JSON.parse(a); } catch {} }
   log("research JSON malformed — asking for a repair");
+  spend.guard("blog.json-fix");
   const fix = await client.messages.create({ model: cfg.model, max_tokens: 4000, messages: [{ role: "user", content: `Return this as strict, valid JSON only (same content, fix quoting/commas, no comments, no fences):\n\n${raw}` }] });
+  spend.record("blog.json-fix", fix);
   const t = fix.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
   return JSON.parse(t.slice(t.indexOf("{"), t.lastIndexOf("}") + 1));
 }
@@ -127,12 +134,14 @@ When the research is done, reply with ONE fenced \`\`\`json block and nothing el
 facts: 6-10 items, each under 40 words. sources: 3-6 items and must include every URL used in facts. Keep the whole reply under 900 words.`;
   let json = null;
   for (let attempt = 1; attempt <= 2 && !json; attempt++) {
+    spend.guard("blog.research");
     const res = await client.messages.create({
       model: cfg.model,
       max_tokens: 8000,
-      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 8 }],
+      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: cfg.searchMaxUses ?? 8 }],
       messages: [{ role: "user", content: prompt }],
     });
+    spend.record("blog.research", res);
     if (res.stop_reason === "max_tokens") log("research hit max_tokens on attempt", attempt);
     const text = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n");
     try {
@@ -190,7 +199,9 @@ ${r.sources.map((s) => `- ${s.title} | ${s.url} | ${s.publisher}`).join("\n")}`;
 async function write(topic, r, fix = null) {
   const messages = [{ role: "user", content: `${brief(topic, r)}\n\nWrite the post now, following the house style exactly. Output only the Markdown document.` }];
   if (fix) messages.push({ role: "assistant", content: fix.draft }, { role: "user", content: `The validator rejected this. Fix every item and return the full corrected Markdown document only:\n${fix.errors.map((e) => `- ${e}`).join("\n")}` });
+  spend.guard("blog.write");
   const res = await client.messages.create({ model: cfg.model, max_tokens: 6000, system: STYLE, messages });
+  spend.record("blog.write", res);
   let md = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n").trim();
   md = md.replace(/^```(?:markdown|md)?\s*/i, "").replace(/\s*```$/, "");
   return md;
@@ -199,6 +210,15 @@ async function write(topic, r, fix = null) {
 const slugFrom = (title) => title.toLowerCase().replace(/[’']/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").split("-").filter((w) => !["the", "a", "an", "of", "for", "to", "in", "on", "and", "is", "are", "your", "what", "why", "how", "with"].includes(w)).slice(0, 6).join("-");
 
 // ── run ─────────────────────────────────────────────────────────────────────
+// Checked before anything is called: a run that pays for research and then cannot afford to write
+// the post has bought nothing. Out of budget is a designed stop, not a failure — exit 0 so a month
+// that ran dry doesn't fill Actions with red crosses and hide a real break.
+if (!spend.affords(["blog.research", "blog.write"])) {
+  const s = spend.status();
+  log(`no post: the blog has $${(s.share - s.jobTotal).toFixed(2)} left of its $${s.share} for ${s.month} (all jobs: $${s.total.toFixed(2)} of $${s.cap}). Skipping.`);
+  process.exit(0);
+}
+
 const topic = await pickTopic();
 log("topic:", topic.keyword, `[${topic.lane}/${topic.segment}]`);
 const r = await research(topic);

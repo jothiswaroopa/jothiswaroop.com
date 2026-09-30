@@ -36,6 +36,19 @@ jobs:
           BLOG_LANE: ${{ inputs.lane }}
           BLOG_TOPIC: ${{ inputs.topic }}
         run: node scripts/blog/generate.mjs
+      # The ledger is the only record of what this run cost, and the cap is only as good as it is —
+      # so it commits on its own, before anything else and whatever the outcome. A rejected draft
+      # still spent the money, and spend that never got recorded is spend the cap cannot see.
+      - name: Record what this run spent
+        if: always()
+        run: |
+          git config user.name "spend-bot"
+          git config user.email "spend-bot@jothiswaroop.com"
+          git add scripts/spend 2>/dev/null || true
+          git diff --cached --quiet && echo "no API calls to record" && exit 0
+          git commit -m "Spend: blog $(date -u +%F)"
+          for i in 1 2 3 4 5; do git push && exit 0; git pull --rebase --autostash || true; done
+          echo "could not push the ledger — the next run will under-count the month" >&2; exit 1
       # A model can hand back a shape the site cannot render. Building here, before the push, means
       # bad data fails THIS run instead of silently freezing jothiswaroop.com on an older version.
       - name: Check the site still builds with this

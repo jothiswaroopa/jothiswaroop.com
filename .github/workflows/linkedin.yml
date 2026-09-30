@@ -47,6 +47,18 @@ jobs:
           LI_FORMAT: ${{ inputs.format }}
           LI_FORCE: ${{ inputs.force }}
         run: node scripts/linkedin/generate.mjs
+      # Committed on its own and whatever the outcome: a draft the validator threw away still spent
+      # the money, and spend that never got recorded is spend the cap cannot see.
+      - name: Record what this run spent
+        if: always()
+        run: |
+          git config user.name "spend-bot"
+          git config user.email "spend-bot@jothiswaroop.com"
+          git add scripts/spend 2>/dev/null || true
+          git diff --cached --quiet && echo "no API calls to record" && exit 0
+          git commit -m "Spend: linkedin $(date -u +%F)"
+          for i in 1 2 3 4 5; do git push && exit 0; git pull --rebase --autostash || true; done
+          echo "could not push the ledger — the next run will under-count the month" >&2; exit 1
       - name: Post to LinkedIn (only if credentials and the switch are set)
         if: hashFiles('.li-drafted') != ''
         env:

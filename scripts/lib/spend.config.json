@@ -1,0 +1,30 @@
+{
+  "_note": "The prepaid account holds $10. monthlyCapUsd is the hard stop, set below $10 so rounding and a price change cannot overrun it. shares split the month between jobs so whichever job runs first cannot eat the rest; they deliberately sum below the cap. estimateUsd is only the opening guess a guard uses before the ledger has seen that call — after a few real calls the observed mean replaces it. maxRunUsd catches a single run stuck in a retry loop.",
+  "monthlyCapUsd": 9.0,
+  "shares": {
+    "blog": 3.6,
+    "geo": 2.2,
+    "linkedin": 1.8,
+    "scan": 0.5,
+    "evolve": 0.4
+  },
+  "maxRunUsd": {
+    "blog": 0.9,
+    "geo": 1.4,
+    "linkedin": 0.25,
+    "scan": 0.4,
+    "evolve": 0.4,
+    "default": 0.5
+  },
+  "estimateUsd": {
+    "blog.research": 0.2,
+    "blog.json-fix": 0.01,
+    "blog.write": 0.04,
+    "li.draft": 0.02,
+    "li.verify": 0.01,
+    "geo.prompt": 0.13,
+    "scan": 0.18,
+    "evolve": 0.15,
+    "default": 0.05
+  }
+}

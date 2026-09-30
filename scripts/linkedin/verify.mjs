@@ -42,7 +42,11 @@ const TOOL = {
   },
 };
 
-export async function verify(post, sources = null) {
+/**
+ * `spend` is the caller's ledger, passed in rather than opened here: two ledgers for the same job
+ * would each hold their own copy of the month's file and the second write would drop the first's.
+ */
+export async function verify(post, sources = null, spend = null) {
   const material = [
     "APPROVED FACTS — the only things known to be true about Jothi Swaroop's work:",
     ...cfg.approvedFacts.map((f) => `- ${f}`),
@@ -55,6 +59,7 @@ export async function verify(post, sources = null) {
 
   const draft = [post.body, ...(post.slides || []).map((s) => s.text)].join("\n");
 
+  spend?.guard("li.verify");
   const res = await client.messages.create({
     model: cfg.model,
     max_tokens: 2000,
@@ -83,6 +88,8 @@ Do NOT flag as blocking: general advice, industry generalisations ("most campaig
 Be strict about the first-hand-experience ones. Those are the claims that read as most credible and are easiest to invent.`,
     }],
   });
+
+  spend?.record("li.verify", res);
 
   const call = res.content.find((c) => c.type === "tool_use");
   const findings = call?.input?.findings ?? [];

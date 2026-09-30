@@ -2,6 +2,8 @@
   "model": "claude-sonnet-5",
   "site": "https://jothiswaroop.com",
   "timezone": "Asia/Kolkata",
+  "_searchMaxUses": "Web searches the research call may run: $0.01 each, plus every result's tokens. The biggest single dial on what a post costs. Cutting it too far makes the primary-source rule fail, which triggers a second research attempt and costs more — so read the ledger before changing it.",
+  "searchMaxUses": 8,
   "lanes": [
     "news",
     "guide"
