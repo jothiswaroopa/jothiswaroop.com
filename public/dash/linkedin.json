@@ -1,33 +1,25 @@
 {
-  "generated": "2026-09-30T12:34:40.269Z",
+  "generated": "2026-09-30T12:42:12.187Z",
   "posts": [
     {
       "date": "2026-09-30",
       "weekday": "Wed",
       "pillar": "teach",
       "format": "text",
-      "angle": "Why Meta has no idea which of your leads paid you, and how to tell it — in plain terms, no developer needed.",
+      "angle": "Test your own follow-up speed: fill in your own ad's form with your own number and time how long until somebody rings.",
       "isSales": false,
       "videoPrompt": null,
-      "autopostSafe": false,
-      "heldBecause": [
-        "STILL UNVERIFIED: \"That was the cheapest cost per lead I had ever produced\" — No approved fact establishes this was the cheapest cost per lead he has ever produced across his career; this is an invented personal superlative claim.",
-        "STILL UNVERIFIED: \"The form asked nothing. Two taps, every field pre-filled from Facebook.\" — No approved fact describes the actual structure of the Nova Attire lead form (that it asked nothing, required two taps, or was pre-filled from Facebook). This is an invented specific detail about a client's form.",
-        "STILL UNVERIFIED: \"A lead who said \"not interested\" was marked closed for good, even though some came back on their own, months later, and ordered.\" — The approved facts state a lead saying 'not interested' was treated as final, and some leads did return and place orders on their own — but 'months later' is an added specific detail not in the approved facts."
-      ],
-      "hook": "4,248 leads at ₹16.58 each. That was the cheapest cost per lead I had ever produced, for a Tirupur apparel manufacturer, across six campaigns.",
-      "body": "4,248 leads at ₹16.58 each.\n\nThat was the cheapest cost per lead I had ever produced, for a Tirupur apparel manufacturer, across six campaigns.\n\nCheap leads and leads that close are two different products.\n\nThe form asked nothing. Two taps, every field pre-filled from Facebook. So Meta went and found the cheapest person who would do a thing that costs nothing to do — because that is exactly what the ad and form asked for.\n\nThat business, Nova Attire, did convert some of those leads into sample orders and a bulk order or two each. But nothing in the setup captured the second order. No reorder timing, no follow-up when a buyer's stock would run low. A lead who said \"not interested\" was marked closed for good, even though some came back on their own, months later, and ordered.\n\nIf your cost per lead dropped last month, open Ads Manager and check what the form actually asked for. A form with no real question gets you the cheapest person willing to tap twice, not the buyer who reorders.\n\nWhat does your cheapest-performing ad set actually ask someone to do before they count as a lead?",
-      "chars": 1095,
-      "avgWords": 15,
+      "autopostSafe": true,
+      "heldBecause": null,
+      "hook": "4,248 leads. One test most people never run. Cheap leads and leads that close are two different products. You only find out which one you built if you test the gap between the click and the phone call.",
+      "body": "4,248 leads. One test most people never run.\n\nCheap leads and leads that close are two different products. You only find out which one you built if you test the gap between the click and the phone call.\n\nHere is the test. Open your own ad, the one running right now. Fill in the lead form yourself, with your own number. Start a timer the second you hit submit.\n\nThen wait. Not for a callback window someone promised you. For the actual ring.\n\nAt Nova Attire, a Tirupur apparel manufacturer, 4,248 wholesale buyer leads came in at ₹16.58 each across six campaigns. They tracked every one live in a Google Sheet. Only about 5-6% were junk. The rest were right for their niche, and sample orders followed, then one or two bulk orders each.\n\nWhat never got built was what happens after. No reorder timing. No follow-up for when a buyer's stock would run low. A lead who said \"not interested\" was closed for good — and some of those came back and ordered anyway, on their own.\n\nThe leads were never the problem. The second order was.\n\nRun the test on your own form this week. How many minutes passed between your submit and your phone ringing?",
+      "chars": 1139,
+      "avgWords": 9.7,
       "warnings": [
-        "one sentence is 48 words long",
-        "one paragraph is 330 chars — may read as a wall",
-        "one paragraph is 357 chars — may read as a wall",
-        "STILL UNVERIFIED: \"That was the cheapest cost per lead I had ever produced\" — No approved fact establishes this was the cheapest cost per lead he has ever produced across his career; this is an invented personal superlative claim.",
-        "STILL UNVERIFIED: \"The form asked nothing. Two taps, every field pre-filled from Facebook.\" — No approved fact describes the actual structure of the Nova Attire lead form (that it asked nothing, required two taps, or was pre-filled from Facebook). This is an invented specific detail about a client's form.",
-        "STILL UNVERIFIED: \"A lead who said \"not interested\" was marked closed for good, even though some came back on their own, months later, and ordered.\" — The approved facts state a lead saying 'not interested' was treated as final, and some leads did return and place orders on their own — but 'months later' is an added specific detail not in the approved facts.",
-        "check: \"So Meta went and found the cheapest person who would do a thing that costs nothi\" — Presented as a certain factual mechanic of how Meta's algorithm behaved for this specific campaign, but no approved fact supports this characterization of what happened.",
-        "check: \"did convert some of those leads into sample orders and a bulk order or two each\" — This is supported by approved facts (converted leads into sample orders and one or two bulk orders each) - not an issue."
+        "possible client name to check: \"Google Sheet\"",
+        "check: \"Here is the test. Open your own ad, the one running right now. Fill in the lead \" — This 'test' is presented as an established method but is not in the approved facts; it's the author's own invented framework being presented as a general instruction, and there is no evidence he ran or verified this test himself.",
+        "check: \"sample orders followed, then one or two bulk orders each\" — Approved facts say leads converted into sample orders and one or two bulk orders each, but 'followed' implies a direct causal sequence tied to the junk-rate figure that isn't explicitly established in that order.",
+        "check: \"A lead who said \"not interested\" was closed for good — and some of those came ba\" — This is consistent with approved facts but compresses/paraphrases them; verify wording matches intent (leads saying 'not interested' treated as final, some returned and placed orders)."
       ],
       "images": [],
       "pdf": null,
