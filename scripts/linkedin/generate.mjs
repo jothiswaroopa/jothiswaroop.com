@@ -219,7 +219,7 @@ function schemaFor(topic) {
           text: { type: "string", description: "The sentence this slide makes. Always required, whatever the kind." },
           kind: {
             type: "string",
-            enum: ["statement", "stat", "steps", "versus", "callout", "product"],
+            enum: ["statement", "stat", "steps", "versus", "callout", "product", "quote"],
             description: "statement: the sentence alone, set large. stat: one figure set huge above the sentence — only for a figure in the approved facts or the supplied sources. steps: the sentence plus 2-4 short actions. versus: the sentence plus two short columns that contrast. callout: the sentence as a marked aside, for the one thing you would underline. Vary them — never three of the same kind in a row, and never more than two stat slides in a deck.",
           },
           figure: { type: "string", description: "For kind=stat: the figure alone, e.g. \"4,248\" or \"₹16.58\". Must appear in the approved facts or the supplied sources." },
@@ -231,6 +231,9 @@ function schemaFor(topic) {
           rightLabel: { type: "string", description: "For kind=versus: two or three words heading the right column." },
           product: { type: "string", enum: ["openai-dots", "meta-muse", "grok-bot"], description: "For kind=product: shows that product's own art, large, with the sentence small beneath it. Use it only when the slide is about that product. A deck naming these products should carry at least one." },
           sublabel: { type: "string", description: "For kind=product: the maker and date beside the name, e.g. \"OpenAI · 29 Sep\"." },
+          author: { type: "string", description: "For kind=quote: who said it, with their role or company, e.g. \"Dario Amodei, Anthropic\". A quote slide without an attribution is not allowed — if you cannot name the speaker, do not use this kind." },
+          highlight: { type: "string", description: "One or two words FROM this slide's text, set in the accent colour so the eye lands on them. Must appear in the text verbatim or it is ignored. Use it on roughly a third of the slides — the word the sentence turns on, usually the surprising one. Never the whole sentence." },
+          highlightStyle: { type: "string", enum: ["color", "italic-box"], description: "How the highlight is set. \"color\" is the default. \"italic-box\" puts the word in serif italic on a filled block — use it at most ONCE in a deck, on the single sharpest slide." },
         },
         required: ["text"],
       },

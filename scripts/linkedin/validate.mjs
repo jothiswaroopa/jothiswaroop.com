@@ -168,6 +168,17 @@ export function validateCarousel(draft, { sourcesText = "" } = {}) {
     }
     if (/^slide\s*\d|^\d+[.)]\s/i.test(text)) errors.push(`slide ${i + 1} numbers itself — the design does that`);
     if (/next slide|swipe|keep reading|read on/i.test(text)) errors.push(`slide ${i + 1} tells the reader to swipe instead of earning it`);
+    // A quote slide looks like a quotation, so an unattributed one reads as the account putting
+    // words in an unnamed mouth. If the speaker cannot be named it is an assertion, not a quote,
+    // and it should be set as one.
+    if (s.kind === "quote" && !String(s.author || "").trim()) {
+      errors.push(`slide ${i + 1} is a quote with nobody attributed`);
+    }
+    // A highlight that is not in the text is silently dropped at render, so the slide the model
+    // thought it was emphasising comes out flat. Say so rather than letting it pass unnoticed.
+    if (s.highlight && !text.toLowerCase().includes(String(s.highlight).trim().toLowerCase())) {
+      warnings.push(`slide ${i + 1} highlights "${s.highlight}", which is not in its text — it will render plain`);
+    }
   });
   const all = slides.map((s) => s.text).join(" ");
   const bad = unbackedNumbers(all, sourcesText);

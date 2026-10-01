@@ -132,6 +132,53 @@ const aiGlyph = (m, size = 54) => {
     dot(14, SIGNAL));
 };
 
+/**
+ * One word carrying the weight of a sentence.
+ *
+ * Every slide until now set its whole line in one colour at one weight, so a reader scanning the
+ * deck met a uniform block and moved past it. Colouring the word the sentence turns on gives the
+ * slide a focal point without adding anything to read.
+ *
+ * Returns the whole text block, not inline children, because satori will not lay out a div that
+ * has more than one child unless the div is flex — "display: block" is rejected outright. So the
+ * line is set as one flex row per word, wrapping naturally, and the words inside the highlight
+ * carry the accent. The word gap is derived from the size rather than fixed, since the same helper
+ * sets a 92px statement and a 40px product caption.
+ *
+ * "italic-box" is the heavier treatment: the serif italic on a filled block, for the one slide in
+ * a deck that earns it. On every slide it would simply be noise.
+ */
+function richBlock(text, highlight, style, css = {}) {
+  const s = String(text ?? "").trim();
+  const size = css.fontSize ?? 60;
+  const gap = Math.round(size * 0.26);
+  const lh = css.lineHeight ?? 1.15;
+
+  // Which word indices fall inside the highlighted phrase.
+  const words = s.split(/\s+/).filter(Boolean);
+  const hot = new Set();
+  if (highlight) {
+    const want = String(highlight).trim().toLowerCase().split(/\s+/).filter(Boolean);
+    const lower = words.map((w) => w.toLowerCase().replace(/^[^a-z0-9$%]+|[^a-z0-9$%]+$/g, ""));
+    for (let i = 0; i + want.length <= lower.length; i++) {
+      if (want.every((w, k) => lower[i + k] === w.replace(/^[^a-z0-9$%]+|[^a-z0-9$%]+$/g, ""))) {
+        for (let k = 0; k < want.length; k++) hot.add(i + k);
+        break;                                  // first occurrence only
+      }
+    }
+  }
+
+  const boxed = style === "italic-box";
+  return h("div", { style: { display: "flex", flexWrap: "wrap", alignItems: "baseline", ...css, lineHeight: lh } },
+    ...words.map((w, i) => {
+      const on = hot.has(i);
+      if (on && boxed) {
+        return h("div", { style: { display: "flex", fontFamily: "IS", fontStyle: "italic", color: INK, background: SIGNAL, paddingLeft: Math.round(size * 0.16), paddingRight: Math.round(size * 0.16), paddingBottom: Math.round(size * 0.06), borderRadius: 6, marginRight: gap, lineHeight: lh } }, w);
+      }
+      return h("div", { style: { display: "flex", marginRight: gap, lineHeight: lh, ...(on ? { color: SIGNAL } : {}) } }, w);
+    }));
+}
+
 /** The furniture every middle slide carries: the index above, the rail and the footer below. */
 const frame = (n, total, m, ...middle) =>
   h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
@@ -198,7 +245,7 @@ function calloutSlide(s, n, total, m) {
   return frame(n, total, m,
     h("div", { style: { display: "flex", flexDirection: "column", borderLeft: `4px solid ${SIGNAL}`, paddingLeft: 40 } },
       s.label ? h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL, marginBottom: 26 } }, String(s.label).toUpperCase()) : null,
-      h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 } }, s.text)));
+      richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 })));
 }
 
 /**
@@ -210,7 +257,7 @@ function calloutSlide(s, n, total, m) {
  */
 function productSlide(s, n, total, m) {
   const art = productArt(s.product);
-  if (!art) return statementSlide(s.text, n, total, m);
+  if (!art) return statementSlide(s, n, total, m);
   return frame(n, total, m,
     h("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start" } },
       h("div", { style: { display: "flex", width: "100%", height: 480, alignItems: "center", justifyContent: "center" } },
@@ -264,21 +311,46 @@ function orbitSlide(m, opts = {}) {
         aiGlyph({ ...m, dim: m.endDim, rail: m.endDim }, 60))));
 }
 
-function statementSlide(text, n, total, m) {
+/**
+ * Somebody else's words, set as theirs.
+ *
+ * A trending post often turns on a line a named person actually said, and until now that line was
+ * set exactly like the account's own sentences — so a reader could not tell a quotation from an
+ * assertion, and the post quietly took credit for someone else's claim. The oversized mark and the
+ * attribution rule make the borrowing visible, which is the honest way to use a quote and also the
+ * more persuasive one: a named source carries weight an anonymous assertion does not.
+ */
+function quoteSlide(s, n, total, m) {
   return frame(n, total, m,
-    h("div", { style: { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 } }, text));
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { fontFamily: "IS", fontSize: 170, lineHeight: 0.7, color: SIGNAL, height: 96 } }, "\u201C"),
+      richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 78, 48, 2.7), lineHeight: 1.16, letterSpacing: -0.6, maxWidth: 880, marginTop: 10 }),
+      s.author
+        ? h("div", { style: { display: "flex", alignItems: "center", marginTop: 40 } },
+            h("div", { style: { display: "flex", width: 54, height: 2, background: m.dim, marginRight: 22 } }),
+            h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 2, color: m.dim } }, String(s.author).toUpperCase()))
+        : null));
+}
+
+function statementSlide(s, n, total, m) {
+  const text = typeof s === "string" ? s : String(s.text || "");
+  const hl = typeof s === "string" ? null : s.highlight;
+  const hs = typeof s === "string" ? "color" : s.highlightStyle;
+  return frame(n, total, m,
+    richBlock(text, hl, hs, { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 }));
 }
 
 function body(slide, n, total, m) {
   const s = typeof slide === "string" ? { text: slide } : slide;
   const text = String(s.text || "").trim();
   switch (s.kind) {
-    case "stat":    return s.figure ? statSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
-    case "steps":   return (s.items ?? []).length ? stepsSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
-    case "versus":  return s.left && s.right ? versusSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
+    case "stat":    return s.figure ? statSlide({ ...s, text }, n, total, m) : statementSlide({ ...s, text }, n, total, m);
+    case "steps":   return (s.items ?? []).length ? stepsSlide({ ...s, text }, n, total, m) : statementSlide({ ...s, text }, n, total, m);
+    case "versus":  return s.left && s.right ? versusSlide({ ...s, text }, n, total, m) : statementSlide({ ...s, text }, n, total, m);
     case "callout": return calloutSlide({ ...s, text }, n, total, m);
     case "product": return productSlide({ ...s, text }, n, total, m);
-    default:        return statementSlide(text, n, total, m);
+    case "quote":   return quoteSlide({ ...s, text }, n, total, m);
+    default:        return statementSlide({ ...s, text }, n, total, m);
   }
 }
 
