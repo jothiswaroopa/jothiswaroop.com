@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-30T02:17:11.458Z",
+  "generatedAt": "2026-10-01T02:17:54.554Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-08-31",
-      "end": "2026-09-28"
+      "start": "2026-09-01",
+      "end": "2026-09-29"
     },
     "totals": {
       "clicks": 8,
-      "impressions": 51,
-      "ctr": 0.1568627450980392,
-      "position": 5
+      "impressions": 55,
+      "ctr": 0.14545454545454545,
+      "position": 5.181818181818182
     },
     "previous": {
       "clicks": 0,
@@ -103,6 +103,13 @@
         "impressions": 2,
         "ctr": 0.5,
         "position": 3
+      },
+      {
+        "key": "2026-09-28",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.5
       }
     ],
     "queries": [
@@ -125,9 +132,9 @@
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 6,
-        "impressions": 37,
-        "ctr": 0.16216216216216217,
-        "position": 3.891891891891892
+        "impressions": 39,
+        "ctr": 0.15384615384615385,
+        "position": 3.7948717948717947
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -139,9 +146,9 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 26,
-        "ctr": 0.038461538461538464,
-        "position": 5.961538461538462
+        "impressions": 28,
+        "ctr": 0.03571428571428571,
+        "position": 5.75
       },
       {
         "key": "https://jothiswaroop.com/blog/",
@@ -174,9 +181,9 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 12
+        "position": 14.333333333333334
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements",
@@ -195,9 +202,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 19
+        "position": 17
       },
       {
         "key": "https://jothiswaroop.com/work/ram/",
@@ -212,15 +219,22 @@
         "impressions": 1,
         "ctr": 0,
         "position": 10
+      },
+      {
+        "key": "https://jothiswaroop.com/work/srr/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
       }
     ],
     "countries": [
       {
         "key": "ind",
         "clicks": 8,
-        "impressions": 39,
-        "ctr": 0.20512820512820512,
-        "position": 2.5128205128205128
+        "impressions": 42,
+        "ctr": 0.19047619047619047,
+        "position": 2.6904761904761907
       },
       {
         "key": "bih",
@@ -267,9 +281,9 @@
       {
         "key": "usa",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 6,
         "ctr": 0,
-        "position": 24.4
+        "position": 22.833333333333332
       }
     ],
     "devices": [
@@ -283,16 +297,16 @@
       {
         "key": "DESKTOP",
         "clicks": 3,
-        "impressions": 32,
-        "ctr": 0.09375,
-        "position": 5.84375
+        "impressions": 36,
+        "ctr": 0.08333333333333333,
+        "position": 6.027777777777778
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-08-31",
-      "end": "2026-09-30"
+      "start": "2026-09-01",
+      "end": "2026-10-01"
     },
     "totals": {
       "views": 0,
@@ -365,6 +379,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1790467200000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790553600000)/",
         "Impressions": 0
       }
     ],
@@ -507,6 +527,22 @@
         "sources": 2
       }
     ]
+  },
+  "spend": {
+    "month": "2026-10",
+    "cap": 9,
+    "spent": 0,
+    "by": {},
+    "remaining": 9,
+    "pace": 0,
+    "projected": 0,
+    "shares": {
+      "blog": 3.6,
+      "geo": 2.2,
+      "linkedin": 1.8,
+      "scan": 0.5,
+      "evolve": 0.4
+    }
   },
   "indexStatus": {
     "checked": 17,
