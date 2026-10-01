@@ -17,9 +17,16 @@
     "Cost per lead is the most confidently reported number in this industry and one of the least useful.": "2026-09-25",
     "Why Meta has no idea which of your leads paid you, and how to tell it — in plain terms, no developer needed.": "2026-09-30",
     "Test your own follow-up speed: fill in your own ad's form with your own number and time how long until somebody rings.": "2026-09-30",
-    "A year of work produced 4,248 leads at ₹16.58 each, and I still cannot tell you how many became orders. Why that is a measurement failure and whose fault it is.": "2026-10-01"
+    "A year of work produced 4,248 leads at ₹16.58 each, and I still cannot tell you how many became orders. Why that is a measurement failure and whose fault it is.": "2026-10-01",
+    "Five AI labs have now shipped the same product: an always-on agent with its own computer that signs into your tools and keeps working after you close the laptop. OpenAI shipped dots and Meta extended Muse to small businesses on the same day. What the convergence actually means for someone running their own ads, who is not going to buy any of them this month.": "2026-10-01"
   },
   "log": [
+    {
+      "date": "2026-10-01",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Five AI labs have now shipped the same product: an always-on agent with its own computer that signs into your tools and keeps working after you close the laptop. OpenAI shipped dots and Meta extended Muse to small businesses on the same day. What the convergence actually means for someone running their own ads, who is not going to buy any of them this month."
+    },
     {
       "date": "2026-10-01",
       "pillar": "proof",

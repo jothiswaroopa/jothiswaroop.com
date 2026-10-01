@@ -1,27 +1,40 @@
 {
-  "generated": "2026-10-01T06:16:30.917Z",
+  "generated": "2026-10-01T07:34:11.959Z",
   "posts": [
     {
       "date": "2026-10-01",
       "weekday": "Thu",
-      "pillar": "proof",
+      "pillar": "trending",
       "format": "carousel",
-      "angle": "A year of work produced 4,248 leads at ₹16.58 each, and I still cannot tell you how many became orders. Why that is a measurement failure and whose fault it is.",
+      "angle": "Five AI labs have now shipped the same product: an always-on agent with its own computer that signs into your tools and keeps working after you close the laptop. OpenAI shipped dots and Meta extended Muse to small businesses on the same day. What the convergence actually means for someone running their own ads, who is not going to buy any of them this month.",
       "isSales": true,
       "videoPrompt": null,
       "autopostSafe": true,
       "heldBecause": null,
-      "hook": "Four clicks tell you what your ad is chasing. Not the creative. Not the headline. A setting called Performance goal, buried in the ad set.",
-      "body": "Four clicks tell you what your ad is chasing.\n\nNot the creative. Not the headline. A setting called Performance goal, buried in the ad set.\n\nNova Attire, a Tirupur apparel manufacturer, ran six campaigns and got 4,248 wholesale buyer leads at ₹16.58 each. Every lead sits in Meta's lead centre, tied to the ad and form that produced it. That part is not in question.\n\nWhat I still cannot tell you is how many became repeat orders. Nothing in the setup was built to track a second purchase — no reorder timing, no follow-up when a buyer's stock was due to run low. A lead who said \"not interested\" was treated as final, though some came back later on their own and ordered.\n\nThat is not a Meta problem. Meta will optimise for whatever goal you hand it. If nobody wires in what happens after the lead, the ad cannot be blamed for not knowing.\n\nThe fix starts before you spend another rupee: open Ads Manager, pick the campaign, open the ad set, and read the line that says Performance goal. That line is the only thing you should judge before you judge the creative.\n\nIf you want a second pair of eyes on it, I do this as a free audit — the link's on my profile.",
-      "chars": 1160,
-      "avgWords": 13.6,
+      "hook": "OpenAI shipped \"dots,\" its new agentic avatar, the same day Meta said it's rolling Muse out to small businesses. Two different labs, two different names, the same idea underneath: an assistant that logs into your accounts and keeps working after you shut your laptop.",
+      "body": "OpenAI shipped \"dots,\" its new agentic avatar, the same day Meta said it's rolling Muse out to small businesses.\n\nTwo different labs, two different names, the same idea underneath: an assistant that logs into your accounts and keeps working after you shut your laptop.\n\nThat's not a feature update. That's a new category of software asking for your passwords. Before you touch either one, check what it can actually reach — and what happens if it reaches too far.",
+      "chars": 463,
+      "avgWords": 15.8,
       "warnings": [
         "no number in the first line — openers with a figure tend to do better",
-        "check: \"A lead who said \"not interested\" was treated as final, though some came back lat\" — This is accurate per approved facts, but phrasing it as flowing narrative fact is fine; however pairing with the next check below.",
-        "check: \"That is not a Meta problem. Meta will optimise for whatever goal you hand it. If\" — This is a platform-mechanics generalisation presented as certain fact, not directly drawn from approved facts.",
-        "check: \"The fix starts before you spend another rupee: open Ads Manager, pick the campai\" — Presents his own advice/framework ('the only thing you should judge') as an established rule rather than opinion.",
-        "check: \"If you want a second pair of eyes on it, I do this as a free audit — the link's \" — Claim about offering a free audit service is not in the approved facts list.",
-        "check: \"A cheap lead and a lead that reorders are two different things to measure.\" — General opinion/framing, not a factual claim, acceptable as commentary."
+        "one sentence is 46 words long",
+        "one paragraph is 419 chars — may read as a wall",
+        "over a limit: hook is 485 chars, must be under 210",
+        "no number in the first line — openers with a figure tend to do better",
+        "over a limit: hook is 267 chars, must be under 210",
+        "over a limit: first line is 19 words (max 14) — short openers get expanded far more often",
+        "over a limit: slide 4: 22 words (max 20)",
+        "over a limit: slide 6: 21 words (max 20)",
+        "over a limit: slide 8: 22 words (max 20)",
+        "over a limit: slide 9: 28 words (max 20)",
+        "over a limit: slide 10: 34 words (max 20)",
+        "check: \"OpenAI shipped \"dots,\" its new agentic avatar, the same day Meta said it's rolli\" — The news items show dots and Muse were reported in separate articles on different dates (dots on 9/29, Muse on 9/8 per Axios and 9/29 per TechCrunch); the claim that they shipped/were announced 'the same day' is not established by the supplied material.",
+        "check: \"Two AI agents launched the same day. Same idea.\" — Repeats the unverified 'same day' claim as fact.",
+        "check: \"OpenAI's dots and Meta's Muse both sign into your tools, not just chat with you.\" — Presents a specific technical capability (signing into tools/accounts) as established fact without a source confirming this mechanism for either product.",
+        "check: \"That screen usually lists exactly what the agent can see and do — send messages,\" — States a specific platform mechanic as certain fact/generalisation not confirmed by supplied sources.",
+        "check: \"An agent running your Meta ads unsupervised can spend your budget while you're a\" — Implies a specific personal/client experience or scenario with no attribution to approved facts or news; reads as a first-hand or client-specific claim that isn't supported.",
+        "check: \"which means your clients will start asking about this before you've tested it\" — Claims knowledge of what his clients will do, an unsupported first-hand/predictive claim about client behaviour.",
+        "check: \"Check permissions before you check promises. That's the whole method.\" — Presents a named/branded 'method' as an established framework, when it is just his own phrase, not previously established as a method in approved facts."
       ],
       "images": [
         "/linkedin/2026-10-01/slide-01.png",
@@ -34,47 +47,65 @@
         "/linkedin/2026-10-01/slide-08.png",
         "/linkedin/2026-10-01/slide-09.png",
         "/linkedin/2026-10-01/slide-10.png",
-        "/linkedin/2026-10-01/slide-11.png"
+        "/linkedin/2026-10-01/slide-11.png",
+        "/linkedin/2026-10-01/slide-12.png"
       ],
       "pdf": "/linkedin/2026-10-01/carousel.pdf",
       "slides": [
         {
-          "text": "Four clicks tell you what your ad is chasing."
+          "text": "Two AI agents launched the same day. Same idea."
         },
         {
-          "text": "Most people judge it by the creative. Wrong screen entirely."
+          "text": "An assistant that works after you close the laptop sounds helpful. The risk is what it's allowed to touch."
         },
         {
-          "text": "Nova Attire got 4,248 wholesale buyer leads at ₹16.58 each, across six campaigns."
+          "text": "OpenAI's dots and Meta's Muse both sign into your tools, not just chat with you."
         },
         {
-          "text": "Every one of those leads sits in Meta's own lead centre, tied to its ad and form."
+          "text": "\"Signing in\" means it can open your email, your calendar, maybe your ad account. Which ones, you choose — if you check."
         },
         {
-          "text": "That number has a receipt. What happened after the lead does not."
+          "text": "Every connected app has a permissions screen. Most people click allow without reading what it says."
         },
         {
-          "text": "Nothing in the setup tracked a second order — no reorder timing, no stock-running-low follow-up."
+          "text": "That screen usually lists exactly what the agent can see and do — send messages, read files, post on your behalf."
         },
         {
-          "text": "A lead who said 'not interested' was marked closed. Some came back later anyway, on their own."
+          "text": "An agent running your Meta ads unsupervised can spend your budget while you're asleep. Nobody told it your weekly limit."
         },
         {
-          "text": "The ad was never told any of this. It can only optimise for what you hand it."
+          "text": "None of this needs buying anything this month. It needs one habit before you connect a single agent to a business account."
         },
         {
-          "text": "So open Ads Manager. Campaign. Ad set. One line decides everything: Performance goal."
+          "text": "Before you link any agent: open its permissions list, read every line, and remove any access it doesn't need for the one job you want it to do."
         },
         {
-          "text": "Read that one line before you judge the creative."
+          "text": "The news isn't that AI agents exist now. It's that two of the biggest labs shipped one on the same day, which means your clients will start asking about this before you've tested it."
         },
         {
-          "text": "A cheap lead and a lead that reorders are two different things to measure."
+          "text": "Check permissions before you check promises. That's the whole method."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Introducing dots",
+          "url": "https://openai.com/index/introducing-dots",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "OpenAI launches Dots, its bubbly agentic avatar",
+          "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+          "publisher": "TechCrunch"
+        },
+        {
+          "title": "Meta is expanding its AI agent Muse to small businesses",
+          "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
+          "publisher": "TechCrunch"
         }
       ],
       "status": "posted",
-      "postedAt": "2026-10-01T06:16:34.342Z",
-      "linkedinId": "urn:li:ugcPost:7511308056450838528",
+      "postedAt": "2026-10-01T07:34:14.877Z",
+      "linkedinId": "urn:li:ugcPost:7511327604193288193",
       "notPosted": null
     },
     {
