@@ -67,7 +67,7 @@
     }
   ],
   "receipts": [
-    "7,341 form leads across 9 ad accounts (India, UK, US, Canada) \u2014 screenshot-backed on jothiswaroop.com",
+    "7,341 form leads across 9 ad accounts (India, UK, US, Canada) — screenshot-backed on jothiswaroop.com",
     "876 conversations started from ads",
     "4,248 leads for one client (Nova Attire)",
     "9 automations live across a dental clinic, a food business and a Company Secretary's practice"
@@ -113,6 +113,26 @@
       "name": "Search Engine Journal",
       "url": "https://www.searchenginejournal.com/feed/",
       "publisher": "Search Engine Journal",
+      "official": false
+    },
+    {
+      "publisher": "Meta Newsroom",
+      "url": "https://about.fb.com/news/feed/",
+      "official": true
+    },
+    {
+      "publisher": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "official": true
+    },
+    {
+      "publisher": "TechCrunch AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "official": false
+    },
+    {
+      "publisher": "The Verge AI",
+      "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
       "official": false
     }
   ],

@@ -299,6 +299,90 @@ if (briefPath) {
   log(`trending: ${news.length} item(s) available`);
   if (!news.length) { log("no fresh news — falling back to a teach post"); topic.pillar = "teach"; }
 }
+
+/**
+ * Let real news take the day.
+ *
+ * The trending pillar had one slot a week, so a story breaking on a Tuesday waited six days or
+ * died — which is how the ChatGPT ads launch was missed and had to be posted by hand. That is the
+ * single thing most at odds with being early on AI, and being early is half the positioning.
+ *
+ * The test for "real" is deliberately narrow: a lab announcing something ITSELF, within two days.
+ * An official feed stands in for significance, because judging importance from a headline is the
+ * kind of call that goes wrong quietly. Capped at two a week on top of Monday's own slot, so the
+ * feed does not turn into a news wire and the other pillars still get their turn.
+ */
+let preempted = false;
+const PREEMPT_CAP = 2;
+/**
+ * What the recent posts have already covered — by link, and by story.
+ *
+ * The link alone is not enough: one launch is written up by its own newsroom and by every
+ * publication, so "Meta is expanding its AI agent Muse to small businesses" and "The Future Is for
+ * Everyone: Muse for Small Business" are the same news at two URLs, and only the second would have
+ * been caught. Comparing the distinctive words in a headline catches the story itself. Launch verbs
+ * are stopped out, or every announcement would look like every other one.
+ */
+const STOP = new Set([
+  // launch verbs — every announcement shares these
+  "introducing", "announcing", "announce", "announces", "launches", "launch", "launching", "expanding", "expands", "unveils", "brings", "debut", "release", "releases", "rolling",
+  // the subject itself, and the companies — shared by most of what the feeds carry
+  "artificial", "intelligence", "agent", "agents", "model", "models", "tool", "tools", "openai", "meta", "google", "anthropic", "microsoft", "chatgpt", "gemini", "claude",
+  // ordinary English
+  "with", "that", "this", "from", "your", "their", "what", "when", "will", "into", "more", "than", "every", "everyone", "future", "business", "businesses", "small", "news", "update", "available", "people", "help", "helping", "work", "using", "need", "make", "just", "says", "here",
+  // generic enough to collide by accident — "teams" alone once matched an unrelated headline
+  "team", "teams", "users", "customers", "founders", "companies", "company", "startup", "startups", "advertisers", "marketing", "platform", "features", "feature",
+]);
+// A false positive costs a day's pre-emption and the scheduled pillar runs instead. A false
+// negative is the same story posted twice. The threshold leans towards blocking on purpose.
+const words = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length >= 4 && !STOP.has(w));
+const coveredPosts = publishedPosts(OUT, { exclude: today, limit: 12 });
+const coveredSources = new Set(coveredPosts.flatMap((p) => (p.sources ?? []).map((s) => s?.url)).filter(Boolean));
+const coveredStories = coveredPosts.flatMap((p) => (p.sources ?? []).map((s) => new Set(words(s?.title))));
+/**
+ * One distinctive word in common is enough, because the stoplist has already removed everything a
+ * story could share by accident — the launch verbs, the subject, the company names. What survives
+ * is a product name, and two headlines naming the same product are the same news. "Muse" is the
+ * whole signal that "The Future Is for Everyone: Muse for Small Business" is the story posted
+ * yesterday under a different headline.
+ */
+const alreadyTold = (title) => {
+  const w = words(title);
+  return coveredStories.some((prev) => w.some((x) => prev.has(x)));
+};
+if (!briefPath && topic.pillar !== "trending" && process.env.LI_NO_PREEMPT !== "1") {
+  const weekAgo = Date.now() - 7 * 86400000;
+  const usedThisWeek = (learning.runs ?? []).filter((r) => r.preempted && Date.parse(r.date) >= weekAgo).length;
+  if (usedThisWeek >= PREEMPT_CAP) {
+    log(`news pre-emption already used ${usedThisWeek}/${PREEMPT_CAP} this week — keeping ${topic.pillar}`);
+  } else {
+    // Official is the floor, not the test. A newsroom feed leaks its own channel title in as an
+    // item, and a lab's feed carries plenty that has nothing to do with running ads — a Groups app,
+    // a safety partnership. Two cheap filters remove what is obviously not a story for this
+    // audience; WHICH of the survivors is worth the day is left to the model, which already gets
+    // "use one of these" and can read a headline against the audience. A regex ranked a
+    // law-enforcement partnership above a product launch on the first try, and a brittle sort that
+    // picks the lead story wrong is worse than no sort at all.
+    const SUBJECT = /\b(ai|agent|gpt|model|ads?|advertis|campaign|commerce|shopping|small business|automation|assistant|marketer|lead)/i;
+    const fresh = (await trendingItems({ days: 2, limit: 14 }))
+      .filter((i) => i.official)
+      .filter((i) => i.title.length > 24 && !i.title.toLowerCase().includes(i.publisher.toLowerCase()))
+      .filter((i) => SUBJECT.test(`${i.title} ${i.summary}`))
+      // And never the story we just told. A post records the sources it drew on, so a launch
+      // covered yesterday cannot take today as well — which is precisely how the same argument
+      // went out three times in eight days before anyone noticed.
+      .filter((i) => !coveredSources.has(i.url) && !alreadyTold(i.title));
+    if (fresh.length) {
+      log(`news pre-empts ${topic.pillar}: ${fresh.length} official item(s) in 48h (${usedThisWeek}/${PREEMPT_CAP} used)`);
+      for (const i of fresh.slice(0, 3)) log(`  · [${i.publisher}] ${i.title.slice(0, 78)}`);
+      news = fresh;
+      topic.pillar = "trending";
+      topic.angle = "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.";
+      preempted = true;
+    }
+  }
+}
+
 // What the post may draw numbers from besides the approved facts: the news items, or the brief
 // summaries. Without this a sourced figure could never clear the number check, because the only
 // other escape is a URL in the same sentence and post text is not allowed to carry one.
@@ -487,6 +571,28 @@ const post = {
   ...(format === "carousel" ? { slides: draft.slides } : {}),
   ...(news ? { sources: news.slice(0, 3).map((n) => ({ title: n.title, url: n.url, publisher: n.publisher })) } : {}),
   status: "draft",
+
+  /**
+   * The hour after this goes out is worth more than the post.
+   *
+   * Comments weigh far above likes and the first 60-90 minutes decide how far the post travels;
+   * accounts posting three times a week WITH inbound engagement out-performed daily posters without
+   * it by 4.2x on lead generation. None of that can be automated — the replies have to be his — so
+   * the engine does the one useful thing it can and puts the work in front of him, with the post,
+   * instead of relying on him remembering.
+   */
+  firstHour: {
+    before: "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    after: "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    done: false,
+  },
+
+  /**
+   * Filled in by hand, a week later. `performance` in learning.json is empty, which means the
+   * monthly review is tuning on platform-wide benchmarks instead of this account — and until there
+   * are real numbers here, every claim about what works for him is a hypothesis.
+   */
+  impressions: null,
 };
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -513,6 +619,9 @@ if (heldQuotes.length) learning.blockedQuotes = [...new Set([...heldQuotes, ...(
 learning.runs.unshift({
   date: today, pillar: topic.pillar, format, attempts: attemptsUsed,
   rulesFired: [...new Set(ruleFired)], blockedClaims, chars: report.chars, held: !autopostSafe,
+  // Counted against the weekly pre-emption cap on later runs, so news can take a day without
+  // taking the week.
+  ...(preempted ? { preempted: true } : {}),
 });
 learning.runs = learning.runs.slice(0, 120);
 fs.writeFileSync(learnPath, JSON.stringify(learning, null, 2) + "\n");
