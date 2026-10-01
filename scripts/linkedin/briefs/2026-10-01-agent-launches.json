@@ -58,24 +58,28 @@
     {
       "name": "Grok Bot",
       "org": "SPACEXAI",
-      "date": "11 AUG"
+      "date": "11 AUG",
+      "product": "grok-bot"
     },
     {
       "name": "Muse",
       "org": "META",
-      "date": "08 SEP"
+      "date": "08 SEP",
+      "product": "meta-muse"
     },
     {
       "name": "dots",
       "org": "OPENAI",
       "date": "29 SEP",
-      "highlight": true
+      "highlight": true,
+      "product": "openai-dots"
     },
     {
       "name": "Muse for Small Business",
       "org": "META",
       "date": "29 SEP",
-      "highlight": true
+      "highlight": true,
+      "product": "meta-muse"
     }
   ]
 }

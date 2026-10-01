@@ -29,6 +29,24 @@ const PORTRAIT = (() => {
   catch { return null; }
 })();
 
+/**
+ * Product art for the companies a post is about.
+ *
+ * Supplied by Jothi, who checked the rights and is the publisher here — the same editorial use any
+ * write-up of a launch makes. Loaded on demand and cached, because satori takes a data URI and these
+ * would otherwise inline into every render whether the deck names the product or not.
+ */
+const productCache = new Map();
+const productArt = (slug) => {
+  if (!slug || !/^[a-z0-9-]+$/.test(slug)) return null;
+  if (productCache.has(slug)) return productCache.get(slug);
+  let uri = null;
+  try { uri = `data:image/png;base64,${fs.readFileSync(path.join(ROOT, "assets/brand/products", `${slug}.png`)).toString("base64")}`; }
+  catch { uri = null; }
+  productCache.set(slug, uri);
+  return uri;
+};
+
 const W = 1080, H = 1350;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
 const DIM = "rgba(242,237,228,.55)";
@@ -157,6 +175,26 @@ function calloutSlide(s, n, total, m) {
       h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 } }, s.text)));
 }
 
+/**
+ * The product slide: the thing itself, big, with as few words as will carry it.
+ *
+ * A deck about three products should show the three products. The picture does the identifying, so
+ * the type only has to do the arguing — which is why the sentence here is set smaller than on a
+ * statement slide rather than competing with the art.
+ */
+function productSlide(s, n, total, m) {
+  const art = productArt(s.product);
+  if (!art) return statementSlide(s.text, n, total, m);
+  return frame(n, total, m,
+    h("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start" } },
+      h("div", { style: { display: "flex", width: "100%", height: 480, alignItems: "center", justifyContent: "center" } },
+        h("img", { src: art, style: { maxWidth: 760, maxHeight: 480, objectFit: "contain" } })),
+      h("div", { style: { display: "flex", alignItems: "baseline", marginTop: 34 } },
+        h("div", { style: { fontFamily: "IS", fontSize: 76, letterSpacing: -1 } }, s.label ?? ""),
+        s.sublabel ? h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.dim, marginLeft: 22 } }, String(s.sublabel).toUpperCase()) : null),
+      h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 56, 40, 3.6), lineHeight: 1.18, letterSpacing: -0.3, maxWidth: 880, marginTop: 20, color: m.fg } }, s.text)));
+}
+
 function statementSlide(text, n, total, m) {
   return frame(n, total, m,
     h("div", { style: { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 } }, text));
@@ -170,6 +208,7 @@ function body(slide, n, total, m) {
     case "steps":   return (s.items ?? []).length ? stepsSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
     case "versus":  return s.left && s.right ? versusSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
     case "callout": return calloutSlide({ ...s, text }, n, total, m);
+    case "product": return productSlide({ ...s, text }, n, total, m);
     default:        return statementSlide(text, n, total, m);
   }
 }
@@ -268,11 +307,17 @@ function lineup(items, m) {
       h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.dim, marginTop: 30 } }, "SHIPPED THIS QUARTER")),
     h("div", { style: { display: "flex", flexDirection: "column" } },
       ...rows.map((r, i) =>
-        h("div", { style: { display: "flex", flexDirection: "column", paddingTop: 22, paddingBottom: 22, borderTop: i === 0 ? "none" : `1px solid ${m.rail}` } },
-          h("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between" } },
-            h("div", { style: { fontFamily: "IS", fontSize: 58, letterSpacing: -0.6 } }, r.name),
-            h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 2, color: r.highlight ? SIGNAL : m.dim } }, r.date)),
-          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.dim, marginTop: 10 } }, r.org)))),
+        h("div", { style: { display: "flex", alignItems: "center", paddingTop: 20, paddingBottom: 20, borderTop: i === 0 ? "none" : `1px solid ${m.rail}` } },
+          // The product's own art beside its name, where there is art for it.
+          productArt(r.product)
+            ? h("div", { style: { display: "flex", width: 92, height: 92, alignItems: "center", justifyContent: "center", marginRight: 26, flexShrink: 0 } },
+                h("img", { src: productArt(r.product), style: { maxWidth: 92, maxHeight: 92, objectFit: "contain" } }))
+            : h("div", { style: { display: "flex", width: 92, marginRight: 26, flexShrink: 0 } }),
+          h("div", { style: { display: "flex", flexDirection: "column", flexGrow: 1 } },
+            h("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between" } },
+              h("div", { style: { fontFamily: "IS", fontSize: 54, letterSpacing: -0.6 } }, r.name),
+              h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 2, color: r.highlight ? SIGNAL : m.dim } }, r.date)),
+            h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.dim, marginTop: 8 } }, r.org))))),
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
       h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.dim, maxWidth: 760 } }, "SAME SHAPE OF PRODUCT. FIVE LABS."),
       mark(64, m.fg, m.bg)));
