@@ -1,0 +1,19 @@
+{
+ "month": "2026-10",
+ "job": "evolve",
+ "total": 0.110942,
+ "calls": [
+  {
+   "at": "2026-10-01T08:16:33.785Z",
+   "runStartedAt": "2026-10-01T08:15:45.468Z",
+   "label": "evolve",
+   "model": "claude-sonnet-5",
+   "cost": 0.110942,
+   "in": 24646,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 4165,
+   "searches": 2
+  }
+ ]
+}
