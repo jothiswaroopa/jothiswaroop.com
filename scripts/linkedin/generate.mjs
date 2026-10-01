@@ -209,7 +209,29 @@ function schemaFor(topic) {
       minItems: cfg.slidesMin,
       maxItems: cfg.slidesMax,
       description: `${cfg.slidesMin}-${cfg.slidesMax} slides. Slide 1 is the hook, under 10 words, never a question. Slide 2 is the stakes. Middle slides are one idea each under 18 words, and each leaves something unfinished so the reader swipes. Second to last pays off the hook. The last is the takeaway.`,
-      items: { type: "object", properties: { text: { type: "string" } }, required: ["text"] },
+      // A slide can be more than a sentence on a flat ground. Eleven of those is legible and dull,
+      // and this platform pays for dwell time — a reader has to want to keep swiping. `text` stays
+      // required on every kind, because it is what the validator, the fact-check and the repetition
+      // gate read: no claim may hide inside a figure or a list item where nothing checks it.
+      items: {
+        type: "object",
+        properties: {
+          text: { type: "string", description: "The sentence this slide makes. Always required, whatever the kind." },
+          kind: {
+            type: "string",
+            enum: ["statement", "stat", "steps", "versus", "callout"],
+            description: "statement: the sentence alone, set large. stat: one figure set huge above the sentence — only for a figure in the approved facts or the supplied sources. steps: the sentence plus 2-4 short actions. versus: the sentence plus two short columns that contrast. callout: the sentence as a marked aside, for the one thing you would underline. Vary them — never three of the same kind in a row, and never more than two stat slides in a deck.",
+          },
+          figure: { type: "string", description: "For kind=stat: the figure alone, e.g. \"4,248\" or \"₹16.58\". Must appear in the approved facts or the supplied sources." },
+          label: { type: "string", description: "For kind=stat or callout: two or three words under or above the figure, e.g. \"LEADS AT ₹16.58\" or \"THE TRAP\"." },
+          items: { type: "array", items: { type: "string" }, maxItems: 4, description: "For kind=steps: 2-4 actions, each under 12 words." },
+          left: { type: "string", description: "For kind=versus: the left column, under 10 words." },
+          right: { type: "string", description: "For kind=versus: the right column, under 10 words." },
+          leftLabel: { type: "string", description: "For kind=versus: two or three words heading the left column." },
+          rightLabel: { type: "string", description: "For kind=versus: two or three words heading the right column." },
+        },
+        required: ["text"],
+      },
     };
     required.push("slides");
   } else if (format === "poster" || cfg.posterPillars.includes(topic.pillar)) {

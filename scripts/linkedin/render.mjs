@@ -90,17 +90,88 @@ function rail(n, total, m) {
 }
 
 /** Middle slides — one idea, numbered, with the progress rail underneath. */
-function body(text, n, total, m) {
-  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
+/** The furniture every middle slide carries: the index above, the rail and the footer below. */
+const frame = (n, total, m, ...middle) =>
+  h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", flexDirection: "column" } },
       h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: SIGNAL } }, String(n).padStart(2, "0")),
       h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL, marginTop: 26 } })),
-    h("div", { style: { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 } }, text),
+    ...middle,
     h("div", { style: { display: "flex", flexDirection: "column" } },
       rail(n, total, m),
       h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginTop: 22 } },
         h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "JOTHISWAROOP.COM"),
         h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, `${n} / ${total}`))));
+
+/**
+ * Slide archetypes.
+ *
+ * Eleven slides of centred sentences on a flat ground is a legible deck and a boring one, and the
+ * formats that win on this platform win on dwell time — a reader has to want to keep swiping. The
+ * answer is not other companies' press images, which are their copyright and make a feed look like
+ * a repost account; it is more shapes of our own. Each archetype below is built from the same two
+ * typefaces and three colours, so the deck still reads as one thing while no two slides sit flat.
+ *
+ * Every archetype also carries `text`, which is what the validator, the fact-check and the
+ * repetition gate read — no claim can hide inside a figure or a list item.
+ */
+function statSlide(s, n, total, m) {
+  return frame(n, total, m,
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { fontFamily: "IS", fontSize: 260, lineHeight: 0.92, letterSpacing: -6, color: SIGNAL } }, String(s.figure ?? "")),
+      s.label ? h("div", { style: { fontFamily: "GM", fontSize: 28, letterSpacing: 3, color: m.dim, marginTop: 18 } }, String(s.label).toUpperCase()) : null,
+      h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 64, 44, 3.4), lineHeight: 1.16, letterSpacing: -0.5, maxWidth: 880, marginTop: 34 } }, s.text)));
+}
+
+function stepsSlide(s, n, total, m) {
+  const items = (s.items ?? []).slice(0, 4);
+  return frame(n, total, m,
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 72, 48, 3.0), lineHeight: 1.14, letterSpacing: -0.6, maxWidth: 880 } }, s.text),
+      h("div", { style: { display: "flex", flexDirection: "column", marginTop: 40 } },
+        ...items.map((it, i) =>
+          h("div", { style: { display: "flex", alignItems: "flex-start", marginTop: i ? 26 : 0 } },
+            h("div", { style: { display: "flex", width: 46, height: 46, borderRadius: 23, background: i === items.length - 1 ? SIGNAL : "transparent", border: `2px solid ${i === items.length - 1 ? SIGNAL : m.rail}`, alignItems: "center", justifyContent: "center", marginRight: 24, flexShrink: 0 } },
+              h("div", { style: { fontFamily: "GM", fontSize: 22, color: i === items.length - 1 ? m.bg : m.dim } }, String(i + 1))),
+            h("div", { style: { fontFamily: "G", fontSize: 36, lineHeight: 1.3, maxWidth: 800 } }, it))))));
+}
+
+function versusSlide(s, n, total, m) {
+  const col = (label, text, accent) =>
+    h("div", { style: { display: "flex", flexDirection: "column", width: 420 } },
+      h("div", { style: { display: "flex", width: 56, height: 3, background: accent } }),
+      h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: accent, marginTop: 20 } }, String(label).toUpperCase()),
+      h("div", { style: { fontFamily: "IS", fontSize: 50, lineHeight: 1.18, letterSpacing: -0.4, marginTop: 18 } }, text));
+  return frame(n, total, m,
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 68, 46, 3.2), lineHeight: 1.14, letterSpacing: -0.6, maxWidth: 880 } }, s.text),
+      h("div", { style: { display: "flex", justifyContent: "space-between", marginTop: 54 } },
+        col(s.leftLabel ?? "WHAT THEY SAY", s.left ?? "", m.dim),
+        col(s.rightLabel ?? "WHAT IT MEANS", s.right ?? "", SIGNAL))));
+}
+
+function calloutSlide(s, n, total, m) {
+  return frame(n, total, m,
+    h("div", { style: { display: "flex", flexDirection: "column", borderLeft: `4px solid ${SIGNAL}`, paddingLeft: 40 } },
+      s.label ? h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL, marginBottom: 26 } }, String(s.label).toUpperCase()) : null,
+      h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 } }, s.text)));
+}
+
+function statementSlide(text, n, total, m) {
+  return frame(n, total, m,
+    h("div", { style: { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 } }, text));
+}
+
+function body(slide, n, total, m) {
+  const s = typeof slide === "string" ? { text: slide } : slide;
+  const text = String(s.text || "").trim();
+  switch (s.kind) {
+    case "stat":    return s.figure ? statSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
+    case "steps":   return (s.items ?? []).length ? stepsSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
+    case "versus":  return s.left && s.right ? versusSlide({ ...s, text }, n, total, m) : statementSlide(text, n, total, m);
+    case "callout": return calloutSlide({ ...s, text }, n, total, m);
+    default:        return statementSlide(text, n, total, m);
+  }
 }
 
 /** Last slide — the takeaway, inverted so the swipe ends on a different colour. */
@@ -220,7 +291,7 @@ export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar =
   let n = 0;
   for (let i = 0; i < slides.length; i++) {
     const text = String(slides[i].text || "").trim();
-    const tree = i === 0 ? cover(text, kicker, m) : i === slides.length - 1 ? last(text, m) : body(text, i + 1, slides.length, m);
+    const tree = i === 0 ? cover(text, kicker, m) : i === slides.length - 1 ? last(text, m) : body(slides[i], i + 1, slides.length, m);
     const file = `slide-${String(++n).padStart(2, "0")}.png`;
     fs.writeFileSync(path.join(dir, file), await png(tree));
     out.push(`/linkedin/${date}/${file}`);

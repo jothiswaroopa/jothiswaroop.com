@@ -9,6 +9,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
+import { slideStrings } from "./similarity.mjs";
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const cfg = JSON.parse(fs.readFileSync(path.join(HERE, "config.json"), "utf8"));
@@ -57,7 +58,9 @@ export async function verify(post, sources = null, spend = null) {
       : "",
   ].join("\n");
 
-  const draft = [post.body, ...(post.slides || []).map((s) => s.text)].join("\n");
+  // Every string on a slide, not just `text` — a figure or a list item is a claim like any other,
+  // and the fact-check is the only thing standing between an invented number and his name.
+  const draft = [post.body, ...(post.slides || []).flatMap(slideStrings)].filter(Boolean).join("\n");
 
   spend?.guard("li.verify");
   const res = await client.messages.create({

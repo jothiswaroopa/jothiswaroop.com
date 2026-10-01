@@ -36,8 +36,18 @@ export function containment(draft, prior) {
   return hit / a.size;
 }
 
-/** Everything a post puts in front of a reader, as one string. */
-export const postText = (p) => [p?.hook, p?.body, ...((p?.slides ?? []).map((s) => s?.text))].filter(Boolean).join("\n");
+/**
+ * Everything a post puts in front of a reader, as one string.
+ *
+ * Flattens every string on a slide, not just `text`: once slides carry figures, step lists and
+ * comparison columns, a claim or a repeat could otherwise sit in a field nothing reads.
+ */
+export const slideStrings = (s) =>
+  Object.entries(s ?? {})
+    .filter(([k]) => k !== "kind")
+    .flatMap(([, v]) => (typeof v === "string" ? [v] : Array.isArray(v) ? v.filter((x) => typeof x === "string") : []));
+
+export const postText = (p) => [p?.hook, p?.body, ...((p?.slides ?? []).flatMap(slideStrings))].filter(Boolean).join("\n");
 
 /**
  * The published posts to compare against, newest first.
