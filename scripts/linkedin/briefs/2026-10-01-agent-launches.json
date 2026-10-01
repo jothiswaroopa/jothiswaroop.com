@@ -1,0 +1,56 @@
+{
+  "_note": "Every claim below was checked against the publisher named, on 2026-10-01, and two were corrected in the process: the company behind Grok is SpaceXAI, not xAI — it was bought by SpaceX in February 2026 and rebranded in July, though Grok kept its name — and this is not three labs shipping the same product but five. Nothing may be stated in the post beyond what these lines say: the fact-check pass reads this file as the only material supporting the claims.",
+  "pillar": "trending",
+  "angle": "Five AI labs have now shipped the same product: an always-on agent with its own computer that signs into your tools and keeps working after you close the laptop. OpenAI shipped dots and Meta extended Muse to small businesses on the same day. What the convergence actually means for someone running their own ads, who is not going to buy any of them this month.",
+  "items": [
+    {
+      "publisher": "OpenAI",
+      "date": "2026-09-29",
+      "title": "Introducing dots",
+      "url": "https://openai.com/index/introducing-dots",
+      "summary": "OpenAI announcing dots itself on 29 September 2026 — the primary source. Always-on personal agents powered by GPT-6 Astra, each on its own cloud computer, working in the background on user-defined goals with minimal oversight. They connect to more than 4,000 apps and are reachable through Slack and Teams. Rollout began for Pro users outside the EEA, Switzerland and the UK, and for Business Premium users across supported regions."
+    },
+    {
+      "publisher": "TechCrunch",
+      "date": "2026-09-29",
+      "title": "OpenAI launches Dots, its bubbly agentic avatar",
+      "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+      "summary": "Independent coverage of the dots launch on 29 September 2026, confirming the always-on, own-cloud-computer design and the rollout tiers."
+    },
+    {
+      "publisher": "TechCrunch",
+      "date": "2026-09-29",
+      "title": "Meta is expanding its AI agent Muse to small businesses",
+      "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
+      "summary": "On 29 September 2026 — the same day OpenAI launched dots — Meta extended Muse to small businesses, adding integrations including Shopify, Dropbox and Slack. This is the one of the five aimed squarely at the kind of business that runs its own ads."
+    },
+    {
+      "publisher": "Axios",
+      "date": "2026-09-08",
+      "title": "Meta debuts Muse, its long-planned personal AI agent",
+      "url": "https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent",
+      "summary": "Meta launched Muse on 8 September 2026: a personal AI agent that connects to at least six categories of someone's digital life — email, calendar, payments, health, shopping and smart home — and works through multi-step goals with minimal supervision. Three tiers: free, Power at $20 a month, Maximum at $100 a month."
+    },
+    {
+      "publisher": "DataCamp",
+      "date": "2026-08-12",
+      "title": "Grok Bot: What SpaceXAI's New AI Teammate Means for the Agent Race",
+      "url": "https://www.datacamp.com/blog/grok-bot",
+      "summary": "On 11 August 2026 SpaceXAI launched Grok Bot in beta: always-on AI teammates that run on a cloud computer, sign into the tools you already use, and keep working after you have closed the laptop — coming back only when something needs a human decision. Onboarding is by demonstration rather than configuration: a Bot watches you do a task once, recording up to ten minutes with no audio, and turns it into a draft skill you review and test. At launch it was limited to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers, on macOS, Windows and iPhones running iOS 18 or later. The same piece names the field: OpenAI has ChatGPT Work, Anthropic has Claude Cowork, Google has Gemini Spark — the same bet from four labs before Meta and dots made it six products from five labs. It also notes the pricing pattern: each of these rides on top of an existing subscription rather than carrying a separate price of its own."
+    },
+    {
+      "publisher": "Wikipedia",
+      "date": "2026-07-06",
+      "title": "SpaceXAI",
+      "url": "https://en.wikipedia.org/wiki/SpaceXAI",
+      "summary": "The company behind Grok is SpaceXAI, not xAI. SpaceX acquired xAI in an all-stock merger in February 2026, valuing xAI at $250 billion, and the combined entity rebranded as SpaceXAI in July 2026. Grok kept its name, pricing and API. Worth stating correctly: most casual coverage still writes xAI."
+    },
+    {
+      "publisher": "OpenAI",
+      "date": "2026-09-30",
+      "title": "Helping small businesses put AI to work",
+      "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
+      "summary": "OpenAI's own post, 30 September 2026, the day after dots launched, on putting AI to work in small businesses. Primary source, and evidence that the small-business segment is now the contested ground rather than an afterthought."
+    }
+  ]
+}

@@ -17,6 +17,9 @@ on:
       force:
         description: "Set to 1 to redraft a day that already has a post"
         required: false
+      brief:
+        description: "Repo path to a sourced brief, e.g. scripts/linkedin/briefs/2026-10-01-agent-launches.json — forces its pillar and angle and gives the fact-check its sources"
+        required: false
       redraft_posted:
         description: "Set to 1 to replace a day ALREADY PUBLISHED to LinkedIn — delete that post there first, or the account carries both"
         required: false
@@ -55,6 +58,7 @@ jobs:
           LI_FORMAT: ${{ inputs.format }}
           LI_FORCE: ${{ inputs.force }}
           LI_REDRAFT_POSTED: ${{ inputs.redraft_posted }}
+          LI_BRIEF: ${{ inputs.brief }}
         run: node scripts/linkedin/generate.mjs
       # Committed on its own and whatever the outcome: a draft the validator threw away still spent
       # the money, and spend that never got recorded is spend the cap cannot see.

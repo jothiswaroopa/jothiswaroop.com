@@ -16,6 +16,19 @@ const fonts = [
 ];
 const h = (type, props, ...kids) => ({ type, props: { ...props, children: kids.length === 0 ? undefined : kids.length === 1 ? kids[0] : kids } });
 
+/**
+ * His face, for the sign-off slide.
+ *
+ * The last slide of a carousel is where a reader decides whether to follow the person or just keep
+ * scrolling, and a name set in type is a weaker thing to decide about than a face. Inlined as a data
+ * URI because satori resolves neither network nor filesystem paths, and read once rather than per
+ * slide. A missing file is not fatal — the slide falls back to the typographic sign-off.
+ */
+const PORTRAIT = (() => {
+  try { return `data:image/jpeg;base64,${fs.readFileSync(path.join(ROOT, "assets/brand/jothi-portrait.jpg")).toString("base64")}`; }
+  catch { return null; }
+})();
+
 const W = 1080, H = 1350;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
 const DIM = "rgba(242,237,228,.55)";
@@ -98,11 +111,18 @@ function last(text, m) {
     h("div", { style: { display: "flex", flexDirection: "column" } },
       h("div", { style: { display: "flex", width: "100%", height: 1, background: m.endFg, opacity: 0.18, marginBottom: 26 } }),
       h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
-        h("div", { style: { display: "flex", flexDirection: "column" } },
-          h("div", { style: { display: "flex", fontFamily: "IS", fontSize: 46 } }, h("span", {}, "Jothi Swaroop"), h("span", { style: { color: SIGNAL } }, ".")),
-          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 3, color: m.endDim, marginTop: 8 } }, "PERFORMANCE MARKETING & AI SYSTEMS"),
-          h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 2, color: SIGNAL, marginTop: 20 } }, "JOTHISWAROOP.COM"),
-          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.endDim, marginTop: 8 } }, "@JOTHISWAROOP.AI  ·  IN/JOTHISWAROOP")),
+        h("div", { style: { display: "flex", alignItems: "flex-end" } },
+          // The face sits left of the name, at the size of the block it introduces — present enough
+          // to be recognised in a feed, not so large it turns a teaching slide into a portrait.
+          PORTRAIT ? h("img", {
+            src: PORTRAIT, width: 132, height: 132,
+            style: { width: 132, height: 132, borderRadius: 66, marginRight: 28, objectFit: "cover" },
+          }) : null,
+          h("div", { style: { display: "flex", flexDirection: "column" } },
+            h("div", { style: { display: "flex", fontFamily: "IS", fontSize: 46 } }, h("span", {}, "Jothi Swaroop"), h("span", { style: { color: SIGNAL } }, ".")),
+            h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 3, color: m.endDim, marginTop: 8 } }, "PERFORMANCE MARKETING & AI SYSTEMS"),
+            h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 2, color: SIGNAL, marginTop: 20 } }, "JOTHISWAROOP.COM"),
+            h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.endDim, marginTop: 8 } }, "@JOTHISWAROOP.AI  ·  IN/JOTHISWAROOP"))),
         mark(76, m.endFg, m.endBg))));
 }
 

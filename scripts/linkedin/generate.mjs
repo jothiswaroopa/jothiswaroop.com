@@ -244,7 +244,29 @@ if (!spend.affords(["li.draft", "li.verify"])) {
 
 const topic = pickTopic();
 let news = null;
-if (topic.pillar === "trending") {
+
+/**
+ * A hand-picked story with its sources attached.
+ *
+ * The RSS feeds only carry the publishers on the blog's list, inside an eight-day window, so a post
+ * about something they missed had no honest route: approvedFacts is for his own receipts, not world
+ * news, and anything stated without a source is exactly what the fact-checker exists to stop. A
+ * brief file supplies the story the same way the feeds do — publisher, title, URL, date — so the
+ * drafter and the fact-checker both see where every claim came from.
+ *
+ * LI_BRIEF is a repo-relative path to { pillar?, angle?, items: [{publisher,title,url,date,summary}] }.
+ */
+const briefPath = process.env.LI_BRIEF;
+if (briefPath) {
+  const b = JSON.parse(fs.readFileSync(path.join(ROOT, briefPath), "utf8"));
+  if (!Array.isArray(b.items) || !b.items.length) throw new Error(`brief ${briefPath} has no items — a sourceless brief is the thing we are trying to prevent`);
+  const unsourced = b.items.filter((i) => !i.url || !/^https?:\/\//.test(i.url));
+  if (unsourced.length) throw new Error(`brief ${briefPath}: ${unsourced.length} item(s) with no URL — every claim needs somewhere to point`);
+  news = b.items;
+  if (b.pillar) topic.pillar = b.pillar;
+  if (b.angle) topic.angle = b.angle;
+  log(`brief: ${briefPath} — ${news.length} sourced item(s), pillar ${topic.pillar}`);
+} else if (topic.pillar === "trending") {
   news = await trendingItems();
   log(`trending: ${news.length} item(s) available`);
   if (!news.length) { log("no fresh news — falling back to a teach post"); topic.pillar = "teach"; }
