@@ -108,12 +108,12 @@ function cover(text, kicker, m) {
     : h("div", { style: { fontFamily: "IS", fontSize: fit(text, 112, 64, 2.4), lineHeight: 1.04, letterSpacing: -1.5, maxWidth: 900 } }, text);
   return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
-      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL } }, kicker),
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: readableAccent(m) } }, kicker),
       mark(76, m.fg, m.bg)),
     headline,
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
       h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: m.dim } }, "JOTHI SWAROOP"),
-      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: SIGNAL } }, "SWIPE")));
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 3, color: readableAccent(m) } }, "SWIPE")));
 }
 
 /** How far through the deck this slide sits — a visible reason to keep going. */
@@ -197,7 +197,7 @@ const frame = (n, total, m, ...middle) =>
   h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" } },
       h("div", { style: { display: "flex", flexDirection: "column" } },
-        h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: SIGNAL } }, String(n).padStart(2, "0")),
+        h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: readableAccent(m) } }, String(n).padStart(2, "0")),
         h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL, marginTop: 26 } })),
       aiGlyph(m)),
     ...middle,
@@ -257,7 +257,7 @@ function versusSlide(s, n, total, m) {
 function calloutSlide(s, n, total, m) {
   return frame(n, total, m,
     h("div", { style: { display: "flex", flexDirection: "column", borderLeft: `4px solid ${SIGNAL}`, paddingLeft: 40 } },
-      s.label ? h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL, marginBottom: 26 } }, String(s.label).toUpperCase()) : null,
+      s.label ? h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: readableAccent(m), marginBottom: 26 } }, String(s.label).toUpperCase()) : null,
       richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 }, m)));
 }
 
@@ -401,7 +401,7 @@ function poster(text, kicker, m) {
     : h("div", { style: { fontFamily: "IS", fontSize: long ? fit(text, 100, 62, 2.6) : 130, lineHeight: 1.04, letterSpacing: -2, maxWidth: 920 } }, text);
   return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "88px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
     h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
-      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL } }, kicker),
+      h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: readableAccent(m) } }, kicker),
       mark(76, m.fg, m.bg)),
     headline,
     h("div", { style: { display: "flex", flexDirection: "column" } },
