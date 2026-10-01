@@ -39,10 +39,24 @@ function examples() {
   return [...slice.matchAll(/`([^`]*)`/gs)].map((m) => m[1]);
 }
 
-/** The sample post itself — the part the model imitates — not the "First line: 5 words" notes. */
+/**
+ * `${...}` is template plumbing, not instruction text. Left in, it makes a stray brace look like
+ * the end of a sentence and turns the character limits into "figures the example states".
+ */
+const clean = (ex) => ex.replace(/\$\{[^}]*\}/g, " ");
+
+/**
+ * The sample post itself — the part the model imitates.
+ *
+ * A skeleton has no sample post, so this returns nothing and the claim checks below skip: there is
+ * no prose to fact-check. A real sample post is long and spans lines, which is what we look for.
+ */
 const quoted = (ex) => {
-  const a = ex.indexOf('"'), b = ex.lastIndexOf('"');
-  return a >= 0 && b > a ? ex.slice(a + 1, b) : "";
+  const t = clean(ex);
+  const a = t.indexOf('"'), b = t.lastIndexOf('"');
+  if (a < 0 || b <= a) return "";
+  const inner = t.slice(a + 1, b);
+  return inner.length > 120 && inner.includes("\n") ? inner : "";
 };
 
 const norm = (s) => s.toLowerCase().replace(/[‘’']/g, "'").replace(/\s+/g, " ").trim();
@@ -68,7 +82,7 @@ for (const ex1 of ex) {
 // the checker blocks every attempt. "the cheapest cost per lead I had ever produced" was one.
 const SUPERLATIVE = /\b(cheapest|best|worst|highest|lowest|biggest|smallest|fastest|most)\b[^.?!]{0,60}\b(i|we)\b[^.?!]{0,40}\b(ever|never)\b|\b(i|we)\b[^.?!]{0,30}\b(ever|never)\b[^.?!]{0,30}\b(produced|achieved|seen|built|run|got)\b|\bfirst time anyone\b/i;
 for (const ex1 of ex) {
-  const q = quoted(ex1) || ex1;
+  const q = quoted(ex1) || clean(ex1);
   const m = q.match(SUPERLATIVE);
   if (m) fail.push(`an example claims a personal superlative, which no approved fact can support:\n      "...${m[0].trim()}..."`);
 }
@@ -90,7 +104,27 @@ for (const ex1 of ex) {
   }
 }
 
-// ── 4. The example must not break the rules a real draft is held to ──
+// ── 4. An example must be a shape, never usable copy ──
+// The reason three posts in eight days made one argument: both examples read as finished posts, so
+// the model reprinted them. 24 Sep and 1 Oct went out with the same first two slides, straight from
+// the carousel example. A skeleton cannot be reprinted; a sample post always will be.
+for (const ex1 of ex) {
+  // A long run of words inside quotes is copy, not an instruction. Single-line only: a match that
+  // spans a line break is the scan running past a closing quote, not a sentence anyone would copy.
+  for (const m of clean(ex1).matchAll(/"([^"\n]{40,})"/g)) {
+    const words = m[1].trim().split(/\s+/);
+    if (words.length >= 7 && /[.!?]/.test(m[1])) {
+      fail.push(`an example contains a quotable sentence, which the model will reprint verbatim:\n      "${m[1].slice(0, 100)}"\n      Describe the shape of the line instead of writing the line.`);
+    }
+  }
+  // A sample post body — several blank-line-separated prose paragraphs — is the same trap.
+  const paras = clean(ex1).split(/\n\s*\n/).filter((p) => p.trim().split(/\s+/).length > 14 && !/^\s*(slide|line|middle|close|the turn|caption)/i.test(p.trim()));
+  if (paras.length >= 2) {
+    fail.push(`an example reads as a finished post (${paras.length} prose paragraphs), so it will be copied rather than followed.\n      Replace it with a labelled skeleton: what each line is FOR, not what it says.`);
+  }
+}
+
+// ── 5. The example must not break the rules a real draft is held to ──
 for (const ex1 of ex) {
   const q = quoted(ex1);
   if (!q) continue;

@@ -9,6 +9,7 @@ import { renderCarousel, renderPoster } from "./render.mjs";
 import { trendingItems } from "./trending.mjs";
 import { verify } from "./verify.mjs";
 import { ledger, isBudgetError } from "../lib/spend.mjs";
+import { publishedPosts, duplicateSentences, checkRepetition, postText } from "./similarity.mjs";
 
 const ROOT = process.cwd();
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -82,6 +83,18 @@ function prompt(topic, news, fixes) {
   // already counting these per pillar and never telling the writer, so every day it reached for the
   // same kind of invented detail and got held for it. Naming the real sentences is cheaper and
   // blunter than any rule: these are not hypothetical failures, they are this account's.
+  // What has already gone out, in its own opening words. The angle bank stops the same TOPIC being
+  // picked twice, but 30 Sep and 1 Oct drew different angles and still argued the same thing, so
+  // topic-level dedup is not enough. Showing the writer the openings it has already published is
+  // the cheapest way to make it reach for a different one.
+  const recent = publishedPosts(OUT, { exclude: today, limit: 8 });
+  const recentBlock = recent.length
+    ? `\nALREADY PUBLISHED — these are live on his profile. Do not write another post like them, do not
+reuse their opening, and do not restate their argument in different words:\n${recent
+        .map((p) => `- [${p.date}, ${p.pillar}] ${String(p.hook || p.body || "").split("\n")[0].slice(0, 130)}`)
+        .join("\n")}\n`
+    : "";
+
   const pastBlocks = [...new Set((learning.blockedQuotes ?? []).slice(0, 8))];
   const blockBlock = pastBlocks.length
     ? `\nCLAIMS THAT WERE HELD BEFORE — do not write these or anything like them:\n${pastBlocks.map((q) => `- "${q}"`).join("\n")}\n`
@@ -94,36 +107,39 @@ function prompt(topic, news, fixes) {
     ? `\nThese are the ONLY news items you may write about. Use one. Quote its title accurately and include its URL in the post:\n${news.slice(0, 6).map((n) => `- [${n.publisher}, ${n.date}] ${n.title}\n  ${n.url}`).join("\n")}\n\nExplain what it means for a small business or a freelancer who is not technical. Do not speculate beyond what the headline and your general knowledge support.`
     : "";
 
+  // These are SHAPES, not sentences, and that is deliberate and hard-won.
+  //
+  // Both examples used to be finished posts. The model did the obvious thing and reprinted them:
+  // 24 September and 1 October went out with the identical first two slides — "Four clicks tell you
+  // what your ad is chasing." / "Most people judge it by the creative. Wrong screen entirely." —
+  // because those were the example's slide 1 and slide 2. The text example leaked
+  // "Cheap leads and leads that close are two different products." into 30 September the same way.
+  // Three posts in eight days making one argument, on an account whose whole proposition is that it
+  // knows things. An example written as copy becomes a template; an example written as a skeleton
+  // cannot be. Never put a quotable sentence in here — check-prompt.mjs fails the build if you do.
   const example = format === "carousel"
-    ? `A carousel that would pass on the first try:
-slide 1: "Four clicks tell you what your ad is chasing." (8 words, a number, not a question)
-slide 2: "Most people judge it by the creative. Wrong screen entirely."
-slides 3-9: one instruction each, under 18 words, each leaving the next one owed
-last slide: "Read that one line before you judge the creative." (an instruction, not a claim about how Meta behaves — the fact-check flags platform mechanics asserted as certain fact)
-caption: opens on the same claim, 400-1200 characters, ends flat with no ask.`
-    // Every sentence of this example is traceable to an approved fact, and it has to stay that way.
-    // The previous version was written freehand and contained three claims nothing supports — "the
-    // cheapest cost per lead I had ever produced", the two-tap pre-filled form, and "nobody ever
-    // recorded how many became orders". The model copied them, because a worked example is the
-    // strongest instruction in a prompt, and the fact-checker then held the post. Three days running.
-    // An example that invents is an instruction to invent. Before editing this, check each sentence
-    // against cfg.approvedFacts.
-    : `A post that would pass on the first try. Every claim in it comes from the approved facts — that
-is what makes it passable, and it is the part to copy:
+    ? `The SHAPE of a carousel that passes. Write your own sentences for every slide — there is no copy
+here to lift, on purpose:
+slide 1: the hook — a figure from the receipts, or the thing nobody checks. Under 10 words. Never a question.
+slide 2: why the obvious reading is the wrong one. One sentence, blunt.
+slides 3-9: one idea each, under 18 words, each leaving the next one owed. Where a setting lives, what it does, what it costs when nobody looks.
+second-to-last slide: pay off exactly what slide 1 promised.
+last slide: the takeaway. An instruction or a judgement — never a claim about how a platform behaves stated as certain fact, which the fact-check flags.
+caption: opens on the same claim in different words, 400-1200 characters, ends flat with no ask.`
+    // Same rule as the carousel shape above: no quotable sentences, ever. The version of this that
+    // read as a finished post put its own second line into a live post word for word.
+    : `The SHAPE of a text post that passes. Write every sentence yourself — there is deliberately no
+copy here to lift:
 
-"4,248 leads at ₹16.58 each.
+line 1: a figure from the receipts, or the thing nobody checks. Five to nine words. Never a question.
+line 2: the distinction that makes line 1 mean something — the two things people treat as one.
+middle (3-5 short paragraphs): the mechanic. Where the setting lives, what it actually does, what it
+  costs when nobody looks. Platform behaviour a reader can go and verify, plus the listed client
+  facts where they fit — never a client detail that is not on the list word for word.
+the turn: one line that reframes everything above it.
+close: what to run today, or ${(cfg.allowDiscussionQuestion || []).includes(format) ? "the question only someone who read it can answer about their own account" : "a flat takeaway"}. No ask, no link.
 
-Cheap leads and leads that close are two different products.
-
-Nova Attire tracked every one live in a Google Sheet. Only 5-6% were junk — the rest were right for their niche. Sample orders followed, then one or two bulk orders each.
-
-Then nothing. No reorder timing. No follow-up for when a buyer's stock would run low. A lead that said "not interested" was closed for good — and some of those came back and ordered anyway, on their own.
-
-The leads were never the problem. The second order was.
-
-That is the system I would build first now."
-
-First line: 5 words, opens on a figure. No ask at the end. About 560 characters.`;
+380-1500 characters. First line short enough to survive the "see more" cut.`;
 
   return `Write ONE LinkedIn ${format === "carousel" ? "CAROUSEL (slides plus a caption)" : format === "poster" ? "text post with a poster image" : "text post"} for Jothi Swaroop.
 
@@ -150,7 +166,7 @@ Two kinds of sentence get this post held, and they are the two that keep happeni
 - A detail about how a client's business or account actually worked — a form's fields, a timeline, what somebody said — that is not in the list above word for word. Not "two taps", not "months later". If the list does not say it, you do not know it.
 - A superlative about his own record: "the cheapest I ever", "the best", "the first time anyone". Nothing above establishes a career-wide comparison, so nothing above can support one.
 Write the mechanics of the platform, which any reader can check, and keep the client facts to the exact ones listed.
-${blockBlock}
+${blockBlock}${recentBlock}
 
 Clients you may name: ${cfg.namedPublicly.join(", ")}. All others stay anonymous and described.
 
@@ -224,6 +240,50 @@ if (topic.pillar === "trending") {
 log(`${today} ${weekday} · ${format} · ${topic.pillar}${isSales ? " · SELLING DAY" : ""}`);
 log(`angle: ${topic.angle.slice(0, 88)}`);
 
+/**
+ * Has this already gone out?
+ *
+ * Calibrated on the real failure rather than a guessed threshold, which matters: 1 October reprinted
+ * 24 September's hook and second slide word for word, yet aggregate phrase overlap between the two
+ * posts was only 4.2% — the posts are long and only the opening was shared. Any containment
+ * threshold low enough to catch it would also flag the approved receipts, which are SUPPOSED to
+ * recur ("4,248 wholesale buyer leads at ₹16.58 each" is the whole point).
+ *
+ * So the hard gate is verbatim sentences and the opening line, which caught 1 October cleanly (four
+ * duplicates) and left 30 September alone (none). Aggregate overlap stays a warning: useful to read,
+ * never a reason to throw a draft away.
+ */
+function repetition(draft) {
+  const errors = [], warnings = [];
+  const opts = { dir: OUT, exclude: today, limit: 20 };
+
+  const dupes = duplicateSentences(draft, opts);
+  const seen = new Set();
+  for (const d of dupes) {
+    const k = d.sentence.toLowerCase().replace(/\s+/g, " ");
+    if (seen.has(k)) continue;
+    seen.add(k);
+    errors.push(`already published on ${d.date}, word for word: "${d.sentence.slice(0, 90)}" — write a different sentence`);
+  }
+
+  // The opening line decides whether anyone reads on, and a repeated one is the most visible
+  // possible repeat. Caught even when it is reworded enough to pass the verbatim check.
+  const firstLine = (s) => String(s || "").split("\n").map((x) => x.trim()).filter(Boolean)[0] ?? "";
+  const mine = firstLine(draft.slides?.[0]?.text || draft.hook || draft.body);
+  for (const p of publishedPosts(OUT, opts)) {
+    const theirs = firstLine(p.slides?.[0]?.text || p.hook || p.body);
+    if (!mine || !theirs) continue;
+    const a = mine.toLowerCase().replace(/[^a-z0-9 ]/g, "").split(/\s+/);
+    const b = theirs.toLowerCase().replace(/[^a-z0-9 ]/g, "").split(/\s+/);
+    const shared = a.filter((w) => b.includes(w)).length / Math.max(a.length, 1);
+    if (shared > 0.7) errors.push(`this opens almost exactly like the post from ${p.date}: "${theirs.slice(0, 80)}" — find another way in`);
+  }
+
+  const worst = checkRepetition(draft, opts);
+  if (worst.score > 0.25) warnings.push(`${Math.round(worst.score * 100)}% of the phrasing also appears in the ${worst.date} post`);
+  return { errors: [...new Set(errors)], warnings };
+}
+
 /** Cosmetic misses — a few words over a limit. Never a fabricated number or a banned phrase. */
 const SOFT = /(words \(max|chars, must be under|words \(max \d+\) — shorten|is \d+ chars)/;
 const attempts = cfg.attempts || 3;
@@ -242,7 +302,8 @@ for (let attempt = 1; attempt <= attempts; attempt++) {
   }
   const text = validate({ body: draft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format) });
   const extra = format === "carousel" ? validateCarousel(draft) : { ok: true, errors: [], warnings: [] };
-  report = { ok: text.ok && extra.ok, errors: [...text.errors, ...extra.errors], warnings: [...text.warnings, ...extra.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
+  const rep = repetition(draft);
+  report = { ok: text.ok && extra.ok && !rep.errors.length, errors: [...text.errors, ...extra.errors, ...rep.errors], warnings: [...text.warnings, ...extra.warnings, ...rep.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
   if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); best = null; break; }
   log(`attempt ${attempt} rejected: ${report.errors.join(" | ")}`);
   ruleFired.push(...report.errors.map((e) => e.replace(/[:(].*$/, "").trim()));
