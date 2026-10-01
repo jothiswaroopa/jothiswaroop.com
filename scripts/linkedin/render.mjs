@@ -47,6 +47,11 @@ const productArt = (slug) => {
   return uri;
 };
 
+const FULL_PORTRAIT = (() => {
+  try { return `data:image/jpeg;base64,${fs.readFileSync(path.join(ROOT, "assets/brand/jothi-full.jpg")).toString("base64")}`; }
+  catch { return null; }
+})();
+
 const W = 1080, H = 1350;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
 const DIM = "rgba(242,237,228,.55)";
@@ -108,12 +113,33 @@ function rail(n, total, m) {
 }
 
 /** Middle slides — one idea, numbered, with the progress rail underneath. */
+/**
+ * A node-and-link glyph, the deck's quiet signature on a post about agents.
+ *
+ * Drawn from primitives rather than fetched: three nodes wired to one, which is what every product
+ * in this story actually is. It sits beside the slide index at low contrast, so it reads as texture
+ * on the first pass and as a diagram on the second — present on every slide without ever competing
+ * with the sentence.
+ */
+const aiGlyph = (m, size = 54) => {
+  const dot = (d, bg) => h("div", { style: { display: "flex", width: d, height: d, borderRadius: d / 2, background: bg } });
+  const wire = (w) => h("div", { style: { display: "flex", width: w, height: 1, background: m.rail } });
+  return h("div", { style: { display: "flex", alignItems: "center", height: size } },
+    h("div", { style: { display: "flex", flexDirection: "column", justifyContent: "space-between", height: size } },
+      dot(9, m.dim), dot(9, m.dim), dot(9, m.dim)),
+    h("div", { style: { display: "flex", flexDirection: "column", justifyContent: "space-between", height: size, paddingTop: 4, paddingBottom: 4 } },
+      wire(22), wire(22), wire(22)),
+    dot(14, SIGNAL));
+};
+
 /** The furniture every middle slide carries: the index above, the rail and the footer below. */
 const frame = (n, total, m, ...middle) =>
   h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
-    h("div", { style: { display: "flex", flexDirection: "column" } },
-      h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: SIGNAL } }, String(n).padStart(2, "0")),
-      h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL, marginTop: 26 } })),
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" } },
+      h("div", { style: { display: "flex", flexDirection: "column" } },
+        h("div", { style: { fontFamily: "GM", fontSize: 30, letterSpacing: 4, color: SIGNAL } }, String(n).padStart(2, "0")),
+        h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL, marginTop: 26 } })),
+      aiGlyph(m)),
     ...middle,
     h("div", { style: { display: "flex", flexDirection: "column" } },
       rail(n, total, m),
@@ -193,6 +219,49 @@ function productSlide(s, n, total, m) {
         h("div", { style: { fontFamily: "IS", fontSize: 76, letterSpacing: -1 } }, s.label ?? ""),
         s.sublabel ? h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.dim, marginLeft: 22 } }, String(s.sublabel).toUpperCase()) : null),
       h("div", { style: { fontFamily: "IS", fontSize: fit(s.text, 56, 40, 3.6), lineHeight: 1.18, letterSpacing: -0.3, maxWidth: 880, marginTop: 20, color: m.fg } }, s.text)));
+}
+
+/**
+ * The sign-off as a picture: him in the middle, the agents around him.
+ *
+ * A deck about five labs shipping one product ends on the person who can tell you what to do about
+ * it. The figure is set in a card rather than cut out — the source is a garden photograph with no
+ * keyable ground, and a hard cutout at this size would show every ragged edge. The products orbit
+ * the card, overlapping its border so they read as circling him rather than sitting beside him.
+ */
+function orbitSlide(m, opts = {}) {
+  const art = (slug, style) => {
+    const uri = productArt(slug);
+    return uri ? h("div", { style: { position: "absolute", display: "flex", alignItems: "center", justifyContent: "center", ...style } },
+      h("img", { src: uri, style: { maxWidth: style.width, maxHeight: style.height, objectFit: "contain" } })) : null;
+  };
+  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 76px", background: m.endBg, color: m.endFg, fontFamily: "G", position: "relative" } },
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-start" } },
+      h("div", { style: { display: "flex", flexDirection: "column" } },
+        h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL } }),
+        h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.endDim, marginTop: 22, maxWidth: 520 } }, opts.kicker ?? "FIVE LABS SHIPPED IT. ONE PERSON CAN TELL YOU WHAT TO DO ABOUT IT.")),
+      mark(64, m.endFg, m.endBg)),
+
+    h("div", { style: { display: "flex", position: "relative", width: "100%", height: 760, alignItems: "center", justifyContent: "center" } },
+      // The ring the products sit on, so the orbit is a shape and not three loose images.
+      h("div", { style: { position: "absolute", display: "flex", width: 720, height: 720, borderRadius: 360, border: `2px solid ${m.endDim}`, opacity: 0.35 } }),
+      FULL_PORTRAIT
+        ? h("div", { style: { display: "flex", width: 380, height: 660, borderRadius: 190, overflow: "hidden" } },
+            h("img", { src: FULL_PORTRAIT, style: { width: 380, height: 660, objectFit: "cover" } }))
+        : h("div", { style: { display: "flex", width: 380, height: 660 } }),
+      art("grok-bot",    { top: 26,   left: 118, width: 148, height: 148 }),
+      art("meta-muse",   { bottom: 40, left: 70,  width: 176, height: 176 }),
+      art("openai-dots", { top: 210,  right: 0,  width: 268, height: 268 })),
+
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { display: "flex", width: "100%", height: 1, background: m.endFg, opacity: 0.18, marginBottom: 22 } }),
+      h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
+        h("div", { style: { display: "flex", flexDirection: "column" } },
+          h("div", { style: { display: "flex", fontFamily: "IS", fontSize: 46 } }, h("span", {}, "Jothi Swaroop"), h("span", { style: { color: SIGNAL } }, ".")),
+          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 3, color: m.endDim, marginTop: 8 } }, "PERFORMANCE MARKETING & AI SYSTEMS"),
+          h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 2, color: SIGNAL, marginTop: 16 } }, "JOTHISWAROOP.COM"),
+          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.endDim, marginTop: 8 } }, "@JOTHISWAROOP.AI  ·  IN/JOTHISWAROOP")),
+        aiGlyph({ ...m, dim: m.endDim, rail: m.endDim }, 60))));
 }
 
 function statementSlide(text, n, total, m) {
@@ -324,7 +393,9 @@ function lineup(items, m) {
 }
 
 export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar = "carousel", opts = {}) {
-  const m = moodFor(pillar);
+  // A pillar's ground is fixed so a reader starts to associate one with the other, but a deck built
+  // from a brief can ask for the other one: colourful product art reads far better on ink.
+  const m = opts.theme && MOODS[opts.theme] ? MOODS[opts.theme] : moodFor(pillar);
   const dir = path.join(ROOT, "public/linkedin", date);
   fs.mkdirSync(dir, { recursive: true });
 
@@ -336,7 +407,9 @@ export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar =
   let n = 0;
   for (let i = 0; i < slides.length; i++) {
     const text = String(slides[i].text || "").trim();
-    const tree = i === 0 ? cover(text, kicker, m) : i === slides.length - 1 ? last(text, m) : body(slides[i], i + 1, slides.length, m);
+    const tree = i === 0 ? cover(text, kicker, m)
+      : i === slides.length - 1 ? (opts.orbit ? orbitSlide(m, { kicker: text }) : last(text, m))
+      : body(slides[i], i + 1, slides.length, m);
     const file = `slide-${String(++n).padStart(2, "0")}.png`;
     fs.writeFileSync(path.join(dir, file), await png(tree));
     out.push(`/linkedin/${date}/${file}`);
