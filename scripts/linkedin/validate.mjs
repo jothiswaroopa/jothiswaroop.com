@@ -10,8 +10,17 @@ const FACTS = cfg.approvedFacts.join(" | ").replace(/,/g, "");
 const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F1E6}-\u{1F1FF}]/u;
 
 /** Numbers that need a receipt: 100+, any decimal, any percentage, anything with a currency mark. */
-function unbackedNumbers(text) {
+/**
+ * `sourcesText` is the material the post was given to draw on — the news items behind a trending
+ * post, or a brief's summaries. Without it this check had a blind spot that mattered: a figure from
+ * a cited source could never pass, because the only escape was a URL in the same sentence and the
+ * prompt forbids URLs in post text. That made a sourced number unpublishable, on an account whose
+ * strongest hooks open on a figure. A number the supplied sources state is backed by them;
+ * everything else still has to be in the approved facts.
+ */
+function unbackedNumbers(text, sourcesText = "") {
   const bad = [];
+  const src = String(sourcesText || "");
   const sentences = text.split(/(?<=[.!?\n])\s+/);
   for (const s of sentences) {
     const sourced = /https?:\/\//.test(s);
@@ -24,13 +33,15 @@ function unbackedNumbers(text) {
       if (!significant || year) continue;
       if (FACTS.includes(plain)) continue;
       if (sourced) continue;
+      // The supplied sources state it, with or without the thousands separator.
+      if (src && (src.includes(raw) || src.includes(plain))) continue;
       bad.push((cur || "") + raw + (pct || ""));
     }
   }
   return [...new Set(bad)];
 }
 
-export function validate(draft, { isSales = false, allowQuestion = false } = {}) {
+export function validate(draft, { isSales = false, allowQuestion = false, sourcesText = "" } = {}) {
   const errors = [];
   const warnings = [];
   const body = (draft.body || "").trim();
@@ -69,7 +80,7 @@ export function validate(draft, { isSales = false, allowQuestion = false } = {})
   if (tags.length && firstTagAt < body.length * 0.75) warnings.push("hashtags are not at the end");
 
   // numbers without receipts — the rule that matters most
-  const bad = unbackedNumbers(body);
+  const bad = unbackedNumbers(body, sourcesText);
   if (bad.length) errors.push(`number with no receipt: ${bad.join(", ")}`);
 
   // Price talk — but his own receipts are full of currency figures (₹16.58, $6 a buyer), so only
@@ -135,7 +146,7 @@ export function validate(draft, { isSales = false, allowQuestion = false } = {})
   return { ok: errors.length === 0, errors, warnings: [...new Set(warnings)], chars, hookChars: hook.length, avgWords };
 }
 
-export function validateCarousel(draft) {
+export function validateCarousel(draft, { sourcesText = "" } = {}) {
   const errors = [];
   const warnings = [];
   const slides = draft.slides || [];
@@ -159,7 +170,7 @@ export function validateCarousel(draft) {
     if (/next slide|swipe|keep reading|read on/i.test(text)) errors.push(`slide ${i + 1} tells the reader to swipe instead of earning it`);
   });
   const all = slides.map((s) => s.text).join(" ");
-  const bad = unbackedNumbers(all);
+  const bad = unbackedNumbers(all, sourcesText);
   if (bad.length) errors.push(`carousel number with no receipt: ${bad.join(", ")}`);
   return { ok: errors.length === 0, errors, warnings };
 }

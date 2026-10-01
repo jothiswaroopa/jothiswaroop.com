@@ -1,0 +1,60 @@
+name: LinkedIn publish a prepared draft
+
+# Publishes a draft that already exists in content/linkedin, without drafting anything.
+#
+# The daily workflow only ever publishes what it has just written, so a draft the fact-check held
+# and a human then fixed had no route out, and neither did a deck prepared by hand. This is that
+# route. It renders nothing and calls no model: it posts what is in the repo.
+#
+# publish.mjs still refuses anything whose autopostSafe is false, so this cannot be used to push a
+# held draft past its own gate without someone first clearing it in the file and saying why.
+on:
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "The draft to publish, YYYY-MM-DD — it must already exist in content/linkedin"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: linkedin
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Check the draft is there and says it is safe
+        run: |
+          F="content/linkedin/${{ inputs.day }}.json"
+          test -f "$F" || { echo "no draft at $F"; exit 1; }
+          node -e '
+            const p = process.argv[1];
+            const j = JSON.parse(require("fs").readFileSync(p, "utf8"));
+            if (j.status === "posted") { console.error(`${p} is already posted: ${j.linkedinId}`); process.exit(1); }
+            console.log(`${j.date} · ${j.pillar} · ${j.format} · autopostSafe=${j.autopostSafe} · ${(j.slides||[]).length} slides`);
+          ' "$F"
+      - name: Post it
+        env:
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}
+          LI_AUTOPOST: ${{ vars.LI_AUTOPOST }}
+        run: node scripts/linkedin/publish.mjs "${{ inputs.day }}"
+      - name: Record what happened
+        if: always()
+        run: |
+          git config user.name "linkedin-bot"
+          git config user.email "linkedin-bot@jothiswaroop.com"
+          git add content/linkedin public/dash/linkedin.json 2>/dev/null || true
+          git diff --cached --quiet && echo "nothing changed" && exit 0
+          git commit -m "LinkedIn published: ${{ inputs.day }}"
+          for i in 1 2 3 4 5; do git push && exit 0; git pull --rebase --autostash || true; done
+          echo "could not push the record" >&2; exit 1
+      - name: Deploy
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh workflow run deploy.yml --ref main

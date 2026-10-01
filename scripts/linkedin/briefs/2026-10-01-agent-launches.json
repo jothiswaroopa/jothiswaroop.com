@@ -1,7 +1,7 @@
 {
-  "_note": "Every claim below was checked against the publisher named, on 2026-10-01, and two were corrected in the process: the company behind Grok is SpaceXAI, not xAI — it was bought by SpaceX in February 2026 and rebranded in July, though Grok kept its name — and this is not three labs shipping the same product but five. Nothing may be stated in the post beyond what these lines say: the fact-check pass reads this file as the only material supporting the claims.",
+  "_note": "Checked against each publisher named, 1 October 2026. Two corrections made while checking must stay: the company behind Grok is SpaceXAI, not xAI (SpaceX bought xAI in February 2026, rebranded in July, Grok kept its name), and this is five labs shipping one product, not three. Nothing may be stated beyond what these lines say. FRAMING: the one-person-company material is reported as an industry trend. Jothi is never described as a one-person operation; his standing to speak comes from approved fact 9 — the nine automations running inside client businesses today.",
   "pillar": "trending",
-  "angle": "Five AI labs have now shipped the same product: an always-on agent with its own computer that signs into your tools and keeps working after you close the laptop. OpenAI shipped dots and Meta extended Muse to small businesses on the same day. What the convergence actually means for someone running their own ads, who is not going to buy any of them this month.",
+  "angle": "Five labs shipped the same product in seven weeks: an always-on agent with its own computer that signs into your tools. Why they are all racing for it, what a $300 agent stack genuinely replaces, and the work it does not touch — from someone with nine of these running inside client businesses.",
   "items": [
     {
       "publisher": "OpenAI",
@@ -36,7 +36,7 @@
       "date": "2026-08-12",
       "title": "Grok Bot: What SpaceXAI's New AI Teammate Means for the Agent Race",
       "url": "https://www.datacamp.com/blog/grok-bot",
-      "summary": "On 11 August 2026 SpaceXAI launched Grok Bot in beta: always-on AI teammates that run on a cloud computer, sign into the tools you already use, and keep working after you have closed the laptop — coming back only when something needs a human decision. Onboarding is by demonstration rather than configuration: a Bot watches you do a task once, recording up to ten minutes with no audio, and turns it into a draft skill you review and test. At launch it was limited to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers, on macOS, Windows and iPhones running iOS 18 or later. The same piece names the field: OpenAI has ChatGPT Work, Anthropic has Claude Cowork, Google has Gemini Spark — the same bet from four labs before Meta and dots made it six products from five labs. It also notes the pricing pattern: each of these rides on top of an existing subscription rather than carrying a separate price of its own."
+      "summary": "On 11 August 2026 SpaceXAI launched Grok Bot in beta: always-on AI teammates that run on a cloud computer, sign into the tools you already use, and keep working after you have closed the laptop — coming back only when something needs a human decision. Onboarding is by demonstration rather than configuration: a Bot watches you do a task once, recording up to ten minutes with no audio, and turns it into a draft skill you review and test. At launch it was limited to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers, on macOS, Windows and iPhones running iOS 18 or later. The same piece names the field: OpenAI has ChatGPT Work, Anthropic has Claude Cowork, Google has Gemini Spark — the same bet from four labs before Meta and dots made it six products from five labs. It also notes the pricing pattern: each of these rides on top of an existing subscription rather than carrying a separate price of its own. CRUCIAL AND UNDER-REPORTED: the same piece notes that each of these rides on top of an existing subscription rather than carrying a separate price of its own."
     },
     {
       "publisher": "Wikipedia",
@@ -51,6 +51,27 @@
       "title": "Helping small businesses put AI to work",
       "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
       "summary": "OpenAI's own post, 30 September 2026, the day after dots launched, on putting AI to work in small businesses. Primary source, and evidence that the small-business segment is now the contested ground rather than an afterthought."
+    },
+    {
+      "publisher": "Inc.",
+      "date": "2026",
+      "title": "Anthropic CEO Dario Amodei Predicts the First Billion-Dollar Solopreneur by 2026",
+      "url": "https://www.inc.com/ben-sherry/anthropic-ceo-dario-amodei-predicts-the-first-billion-dollar-solopreneur-by-2026/91193609",
+      "summary": "Asked directly at Anthropic’s Code with Claude developer conference, Dario Amodei put a 70-80% probability on the first billion-dollar one-employee company appearing in 2026, and named three likely categories: proprietary trading, developer tools, and businesses built around automated customer service. Note what those three have in common — the product IS software or a decision loop. None has to make, ship or physically serve anything."
+    },
+    {
+      "publisher": "AI Business",
+      "date": "2026",
+      "title": "The One-Person Company Is Real in 2026 — But Here’s Where Solo Founders Hit a Wall",
+      "url": "https://aibusiness.vc/solo/one-person-company-ai-agents-limits-2026",
+      "summary": "36.3% of new ventures in 2026 were solo-founded. A solo founder’s agent stack runs about $300-500 a month in subscriptions against $80,000-120,000 a month for the equivalent human functions. The limits are specific and consistent: market validation, strategic pricing, high-stakes customer judgment and any call requiring genuine founder accountability are not reliably delegable. Agents execute defined processes well and reason poorly when the rules are not yet clear. What stays human: taste and curation — deciding what is worth building — trust and relationship building, and overall strategy."
+    },
+    {
+      "publisher": "Self Employed",
+      "date": "2026",
+      "title": "Solo Founders Lean On AI To Replace Teams, But Limits Remain",
+      "url": "https://www.selfemployed.com/news/solo-founders-ai-replace-teams-limits-2026/",
+      "summary": "Corroborates the pattern: solo operators are genuinely replacing team functions with agents, and the limits are real rather than temporary. A final human review on anything going to a customer, partner or press contact is treated as non-negotiable — not because agents cannot write, but because a voice under pressure is not reliably reproducible."
     }
   ],
   "_lineup": "Rendered as slide 2, straight from here. The two 29 SEP dates carry the whole argument, so they are highlighted; the model never writes these.",

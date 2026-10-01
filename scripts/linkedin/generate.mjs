@@ -299,6 +299,11 @@ if (briefPath) {
   log(`trending: ${news.length} item(s) available`);
   if (!news.length) { log("no fresh news — falling back to a teach post"); topic.pillar = "teach"; }
 }
+// What the post may draw numbers from besides the approved facts: the news items, or the brief
+// summaries. Without this a sourced figure could never clear the number check, because the only
+// other escape is a URL in the same sentence and post text is not allowed to carry one.
+const sourcesText = (news ?? []).map((n) => [n.title, n.summary, n.publisher, n.date].filter(Boolean).join(" ")).join("\n");
+
 log(`${today} ${weekday} · ${format} · ${topic.pillar}${isSales ? " · SELLING DAY" : ""}`);
 log(`angle: ${topic.angle.slice(0, 88)}`);
 
@@ -362,8 +367,8 @@ for (let attempt = 1; attempt <= attempts; attempt++) {
     if (attempt === attempts && !best) throw e;
     continue;
   }
-  const text = validate({ body: draft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format) });
-  const extra = format === "carousel" ? validateCarousel(draft) : { ok: true, errors: [], warnings: [] };
+  const text = validate({ body: draft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format), sourcesText });
+  const extra = format === "carousel" ? validateCarousel(draft, { sourcesText }) : { ok: true, errors: [], warnings: [] };
   const rep = repetition(draft);
   report = { ok: text.ok && extra.ok && !rep.errors.length, errors: [...text.errors, ...extra.errors, ...rep.errors], warnings: [...text.warnings, ...extra.warnings, ...rep.warnings], chars: text.chars, hookChars: text.hookChars, avgWords: text.avgWords };
   if (report.ok) { log(`passed on attempt ${attempt} · ${report.chars} chars · avg ${report.avgWords} words/sentence`); best = null; break; }
@@ -407,8 +412,8 @@ try {
     // redraft that correctly removed an unsupported claim, which is the whole point of the pass.
     for (let r = 1; r <= 2 && !fixed; r++) {
       const redraft = await ask(topic, news, r === 1 ? notes : [...notes, ...fixedReport.errors]);
-      const recheck = validate({ body: redraft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format) });
-      const reextra = format === "carousel" ? validateCarousel(redraft) : { ok: true, errors: [], warnings: [] };
+      const recheck = validate({ body: redraft.body || "" }, { isSales, allowQuestion: (cfg.allowDiscussionQuestion || []).includes(format), sourcesText });
+      const reextra = format === "carousel" ? validateCarousel(redraft, { sourcesText }) : { ok: true, errors: [], warnings: [] };
       const errs = [...recheck.errors, ...reextra.errors];
       fixedReport = { errors: errs, warnings: [...recheck.warnings, ...reextra.warnings], chars: recheck.chars, avgWords: recheck.avgWords };
       if (errs.length === 0) { fixed = redraft; log(`redraft ${r} clean`); }
