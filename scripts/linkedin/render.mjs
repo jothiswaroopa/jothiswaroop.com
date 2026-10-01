@@ -54,6 +54,17 @@ const FULL_PORTRAIT = (() => {
 
 const W = 1080, H = 1350;
 const INK = "#0a0a0c", PAPER = "#f2ede4", SIGNAL = "#ffb020";
+/**
+ * The same accent, dark enough to read on paper.
+ *
+ * #ffb020 against the paper ground is 1.57:1 — it works as furniture, where it marks a rule or an
+ * index and nothing depends on reading it, but it fails badly as text. A highlighted word set in it
+ * on a light deck is close to invisible. This is the same hue taken down to 4.87:1, which clears
+ * the 4.5 floor for body text, and it is used wherever the accent has to be READ rather than seen.
+ */
+const SIGNAL_ON_LIGHT = "#8f5c00";
+/** The accent to set text in, given the ground it sits on. */
+const readableAccent = (m) => (m.fg === PAPER ? SIGNAL : SIGNAL_ON_LIGHT);
 const DIM = "rgba(242,237,228,.55)";
 const DIM_ON_PAPER = "rgba(10,10,12,.55)";
 
@@ -148,7 +159,7 @@ const aiGlyph = (m, size = 54) => {
  * "italic-box" is the heavier treatment: the serif italic on a filled block, for the one slide in
  * a deck that earns it. On every slide it would simply be noise.
  */
-function richBlock(text, highlight, style, css = {}) {
+function richBlock(text, highlight, style, css = {}, m = null) {
   const s = String(text ?? "").trim();
   const size = css.fontSize ?? 60;
   const gap = Math.round(size * 0.26);
@@ -169,13 +180,15 @@ function richBlock(text, highlight, style, css = {}) {
   }
 
   const boxed = style === "italic-box";
+  // The box is ink on amber either way, which is 10.82:1 and safe on both grounds.
+  const accent = m ? readableAccent(m) : SIGNAL;
   return h("div", { style: { display: "flex", flexWrap: "wrap", alignItems: "baseline", ...css, lineHeight: lh } },
     ...words.map((w, i) => {
       const on = hot.has(i);
       if (on && boxed) {
         return h("div", { style: { display: "flex", fontFamily: "IS", fontStyle: "italic", color: INK, background: SIGNAL, paddingLeft: Math.round(size * 0.16), paddingRight: Math.round(size * 0.16), paddingBottom: Math.round(size * 0.06), borderRadius: 6, marginRight: gap, lineHeight: lh } }, w);
       }
-      return h("div", { style: { display: "flex", marginRight: gap, lineHeight: lh, ...(on ? { color: SIGNAL } : {}) } }, w);
+      return h("div", { style: { display: "flex", marginRight: gap, lineHeight: lh, ...(on ? { color: accent } : {}) } }, w);
     }));
 }
 
@@ -245,7 +258,7 @@ function calloutSlide(s, n, total, m) {
   return frame(n, total, m,
     h("div", { style: { display: "flex", flexDirection: "column", borderLeft: `4px solid ${SIGNAL}`, paddingLeft: 40 } },
       s.label ? h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 4, color: SIGNAL, marginBottom: 26 } }, String(s.label).toUpperCase()) : null,
-      richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 })));
+      richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 86, 54, 2.9), lineHeight: 1.14, letterSpacing: -0.7, maxWidth: 860 }, m)));
 }
 
 /**
@@ -324,7 +337,7 @@ function quoteSlide(s, n, total, m) {
   return frame(n, total, m,
     h("div", { style: { display: "flex", flexDirection: "column" } },
       h("div", { style: { fontFamily: "IS", fontSize: 170, lineHeight: 0.7, color: SIGNAL, height: 96 } }, "\u201C"),
-      richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 78, 48, 2.7), lineHeight: 1.16, letterSpacing: -0.6, maxWidth: 880, marginTop: 10 }),
+      richBlock(s.text, s.highlight, s.highlightStyle, { fontFamily: "IS", fontSize: fit(s.text, 78, 48, 2.7), lineHeight: 1.16, letterSpacing: -0.6, maxWidth: 880, marginTop: 10 }, m),
       s.author
         ? h("div", { style: { display: "flex", alignItems: "center", marginTop: 40 } },
             h("div", { style: { display: "flex", width: 54, height: 2, background: m.dim, marginRight: 22 } }),
@@ -337,7 +350,7 @@ function statementSlide(s, n, total, m) {
   const hl = typeof s === "string" ? null : s.highlight;
   const hs = typeof s === "string" ? "color" : s.highlightStyle;
   return frame(n, total, m,
-    richBlock(text, hl, hs, { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 }));
+    richBlock(text, hl, hs, { fontFamily: "IS", fontSize: fit(text, 92, 58, 3.0), lineHeight: 1.12, letterSpacing: -0.8, maxWidth: 880 }, m));
 }
 
 function body(slide, n, total, m) {
