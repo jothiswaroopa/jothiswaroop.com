@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # the Deploy step starts deploy.yml, which a contents-only token cannot do
 
 concurrency:
   group: linkedin
