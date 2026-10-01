@@ -17,6 +17,9 @@ on:
       force:
         description: "Set to 1 to redraft a day that already has a post"
         required: false
+      redraft_posted:
+        description: "Set to 1 to replace a day ALREADY PUBLISHED to LinkedIn — delete that post there first, or the account carries both"
+        required: false
       skip_post:
         description: "Set to 1 to draft only and not publish, whatever LI_AUTOPOST says"
         required: false
@@ -51,6 +54,7 @@ jobs:
           LI_ANGLE: ${{ inputs.angle }}
           LI_FORMAT: ${{ inputs.format }}
           LI_FORCE: ${{ inputs.force }}
+          LI_REDRAFT_POSTED: ${{ inputs.redraft_posted }}
         run: node scripts/linkedin/generate.mjs
       # Committed on its own and whatever the outcome: a draft the validator threw away still spent
       # the money, and spend that never got recorded is spend the cap cannot see.

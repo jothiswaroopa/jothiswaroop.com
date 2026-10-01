@@ -53,6 +53,18 @@ if (existingToday?.status === "posted" && process.env.LI_REDRAFT_POSTED !== "1")
   log("Set LI_REDRAFT_POSTED=1 alongside LI_FORCE if you really mean to replace it.");
   process.exit(0);
 }
+// Replacing a posted day is allowed, but the post that was live does not get to vanish from the
+// record just because the file is about to be overwritten. A retraction is a thing that happened.
+if (existingToday?.status === "posted") {
+  log(`replacing a POSTED day: ${existingToday.linkedinId ?? "id not recorded"} from ${existingToday.postedAt}`);
+  log("that post must already be deleted on LinkedIn, or the account will carry both");
+  learning.retracted = [
+    { date: today, linkedinId: existingToday.linkedinId ?? null, postedAt: existingToday.postedAt ?? null,
+      hook: String(existingToday.hook ?? existingToday.body ?? "").split("\n")[0].slice(0, 160),
+      replacedAt: new Date().toISOString() },
+    ...(learning.retracted ?? []),
+  ].slice(0, 20);
+}
 
 const pillar = process.env.LI_PILLAR || cfg.weekShape[String(dayNum)] || "teach";
 // Carousels are the strongest format on the platform, so two weekdays are reserved for them —
