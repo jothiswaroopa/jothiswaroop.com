@@ -111,6 +111,7 @@ export default function ServicesPage() {
       url: `${base}/services/`,
       founder: { "@type": "Person", name: site.name, url: `${base}/about/` },
       areaServed: ["IN", "GB", "US"],
+      telephone: site.phone,
       address: { "@type": "PostalAddress", addressLocality: "Chennai", addressRegion: "Tamil Nadu", addressCountry: "IN" },
       hasOfferCatalog: { "@type": "OfferCatalog", name: "Services", itemListElement: SERVICES.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.name, description: s.lead, url: `${base}/services/#${s.id}` } })) },
     },

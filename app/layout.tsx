@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             award: ["Prompt Engineering Champion 2025", "Tamil Nadu Digital Summit award 2026", "Official Digital Partner, VROOM 2026"],
             performerIn: { "@type": "EducationEvent", name: "The Importance of Digital Marketing & AI Automation", description: "Seminar for 60+ entrepreneurs at a business networking meeting", location: { "@type": "Place", name: "Salem, Tamil Nadu, India" }, startDate: "2025-07" },
             areaServed: ["IN", "GB", "US"],
-            worksFor: { "@type": "ProfessionalService", name: "Jothi Swaroop — Performance marketing & AI systems", url: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"}/services/` },
+            worksFor: { "@type": "ProfessionalService", name: "Jothi Swaroop — Performance marketing & AI systems", url: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"}/services/`, telephone: site.phone, address: { "@type": "PostalAddress", addressLocality: "Chennai", addressRegion: "Tamil Nadu", addressCountry: "IN" } },
           }) }}
         />
         {/* Cloudflare Web Analytics — cookieless, no consent banner needed; loads after everything else.

@@ -10,6 +10,9 @@ export const site = {
   name: "Jothi Swaroop",
   role: "Performance marketing & AI systems",
   base: "Chennai → worldwide",
+  // E.164, the form Google and schema.org both want. Same line as the WhatsApp number.
+  phone: "+919944812223",
+  phoneDisplay: "+91 99448 12223",
   whatsapp: "919944812223",
   whatsappDisplay: "+91 99448 12223",
   calendar: "https://cal.com/jothi-swaroop-ccbqmw/30min", // Cal.com · 30 min
