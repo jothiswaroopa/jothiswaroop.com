@@ -178,17 +178,58 @@ async function slidesToPdf(files, dir) {
 }
 
 /** Writes slide-01.png … slide-0n.png into public/linkedin/<date>/ and returns the web paths. */
-export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar = "carousel") {
+/**
+ * The launch board: a deterministic second slide for a post built from a sourced brief.
+ *
+ * Jothi asked for the products themselves on the slides. Pasting three companies' logos would fight
+ * a system built on two typefaces and three colours, and would look like every other repost — so the
+ * products appear as the thing that actually carries the story: who shipped what, and when. The dates
+ * come from the brief rather than the model, so this slide cannot be wrong in the way prose can.
+ *
+ * Two launches landing on one day is the whole argument, and a reader sees it here without reading a
+ * word of it — which is what a slide is for.
+ */
+function lineup(items, m) {
+  const rows = items.slice(0, 6);
+  return h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "84px 76px", background: m.bg, color: m.fg, fontFamily: "G" } },
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      h("div", { style: { display: "flex", width: 96, height: 3, background: SIGNAL } }),
+      h("div", { style: { fontFamily: "GM", fontSize: 24, letterSpacing: 3, color: m.dim, marginTop: 30 } }, "SHIPPED THIS QUARTER")),
+    h("div", { style: { display: "flex", flexDirection: "column" } },
+      ...rows.map((r, i) =>
+        h("div", { style: { display: "flex", flexDirection: "column", paddingTop: 22, paddingBottom: 22, borderTop: i === 0 ? "none" : `1px solid ${m.rail}` } },
+          h("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between" } },
+            h("div", { style: { fontFamily: "IS", fontSize: 58, letterSpacing: -0.6 } }, r.name),
+            h("div", { style: { fontFamily: "GM", fontSize: 26, letterSpacing: 2, color: r.highlight ? SIGNAL : m.dim } }, r.date)),
+          h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.dim, marginTop: 10 } }, r.org)))),
+    h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "flex-end" } },
+      h("div", { style: { fontFamily: "GM", fontSize: 22, letterSpacing: 2, color: m.dim, maxWidth: 760 } }, "SAME SHAPE OF PRODUCT. FIVE LABS."),
+      mark(64, m.fg, m.bg)));
+}
+
+export async function renderCarousel(slides, date, kicker = "// GUIDE", pillar = "carousel", opts = {}) {
   const m = moodFor(pillar);
   const dir = path.join(ROOT, "public/linkedin", date);
   fs.mkdirSync(dir, { recursive: true });
+
+  // Injected at render time rather than written by the model: the slide is pure fact from the brief,
+  // and the model's own slides stay exactly the ones the validator and the fact-check read.
+  const board = Array.isArray(opts.lineup) && opts.lineup.length ? opts.lineup : null;
+
   const out = [];
+  let n = 0;
   for (let i = 0; i < slides.length; i++) {
     const text = String(slides[i].text || "").trim();
     const tree = i === 0 ? cover(text, kicker, m) : i === slides.length - 1 ? last(text, m) : body(text, i + 1, slides.length, m);
-    const file = `slide-${String(i + 1).padStart(2, "0")}.png`;
+    const file = `slide-${String(++n).padStart(2, "0")}.png`;
     fs.writeFileSync(path.join(dir, file), await png(tree));
     out.push(`/linkedin/${date}/${file}`);
+    // Straight after the hook: the claim, then the evidence for it, before any of the explaining.
+    if (i === 0 && board) {
+      const bf = `slide-${String(++n).padStart(2, "0")}.png`;
+      fs.writeFileSync(path.join(dir, bf), await png(lineup(board, m)));
+      out.push(`/linkedin/${date}/${bf}`);
+    }
   }
   const pdf = await slidesToPdf(out, dir);
   return { images: out, pdf };

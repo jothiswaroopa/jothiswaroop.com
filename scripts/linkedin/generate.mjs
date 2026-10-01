@@ -257,6 +257,7 @@ let news = null;
  * LI_BRIEF is a repo-relative path to { pillar?, angle?, items: [{publisher,title,url,date,summary}] }.
  */
 const briefPath = process.env.LI_BRIEF;
+let briefLineup = null;
 if (briefPath) {
   const b = JSON.parse(fs.readFileSync(path.join(ROOT, briefPath), "utf8"));
   if (!Array.isArray(b.items) || !b.items.length) throw new Error(`brief ${briefPath} has no items — a sourceless brief is the thing we are trying to prevent`);
@@ -265,7 +266,10 @@ if (briefPath) {
   news = b.items;
   if (b.pillar) topic.pillar = b.pillar;
   if (b.angle) topic.angle = b.angle;
-  log(`brief: ${briefPath} — ${news.length} sourced item(s), pillar ${topic.pillar}`);
+  // A board of what shipped and when, rendered straight from the brief rather than written by the
+  // model — the dates on it cannot drift the way a sentence can.
+  briefLineup = Array.isArray(b.lineup) && b.lineup.length ? b.lineup : null;
+  log(`brief: ${briefPath} — ${news.length} sourced item(s), pillar ${topic.pillar}${briefLineup ? `, launch board of ${briefLineup.length}` : ""}`);
 } else if (topic.pillar === "trending") {
   news = await trendingItems();
   log(`trending: ${news.length} item(s) available`);
@@ -415,7 +419,7 @@ let images = [];
 let pdf = null;
 try {
   if (format === "carousel") {
-    const built = await renderCarousel(draft.slides, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar);
+    const built = await renderCarousel(draft.slides, today, `// ${topic.pillar.toUpperCase()}`, topic.pillar, { lineup: briefLineup });
     images = built.images;
     pdf = built.pdf;
     log(`rendered ${images.length} slides and bundled them into ${pdf}`);

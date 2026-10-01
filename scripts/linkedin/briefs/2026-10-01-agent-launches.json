@@ -52,5 +52,30 @@
       "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
       "summary": "OpenAI's own post, 30 September 2026, the day after dots launched, on putting AI to work in small businesses. Primary source, and evidence that the small-business segment is now the contested ground rather than an afterthought."
     }
+  ],
+  "_lineup": "Rendered as slide 2, straight from here. The two 29 SEP dates carry the whole argument, so they are highlighted; the model never writes these.",
+  "lineup": [
+    {
+      "name": "Grok Bot",
+      "org": "SPACEXAI",
+      "date": "11 AUG"
+    },
+    {
+      "name": "Muse",
+      "org": "META",
+      "date": "08 SEP"
+    },
+    {
+      "name": "dots",
+      "org": "OPENAI",
+      "date": "29 SEP",
+      "highlight": true
+    },
+    {
+      "name": "Muse for Small Business",
+      "org": "META",
+      "date": "29 SEP",
+      "highlight": true
+    }
   ]
 }
