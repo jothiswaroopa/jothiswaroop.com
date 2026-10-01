@@ -33,7 +33,7 @@
     "lane": "guide",
     "segment": "india",
     "keyword": "meta ads budget under 1 lakh per month india small business",
-    "angle": "What to do with a \u20b950k\u2013\u20b91L monthly ad budget in India, and what to stop doing."
+    "angle": "What to do with a ₹50k–₹1L monthly ad budget in India, and what to stop doing."
   },
   {
     "lane": "guide",
@@ -74,7 +74,7 @@
   {
     "segment": "video",
     "keyword": "ai generated product video ads for small brands",
-    "angle": "What an AI-generated commercial can and cannot do yet, judged by a person who makes them \u2014 with the honest failure cases."
+    "angle": "What an AI-generated commercial can and cannot do yet, judged by a person who makes them — with the honest failure cases."
   },
   {
     "segment": "video",
@@ -99,7 +99,7 @@
   {
     "segment": "india",
     "keyword": "should a small business hire or automate first",
-    "angle": "When a \u20b920,000/month hire beats an automation and when it does not \u2014 with the arithmetic."
+    "angle": "When a ₹20,000/month hire beats an automation and when it does not — with the arithmetic."
   },
   {
     "segment": "ai",
@@ -124,7 +124,7 @@
   {
     "segment": "general",
     "keyword": "why your ads work then stop working",
-    "angle": "Creative fatigue, auction pressure and audience exhaustion \u2014 how to tell which one is killing the account."
+    "angle": "Creative fatigue, auction pressure and audience exhaustion — how to tell which one is killing the account."
   },
   {
     "segment": "general",
@@ -154,12 +154,12 @@
   {
     "segment": "data",
     "keyword": "cost per lead across 9 meta ad accounts india",
-    "angle": "Original data: cost per lead across nine accounts I run \u2014 apparel, jewellery, clinics, services \u2014 with the method and the caveats. Publish the ranges, not an average, and show why an average would mislead."
+    "angle": "Original data: cost per lead across nine accounts I run — apparel, jewellery, clinics, services — with the method and the caveats. Publish the ranges, not an average, and show why an average would mislead."
   },
   {
     "segment": "data",
     "keyword": "what an ai generated commercial actually costs to make",
-    "angle": "Original data: the real cost and time per finished AI commercial, broken down \u2014 generation credits, revisions, sound, the hours. Including what it does not replace."
+    "angle": "Original data: the real cost and time per finished AI commercial, broken down — generation credits, revisions, sound, the hours. Including what it does not replace."
   },
   {
     "segment": "data",
@@ -170,5 +170,65 @@
     "segment": "data",
     "keyword": "whatsapp vs email response rate b2b india",
     "angle": "Original data: reply rates and time-to-reply across the channels I use for the same offer, with sample sizes stated."
+  },
+  {
+    "lane": "service",
+    "segment": "india",
+    "keyword": "meta ads freelancer vs agency chennai small business",
+    "angle": "What a freelancer actually costs against an agency retainer in Chennai, what you give up either way, and the account sizes where each one stops making sense."
+  },
+  {
+    "lane": "service",
+    "segment": "india",
+    "keyword": "how much does it cost to run meta ads india per month",
+    "angle": "Ad spend, management fee and creative, separated — most quotes blur the three, and the blur is where the money goes."
+  },
+  {
+    "lane": "service",
+    "segment": "dental-uk",
+    "keyword": "dental marketing agency uk how to choose",
+    "angle": "The five questions that separate an agency that will grow a practice from one that will bill it. Written by someone who runs the accounts."
+  },
+  {
+    "lane": "service",
+    "segment": "apparel",
+    "keyword": "b2b lead generation for tirupur garment exporters",
+    "angle": "What it takes to reach a UK or US wholesale buyer from Tirupur, what it costs per enquiry, and when it is worth doing at all."
+  },
+  {
+    "lane": "service",
+    "segment": "ai",
+    "keyword": "ai automation for small business cost india",
+    "angle": "What nine live automations actually cost to build and run, where they pay back, and the ones not worth building."
+  },
+  {
+    "lane": "service",
+    "segment": "ai",
+    "keyword": "ai receptionist for clinics cost and setup",
+    "angle": "What an AI voice receptionist costs, what it can and cannot handle, and the front-desk problem it is actually solving."
+  },
+  {
+    "lane": "service",
+    "segment": "b2b",
+    "keyword": "google ads management for manufacturers what to expect",
+    "angle": "What the first ninety days of a managed B2B account look like, month by month, including the part where it does not work yet."
+  },
+  {
+    "lane": "service",
+    "segment": "general",
+    "keyword": "when to hire someone to run your ads",
+    "angle": "The spend level and the time cost at which running it yourself stops being the cheap option. An honest answer, including when not to hire."
+  },
+  {
+    "lane": "guide",
+    "segment": "general",
+    "keyword": "what does a good cost per lead look like 2026",
+    "angle": "Real ranges by market and sector from published benchmarks, and why a number with no context is worth nothing."
+  },
+  {
+    "lane": "guide",
+    "segment": "india",
+    "keyword": "meta ads not delivering india troubleshooting",
+    "angle": "The order to check things in when an account stops spending, from the one that is almost always the cause down to the rare ones."
   }
 ]

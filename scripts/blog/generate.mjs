@@ -67,7 +67,11 @@ async function freshNews() {
 
 async function pickTopic() {
   if (process.env.BLOG_TOPIC) return { lane: process.env.BLOG_LANE ?? "guide", segment: "general", keyword: process.env.BLOG_TOPIC, angle: process.env.BLOG_TOPIC, forced: true };
-  const lane = process.env.BLOG_LANE ?? (existing.length % 2 === 0 ? "news" : "guide"); // alternate lanes
+  // Three lanes in rotation, not two alternating. The blog had only readers' questions on it — how
+  // to do the thing, and what just changed — and nothing for the person who has decided not to do it
+  // themselves. That reader is the one who books a call, and "meta ads freelancer chennai" is a
+  // different search from "how do meta ads work".
+  const lane = process.env.BLOG_LANE ?? ["news", "guide", "service"][existing.length % 3];
   if (lane === "news") {
     const news = await freshNews();
     if (news.length) {
@@ -79,8 +83,12 @@ async function pickTopic() {
   }
   // Round-robin by segment, not queue order. Two dental posts in a row makes the blog look like a dental
   // blog; a reader (and an AI engine) should see the whole practice, and every segment should keep earning pages.
-  const open = topics.filter((t) => !covered.covered.some((c) => c.keyword === t.keyword));
-  if (!open.length) throw new Error("topic queue exhausted — add topics to scripts/blog/topics.json");
+  // A lane asks for its own topics; if that lane is dry, fall back to the whole bank rather than
+  // skipping a day's post.
+  const inLane = topics.filter((t) => (t.lane ?? "guide") === lane);
+  const pool = inLane.length ? inLane : topics;
+  const open = pool.filter((t) => !covered.covered.some((c) => c.keyword === t.keyword));
+  if (!open.length) throw new Error(`topic queue exhausted for lane "${lane}" — add topics to scripts/blog/topics.json`);
   const publishedBySeg = {};
   for (const c of covered.covered) {
     const t = topics.find((x) => x.keyword === c.keyword);
@@ -169,11 +177,32 @@ facts: 6-10 items, each under 40 words. sources: 3-6 items and must include ever
   return { ...json, sourceText: sourceText + "\n" + json.facts.map((f) => f.fact).join("\n") };
 }
 
+/**
+ * What each lane is for, in the brief, because the same house style written against three different
+ * reader intents produces three different posts.
+ *
+ * The service lane is the one that needed saying out loud. Left to itself a model writes a service
+ * page as a brochure, and a brochure is the one thing that will not rank or get cited: it has no
+ * figure an engine can quote and no answer a reader can act on without calling. So the lane is
+ * defined by what it must contain — a real range, the case against hiring, and the point at which
+ * the answer is "do it yourself".
+ */
+const LANE_BRIEF = {
+  news: "A reader who wants to know what just changed and whether it affects them. Lead with the thing itself and its date, then the consequence for a founder-led business running ads or AI follow-up.",
+  guide: "A reader trying to do the thing themselves. Give them the method in the order they would run it, with the step most people get wrong called out.",
+  service: [
+    "A reader who has decided NOT to do this themselves and is working out who to pay and what it should cost. This is the lane that produces enquiries, and it fails if it reads like a brochure.",
+    "It must contain, in some form: a real cost range with what moves it; what the work actually involves month by month; the questions to ask whoever they hire; and an honest statement of when they should NOT hire anyone and should do it themselves instead.",
+    "Name the place when the topic names a place — a UK dental practice and a Tirupur exporter face different costs and different rules, and the answer is useless if it averages them.",
+    "Price ranges are the one thing a reader came for. Give them, qualified, and say plainly what you do not know. Never invent a figure: if the research does not support a range, say what it depends on instead.",
+  ].join(" "),
+};
+
 // ── 3. write ────────────────────────────────────────────────────────────────
 function brief(topic, r) {
   return `BRIEF
 Date: ${today}
-Lane: ${topic.lane}
+Lane: ${topic.lane} — ${LANE_BRIEF[topic.lane] ?? LANE_BRIEF.guide}
 Segment: ${topic.segment}  (allowed: ${cfg.segments.join(", ")})
 Primary keyword: ${topic.keyword}
 Angle: ${topic.angle}

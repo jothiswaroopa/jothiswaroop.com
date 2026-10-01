@@ -6,7 +6,8 @@
   "searchMaxUses": 8,
   "lanes": [
     "news",
-    "guide"
+    "guide",
+    "service"
   ],
   "allowedTags": [
     "meta-ads",
@@ -64,6 +65,14 @@
     {
       "text": "about Jothi Swaroop",
       "href": "/about/"
+    },
+    {
+      "text": "what each service costs and includes",
+      "href": "/services/"
+    },
+    {
+      "text": "book a call",
+      "href": "/apply/"
     }
   ],
   "receipts": [
@@ -227,5 +236,6 @@
     "x.com",
     "youtube.com",
     "zapier.com"
-  ]
+  ],
+  "_lanes": "news = what just changed. guide = how to do the thing. service = what it costs to have it done, and how to choose who does it. The third exists because the first two bring readers and the third brings buyers: someone searching 'meta ads freelancer chennai' is further down the funnel than someone searching 'how do meta ads work'."
 }
