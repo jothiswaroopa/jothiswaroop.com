@@ -1,0 +1,55 @@
+{
+ "month": "2026-10",
+ "job": "blog",
+ "total": 0.519078,
+ "calls": [
+  {
+   "at": "2026-10-01T06:43:17.896Z",
+   "runStartedAt": "2026-10-01T06:42:05.675Z",
+   "label": "blog.research",
+   "model": "claude-sonnet-5",
+   "cost": 0.340768,
+   "in": 107124,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 6652,
+   "searches": 6
+  },
+  {
+   "at": "2026-10-01T06:43:46.481Z",
+   "runStartedAt": "2026-10-01T06:42:05.675Z",
+   "label": "blog.json-fix",
+   "model": "claude-sonnet-5",
+   "cost": 0.033002,
+   "in": 2326,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 2835,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-01T06:44:57.004Z",
+   "runStartedAt": "2026-10-01T06:42:05.675Z",
+   "label": "blog.write",
+   "model": "claude-sonnet-5",
+   "cost": 0.070278,
+   "in": 5139,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 6000,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-01T06:45:49.214Z",
+   "runStartedAt": "2026-10-01T06:42:05.675Z",
+   "label": "blog.write",
+   "model": "claude-sonnet-5",
+   "cost": 0.07503,
+   "in": 7515,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 6000,
+   "searches": 0
+  }
+ ]
+}
