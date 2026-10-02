@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01T23:59:24.659Z",
+  "updated": "2026-10-02T02:36:56.537Z",
   "state": "paused",
   "startDate": "2026-10-06",
   "cap": 0,
@@ -19,10 +19,6 @@
     }
   },
   "daily": [
-    {
-      "date": "2026-09-18",
-      "sent": 0
-    },
     {
       "date": "2026-09-19",
       "sent": 0
@@ -74,6 +70,10 @@
     {
       "date": "2026-10-01",
       "sent": 0
+    },
+    {
+      "date": "2026-10-02",
+      "sent": 0
     }
   ],
   "segments": [
@@ -103,13 +103,9 @@
     }
   ],
   "warmup": {
-    "total": 244,
+    "total": 247,
     "rescued": 0,
     "daily": [
-      {
-        "date": "2026-09-18",
-        "count": 0
-      },
       {
         "date": "2026-09-19",
         "count": 0
@@ -161,6 +157,10 @@
       {
         "date": "2026-10-01",
         "count": 20
+      },
+      {
+        "date": "2026-10-02",
+        "count": 3
       }
     ],
     "accounts": [
@@ -176,17 +176,17 @@
       },
       {
         "mailbox": "hello@…",
-        "sent": 38,
+        "sent": 39,
         "replies": 1
       },
       {
         "mailbox": "growth@…",
-        "sent": 38,
+        "sent": 39,
         "replies": 7
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 38,
+        "sent": 39,
         "replies": 39
       }
     ],
