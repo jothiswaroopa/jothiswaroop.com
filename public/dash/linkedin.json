@@ -1,40 +1,210 @@
 {
-  "generated": "2026-10-01T07:34:11.959Z",
+  "generated": "2026-10-02T05:57:35.533Z",
   "posts": [
+    {
+      "date": "2026-10-02",
+      "weekday": "Fri",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": true,
+      "heldBecause": null,
+      "hook": "Meta just named Dhruv Vohra to lead its Southeast Asia business. A leadership change at Meta doesn't touch your ad account directly. But it's a reminder that the platform your budget runs on is run by people making decisions you never see — and the only defence is knowing exactly what you can check yourself, today, without waiting on anyone.",
+      "body": "Meta just named Dhruv Vohra to lead its Southeast Asia business.\n\nA leadership change at Meta doesn't touch your ad account directly. But it's a reminder that the platform your budget runs on is run by people making decisions you never see — and the only defence is knowing exactly what you can check yourself, today, without waiting on anyone.\n\nMost people running their own ads have never opened the one screen that shows what Meta is actually optimising for. It's not in the creative. It's not in the budget. It's one line, three clicks in, called the Performance goal.\n\nIf that line says \"maximise number of leads\" when you meant \"maximise quality,\" Meta will hand you volume and call it a win. Nobody at Meta checks this for you. Nobody at any agency checks it unless they're told to.\n\nThis isn't about the reshuffle. It's about not waiting for a headline to go check your own account.",
+      "chars": 890,
+      "avgWords": 13.2,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "one sentence is 38 words long",
+        "possible client name to check: \"Dhruv Vohra\"",
+        "possible client name to check: \"Southeast Asia\"",
+        "over a limit: hook is 343 chars, must be under 210",
+        "check: \"Most people running their own ads have never opened the one screen that shows wh\" — Unsupported generalization presented as a factual claim about what most people have or haven't done; no data backs this.",
+        "check: \"It's not in the creative. It's not in the budget. It's one line, three clicks in\" — Specific claim about UI navigation ('three clicks in') is an unverified platform-mechanics detail.",
+        "check: \"If that line says \"maximise number of leads\" when you meant \"maximise quality,\" \" — States platform behavior as certain fact; this is an interpretation/generalization about how Meta's optimization works rather than an approved fact.",
+        "check: \"Nobody at Meta checks this for you. Nobody at any agency checks it unless they'r\" — Sweeping claim about Meta's and all agencies' behavior with no supporting evidence.",
+        "check: \"Most people never open it. They judge the campaign from the creative instead.\" — Unsupported generalization about typical advertiser behavior.",
+        "check: \"Set it to 'maximise number of leads' and Meta will hand you volume, not fit.\" — States platform optimization outcome as certain fact rather than a general tendency.",
+        "check: \"Set it to 'maximise conversion value' and it starts chasing something closer to \" — States platform optimization outcome as certain fact rather than a general tendency.",
+        "check: \"Nobody at Meta flags this for you. Not before you spend, not after.\" — Unsupported absolute claim about Meta's process."
+      ],
+      "images": [
+        "/linkedin/2026-10-02/slide-01.png",
+        "/linkedin/2026-10-02/slide-02.png",
+        "/linkedin/2026-10-02/slide-03.png",
+        "/linkedin/2026-10-02/slide-04.png",
+        "/linkedin/2026-10-02/slide-05.png",
+        "/linkedin/2026-10-02/slide-06.png",
+        "/linkedin/2026-10-02/slide-07.png",
+        "/linkedin/2026-10-02/slide-08.png",
+        "/linkedin/2026-10-02/slide-09.png",
+        "/linkedin/2026-10-02/slide-10.png"
+      ],
+      "pdf": "/linkedin/2026-10-02/carousel.pdf",
+      "slides": [
+        {
+          "kind": "statement",
+          "text": "Meta just changed who runs its Southeast Asia business.",
+          "highlight": "changed"
+        },
+        {
+          "kind": "statement",
+          "text": "That news means nothing to your ad account. One setting near it does."
+        },
+        {
+          "kind": "statement",
+          "text": "Every Meta ad campaign has a line called the Performance goal, hidden inside the ad set.",
+          "highlight": "Performance goal"
+        },
+        {
+          "kind": "statement",
+          "text": "It tells Meta what to chase — leads, clicks, calls, or something else entirely."
+        },
+        {
+          "kind": "statement",
+          "text": "Most people never open it. They judge the campaign from the creative instead."
+        },
+        {
+          "kind": "statement",
+          "text": "Set it to 'maximise number of leads' and Meta will hand you volume, not fit."
+        },
+        {
+          "kind": "statement",
+          "text": "Set it to 'maximise conversion value' and it starts chasing something closer to a sale."
+        },
+        {
+          "kind": "statement",
+          "text": "Nobody at Meta flags this for you. Not before you spend, not after."
+        },
+        {
+          "kind": "callout",
+          "text": "Here's where it lives: Ads Manager → your campaign → the ad set → Performance goal.",
+          "label": "CHECK THIS"
+        },
+        {
+          "kind": "statement",
+          "text": "That one line decides what kind of leads show up in your inbox tomorrow."
+        }
+      ],
+      "sources": [
+        {
+          "title": "How Albertsons Companies is reimagining retail from the inside out",
+          "url": "https://openai.com/index/albertsons-reimagining-retail",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Meta Names Dhruv Vohra to Lead Southeast Asia Business",
+          "url": "https://about.fb.com/news/2026/09/meta-names-dhruv-vohra-to-lead-southeast-asia-business/",
+          "publisher": "Meta Newsroom"
+        }
+      ],
+      "status": "posted",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "postedAt": "2026-10-02T05:57:38.261Z",
+      "linkedinId": "urn:li:ugcPost:7511665679083794432",
+      "notPosted": null
+    },
     {
       "date": "2026-10-01",
       "weekday": "Thu",
       "pillar": "trending",
       "format": "carousel",
-      "angle": "Five AI labs have now shipped the same product: an always-on agent with its own computer that signs into your tools and keeps working after you close the laptop. OpenAI shipped dots and Meta extended Muse to small businesses on the same day. What the convergence actually means for someone running their own ads, who is not going to buy any of them this month.",
-      "isSales": true,
+      "angle": "Five labs shipped the same product in seven weeks: an always-on agent with its own computer that signs into your tools. Why they are all racing for it, what a $300 agent stack genuinely replaces, and the work it does not touch — from someone with nine of these running inside client businesses.",
+      "isSales": false,
       "videoPrompt": null,
       "autopostSafe": true,
       "heldBecause": null,
-      "hook": "OpenAI shipped \"dots,\" its new agentic avatar, the same day Meta said it's rolling Muse out to small businesses. Two different labs, two different names, the same idea underneath: an assistant that logs into your accounts and keeps working after you shut your laptop.",
-      "body": "OpenAI shipped \"dots,\" its new agentic avatar, the same day Meta said it's rolling Muse out to small businesses.\n\nTwo different labs, two different names, the same idea underneath: an assistant that logs into your accounts and keeps working after you shut your laptop.\n\nThat's not a feature update. That's a new category of software asking for your passwords. Before you touch either one, check what it can actually reach — and what happens if it reaches too far.",
-      "chars": 463,
-      "avgWords": 15.8,
+      "hook": "Five labs shipped the same product in seven weeks.",
+      "body": "Five labs shipped the same product in seven weeks.\n\nAn agent that signs in and keeps working after you close the laptop.\n\nGrok Bot in August. Muse in September. Then OpenAI's dots and Meta's small-business push, on the same day. Each runs on its own computer, with minimal supervision.\n\nHere is the part almost nobody reported. Not one of them carries its own price. Each rides on a subscription you are already paying for.\n\nThat tells you what the race is actually for. Not selling you an agent. Making sure you never cancel.\n\nOn the one-person company, Anthropic's chief executive puts it at 70 to 80 percent for this year. Read the categories he named, though. Trading, developer tools, automated support. All three sell software. None of them has to make or ship anything.\n\nWe run nine automations inside client businesses. They took over the follow-up nobody had time for. Not one of them replaced a decision.\n\nAgents replace the doing. They have not touched the deciding.",
+      "slides": [
+        {
+          "text": "Five labs. One product. Seven weeks."
+        },
+        {
+          "kind": "product",
+          "product": "grok-bot",
+          "label": "Grok Bot",
+          "sublabel": "SpaceXAI · 11 Aug",
+          "text": "Watches you do a task once, then does it for you."
+        },
+        {
+          "kind": "product",
+          "product": "meta-muse",
+          "label": "Muse",
+          "sublabel": "Meta · 8 Sep",
+          "text": "Reaches your email, calendar, payments and shopping."
+        },
+        {
+          "kind": "product",
+          "product": "openai-dots",
+          "label": "dots",
+          "sublabel": "OpenAI · 29 Sep",
+          "text": "Its own cloud computer. Over 4,000 apps."
+        },
+        {
+          "kind": "callout",
+          "label": "WHY ALL OF THEM, NOW",
+          "text": "Not one of these carries its own price. Each rides on a subscription you already pay for."
+        },
+        {
+          "kind": "versus",
+          "text": "That tells you what the race is actually for.",
+          "leftLabel": "WHAT THEY SELL",
+          "left": "An assistant that acts.",
+          "rightLabel": "WHAT THEY DEFEND",
+          "right": "The subscription you already have."
+        },
+        {
+          "kind": "stat",
+          "figure": "70-80%",
+          "label": "ANTHROPIC'S CEO, ON 2026",
+          "text": "Dario Amodei's odds that a billion-dollar one-employee company arrives this year."
+        },
+        {
+          "kind": "callout",
+          "label": "READ THE CATEGORIES HE NAMED",
+          "text": "Trading, developer tools, automated support. All three sell software. None has to make or ship a thing."
+        },
+        {
+          "kind": "versus",
+          "text": "So what does a $300 stack actually replace?",
+          "leftLabel": "IT REPLACES",
+          "left": "Execution. The defined, repeatable work.",
+          "rightLabel": "IT DOES NOT",
+          "right": "Judgement when the rules aren't clear yet."
+        },
+        {
+          "kind": "steps",
+          "text": "Run this on your own week before you buy any of them:",
+          "items": [
+            "List every task you did twice",
+            "Mark the ones that needed a judgement call",
+            "What is left unmarked is what an agent can take"
+          ]
+        },
+        {
+          "kind": "stat",
+          "figure": "9",
+          "label": "AUTOMATIONS WE RUN INSIDE CLIENT BUSINESSES",
+          "text": "They took over the follow-up nobody had time for. Not one replaced a decision."
+        },
+        {
+          "text": "Agents replace the doing. They have not touched the deciding."
+        }
+      ],
+      "chars": 977,
+      "avgWords": 7.6,
       "warnings": [
+        "hand-built deck: slides and caption approved by Jothi, every claim checked against the brief's sources rather than by the model fact-check pass",
         "no number in the first line — openers with a figure tend to do better",
-        "one sentence is 46 words long",
-        "one paragraph is 419 chars — may read as a wall",
-        "over a limit: hook is 485 chars, must be under 210",
-        "no number in the first line — openers with a figure tend to do better",
-        "over a limit: hook is 267 chars, must be under 210",
-        "over a limit: first line is 19 words (max 14) — short openers get expanded far more often",
-        "over a limit: slide 4: 22 words (max 20)",
-        "over a limit: slide 6: 21 words (max 20)",
-        "over a limit: slide 8: 22 words (max 20)",
-        "over a limit: slide 9: 28 words (max 20)",
-        "over a limit: slide 10: 34 words (max 20)",
-        "check: \"OpenAI shipped \"dots,\" its new agentic avatar, the same day Meta said it's rolli\" — The news items show dots and Muse were reported in separate articles on different dates (dots on 9/29, Muse on 9/8 per Axios and 9/29 per TechCrunch); the claim that they shipped/were announced 'the same day' is not established by the supplied material.",
-        "check: \"Two AI agents launched the same day. Same idea.\" — Repeats the unverified 'same day' claim as fact.",
-        "check: \"OpenAI's dots and Meta's Muse both sign into your tools, not just chat with you.\" — Presents a specific technical capability (signing into tools/accounts) as established fact without a source confirming this mechanism for either product.",
-        "check: \"That screen usually lists exactly what the agent can see and do — send messages,\" — States a specific platform mechanic as certain fact/generalisation not confirmed by supplied sources.",
-        "check: \"An agent running your Meta ads unsupervised can spend your budget while you're a\" — Implies a specific personal/client experience or scenario with no attribution to approved facts or news; reads as a first-hand or client-specific claim that isn't supported.",
-        "check: \"which means your clients will start asking about this before you've tested it\" — Claims knowledge of what his clients will do, an unsupported first-hand/predictive claim about client behaviour.",
-        "check: \"Check permissions before you check promises. That's the whole method.\" — Presents a named/branded 'method' as an established framework, when it is just his own phrase, not previously established as a method in approved facts."
+        "possible client name to check: \"Grok Bot\""
       ],
       "images": [
         "/linkedin/2026-10-01/slide-01.png",
@@ -48,65 +218,65 @@
         "/linkedin/2026-10-01/slide-09.png",
         "/linkedin/2026-10-01/slide-10.png",
         "/linkedin/2026-10-01/slide-11.png",
-        "/linkedin/2026-10-01/slide-12.png"
+        "/linkedin/2026-10-01/slide-12.png",
+        "/linkedin/2026-10-01/slide-13.png"
       ],
       "pdf": "/linkedin/2026-10-01/carousel.pdf",
-      "slides": [
-        {
-          "text": "Two AI agents launched the same day. Same idea."
-        },
-        {
-          "text": "An assistant that works after you close the laptop sounds helpful. The risk is what it's allowed to touch."
-        },
-        {
-          "text": "OpenAI's dots and Meta's Muse both sign into your tools, not just chat with you."
-        },
-        {
-          "text": "\"Signing in\" means it can open your email, your calendar, maybe your ad account. Which ones, you choose — if you check."
-        },
-        {
-          "text": "Every connected app has a permissions screen. Most people click allow without reading what it says."
-        },
-        {
-          "text": "That screen usually lists exactly what the agent can see and do — send messages, read files, post on your behalf."
-        },
-        {
-          "text": "An agent running your Meta ads unsupervised can spend your budget while you're asleep. Nobody told it your weekly limit."
-        },
-        {
-          "text": "None of this needs buying anything this month. It needs one habit before you connect a single agent to a business account."
-        },
-        {
-          "text": "Before you link any agent: open its permissions list, read every line, and remove any access it doesn't need for the one job you want it to do."
-        },
-        {
-          "text": "The news isn't that AI agents exist now. It's that two of the biggest labs shipped one on the same day, which means your clients will start asking about this before you've tested it."
-        },
-        {
-          "text": "Check permissions before you check promises. That's the whole method."
-        }
-      ],
+      "status": "posted",
       "sources": [
         {
+          "publisher": "OpenAI",
           "title": "Introducing dots",
-          "url": "https://openai.com/index/introducing-dots",
-          "publisher": "OpenAI"
+          "url": "https://openai.com/index/introducing-dots"
         },
         {
+          "publisher": "TechCrunch",
           "title": "OpenAI launches Dots, its bubbly agentic avatar",
-          "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
-          "publisher": "TechCrunch"
+          "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/"
         },
         {
+          "publisher": "TechCrunch",
           "title": "Meta is expanding its AI agent Muse to small businesses",
-          "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
-          "publisher": "TechCrunch"
+          "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/"
+        },
+        {
+          "publisher": "Axios",
+          "title": "Meta debuts Muse, its long-planned personal AI agent",
+          "url": "https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent"
+        },
+        {
+          "publisher": "DataCamp",
+          "title": "Grok Bot: What SpaceXAI's New AI Teammate Means for the Agent Race",
+          "url": "https://www.datacamp.com/blog/grok-bot"
+        },
+        {
+          "publisher": "Wikipedia",
+          "title": "SpaceXAI",
+          "url": "https://en.wikipedia.org/wiki/SpaceXAI"
+        },
+        {
+          "publisher": "OpenAI",
+          "title": "Helping small businesses put AI to work",
+          "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work"
+        },
+        {
+          "publisher": "Inc.",
+          "title": "Anthropic CEO Dario Amodei Predicts the First Billion-Dollar Solopreneur by 2026",
+          "url": "https://www.inc.com/ben-sherry/anthropic-ceo-dario-amodei-predicts-the-first-billion-dollar-solopreneur-by-2026/91193609"
+        },
+        {
+          "publisher": "AI Business",
+          "title": "The One-Person Company Is Real in 2026 — But Here’s Where Solo Founders Hit a Wall",
+          "url": "https://aibusiness.vc/solo/one-person-company-ai-agents-limits-2026"
+        },
+        {
+          "publisher": "Self Employed",
+          "title": "Solo Founders Lean On AI To Replace Teams, But Limits Remain",
+          "url": "https://www.selfemployed.com/news/solo-founders-ai-replace-teams-limits-2026/"
         }
       ],
-      "status": "posted",
       "postedAt": "2026-10-01T08:13:36.118Z",
-      "linkedinId": "urn:li:ugcPost:7511337505896529920",
-      "notPosted": null
+      "linkedinId": "urn:li:ugcPost:7511337505896529920"
     },
     {
       "date": "2026-09-30",
