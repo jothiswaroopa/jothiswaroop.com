@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-01T02:17:54.554Z",
+  "generatedAt": "2026-10-02T02:27:44.423Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-01",
-      "end": "2026-09-29"
+      "start": "2026-09-02",
+      "end": "2026-09-30"
     },
     "totals": {
       "clicks": 8,
-      "impressions": 55,
-      "ctr": 0.14545454545454545,
-      "position": 5.181818181818182
+      "impressions": 60,
+      "ctr": 0.13333333333333333,
+      "position": 5.6
     },
     "previous": {
       "clicks": 0,
@@ -110,9 +110,23 @@
         "impressions": 4,
         "ctr": 0,
         "position": 7.5
+      },
+      {
+        "key": "2026-09-29",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10.2
       }
     ],
     "queries": [
+      {
+        "key": "jothi store owner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 37
+      },
       {
         "key": "jyothi swaroop",
         "clicks": 0,
@@ -132,23 +146,23 @@
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 6,
-        "impressions": 39,
-        "ctr": 0.15384615384615385,
-        "position": 3.7948717948717947
+        "impressions": 42,
+        "ctr": 0.14285714285714285,
+        "position": 4
       },
       {
         "key": "http://jothiswaroop.com/",
         "clicks": 1,
-        "impressions": 6,
-        "ctr": 0.16666666666666666,
-        "position": 1.3333333333333333
+        "impressions": 9,
+        "ctr": 0.1111111111111111,
+        "position": 1.6666666666666665
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 28,
-        "ctr": 0.03571428571428571,
-        "position": 5.75
+        "impressions": 32,
+        "ctr": 0.03125,
+        "position": 6.75
       },
       {
         "key": "https://jothiswaroop.com/blog/",
@@ -209,9 +223,9 @@
       {
         "key": "https://jothiswaroop.com/work/ram/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 14
+        "position": 10.5
       },
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
@@ -232,9 +246,9 @@
       {
         "key": "ind",
         "clicks": 8,
-        "impressions": 42,
-        "ctr": 0.19047619047619047,
-        "position": 2.6904761904761907
+        "impressions": 46,
+        "ctr": 0.17391304347826086,
+        "position": 3.4130434782608696
       },
       {
         "key": "bih",
@@ -256,6 +270,13 @@
         "impressions": 1,
         "ctr": 0,
         "position": 9
+      },
+      {
+        "key": "kor",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
       },
       {
         "key": "mar",
@@ -297,16 +318,16 @@
       {
         "key": "DESKTOP",
         "clicks": 3,
-        "impressions": 36,
-        "ctr": 0.08333333333333333,
-        "position": 6.027777777777778
+        "impressions": 41,
+        "ctr": 0.07317073170731707,
+        "position": 6.536585365853658
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-01",
-      "end": "2026-10-01"
+      "start": "2026-09-02",
+      "end": "2026-10-02"
     },
     "totals": {
       "views": 0,
@@ -531,11 +552,16 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 0,
-    "by": {},
-    "remaining": 9,
-    "pace": 0,
-    "projected": 0,
+    "spent": 1.159692,
+    "by": {
+      "blog": 0.519078,
+      "evolve": 0.110942,
+      "linkedin": 0.213632,
+      "scan": 0.31604
+    },
+    "remaining": 7.840308,
+    "pace": 1.997247,
+    "projected": 17.975226,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -554,7 +580,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-28T11:17:48Z",
+        "lastCrawl": "2026-10-01T22:33:06Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
