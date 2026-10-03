@@ -184,17 +184,22 @@ facts: 6-10 items, each under 40 words. sources: 3-6 items and must include ever
  * The service lane is the one that needed saying out loud. Left to itself a model writes a service
  * page as a brochure, and a brochure is the one thing that will not rank or get cited: it has no
  * figure an engine can quote and no answer a reader can act on without calling. So the lane is
- * defined by what it must contain — a real range, the case against hiring, and the point at which
- * the answer is "do it yourself".
+ * defined by what it must contain — what the work involves, what the market charges, the questions
+ * to ask, and the point at which the answer is "do it yourself". What it must never contain is a
+ * price of ours: market rates inform a reader, our rate card sells to them, and only one of those
+ * earns a link or a citation.
  */
 const LANE_BRIEF = {
   news: "A reader who wants to know what just changed and whether it affects them. Lead with the thing itself and its date, then the consequence for a founder-led business running ads or AI follow-up.",
   guide: "A reader trying to do the thing themselves. Give them the method in the order they would run it, with the step most people get wrong called out.",
   service: [
-    "A reader who has decided NOT to do this themselves and is working out who to pay and what it should cost. This is the lane that produces enquiries, and it fails if it reads like a brochure.",
-    "It must contain, in some form: a real cost range with what moves it; what the work actually involves month by month; the questions to ask whoever they hire; and an honest statement of when they should NOT hire anyone and should do it themselves instead.",
-    "Name the place when the topic names a place — a UK dental practice and a Tirupur exporter face different costs and different rules, and the answer is useless if it averages them.",
-    "Price ranges are the one thing a reader came for. Give them, qualified, and say plainly what you do not know. Never invent a figure: if the research does not support a range, say what it depends on instead.",
+    "A reader working out who to pay for this and what it should cost. They have decided not to do it themselves, and they are trying not to be overcharged.",
+    "Write the most useful page on the internet about that question. Nothing else. Any enquiry that follows is a consequence of having been useful, never the thing the page is reaching for \u2014 STYLE.md\u2019s tone section governs this lane exactly as it governs every other one, and it is not relaxed because the topic is commercial.",
+    "It must contain, in some form: what the work actually involves month by month; the questions to ask whoever they hire; what the market charges and what moves that number; and an honest statement of when they should NOT hire anyone and should do it themselves instead.",
+    "MARKET rates are editorial and belong in the post \u2014 published ranges, cited, with what shifts them. MY OWN prices are not, ever, in any form: no retainer figure, no per-video figure, no \u2018from\u2019 pricing, no hint. STYLE.md\u2019s \u2018no price anywhere in the body\u2019 means mine. A reader who wants my number can find the services page from the single pointer at the end.",
+    "Name the place when the topic names a place. A UK dental practice and a Tirupur exporter face different costs and different rules, and an answer that averages them is no use to either.",
+    "Never invent a figure. If the research does not support a range, say what the number depends on instead and say that you do not know it.",
+    "Write the central answer so it can be lifted out and quoted on its own, in one or two sentences, without the surrounding paragraph. That is what an answer engine cites and what a reader screenshots, and it is the same discipline either way.",
   ].join(" "),
 };
 
