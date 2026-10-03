@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T13:04:37.561Z",
+  "updated": "2026-10-03T14:59:50.355Z",
   "state": "warm-up",
   "startDate": "2026-10-06",
   "cap": 0,
@@ -11,7 +11,7 @@
     "stopped": 0,
     "sent": 0,
     "pipeline": {
-      "new": 78,
+      "new": 88,
       "step1": 0,
       "step2": 0,
       "step3": 0,
@@ -96,7 +96,15 @@
     {
       "segment": "E1",
       "name": "E1",
-      "leads": 48,
+      "leads": 45,
+      "contacted": 0,
+      "replied": 0,
+      "bounced": 0
+    },
+    {
+      "segment": "E1V",
+      "name": "E1V",
+      "leads": 3,
       "contacted": 0,
       "replied": 0,
       "bounced": 0
