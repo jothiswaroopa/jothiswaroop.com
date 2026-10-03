@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-03T12:34:42.140Z",
-  "state": "paused",
+  "updated": "2026-10-03T13:04:37.561Z",
+  "state": "warm-up",
   "startDate": "2026-10-06",
   "cap": 0,
   "totals": {
-    "leads": 66,
+    "leads": 111,
     "contacted": 0,
     "replied": 0,
     "bounced": 0,
     "stopped": 0,
     "sent": 0,
     "pipeline": {
-      "new": 43,
+      "new": 78,
       "step1": 0,
       "step2": 0,
       "step3": 0,
@@ -78,9 +78,17 @@
   ],
   "segments": [
     {
+      "segment": "A",
+      "name": "A",
+      "leads": 5,
+      "contacted": 0,
+      "replied": 0,
+      "bounced": 0
+    },
+    {
       "segment": "ADS",
       "name": "ADS",
-      "leads": 20,
+      "leads": 47,
       "contacted": 0,
       "replied": 0,
       "bounced": 0
@@ -88,7 +96,7 @@
     {
       "segment": "E1",
       "name": "E1",
-      "leads": 39,
+      "leads": 48,
       "contacted": 0,
       "replied": 0,
       "bounced": 0
@@ -96,7 +104,7 @@
     {
       "segment": "E2",
       "name": "E2",
-      "leads": 7,
+      "leads": 11,
       "contacted": 0,
       "replied": 0,
       "bounced": 0
