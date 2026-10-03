@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-02T02:27:44.423Z",
+  "generatedAt": "2026-10-03T02:13:46.732Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-02",
-      "end": "2026-09-30"
+      "start": "2026-09-03",
+      "end": "2026-10-01"
     },
     "totals": {
       "clicks": 8,
@@ -326,8 +326,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-02",
-      "end": "2026-10-02"
+      "start": "2026-09-03",
+      "end": "2026-10-03"
     },
     "totals": {
       "views": 0,
@@ -406,6 +406,18 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1790553600000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790640000000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1790726400000)/",
         "Impressions": 0
       }
     ],
@@ -552,16 +564,16 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 1.159692,
+    "spent": 1.256476,
     "by": {
       "blog": 0.519078,
       "evolve": 0.110942,
-      "linkedin": 0.213632,
+      "linkedin": 0.310416,
       "scan": 0.31604
     },
-    "remaining": 7.840308,
-    "pace": 1.997247,
-    "projected": 17.975226,
+    "remaining": 7.743524,
+    "pace": 1.442621,
+    "projected": 12.983585,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
