@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T05:34:27.247Z",
+  "updated": "2026-10-03T05:39:21.981Z",
   "state": "paused",
   "startDate": "2026-10-06",
   "cap": 0,
@@ -103,7 +103,7 @@
     }
   ],
   "warmup": {
-    "total": 289,
+    "total": 288,
     "rescued": 0,
     "daily": [
       {
@@ -160,7 +160,7 @@
       },
       {
         "date": "2026-10-03",
-        "count": 25
+        "count": 24
       }
     ],
     "accounts": [
@@ -176,7 +176,7 @@
       },
       {
         "mailbox": "hello@…",
-        "sent": 45,
+        "sent": 44,
         "replies": 7
       },
       {
