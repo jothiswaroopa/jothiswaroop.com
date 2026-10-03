@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T14:59:50.355Z",
+  "updated": "2026-10-03T19:48:06.771Z",
   "state": "warm-up",
   "startDate": "2026-10-06",
   "cap": 0,
@@ -11,7 +11,7 @@
     "stopped": 0,
     "sent": 0,
     "pipeline": {
-      "new": 88,
+      "new": 86,
       "step1": 0,
       "step2": 0,
       "step3": 0,
