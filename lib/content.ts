@@ -51,13 +51,30 @@ export type Receipt = {
   placeholder?: boolean;
 };
 
+/**
+ * Rupees, in dollars, for the readers the site is actually trying to reach.
+ *
+ * Every cost figure here was measured in INR because the accounts bill in INR, and that is the
+ * honest unit. But a buyer in London or Austin reading "₹16.58 per lead" has no idea whether that
+ * is good — and the proof only works if the number lands. So the headline costs carry a dollar
+ * equivalent beside them.
+ *
+ * The rate is stated and dated rather than fetched, because the site is static and a silent rate
+ * is worse than a stale one: a reader can check 96.3 against the day, and cannot check a number
+ * that came from nowhere. Three sources agreed on 96.28-96.37 on 2 October 2026.
+ *
+ * Converted figures are rounded and marked with ≈. The INR figure stays primary everywhere; the
+ * dollar is a gloss on it, never a replacement, because the screenshot behind it says rupees.
+ */
+export const FX = { usdInr: 96.3, asOf: "October 2026" } as const;
+
 export const receipts: Receipt[] = [
   // Every number below is read off a Meta Ads Manager screenshot in public/img/ads-*.png
-  { value: 4248, label: "buyer leads · Nova Attire · ₹16.58 each", caseSlug: "nova" },
+  { value: 4248, label: "buyer leads · Nova Attire · ₹16.58 (≈$0.17) each", caseSlug: "nova" },
   { value: 1589, label: "leads · Sathyam Labels · the first client", caseSlug: "sathyam" },
   { value: 1337, label: "leads · Five Elements · India + UK", caseSlug: "five-elements" },
-  { value: 950, suffix: "K", label: "people reached · Ram Textiles · ₹12 per 1,000", caseSlug: "ram" },
-  { value: 5687, label: "clicks at ₹0.39 · Tharunis Jewellery", caseSlug: "tharunis" },
+  { value: 950, suffix: "K", label: "people reached · Ram Textiles · ₹12 (≈$0.12) per 1,000", caseSlug: "ram" },
+  { value: 5687, label: "clicks at ₹0.39 (≈$0.004) · Tharunis Jewellery", caseSlug: "tharunis" },
 ];
 
 // Only cities and niches that have a case study behind them. Add here only when you add a case.
@@ -288,10 +305,10 @@ export const cases: CaseStudy[] = [
     industry: "Apparel manufacturer · B2B",
     location: "Tirupur",
     year: "2025–26",
-    result: "4,248 leads at ₹16.58",
+    result: "4,248 leads at ₹16.58 (≈$0.17)",
     headline: { value: 4248, suffix: " leads" },
     before: "A Tirupur apparel manufacturer finding buyers the old way — references and trade visits. No inbound, no idea what a buyer enquiry cost.",
-    after: "4,248 wholesale buyer leads across six campaigns on ₹70,444 — ₹16.58 per lead — 723K impressions, 260K people reached.",
+    after: "4,248 wholesale buyer leads across six campaigns on ₹70,444 (≈$732) — ₹16.58 (≈$0.17) per lead — 723K impressions, 260K people reached.",
     measured: { source: "Meta Ads Manager — two ad accounts, lifetime view", window: "Lifetime view (Jun 2023 → Jul 2026); campaigns ran Oct 2025 → Jul 2026", counted: "Lead = Meta lead-form submission. 3,585 in the main account + 663 in the Aug launch account. Cost per lead = amount spent ÷ leads.", screenshot: "/img/ads-nova-1.png" },
     receipts: ["/img/ads-nova-1.png", "/img/ads-nova-2.png"],
     // When Nova confirms: outcome: "About N orders — roughly ₹X — from the 4,248 leads.", outcomeSource: "Figure from Nova Attire, <month> 2026 — quoted with permission."
@@ -495,7 +512,7 @@ export const chain: ChainNode[] = [
   { slug: "sathyam", label: "Sathyam Labels", result: "1,589 leads", how: "The first client" },
   { slug: "five-elements", label: "Five Elements", result: "1,318 knitwear leads at ₹19", how: "Introduced by Sathyam Labels" },
   { slug: "five-elements", label: "Five Elements — United Kingdom", result: "19 wholesale buyers, MOQ 200", how: "Same client, asked me to open a new market" },
-  { slug: "nova", label: "Nova Attire", result: "4,248 leads at ₹16.58", how: "Introduced by Five Elements" },
+  { slug: "nova", label: "Nova Attire", result: "4,248 leads at ₹16.58 (≈$0.17)", how: "Introduced by Five Elements" },
 ];
 
 // ─── VIDEO & COMMERCIALS — hosted on YouTube (Unlisted) / Vimeo; GitHub Pages can't stream large files.
