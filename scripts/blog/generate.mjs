@@ -225,15 +225,44 @@ Sources (use ONLY these URLs for external links; all must appear in front-matter
 ${r.sources.map((s) => `- ${s.title} | ${s.url} | ${s.publisher}`).join("\n")}`;
 }
 
+/**
+ * Pull the Markdown document out of whatever the model actually said.
+ *
+ * The old strip was anchored to the start of the response, so it only worked when the reply began
+ * with the fence. On 3 October the retry opened with a sentence before it, the fence survived, and
+ * the file handed to gray-matter began "\`\`\`markdown" rather than "---". Nothing parsed: every
+ * frontmatter field came back undefined and the body measured zero words, which the validator
+ * reported as fourteen separate failures. The first attempt that day had only three, all fixable,
+ * so a recoverable draft was lost to a parsing bug rather than to anything about the writing.
+ *
+ * So: take the fenced block wherever it sits, otherwise start at the frontmatter delimiter, and
+ * only fall back to the raw text if neither is there. Any of the three beats trusting the model to
+ * begin its reply in exactly one shape.
+ */
+function extractDocument(raw) {
+  const text = String(raw || "").trim();
+
+  // A fenced block anywhere in the reply.
+  const fence = text.match(/```(?:markdown|md)?\s*\n([\s\S]*?)\n?```/i);
+  if (fence && fence[1].trim()) return fence[1].trim();
+
+  // Otherwise the document starts at the first frontmatter delimiter on its own line.
+  const fm = text.search(/^---\s*$/m);
+  if (fm > 0) return text.slice(fm).trim();
+  if (fm === 0) return text;
+
+  // Nothing recognisable — hand back what we got and let the validator say why.
+  return text.replace(/^```(?:markdown|md)?\s*/i, "").replace(/\s*```$/, "");
+}
+
 async function write(topic, r, fix = null) {
   const messages = [{ role: "user", content: `${brief(topic, r)}\n\nWrite the post now, following the house style exactly. Output only the Markdown document.` }];
   if (fix) messages.push({ role: "assistant", content: fix.draft }, { role: "user", content: `The validator rejected this. Fix every item and return the full corrected Markdown document only:\n${fix.errors.map((e) => `- ${e}`).join("\n")}` });
   spend.guard("blog.write");
-  const res = await client.messages.create({ model: cfg.model, max_tokens: 6000, system: STYLE, messages });
+  const res = await client.messages.create({ model: cfg.model, max_tokens: 8000, system: STYLE, messages });
   spend.record("blog.write", res);
   let md = res.content.filter((c) => c.type === "text").map((c) => c.text).join("\n").trim();
-  md = md.replace(/^```(?:markdown|md)?\s*/i, "").replace(/\s*```$/, "");
-  return md;
+  return extractDocument(md);
 }
 
 const slugFrom = (title) => title.toLowerCase().replace(/[’']/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").split("-").filter((w) => !["the", "a", "an", "of", "for", "to", "in", "on", "and", "is", "are", "your", "what", "why", "how", "with"].includes(w)).slice(0, 6).join("-");
@@ -256,7 +285,16 @@ log("research:", r.facts.length, "facts,", r.sources.length, "sources");
 fs.mkdirSync(DRAFTS, { recursive: true });
 let md = await write(topic, r);
 let slug, tmp, result;
-for (let attempt = 1; attempt <= 2; attempt++) {
+/**
+ * Three goes at a publishable draft: one to write it, two to repair it.
+ *
+ * It was one repair. On 3 October the first draft had three errors — no internal links and two
+ * invented numbers — all of which a repair pass handles, and the repair came back unparseable, so
+ * the run ended with nothing. A single retry means one bad reply costs the whole post.
+ */
+const MAX_FIX_ATTEMPTS = 3;
+
+for (let attempt = 1; attempt <= MAX_FIX_ATTEMPTS; attempt++) {
   const { data } = matter(md);
   slug = slugFrom(data.title ?? topic.keyword);
   if (existing.includes(slug)) slug += "-" + today.slice(5).replace("-", "");
@@ -266,7 +304,7 @@ for (let attempt = 1; attempt <= 2; attempt++) {
   log(`validate #${attempt}:`, result.ok ? "OK" : result.errors.length + " errors", result.words, "words");
   if (result.ok) break;
   for (const e of result.errors) log("   ✗", e);
-  if (attempt === 1) md = await write(topic, r, { draft: md, errors: result.errors });
+  if (attempt < MAX_FIX_ATTEMPTS) md = await write(topic, r, { draft: md, errors: result.errors });
 }
 
 if (!result.ok) {
