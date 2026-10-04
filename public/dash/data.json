@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-03T02:13:46.732Z",
+  "generatedAt": "2026-10-04T02:48:37.438Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-03",
-      "end": "2026-10-01"
+      "start": "2026-09-04",
+      "end": "2026-10-02"
     },
     "totals": {
       "clicks": 8,
@@ -326,8 +326,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-03",
-      "end": "2026-10-03"
+      "start": "2026-09-04",
+      "end": "2026-10-04"
     },
     "totals": {
       "views": 0,
@@ -524,14 +524,23 @@
     ]
   },
   "coverage": {
-    "total": 17,
-    "ok": 17,
+    "total": 18,
+    "ok": 18,
     "broken": []
   },
   "blog": {
-    "count": 3,
-    "last": "2026-09-23",
+    "count": 4,
+    "last": "2026-10-03",
     "posts": [
+      {
+        "slug": "advertising-indian-manufactured-apparel-brand-uk",
+        "title": "Advertising an Indian-Manufactured Apparel Brand to UK Customers",
+        "date": "2026-10-03",
+        "lane": "guide",
+        "segment": "apparel",
+        "words": 1218,
+        "sources": 6
+      },
       {
         "slug": "dental-clinic-missed-calls-after-hours",
         "title": "Dental clinic missed calls after hours: what an AI receptionist does",
@@ -564,16 +573,16 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 1.256476,
+    "spent": 2.351982,
     "by": {
-      "blog": 0.519078,
+      "blog": 1.614584,
       "evolve": 0.110942,
       "linkedin": 0.310416,
       "scan": 0.31604
     },
-    "remaining": 7.743524,
-    "pace": 1.442621,
-    "projected": 12.983585,
+    "remaining": 6.648018,
+    "pace": 2.025318,
+    "projected": 18.227861,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -583,9 +592,9 @@
     }
   },
   "indexStatus": {
-    "checked": 17,
-    "indexed": 16,
-    "notIndexed": 1,
+    "checked": 18,
+    "indexed": 15,
+    "notIndexed": 3,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -629,8 +638,8 @@
       },
       {
         "url": "https://jothiswaroop.com/audit/",
-        "verdict": "PASS",
-        "coverage": "Submitted and indexed",
+        "verdict": "NEUTRAL",
+        "coverage": "Crawled - currently not indexed",
         "crawledAs": "MOBILE",
         "lastCrawl": "2026-09-18T09:38:47Z",
         "robots": "ALLOWED",
@@ -725,6 +734,16 @@
         "lastCrawl": "2026-09-21T05:07:02Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
         "canonical": null
       },
       {
