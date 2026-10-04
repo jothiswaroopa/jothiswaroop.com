@@ -16,7 +16,10 @@ export default function Who() {
   return (
     <section className="theme-paper card-over relative">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[2fr_3fr] md:px-10 md:py-28 md:gap-16">
-        <div ref={ref} className="bezel">
+        {/* self-start stops the grid stretching the bezel to the row height, which left an empty
+            card hanging below a 4:5 image. Sticky then turns that reclaimed space into something
+            useful: the portrait travels alongside the list instead of scrolling away from it. */}
+        <div ref={ref} className="bezel md:sticky md:top-24 md:self-start">
           <div className="bezel-core relative aspect-[4/3] md:aspect-[4/5]">
             <m.div style={{ y }} className="absolute inset-[-8%]">
               <Image
