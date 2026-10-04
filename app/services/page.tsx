@@ -58,7 +58,7 @@ const SERVICES = [
       "I build in Next.js, deployed as static pages, so there is no server to hack and nothing to patch. Every page ships with schema, proper titles, an OG image and a form that tags where the visitor came from. This site scores 100 on Lighthouse for SEO, accessibility and best practices.",
       "For ad accounts I build single-purpose landing pages: one offer, one form, one number to watch. Sending paid traffic to a homepage is the most expensive habit in small-business marketing.",
     ],
-    proof: "GVP LLP Enterprises · Vaasavi IVF Micro Finance · jothiswaroop.com (the case study you're reading)",
+    proof: "GVP Enterprises LLP · Vaasavi IVF Micro Finance · jothiswaroop.com (the case study you're reading)",
     links: [{ t: "About this site's build", h: "/blog/" }],
     faq: { q: "How long does a website take?", a: "A landing page for an ad campaign: about a week. A full site like this one with case studies, forms, blog and analytics: six to ten weeks, most of it spent on the words and the proof rather than the code." },
   },

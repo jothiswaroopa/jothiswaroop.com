@@ -481,7 +481,7 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     { name: "Theerthaa", file: "theerthaa", wide: true },
     { name: "Top-5 El Alimentos", file: "top5" , noSilhouette: true },
     { name: "Vaasavi IVF Micro Finance", file: "vaasaviivf-microfinance-bank", wide: true },
-    { name: "GVP LLP Enterprises", file: "gvp", wide: true },
+    { name: "GVP Enterprises LLP", file: "gvp", wide: true },
   ],
 };
 
@@ -498,7 +498,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
     { name: "AI automation & agents", what: "Any repeated task, built into a system that runs while you sleep — WhatsApp and voice receptionists, invoice bots, reorder agents, renewal reminders, reports. The receptionist is one build; the product is whatever your operation repeats.", proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice — all shown below", href: "/#systems" },
   ],
   more: [
-    { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP LLP Enterprises · Vaasavi IVF Micro Finance · jothiswaroop.com" },
+    { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP Enterprises LLP · Vaasavi IVF Micro Finance · jothiswaroop.com" },
     { name: "Script writing", what: "Ad scripts, reels and brand films written to the number they need to move.", proof: "Arkstorie · Tharunis Jewellery · the VROOM 2026 sponsor film" },
     { name: "Social media management", what: "Calendars, creatives and community, run to a monthly plan rather than a mood.", proof: "Retail · F&B · jewellery · spiritual products" },
     { name: "AI commercials, AI UGC & media production", what: "Two kinds of finished ad film, generated end to end: cinematic product commercials, and UGC-style creator videos — a person on camera talking about the product — the format brands are buying most for Meta and TikTok right now. Cut for Reels, Shorts and TikTok; sold by the film or as a monthly set. Plus event films, product shoots and investor decks.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · six concept films incl. a UGC ad — all in the showreel below" },
