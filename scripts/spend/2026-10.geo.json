@@ -1,0 +1,103 @@
+{
+ "month": "2026-10",
+ "job": "geo",
+ "total": 0.727904,
+ "calls": [
+  {
+   "at": "2026-10-05T02:16:08.859Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.075082,
+   "in": 21831,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1142,
+   "searches": 2
+  },
+  {
+   "at": "2026-10-05T02:16:20.214Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.076992,
+   "in": 22616,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1176,
+   "searches": 2
+  },
+  {
+   "at": "2026-10-05T02:16:32.300Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.072254,
+   "in": 20597,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1106,
+   "searches": 2
+  },
+  {
+   "at": "2026-10-05T02:16:42.525Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.07262,
+   "in": 20755,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1111,
+   "searches": 2
+  },
+  {
+   "at": "2026-10-05T02:16:55.631Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.07513,
+   "in": 21690,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1175,
+   "searches": 2
+  },
+  {
+   "at": "2026-10-05T02:17:09.306Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.122022,
+   "in": 39866,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1229,
+   "searches": 3
+  },
+  {
+   "at": "2026-10-05T02:17:23.318Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.158132,
+   "in": 52756,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1262,
+   "searches": 4
+  },
+  {
+   "at": "2026-10-05T02:17:36.674Z",
+   "runStartedAt": "2026-10-05T02:15:55.123Z",
+   "label": "geo.prompt",
+   "model": "claude-sonnet-5",
+   "cost": 0.075672,
+   "in": 21811,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1205,
+   "searches": 2
+  }
+ ]
+}
