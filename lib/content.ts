@@ -522,6 +522,9 @@ export const videos: Video[] = [
   // Order set by Jothi 2026-09-21. Concept films are marked as such — made to show the craft, not for a brief.
   { title: "Playful Gen Z beauty", client: "Concept · beauty", kind: "Concept film", youtubeId: "TmMzVnkIVv8", vertical: true },
   { title: "Imitation jewellery — UGC ad", client: "Concept · jewellery", kind: "AI UGC", youtubeId: "H3hhwC4Oroc", vertical: true },
+  // Added 2026-10-05. Sits beside the jewellery UGC because the two together show the format
+  // across a Western and an Indian market, which is the question a buyer actually has.
+  { title: "Creative fatigue — UGC ad", client: "Concept · ecommerce", kind: "AI UGC", youtubeId: "divPpf8Dw2Q", vertical: true },
   { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
   { title: "Luxury skincare", client: "Concept · skincare", kind: "Concept film", youtubeId: "Q1-mBwLufVg", vertical: true },
   { title: "Dark luxe fragrance", client: "Concept · fragrance", kind: "Concept film", youtubeId: "3rHdggLUB6E", vertical: true },
