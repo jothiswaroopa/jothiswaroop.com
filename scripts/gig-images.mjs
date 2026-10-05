@@ -81,17 +81,25 @@ await write("01-thumbnail.png",
       h("div", { style: { fontFamily: "GM", fontSize: 25, letterSpacing: 4, color: "#8a8a90", marginTop: 46 } }, "NO SHOOT  ·  NO CREW"),
       h("div", { style: { fontFamily: "GM", fontSize: 25, letterSpacing: 4, color: "#8a8a90", marginTop: 12 } }, "READY IN 2 DAYS"))));
 
-// ── 2. the range: five faces is the argument, so show more than one ──────────
-const three = [await vertical("H3hhwC4Oroc.jpg", 330), await vertical("8CF9gKUf3VY.jpg", 330), await vertical("epLndi7gVcM.jpg", 330)];
+// ── 2. the range: UGC means a person on camera, so every panel has to be one ──
+// The first cut of this used the VBC commercial and a Chola Poori product shot. Both are good
+// films and neither is UGC — one is a branded commercial, the other has no person in it. A buyer
+// comparing gigs reads the images as the sample, so the range image now shows three real UGC
+// frames and three different faces, which is the thing the gig actually claims.
+const faces = [
+  await vertical("H3hhwC4Oroc.jpg", 358),   // jewellery
+  await vertical("8nIrz38jXNA.jpg", 358),   // food — a paying client's pack, held on camera
+  await vertical("divPpf8Dw2Q.jpg", 358),   // beauty / ecommerce
+];
 await write("02-range.png",
-  h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", background: PAPER, fontFamily: "G", padding: "52px 56px" } },
+  h("div", { style: { width: W, height: H, display: "flex", flexDirection: "column", background: PAPER, fontFamily: "G", padding: "44px 56px" } },
     h("div", { style: { display: "flex", alignItems: "baseline" } },
-      h("div", { style: { fontFamily: "IS", fontSize: 62, color: INK, letterSpacing: -1 } }, "Any category,"+"\u00A0"),
+      h("div", { style: { fontFamily: "IS", fontSize: 62, color: INK, letterSpacing: -1 } }, "Different faces,"+"\u00A0"),
       h("div", { style: { fontFamily: "IS", fontSize: 62, color: "#8f5c00", letterSpacing: -1 } }, "the same two days")),
-    h("div", { style: { fontFamily: "GM", fontSize: 23, letterSpacing: 3, color: "#6b6660", marginTop: 14 } }, "JEWELLERY  ·  FOOD  ·  APPAREL  ·  SUPPLEMENTS"),
-    h("div", { style: { display: "flex", gap: 24, marginTop: 40 } },
-      ...three.map((src) => h("div", { style: { display: "flex", width: 330, height: 500, borderRadius: 10, overflow: "hidden" } },
-        h("img", { src, width: 330, height: 586, style: { width: 330, height: 586, objectFit: "cover", marginTop: -43 } }))))));
+    h("div", { style: { fontFamily: "GM", fontSize: 23, letterSpacing: 3, color: "#6b6660", marginTop: 14 } }, "JEWELLERY  ·  FOOD  ·  BEAUTY"),
+    h("div", { style: { display: "flex", gap: 24, marginTop: 34 } },
+      ...faces.map((src) => h("div", { style: { display: "flex", width: 358, height: 500, borderRadius: 10, overflow: "hidden" } },
+        h("img", { src, width: 358, height: 636, style: { width: 358, height: 636, objectFit: "cover", marginTop: -52 } }))))));
 
 // ── 3. the proof: the thing no competing gig has ─────────────────────────────
 const shot = await (async () => {
