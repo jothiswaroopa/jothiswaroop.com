@@ -1,6 +1,69 @@
 {
-  "generated": "2026-10-02T05:57:35.533Z",
+  "generated": "2026-10-05T06:00:11.432Z",
   "posts": [
+    {
+      "date": "2026-10-05",
+      "weekday": "Mon",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "An advertising platform changed something. Plain explanation of who it affects and what to do.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": true,
+      "heldBecause": null,
+      "hook": "Google Ads & Commerce just pushed a fresh round of updates to how products show up in Shopping and across Google's surfaces. Most small business owners never check the one setting this actually touches: the product feed. The feed is the file that tells Google what you sell, the price, the stock status. Not the ad. The ad just points at the feed.",
+      "body": "Google Ads & Commerce just pushed a fresh round of updates to how products show up in Shopping and across Google's surfaces.\n\nMost small business owners never check the one setting this actually touches: the product feed. The feed is the file that tells Google what you sell, the price, the stock status. Not the ad. The ad just points at the feed.\n\nHere's the part nobody checks. Open Merchant Center, go to Diagnostics, and look for disapproved or warning items. If your feed has errors, no amount of fixing the ad creative or the budget changes what Google shows. The feed is the product. The ad is just the poster for it.\n\nThis matters more now because Google keeps folding more of Shopping into AI-driven surfaces — the kind that pull straight from feed data, not from the ad copy you wrote. A clean feed used to be a nice-to-have. It is becoming the only lever that works.\n\nCost per lead, click-through rate, creative testing — all downstream of whether Google can even read your catalogue correctly.\n\nOpen Merchant Center today. Go to Diagnostics. How many items are sitting in \"disapproved\" right now, and do you know why?",
+      "chars": 1130,
+      "avgWords": 11.7,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "one sentence is 37 words long",
+        "one paragraph is 345 chars — may read as a wall",
+        "possible client name to check: \"Google Ads\"",
+        "possible client name to check: \"Open Merchant Center\"",
+        "possible client name to check: \"Merchant Center\"",
+        "over a limit: hook is 243 chars, must be under 210",
+        "no number in the first line — openers with a figure tend to do better",
+        "possible client name to check: \"Google Ads\"",
+        "possible client name to check: \"Open Merchant Center\"",
+        "over a limit: hook is 347 chars, must be under 210",
+        "over a limit: first line is 22 words (max 14) — short openers get expanded far more often",
+        "check: \"Most small business owners never check the one setting this actually touches: th\" — Generalisation about small business owner behaviour not backed by any approved fact or data, presented as plain fact.",
+        "check: \"Here's the part nobody checks.\" — Absolute claim ('nobody') about industry behavior with no supporting evidence.",
+        "check: \"If your feed has errors, no amount of fixing the ad creative or the budget chang\" — Platform mechanic stated as certain fact rather than a generalisation; no source cited beyond the Google Ads & Commerce link.",
+        "check: \"This matters more now because Google keeps folding more of Shopping into AI-driv\" — Specific claim about how Google's AI-driven surfaces work (pulling from feed data vs ad copy) is not explicitly supported by the cited source, presented as definite fact.",
+        "check: \"A clean feed used to be a nice-to-have. It is becoming the only lever that works\" — Strong absolute claim ('only lever that works') not supported by the source material."
+      ],
+      "images": [],
+      "pdf": null,
+      "sources": [
+        {
+          "title": "Chatham scales its capital markets expertise with OpenAI",
+          "url": "https://openai.com/index/chatham-financial",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "How Albertsons Companies is reimagining retail from the inside out",
+          "url": "https://openai.com/index/albertsons-reimagining-retail",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "The Den frees up 10-15 hours a week to grow with ChatGPT Work",
+          "url": "https://openai.com/index/the-den-family-social",
+          "publisher": "OpenAI"
+        }
+      ],
+      "status": "posted",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "postedAt": "2026-10-05T06:00:13.677Z",
+      "linkedinId": "urn:li:share:7512753494202724353",
+      "notPosted": null
+    },
     {
       "date": "2026-10-02",
       "weekday": "Fri",
@@ -108,8 +171,7 @@
       },
       "impressions": null,
       "postedAt": "2026-10-02T05:57:38.261Z",
-      "linkedinId": "urn:li:ugcPost:7511665679083794432",
-      "notPosted": null
+      "linkedinId": "urn:li:ugcPost:7511665679083794432"
     },
     {
       "date": "2026-10-01",
