@@ -1,18 +1,18 @@
 {
-  "updated": "2026-10-06T11:36:00.027Z",
+  "updated": "2026-10-06T12:06:15.617Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 10,
   "totals": {
     "leads": 122,
     "contacted": 20,
-    "replied": 2,
+    "replied": 0,
     "bounced": 1,
     "stopped": 0,
     "sent": 20,
     "pipeline": {
       "new": 61,
-      "step1": 17,
+      "step1": 19,
       "step2": 0,
       "step3": 0,
       "done": 0
@@ -106,7 +106,7 @@
       "name": "E1",
       "leads": 46,
       "contacted": 8,
-      "replied": 2,
+      "replied": 0,
       "bounced": 1
     },
     {
@@ -127,7 +127,7 @@
     }
   ],
   "warmup": {
-    "total": 315,
+    "total": 320,
     "rescued": 0,
     "daily": [
       {
@@ -184,33 +184,33 @@
       },
       {
         "date": "2026-10-06",
-        "count": 16
+        "count": 21
       }
     ],
     "accounts": [
       {
         "mailbox": "hello@…",
-        "sent": 52,
+        "sent": 53,
         "replies": 7
       },
       {
         "mailbox": "jothi@…",
         "sent": 51,
-        "replies": 0
+        "replies": 1
       },
       {
         "mailbox": "hello@…",
-        "sent": 51,
+        "sent": 52,
         "replies": 8
       },
       {
         "mailbox": "growth@…",
-        "sent": 49,
+        "sent": 50,
         "replies": 8
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 50,
+        "sent": 51,
         "replies": 39
       }
     ],
