@@ -1,28 +1,24 @@
 {
-  "updated": "2026-10-05T22:33:54.114Z",
-  "state": "warm-up",
+  "updated": "2026-10-06T02:41:20.017Z",
+  "state": "live",
   "startDate": "2026-10-06",
-  "cap": 0,
+  "cap": 10,
   "totals": {
     "leads": 122,
-    "contacted": 0,
+    "contacted": 8,
     "replied": 0,
     "bounced": 0,
     "stopped": 0,
-    "sent": 0,
+    "sent": 8,
     "pipeline": {
-      "new": 97,
-      "step1": 0,
+      "new": 89,
+      "step1": 8,
       "step2": 0,
       "step3": 0,
       "done": 0
     }
   },
   "daily": [
-    {
-      "date": "2026-09-22",
-      "sent": 0
-    },
     {
       "date": "2026-09-23",
       "sent": 0
@@ -74,6 +70,10 @@
     {
       "date": "2026-10-05",
       "sent": 0
+    },
+    {
+      "date": "2026-10-06",
+      "sent": 8
     }
   ],
   "segments": [
@@ -89,7 +89,7 @@
       "segment": "ADS",
       "name": "ADS",
       "leads": 55,
-      "contacted": 0,
+      "contacted": 7,
       "replied": 0,
       "bounced": 0
     },
@@ -105,7 +105,7 @@
       "segment": "E1",
       "name": "E1",
       "leads": 46,
-      "contacted": 0,
+      "contacted": 1,
       "replied": 0,
       "bounced": 0
     },
@@ -130,10 +130,6 @@
     "total": 299,
     "rescued": 0,
     "daily": [
-      {
-        "date": "2026-09-22",
-        "count": 17
-      },
       {
         "date": "2026-09-23",
         "count": 29
@@ -185,6 +181,10 @@
       {
         "date": "2026-10-05",
         "count": 3
+      },
+      {
+        "date": "2026-10-06",
+        "count": 0
       }
     ],
     "accounts": [
