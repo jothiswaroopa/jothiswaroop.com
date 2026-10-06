@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-06",
+  "weekday": "Tue",
+  "pillar": "trending",
+  "format": "carousel",
+  "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": true,
+  "heldBecause": null,
+  "hook": "OpenAI just announced ads inside ChatGPT: \"Building advertising for the way people use AI.\" Everyone will post the headline this week. The part worth your Monday is what it changes for a small ad account.",
+  "body": "OpenAI just announced ads inside ChatGPT: \"Building advertising for the way people use AI.\"\n\nEveryone will post the headline this week. The part worth your Monday is what it changes for a small ad account.\n\nChatGPT ads will show up where people ask questions, not scroll. That's a different kind of attention than Meta or Google ever sold you.\n\nOn Meta, you win the first glance. On ChatGPT, you may only get picked when someone is already asking for an answer.\n\nThat changes what \"the ad\" even is. It's less a banner competing for eyes, more an answer competing to be the one recommended.\n\nIf you run a small business, nothing to set up today. There's no self-serve dashboard live yet for someone your size.\n\nWhat you can do now: write down, in plain words, what question a stranger would type right before they'd want your product.\n\nThat sentence is what you'll be bidding to answer, whenever this opens up. Start collecting them.\n\nEverything else — budgets, targeting, creative — will still matter. It just moves a layer upstream, to the question, not the headline.",
+  "chars": 1068,
+  "avgWords": 11.6,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "check: \"ChatGPT ads will show up where people ask questions, not scroll. That's a differ\" — Presents a characterization of how ChatGPT ads will function as settled fact, beyond what the OpenAI announcement establishes in detail; also makes a sweeping claim about what Meta/Google 'ever sold.'",
+    "check: \"On Meta, you win the first glance. On ChatGPT, you may only get picked when some\" — Platform mechanic stated as certain fact about how ChatGPT ad selection will work, which is speculative at this stage.",
+    "check: \"There's no self-serve dashboard live yet for someone your size.\" — Specific claim about product availability/rollout not confirmed in the cited announcement.",
+    "check: \"No self-serve dashboard exists yet for a small business to just log in and run t\" — Same unconfirmed claim repeated in the alternate draft version.",
+    "check: \"someone has already typed a question before your ad can appear at all\" — States a specific mechanical certainty about ad triggering that isn't confirmed by the source material."
+  ],
+  "images": [
+    "/linkedin/2026-10-06/slide-01.png",
+    "/linkedin/2026-10-06/slide-02.png",
+    "/linkedin/2026-10-06/slide-03.png",
+    "/linkedin/2026-10-06/slide-04.png",
+    "/linkedin/2026-10-06/slide-05.png",
+    "/linkedin/2026-10-06/slide-06.png",
+    "/linkedin/2026-10-06/slide-07.png",
+    "/linkedin/2026-10-06/slide-08.png",
+    "/linkedin/2026-10-06/slide-09.png",
+    "/linkedin/2026-10-06/slide-10.png",
+    "/linkedin/2026-10-06/slide-11.png"
+  ],
+  "pdf": "/linkedin/2026-10-06/carousel.pdf",
+  "slides": [
+    {
+      "kind": "statement",
+      "text": "OpenAI just announced ads inside ChatGPT itself.",
+      "highlight": "ads inside ChatGPT"
+    },
+    {
+      "kind": "statement",
+      "text": "Everyone will repeat the headline. Almost nobody will tell you what to actually do about it."
+    },
+    {
+      "kind": "statement",
+      "text": "ChatGPT ads will sit inside answers people ask for, not a feed they scroll past."
+    },
+    {
+      "kind": "statement",
+      "text": "On Meta or Google, you compete for a glance mid-scroll. That's attention you interrupt."
+    },
+    {
+      "kind": "statement",
+      "text": "On ChatGPT, someone has already typed a question before your ad can appear at all."
+    },
+    {
+      "kind": "statement",
+      "text": "That's attention you're invited into. Different game, different rules, same budget you're already spending."
+    },
+    {
+      "kind": "statement",
+      "text": "OpenAI's own title calls this building for \"the way people use AI\" — worth reading closely."
+    },
+    {
+      "kind": "statement",
+      "text": "No self-serve dashboard exists yet for a small business to just log in and run this."
+    },
+    {
+      "kind": "steps",
+      "text": "One thing you can start today, with zero new tools or spend.",
+      "items": [
+        "Write the exact question a stranger would type before wanting your product",
+        "Keep that sentence — it's what you'll compete to answer later"
+      ]
+    },
+    {
+      "kind": "statement",
+      "text": "The hook wasn't the announcement. It's that your ad stops being a banner and becomes an answer."
+    },
+    {
+      "kind": "statement",
+      "text": "Budgets, targeting, creative — all of it still matters. It just moves upstream, to the question asked, not the ad seen."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Building advertising for the way people use AI",
+      "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "posted",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "postedAt": "2026-10-06T06:38:52.463Z",
+  "linkedinId": "urn:li:ugcPost:7513125606344216576"
+}
