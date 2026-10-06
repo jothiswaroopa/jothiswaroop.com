@@ -1,18 +1,18 @@
 {
-  "updated": "2026-10-06T02:41:20.017Z",
+  "updated": "2026-10-06T09:44:21.790Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 10,
   "totals": {
     "leads": 122,
-    "contacted": 8,
+    "contacted": 20,
     "replied": 0,
     "bounced": 0,
     "stopped": 0,
-    "sent": 8,
+    "sent": 20,
     "pipeline": {
-      "new": 89,
-      "step1": 8,
+      "new": 61,
+      "step1": 20,
       "step2": 0,
       "step3": 0,
       "done": 0
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-10-06",
-      "sent": 8
+      "sent": 20
     }
   ],
   "segments": [
@@ -89,7 +89,7 @@
       "segment": "ADS",
       "name": "ADS",
       "leads": 55,
-      "contacted": 7,
+      "contacted": 8,
       "replied": 0,
       "bounced": 0
     },
@@ -105,7 +105,7 @@
       "segment": "E1",
       "name": "E1",
       "leads": 46,
-      "contacted": 1,
+      "contacted": 8,
       "replied": 0,
       "bounced": 0
     },
@@ -113,7 +113,7 @@
       "segment": "E1V",
       "name": "E1V",
       "leads": 3,
-      "contacted": 0,
+      "contacted": 1,
       "replied": 0,
       "bounced": 0
     },
@@ -121,13 +121,13 @@
       "segment": "E2",
       "name": "E2",
       "leads": 12,
-      "contacted": 0,
+      "contacted": 3,
       "replied": 0,
       "bounced": 0
     }
   ],
   "warmup": {
-    "total": 299,
+    "total": 305,
     "rescued": 0,
     "daily": [
       {
@@ -184,33 +184,33 @@
       },
       {
         "date": "2026-10-06",
-        "count": 0
+        "count": 6
       }
     ],
     "accounts": [
       {
         "mailbox": "hello@…",
         "sent": 50,
-        "replies": 5
+        "replies": 6
       },
       {
         "mailbox": "jothi@…",
-        "sent": 49,
+        "sent": 50,
         "replies": 0
       },
       {
         "mailbox": "hello@…",
-        "sent": 48,
+        "sent": 49,
         "replies": 7
       },
       {
         "mailbox": "growth@…",
-        "sent": 47,
-        "replies": 7
+        "sent": 48,
+        "replies": 8
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 47,
+        "sent": 48,
         "replies": 39
       }
     ],
