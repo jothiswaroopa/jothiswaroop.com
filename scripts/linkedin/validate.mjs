@@ -41,6 +41,28 @@ function unbackedNumbers(text, sourcesText = "") {
   return [...new Set(bad)];
 }
 
+/**
+ * A post that names the wrong day of the week.
+ *
+ * Tuesday 6 October went out saying "the part worth your Monday". The metadata was right - the
+ * draft knew it was Tue - but the prose did not, and nothing read the two against each other. It
+ * is a small error with an outsized cost: a reader who notices stops believing a person wrote it,
+ * and the whole premise of this account is that one did.
+ *
+ * Only the day the post actually goes out is checked. A sentence about what somebody did last
+ * Thursday is fine; "your Monday", on a Tuesday, is not.
+ */
+const DAYS = { sun: "Sunday", mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday", fri: "Friday", sat: "Saturday" };
+function wrongWeekday(text, weekday) {
+  const today = DAYS[String(weekday || "").slice(0, 3).toLowerCase()];
+  if (!today) return null;
+  const named = [...String(text).matchAll(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/g)].map((m) => m[1]);
+  const wrong = [...new Set(named)].filter((d) => d !== today);
+  // "your Monday" / "this Monday" / "on Monday" is about the day of posting; a bare mention may not be
+  const addressed = wrong.filter((d) => new RegExp(`\\b(your|this|every|each|come)\\s+${d}\\b`, "i").test(text));
+  return addressed.length ? `names ${addressed.join(", ")} in a post going out on ${today}` : null;
+}
+
 export function validate(draft, { isSales = false, allowQuestion = false, sourcesText = "" } = {}) {
   const errors = [];
   const warnings = [];
@@ -49,6 +71,9 @@ export function validate(draft, { isSales = false, allowQuestion = false, source
   const lines = body.split("\n").filter((l) => l.trim());
 
   if (!body) return { ok: false, errors: ["empty body"], warnings };
+
+  const dayErr = wrongWeekday(body, draft.weekday);
+  if (dayErr) errors.push(dayErr);
 
   // length
   const chars = body.length;
