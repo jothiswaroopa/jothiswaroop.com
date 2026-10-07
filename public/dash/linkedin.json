@@ -1,6 +1,51 @@
 {
-  "generated": "2026-10-06T06:38:49.196Z",
+  "generated": "2026-10-07T06:15:43.438Z",
   "posts": [
+    {
+      "date": "2026-10-07",
+      "weekday": "Wed",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": [
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "hook": "OpenAI just announced it is \"Advancing computer use with Ironclad.\" Computer use means the AI can click through a screen for you, not just answer in a chat box. It fills forms, moves between tabs, finishes a task end to end.",
+      "body": "OpenAI just announced it is \"Advancing computer use with Ironclad.\"\n\nComputer use means the AI can click through a screen for you, not just answer in a chat box. It fills forms, moves between tabs, finishes a task end to end.\n\nEveryone will write about what Ironclad does. Here is what it means for a freelancer running ads with no team behind them.\n\nRight now, most \"automation\" in a small ad account is you, at 11pm, copying a lead from a Meta notification into a spreadsheet. Computer use tools are built to do exactly that step — the boring click between two screens that nobody automated because it was too small to bother with.\n\nThat is also the exact gap that loses money today. Across nine Meta ad accounts I've run, nothing captured what happened after a lead came in. No reorder timing, no follow-up, a \"not interested\" treated as final — and some of those leads came back on their own, months later, and ordered.\n\nA tool that can click through screens doesn't fix a strategy problem. It fixes a nobody-got-around-to-it problem. Those are most of what actually breaks in a small business.\n\nOpen your own lead form today. Where does a submission land — your inbox, a sheet, nowhere? What's the last manual step between a lead coming in and someone actually calling them?\n\nhttps://openai.com/index/advancing-computer-use-with-ironclad",
+      "chars": 1342,
+      "avgWords": 14.1,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "no closing question — text posts with one draw far more comments",
+        "over a limit: hook is 224 chars, must be under 210",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [],
+      "pdf": null,
+      "sources": [
+        {
+          "title": "Sharing AI progress in mathematics",
+          "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Advancing computer use with Ironclad",
+          "url": "https://openai.com/index/advancing-computer-use-with-ironclad",
+          "publisher": "OpenAI"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+    },
     {
       "date": "2026-10-06",
       "weekday": "Tue",
@@ -103,8 +148,7 @@
       },
       "impressions": null,
       "postedAt": "2026-10-06T06:38:52.463Z",
-      "linkedinId": "urn:li:ugcPost:7513125606344216576",
-      "notPosted": null
+      "linkedinId": "urn:li:ugcPost:7513125606344216576"
     },
     {
       "date": "2026-10-05",
