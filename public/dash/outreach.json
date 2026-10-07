@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T08:04:12.185Z",
+  "updated": "2026-10-07T16:01:55.923Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 10,
@@ -11,7 +11,7 @@
     "stopped": 0,
     "sent": 40,
     "pipeline": {
-      "new": 51,
+      "new": 46,
       "step1": 38,
       "step2": 0,
       "step3": 0,
@@ -104,8 +104,8 @@
     {
       "segment": "E1",
       "name": "E1",
-      "leads": 51,
-      "contacted": 13,
+      "leads": 63,
+      "contacted": 20,
       "replied": 0,
       "bounced": 1
     },
@@ -120,8 +120,8 @@
     {
       "segment": "E2",
       "name": "E2",
-      "leads": 14,
-      "contacted": 7,
+      "leads": 2,
+      "contacted": 0,
       "replied": 0,
       "bounced": 0
     }
