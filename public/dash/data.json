@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-06T03:12:53.428Z",
+  "generatedAt": "2026-10-07T02:36:45.199Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-06",
-      "end": "2026-10-04"
+      "start": "2026-09-07",
+      "end": "2026-10-05"
     },
     "totals": {
       "clicks": 8,
-      "impressions": 73,
-      "ctr": 0.1095890410958904,
-      "position": 8.164383561643836
+      "impressions": 74,
+      "ctr": 0.10810810810810811,
+      "position": 8.22972972972973
     },
     "previous": {
       "clicks": 0,
@@ -145,6 +145,13 @@
         "impressions": 3,
         "ctr": 0,
         "position": 30.666666666666668
+      },
+      {
+        "key": "2026-10-04",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
       }
     ],
     "queries": [
@@ -158,9 +165,9 @@
       {
         "key": "jothiswaroop.com",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 30.666666666666668
+        "position": 26.25
       },
       {
         "key": "jyothi swaroop",
@@ -230,9 +237,9 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 7,
         "ctr": 0,
-        "position": 15.166666666666666
+        "position": 15.714285714285714
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements",
@@ -251,9 +258,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 15
+        "position": 14.5
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -351,9 +358,9 @@
       {
         "key": "usa",
         "clicks": 0,
-        "impressions": 14,
+        "impressions": 15,
         "ctr": 0,
-        "position": 26.857142857142858
+        "position": 25.933333333333334
       }
     ],
     "devices": [
@@ -367,16 +374,16 @@
       {
         "key": "DESKTOP",
         "clicks": 3,
-        "impressions": 51,
-        "ctr": 0.058823529411764705,
-        "position": 10.156862745098039
+        "impressions": 52,
+        "ctr": 0.057692307692307696,
+        "position": 10.211538461538462
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-06",
-      "end": "2026-10-06"
+      "start": "2026-09-07",
+      "end": "2026-10-07"
     },
     "totals": {
       "views": 0,
@@ -485,6 +492,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1790985600000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791072000000)/",
         "Impressions": 0
       }
     ],
@@ -682,17 +695,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 3.527082,
+    "spent": 3.624502,
     "by": {
       "blog": 1.950278,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 0.421918,
+      "linkedin": 0.519338,
       "scan": 0.31604
     },
-    "remaining": 5.472918,
-    "pace": 2.024806,
-    "projected": 18.223257,
+    "remaining": 5.375498,
+    "pace": 1.783485,
+    "projected": 16.051366,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -703,8 +716,8 @@
   },
   "indexStatus": {
     "checked": 19,
-    "indexed": 17,
-    "notIndexed": 2,
+    "indexed": 18,
+    "notIndexed": 1,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -729,8 +742,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -761,7 +774,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-24T23:48:10Z",
+        "lastCrawl": "2026-09-28T23:59:33Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -848,12 +861,12 @@
       },
       {
         "url": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
-        "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-10-06T04:30:48Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
