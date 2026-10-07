@@ -9,10 +9,17 @@ const SRC = "assets/logos-raw";
 const OUT = "public/img/logos";
 const BOX = { w: 480, h: 200 };
 // per-file pre-crops (left, top, width, height as fractions) for posters that aren't plain logos
-const CROP = { vroom: { left: 0.02, top: 0.02, width: 0.96, height: 0.62 } };
+const CROP = {
+  vroom: { left: 0.02, top: 0.02, width: 0.96, height: 0.62 },
+  // The supplied GBH file clips a letter of adjacent wordmark text at the right edge, and carries a
+  // grey frame a few pixels wide all round. The corner sampling insets by 8px and so reads the white
+  // card inside the frame, leaving the frame itself unkeyed as a visible grey box. Crop both away:
+  // the emblem is whole, it is only its packaging that is damaged.
+  "gbh-solar": { left: 0.05, top: 0.04, width: 0.83, height: 0.93 },
+};
 const TOL = 34; // colour distance treated as "background"
 // per-file: wider tolerance for textured backgrounds, extra colours to key (e.g. a white card inside a transparent PNG)
-const KEY = { "sathyam-labels": { tol: 60 }, tharunis: { minAlpha: 200 } }; // minAlpha drops faint washes
+const KEY = { "sathyam-labels": { tol: 60 }, tharunis: { minAlpha: 200 }, bublyn: { tol: 18 }, enveear: { tol: 58 }, "gbh-solar": { tol: 52 } }; // minAlpha drops faint washes
 
 await mkdir(OUT, { recursive: true });
 const files = (await readdir(SRC)).filter((f) => /\.png$/i.test(f));

@@ -458,7 +458,7 @@ export const byTheNumbers = {
 
 /** Client marks — processed by scripts/logos.mjs from assets/logos-raw (background keyed out, fitted to 480×200).
  *  Only clients who agreed to be shown. `caseSlug` links the mark to its case; partners link to /about. */
-export type ClientLogo = { name: string; file: string; caseSlug?: string; href?: string; wide?: boolean; /** filled shapes that turn to blobs when flattened to one tone — strip only */ noSilhouette?: boolean };
+export type ClientLogo = { name: string; file: string; caseSlug?: string; href?: string; wide?: boolean; /** filled shapes that turn to blobs when flattened to one tone — strip only */ noSilhouette?: boolean; /** light marks (outlines, neon, gold) that wash out against paper at rest — see .logo-mark-pale */ pale?: boolean };
 export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
   primary: [
     { name: "Nova Attire", file: "nova-attire", caseSlug: "nova" },
@@ -482,6 +482,15 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     { name: "Top-5 El Alimentos", file: "top5" , noSilhouette: true },
     { name: "Vaasavi IVF Micro Finance", file: "vaasaviivf-microfinance-bank", wide: true },
     { name: "GVP Enterprises LLP", file: "gvp", wide: true },
+    { name: "Keshab Kota Diamonds", file: "keshab-kota", wide: true },
+    { name: "Janani Enterprises", file: "janani", wide: true },
+    { name: "Shree SRB and Associates", file: "shree-srb", wide: true },
+    { name: "Neutral Solar", file: "neutral-solar", noSilhouette: true },
+    { name: "Enveear Cottage Industry", file: "enveear", wide: true },
+    { name: "Cynosure Architects", file: "cynosure", wide: true, pale: true },
+    { name: "Bublyn", file: "bublyn", noSilhouette: true, pale: true },
+    { name: "GBH Solar", file: "gbh-solar", noSilhouette: true, pale: true },
+    { name: "Rotary Club of Meenambakkam", file: "rotary-meenambakkam", noSilhouette: true, pale: true },
   ],
 };
 

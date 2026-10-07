@@ -444,6 +444,11 @@ h1, h2, h3, .display {
 @media (hover: hover) and (pointer: fine) {
   /* brightness pulls gold/pale marks down to a readable grey; contrast keeps the dark ones crisp */
   .logo-mark { filter: grayscale(1) brightness(0.72) contrast(1.15); opacity: 0.9; }
+  /* Outlines, neon and gold sit far lighter than a solid wordmark: measured against the paper the
+     proof section uses, the solid marks land near 55 on screen while these land at 109-130, so they
+     read as half-there next to their neighbours. Only the greyscale REST state is pushed harder -
+     hover still clears the filter entirely, so the brand's real colour is never altered. */
+  .logo-mark-pale { filter: grayscale(1) brightness(0.5) contrast(1.35); }
   .logo-row li:hover .logo-mark { filter: none; opacity: 1; transform: translateY(-2px) scale(1.08); }
   /* the rest of the row steps back slightly so the hovered mark reads as the focus */
   .logo-row:hover li:not(:hover) .logo-mark { opacity: 0.5; }

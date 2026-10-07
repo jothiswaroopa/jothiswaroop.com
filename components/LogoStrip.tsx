@@ -17,7 +17,7 @@ function Row({ items }: { items: ClientLogo[] }) {
         const img = (
           <span className="flex items-center justify-center" style={{ height: BOX_H, width: l.wide ? BOX_W_WIDE : BOX_W }}>
             <img src={`/img/logos/${l.file}.webp`} alt={l.name} loading="lazy" decoding="async"
-              className="logo-mark max-h-full max-w-full object-contain" />
+              className={`logo-mark${l.pale ? " logo-mark-pale" : ""} max-h-full max-w-full object-contain`} />
           </span>
         );
         const href = l.caseSlug ? `/work/${l.caseSlug}` : l.href;
