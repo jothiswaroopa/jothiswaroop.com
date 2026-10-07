@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T04:35:53.907Z",
+  "updated": "2026-10-07T05:05:40.038Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 10,
@@ -127,7 +127,7 @@
     }
   ],
   "warmup": {
-    "total": 342,
+    "total": 344,
     "rescued": 0,
     "daily": [
       {
@@ -184,7 +184,7 @@
       },
       {
         "date": "2026-10-07",
-        "count": 17
+        "count": 19
       }
     ],
     "accounts": [
@@ -195,7 +195,7 @@
       },
       {
         "mailbox": "jothi@…",
-        "sent": 55,
+        "sent": 56,
         "replies": 1
       },
       {
@@ -205,7 +205,7 @@
       },
       {
         "mailbox": "growth@…",
-        "sent": 53,
+        "sent": 54,
         "replies": 10
       },
       {
