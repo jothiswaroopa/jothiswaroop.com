@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-07T02:36:45.199Z",
+  "generatedAt": "2026-10-08T02:50:00.361Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-07",
-      "end": "2026-10-05"
+      "start": "2026-09-08",
+      "end": "2026-10-06"
     },
     "totals": {
-      "clicks": 8,
-      "impressions": 74,
-      "ctr": 0.10810810810810811,
-      "position": 8.22972972972973
+      "clicks": 9,
+      "impressions": 75,
+      "ctr": 0.12,
+      "position": 8.213333333333333
     },
     "previous": {
       "clicks": 0,
@@ -152,6 +152,13 @@
         "impressions": 1,
         "ctr": 0,
         "position": 13
+      },
+      {
+        "key": "2026-10-05",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 7
       }
     ],
     "queries": [
@@ -188,9 +195,16 @@
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 6,
-        "impressions": 45,
-        "ctr": 0.13333333333333333,
-        "position": 3.9555555555555557
+        "impressions": 46,
+        "ctr": 0.13043478260869565,
+        "position": 4.021739130434783
+      },
+      {
+        "key": "https://jothiswaroop.com/about/",
+        "clicks": 2,
+        "impressions": 34,
+        "ctr": 0.058823529411764705,
+        "position": 6.676470588235294
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -198,13 +212,6 @@
         "impressions": 9,
         "ctr": 0.1111111111111111,
         "position": 1.6666666666666665
-      },
-      {
-        "key": "https://jothiswaroop.com/about/",
-        "clicks": 1,
-        "impressions": 33,
-        "ctr": 0.030303030303030304,
-        "position": 6.636363636363637
       },
       {
         "key": "https://jothiswaroop.com/blog/",
@@ -301,10 +308,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 8,
-        "impressions": 51,
-        "ctr": 0.1568627450980392,
-        "position": 3.4901960784313726
+        "clicks": 9,
+        "impressions": 52,
+        "ctr": 0.17307692307692307,
+        "position": 3.5576923076923075
       },
       {
         "key": "bih",
@@ -366,10 +373,10 @@
     "devices": [
       {
         "key": "MOBILE",
-        "clicks": 5,
-        "impressions": 22,
-        "ctr": 0.22727272727272727,
-        "position": 3.5454545454545454
+        "clicks": 6,
+        "impressions": 23,
+        "ctr": 0.2608695652173913,
+        "position": 3.6956521739130435
       },
       {
         "key": "DESKTOP",
@@ -382,8 +389,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-07",
-      "end": "2026-10-07"
+      "start": "2026-09-08",
+      "end": "2026-10-08"
     },
     "totals": {
       "views": 0,
@@ -498,6 +505,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791072000000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791158400000)/",
         "Impressions": 0
       }
     ],
@@ -637,14 +650,23 @@
     ]
   },
   "coverage": {
-    "total": 19,
-    "ok": 19,
+    "total": 20,
+    "ok": 20,
     "broken": []
   },
   "blog": {
-    "count": 5,
-    "last": "2026-10-05",
+    "count": 6,
+    "last": "2026-10-07",
     "posts": [
+      {
+        "slug": "do-meta-ads-budget-under-1",
+        "title": "What to Do With a Meta Ads Budget Under ₹1 Lakh in India",
+        "date": "2026-10-07",
+        "lane": "guide",
+        "segment": "india",
+        "words": 1156,
+        "sources": 4
+      },
       {
         "slug": "google-ads-b2b-manufacturers-run-search",
         "title": "Google Ads for B2B Manufacturers: Run Search Before Performance Max",
@@ -695,17 +717,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 3.624502,
+    "spent": 4.058256,
     "by": {
-      "blog": 1.950278,
+      "blog": 2.30801,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 0.519338,
+      "linkedin": 0.59536,
       "scan": 0.31604
     },
-    "remaining": 5.375498,
-    "pace": 1.783485,
-    "projected": 16.051366,
+    "remaining": 4.941744,
+    "pace": 1.747305,
+    "projected": 15.725742,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -715,9 +737,9 @@
     }
   },
   "indexStatus": {
-    "checked": 19,
+    "checked": 20,
     "indexed": 18,
-    "notIndexed": 1,
+    "notIndexed": 2,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -742,8 +764,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -857,6 +879,16 @@
         "lastCrawl": "2026-09-21T05:07:02Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
         "canonical": null
       },
       {
