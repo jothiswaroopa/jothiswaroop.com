@@ -1,6 +1,122 @@
 {
-  "generated": "2026-10-07T06:15:43.438Z",
+  "generated": "2026-10-08T06:24:57.774Z",
   "posts": [
+    {
+      "date": "2026-10-08",
+      "weekday": "Thu",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": true,
+      "videoPrompt": null,
+      "autopostSafe": true,
+      "heldBecause": null,
+      "hook": "GPT-6 landed this week. \"Intelligent UI\" builds the screen for your question, not the other way round. Most posts will stop at that headline. Here's what it means if you run your own ads.",
+      "body": "GPT-6 landed this week. \"Intelligent UI\" builds the screen for your question, not the other way round.\n\nMost posts will stop at that headline. Here's what it means if you run your own ads.\n\nAn interface that writes itself still needs you to know what you're asking for. Ask ChatGPT to \"check my Meta campaign\" and it can read a screenshot. It cannot open Ads Manager, click into your ad set, and tell you your Performance goal is set to Conversations when you meant Purchases.\n\nThat gap is where cost per lead actually gets decided. Not in the chat window — inside the account, in a setting most people never open.\n\nSmarter tools change what you can ask. They don't change what you need to know to ask it well. A founder who can't read a lifetime view in Ads Manager will get a very fluent wrong answer, faster than before.\n\nAcross nine of our own ad accounts, every lead is still counted the same way it always was: a submission in Meta's lead centre, tied to the ad and form that produced it. No model, no estimate.\n\nIf you want a second set of eyes on how your account is actually set up, before you hand the thinking to a chatbot, that's something we do for free on jothiswaroop.com.",
+      "chars": 1187,
+      "avgWords": 14.7,
+      "warnings": [
+        "over a limit: first line is 17 words (max 14) — short openers get expanded far more often",
+        "over a limit: cover slide is 11 words (max 10) — it carries most of the result",
+        "check: \"GPT-6 landed this week. \"Intelligent UI\" builds the screen for your question, no\" — Characterization of GPT-6's 'Intelligent UI' feature goes beyond what the linked announcement is known to state; presented as settled fact without sourcing detail.",
+        "check: \"It cannot open Ads Manager, click into your ad set, and tell you your Performanc\" — Presents a specific capability limitation of ChatGPT/GPT-6 as certain fact; this is a generalisation/opinion about AI tool limits, not an approved fact.",
+        "check: \"Across nine of our own ad accounts, every lead is still counted the same way it \" — Approved facts support nine Meta ad accounts and the counting methodology, but 'still counted the same way it always was' implies a first-hand continuity claim not explicitly established.",
+        "check: \"Across nine of our ad accounts, every lead still traces back to one screenshot i\" — Duplicate/variant of the same claim above; 'one screenshot' phrasing not in approved facts, which describe screenshots as linked per figure, not singular per lead.",
+        "check: \"Set it wrong — say, to Conversations when you meant Purchases — and no AI flags \" — Asserts a definitive, universal claim about AI behavior ('no AI flags it') not supported by any approved fact or news source."
+      ],
+      "images": [
+        "/linkedin/2026-10-08/slide-01.png",
+        "/linkedin/2026-10-08/slide-02.png",
+        "/linkedin/2026-10-08/slide-03.png",
+        "/linkedin/2026-10-08/slide-04.png",
+        "/linkedin/2026-10-08/slide-05.png",
+        "/linkedin/2026-10-08/slide-06.png",
+        "/linkedin/2026-10-08/slide-07.png",
+        "/linkedin/2026-10-08/slide-08.png",
+        "/linkedin/2026-10-08/slide-09.png",
+        "/linkedin/2026-10-08/slide-10.png",
+        "/linkedin/2026-10-08/slide-11.png"
+      ],
+      "pdf": "/linkedin/2026-10-08/carousel.pdf",
+      "slides": [
+        {
+          "kind": "statement",
+          "text": "GPT-6 builds your screen. It still can't open your Ads Manager.",
+          "highlight": "Ads Manager"
+        },
+        {
+          "kind": "statement",
+          "text": "Everyone will cover the launch. Almost nobody will cover what it changes for you on Monday."
+        },
+        {
+          "kind": "statement",
+          "text": "\"Intelligent UI\" means the interface rewrites itself around your question, in real time.",
+          "highlight": "rewrites itself"
+        },
+        {
+          "kind": "statement",
+          "text": "A smarter chat window can summarise your campaign. It cannot click into your ad set for you."
+        },
+        {
+          "kind": "callout",
+          "text": "Your Performance goal lives inside the ad set, not in any chat window.",
+          "label": "WHERE IT ACTUALLY LIVES"
+        },
+        {
+          "kind": "statement",
+          "text": "Set it wrong — say, to Conversations when you meant Purchases — and no AI flags it."
+        },
+        {
+          "kind": "statement",
+          "text": "GPT-6 can write you a sharper ad in seconds. It cannot read your Ads Manager account for you."
+        },
+        {
+          "kind": "statement",
+          "text": "A faster assistant on a wrong setting just gets you to the wrong answer faster."
+        },
+        {
+          "kind": "statement",
+          "text": "Across nine of our ad accounts, every lead still traces back to one screenshot in Meta's lead centre.",
+          "highlight": "one screenshot"
+        },
+        {
+          "kind": "statement",
+          "text": "The tool got smarter. The thing deciding your cost per lead is still a setting you have to open yourself.",
+          "highlight": "you have to open yourself"
+        },
+        {
+          "kind": "statement",
+          "text": "Use GPT-6 to write faster. Open Ads Manager yourself to check what it's actually optimising for."
+        }
+      ],
+      "sources": [
+        {
+          "title": "GPT-6 and Intelligent UI for everyone",
+          "url": "https://openai.com/index/gpt-6-for-everyone",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Why Data Centers Are Such a Big Part of Meta&#8217;s AI Approach",
+          "url": "https://about.fb.com/news/2026/10/meta-data-centers-ai-approach/",
+          "publisher": "Meta Newsroom"
+        },
+        {
+          "title": "Measures We&#8217;ve Put in Place to Fight Child Exploitation",
+          "url": "https://about.fb.com/news/2026/10/measures-weve-put-in-place-to-fight-child-exploitation/",
+          "publisher": "Meta Newsroom"
+        }
+      ],
+      "status": "posted",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "postedAt": "2026-10-08T06:25:01.290Z",
+      "linkedinId": "urn:li:ugcPost:7513846895929303040",
+      "notPosted": null
+    },
     {
       "date": "2026-10-07",
       "weekday": "Wed",
