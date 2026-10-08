@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T10:34:36.052Z",
+  "updated": "2026-10-08T11:04:51.337Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 10,
@@ -11,7 +11,7 @@
     "stopped": 0,
     "sent": 57,
     "pipeline": {
-      "new": 19,
+      "new": 18,
       "step1": 51,
       "step2": 0,
       "step3": 0,
