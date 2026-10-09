@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T07:39:22.822Z",
+  "updated": "2026-10-09T08:08:49.505Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 20,
@@ -9,7 +9,7 @@
     "replied": 0,
     "bounced": 2,
     "stopped": 6,
-    "sent": 61,
+    "sent": 60,
     "pipeline": {
       "new": 14,
       "step1": 49,
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-10-09",
-      "sent": 1
+      "sent": 0
     }
   ],
   "segments": [
@@ -190,17 +190,17 @@
     "accounts": [
       {
         "mailbox": "hello@…",
-        "sent": 62,
+        "sent": 63,
         "replies": 16
       },
       {
         "mailbox": "jothi@…",
-        "sent": 62,
+        "sent": 61,
         "replies": 2
       },
       {
         "mailbox": "hello@…",
-        "sent": 60,
+        "sent": 61,
         "replies": 9
       },
       {
@@ -210,7 +210,7 @@
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 60,
+        "sent": 59,
         "replies": 39
       }
     ],
