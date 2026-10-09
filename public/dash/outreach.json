@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-09T05:17:28.401Z",
-  "state": "live",
+  "updated": "2026-10-09T05:36:58.990Z",
+  "state": "paused",
   "startDate": "2026-10-06",
   "cap": 20,
   "totals": {
@@ -8,12 +8,12 @@
     "contacted": 60,
     "replied": 0,
     "bounced": 2,
-    "stopped": 0,
-    "sent": 66,
+    "stopped": 6,
+    "sent": 60,
     "pipeline": {
       "new": 15,
       "step1": 48,
-      "step2": 6,
+      "step2": 0,
       "step3": 0,
       "done": 0
     }
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-10-09",
-      "sent": 6
+      "sent": 0
     }
   ],
   "segments": [
@@ -127,7 +127,7 @@
     }
   ],
   "warmup": {
-    "total": 381,
+    "total": 379,
     "rescued": 0,
     "daily": [
       {
@@ -184,7 +184,7 @@
       },
       {
         "date": "2026-10-09",
-        "count": 4
+        "count": 2
       }
     ],
     "accounts": [
@@ -195,12 +195,12 @@
       },
       {
         "mailbox": "jothi@…",
-        "sent": 62,
+        "sent": 61,
         "replies": 2
       },
       {
         "mailbox": "hello@…",
-        "sent": 61,
+        "sent": 60,
         "replies": 9
       },
       {
