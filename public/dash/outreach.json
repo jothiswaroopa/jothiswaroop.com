@@ -1,18 +1,18 @@
 {
-  "updated": "2026-10-09T06:37:55.523Z",
-  "state": "paused",
+  "updated": "2026-10-09T07:39:22.822Z",
+  "state": "live",
   "startDate": "2026-10-06",
   "cap": 20,
   "totals": {
     "leads": 132,
-    "contacted": 60,
+    "contacted": 61,
     "replied": 0,
     "bounced": 2,
     "stopped": 6,
-    "sent": 60,
+    "sent": 61,
     "pipeline": {
-      "new": 15,
-      "step1": 48,
+      "new": 14,
+      "step1": 49,
       "step2": 0,
       "step3": 0,
       "done": 0
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-10-09",
-      "sent": 0
+      "sent": 1
     }
   ],
   "segments": [
@@ -105,7 +105,7 @@
       "segment": "E1",
       "name": "E1",
       "leads": 63,
-      "contacted": 31,
+      "contacted": 32,
       "replied": 0,
       "bounced": 1
     },
@@ -127,7 +127,7 @@
     }
   ],
   "warmup": {
-    "total": 381,
+    "total": 380,
     "rescued": 0,
     "daily": [
       {
@@ -184,13 +184,13 @@
       },
       {
         "date": "2026-10-09",
-        "count": 4
+        "count": 3
       }
     ],
     "accounts": [
       {
         "mailbox": "hello@…",
-        "sent": 63,
+        "sent": 62,
         "replies": 16
       },
       {
