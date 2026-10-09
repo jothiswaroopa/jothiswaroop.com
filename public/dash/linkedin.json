@@ -1,6 +1,107 @@
 {
-  "generated": "2026-10-08T06:24:57.774Z",
+  "generated": "2026-10-09T06:26:13.417Z",
   "posts": [
+    {
+      "date": "2026-10-09",
+      "weekday": "Fri",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": "Video week: post one of your own films today instead of this draft. Video is the only format still growing, and the films already exist. Upload it natively — never a YouTube link, which suppresses reach.",
+      "autopostSafe": false,
+      "heldBecause": [
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "hook": "OpenAI published \"Helping teens learn, plan, and shape the future of AI\" this week. Most posts will stop at \"OpenAI builds teen safety tools.\" That's the headline, not the point.",
+      "body": "OpenAI published \"Helping teens learn, plan, and shape the future of AI\" this week.\n\nMost posts will stop at \"OpenAI builds teen safety tools.\" That's the headline, not the point.\n\nThe point is simpler: a generation is about to grow up treating AI as the default way to ask a question, not a novelty. That changes what a search, a form fill or an enquiry even looks like in a few years.\n\nIf you run ads today, nothing in your account needs to change tomorrow because of this. But the people filling your lead forms five years from now learned to ask AI before they learned to Google. Your form, your landing page, your follow-up message — all built for people who type keywords. The next buyer might just ask an assistant to find and compare for them.\n\nNobody can tell you exactly what that means for cost per lead yet. Anyone who says they can is guessing. What you can do today is keep your own numbers honest, so when the shift shows up in your account, you notice it in your data and not in a feeling.",
+      "chars": 1005,
+      "avgWords": 17.2,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "one paragraph is 363 chars — may read as a wall",
+        "over a limit: cover slide is 11 words (max 10) — it carries most of the result",
+        "over a limit: slide 8: 23 words (max 20)",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [
+        "/linkedin/2026-10-09/slide-01.png",
+        "/linkedin/2026-10-09/slide-02.png",
+        "/linkedin/2026-10-09/slide-03.png",
+        "/linkedin/2026-10-09/slide-04.png",
+        "/linkedin/2026-10-09/slide-05.png",
+        "/linkedin/2026-10-09/slide-06.png",
+        "/linkedin/2026-10-09/slide-07.png",
+        "/linkedin/2026-10-09/slide-08.png",
+        "/linkedin/2026-10-09/slide-09.png",
+        "/linkedin/2026-10-09/slide-10.png",
+        "/linkedin/2026-10-09/slide-11.png"
+      ],
+      "pdf": "/linkedin/2026-10-09/carousel.pdf",
+      "slides": [
+        {
+          "kind": "statement",
+          "text": "One OpenAI update this week has nothing to do with chatbots.",
+          "highlight": "nothing"
+        },
+        {
+          "kind": "statement",
+          "text": "Everyone is reading it as a safety story. That is the smaller part."
+        },
+        {
+          "kind": "statement",
+          "text": "OpenAI's 7 October post is about teaching teenagers to use AI as a daily tool, not a toy.",
+          "highlight": "daily tool"
+        },
+        {
+          "kind": "statement",
+          "text": "That means the people who will fill your lead forms in five years are learning AI first, search second."
+        },
+        {
+          "kind": "statement",
+          "text": "Today a buyer types your product name into Google. Soon they may just ask an assistant to find it."
+        },
+        {
+          "kind": "statement",
+          "text": "Your landing page, your ad copy, your form — all built for someone typing keywords by hand."
+        },
+        {
+          "kind": "statement",
+          "text": "Nobody knows yet what an AI-first buyer does to cost per lead or conversion rate."
+        },
+        {
+          "kind": "statement",
+          "text": "But you can check one thing this week: how many of your form leads come from someone clearly reading, not just tapping through."
+        },
+        {
+          "kind": "statement",
+          "text": "Open your lead form questions. Count how many need a real answer versus a pre-filled tap."
+        },
+        {
+          "kind": "statement",
+          "text": "That ratio is your form's readiness for a buyer who thinks before they click, not just one who scrolls fast."
+        },
+        {
+          "kind": "statement",
+          "text": "This change won't hit your ad account tomorrow. It will hit whoever didn't check their form today."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Helping teens learn, plan, and shape the future of AI",
+          "url": "https://openai.com/index/teens-learn-and-plan",
+          "publisher": "OpenAI"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+    },
     {
       "date": "2026-10-08",
       "weekday": "Thu",
@@ -114,8 +215,7 @@
       },
       "impressions": null,
       "postedAt": "2026-10-08T06:25:01.290Z",
-      "linkedinId": "urn:li:ugcPost:7513846895929303040",
-      "notPosted": null
+      "linkedinId": "urn:li:ugcPost:7513846895929303040"
     },
     {
       "date": "2026-10-07",
