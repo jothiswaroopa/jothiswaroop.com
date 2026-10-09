@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T08:08:49.505Z",
+  "updated": "2026-10-09T08:36:31.590Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 20,
@@ -190,8 +190,8 @@
     "accounts": [
       {
         "mailbox": "hello@…",
-        "sent": 63,
-        "replies": 16
+        "sent": 62,
+        "replies": 17
       },
       {
         "mailbox": "jothi@…",
