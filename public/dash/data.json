@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-08T02:50:00.361Z",
+  "generatedAt": "2026-10-09T03:01:36.393Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-08",
-      "end": "2026-10-06"
+      "start": "2026-09-09",
+      "end": "2026-10-07"
     },
     "totals": {
       "clicks": 9,
-      "impressions": 75,
-      "ctr": 0.12,
-      "position": 8.213333333333333
+      "impressions": 79,
+      "ctr": 0.11392405063291139,
+      "position": 8.367088607594937
     },
     "previous": {
       "clicks": 0,
@@ -159,9 +159,23 @@
         "impressions": 1,
         "ctr": 1,
         "position": 7
+      },
+      {
+        "key": "2026-10-06",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 11.25
       }
     ],
     "queries": [
+      {
+        "key": "google ads for manufacturers",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
       {
         "key": "jothi store owner",
         "clicks": 0,
@@ -172,9 +186,9 @@
       {
         "key": "jothiswaroop.com",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 6,
         "ctr": 0,
-        "position": 26.25
+        "position": 19.833333333333332
       },
       {
         "key": "jyothi swaroop",
@@ -186,18 +200,18 @@
       {
         "key": "sathyam labels",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 10
+        "position": 9
       }
     ],
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 6,
-        "impressions": 46,
-        "ctr": 0.13043478260869565,
-        "position": 4.021739130434783
+        "impressions": 47,
+        "ctr": 0.1276595744680851,
+        "position": 4.085106382978724
       },
       {
         "key": "https://jothiswaroop.com/about/",
@@ -228,11 +242,18 @@
         "position": 26
       },
       {
+        "key": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 7,
         "ctr": 0,
-        "position": 20.833333333333332
+        "position": 18.142857142857142
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -258,16 +279,16 @@
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 6,
         "ctr": 0,
-        "position": 16.6
+        "position": 15.833333333333334
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 14.5
+        "position": 14.6
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -286,9 +307,9 @@
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 17.666666666666668
+        "position": 15.25
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
@@ -312,6 +333,13 @@
         "impressions": 52,
         "ctr": 0.17307692307692307,
         "position": 3.5576923076923075
+      },
+      {
+        "key": "are",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
       },
       {
         "key": "bih",
@@ -365,9 +393,9 @@
       {
         "key": "usa",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 18,
         "ctr": 0,
-        "position": 25.933333333333334
+        "position": 23.666666666666668
       }
     ],
     "devices": [
@@ -381,16 +409,16 @@
       {
         "key": "DESKTOP",
         "clicks": 3,
-        "impressions": 52,
-        "ctr": 0.057692307692307696,
-        "position": 10.211538461538462
+        "impressions": 56,
+        "ctr": 0.05357142857142857,
+        "position": 10.285714285714286
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-08",
-      "end": "2026-10-08"
+      "start": "2026-09-09",
+      "end": "2026-10-09"
     },
     "totals": {
       "views": 0,
@@ -511,6 +539,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791158400000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791244800000)/",
         "Impressions": 0
       }
     ],
@@ -717,17 +751,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 4.058256,
+    "spent": 4.16144,
     "by": {
       "blog": 2.30801,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 0.59536,
+      "linkedin": 0.698544,
       "scan": 0.31604
     },
-    "remaining": 4.941744,
-    "pace": 1.747305,
-    "projected": 15.725742,
+    "remaining": 4.83856,
+    "pace": 1.59265,
+    "projected": 14.333849,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -836,7 +870,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-21T05:07:45Z",
+        "lastCrawl": "2026-10-08T05:03:08Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
