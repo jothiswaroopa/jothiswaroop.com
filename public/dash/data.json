@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-09T03:01:36.393Z",
+  "generatedAt": "2026-10-10T02:34:13.876Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-09",
-      "end": "2026-10-07"
+      "start": "2026-09-10",
+      "end": "2026-10-08"
     },
     "totals": {
       "clicks": 9,
@@ -417,8 +417,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-09",
-      "end": "2026-10-09"
+      "start": "2026-09-10",
+      "end": "2026-10-10"
     },
     "totals": {
       "views": 0,
@@ -545,6 +545,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791244800000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791331200000)/",
         "Impressions": 0
       }
     ],
@@ -684,14 +690,23 @@
     ]
   },
   "coverage": {
-    "total": 20,
-    "ok": 20,
+    "total": 21,
+    "ok": 21,
     "broken": []
   },
   "blog": {
-    "count": 6,
-    "last": "2026-10-07",
+    "count": 7,
+    "last": "2026-10-09",
     "posts": [
+      {
+        "slug": "ai-search-chooses-which-businesses-recommend",
+        "title": "How AI Search Chooses Which Businesses to Recommend",
+        "date": "2026-10-09",
+        "lane": "guide",
+        "segment": "ai",
+        "words": 1184,
+        "sources": 3
+      },
       {
         "slug": "do-meta-ads-budget-under-1",
         "title": "What to Do With a Meta Ads Budget Under ₹1 Lakh in India",
@@ -751,17 +766,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 4.16144,
+    "spent": 4.650414,
     "by": {
-      "blog": 2.30801,
+      "blog": 2.699576,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 0.698544,
+      "linkedin": 0.795952,
       "scan": 0.31604
     },
-    "remaining": 4.83856,
-    "pace": 1.59265,
-    "projected": 14.333849,
+    "remaining": 4.349586,
+    "pace": 1.601809,
+    "projected": 14.416283,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -771,9 +786,9 @@
     }
   },
   "indexStatus": {
-    "checked": 20,
+    "checked": 21,
     "indexed": 18,
-    "notIndexed": 2,
+    "notIndexed": 3,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -798,8 +813,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -850,7 +865,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-19T18:11:21Z",
+        "lastCrawl": "2026-10-09T04:28:31Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -880,7 +895,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-19T22:44:11Z",
+        "lastCrawl": "2026-10-09T04:37:09Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -916,10 +931,20 @@
         "canonical": null
       },
       {
-        "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
+        "url": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "verdict": "NEUTRAL",
         "coverage": "URL is unknown to Google",
         "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
+        "verdict": "NEUTRAL",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
