@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T05:07:01.705Z",
+  "updated": "2026-10-11T05:37:29.703Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 20,
@@ -191,16 +191,16 @@
       {
         "mailbox": "hello@…",
         "sent": 64,
-        "replies": 17
+        "replies": 16
       },
       {
         "mailbox": "jothi@…",
-        "sent": 61,
+        "sent": 62,
         "replies": 3
       },
       {
         "mailbox": "hello@…",
-        "sent": 61,
+        "sent": 60,
         "replies": 9
       },
       {
@@ -210,7 +210,7 @@
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 60,
+        "sent": 61,
         "replies": 39
       }
     ],
