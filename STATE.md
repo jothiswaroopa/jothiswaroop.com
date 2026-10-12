@@ -1,0 +1,55 @@
+# Live state — personal brand
+
+**Updated: 12 October 2026.** Replace this block whenever it changes; a stale STATE.md is worse
+than none. Verify before trusting anything dated more than a week back.
+
+## Site
+
+Live at **jothiswaroop.com**. Last change: **9 client logos added 10 Oct 2026** (`204ade9`),
+taking the strip to 18+ marks, with a rest state that suits the pale ones.
+
+Everything else — structure, theme, SEO, performance — is as described in Jothi's long-term
+memory for this project, which loads automatically. That memory is detailed and current through
+late September; this file carries what has moved since.
+
+## Waiting on Jothi — nothing here can be finished without him
+
+| Item | Why it is stuck |
+|---|---|
+| **Hero video** | needs an unlisted YouTube upload from him |
+| **Certification name + proof** | "Certified" on the site is **unbacked** until the Meta exam is sat. This is a proof-rule problem, not a copy problem |
+| **5 testimonial pull-quotes** | needs his selection |
+| **Notes section** | **3 PLACEHOLDER posts still ship.** Either 3 real posts or hide the section |
+| **Client permissions** | for any further logos |
+| **Cynosure details**, creatives, decks | his to supply |
+
+## Auto-blog and dashboard
+
+Built 20 Sep 2026. **The generator has never run end to end** — there was no API key locally, so
+the first GitHub Actions run is what will prove it. If it fails, read the rejected-draft artifact.
+
+**Secrets Jothi must add himself** (never ask for them, never handle them): `ANTHROPIC_API_KEY`,
+`GSC_SERVICE_ACCOUNT`, `GSC_SITE`, `CF_API_TOKEN`, `CF_ACCOUNT_TAG`, `CF_SITE_TAG`, `BING_API_KEY`.
+
+Blog runs every 2 days at 06:30 IST; the dashboard daily at 05:00 IST.
+
+## LinkedIn — open items
+
+- **Endorsement asks** — message drafted, **he sends them**
+- **Nova recommendation** — draft ready, needs the founder's name from him
+- **Prompt-battle month** — still shows a January placeholder; he knows the real month
+- **Meta Certified Digital Marketing Associate** — he chose to sit it
+- **2 proof posts a week** — 4 drafts were given on 19 Sep and not yet used
+
+## SEO still pending
+
+Bing import, LinkedIn/Instagram back-links, Google Business Profile.
+
+## How this connects to the other chat
+
+Cold email runs from `~/Projects/outreach-engine` in its own session. The only hard link between
+them: **cold-email links must use `jothiswaroop.com/?s=<segment>&c=<step>`** so first-touch
+attribution works, and **the Hostinger mail records must never be touched** from this side.
+
+Mail for cold outreach goes from **getjothiswaroop.com**, never from jothiswaroop.com — that
+domain's reputation carries this site.
