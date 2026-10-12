@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T07:58:42.714Z",
+  "updated": "2026-10-12T08:05:55.046Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 20,
@@ -9,7 +9,7 @@
     "replied": 0,
     "bounced": 2,
     "stopped": 6,
-    "sent": 69,
+    "sent": 84,
     "pipeline": {
       "new": 14,
       "step1": 4,
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-10-12",
-      "sent": 9
+      "sent": 24
     }
   ],
   "segments": [
@@ -127,7 +127,7 @@
     }
   ],
   "warmup": {
-    "total": 395,
+    "total": 399,
     "rescued": 0,
     "daily": [
       {
@@ -184,19 +184,19 @@
       },
       {
         "date": "2026-10-12",
-        "count": 15
+        "count": 19
       }
     ],
     "accounts": [
       {
         "mailbox": "hello@…",
-        "sent": 65,
+        "sent": 67,
         "replies": 16
       },
       {
         "mailbox": "jothi@…",
         "sent": 64,
-        "replies": 5
+        "replies": 6
       },
       {
         "mailbox": "hello@…",
@@ -210,7 +210,7 @@
       },
       {
         "mailbox": "jswaroop2000@…",
-        "sent": 62,
+        "sent": 63,
         "replies": 39
       }
     ],
