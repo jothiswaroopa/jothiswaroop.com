@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-12",
+  "weekday": "Mon",
+  "pillar": "trending",
+  "format": "text",
+  "angle": "An AI announcement that sounds huge but changes nothing yet for a small advertiser, and why.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": [
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "hook": "Pollo AI just announced it turns creative ideas into ad campaigns using OpenAI's models. \"Pollo AI turns creative ideas into campaigns with OpenAI.\" Writing an ad is not the same as finding out who it reaches.",
+  "body": "Pollo AI just announced it turns creative ideas into ad campaigns using OpenAI's models. \"Pollo AI turns creative ideas into campaigns with OpenAI.\"\n\nWriting an ad is not the same as finding out who it reaches.\n\nAny tool that writes campaign copy is solving the easy half. It can give you five headlines in ten seconds. It cannot tell you if the 200 people who filled your form actually have the budget your product needs — nobody can, until they respond and you talk to them.\n\nAcross our nine Meta ad accounts, 7,341 people filled a lead form. Cost per lead is just amount spent divided by leads, pulled straight from Ads Manager. That number is easy. What happens after someone submits the form is the part no AI writes for you.\n\nSay a clinic uses a tool like this to generate twenty ad variations by lunch. The variations are not the bottleneck. Whether the front desk calls lead number fourteen before it goes cold is the bottleneck, and that has nothing to do with GPT-6.1 Sol or any model behind it.\n\nSo before trying a tool like this, check one thing in your own account: Ads Manager → your campaign → the ad set → Performance goal. What is it actually optimising for right now, leads or something else?",
+  "chars": 1210,
+  "avgWords": 14.7,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "over a limit: first line is 23 words (max 14) — short openers get expanded far more often",
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "images": [],
+  "pdf": null,
+  "sources": [
+    {
+      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+      "url": "https://openai.com/index/asana-browser-agent",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+      "url": "https://openai.com/index/oracle",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "Pollo AI turns creative ideas into campaigns with OpenAI",
+      "url": "https://openai.com/index/pollo-ai",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "draft",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+}
