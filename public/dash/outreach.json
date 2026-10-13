@@ -1,18 +1,18 @@
 {
-  "updated": "2026-10-13T02:37:51.704Z",
+  "updated": "2026-10-13T03:09:11.395Z",
   "state": "live",
   "startDate": "2026-10-06",
   "cap": 30,
   "totals": {
     "leads": 165,
-    "contacted": 79,
+    "contacted": 80,
     "replied": 0,
     "bounced": 2,
     "stopped": 6,
-    "sent": 102,
+    "sent": 103,
     "pipeline": {
-      "new": 8,
-      "step1": 22,
+      "new": 12,
+      "step1": 23,
       "step2": 45,
       "step3": 0,
       "done": 0
@@ -73,7 +73,7 @@
     },
     {
       "date": "2026-10-13",
-      "sent": 2
+      "sent": 3
     }
   ],
   "segments": [
@@ -89,7 +89,7 @@
       "segment": "ADS",
       "name": "ADS",
       "leads": 79,
-      "contacted": 37,
+      "contacted": 38,
       "replied": 0,
       "bounced": 1
     },
@@ -127,7 +127,7 @@
     }
   ],
   "warmup": {
-    "total": 411,
+    "total": 414,
     "rescued": 0,
     "daily": [
       {
@@ -184,7 +184,7 @@
       },
       {
         "date": "2026-10-13",
-        "count": 7
+        "count": 10
       }
     ],
     "accounts": [
@@ -195,17 +195,17 @@
       },
       {
         "mailbox": "jothi@…",
-        "sent": 65,
+        "sent": 66,
         "replies": 7
       },
       {
         "mailbox": "hello@…",
-        "sent": 65,
+        "sent": 66,
         "replies": 9
       },
       {
         "mailbox": "growth@…",
-        "sent": 64,
+        "sent": 65,
         "replies": 10
       },
       {
