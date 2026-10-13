@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-13",
+  "weekday": "Tue",
+  "pillar": "framework",
+  "format": "carousel",
+  "angle": "The Qualifier Test: one question to add to any lead form, and how to choose it for your business.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": [
+    "STILL UNVERIFIED: \"Form asks name, phone, email only\" — Presented as a specific fact about the 4,248-lead Nova Attire campaign's form, but approved facts don't specify what fields that form used.",
+    "STILL UNVERIFIED: \"Same ad budget, two different questions in the form.\" — No approved fact states the two campaigns had the same ad budget."
+  ],
+  "hook": "One line in a lead form decides whether your sales team talks to buyers, or to browsers. Most forms ask for name, phone, email. That tells you nothing about whether the person can actually buy what you sell.",
+  "body": "One line in a lead form decides whether your sales team talks to buyers, or to browsers.\n\nMost forms ask for name, phone, email. That tells you nothing about whether the person can actually buy what you sell.\n\nA Tirupur apparel manufacturer ran a campaign where the ad and the form both stated a 200-piece minimum order, up front. 19 wholesale buyers responded, at under $6 an enquiry.\n\nCompare that to the same manufacturer's wider lead campaigns: 4,248 leads at ₹16.58 each across six campaigns. Cheaper leads, no qualifying question in front of them.\n\nNeither number is wrong. They are two different products. Cheap leads fill a sheet. Qualified leads fill a sales call.\n\nThe qualifying question is not about your product. It is about the one thing that would make someone unable to buy from you at all — minimum order size, budget, location, timeline. Put that one thing in the form, in plain words, before you ask for a phone number.\n\nYou will get fewer leads. You will also stop handing your sales team people who were never going to say yes.",
+  "chars": 1048,
+  "avgWords": 11.5,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "over a limit: first line is 16 words (max 14) — short openers get expanded far more often",
+    "over a limit: cover slide is 11 words (max 10) — it carries most of the result",
+    "no number in the first line — openers with a figure tend to do better",
+    "slide 1 highlights \"one question\", which is not in its text — it will render plain",
+    "over a limit: first line is 17 words (max 14) — short openers get expanded far more often",
+    "over a limit: cover slide is 12 words (max 10) — it carries most of the result",
+    "STILL UNVERIFIED: \"Form asks name, phone, email only\" — Presented as a specific fact about the 4,248-lead Nova Attire campaign's form, but approved facts don't specify what fields that form used.",
+    "STILL UNVERIFIED: \"Same ad budget, two different questions in the form.\" — No approved fact states the two campaigns had the same ad budget.",
+    "check: \"Compare that to the same manufacturer's wider lead campaigns: 4,248 leads at ₹16\" — Implies the 4,248 figure and the 19-buyer campaign are directly comparable as 'wider lead campaigns' of the same effort; approved facts list them as separate campaigns but do not frame one as 'wider' version of the other in this comparative way — borderline but plausible interpretation.",
+    "check: \"Cheaper leads, no qualifying question in front of them.\" — Approved facts don't state that the 4,248-lead campaigns had no qualifying question; this is an inferred/assumed claim about those campaigns' form structure.",
+    "check: \"Form states the one thing that rules someone out\" — Presented as a specific fact about the 19-buyer campaign's form beyond the approved fact (which only says the ad and form stated a 200-piece minimum) — the generalized framing of 'rules someone out' is an interpretive addition presented as fact.",
+    "check: \"A qualifier costs you volume. It buys back your sales team's time.\" — Presented as a factual trade-off/rule rather than opinion, but it's a reasonable generalization — flagged for tone only."
+  ],
+  "images": [
+    "/linkedin/2026-10-13/slide-01.png",
+    "/linkedin/2026-10-13/slide-02.png",
+    "/linkedin/2026-10-13/slide-03.png",
+    "/linkedin/2026-10-13/slide-04.png",
+    "/linkedin/2026-10-13/slide-05.png",
+    "/linkedin/2026-10-13/slide-06.png",
+    "/linkedin/2026-10-13/slide-07.png",
+    "/linkedin/2026-10-13/slide-08.png",
+    "/linkedin/2026-10-13/slide-09.png",
+    "/linkedin/2026-10-13/slide-10.png",
+    "/linkedin/2026-10-13/slide-11.png"
+  ],
+  "pdf": "/linkedin/2026-10-13/carousel.pdf",
+  "slides": [
+    {
+      "kind": "statement",
+      "text": "One lead form question decides who your sales team actually talks to.",
+      "highlight": "one question"
+    },
+    {
+      "kind": "statement",
+      "text": "Cheap leads and leads that close are two different products, not one."
+    },
+    {
+      "kind": "statement",
+      "text": "Most forms ask name, phone, email — nothing that rules anyone out."
+    },
+    {
+      "kind": "stat",
+      "figure": "4,248",
+      "label": "LEADS AT ₹16.58",
+      "text": "A Tirupur manufacturer got 4,248 wholesale leads at ₹16.58 each, no qualifying question in front of them."
+    },
+    {
+      "kind": "versus",
+      "leftLabel": "NO QUALIFIER",
+      "rightLabel": "ONE QUALIFIER",
+      "left": "Form asks name, phone, email only",
+      "right": "Form states the one thing that rules someone out",
+      "text": "Same ad budget, two different questions in the form."
+    },
+    {
+      "kind": "stat",
+      "figure": "19",
+      "label": "AT UNDER $6 EACH",
+      "text": "The same manufacturer ran a campaign where the ad and form both stated a 200-piece minimum."
+    },
+    {
+      "kind": "statement",
+      "text": "19 buyers responded to that minimum, at under $6 an enquiry — fewer leads, one condition stated upfront."
+    },
+    {
+      "kind": "steps",
+      "text": "Pick your one qualifier before you touch the ad.",
+      "items": [
+        "Find the single fact that rules someone out — order size, budget, location, timeline",
+        "State it plainly in the ad and again in the form",
+        "Never bury it as a dropdown with 'other' as an option"
+      ]
+    },
+    {
+      "kind": "callout",
+      "label": "THE TRADE",
+      "text": "A qualifier costs you volume. It buys back your sales team's time."
+    },
+    {
+      "kind": "statement",
+      "text": "The hook holds: one honest question in a form changes who shows up on the other side of it.",
+      "highlight": "one honest question"
+    },
+    {
+      "kind": "statement",
+      "text": "Write the one fact that would make someone wrong for you. Put it in the form before you ask for their number."
+    }
+  ],
+  "status": "draft",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "notPosted": "held for review — STILL UNVERIFIED: \"Form asks name, phone, email only\" — Presented as a specific fact about the 4,248-lead Nova Attire campaign's form, but approved facts don't specify what fields that form used.; STILL UNVERIFIED: \"Same ad budget, two different questions in the form.\" — No approved fact states the two campaigns had the same ad budget."
+}
