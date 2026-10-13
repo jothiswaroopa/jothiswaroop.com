@@ -1,7 +1,7 @@
 {
  "month": "2026-10",
  "job": "linkedin",
- "total": 0.874458,
+ "total": 1.014432,
  "calls": [
   {
    "at": "2026-10-01T06:15:51.058Z",
@@ -481,6 +481,78 @@
    "cacheRead": 0,
    "cacheWrite": 0,
    "out": 390,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-13T06:56:33.685Z",
+   "runStartedAt": "2026-10-13T06:56:17.828Z",
+   "label": "li.draft",
+   "model": "claude-sonnet-5",
+   "cost": 0.029134,
+   "in": 9687,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 976,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-13T06:56:44.075Z",
+   "runStartedAt": "2026-10-13T06:56:17.828Z",
+   "label": "li.draft",
+   "model": "claude-sonnet-5",
+   "cost": 0.028032,
+   "in": 9776,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 848,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-13T06:56:54.766Z",
+   "runStartedAt": "2026-10-13T06:56:17.828Z",
+   "label": "li.draft",
+   "model": "claude-sonnet-5",
+   "cost": 0.02838,
+   "in": 9760,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 886,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-13T06:56:59.695Z",
+   "runStartedAt": "2026-10-13T06:56:17.828Z",
+   "label": "li.verify",
+   "model": "claude-sonnet-5",
+   "cost": 0.011364,
+   "in": 3092,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 518,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-13T06:57:12.141Z",
+   "runStartedAt": "2026-10-13T06:56:17.828Z",
+   "label": "li.draft",
+   "model": "claude-sonnet-5",
+   "cost": 0.030272,
+   "in": 9881,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 1051,
+   "searches": 0
+  },
+  {
+   "at": "2026-10-13T06:57:18.740Z",
+   "runStartedAt": "2026-10-13T06:56:17.828Z",
+   "label": "li.verify",
+   "model": "claude-sonnet-5",
+   "cost": 0.012792,
+   "in": 3256,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 628,
    "searches": 0
   }
  ]
