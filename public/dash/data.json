@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-12T02:34:50.855Z",
+  "generatedAt": "2026-10-13T03:44:24.078Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-12",
-      "end": "2026-10-10"
+      "start": "2026-09-13",
+      "end": "2026-10-11"
     },
     "totals": {
       "clicks": 12,
-      "impressions": 95,
-      "ctr": 0.12631578947368421,
-      "position": 9.052631578947368
+      "impressions": 96,
+      "ctr": 0.125,
+      "position": 9.072916666666666
     },
     "previous": {
       "clicks": 0,
@@ -187,6 +187,13 @@
         "impressions": 1,
         "ctr": 0,
         "position": 1
+      },
+      {
+        "key": "2026-10-10",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
       }
     ],
     "queries": [
@@ -214,9 +221,9 @@
       {
         "key": "jothiswaroop.com",
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 8,
         "ctr": 0,
-        "position": 18.714285714285715
+        "position": 17.75
       },
       {
         "key": "jyothi swaroop",
@@ -328,16 +335,16 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 7,
         "ctr": 0,
-        "position": 14.5
+        "position": 14.428571428571429
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 23
+        "position": 19
       },
       {
         "key": "https://jothiswaroop.com/work/ram/",
@@ -444,9 +451,9 @@
       {
         "key": "DESKTOP",
         "clicks": 6,
-        "impressions": 72,
-        "ctr": 0.08333333333333333,
-        "position": 10.76388888888889
+        "impressions": 73,
+        "ctr": 0.0821917808219178,
+        "position": 10.767123287671232
       },
       {
         "key": "MOBILE",
@@ -459,8 +466,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-12",
-      "end": "2026-10-12"
+      "start": "2026-09-13",
+      "end": "2026-10-13"
     },
     "totals": {
       "views": 0,
@@ -605,6 +612,18 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791504000000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791590400000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791676800000)/",
         "Impressions": 0
       }
     ],
@@ -820,17 +839,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 5.078152,
+    "spent": 5.156658,
     "by": {
       "blog": 3.127314,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 0.795952,
+      "linkedin": 0.874458,
       "scan": 0.31604
     },
-    "remaining": 3.921848,
-    "pace": 1.457618,
-    "projected": 13.118559,
+    "remaining": 3.843342,
+    "pace": 1.366294,
+    "projected": 12.296646,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -841,8 +860,8 @@
   },
   "indexStatus": {
     "checked": 21,
-    "indexed": 18,
-    "notIndexed": 3,
+    "indexed": 19,
+    "notIndexed": 2,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -859,7 +878,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-18T11:15:36Z",
+        "lastCrawl": "2026-10-12T05:07:52Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -986,19 +1005,19 @@
       },
       {
         "url": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
-        "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-10-12T10:14:30Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
