@@ -1,6 +1,45 @@
 {
-  "generated": "2026-10-13T06:57:20.562Z",
+  "generated": "2026-10-14T05:08:49.549Z",
   "posts": [
+    {
+      "date": "2026-10-14",
+      "weekday": "Wed",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": [
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "hook": "Meta just helped take down West African scam networks, working with law enforcement worldwide. The news is the takedown. The useful part is what it tells you about how Meta decides who gets to run ads at all.",
+      "body": "Meta just helped take down West African scam networks, working with law enforcement worldwide.\n\nThe news is the takedown. The useful part is what it tells you about how Meta decides who gets to run ads at all.\n\nMeta's ad system already runs checks on who is behind an ad account, not just what the ad says. A scam network survives by opening new accounts faster than they get caught. This crackdown is about closing that reopening loop, not just pulling ads.\n\nFor a small business, this matters less for safety and more for approval speed. If your ad account ever gets flagged for review, you are standing in a queue that got longer this month. More accounts under scrutiny means more human reviewers busy on the clearly criminal ones first.\n\nSo the move today is boring but it works: keep your business details, website and payment method exactly matching across Meta Business Manager. Mismatches are the single easiest thing a reviewer's system flags, and you do not want to be a false positive sitting in that queue.\n\nI count every lead from Meta's own lead centre, nothing modelled. When accounts get scrutinised harder, clean records are what gets you through review fast.\n\nHas your ad account ever gone into review, and how long before it cleared?",
+      "chars": 1253,
+      "avgWords": 15.5,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "possible client name to check: \"West African\"",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [],
+      "pdf": null,
+      "sources": [
+        {
+          "title": "Leading Tech Companies Join Global Law Enforcement in Major Crackdown on West African Scam Networks",
+          "url": "https://about.fb.com/news/2026/10/meta-tech-companies-law-enforcement-crackdown-global-scam-networks/",
+          "publisher": "Meta Newsroom"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+    },
     {
       "date": "2026-10-13",
       "weekday": "Tue",
