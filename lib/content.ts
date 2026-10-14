@@ -534,6 +534,15 @@ export const videos: Video[] = [
   // Added 2026-10-05. Sits beside the jewellery UGC because the two together show the format
   // across a Western and an Indian market, which is the question a buyer actually has.
   { title: "Creative fatigue — UGC ad", client: "Concept · ecommerce", kind: "AI UGC", youtubeId: "divPpf8Dw2Q", vertical: true },
+  // Added 2026-10-14. Both are concept pieces, but carry the brand they were made around rather
+  // than the word "Concept" alone: a named saree brand reads as work, where "Concept · saree"
+  // reads as a sketch. The qualifier stays in the line so nothing here claims a client.
+  //
+  // The saree one closes the gap that mattered most: eight of the eighteen Indian brands being
+  // approached are apparel or saree, the strongest category, and there was no ethnic-wear sample
+  // to send any of them.
+  { title: "Zarivana — saree UGC ad", client: "Zarivana · concept · saree", kind: "AI UGC", youtubeId: "wH4Sr9C9HX0", vertical: true },
+  { title: "SALT — waterproof jewellery UGC", client: "SALT · concept · jewellery", kind: "AI UGC", youtubeId: "IaK2Ph1Rf3Y", vertical: true },
   { title: "Parota — UGC ad", client: "Top-5 El Alimentos · FMCG food", kind: "AI UGC", youtubeId: "8nIrz38jXNA", vertical: true },
   { title: "Hazelnut latte — UGC ad", client: "Concept · coffee", kind: "AI UGC", youtubeId: "amEMlW6Yb2I", vertical: true },
   { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
