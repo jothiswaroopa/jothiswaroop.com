@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-14T02:04:21.419Z",
+  "generatedAt": "2026-10-15T01:40:40.024Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-14",
-      "end": "2026-10-12"
+      "start": "2026-09-15",
+      "end": "2026-10-13"
     },
     "totals": {
       "clicks": 12,
-      "impressions": 96,
-      "ctr": 0.125,
-      "position": 9.072916666666666
+      "impressions": 98,
+      "ctr": 0.12244897959183673,
+      "position": 9.112244897959183
     },
     "previous": {
       "clicks": 0,
@@ -201,6 +201,13 @@
         "impressions": 0,
         "ctr": 0,
         "position": 0
+      },
+      {
+        "key": "2026-10-12",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11
       }
     ],
     "queries": [
@@ -228,9 +235,9 @@
       {
         "key": "jothiswaroop.com",
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 9,
         "ctr": 0,
-        "position": 17.75
+        "position": 17.11111111111111
       },
       {
         "key": "jyothi swaroop",
@@ -265,9 +272,9 @@
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 45,
-        "ctr": 0.044444444444444446,
-        "position": 6.533333333333333
+        "impressions": 46,
+        "ctr": 0.043478260869565216,
+        "position": 6.608695652173913
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -321,9 +328,9 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 8,
         "ctr": 0,
-        "position": 15.714285714285714
+        "position": 15.875
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements",
@@ -342,9 +349,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 8,
         "ctr": 0,
-        "position": 14.428571428571429
+        "position": 14.125
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -386,9 +393,9 @@
       {
         "key": "ind",
         "clicks": 12,
-        "impressions": 64,
-        "ctr": 0.1875,
-        "position": 3.125
+        "impressions": 65,
+        "ctr": 0.18461538461538463,
+        "position": 3.230769230769231
       },
       {
         "key": "are",
@@ -458,23 +465,23 @@
       {
         "key": "DESKTOP",
         "clicks": 6,
-        "impressions": 73,
-        "ctr": 0.0821917808219178,
-        "position": 10.767123287671232
+        "impressions": 74,
+        "ctr": 0.08108108108108109,
+        "position": 10.783783783783784
       },
       {
         "key": "MOBILE",
         "clicks": 6,
-        "impressions": 23,
-        "ctr": 0.2608695652173913,
-        "position": 3.6956521739130435
+        "impressions": 24,
+        "ctr": 0.25,
+        "position": 3.9583333333333335
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-14",
-      "end": "2026-10-14"
+      "start": "2026-09-15",
+      "end": "2026-10-15"
     },
     "totals": {
       "views": 0,
@@ -855,17 +862,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 5.65892,
+    "spent": 5.714236,
     "by": {
       "blog": 3.489602,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 1.014432,
+      "linkedin": 1.069748,
       "scan": 0.31604
     },
-    "remaining": 3.34108,
-    "pace": 1.392274,
-    "projected": 12.530466,
+    "remaining": 3.285764,
+    "pace": 1.312158,
+    "projected": 11.809421,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1042,8 +1049,8 @@
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
