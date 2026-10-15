@@ -1,6 +1,117 @@
 {
-  "generated": "2026-10-14T05:08:49.549Z",
+  "generated": "2026-10-15T04:57:03.232Z",
   "posts": [
+    {
+      "date": "2026-10-15",
+      "weekday": "Thu",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": true,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": "selling day — you approve anything that makes an offer",
+      "hook": "Facebook just gave users a dial to shape their own feed. Most small business owners will read that and think: nice, not my problem.",
+      "body": "Facebook just gave users a dial to shape their own feed.\n\nMost small business owners will read that and think: nice, not my problem.\n\nIt is your problem. \"Your Algorithm, Your Words\" (Meta Newsroom, 13 Oct 2026) lets people tell Facebook what they want to see more or less of, in plain words. That changes what reach an ad or a page post can even get, because the algorithm is now partly steered by the audience, not just by Meta.\n\nAcross nine Meta ad accounts I track, every lead is a form submission counted in Meta's own lead centre, nothing modelled. That habit of checking the real number, not the assumed one, matters more now, not less.\n\nIf your reach drops next month, the first question is not \"did the algorithm hate me\" — it's whether the audience told it to want less of what you're posting.\n\nI'm doing a few free audits of ad accounts this month for anyone who wants a second pair of eyes on this.",
+      "chars": 910,
+      "avgWords": 18.8,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "possible client name to check: \"Your Algorithm\"",
+        "possible client name to check: \"Your Words\"",
+        "possible client name to check: \"Meta Newsroom\"",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [
+        "/linkedin/2026-10-15/slide-01.png",
+        "/linkedin/2026-10-15/slide-02.png",
+        "/linkedin/2026-10-15/slide-03.png",
+        "/linkedin/2026-10-15/slide-04.png",
+        "/linkedin/2026-10-15/slide-05.png",
+        "/linkedin/2026-10-15/slide-06.png",
+        "/linkedin/2026-10-15/slide-07.png",
+        "/linkedin/2026-10-15/slide-08.png",
+        "/linkedin/2026-10-15/slide-09.png",
+        "/linkedin/2026-10-15/slide-10.png",
+        "/linkedin/2026-10-15/slide-11.png"
+      ],
+      "pdf": "/linkedin/2026-10-15/carousel.pdf",
+      "slides": [
+        {
+          "kind": "statement",
+          "text": "Facebook users can now tell the algorithm what to drop.",
+          "highlight": "drop"
+        },
+        {
+          "kind": "statement",
+          "text": "That sounds like a user setting. It is also an ads problem."
+        },
+        {
+          "kind": "statement",
+          "text": "Meta's 13 Oct update lets people say, in plain words, see less of this."
+        },
+        {
+          "kind": "statement",
+          "text": "That's not a filter on one post. It's a standing instruction to the feed."
+        },
+        {
+          "kind": "statement",
+          "text": "Your reach was never just about your ad. It was always half the viewer's taste."
+        },
+        {
+          "kind": "statement",
+          "text": "Now that taste is explicit, and the algorithm leans on it harder than before."
+        },
+        {
+          "kind": "callout",
+          "text": "A page's reach can fall for a reason that has nothing to do with the ad at all.",
+          "label": "THE TRAP"
+        },
+        {
+          "kind": "statement",
+          "text": "Most dashboards still show cost and clicks. None of them show what audiences just told Facebook to mute.",
+          "highlight": "mute"
+        },
+        {
+          "kind": "statement",
+          "text": "So before you touch the creative or the bid, check if the audience changed, not you."
+        },
+        {
+          "kind": "statement",
+          "text": "Reach fell. The algorithm didn't break. The audience changed what it asked for."
+        },
+        {
+          "kind": "statement",
+          "text": "Check your numbers before you blame the algorithm. It is rarely the first thing that moved.",
+          "highlight": "numbers"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Higgsfield takes AI video from 1 minute to over 10",
+          "url": "https://openai.com/index/higgsfield-longer-videos-voice",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Your Algorithm, Your Words: New Ways to Shape What You See on Facebook",
+          "url": "https://about.fb.com/news/2026/10/introducing-your-algorithm-facebook/",
+          "publisher": "Meta Newsroom"
+        },
+        {
+          "title": "Leading Tech Companies Join Global Law Enforcement in Major Crackdown on West African Scam Networks",
+          "url": "https://about.fb.com/news/2026/10/meta-tech-companies-law-enforcement-crackdown-global-scam-networks/",
+          "publisher": "Meta Newsroom"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — selling day — you approve anything that makes an offer"
+    },
     {
       "date": "2026-10-14",
       "weekday": "Wed",
