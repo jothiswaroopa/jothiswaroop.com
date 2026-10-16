@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-15T01:40:40.024Z",
+  "generatedAt": "2026-10-16T01:34:42.860Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-15",
-      "end": "2026-10-13"
+      "start": "2026-09-16",
+      "end": "2026-10-14"
     },
     "totals": {
       "clicks": 12,
@@ -208,6 +208,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 11
+      },
+      {
+        "key": "2026-10-13",
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0
       }
     ],
     "queries": [
@@ -480,8 +487,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-15",
-      "end": "2026-10-15"
+      "start": "2026-09-16",
+      "end": "2026-10-16"
     },
     "totals": {
       "views": 0,
@@ -638,6 +645,18 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791676800000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791763200000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791849600000)/",
         "Impressions": 0
       }
     ],
@@ -862,17 +881,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 5.714236,
+    "spent": 5.78307,
     "by": {
       "blog": 3.489602,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 1.069748,
+      "linkedin": 1.138582,
       "scan": 0.31604
     },
-    "remaining": 3.285764,
-    "pace": 1.312158,
-    "projected": 11.809421,
+    "remaining": 3.21693,
+    "pace": 1.244966,
+    "projected": 11.204698,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1049,8 +1068,8 @@
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
