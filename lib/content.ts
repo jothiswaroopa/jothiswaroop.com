@@ -83,6 +83,25 @@ export const marquee = [
   "Apparel manufacturing", "Knitwear", "Garment labels", "Textile retail", "Pooja products", "Imitation jewellery", "Tanjore painting", "Home bakery", "Company secretary", "VROOM 2026 · Digital Partner",
 ];
 
+// ─── ROOMS — founders met at summits and founder rooms. Deliberately NOT inside `recognition`:
+// every entry there is something given or won, and a photograph with someone is neither. The lede
+// says "not clients" in as many words, because a page whose whole case is receipts cannot afford
+// to look like it is borrowing authority from a handshake.
+export type Met = { name: string; role: string; note?: string; image: string; position?: string };
+export const met: Met[] = [
+  { name: "Kumar Vembu", role: "Co-founder, Zoho · Founder, Mudhal Partners",
+    note: "On the AI era, and how it reaches brands of every size.",
+    image: "/img/met-kumar-vembu.jpg", position: "50% 30%" },
+  { name: "Dharaneetharan G D", role: "Founder, Social Eagle",
+    note: "My mentor.", image: "/img/met-dharaneetharan.jpg", position: "58% 28%" },
+  { name: "Arokiaswamy Velumani", role: "Founder, Thyrocare Technologies Ltd · MD, AVM Labs",
+    image: "/img/met-velumani.jpg", position: "50% 24%" },
+  { name: "Aathitiyan V S", role: "CEO, Cookd",
+    image: "/img/met-aathitiyan.jpg", position: "50% 20%" },
+  { name: "M.V. Manikandan", role: "Founder & Managing Director, Adissia Developers",
+    image: "/img/met-manikandan.jpg", position: "50% 20%" },
+];
+
 export type Recognition = { title: string; detail: string; image: string; caption: string; extra?: string[]; extraPositions?: string[]; position?: string };
 export const recognition: Recognition[] = [
   {

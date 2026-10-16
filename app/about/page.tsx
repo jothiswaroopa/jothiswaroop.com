@@ -1,7 +1,7 @@
 import BackLink from "@/components/BackLink";
 import Image from "next/image";
 import Button from "@/components/Button";
-import { site, who, recognition, story } from "@/lib/content";
+import { site, who, recognition, story, met } from "@/lib/content";
 
 export const metadata = { title: "About — Jothi Swaroop", description: "From Villupuram to Chennai to UK and US clients: the story of Jothi Swaroop, performance marketer and AI systems builder. First client 2023, 7,341 leads since.", alternates: { canonical: "/about/" }, openGraph: { title: "About — Jothi Swaroop", url: "/about/", images: ["/og.png"] } };
 
@@ -87,6 +87,29 @@ export default function AboutPage() {
               ))}
             </div>
           </section>
+          <section className="mt-14 border-t hairline pt-10">
+            <p className="label">// ROOMS I&rsquo;VE BEEN IN</p>
+            <p className="mt-4 max-w-lg text-paper/75">
+              Summits and founder rooms across Tamil Nadu. Not clients &mdash; people whose answers
+              changed how I work.
+            </p>
+            <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {met.map((m) => (
+                <li key={m.name}>
+                  <div className="bezel !p-1">
+                    <div className="bezel-core relative aspect-[4/5]">
+                      <Image src={m.image} alt={`${site.name} with ${m.name}`} fill sizes="(min-width: 640px) 30vw, 45vw"
+                        className="object-cover [filter:saturate(0.9)]" style={{ objectPosition: m.position }} />
+                    </div>
+                  </div>
+                  <p className="mono mt-2 text-sm text-paper">{m.name}</p>
+                  <p className="mt-0.5 text-xs leading-snug text-paper/60">{m.role}</p>
+                  {m.note && <p className="mt-1 text-xs leading-snug text-paper/75">{m.note}</p>}
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <section className="mt-14 border-t hairline pt-10">
             <p className="display text-[clamp(1.75rem,3.2vw,2.5rem)] leading-tight text-paper">{story.close.headline}</p>
             <p className="mt-4 max-w-lg text-paper/75">{story.close.body}</p>
