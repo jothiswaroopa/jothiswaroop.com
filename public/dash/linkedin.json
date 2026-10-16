@@ -1,6 +1,108 @@
 {
-  "generated": "2026-10-15T04:57:03.232Z",
+  "generated": "2026-10-16T04:47:52.559Z",
   "posts": [
+    {
+      "date": "2026-10-16",
+      "weekday": "Fri",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": [
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "hook": "Google added a new way to control which campaign gets your budget first, in \"Guide your campaign spending with new priority and allocation features.\" Most people will read that as a feature update. It is actually a question about where your money goes when it is tight.",
+      "body": "Google added a new way to control which campaign gets your budget first, in \"Guide your campaign spending with new priority and allocation features.\"\n\nMost people will read that as a feature update. It is actually a question about where your money goes when it is tight.\n\nHere is the part worth your Monday: budget priority is not the same as a Performance goal. One tells Google which campaign gets funded first when you don't have enough for all of them. The other tells Google what a \"win\" looks like inside each campaign. Most accounts have only ever set the second one.\n\nIf you run more than one campaign and you have never touched priority, Google has been deciding the order for you. That is not a judgement on Google. It is just a setting nobody opens because nothing forces you to.\n\nCost per lead means nothing if the campaign funding your best leads is the one getting starved first. Check which campaign is marked top priority before you check anything else this week.",
+      "chars": 979,
+      "avgWords": 14.5,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "no number in the first line — openers with a figure tend to do better",
+        "over a limit: hook is 269 chars, must be under 210",
+        "over a limit: first line is 24 words (max 14) — short openers get expanded far more often",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [
+        "/linkedin/2026-10-16/slide-01.png",
+        "/linkedin/2026-10-16/slide-02.png",
+        "/linkedin/2026-10-16/slide-03.png",
+        "/linkedin/2026-10-16/slide-04.png",
+        "/linkedin/2026-10-16/slide-05.png",
+        "/linkedin/2026-10-16/slide-06.png",
+        "/linkedin/2026-10-16/slide-07.png",
+        "/linkedin/2026-10-16/slide-08.png",
+        "/linkedin/2026-10-16/slide-09.png",
+        "/linkedin/2026-10-16/slide-10.png"
+      ],
+      "pdf": "/linkedin/2026-10-16/carousel.pdf",
+      "slides": [
+        {
+          "kind": "statement",
+          "text": "Google just let you rank your own campaigns by priority.",
+          "highlight": "priority"
+        },
+        {
+          "kind": "statement",
+          "text": "Most people will read this as a small feature update. It is not."
+        },
+        {
+          "kind": "statement",
+          "text": "Every account with more than one campaign splits a budget between them, whether you choose how or not."
+        },
+        {
+          "kind": "statement",
+          "text": "Before this, that split followed Google's own rules, mostly invisible to you.",
+          "highlight": "invisible"
+        },
+        {
+          "kind": "statement",
+          "text": "Now there is a setting that says: fund this campaign first, before any other."
+        },
+        {
+          "kind": "statement",
+          "text": "That is different from a Performance goal, the setting that tells Google what counts as a win."
+        },
+        {
+          "kind": "statement",
+          "text": "Priority decides who gets paid first. Goal decides what paying off looks like."
+        },
+        {
+          "kind": "statement",
+          "text": "Most accounts have set the second one and never touched the first."
+        },
+        {
+          "kind": "statement",
+          "text": "If your best campaign has been starved while a weak one got funded, this is why.",
+          "highlight": "starved"
+        },
+        {
+          "kind": "statement",
+          "text": "Open Google Ads, go to each campaign's settings, and look for the new priority and allocation controls before you touch anything else."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Guide your campaign spending with new priority and allocation features",
+          "url": "https://blog.google/products/ads-commerce/channel-prioritization-budget-allocation/",
+          "publisher": "Google"
+        },
+        {
+          "title": "Meta, Milan’s Pinacoteca di Brera, and EssilorLuxottica Expand Access to Art Through AI Glasses",
+          "url": "https://about.fb.com/news/2026/10/meta-milans-pinacoteca-di-brera-and-essilorluxottica-expand-access-to-art-through-ai-glasses/",
+          "publisher": "Meta Newsroom"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+    },
     {
       "date": "2026-10-15",
       "weekday": "Thu",
@@ -1079,81 +1181,6 @@
       "pdf": null,
       "status": "draft",
       "notPosted": "held for review — STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material."
-    },
-    {
-      "date": "2026-09-24",
-      "weekday": "Thu",
-      "pillar": "framework",
-      "format": "carousel",
-      "angle": "Cost per lead, cost per conversation, cost per customer — the three-number ladder and why most people only watch the first.",
-      "isSales": true,
-      "videoPrompt": null,
-      "autopostSafe": true,
-      "heldBecause": null,
-      "hook": "Four clicks tell you what your ad is chasing. Most people open Ads Manager, look at the creative, and judge the campaign from there. Wrong screen entirely.",
-      "body": "Four clicks tell you what your ad is chasing.\n\nMost people open Ads Manager, look at the creative, and judge the campaign from there. Wrong screen entirely.\n\nThe number that matters is hiding one level down: cost per lead, cost per conversation, cost per customer. Three different numbers. Most accounts only ever watch the first one.\n\nAcross nine Meta ad accounts we ran, 7,341 people submitted a lead form. Only 876 of those turned into an actual conversation. Nobody tracks what happened after that, because Meta doesn't ask, and most people never make it ask.\n\nSay a clinic runs ads and gets leads at a low cost. Cheap does not mean it will talk to you, and talking to you does not mean it will buy. Those are three separate jobs, and each one has its own cost.\n\nCost per lead tells you if your ad is efficient. Cost per conversation tells you if your form and follow-up are working. Cost per customer is the only one that pays your rent.\n\nIf you're only checking the first number, you're reading a third of the dashboard and calling it the whole picture.\n\nI put a short guide on checking all three on my site, free, if it helps.\n\n#metaads #digitalmarketing #leadgeneration",
-      "chars": 1177,
-      "avgWords": 11.7,
-      "warnings": [
-        "no number in the first line — openers with a figure tend to do better",
-        "check: \"Nobody tracks what happened after that, because Meta doesn't ask, and most peopl\" — Presents a platform mechanic/generalisation as absolute fact about what 'nobody' tracks; also overlaps with unverified claim about Meta's behavior stated with certainty.",
-        "check: \"Say a clinic runs ads and gets leads at a low cost.\" — Hypothetical clearly marked as such (\"Say a clinic...\"), not a factual claim about a real client.",
-        "check: \"Meta never sees whether a lead became a sale, unless you build that back in your\" — Stated as a certain platform mechanic/generalisation rather than a confirmed fact from the approved material.",
-        "check: \"That gap between a form fill and a reply is where most budgets quietly leak.\" — General industry claim/opinion presented as established fact, not tied to approved figures.",
-        "check: \"Check this before the creative. It decides who Meta goes and finds.\" — Asserts a specific platform mechanic (that this metric decides Meta's targeting) not established in approved facts."
-      ],
-      "images": [
-        "/linkedin/2026-09-24/slide-01.png",
-        "/linkedin/2026-09-24/slide-02.png",
-        "/linkedin/2026-09-24/slide-03.png",
-        "/linkedin/2026-09-24/slide-04.png",
-        "/linkedin/2026-09-24/slide-05.png",
-        "/linkedin/2026-09-24/slide-06.png",
-        "/linkedin/2026-09-24/slide-07.png",
-        "/linkedin/2026-09-24/slide-08.png",
-        "/linkedin/2026-09-24/slide-09.png",
-        "/linkedin/2026-09-24/slide-10.png",
-        "/linkedin/2026-09-24/slide-11.png"
-      ],
-      "pdf": "/linkedin/2026-09-24/carousel.pdf",
-      "slides": [
-        {
-          "text": "Four clicks tell you what your ad is chasing."
-        },
-        {
-          "text": "Most people judge it by the creative. Wrong screen entirely."
-        },
-        {
-          "text": "Ads Manager shows one number by default: cost per lead. That's step one of three."
-        },
-        {
-          "text": "Cost per lead only tells you if the ad is cheap. Not if it works."
-        },
-        {
-          "text": "Step two: cost per conversation. How much you paid for someone to actually reply."
-        },
-        {
-          "text": "Across nine ad accounts, 7,341 people submitted a lead form. Only 876 became a real conversation."
-        },
-        {
-          "text": "That gap between a form fill and a reply is where most budgets quietly leak."
-        },
-        {
-          "text": "Step three: cost per customer. The number nobody puts on a dashboard for you."
-        },
-        {
-          "text": "Meta never sees whether a lead became a sale, unless you build that back in yourself."
-        },
-        {
-          "text": "Check this before the creative. It decides who Meta goes and finds."
-        },
-        {
-          "text": "Three numbers, not one. Cheap leads and paying customers are two different products."
-        }
-      ],
-      "status": "posted",
-      "postedAt": "2026-09-24T12:55:35.312Z",
-      "linkedinId": "urn:li:ugcPost:7508871757123047424"
     }
   ]
 }
