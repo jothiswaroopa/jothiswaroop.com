@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-16T01:34:42.860Z",
+  "generatedAt": "2026-10-17T01:25:25.196Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-16",
-      "end": "2026-10-14"
+      "start": "2026-09-17",
+      "end": "2026-10-15"
     },
     "totals": {
-      "clicks": 12,
-      "impressions": 98,
-      "ctr": 0.12244897959183673,
-      "position": 9.112244897959183
+      "clicks": 13,
+      "impressions": 106,
+      "ctr": 0.12264150943396226,
+      "position": 9.443396226415095
     },
     "previous": {
       "clicks": 0,
@@ -215,6 +215,13 @@
         "impressions": 0,
         "ctr": 0,
         "position": 0
+      },
+      {
+        "key": "2026-10-14",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr": 0.125,
+        "position": 13.5
       }
     ],
     "queries": [
@@ -228,9 +235,9 @@
       {
         "key": "google ads for manufacturers",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 23
+        "position": 49
       },
       {
         "key": "jothi store owner",
@@ -242,9 +249,9 @@
       {
         "key": "jothiswaroop.com",
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 11,
         "ctr": 0,
-        "position": 17.11111111111111
+        "position": 15.272727272727273
       },
       {
         "key": "jyothi swaroop",
@@ -271,17 +278,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 9,
-        "impressions": 58,
-        "ctr": 0.15517241379310345,
-        "position": 3.603448275862069
+        "clicks": 10,
+        "impressions": 62,
+        "ctr": 0.16129032258064516,
+        "position": 3.532258064516129
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 46,
-        "ctr": 0.043478260869565216,
-        "position": 6.608695652173913
+        "impressions": 48,
+        "ctr": 0.041666666666666664,
+        "position": 6.583333333333333
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -291,11 +298,25 @@
         "position": 1.6666666666666665
       },
       {
-        "key": "https://jothiswaroop.com/blog/",
+        "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
-        "position": 50
+        "position": 5
+      },
+      {
+        "key": "https://jothiswaroop.com/audit/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 28
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
@@ -314,9 +335,9 @@
       {
         "key": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 12
+        "position": 33
       },
       {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
@@ -324,6 +345,13 @@
         "impressions": 7,
         "ctr": 0,
         "position": 18.142857142857142
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -335,9 +363,9 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 9,
         "ctr": 0,
-        "position": 15.875
+        "position": 15.88888888888889
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements",
@@ -356,9 +384,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 9,
         "ctr": 0,
-        "position": 14.125
+        "position": 13.777777777777779
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -399,10 +427,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 12,
-        "impressions": 65,
-        "ctr": 0.18461538461538463,
-        "position": 3.230769230769231
+        "clicks": 13,
+        "impressions": 68,
+        "ctr": 0.19117647058823528,
+        "position": 3.1911764705882355
       },
       {
         "key": "are",
@@ -433,6 +461,13 @@
         "position": 2
       },
       {
+        "key": "hkg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
         "key": "isr",
         "clicks": 0,
         "impressions": 1,
@@ -442,9 +477,9 @@
       {
         "key": "kor",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 7
+        "position": 6.5
       },
       {
         "key": "mar",
@@ -459,22 +494,15 @@
         "impressions": 1,
         "ctr": 0,
         "position": 9
-      },
-      {
-        "key": "sau",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 5
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 6,
-        "impressions": 74,
-        "ctr": 0.08108108108108109,
-        "position": 10.783783783783784
+        "clicks": 7,
+        "impressions": 82,
+        "ctr": 0.08536585365853659,
+        "position": 11.048780487804878
       },
       {
         "key": "MOBILE",
@@ -487,8 +515,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-16",
-      "end": "2026-10-16"
+      "start": "2026-09-17",
+      "end": "2026-10-17"
     },
     "totals": {
       "views": 0,
@@ -657,6 +685,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791849600000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1791936000000)/",
         "Impressions": 0
       }
     ],
@@ -881,17 +915,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 5.78307,
+    "spent": 5.912144,
     "by": {
       "blog": 3.489602,
       "evolve": 0.110942,
       "geo": 0.727904,
-      "linkedin": 1.138582,
+      "linkedin": 1.267656,
       "scan": 0.31604
     },
-    "remaining": 3.21693,
-    "pace": 1.244966,
-    "projected": 11.204698,
+    "remaining": 3.087856,
+    "pace": 1.197885,
+    "projected": 10.780968,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -928,8 +962,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
