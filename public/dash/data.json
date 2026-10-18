@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-17T01:25:25.196Z",
+  "generatedAt": "2026-10-18T01:23:35.508Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-17",
-      "end": "2026-10-15"
+      "start": "2026-09-18",
+      "end": "2026-10-16"
     },
     "totals": {
-      "clicks": 13,
-      "impressions": 106,
-      "ctr": 0.12264150943396226,
-      "position": 9.443396226415095
+      "clicks": 15,
+      "impressions": 116,
+      "ctr": 0.12931034482758622,
+      "position": 10.586206896551724
     },
     "previous": {
       "clicks": 0,
@@ -222,6 +222,13 @@
         "impressions": 8,
         "ctr": 0.125,
         "position": 13.5
+      },
+      {
+        "key": "2026-10-15",
+        "clicks": 2,
+        "impressions": 10,
+        "ctr": 0.2,
+        "position": 22.7
       }
     ],
     "queries": [
@@ -238,6 +245,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 49
+      },
+      {
+        "key": "how do ai search engines decide which brands to recommend",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 94.5
       },
       {
         "key": "jothi store owner",
@@ -278,17 +292,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 10,
-        "impressions": 62,
-        "ctr": 0.16129032258064516,
-        "position": 3.532258064516129
+        "clicks": 12,
+        "impressions": 67,
+        "ctr": 0.1791044776119403,
+        "position": 3.4328358208955225
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 48,
-        "ctr": 0.041666666666666664,
-        "position": 6.583333333333333
+        "impressions": 52,
+        "ctr": 0.038461538461538464,
+        "position": 6.653846153846154
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -321,9 +335,16 @@
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 6
+        "position": 8.5
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 51.25
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
@@ -427,10 +448,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 13,
-        "impressions": 68,
-        "ctr": 0.19117647058823528,
-        "position": 3.1911764705882355
+        "clicks": 15,
+        "impressions": 76,
+        "ctr": 0.19736842105263158,
+        "position": 5.605263157894737
       },
       {
         "key": "are",
@@ -442,9 +463,9 @@
       {
         "key": "aus",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 76
+        "position": 41.5
       },
       {
         "key": "bih",
@@ -499,10 +520,10 @@
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 7,
-        "impressions": 82,
-        "ctr": 0.08536585365853659,
-        "position": 11.048780487804878
+        "clicks": 9,
+        "impressions": 92,
+        "ctr": 0.09782608695652174,
+        "position": 12.315217391304348
       },
       {
         "key": "MOBILE",
@@ -515,8 +536,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-17",
-      "end": "2026-10-17"
+      "start": "2026-09-18",
+      "end": "2026-10-18"
     },
     "totals": {
       "views": 0,
@@ -691,6 +712,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1791936000000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1792022400000)/",
         "Impressions": 0
       }
     ],
@@ -924,8 +951,8 @@
       "scan": 0.31604
     },
     "remaining": 3.087856,
-    "pace": 1.197885,
-    "projected": 10.780968,
+    "pace": 1.131336,
+    "projected": 10.182026,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -962,8 +989,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
