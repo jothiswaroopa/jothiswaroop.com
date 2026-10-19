@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-19",
+  "weekday": "Mon",
+  "pillar": "trending",
+  "format": "text",
+  "angle": "Something new in AI search or assistants, and what it means for a small business being found.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": [
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "hook": "Google just published a holiday shopping guide built on search data, not guesses. Most small businesses read that as \"big brand news\" and move on. The distinction that matters: it's not about ad budgets, it's about timing — when people start searching before they buy.",
+  "body": "Google just published a holiday shopping guide built on search data, not guesses.\n\nMost small businesses read that as \"big brand news\" and move on. The distinction that matters: it's not about ad budgets, it's about timing — when people start searching before they buy.\n\nHere's the mechanic worth knowing. Google tracks search interest by category and publishes when it peaks, weeks before the actual buying date. If you sell anything seasonal, that peak is when your ad or your Google Business Profile needs to already be live, not when you finally get around to it.\n\nMost small accounts do the opposite. They start campaigns the week they feel ready, not the week their customer starts looking. By the time the ad goes live, the searcher has already bought from whoever showed up first.\n\nThis costs nothing to check. Go to Google Trends, type your product category, and look at the last two years. The search spike repeats on roughly the same week every year.\n\nWhat week does your category's search interest actually spike, and is your account live before it or during it?",
+  "chars": 1074,
+  "avgWords": 14.2,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "possible client name to check: \"Google Business Profile\"",
+    "possible client name to check: \"Google Trends\"",
+    "over a limit: hook is 268 chars, must be under 210",
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "images": [],
+  "pdf": null,
+  "sources": [
+    {
+      "title": "The Latest News from Facebook for Business",
+      "url": "https://www.facebook.com/business/news/meta-nest-ai-creative-diversification",
+      "publisher": "Meta"
+    },
+    {
+      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
+      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "Bringing GPT-Rosalind to academic research labs",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "draft",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+}

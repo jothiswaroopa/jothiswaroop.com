@@ -22,9 +22,16 @@
     "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.": "2026-10-16",
     "An advertising platform changed something. Plain explanation of who it affects and what to do.": "2026-10-05",
     "An AI announcement that sounds huge but changes nothing yet for a small advertiser, and why.": "2026-10-12",
-    "The Qualifier Test: one question to add to any lead form, and how to choose it for your business.": "2026-10-13"
+    "The Qualifier Test: one question to add to any lead form, and how to choose it for your business.": "2026-10-13",
+    "Something new in AI search or assistants, and what it means for a small business being found.": "2026-10-19"
   },
   "log": [
+    {
+      "date": "2026-10-19",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "Something new in AI search or assistants, and what it means for a small business being found."
+    },
     {
       "date": "2026-10-16",
       "pillar": "trending",

@@ -1,6 +1,57 @@
 {
-  "generated": "2026-10-16T04:47:52.559Z",
+  "generated": "2026-10-19T05:00:34.798Z",
   "posts": [
+    {
+      "date": "2026-10-19",
+      "weekday": "Mon",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "Something new in AI search or assistants, and what it means for a small business being found.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": [
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "hook": "Google just published a holiday shopping guide built on search data, not guesses. Most small businesses read that as \"big brand news\" and move on. The distinction that matters: it's not about ad budgets, it's about timing — when people start searching before they buy.",
+      "body": "Google just published a holiday shopping guide built on search data, not guesses.\n\nMost small businesses read that as \"big brand news\" and move on. The distinction that matters: it's not about ad budgets, it's about timing — when people start searching before they buy.\n\nHere's the mechanic worth knowing. Google tracks search interest by category and publishes when it peaks, weeks before the actual buying date. If you sell anything seasonal, that peak is when your ad or your Google Business Profile needs to already be live, not when you finally get around to it.\n\nMost small accounts do the opposite. They start campaigns the week they feel ready, not the week their customer starts looking. By the time the ad goes live, the searcher has already bought from whoever showed up first.\n\nThis costs nothing to check. Go to Google Trends, type your product category, and look at the last two years. The search spike repeats on roughly the same week every year.\n\nWhat week does your category's search interest actually spike, and is your account live before it or during it?",
+      "chars": 1074,
+      "avgWords": 14.2,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "possible client name to check: \"Google Business Profile\"",
+        "possible client name to check: \"Google Trends\"",
+        "over a limit: hook is 268 chars, must be under 210",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [],
+      "pdf": null,
+      "sources": [
+        {
+          "title": "The Latest News from Facebook for Business",
+          "url": "https://www.facebook.com/business/news/meta-nest-ai-creative-diversification",
+          "publisher": "Meta"
+        },
+        {
+          "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
+          "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Bringing GPT-Rosalind to academic research labs",
+          "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+          "publisher": "OpenAI"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+    },
     {
       "date": "2026-10-16",
       "weekday": "Fri",
@@ -1147,40 +1198,6 @@
       "status": "posted",
       "postedAt": "2026-09-30T12:42:14.814Z",
       "linkedinId": "urn:li:share:7511042725685690369"
-    },
-    {
-      "date": "2026-09-25",
-      "weekday": "Fri",
-      "pillar": "contrarian",
-      "format": "poster",
-      "angle": "Cost per lead is the most confidently reported number in this industry and one of the least useful.",
-      "isSales": false,
-      "videoPrompt": null,
-      "autopostSafe": false,
-      "heldBecause": [
-        "STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material."
-      ],
-      "hook": "4,248 leads at ₹16.58 each. That is a real number. Nova Attire, a Tirupur apparel manufacturer, spent ₹70,444 across six campaigns and Meta's Ads Manager counted every one of those leads against the ad and form that produced it.",
-      "body": "4,248 leads at ₹16.58 each.\n\nThat is a real number. Nova Attire, a Tirupur apparel manufacturer, spent ₹70,444 across six campaigns and Meta's Ads Manager counted every one of those leads against the ad and form that produced it.\n\nCheap leads and leads that close are two different products.\n\nThe form asked nothing hard. Fill a lead form on Facebook or Instagram, and it pre-fills your name, phone and email from your profile. Two taps and you are done. So Meta went looking for the cheapest person who would do a thing that cost them nothing to do — which is exactly what the form asked for.\n\nNova Attire tracked every lead live in a sheet and said only about 5-6% were junk. The rest were relevant to their niche. Leads turned into sample orders and one or two bulk orders each. But nothing was built to catch the second order — no reminder when a buyer's stock would run low, no follow-up on \"maybe later.\" A few of those buyers came back on their own anyway.\n\nNobody ever recorded how many of the 4,248 became repeat orders. Including me.\n\nThat is the number I would build a system to catch first, before I ever chased a cheaper cost per lead again.\n\nWhat does your own cost-per-lead number actually tell you about repeat business?",
-      "chars": 1236,
-      "avgWords": 14.8,
-      "warnings": [
-        "one paragraph is 476 chars — may read as a wall",
-        "possible client name to check: \"Google Sheet\"",
-        "one sentence is 35 words long",
-        "one paragraph is 368 chars — may read as a wall",
-        "over a limit: hook is 228 chars, must be under 210",
-        "STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material.",
-        "check: \"Fill a lead form on Facebook or Instagram, and it pre-fills your name, phone and\" — Platform mechanic stated as certain fact rather than a general description; plausible but not in approved facts, borderline generalisation.",
-        "check: \"So Meta went looking for the cheapest person who would do a thing that cost them\" — Presents an interpretive claim about Meta's ad delivery behavior as established fact rather than opinion/hypothesis.",
-        "check: \"A few of those buyers came back on their own anyway.\" — This softens/paraphrases the approved fact ('some Nova Attire leads who initially said they would get back later did return and place orders on their own') acceptably, but should be checked for exact fidelity to 'some' vs 'a few'."
-      ],
-      "images": [
-        "/linkedin/2026-09-25/poster.png"
-      ],
-      "pdf": null,
-      "status": "draft",
-      "notPosted": "held for review — STILL UNVERIFIED: \"Nobody ever recorded how many of the 4,248 became repeat orders. Including me.\" — This is a first-hand claim about his own tracking/records that is not established in the approved facts — it asserts a personal admission not supported by the material."
     }
   ]
 }
