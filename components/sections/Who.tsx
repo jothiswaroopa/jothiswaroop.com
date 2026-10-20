@@ -71,7 +71,12 @@ export default function Who() {
                     <div className="relative aspect-[4/5]">
                       <Image src={m2.image} alt={`${site.name} with ${m2.name}`} fill sizes="(min-width:768px) 25vw, 33vw" className="object-cover [filter:saturate(0.85)]" style={{ objectPosition: m2.position }} />
                     </div>
-                    <p className="label break-words px-2 py-1.5 !text-[9px] !leading-tight !text-paper/80 md:!text-[10px]">{m2.short ?? m2.name}</p>
+                    <div className="px-2 py-1.5">
+                      <p className="label break-words !text-[9px] !leading-tight !text-paper/80 md:!text-[10px]">{m2.short ?? m2.name}</p>
+                      {/* The designation is the whole point of the tile: "Kumar Vembu" means
+                          nothing to a stranger, "Co-founder, Zoho" means everything. */}
+                      <p className="mt-1 text-[10px] leading-tight text-paper/55 md:text-[11px]">{m2.shortRole ?? m2.role}</p>
+                    </div>
                   </div>
                 </Link>
               ))}
