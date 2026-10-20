@@ -531,7 +531,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
     { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP Enterprises LLP · Vaasavi IVF Micro Finance · jothiswaroop.com" },
     { name: "Script writing", what: "Ad scripts, reels and brand films written to the number they need to move.", proof: "Arkstorie · Tharunis Jewellery · the VROOM 2026 sponsor film" },
     { name: "Social media management", what: "Calendars, creatives and community, run to a monthly plan rather than a mood.", proof: "Retail · F&B · jewellery · spiritual products" },
-    { name: "AI commercials, AI UGC & media production", what: "Two kinds of finished ad film, generated end to end: cinematic product commercials, and UGC-style creator videos — a person on camera talking about the product — the format brands are buying most for Meta and TikTok right now. Cut for Reels, Shorts and TikTok; sold by the film or as a monthly set. Plus event films, product shoots and investor decks.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · six concept films incl. a UGC ad — all in the showreel below" },
+    { name: "AI commercials, AI UGC & media production", what: "Two kinds of finished ad film, generated end to end: cinematic product commercials, and UGC-style creator videos — a person on camera talking about the product — the format brands are buying most for Meta and TikTok right now. Cut for Reels, Shorts and TikTok; sold by the film or as a monthly set. Plus event films, product shoots and investor decks.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · 11 concept films incl. six UGC ads — all in the showreel below" },
     { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn positioning, so the right buyer finds you before you find them.", proof: "Practised on this site and on my own profile — both are the case study" },
     { name: "AI consultation", what: "Advisory for founders and their teams: where AI genuinely saves money in your operation, what to build, what to buy off the shelf, and what to leave alone — delivered as a written plan your own people can execute.", proof: "Fixed-scope audits or monthly advisory · remote, in your timezone · India, UK, US" },
   ],
@@ -564,6 +564,8 @@ export const videos: Video[] = [
   // to send any of them.
   { title: "Zarivana — saree UGC ad", client: "Zarivana · concept · saree", kind: "AI UGC", youtubeId: "wH4Sr9C9HX0", vertical: true },
   { title: "SALT — waterproof jewellery UGC", client: "SALT · concept · jewellery", kind: "AI UGC", youtubeId: "IaK2Ph1Rf3Y", vertical: true },
+  // Added 2026-10-20, same convention as the two above.
+  { title: "LUMORA — serum UGC ad", client: "LUMORA · concept · skincare", kind: "AI UGC", youtubeId: "glm-JT7kr7c", vertical: true },
   { title: "Parota — UGC ad", client: "Top-5 El Alimentos · FMCG food", kind: "AI UGC", youtubeId: "8nIrz38jXNA", vertical: true },
   { title: "Hazelnut latte — UGC ad", client: "Concept · coffee", kind: "AI UGC", youtubeId: "amEMlW6Yb2I", vertical: true },
   { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
