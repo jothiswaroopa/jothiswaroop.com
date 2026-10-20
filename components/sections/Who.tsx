@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
-import { who, site, recognition } from "@/lib/content";
+import { who, site, recognition, met } from "@/lib/content";
 
 export default function Who() {
   const ref = useRef<HTMLDivElement>(null);
@@ -59,7 +59,25 @@ export default function Who() {
               </Link>
             ))}
           </Reveal>
-          <Reveal delay={0.55} className="mt-8">
+          {/* Founders met at summits, kept as their own strip rather than mixed into the grid
+              above. Those four tiles are things given or won; these five are conversations, and a
+              page that sells on receipts should not let the two read as the same claim. */}
+          <Reveal delay={0.5} className="mt-3">
+            <p className="label !text-[10px] !text-paper/55 md:!text-[11px]">// ROOMS I&rsquo;VE BEEN IN</p>
+            <div className="mt-2 grid grid-cols-3 gap-2 md:gap-3">
+              {met.map((m2) => (
+                <Link key={m2.name} href="/about" className="bezel press block !p-1">
+                  <div className="bezel-core">
+                    <div className="relative aspect-[4/5]">
+                      <Image src={m2.image} alt={`${site.name} with ${m2.name}`} fill sizes="(min-width:768px) 25vw, 33vw" className="object-cover [filter:saturate(0.85)]" style={{ objectPosition: m2.position }} />
+                    </div>
+                    <p className="label break-words px-2 py-1.5 !text-[9px] !leading-tight !text-paper/80 md:!text-[10px]">{m2.short ?? m2.name}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={0.6} className="mt-8">
             <Link href="/about" className="underline-slide text-sm text-paper/80 hover:text-paper">Full story →</Link>
           </Reveal>
         </div>

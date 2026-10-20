@@ -87,14 +87,16 @@ export const marquee = [
 // every entry there is something given or won, and a photograph with someone is neither. The lede
 // says "not clients" in as many words, because a page whose whole case is receipts cannot afford
 // to look like it is borrowing authority from a handshake.
-export type Met = { name: string; role: string; note?: string; image: string; position?: string };
+// `short` is only for the narrow home-page strip, where a long name breaks mid-word across two
+// lines. The About page always shows the full name.
+export type Met = { name: string; short?: string; role: string; note?: string; image: string; position?: string };
 export const met: Met[] = [
   { name: "Kumar Vembu", role: "Co-founder, Zoho · Founder, Mudhal Partners",
     note: "On the AI era, and how it reaches brands of every size.",
     image: "/img/met-kumar-vembu.jpg", position: "50% 30%" },
-  { name: "Dharaneetharan G D", role: "Founder, Social Eagle",
+  { name: "Dharaneetharan G D", short: "Dharaneetharan", role: "Founder, Social Eagle",
     note: "My mentor.", image: "/img/met-dharaneetharan.jpg", position: "58% 28%" },
-  { name: "Arokiaswamy Velumani", role: "Founder, Thyrocare Technologies Ltd · MD, AVM Labs",
+  { name: "Arokiaswamy Velumani", short: "A. Velumani", role: "Founder, Thyrocare Technologies Ltd · MD, AVM Labs",
     image: "/img/met-velumani.jpg", position: "50% 24%" },
   { name: "Aathitiyan V S", role: "CEO, Cookd",
     image: "/img/met-aathitiyan.jpg", position: "50% 20%" },
