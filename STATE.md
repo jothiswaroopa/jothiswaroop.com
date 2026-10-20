@@ -33,6 +33,35 @@ the first GitHub Actions run is what will prove it. If it fails, read the reject
 
 Blog runs every 2 days at 06:30 IST; the dashboard daily at 05:00 IST.
 
+## 14–20 Oct — two films added, and the rooms section
+
+**Two new AI UGC films** are on the showreel, which now reads 15. Both are concept pieces that
+carry the brand they were built around rather than the bare word "Concept" — `Zarivana · concept ·
+saree` and `SALT · concept · jewellery` — because a named brand reads as work where "Concept ·
+saree" reads as a sketch, and the qualifier keeps the page from claiming a client it does not
+have. The saree one closed a real gap: eight of the eighteen Indian brands being approached that
+week were apparel or saree and there was no ethnic-wear sample to send any of them.
+
+**`// ROOMS I'VE BEEN IN`** — five founders Jothi met at summits: Kumar Vembu (Zoho), Dharaneetharan
+G D (Social Eagle, his mentor), Arokiaswamy Velumani (Thyrocare), Aathitiyan V S (Cookd), M.V.
+Manikandan (Adissia Developers). On About, and mirrored as a strip in the home-page `Who` section.
+
+**Why it is not inside `recognition`, and should stay out of it.** Every entry there is something
+given or won — an award, a partnership, a prompt battle, a talk. A photograph with someone is
+neither. I argued for putting one on the site and the rest on LinkedIn; Jothi wanted all five and
+that is his call, but they live in their own section with a lede that says **"Not clients — people
+whose answers changed how I work"** in as many words. That line is load-bearing: it is what stops
+a page built on receipts from reading as if it were borrowing authority from a handshake. Do not
+merge the two sections and do not drop that lede.
+
+Each tile shows one credential, because a name alone does no work — "Kumar Vembu" means nothing to
+a stranger, "Co-founder, Zoho" means everything. The home strip carries the recognisable half
+(`shortRole`), About carries the full title.
+
+Three columns, not five: at five, "Dharaneetharan" — one word, fourteen characters, no break point
+— overflowed its tile. Checked at desktop and 375px with the labels zoomed, after two attempts
+that looked right at a glance and were clipping a name.
+
 ## LinkedIn — open items
 
 - **Endorsement asks** — message drafted, **he sends them**
