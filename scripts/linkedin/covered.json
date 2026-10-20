@@ -23,9 +23,16 @@
     "An advertising platform changed something. Plain explanation of who it affects and what to do.": "2026-10-05",
     "An AI announcement that sounds huge but changes nothing yet for a small advertiser, and why.": "2026-10-12",
     "The Qualifier Test: one question to add to any lead form, and how to choose it for your business.": "2026-10-13",
-    "Something new in AI search or assistants, and what it means for a small business being found.": "2026-10-19"
+    "Something new in AI search or assistants, and what it means for a small business being found.": "2026-10-19",
+    "Before you touch the creative: a fixed order for fixing an underperforming account, top to bottom.": "2026-10-20"
   },
   "log": [
+    {
+      "date": "2026-10-20",
+      "pillar": "framework",
+      "format": "carousel",
+      "angle": "Before you touch the creative: a fixed order for fixing an underperforming account, top to bottom."
+    },
     {
       "date": "2026-10-19",
       "pillar": "trending",

@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-20",
+  "weekday": "Tue",
+  "pillar": "framework",
+  "format": "carousel",
+  "angle": "Before you touch the creative: a fixed order for fixing an underperforming account, top to bottom.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": [
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "hook": "Nine Meta ad accounts. One order, every time, before touching a single ad. Most people fixing a slow account start with the creative — new image, new headline, new offer. That's usually step six, not step one.",
+  "body": "Nine Meta ad accounts. One order, every time, before touching a single ad.\n\nMost people fixing a slow account start with the creative — new image, new headline, new offer. That's usually step six, not step one.\n\nBefore any of that, there's a fixed order: check what the campaign is actually optimised to do, check what the ad set calls success, check where the lead actually lands, check who looks at it and when. Only after all of that is cleared does the creative get touched.\n\nAcross 7,341 lead-form submissions on nine accounts, the leak was almost never the ad itself. It was somewhere upstream or downstream of it — a setting nobody opened in months, or a lead nobody followed up within the hour.\n\nThe order matters because fixing creative on a broken foundation just gets you a prettier version of the same leak.",
+  "chars": 819,
+  "avgWords": 16.1,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "one sentence is 37 words long",
+    "possible client name to check: \"Nine Meta\"",
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "images": [
+    "/linkedin/2026-10-20/slide-01.png",
+    "/linkedin/2026-10-20/slide-02.png",
+    "/linkedin/2026-10-20/slide-03.png",
+    "/linkedin/2026-10-20/slide-04.png",
+    "/linkedin/2026-10-20/slide-05.png",
+    "/linkedin/2026-10-20/slide-06.png",
+    "/linkedin/2026-10-20/slide-07.png",
+    "/linkedin/2026-10-20/slide-08.png",
+    "/linkedin/2026-10-20/slide-09.png",
+    "/linkedin/2026-10-20/slide-10.png",
+    "/linkedin/2026-10-20/slide-11.png"
+  ],
+  "pdf": "/linkedin/2026-10-20/carousel.pdf",
+  "slides": [
+    {
+      "kind": "statement",
+      "text": "Nobody checks this before touching the creative.",
+      "highlight": "before"
+    },
+    {
+      "kind": "statement",
+      "text": "Changing the ad first just makes the real leak harder to find."
+    },
+    {
+      "kind": "statement",
+      "text": "Start in Ads Manager, not the ad. Open your campaign and find the Performance goal line first.",
+      "highlight": "Performance goal"
+    },
+    {
+      "kind": "statement",
+      "text": "That one line tells Meta what to chase — leads, messages, or something else entirely."
+    },
+    {
+      "kind": "statement",
+      "text": "Next, open the ad set below it and check what result it's actually been optimised for."
+    },
+    {
+      "kind": "statement",
+      "text": "Those two settings decide who your ad gets shown to, before a single word of copy matters."
+    },
+    {
+      "kind": "statement",
+      "text": "Then check the form or landing page the ad sends people to — not the ad itself."
+    },
+    {
+      "kind": "statement",
+      "text": "A form asking for ten fields and a page that loads slowly both quietly kill replies."
+    },
+    {
+      "kind": "statement",
+      "text": "Last, check who responds to a new lead, and how fast. This is where most leaks actually hide."
+    },
+    {
+      "kind": "statement",
+      "text": "Across 7,341 lead-form submissions on nine accounts, the ad was rarely the problem.",
+      "highlight": "7,341"
+    },
+    {
+      "kind": "statement",
+      "text": "Fix the account in this order: goal, ad set, form, follow-up. Creative comes last, not first."
+    }
+  ],
+  "status": "draft",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+}
