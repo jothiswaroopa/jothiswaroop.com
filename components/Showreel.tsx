@@ -10,7 +10,7 @@ function Tile({ v }: { v: (typeof videos)[number] }) {
   return (
     <div className="bezel">
       <div className="bezel-core">
-        <VideoTile youtubeId={v.youtubeId!} title={v.title} vertical={v.vertical} className={v.vertical ? "mx-auto max-h-[420px] w-full md:max-h-[560px]" : ""} />
+        <VideoTile youtubeId={v.youtubeId!} poster={v.poster} title={v.title} vertical={v.vertical} className={v.vertical ? "mx-auto max-h-[420px] w-full md:max-h-[560px]" : ""} />
         <div className={v.vertical ? "flex flex-col gap-2 p-4" : "flex items-baseline justify-between gap-4 p-4"}>
           {v.vertical && <span className="label">{v.kind}</span>}
           <div>

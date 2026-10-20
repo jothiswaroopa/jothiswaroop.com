@@ -1,6 +1,6 @@
 # Live state — personal brand
 
-**Updated: 12 October 2026.** Replace this block whenever it changes; a stale STATE.md is worse
+**Updated: 20 October 2026.** Replace this block whenever it changes; a stale STATE.md is worse
 than none. Verify before trusting anything dated more than a week back.
 
 ## Site
@@ -73,6 +73,22 @@ that looked right at a glance and were clipping a name.
 ## SEO still pending
 
 Bing import, LinkedIn/Instagram back-links, Google Business Profile.
+
+## 20 Oct — LUMORA, and the concept count
+
+**A third branded concept UGC film**, `LUMORA · concept · skincare` (serum, `glm-JT7kr7c`), sits
+after SALT on the showreel, which now reads **16**. Same naming convention as Zarivana and SALT.
+
+**Its tile shows the custom cover Jothi set on YouTube**, not an auto-picked frame. Showreel tiles
+default to YouTube's `oardefault` frame; LUMORA sets `poster` to `sardefault.jpg`, which is the
+Shorts cover YouTube itself displays. `Video` now takes an optional `poster`, as testimonials
+already did. Zarivana, SALT and the Vummudi commercial also have custom covers on YouTube and
+still show auto frames. Switch them only if Jothi asks: it changes how three existing tiles look.
+
+**The services copy said "six concept films" when there were ten.** It now says eleven: five
+concept films and six AI UGC ads. That count is written by hand in two places, the `proof` line in
+`lib/content.ts` and the AI-commercials paragraph in `app/services/page.tsx`. Update both whenever
+a concept film is added.
 
 ## How this connects to the other chat
 

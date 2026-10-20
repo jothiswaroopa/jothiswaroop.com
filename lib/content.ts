@@ -547,7 +547,7 @@ export const chain: ChainNode[] = [
 
 // ─── VIDEO & COMMERCIALS — hosted on YouTube (Unlisted) / Vimeo; GitHub Pages can't stream large files.
 // Add { title, client, kind, youtubeId } per video. Section renders only when this array has entries.
-export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "AI UGC" | "Concept film" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean };
+export type Video = { title: string; client: string; kind: "AI video" | "AI commercial" | "AI UGC" | "Concept film" | "Commercial" | "Event film"; youtubeId?: string; vimeoId?: string; vertical?: boolean; poster?: string };
 export const videos: Video[] = [
   // Order set by Jothi 2026-09-21. Concept films are marked as such — made to show the craft, not for a brief.
   { title: "Playful Gen Z beauty", client: "Concept · beauty", kind: "Concept film", youtubeId: "TmMzVnkIVv8", vertical: true },
@@ -564,8 +564,9 @@ export const videos: Video[] = [
   // to send any of them.
   { title: "Zarivana — saree UGC ad", client: "Zarivana · concept · saree", kind: "AI UGC", youtubeId: "wH4Sr9C9HX0", vertical: true },
   { title: "SALT — waterproof jewellery UGC", client: "SALT · concept · jewellery", kind: "AI UGC", youtubeId: "IaK2Ph1Rf3Y", vertical: true },
-  // Added 2026-10-20, same convention as the two above.
-  { title: "LUMORA — serum UGC ad", client: "LUMORA · concept · skincare", kind: "AI UGC", youtubeId: "glm-JT7kr7c", vertical: true },
+  // Added 2026-10-20, same convention as the two above. The poster is the custom Shorts cover Jothi
+  // set on YouTube (sardefault) — the default chain starts at oardefault, an auto-picked frame.
+  { title: "LUMORA — serum UGC ad", client: "LUMORA · concept · skincare", kind: "AI UGC", youtubeId: "glm-JT7kr7c", vertical: true, poster: "https://i.ytimg.com/vi/glm-JT7kr7c/sardefault.jpg" },
   { title: "Parota — UGC ad", client: "Top-5 El Alimentos · FMCG food", kind: "AI UGC", youtubeId: "8nIrz38jXNA", vertical: true },
   { title: "Hazelnut latte — UGC ad", client: "Concept · coffee", kind: "AI UGC", youtubeId: "amEMlW6Yb2I", vertical: true },
   { title: "Soft luxury haircare", client: "Concept · haircare", kind: "Concept film", youtubeId: "M5LzJybmNfM", vertical: true },
