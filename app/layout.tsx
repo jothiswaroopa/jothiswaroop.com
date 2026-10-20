@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollLoader from "@/components/motion/SmoothScrollLoader";
@@ -72,13 +71,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             it off the critical path: the LCP image and fonts load first, which is why the sans and
             mono faces above are deliberately not preloaded. The project id is not a secret — it ships
             in client JS and is visible to every visitor. An id prop is required on inline scripts. */}
-        <Script id="ms-clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "yp7ob83rop");`}
-        </Script>
+        {/* Clarity, as a plain self-deferring script rather than next/script.
+
+            It was mounted with strategy="afterInteractive" and NEVER RAN in production. The project
+            id shipped in the HTML, React hydrated, eleven chunks loaded — and twelve seconds later
+            there was still no clarity.ms script in the DOM and no window.clarity. Months of a site
+            with analytics installed and no data behind it.
+
+            The cause is scripts/defer-hydration.mjs: it strips Next's own <script async> chunk tags
+            and re-injects them from its own loader after the hero paints. That is deliberate and it
+            bought mobile LCP 3.6s → 2.3s, but afterInteractive scripts are scheduled by the runtime
+            those tags boot, so removing them leaves that queue unflushed.
+
+            A tag this small does not need Next's scheduling. Deferring it to window load keeps it
+            off the critical path, so the LCP work is untouched, and makes it independent of
+            hydration entirely. The project id is not a secret: it ships in client JS either way. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `addEventListener("load",function(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","yp7ob83rop")});`,
+          }}
+        />
         {/* Person schema — ties the domain to the LinkedIn/Instagram profiles for search engines */}
         <script
           type="application/ld+json"
