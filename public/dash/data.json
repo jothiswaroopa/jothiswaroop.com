@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-20T01:59:40.384Z",
+  "generatedAt": "2026-10-21T01:50:46.891Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-20",
-      "end": "2026-10-18"
+      "start": "2026-09-21",
+      "end": "2026-10-19"
     },
     "totals": {
       "clicks": 12,
-      "impressions": 122,
-      "ctr": 0.09836065573770492,
-      "position": 12.098360655737705
+      "impressions": 120,
+      "ctr": 0.1,
+      "position": 12.625
     },
     "previous": {
-      "clicks": 3,
-      "impressions": 8,
-      "ctr": 0.375,
-      "position": 1.875
+      "clicks": 5,
+      "impressions": 17,
+      "ctr": 0.29411764705882354,
+      "position": 1.8235294117647058
     },
     "daily": [
       {
@@ -243,9 +243,23 @@
         "impressions": 8,
         "ctr": 0,
         "position": 17.25
+      },
+      {
+        "key": "2026-10-18",
+        "clicks": 2,
+        "impressions": 7,
+        "ctr": 0.2857142857142857,
+        "position": 7.857142857142857
       }
     ],
     "queries": [
+      {
+        "key": "jothiswaroop.com",
+        "clicks": 1,
+        "impressions": 17,
+        "ctr": 0.058823529411764705,
+        "position": 18.11764705882353
+      },
       {
         "key": "dental practice missed calls",
         "clicks": 0,
@@ -275,13 +289,6 @@
         "position": 37
       },
       {
-        "key": "jothiswaroop.com",
-        "clicks": 0,
-        "impressions": 15,
-        "ctr": 0,
-        "position": 19.666666666666668
-      },
-      {
         "key": "jyothi swaroop",
         "clicks": 0,
         "impressions": 2,
@@ -306,31 +313,31 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 9,
-        "impressions": 62,
-        "ctr": 0.14516129032258066,
-        "position": 3.6129032258064515
+        "clicks": 11,
+        "impressions": 55,
+        "ctr": 0.2,
+        "position": 3.4363636363636365
       },
       {
         "key": "https://jothiswaroop.com/about/",
-        "clicks": 2,
-        "impressions": 53,
-        "ctr": 0.03773584905660377,
-        "position": 6.69811320754717
+        "clicks": 1,
+        "impressions": 48,
+        "ctr": 0.020833333333333332,
+        "position": 6.854166666666667
       },
       {
         "key": "http://jothiswaroop.com/",
-        "clicks": 1,
-        "impressions": 9,
-        "ctr": 0.1111111111111111,
-        "position": 1.6666666666666665
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2
       },
       {
         "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 5
+        "position": 4.5
       },
       {
         "key": "https://jothiswaroop.com/audit/",
@@ -342,9 +349,9 @@
       {
         "key": "https://jothiswaroop.com/blog/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 28
+        "position": 20.333333333333332
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
@@ -384,9 +391,9 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 8,
         "ctr": 0,
-        "position": 5.8
+        "position": 5.75
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -398,9 +405,9 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 12,
         "ctr": 0,
-        "position": 15.9
+        "position": 15.583333333333334
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements",
@@ -419,9 +426,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 12,
+        "impressions": 13,
         "ctr": 0,
-        "position": 12.916666666666666
+        "position": 12.76923076923077
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -433,39 +440,39 @@
       {
         "key": "https://jothiswaroop.com/work/ram/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 24.25
+        "position": 20.6
       },
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 15.25
+        "position": 13.6
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 7,
         "ctr": 0,
-        "position": 38
+        "position": 31.571428571428573
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 24
+        "position": 16
       }
     ],
     "countries": [
       {
         "key": "ind",
         "clicks": 12,
-        "impressions": 74,
-        "ctr": 0.16216216216216217,
-        "position": 6.054054054054054
+        "impressions": 67,
+        "ctr": 0.1791044776119403,
+        "position": 6.522388059701493
       },
       {
         "key": "are",
@@ -484,9 +491,16 @@
       {
         "key": "aus",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 41.5
+        "position": 29.333333333333332
+      },
+      {
+        "key": "bgr",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
       },
       {
         "key": "bih",
@@ -510,25 +524,18 @@
         "position": 6
       },
       {
+        "key": "idn",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 22
+      },
+      {
         "key": "isr",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
         "position": 9
-      },
-      {
-        "key": "kor",
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0,
-        "position": 6.5
-      },
-      {
-        "key": "mar",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 7
       }
     ],
     "devices": [
@@ -537,21 +544,21 @@
         "clicks": 8,
         "impressions": 99,
         "ctr": 0.08080808080808081,
-        "position": 13.808080808080808
+        "position": 14.232323232323232
       },
       {
         "key": "MOBILE",
         "clicks": 4,
-        "impressions": 23,
-        "ctr": 0.17391304347826086,
-        "position": 4.739130434782609
+        "impressions": 21,
+        "ctr": 0.19047619047619047,
+        "position": 5.0476190476190474
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-20",
-      "end": "2026-10-20"
+      "start": "2026-09-21",
+      "end": "2026-10-21"
     },
     "totals": {
       "views": 0,
@@ -566,12 +573,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1789689600000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -744,6 +745,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1792195200000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1792281600000)/",
         "Impressions": 0
       }
     ],
@@ -980,17 +987,17 @@
   "spend": {
     "month": "2026-10",
     "cap": 9,
-    "spent": 6.500128,
+    "spent": 6.538544,
     "by": {
       "blog": 3.489602,
       "evolve": 0.110942,
       "geo": 1.24131,
-      "linkedin": 1.342234,
+      "linkedin": 1.38065,
       "scan": 0.31604
     },
-    "remaining": 2.499872,
-    "pace": 1.119466,
-    "projected": 10.075198,
+    "remaining": 2.461456,
+    "pace": 1.07246,
+    "projected": 9.652136,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1009,7 +1016,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-11T21:16:59Z",
+        "lastCrawl": "2026-10-20T10:04:38Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
