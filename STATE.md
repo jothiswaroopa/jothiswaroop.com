@@ -1,6 +1,6 @@
 # Live state — personal brand
 
-**Updated: 20 October 2026.** Replace this block whenever it changes; a stale STATE.md is worse
+**Updated: 21 October 2026.** Replace this block whenever it changes; a stale STATE.md is worse
 than none. Verify before trusting anything dated more than a week back.
 
 ## Site
@@ -89,6 +89,12 @@ still show auto frames. Switch them only if Jothi asks: it changes how three exi
 concept films and six AI UGC ads. That count is written by hand in two places, the `proof` line in
 `lib/content.ts` and the AI-commercials paragraph in `app/services/page.tsx`. Update both whenever
 a concept film is added.
+
+## 21 Oct — UN HYPE
+
+`UN HYPE · concept · sunscreen` (`80iu0NTLMjA`) follows LUMORA, with its YouTube cover as `poster`
+the same way. Showreel reads **17**. The hand-written
+concept count is now **twelve** (five films, seven UGC ads) in both places.
 
 ## How this connects to the other chat
 
