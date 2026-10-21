@@ -11,7 +11,12 @@ const OUT = path.join(process.cwd(), "out");
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith(".html") ? [path.join(d, e.name)] : []));
 const RE = /<script src="(\/_next\/static\/chunks\/[^"]+)" async=""><\/script>/g;
 
-const loader = (srcs) => `<script>(function(){var u=${JSON.stringify(srcs)},d=false;function go(){if(d)return;d=true;u.forEach(function(x){var t=document.createElement("script");t.src=x;t.async=true;document.head.appendChild(t)})}function afterPaint(){requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(go,0)})})}function start(){var img=document.querySelector('img[fetchpriority="high"],img[fetchPriority="high"]');if(img&&img.decode){img.decode().then(afterPaint,afterPaint)}else{afterPaint()}}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();setTimeout(go,2500)})()</script>`;
+// Waits for the browser's own first-contentful-paint entry, not just for frames. On a cold load the renderer
+// can idle for a second or more after the document is ready before it presents anything; frames and the old
+// 2.5 s fallback both fired inside that gap, so the chunks landed before the first paint and Lighthouse booked
+// all of them against it (live mobile 66 on those runs, 96 on the rest). Browsers without paint timing keep
+// the decode-and-two-frames path. The fallback is 4 s so a slow first paint can no longer pull hydration ahead of it.
+const loader = (srcs) => `<script>(function(){var u=${JSON.stringify(srcs)},d=false;function go(){if(d)return;d=true;u.forEach(function(x){var t=document.createElement("script");t.src=x;t.async=true;document.head.appendChild(t)})}function afterPaint(){requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(go,0)})})}function decoded(){var img=document.querySelector('img[fetchpriority="high"],img[fetchPriority="high"]');if(img&&img.decode){img.decode().then(afterPaint,afterPaint)}else{afterPaint()}}function start(){var P=window.PerformanceObserver;if(!P||!P.supportedEntryTypes||P.supportedEntryTypes.indexOf("paint")<0)return decoded();var o=new P(function(l){if(l.getEntriesByName("first-contentful-paint").length){o.disconnect();decoded()}});o.observe({type:"paint",buffered:true})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();setTimeout(go,4000)})()</script>`;
 
 let n = 0;
 for (const f of walk(OUT)) {

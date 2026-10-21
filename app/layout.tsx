@@ -85,10 +85,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             A tag this small does not need Next's scheduling. Deferring it to window load keeps it
             off the critical path, so the LCP work is untouched, and makes it independent of
-            hydration entirely. The project id is not a secret: it ships in client JS either way. */}
+            hydration entirely. The project id is not a secret: it ships in client JS either way.
+
+            Window load turned out to be too early. On a cold load the first paint can trail load
+            by a second or more, and Clarity's ~250ms of script landed inside that gap. It now
+            waits for the first contentful paint itself, then starts on the first tap, key or
+            wheel, or 3s later. Scroll
+            is deliberately not a trigger: scroll-snap fires scroll events on its own at first
+            render. Every visitor who stays 3s is still recorded. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `addEventListener("load",function(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","yp7ob83rop")});`,
+            __html: `(function(){var d=0,E=["pointerdown","keydown","touchstart","wheel"];function go(){if(d)return;d=1;E.forEach(function(e){removeEventListener(e,go,true)});(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","yp7ob83rop")}function arm(){E.forEach(function(e){addEventListener(e,go,{capture:true,passive:true})});setTimeout(go,3000)}var P=window.PerformanceObserver;if(!P||!P.supportedEntryTypes||P.supportedEntryTypes.indexOf("paint")<0)return arm();var o=new P(function(l){if(l.getEntriesByName("first-contentful-paint").length){o.disconnect();arm()}});o.observe({type:"paint",buffered:true})})();`,
           }}
         />
         {/* Person schema — ties the domain to the LinkedIn/Instagram profiles for search engines */}
