@@ -1,6 +1,57 @@
 {
-  "generated": "2026-10-20T05:04:55.443Z",
+  "generated": "2026-10-21T05:05:46.911Z",
   "posts": [
+    {
+      "date": "2026-10-21",
+      "weekday": "Wed",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": true,
+      "heldBecause": null,
+      "hook": "Meta just published how agencies are testing incrementality. Incrementality means asking: did the ad cause the sale, or would that person have bought anyway?",
+      "body": "Meta just published how agencies are testing incrementality.\n\nIncrementality means asking: did the ad cause the sale, or would that person have bought anyway?\n\nMost small advertisers never check this. They look at \"results\" in Ads Manager and assume every one came from the ad. Meta's own post admits that is not always true, and shows agencies running holdout tests to find out — showing the ad to one group and not another, then comparing what each group actually bought.\n\nYou don't need an agency's budget to borrow the idea. Pick your best-spending campaign. Pause it for a few days in a market or audience segment you can isolate, and watch if sales actually drop, or barely move.\n\nIf sales barely move, that budget wasn't creating buyers. It was catching people who were going to buy anyway, and the ad got the credit.\n\nThis is the same discipline behind every number I publish — cost per lead means amount spent divided by leads counted in Meta's own lead centre, nothing modelled. Incrementality testing is that same honesty, aimed at the sale itself.\n\nHave you ever turned a campaign off on purpose, just to see what happens to sales without it?",
+      "chars": 1154,
+      "avgWords": 15.4,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "one sentence is 35 words long",
+        "check: \"Meta's own post admits that is not always true, and shows agencies running holdo\" — Characterizes the Meta article's content as an 'admission' and describes specific methodology (holdout tests, group comparison) not confirmed to be in the cited post; presented as certain fact about what the post says.",
+        "check: \"Pick your best-spending campaign. Pause it for a few days in a market or audienc\" — Presented as general advice/method, not attributed to him as tested personal experience — acceptable as advice, but borderline since it's his own untested framework presented as a reliable technique.",
+        "check: \"This is the same discipline behind every number I publish — cost per lead means \" — Restates approved methodology accurately, but combines it with an implied first-hand claim of consistent personal discipline ('every number I publish') not explicitly itemized as a fact beyond the methodology description."
+      ],
+      "images": [],
+      "pdf": null,
+      "sources": [
+        {
+          "title": "Terminal X matches senior investor judgment 88.6% with GPT-6.1",
+          "url": "https://openai.com/index/terminal-x",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Advancing coding in low‑resource programming languages",
+          "url": "https://openai.com/index/low-resource-programming-languages",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "Performance Spotlight: How Agencies Are Testing for Incrementality",
+          "url": "https://www.facebook.com/business/news/agencies-testing-incrementality",
+          "publisher": "Meta"
+        }
+      ],
+      "status": "posted",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "postedAt": "2026-10-21T05:05:49.502Z",
+      "linkedinId": "urn:li:share:7518538008191451136",
+      "notPosted": null
+    },
     {
       "date": "2026-10-20",
       "weekday": "Tue",
@@ -1099,173 +1150,6 @@
       "impressions": null,
       "postedAt": "2026-10-02T05:57:38.261Z",
       "linkedinId": "urn:li:ugcPost:7511665679083794432"
-    },
-    {
-      "date": "2026-10-01",
-      "weekday": "Thu",
-      "pillar": "trending",
-      "format": "carousel",
-      "angle": "Five labs shipped the same product in seven weeks: an always-on agent with its own computer that signs into your tools. Why they are all racing for it, what a $300 agent stack genuinely replaces, and the work it does not touch — from someone with nine of these running inside client businesses.",
-      "isSales": false,
-      "videoPrompt": null,
-      "autopostSafe": true,
-      "heldBecause": null,
-      "hook": "Five labs shipped the same product in seven weeks.",
-      "body": "Five labs shipped the same product in seven weeks.\n\nAn agent that signs in and keeps working after you close the laptop.\n\nGrok Bot in August. Muse in September. Then OpenAI's dots and Meta's small-business push, on the same day. Each runs on its own computer, with minimal supervision.\n\nHere is the part almost nobody reported. Not one of them carries its own price. Each rides on a subscription you are already paying for.\n\nThat tells you what the race is actually for. Not selling you an agent. Making sure you never cancel.\n\nOn the one-person company, Anthropic's chief executive puts it at 70 to 80 percent for this year. Read the categories he named, though. Trading, developer tools, automated support. All three sell software. None of them has to make or ship anything.\n\nWe run nine automations inside client businesses. They took over the follow-up nobody had time for. Not one of them replaced a decision.\n\nAgents replace the doing. They have not touched the deciding.",
-      "slides": [
-        {
-          "text": "Five labs. One product. Seven weeks."
-        },
-        {
-          "kind": "product",
-          "product": "grok-bot",
-          "label": "Grok Bot",
-          "sublabel": "SpaceXAI · 11 Aug",
-          "text": "Watches you do a task once, then does it for you."
-        },
-        {
-          "kind": "product",
-          "product": "meta-muse",
-          "label": "Muse",
-          "sublabel": "Meta · 8 Sep",
-          "text": "Reaches your email, calendar, payments and shopping."
-        },
-        {
-          "kind": "product",
-          "product": "openai-dots",
-          "label": "dots",
-          "sublabel": "OpenAI · 29 Sep",
-          "text": "Its own cloud computer. Over 4,000 apps."
-        },
-        {
-          "kind": "callout",
-          "label": "WHY ALL OF THEM, NOW",
-          "text": "Not one of these carries its own price. Each rides on a subscription you already pay for."
-        },
-        {
-          "kind": "versus",
-          "text": "That tells you what the race is actually for.",
-          "leftLabel": "WHAT THEY SELL",
-          "left": "An assistant that acts.",
-          "rightLabel": "WHAT THEY DEFEND",
-          "right": "The subscription you already have."
-        },
-        {
-          "kind": "stat",
-          "figure": "70-80%",
-          "label": "ANTHROPIC'S CEO, ON 2026",
-          "text": "Dario Amodei's odds that a billion-dollar one-employee company arrives this year."
-        },
-        {
-          "kind": "callout",
-          "label": "READ THE CATEGORIES HE NAMED",
-          "text": "Trading, developer tools, automated support. All three sell software. None has to make or ship a thing."
-        },
-        {
-          "kind": "versus",
-          "text": "So what does a $300 stack actually replace?",
-          "leftLabel": "IT REPLACES",
-          "left": "Execution. The defined, repeatable work.",
-          "rightLabel": "IT DOES NOT",
-          "right": "Judgement when the rules aren't clear yet."
-        },
-        {
-          "kind": "steps",
-          "text": "Run this on your own week before you buy any of them:",
-          "items": [
-            "List every task you did twice",
-            "Mark the ones that needed a judgement call",
-            "What is left unmarked is what an agent can take"
-          ]
-        },
-        {
-          "kind": "stat",
-          "figure": "9",
-          "label": "AUTOMATIONS WE RUN INSIDE CLIENT BUSINESSES",
-          "text": "They took over the follow-up nobody had time for. Not one replaced a decision."
-        },
-        {
-          "text": "Agents replace the doing. They have not touched the deciding."
-        }
-      ],
-      "chars": 977,
-      "avgWords": 7.6,
-      "warnings": [
-        "hand-built deck: slides and caption approved by Jothi, every claim checked against the brief's sources rather than by the model fact-check pass",
-        "no number in the first line — openers with a figure tend to do better",
-        "possible client name to check: \"Grok Bot\""
-      ],
-      "images": [
-        "/linkedin/2026-10-01/slide-01.png",
-        "/linkedin/2026-10-01/slide-02.png",
-        "/linkedin/2026-10-01/slide-03.png",
-        "/linkedin/2026-10-01/slide-04.png",
-        "/linkedin/2026-10-01/slide-05.png",
-        "/linkedin/2026-10-01/slide-06.png",
-        "/linkedin/2026-10-01/slide-07.png",
-        "/linkedin/2026-10-01/slide-08.png",
-        "/linkedin/2026-10-01/slide-09.png",
-        "/linkedin/2026-10-01/slide-10.png",
-        "/linkedin/2026-10-01/slide-11.png",
-        "/linkedin/2026-10-01/slide-12.png",
-        "/linkedin/2026-10-01/slide-13.png"
-      ],
-      "pdf": "/linkedin/2026-10-01/carousel.pdf",
-      "status": "posted",
-      "sources": [
-        {
-          "publisher": "OpenAI",
-          "title": "Introducing dots",
-          "url": "https://openai.com/index/introducing-dots"
-        },
-        {
-          "publisher": "TechCrunch",
-          "title": "OpenAI launches Dots, its bubbly agentic avatar",
-          "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/"
-        },
-        {
-          "publisher": "TechCrunch",
-          "title": "Meta is expanding its AI agent Muse to small businesses",
-          "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/"
-        },
-        {
-          "publisher": "Axios",
-          "title": "Meta debuts Muse, its long-planned personal AI agent",
-          "url": "https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent"
-        },
-        {
-          "publisher": "DataCamp",
-          "title": "Grok Bot: What SpaceXAI's New AI Teammate Means for the Agent Race",
-          "url": "https://www.datacamp.com/blog/grok-bot"
-        },
-        {
-          "publisher": "Wikipedia",
-          "title": "SpaceXAI",
-          "url": "https://en.wikipedia.org/wiki/SpaceXAI"
-        },
-        {
-          "publisher": "OpenAI",
-          "title": "Helping small businesses put AI to work",
-          "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work"
-        },
-        {
-          "publisher": "Inc.",
-          "title": "Anthropic CEO Dario Amodei Predicts the First Billion-Dollar Solopreneur by 2026",
-          "url": "https://www.inc.com/ben-sherry/anthropic-ceo-dario-amodei-predicts-the-first-billion-dollar-solopreneur-by-2026/91193609"
-        },
-        {
-          "publisher": "AI Business",
-          "title": "The One-Person Company Is Real in 2026 — But Here’s Where Solo Founders Hit a Wall",
-          "url": "https://aibusiness.vc/solo/one-person-company-ai-agents-limits-2026"
-        },
-        {
-          "publisher": "Self Employed",
-          "title": "Solo Founders Lean On AI To Replace Teams, But Limits Remain",
-          "url": "https://www.selfemployed.com/news/solo-founders-ai-replace-teams-limits-2026/"
-        }
-      ],
-      "postedAt": "2026-10-01T08:13:36.118Z",
-      "linkedinId": "urn:li:ugcPost:7511337505896529920"
     }
   ]
 }

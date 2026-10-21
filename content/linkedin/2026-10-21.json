@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-21",
+  "weekday": "Wed",
+  "pillar": "trending",
+  "format": "text",
+  "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": true,
+  "heldBecause": null,
+  "hook": "Meta just published how agencies are testing incrementality. Incrementality means asking: did the ad cause the sale, or would that person have bought anyway?",
+  "body": "Meta just published how agencies are testing incrementality.\n\nIncrementality means asking: did the ad cause the sale, or would that person have bought anyway?\n\nMost small advertisers never check this. They look at \"results\" in Ads Manager and assume every one came from the ad. Meta's own post admits that is not always true, and shows agencies running holdout tests to find out — showing the ad to one group and not another, then comparing what each group actually bought.\n\nYou don't need an agency's budget to borrow the idea. Pick your best-spending campaign. Pause it for a few days in a market or audience segment you can isolate, and watch if sales actually drop, or barely move.\n\nIf sales barely move, that budget wasn't creating buyers. It was catching people who were going to buy anyway, and the ad got the credit.\n\nThis is the same discipline behind every number I publish — cost per lead means amount spent divided by leads counted in Meta's own lead centre, nothing modelled. Incrementality testing is that same honesty, aimed at the sale itself.\n\nHave you ever turned a campaign off on purpose, just to see what happens to sales without it?",
+  "chars": 1154,
+  "avgWords": 15.4,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "one sentence is 35 words long",
+    "check: \"Meta's own post admits that is not always true, and shows agencies running holdo\" — Characterizes the Meta article's content as an 'admission' and describes specific methodology (holdout tests, group comparison) not confirmed to be in the cited post; presented as certain fact about what the post says.",
+    "check: \"Pick your best-spending campaign. Pause it for a few days in a market or audienc\" — Presented as general advice/method, not attributed to him as tested personal experience — acceptable as advice, but borderline since it's his own untested framework presented as a reliable technique.",
+    "check: \"This is the same discipline behind every number I publish — cost per lead means \" — Restates approved methodology accurately, but combines it with an implied first-hand claim of consistent personal discipline ('every number I publish') not explicitly itemized as a fact beyond the methodology description."
+  ],
+  "images": [],
+  "pdf": null,
+  "sources": [
+    {
+      "title": "Terminal X matches senior investor judgment 88.6% with GPT-6.1",
+      "url": "https://openai.com/index/terminal-x",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "Advancing coding in low‑resource programming languages",
+      "url": "https://openai.com/index/low-resource-programming-languages",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "Performance Spotlight: How Agencies Are Testing for Incrementality",
+      "url": "https://www.facebook.com/business/news/agencies-testing-incrementality",
+      "publisher": "Meta"
+    }
+  ],
+  "status": "posted",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "postedAt": "2026-10-21T05:05:49.502Z",
+  "linkedinId": "urn:li:share:7518538008191451136"
+}
