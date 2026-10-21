@@ -96,6 +96,36 @@ a concept film is added.
 the same way. Showreel reads **17**. The hand-written
 concept count is now **twelve** (five films, seven UGC ads) in both places.
 
+## 21 Oct — mobile PageSpeed 66, and why it was not the code
+
+PageSpeed showed mobile **66** (desktop 96). **The build was not the problem**: the identical
+`out/` scores **96** served locally with compression, and 16 live Lighthouse runs were bimodal —
+most 92–99, about a third 66–75. On the slow runs Chrome sat **idle for 1–2s after the document
+was ready before presenting anything** (no request pending, main thread idle, raster 2ms). That
+stall is environmental and also hits PageSpeed. It cannot be removed from our side.
+
+What it cost was everything that *started inside the gap*, which Lighthouse books against the
+first paint: the React chunks (the loader fired two frames after decode, or at its 2.5s fallback,
+and frames resume before the first real paint) and Clarity (window load, ~250ms of script).
+
+**Fix (`a4a28bd`):**
+- `scripts/defer-hydration.mjs` waits for the browser's `first-contentful-paint` entry, then the
+  old decode + two frames. Fallback 2.5s → 4s. Browsers without paint timing keep the old path.
+  Still runs `postbuild`; rule 9 stands.
+- Clarity (`app/layout.tsx`) starts after that paint, on the first tap, key or wheel, or 3s later.
+  **Scroll is not a trigger** — scroll-snap fires scroll events by itself at first render.
+  Trade-off: a visitor who leaves inside 3s without touching anything is not recorded.
+
+Local after the fix: mobile 94–97, desktop 100, CLS ~0. **Live, 10 runs after the deploy:**
+normal loads 97–100 (6 runs), stalled loads **85–92** (4 runs, first paint still ~2.4–2.6s
+observed). Before the fix the stalled loads were 66–75. The stall itself still happens, about as
+often; what changed is that nothing piles up inside it. A single PageSpeed run can still land at
+~85 by luck of the draw. That is the stall, not a regression.
+
+Ruled out, so nobody re-checks them: the grain `feTurbulence` overlay (2ms raster), the
+preloader (skipped below 768px), the `.hero-media` static-portrait override (still in place), any
+render-blocking tag, TTFB (~100ms warm), and the CI build (HTML byte-identical to local).
+
 ## How this connects to the other chat
 
 Cold email runs from `~/Projects/outreach-engine` in its own session. The only hard link between
