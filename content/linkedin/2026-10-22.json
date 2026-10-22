@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-22",
+  "weekday": "Thu",
+  "pillar": "trending",
+  "format": "carousel",
+  "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+  "isSales": true,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": "selling day — you approve anything that makes an offer",
+  "hook": "OpenAI says over 100,000 advertisers have used ChatGPT Ads, now expanding to 26 more countries. (\"ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform,\" OpenAI, 21 Oct 2026, https://openai.com/index/chatgpt-ads-expands-26-new-countries) Most people reading that headline will think \"new place to run ads.\" That's the least useful part of it.",
+  "body": "OpenAI says over 100,000 advertisers have used ChatGPT Ads, now expanding to 26 more countries. (\"ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform,\" OpenAI, 21 Oct 2026, https://openai.com/index/chatgpt-ads-expands-26-new-countries)\n\nMost people reading that headline will think \"new place to run ads.\" That's the least useful part of it.\n\nThe useful part is in a second post from the same day: how OpenAI built the ad stack itself, meaning how it decides which ad you see and why. (\"How we built ChatGPT's novel ad stack for user trust and relevance,\" OpenAI, 21 Oct 2026, https://openai.com/index/building-chatgpt-ad-stack)\n\nEvery platform you've ever run ads on — Meta, Google, now this — is built the same way underneath. It has a goal you set, a signal it learns from, and a cost it charges when it misreads you.\n\nOn Meta, that goal lives in Ads Manager, inside your ad set, on the line called Performance goal. Most accounts I've looked at have it set wrong for what they actually want.\n\nA new ad platform arriving doesn't change that. It just means there will soon be one more goal line to get wrong, in one more place.\n\nThe question worth asking before you touch ChatGPT Ads isn't \"should I try this.\" It's whether you already know what your current platform's goal line is set to.\n\nIf you want to send me a screenshot of that line, I'll tell you plainly if it's doing what you think it's doing.",
+  "chars": 1445,
+  "avgWords": 18.9,
+  "warnings": [
+    "over a limit: sentences average 20.8 words (max 19) — shorten them",
+    "over a limit: hook is 379 chars, must be under 210",
+    "over a limit: first line is 35 words (max 14) — short openers get expanded far more often",
+    "over a limit: cover slide is 15 words (max 10) — it carries most of the result",
+    "over a limit: slide 3: 24 words (max 20)",
+    "over a limit: slide 4: 21 words (max 20)",
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "images": [
+    "/linkedin/2026-10-22/slide-01.png",
+    "/linkedin/2026-10-22/slide-02.png",
+    "/linkedin/2026-10-22/slide-03.png",
+    "/linkedin/2026-10-22/slide-04.png",
+    "/linkedin/2026-10-22/slide-05.png",
+    "/linkedin/2026-10-22/slide-06.png",
+    "/linkedin/2026-10-22/slide-07.png",
+    "/linkedin/2026-10-22/slide-08.png",
+    "/linkedin/2026-10-22/slide-09.png",
+    "/linkedin/2026-10-22/slide-10.png"
+  ],
+  "pdf": "/linkedin/2026-10-22/carousel.pdf",
+  "slides": [
+    {
+      "kind": "stat",
+      "figure": "100,000+",
+      "label": "ADVERTISERS ALREADY IN",
+      "text": "OpenAI says over 100,000 advertisers have used ChatGPT Ads, now live in 26 more countries."
+    },
+    {
+      "kind": "statement",
+      "text": "A new place to spend money is not the news. What decides your result is.",
+      "highlight": "decides"
+    },
+    {
+      "kind": "statement",
+      "text": "Every ad platform runs on the same three things: a goal you set, a signal it learns from, a cost for getting it wrong."
+    },
+    {
+      "kind": "statement",
+      "text": "OpenAI just published how its ad stack decides what you see — not just that ads exist, but how they're chosen."
+    },
+    {
+      "kind": "statement",
+      "text": "On Meta, that goal lives in one place: Ads Manager, your ad set, the line called Performance goal."
+    },
+    {
+      "kind": "statement",
+      "text": "Most people never open that line after campaign setup. It sits there, quietly deciding who you pay for."
+    },
+    {
+      "kind": "versus",
+      "leftLabel": "SET ONCE",
+      "left": "Goal chosen at launch, never revisited",
+      "rightLabel": "CHECKED WEEKLY",
+      "right": "Goal matched to what you actually need now",
+      "text": "The leak isn't the new platform. It's the old goal nobody rechecked."
+    },
+    {
+      "kind": "statement",
+      "text": "A new platform arriving just means one more goal line, in one more place, someone will forget to check."
+    },
+    {
+      "kind": "callout",
+      "label": "THE HABIT",
+      "text": "Before trying ChatGPT Ads or anything new, open your current one and read that line first."
+    },
+    {
+      "kind": "statement",
+      "text": "The platform changes every year. The habit of checking what you told it to optimise for doesn't."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+      "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "How we built ChatGPT’s novel ad stack for user trust and relevance",
+      "url": "https://openai.com/index/building-chatgpt-ad-stack",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "draft",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "notPosted": "held for review — selling day — you approve anything that makes an offer"
+}

@@ -1,6 +1,118 @@
 {
-  "generated": "2026-10-21T05:05:46.911Z",
+  "generated": "2026-10-22T05:09:04.586Z",
   "posts": [
+    {
+      "date": "2026-10-22",
+      "weekday": "Thu",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": true,
+      "videoPrompt": null,
+      "autopostSafe": false,
+      "heldBecause": "selling day — you approve anything that makes an offer",
+      "hook": "OpenAI says over 100,000 advertisers have used ChatGPT Ads, now expanding to 26 more countries. (\"ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform,\" OpenAI, 21 Oct 2026, https://openai.com/index/chatgpt-ads-expands-26-new-countries) Most people reading that headline will think \"new place to run ads.\" That's the least useful part of it.",
+      "body": "OpenAI says over 100,000 advertisers have used ChatGPT Ads, now expanding to 26 more countries. (\"ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform,\" OpenAI, 21 Oct 2026, https://openai.com/index/chatgpt-ads-expands-26-new-countries)\n\nMost people reading that headline will think \"new place to run ads.\" That's the least useful part of it.\n\nThe useful part is in a second post from the same day: how OpenAI built the ad stack itself, meaning how it decides which ad you see and why. (\"How we built ChatGPT's novel ad stack for user trust and relevance,\" OpenAI, 21 Oct 2026, https://openai.com/index/building-chatgpt-ad-stack)\n\nEvery platform you've ever run ads on — Meta, Google, now this — is built the same way underneath. It has a goal you set, a signal it learns from, and a cost it charges when it misreads you.\n\nOn Meta, that goal lives in Ads Manager, inside your ad set, on the line called Performance goal. Most accounts I've looked at have it set wrong for what they actually want.\n\nA new ad platform arriving doesn't change that. It just means there will soon be one more goal line to get wrong, in one more place.\n\nThe question worth asking before you touch ChatGPT Ads isn't \"should I try this.\" It's whether you already know what your current platform's goal line is set to.\n\nIf you want to send me a screenshot of that line, I'll tell you plainly if it's doing what you think it's doing.",
+      "chars": 1445,
+      "avgWords": 18.9,
+      "warnings": [
+        "over a limit: sentences average 20.8 words (max 19) — shorten them",
+        "over a limit: hook is 379 chars, must be under 210",
+        "over a limit: first line is 35 words (max 14) — short openers get expanded far more often",
+        "over a limit: cover slide is 15 words (max 10) — it carries most of the result",
+        "over a limit: slide 3: 24 words (max 20)",
+        "over a limit: slide 4: 21 words (max 20)",
+        "fact-check did not run — read every claim yourself before posting"
+      ],
+      "images": [
+        "/linkedin/2026-10-22/slide-01.png",
+        "/linkedin/2026-10-22/slide-02.png",
+        "/linkedin/2026-10-22/slide-03.png",
+        "/linkedin/2026-10-22/slide-04.png",
+        "/linkedin/2026-10-22/slide-05.png",
+        "/linkedin/2026-10-22/slide-06.png",
+        "/linkedin/2026-10-22/slide-07.png",
+        "/linkedin/2026-10-22/slide-08.png",
+        "/linkedin/2026-10-22/slide-09.png",
+        "/linkedin/2026-10-22/slide-10.png"
+      ],
+      "pdf": "/linkedin/2026-10-22/carousel.pdf",
+      "slides": [
+        {
+          "kind": "stat",
+          "figure": "100,000+",
+          "label": "ADVERTISERS ALREADY IN",
+          "text": "OpenAI says over 100,000 advertisers have used ChatGPT Ads, now live in 26 more countries."
+        },
+        {
+          "kind": "statement",
+          "text": "A new place to spend money is not the news. What decides your result is.",
+          "highlight": "decides"
+        },
+        {
+          "kind": "statement",
+          "text": "Every ad platform runs on the same three things: a goal you set, a signal it learns from, a cost for getting it wrong."
+        },
+        {
+          "kind": "statement",
+          "text": "OpenAI just published how its ad stack decides what you see — not just that ads exist, but how they're chosen."
+        },
+        {
+          "kind": "statement",
+          "text": "On Meta, that goal lives in one place: Ads Manager, your ad set, the line called Performance goal."
+        },
+        {
+          "kind": "statement",
+          "text": "Most people never open that line after campaign setup. It sits there, quietly deciding who you pay for."
+        },
+        {
+          "kind": "versus",
+          "leftLabel": "SET ONCE",
+          "left": "Goal chosen at launch, never revisited",
+          "rightLabel": "CHECKED WEEKLY",
+          "right": "Goal matched to what you actually need now",
+          "text": "The leak isn't the new platform. It's the old goal nobody rechecked."
+        },
+        {
+          "kind": "statement",
+          "text": "A new platform arriving just means one more goal line, in one more place, someone will forget to check."
+        },
+        {
+          "kind": "callout",
+          "label": "THE HABIT",
+          "text": "Before trying ChatGPT Ads or anything new, open your current one and read that line first."
+        },
+        {
+          "kind": "statement",
+          "text": "The platform changes every year. The habit of checking what you told it to optimise for doesn't."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+          "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+          "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+          "publisher": "OpenAI"
+        },
+        {
+          "title": "How we built ChatGPT’s novel ad stack for user trust and relevance",
+          "url": "https://openai.com/index/building-chatgpt-ad-stack",
+          "publisher": "OpenAI"
+        }
+      ],
+      "status": "draft",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "notPosted": "held for review — selling day — you approve anything that makes an offer"
+    },
     {
       "date": "2026-10-21",
       "weekday": "Wed",
@@ -49,8 +161,7 @@
       },
       "impressions": null,
       "postedAt": "2026-10-21T05:05:49.502Z",
-      "linkedinId": "urn:li:share:7518538008191451136",
-      "notPosted": null
+      "linkedinId": "urn:li:share:7518538008191451136"
     },
     {
       "date": "2026-10-20",
@@ -1041,115 +1152,6 @@
       "impressions": null,
       "postedAt": "2026-10-05T06:00:13.677Z",
       "linkedinId": "urn:li:share:7512753494202724353"
-    },
-    {
-      "date": "2026-10-02",
-      "weekday": "Fri",
-      "pillar": "trending",
-      "format": "carousel",
-      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
-      "isSales": false,
-      "videoPrompt": null,
-      "autopostSafe": true,
-      "heldBecause": null,
-      "hook": "Meta just named Dhruv Vohra to lead its Southeast Asia business. A leadership change at Meta doesn't touch your ad account directly. But it's a reminder that the platform your budget runs on is run by people making decisions you never see — and the only defence is knowing exactly what you can check yourself, today, without waiting on anyone.",
-      "body": "Meta just named Dhruv Vohra to lead its Southeast Asia business.\n\nA leadership change at Meta doesn't touch your ad account directly. But it's a reminder that the platform your budget runs on is run by people making decisions you never see — and the only defence is knowing exactly what you can check yourself, today, without waiting on anyone.\n\nMost people running their own ads have never opened the one screen that shows what Meta is actually optimising for. It's not in the creative. It's not in the budget. It's one line, three clicks in, called the Performance goal.\n\nIf that line says \"maximise number of leads\" when you meant \"maximise quality,\" Meta will hand you volume and call it a win. Nobody at Meta checks this for you. Nobody at any agency checks it unless they're told to.\n\nThis isn't about the reshuffle. It's about not waiting for a headline to go check your own account.",
-      "chars": 890,
-      "avgWords": 13.2,
-      "warnings": [
-        "no number in the first line — openers with a figure tend to do better",
-        "one sentence is 38 words long",
-        "possible client name to check: \"Dhruv Vohra\"",
-        "possible client name to check: \"Southeast Asia\"",
-        "over a limit: hook is 343 chars, must be under 210",
-        "check: \"Most people running their own ads have never opened the one screen that shows wh\" — Unsupported generalization presented as a factual claim about what most people have or haven't done; no data backs this.",
-        "check: \"It's not in the creative. It's not in the budget. It's one line, three clicks in\" — Specific claim about UI navigation ('three clicks in') is an unverified platform-mechanics detail.",
-        "check: \"If that line says \"maximise number of leads\" when you meant \"maximise quality,\" \" — States platform behavior as certain fact; this is an interpretation/generalization about how Meta's optimization works rather than an approved fact.",
-        "check: \"Nobody at Meta checks this for you. Nobody at any agency checks it unless they'r\" — Sweeping claim about Meta's and all agencies' behavior with no supporting evidence.",
-        "check: \"Most people never open it. They judge the campaign from the creative instead.\" — Unsupported generalization about typical advertiser behavior.",
-        "check: \"Set it to 'maximise number of leads' and Meta will hand you volume, not fit.\" — States platform optimization outcome as certain fact rather than a general tendency.",
-        "check: \"Set it to 'maximise conversion value' and it starts chasing something closer to \" — States platform optimization outcome as certain fact rather than a general tendency.",
-        "check: \"Nobody at Meta flags this for you. Not before you spend, not after.\" — Unsupported absolute claim about Meta's process."
-      ],
-      "images": [
-        "/linkedin/2026-10-02/slide-01.png",
-        "/linkedin/2026-10-02/slide-02.png",
-        "/linkedin/2026-10-02/slide-03.png",
-        "/linkedin/2026-10-02/slide-04.png",
-        "/linkedin/2026-10-02/slide-05.png",
-        "/linkedin/2026-10-02/slide-06.png",
-        "/linkedin/2026-10-02/slide-07.png",
-        "/linkedin/2026-10-02/slide-08.png",
-        "/linkedin/2026-10-02/slide-09.png",
-        "/linkedin/2026-10-02/slide-10.png"
-      ],
-      "pdf": "/linkedin/2026-10-02/carousel.pdf",
-      "slides": [
-        {
-          "kind": "statement",
-          "text": "Meta just changed who runs its Southeast Asia business.",
-          "highlight": "changed"
-        },
-        {
-          "kind": "statement",
-          "text": "That news means nothing to your ad account. One setting near it does."
-        },
-        {
-          "kind": "statement",
-          "text": "Every Meta ad campaign has a line called the Performance goal, hidden inside the ad set.",
-          "highlight": "Performance goal"
-        },
-        {
-          "kind": "statement",
-          "text": "It tells Meta what to chase — leads, clicks, calls, or something else entirely."
-        },
-        {
-          "kind": "statement",
-          "text": "Most people never open it. They judge the campaign from the creative instead."
-        },
-        {
-          "kind": "statement",
-          "text": "Set it to 'maximise number of leads' and Meta will hand you volume, not fit."
-        },
-        {
-          "kind": "statement",
-          "text": "Set it to 'maximise conversion value' and it starts chasing something closer to a sale."
-        },
-        {
-          "kind": "statement",
-          "text": "Nobody at Meta flags this for you. Not before you spend, not after."
-        },
-        {
-          "kind": "callout",
-          "text": "Here's where it lives: Ads Manager → your campaign → the ad set → Performance goal.",
-          "label": "CHECK THIS"
-        },
-        {
-          "kind": "statement",
-          "text": "That one line decides what kind of leads show up in your inbox tomorrow."
-        }
-      ],
-      "sources": [
-        {
-          "title": "How Albertsons Companies is reimagining retail from the inside out",
-          "url": "https://openai.com/index/albertsons-reimagining-retail",
-          "publisher": "OpenAI"
-        },
-        {
-          "title": "Meta Names Dhruv Vohra to Lead Southeast Asia Business",
-          "url": "https://about.fb.com/news/2026/09/meta-names-dhruv-vohra-to-lead-southeast-asia-business/",
-          "publisher": "Meta Newsroom"
-        }
-      ],
-      "status": "posted",
-      "firstHour": {
-        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
-        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
-        "done": false
-      },
-      "impressions": null,
-      "postedAt": "2026-10-02T05:57:38.261Z",
-      "linkedinId": "urn:li:ugcPost:7511665679083794432"
     }
   ]
 }
