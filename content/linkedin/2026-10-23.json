@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-23",
+  "weekday": "Fri",
+  "pillar": "trending",
+  "format": "carousel",
+  "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": true,
+  "heldBecause": null,
+  "hook": "ChatGPT now shows ads. Over 100,000 advertisers have already used it, and OpenAI just expanded it to 26 more countries (\"ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform\"). The part worth your attention isn't the expansion. It's what OpenAI said about how the ads get chosen — a system built to decide which ad fits what you're actually asking, not just what you clicked on before.",
+  "body": "ChatGPT now shows ads. Over 100,000 advertisers have already used it, and OpenAI just expanded it to 26 more countries (\"ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform\").\n\nThe part worth your attention isn't the expansion. It's what OpenAI said about how the ads get chosen — a system built to decide which ad fits what you're actually asking, not just what you clicked on before.\n\nThat's a different machine from Meta's. On Facebook and Instagram, you're bidding for attention — someone scrolling past a feed. On ChatGPT, you'd be showing up inside an answer someone asked for, while they're actively trying to solve a problem.\n\nFor a small business, that means the question changes. It's no longer \"how do I stop the scroll.\" It's \"would my product actually belong inside the answer to a question a stranger typed.\"\n\nMost ad accounts aren't built to answer that yet. Worth sitting with before you're asked to spend on it.",
+  "chars": 967,
+  "avgWords": 15,
+  "warnings": [
+    "over a limit: hook is 423 chars, must be under 210",
+    "over a limit: first line is 35 words (max 14) — short openers get expanded far more often",
+    "over a limit: cover slide is 12 words (max 10) — it carries most of the result",
+    "check: \"a system built to decide which ad fits what you're actually asking, not just wha\" — Characterizes OpenAI's ad relevance system beyond what the source material states; this is an inference presented as established fact about how the system works.",
+    "check: \"On Facebook and Instagram, you're bidding for attention — someone scrolling past\" — Platform generalisation about Meta ads presented as fact; reasonable practitioner characterization, not a fabricated figure.",
+    "check: \"On ChatGPT, you'd be showing up inside an answer someone asked for, while they'r\" — Speculative characterization of how ChatGPT ads function, stated as certain fact.",
+    "check: \"OpenAI built the ad stack around relevance to that question, not just your past \" — Asserts a specific mechanism of the ad stack (vs. past clicks) not explicitly confirmed in the cited material.",
+    "check: \"Interrupting well and answering well are not the same skill.\" — Opinion/framework stated as fact; acceptable as rule of thumb.",
+    "check: \"Most small business ad accounts are built only for the interrupt — a hook, a scr\" — Broad generalisation about small business ad accounts presented as fact.",
+    "check: \"A line that stops a scroll can fail completely inside an answer.\" — Unverified claim presented as a certain fact about ad performance across platforms."
+  ],
+  "images": [
+    "/linkedin/2026-10-23/slide-01.png",
+    "/linkedin/2026-10-23/slide-02.png",
+    "/linkedin/2026-10-23/slide-03.png",
+    "/linkedin/2026-10-23/slide-04.png",
+    "/linkedin/2026-10-23/slide-05.png",
+    "/linkedin/2026-10-23/slide-06.png",
+    "/linkedin/2026-10-23/slide-07.png",
+    "/linkedin/2026-10-23/slide-08.png",
+    "/linkedin/2026-10-23/slide-09.png",
+    "/linkedin/2026-10-23/slide-10.png"
+  ],
+  "pdf": "/linkedin/2026-10-23/carousel.pdf",
+  "slides": [
+    {
+      "kind": "stat",
+      "figure": "100,000+",
+      "label": "ADVERTISERS, 26 NEW COUNTRIES",
+      "text": "ChatGPT Ads just expanded, and over 100,000 advertisers have already used it."
+    },
+    {
+      "kind": "statement",
+      "text": "Everyone will post this as news. The part worth checking is what kind of ad system this actually is."
+    },
+    {
+      "kind": "statement",
+      "text": "On Meta, you buy attention from someone scrolling. That's a feed interruption, not a request.",
+      "highlight": "interruption"
+    },
+    {
+      "kind": "statement",
+      "text": "On ChatGPT, the person typed a question first. The ad shows up inside their own search for an answer."
+    },
+    {
+      "kind": "statement",
+      "text": "OpenAI built the ad stack around relevance to that question, not just your past clicks.",
+      "highlight": "relevance"
+    },
+    {
+      "kind": "statement",
+      "text": "That changes what a 'good ad' even means. Interrupting well and answering well are not the same skill."
+    },
+    {
+      "kind": "statement",
+      "text": "Most small business ad accounts are built only for the interrupt — a hook, a scroll-stop, a thumbnail."
+    },
+    {
+      "kind": "statement",
+      "text": "None of that transfers automatically. A line that stops a scroll can fail completely inside an answer."
+    },
+    {
+      "kind": "callout",
+      "label": "THE CHECK",
+      "text": "Before you spend here, ask one thing: would my offer survive being read, not just seen?"
+    },
+    {
+      "kind": "statement",
+      "text": "The expansion is the headline. The shift from being seen to being asked for is the real news.",
+      "highlight": "asked for"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+      "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "How we built ChatGPT’s novel ad stack for user trust and relevance",
+      "url": "https://openai.com/index/building-chatgpt-ad-stack",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "posted",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "postedAt": "2026-10-23T05:08:31.235Z",
+  "linkedinId": "urn:li:ugcPost:7519263463999754240"
+}
