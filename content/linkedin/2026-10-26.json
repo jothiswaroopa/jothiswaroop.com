@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-26",
+  "weekday": "Mon",
+  "pillar": "trending",
+  "format": "text",
+  "angle": "A platform policy or measurement change, explained for people who do not read release notes.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": true,
+  "heldBecause": null,
+  "hook": "Meta just titled an update \"You don't beat the auction, you brief it.\" That one line changes what \"optimising a campaign\" even means.",
+  "body": "Meta just titled an update \"You don't beat the auction, you brief it.\"\n\nThat one line changes what \"optimising a campaign\" even means.\n\nMost people treat the auction like a machine to outsmart — tighter targeting, clever bidding, a sharper audience. Meta is saying the opposite. The auction is not solved, it is briefed. You tell it what a real outcome looks like, and it goes and finds more of that.\n\nThe brief isn't your copy or your creative. It's the signal you feed back in — the actual purchases, the actual qualified leads, sent into the ad account so the system learns what to chase.\n\nAcross nine Meta ad accounts I've run, 7,341 lead-form submissions came in. Every one of those sits in Meta's own lead centre, tagged to the exact ad and form that produced it. That log is the brief. Most accounts never check it, so the auction keeps chasing whatever it chased on day one.\n\nOpen your Ads Manager today. Look at your lead form's questions. Are you telling Meta which of those leads turned into actual sales, or is it still guessing from the form alone?",
+  "chars": 1061,
+  "avgWords": 12.7,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "check: \"Across nine Meta ad accounts I've run, 7,341 lead-form submissions came in.\" — Approved facts state 7,341 submissions across nine Meta ad accounts, but do not say he personally 'ran' them — this phrasing asserts first-hand ownership/role not established in the facts.",
+    "check: \"Every one of those sits in Meta's own lead centre, tagged to the exact ad and fo\" — Approved facts confirm leads are recorded in Meta's lead centre against the ad and form, so this is supported, but phrasing 'every one' as absolute certainty is a minor extrapolation.",
+    "check: \"That log is the brief. Most accounts never check it, so the auction keeps chasin\" — This is presented as a first-hand generalization about 'most accounts' and an invented framework ('the brief') not established by approved facts."
+  ],
+  "images": [],
+  "pdf": null,
+  "sources": [
+    {
+      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "Newsroom | Meta Newsroom",
+      "url": "https://about.fb.com/news/",
+      "publisher": "Meta Newsroom"
+    },
+    {
+      "title": "Uber brings ChatGPT Work to all employees with OpenAI",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "posted",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "postedAt": "2026-10-26T05:05:14.124Z",
+  "linkedinId": "urn:li:share:7520349799817138176"
+}
