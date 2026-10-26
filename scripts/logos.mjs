@@ -20,6 +20,13 @@ const CROP = {
 const TOL = 34; // colour distance treated as "background"
 // per-file: wider tolerance for textured backgrounds, extra colours to key (e.g. a white card inside a transparent PNG)
 const KEY = { "sathyam-labels": { tol: 60 }, tharunis: { minAlpha: 200 }, bublyn: { tol: 18 }, enveear: { tol: 58 }, "gbh-solar": { tol: 52 } }; // minAlpha drops faint washes
+// per-file: recolour the surviving mark. For a logo supplied as WHITE on a solid brand colour,
+// keying the background away leaves a white mark — which is invisible on the paper strip, and
+// stays invisible through the rest-state filter (grayscale + brightness 0.72 cannot darken white).
+// Every other mark in the row is dark ink on transparent, measured at luminance 89-163. These are
+// inked to the brand's own purple so they match that range at rest and show the real colour on
+// hover, rather than being flattened to grey.
+const INK = { naturals: [91, 45, 142], "nails-n-beyond": [91, 45, 142] };
 
 await mkdir(OUT, { recursive: true });
 const files = (await readdir(SRC)).filter((f) => /\.png$/i.test(f));
@@ -45,6 +52,13 @@ for (const f of files) {
     const d = Math.min(...keys.map((k) => Math.hypot(data[i] - k[0], data[i + 1] - k[1], data[i + 2] - k[2])));
     if (d < tol || data[i + 3] < (KEY[name]?.minAlpha ?? 1)) { data[i + 3] = 0; keyed++; }
     else if (d < tol * 2) data[i + 3] = Math.round(data[i + 3] * ((d - tol) / tol)); // soft edge
+  }
+  if (INK[name]) {
+    const [r, g, b] = INK[name];
+    for (let i = 0; i < data.length; i += channels) {
+      if (data[i + 3] === 0) continue;   // keyed-out background stays gone
+      data[i] = r; data[i + 1] = g; data[i + 2] = b;   // alpha, and so the anti-aliased edge, is kept
+    }
   }
   const fitted = sharp(data, { raw: { width, height, channels } })
     .trim({ threshold: 10 })

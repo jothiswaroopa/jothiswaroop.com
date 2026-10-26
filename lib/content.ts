@@ -485,6 +485,20 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     { name: "Nova Attire", file: "nova-attire", caseSlug: "nova" },
     { name: "Five Elements", file: "five-elements", caseSlug: "five-elements" },
     { name: "Sathyam Labels", file: "sathyam-labels", caseSlug: "sathyam", wide: true },
+    // Added 26 Oct. Live lead-generation clients, and by some distance the largest names on this
+    // row — placed fourth and fifth at Jothi's instruction rather than first, so the row still
+    // opens on the cases that carry their own numbers.
+    //
+    // Both were supplied as white wordmarks on solid brand purple. Keying the purple away leaves a
+    // white mark, which is invisible on the paper strip and stays invisible through the rest-state
+    // filter, since grayscale and brightness(0.72) cannot darken white. scripts/logos.mjs now inks
+    // them to the brand's own purple instead, so they sit with the row at rest and show their real
+    // colour on hover.
+    //
+    // No caseSlug and no href: there is no case page for either yet, and a mark that links to a
+    // page which does not mention them is worse than a mark that does not link.
+    { name: "Naturals", file: "naturals", wide: true },
+    { name: "Nails 'n Beyond by Naturals", file: "nails-n-beyond" },
     { name: "Ram Textiles", file: "ram", caseSlug: "ram" },
     { name: "Sri Raja Rajeswari Traders", file: "srr", caseSlug: "srr" },
     { name: "Tharunis Jewellery", file: "tharunis", caseSlug: "tharunis" },
