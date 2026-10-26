@@ -33,7 +33,18 @@ const INK = { naturals: [91, 45, 142], "nails-n-beyond": [91, 45, 142] };
 // of the canvas as ragged half-transparent pixels, visible as a jagged edge at any real size. The
 // official assets are 400x213 and 1280x648 with 3% and 1% fringe respectively, so there is nothing
 // to key — only to ink and fit.
-const PREKEYED = new Set(["naturals", "nails-n-beyond"]);
+const PREKEYED = new Set(["nails-n-beyond"]);
+// Logos supplied as a LIGHT mark on a solid brand colour, usually a social-media avatar that has
+// been through JPEG. Colour-distance keying destroys these: the compression leaves a halo of
+// in-between pixels around every letter, each one far enough from the background colour to survive
+// the key and far enough from white to look like dirt. The Naturals avatar keyed that way left 13%
+// of the canvas as ragged debris, visible as a torn edge at any real size.
+//
+// A luminance threshold cuts far cleaner, because white (255) and the brand purple (~90) are
+// nowhere near each other, where their RGB distance is merely "different". Upscaling 3x first means
+// the threshold runs on interpolated pixels rather than on 8x8 JPEG blocks, and the later fit back
+// down to the 480-box averages the remaining noise away.
+const LUMA = { naturals: { lo: 150, hi: 225, scale: 3 } };
 
 await mkdir(OUT, { recursive: true });
 const files = (await readdir(SRC)).filter((f) => /\.png$/i.test(f));
@@ -45,6 +56,10 @@ for (const f of files) {
     const c = CROP[name];
     img = img.extract({ left: Math.round(meta.width * c.left), top: Math.round(meta.height * c.top), width: Math.round(meta.width * c.width), height: Math.round(meta.height * c.height) });
   }
+  if (LUMA[name]?.scale) {
+    const m = await img.metadata();
+    img = img.resize(Math.round(m.width * LUMA[name].scale), Math.round(m.height * LUMA[name].scale), { kernel: "lanczos3" });
+  }
   const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
   const { width, height, channels } = info;
   const px = (x, y) => { const i = (y * width + x) * channels; return [data[i], data[i + 1], data[i + 2]]; };
@@ -55,7 +70,14 @@ for (const f of files) {
   const tol = KEY[name]?.tol ?? TOL;
   const keys = [bg, ...(KEY[name]?.extra ?? [])];
   let keyed = 0;
-  if (!PREKEYED.has(name)) for (let i = 0; i < data.length; i += channels) {
+  if (LUMA[name]) {
+    const { lo, hi } = LUMA[name];
+    for (let i = 0; i < data.length; i += channels) {
+      const L = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+      data[i + 3] = L <= lo ? 0 : L >= hi ? 255 : Math.round((255 * (L - lo)) / (hi - lo));
+      if (data[i + 3] === 0) keyed++;
+    }
+  } else if (!PREKEYED.has(name)) for (let i = 0; i < data.length; i += channels) {
     const d = Math.min(...keys.map((k) => Math.hypot(data[i] - k[0], data[i + 1] - k[1], data[i + 2] - k[2])));
     if (d < tol || data[i + 3] < (KEY[name]?.minAlpha ?? 1)) { data[i + 3] = 0; keyed++; }
     else if (d < tol * 2) data[i + 3] = Math.round(data[i + 3] * ((d - tol) / tol)); // soft edge
