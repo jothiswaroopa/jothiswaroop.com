@@ -27,6 +27,13 @@ const KEY = { "sathyam-labels": { tol: 60 }, tharunis: { minAlpha: 200 }, bublyn
 // inked to the brand's own purple so they match that range at rest and show the real colour on
 // hover, rather than being flattened to grey.
 const INK = { naturals: [91, 45, 142], "nails-n-beyond": [91, 45, 142] };
+// Files that ALREADY carry correct alpha, straight from the brand's own site. Keying them would
+// sample transparent corners for a background colour and then cut into the mark itself. The first
+// Naturals file was a 447px square of white-on-purple with JPEG fringing, and keying it left 13%
+// of the canvas as ragged half-transparent pixels, visible as a jagged edge at any real size. The
+// official assets are 400x213 and 1280x648 with 3% and 1% fringe respectively, so there is nothing
+// to key — only to ink and fit.
+const PREKEYED = new Set(["naturals", "nails-n-beyond"]);
 
 await mkdir(OUT, { recursive: true });
 const files = (await readdir(SRC)).filter((f) => /\.png$/i.test(f));
@@ -48,7 +55,7 @@ for (const f of files) {
   const tol = KEY[name]?.tol ?? TOL;
   const keys = [bg, ...(KEY[name]?.extra ?? [])];
   let keyed = 0;
-  for (let i = 0; i < data.length; i += channels) {
+  if (!PREKEYED.has(name)) for (let i = 0; i < data.length; i += channels) {
     const d = Math.min(...keys.map((k) => Math.hypot(data[i] - k[0], data[i + 1] - k[1], data[i + 2] - k[2])));
     if (d < tol || data[i + 3] < (KEY[name]?.minAlpha ?? 1)) { data[i + 3] = 0; keyed++; }
     else if (d < tol * 2) data[i + 3] = Math.round(data[i + 3] * ((d - tol) / tol)); // soft edge
