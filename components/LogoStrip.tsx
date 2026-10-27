@@ -37,6 +37,13 @@ export default function LogoStrip() {
     <Reveal className="mt-12 border-t hairline pt-8">
       <p className="label"><Scramble text="// CLIENTS I'VE WORKED WITH" /></p>
       <Row items={all} />
+      {/* Said in plain sight rather than left to a hover title. The Naturals work is for a
+          franchisee, not the chain — and on a page whose whole case is receipts, a mark that lets
+          a reader assume the parent brand is doing work a fact cannot do. Cheaper to say it here
+          than to correct it on a call. */}
+      <p className="mt-6 text-xs text-paper/50">
+        Naturals and Nails &rsquo;n Beyond: engaged through a franchise owner, not the parent brand.
+      </p>
     </Reveal>
   );
 }

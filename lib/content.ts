@@ -497,8 +497,8 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     //
     // No caseSlug and no href: there is no case page for either yet, and a mark that links to a
     // page which does not mention them is worse than a mark that does not link.
-    { name: "Naturals", file: "naturals", wide: true },
-    { name: "Nails 'n Beyond by Naturals", file: "nails-n-beyond" },
+    { name: "Naturals (franchise)", file: "naturals", wide: true },
+    { name: "Nails 'n Beyond by Naturals (franchise)", file: "nails-n-beyond" },
     { name: "Ram Textiles", file: "ram", caseSlug: "ram" },
     { name: "Sri Raja Rajeswari Traders", file: "srr", caseSlug: "srr" },
     { name: "Tharunis Jewellery", file: "tharunis", caseSlug: "tharunis" },
