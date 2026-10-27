@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-27",
+  "weekday": "Tue",
+  "pillar": "trending",
+  "format": "carousel",
+  "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": false,
+  "heldBecause": [
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "hook": "OpenAI just launched GPT-6.1 Terra. Most small business owners will skim the headline and move on. Here's the part worth your attention: every new model release quietly changes how your ads get written, targeted and reported on — not because you installed anything, but because the tools you already use sit on top of these models.",
+  "body": "OpenAI just launched GPT-6.1 Terra. Most small business owners will skim the headline and move on.\n\nHere's the part worth your attention: every new model release quietly changes how your ads get written, targeted and reported on — not because you installed anything, but because the tools you already use sit on top of these models.\n\nIf you run your own campaigns, you don't need to understand GPT-6.1 Terra. You need to know where AI is already touching your account, because that's where a setting can drift without you noticing.\n\nThree places to check this week: the ad copy suggestions in your ads manager, any chatbot answering enquiries on your site or page, and any \"automatically optimise\" toggle that decides where your budget goes. Each one got slightly smarter sometime in the last year, and nobody emailed you about it.\n\nNone of this means change your strategy. It means go look, the same way you'd check a locked door — not because you expect trouble, but because you'd rather know.\n\nSource: OpenAI, \"Introducing GPT-6.1 Terra,\" 26 Oct 2026.",
+  "chars": 1054,
+  "avgWords": 17.8,
+  "warnings": [
+    "one sentence is 40 words long",
+    "over a limit: hook is 331 chars, must be under 210",
+    "over a limit: first line is 16 words (max 14) — short openers get expanded far more often",
+    "over a limit: cover slide is 12 words (max 10) — it carries most of the result",
+    "fact-check did not run — read every claim yourself before posting"
+  ],
+  "images": [
+    "/linkedin/2026-10-27/slide-01.png",
+    "/linkedin/2026-10-27/slide-02.png",
+    "/linkedin/2026-10-27/slide-03.png",
+    "/linkedin/2026-10-27/slide-04.png",
+    "/linkedin/2026-10-27/slide-05.png",
+    "/linkedin/2026-10-27/slide-06.png",
+    "/linkedin/2026-10-27/slide-07.png",
+    "/linkedin/2026-10-27/slide-08.png",
+    "/linkedin/2026-10-27/slide-09.png",
+    "/linkedin/2026-10-27/slide-10.png",
+    "/linkedin/2026-10-27/slide-11.png"
+  ],
+  "pdf": "/linkedin/2026-10-27/carousel.pdf",
+  "slides": [
+    {
+      "kind": "statement",
+      "text": "OpenAI released a new model this week. You won't use it directly.",
+      "highlight": "won't"
+    },
+    {
+      "kind": "statement",
+      "text": "The danger isn't the model. It's everything built on top of it, inside tools you already use."
+    },
+    {
+      "kind": "statement",
+      "text": "GPT-6.1 Terra is OpenAI's newest model, announced 26 Oct 2026, built to write and reason better than the last one."
+    },
+    {
+      "kind": "statement",
+      "text": "Your ads manager, your page's chatbot, your email tool — some of them run on models like this one."
+    },
+    {
+      "kind": "statement",
+      "text": "When the model behind a tool changes, the tool's suggestions change with it. Nobody tells you that happened."
+    },
+    {
+      "kind": "statement",
+      "text": "Say a clinic's website chatbot starts answering differently overnight. The update came from OpenAI, not the clinic."
+    },
+    {
+      "kind": "callout",
+      "text": "Most small business owners never open the settings page where this gets decided. That's the actual gap.",
+      "highlight": "never"
+    },
+    {
+      "kind": "steps",
+      "text": "Three places AI already sits inside your campaigns, whether you chose it or not:",
+      "items": [
+        "Ad copy or headline suggestions inside Ads Manager",
+        "Any chatbot replying to enquiries on your page or site",
+        "Automatic budget or bid optimisation toggles"
+      ]
+    },
+    {
+      "kind": "statement",
+      "text": "Each of those three got quietly upgraded at some point this year. You were never asked."
+    },
+    {
+      "kind": "statement",
+      "text": "This is what that headline actually means for you: a new engine, running under tools you touch daily."
+    },
+    {
+      "kind": "statement",
+      "text": "You don't need to understand the model. You need to know which of your tools are built on one."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Working with academic communities to build scientific understanding",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+      "publisher": "OpenAI"
+    },
+    {
+      "title": "Introducing GPT-6.1 Terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "draft",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
+}
