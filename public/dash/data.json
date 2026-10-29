@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-28T02:30:37.932Z",
+  "generatedAt": "2026-10-29T02:39:21.312Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-09-28",
-      "end": "2026-10-26"
+      "start": "2026-09-29",
+      "end": "2026-10-27"
     },
     "totals": {
-      "clicks": 18,
-      "impressions": 130,
-      "ctr": 0.13846153846153847,
-      "position": 14.438461538461539
+      "clicks": 20,
+      "impressions": 134,
+      "ctr": 0.14925373134328357,
+      "position": 14.149253731343284
     },
     "previous": {
       "clicks": 8,
-      "impressions": 51,
-      "ctr": 0.1568627450980392,
-      "position": 5
+      "impressions": 55,
+      "ctr": 0.14545454545454545,
+      "position": 5.181818181818182
     },
     "daily": [
       {
@@ -299,15 +299,22 @@
         "impressions": 5,
         "ctr": 0.4,
         "position": 19.8
+      },
+      {
+        "key": "2026-10-26",
+        "clicks": 2,
+        "impressions": 8,
+        "ctr": 0.25,
+        "position": 6.125
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 20,
-        "ctr": 0.05,
-        "position": 17.2
+        "impressions": 21,
+        "ctr": 0.047619047619047616,
+        "position": 16.952380952380953
       },
       {
         "key": "dental practice missed calls",
@@ -397,17 +404,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 16,
-        "impressions": 52,
-        "ctr": 0.3076923076923077,
-        "position": 3.75
+        "clicks": 18,
+        "impressions": 54,
+        "ctr": 0.3333333333333333,
+        "position": 3.8703703703703702
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 36,
-        "ctr": 0.05555555555555555,
-        "position": 7.5
+        "impressions": 34,
+        "ctr": 0.058823529411764705,
+        "position": 7.764705882352941
       },
       {
         "key": "http://jothiswaroop.com/",
@@ -440,9 +447,9 @@
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 9,
         "ctr": 0,
-        "position": 14
+        "position": 13.11111111111111
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
@@ -475,9 +482,9 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 14,
         "ctr": 0,
-        "position": 6.230769230769231
+        "position": 6.071428571428571
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -491,7 +498,7 @@
         "clicks": 0,
         "impressions": 16,
         "ctr": 0,
-        "position": 14.875
+        "position": 14.6875
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
@@ -505,7 +512,7 @@
         "clicks": 0,
         "impressions": 16,
         "ctr": 0,
-        "position": 12.0625
+        "position": 11.875
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -531,9 +538,9 @@
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 10,
         "ctr": 0,
-        "position": 30.727272727272727
+        "position": 32.7
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
@@ -546,10 +553,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 18,
-        "impressions": 68,
-        "ctr": 0.2647058823529412,
-        "position": 7.764705882352941
+        "clicks": 20,
+        "impressions": 70,
+        "ctr": 0.2857142857142857,
+        "position": 7.671428571428572
       },
       {
         "key": "are",
@@ -589,9 +596,9 @@
       {
         "key": "gbr",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 1
+        "position": 5
       },
       {
         "key": "hkg",
@@ -618,17 +625,17 @@
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 10,
-        "impressions": 108,
-        "ctr": 0.09259259259259259,
-        "position": 16.36111111111111
+        "clicks": 12,
+        "impressions": 111,
+        "ctr": 0.10810810810810811,
+        "position": 16.036036036036037
       },
       {
         "key": "MOBILE",
         "clicks": 7,
-        "impressions": 21,
-        "ctr": 0.3333333333333333,
-        "position": 5.095238095238095
+        "impressions": 22,
+        "ctr": 0.3181818181818182,
+        "position": 5.136363636363637
       },
       {
         "key": "TABLET",
@@ -641,8 +648,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-09-28",
-      "end": "2026-10-28"
+      "start": "2026-09-29",
+      "end": "2026-10-29"
     },
     "totals": {
       "views": 0,
@@ -657,12 +664,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1790380800000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -835,6 +836,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1792886400000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1792972800000)/",
         "Impressions": 0
       }
     ],
@@ -1080,8 +1087,8 @@
       "scan": 0.31604
     },
     "remaining": 2.048296,
-    "pace": 0.85517,
-    "projected": 7.696529,
+    "pace": 0.825681,
+    "projected": 7.431132,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1118,8 +1125,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1180,7 +1187,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-09-21T05:07:45Z",
+        "lastCrawl": "2026-10-28T07:27:16Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
