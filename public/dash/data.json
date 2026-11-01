@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-31T02:39:31.618Z",
+  "generatedAt": "2026-11-01T02:27:39.853Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-01",
-      "end": "2026-10-29"
+      "start": "2026-10-02",
+      "end": "2026-10-30"
     },
     "totals": {
-      "clicks": 20,
-      "impressions": 141,
-      "ctr": 0.14184397163120568,
-      "position": 13.567375886524824
+      "clicks": 21,
+      "impressions": 143,
+      "ctr": 0.14685314685314685,
+      "position": 13.517482517482517
     },
     "previous": {
       "clicks": 8,
-      "impressions": 64,
-      "ctr": 0.125,
-      "position": 5.71875
+      "impressions": 66,
+      "ctr": 0.12121212121212122,
+      "position": 5.651515151515151
     },
     "daily": [
       {
@@ -320,6 +320,13 @@
         "impressions": 7,
         "ctr": 0,
         "position": 8.571428571428571
+      },
+      {
+        "key": "2026-10-29",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 6.75
       }
     ],
     "queries": [
@@ -411,17 +418,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 18,
+        "clicks": 19,
         "impressions": 58,
-        "ctr": 0.3103448275862069,
-        "position": 3.5689655172413794
+        "ctr": 0.3275862068965517,
+        "position": 3.6379310344827585
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 34,
-        "ctr": 0.058823529411764705,
-        "position": 6.764705882352941
+        "impressions": 35,
+        "ctr": 0.05714285714285714,
+        "position": 6.885714285714286
       },
       {
         "key": "https://jothiswaroop.com/apply/",
@@ -482,9 +489,9 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 16,
         "ctr": 0,
-        "position": 6.2
+        "position": 6.125
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -538,9 +545,9 @@
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 11,
         "ctr": 0,
-        "position": 32.7
+        "position": 30.727272727272727
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
@@ -553,10 +560,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 20,
-        "impressions": 72,
-        "ctr": 0.2777777777777778,
-        "position": 7.402777777777778
+        "clicks": 21,
+        "impressions": 73,
+        "ctr": 0.2876712328767123,
+        "position": 7.506849315068493
       },
       {
         "key": "are",
@@ -625,31 +632,31 @@
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 12,
-        "impressions": 114,
-        "ctr": 0.10526315789473684,
-        "position": 15.5
+        "clicks": 13,
+        "impressions": 115,
+        "ctr": 0.11304347826086956,
+        "position": 15.408695652173913
       },
       {
         "key": "MOBILE",
         "clicks": 7,
         "impressions": 26,
         "ctr": 0.2692307692307692,
-        "position": 5.5
+        "position": 5.653846153846154
       },
       {
         "key": "TABLET",
         "clicks": 1,
-        "impressions": 1,
-        "ctr": 1,
-        "position": 3
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 7
       }
     ]
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-01",
-      "end": "2026-10-31"
+      "start": "2026-10-02",
+      "end": "2026-11-01"
     },
     "totals": {
       "views": 0,
@@ -664,12 +671,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1790640000000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -842,6 +843,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1793145600000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1793232000000)/",
         "Impressions": 0
       }
     ],
@@ -1076,19 +1083,13 @@
     ]
   },
   "spend": {
-    "month": "2026-10",
+    "month": "2026-11",
     "cap": 9,
-    "spent": 6.951704,
-    "by": {
-      "blog": 3.489602,
-      "evolve": 0.110942,
-      "geo": 1.24131,
-      "linkedin": 1.79381,
-      "scan": 0.31604
-    },
-    "remaining": 2.048296,
-    "pace": 0.772412,
-    "projected": 6.951704,
+    "spent": 0,
+    "by": {},
+    "remaining": 9,
+    "pace": 0,
+    "projected": 0,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
