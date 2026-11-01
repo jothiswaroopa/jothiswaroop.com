@@ -6,6 +6,14 @@
   "changes": [],
   "scans": [
     {
+      "date": "2026-11-01",
+      "whatsWorking": [],
+      "suitsUs": [],
+      "doesNotSuitUs": [],
+      "added": [],
+      "retired": 0
+    },
+    {
       "date": "2026-09-24",
       "whatsWorking": [
         "LinkedIn replaced its old ranking system with an AI model called 360Brew; multiple August-September breakdowns (Botdog, Buldrr) say this rewards saves, sends and comment depth in the first 60-90 minutes over fast, shallow likes — quick-reaction posts now plateau instead of spreading.",
