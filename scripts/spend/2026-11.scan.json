@@ -1,0 +1,19 @@
+{
+ "month": "2026-11",
+ "job": "scan",
+ "total": 0.347862,
+ "calls": [
+  {
+   "at": "2026-11-01T09:58:48.746Z",
+   "runStartedAt": "2026-11-01T09:57:40.730Z",
+   "label": "scan",
+   "model": "claude-sonnet-5",
+   "cost": 0.347862,
+   "in": 118256,
+   "cacheRead": 0,
+   "cacheWrite": 0,
+   "out": 5135,
+   "searches": 6
+  }
+ ]
+}
