@@ -25,9 +25,16 @@
     "The Qualifier Test: one question to add to any lead form, and how to choose it for your business.": "2026-10-13",
     "Something new in AI search or assistants, and what it means for a small business being found.": "2026-10-19",
     "Before you touch the creative: a fixed order for fixing an underperforming account, top to bottom.": "2026-10-20",
-    "A platform policy or measurement change, explained for people who do not read release notes.": "2026-10-26"
+    "A platform policy or measurement change, explained for people who do not read release notes.": "2026-10-26",
+    "A new tool everyone is posting about. What it is actually good at, and what it is not.": "2026-11-02"
   },
   "log": [
+    {
+      "date": "2026-11-02",
+      "pillar": "trending",
+      "format": "text",
+      "angle": "A new tool everyone is posting about. What it is actually good at, and what it is not."
+    },
     {
       "date": "2026-10-27",
       "pillar": "trending",
