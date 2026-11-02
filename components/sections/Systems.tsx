@@ -15,7 +15,7 @@ function Stack({ items }: { items: string[] }) {
 }
 
 /** The second half of the engine, shown as evidence: one build explained, the rest in a row. Dark, so the canvases look native. */
-export default function Systems() {
+export default function Systems({ heading: H = "h2" }: { heading?: "h1" | "h2" }) {
   const hero = automations.find((a) => a.featured) ?? automations[0];
   const rest = automations.filter((a) => a !== hero);
 
@@ -23,7 +23,7 @@ export default function Systems() {
     <section id="systems" className="card-over relative bg-ink">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <p className="label"><Scramble text={intro.label} /></p>
-        <Reveal><h2 className="mt-6 max-w-4xl text-[clamp(2.25rem,5.5vw,5rem)]">{intro.headline}</h2></Reveal>
+        <Reveal><H className="mt-6 max-w-4xl text-[clamp(2.25rem,5.5vw,5rem)]">{intro.headline}</H></Reveal>
         <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-paper/80">{intro.sub}</p></Reveal>
 
         {/* counted facts — the receipts convention */}
