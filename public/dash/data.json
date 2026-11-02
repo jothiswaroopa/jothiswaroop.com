@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-01T02:27:39.853Z",
+  "generatedAt": "2026-11-02T02:41:49.654Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-02",
-      "end": "2026-10-30"
+      "start": "2026-10-03",
+      "end": "2026-10-31"
     },
     "totals": {
-      "clicks": 21,
-      "impressions": 143,
-      "ctr": 0.14685314685314685,
-      "position": 13.517482517482517
+      "clicks": 22,
+      "impressions": 145,
+      "ctr": 0.15172413793103448,
+      "position": 12.83448275862069
     },
     "previous": {
       "clicks": 8,
-      "impressions": 66,
-      "ctr": 0.12121212121212122,
-      "position": 5.651515151515151
+      "impressions": 70,
+      "ctr": 0.11428571428571428,
+      "position": 7.2
     },
     "daily": [
       {
@@ -327,6 +327,13 @@
         "impressions": 4,
         "ctr": 0.25,
         "position": 6.75
+      },
+      {
+        "key": "2026-10-30",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 9.833333333333334
       }
     ],
     "queries": [
@@ -418,17 +425,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 19,
-        "impressions": 58,
-        "ctr": 0.3275862068965517,
-        "position": 3.6379310344827585
+        "clicks": 20,
+        "impressions": 61,
+        "ctr": 0.32786885245901637,
+        "position": 4.032786885245901
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 35,
-        "ctr": 0.05714285714285714,
-        "position": 6.885714285714286
+        "impressions": 36,
+        "ctr": 0.05555555555555555,
+        "position": 7.027777777777778
       },
       {
         "key": "https://jothiswaroop.com/apply/",
@@ -482,37 +489,30 @@
       {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 3,
         "ctr": 0,
-        "position": 39.75
+        "position": 32.66666666666667
       },
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 16,
+        "impressions": 18,
         "ctr": 0,
-        "position": 6.125
-      },
-      {
-        "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 67
+        "position": 6.166666666666667
       },
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 14,
         "ctr": 0,
-        "position": 14.6
+        "position": 14.642857142857142
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 6,
         "ctr": 0,
-        "position": 15.714285714285714
+        "position": 12.166666666666666
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
@@ -524,46 +524,46 @@
       {
         "key": "https://jothiswaroop.com/work/nova/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 3,
         "ctr": 0,
-        "position": 17.25
+        "position": 13
       },
       {
         "key": "https://jothiswaroop.com/work/ram/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 27.333333333333332
+        "position": 27.5
       },
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
         "impressions": 7,
         "ctr": 0,
-        "position": 12
+        "position": 8.571428571428571
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 10,
         "ctr": 0,
-        "position": 30.727272727272727
+        "position": 31.7
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 11.666666666666666
+        "position": 5.5
       }
     ],
     "countries": [
       {
         "key": "ind",
-        "clicks": 21,
-        "impressions": 73,
-        "ctr": 0.2876712328767123,
-        "position": 7.506849315068493
+        "clicks": 22,
+        "impressions": 77,
+        "ctr": 0.2857142857142857,
+        "position": 7.714285714285714
       },
       {
         "key": "are",
@@ -635,14 +635,14 @@
         "clicks": 13,
         "impressions": 115,
         "ctr": 0.11304347826086956,
-        "position": 15.408695652173913
+        "position": 14.747826086956522
       },
       {
         "key": "MOBILE",
-        "clicks": 7,
-        "impressions": 26,
-        "ctr": 0.2692307692307692,
-        "position": 5.653846153846154
+        "clicks": 8,
+        "impressions": 28,
+        "ctr": 0.2857142857142857,
+        "position": 5.392857142857143
       },
       {
         "key": "TABLET",
@@ -655,8 +655,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-02",
-      "end": "2026-11-01"
+      "start": "2026-10-03",
+      "end": "2026-11-02"
     },
     "totals": {
       "views": 0,
@@ -671,12 +671,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1790726400000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -850,12 +844,18 @@
         "Clicks": 0,
         "Date": "/Date(1793232000000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1793318400000)/",
+        "Impressions": 0
       }
     ],
     "queries": []
   },
   "geo": {
-    "checkedAt": "2026-10-19T01:33:12.347Z",
+    "checkedAt": "2026-11-02T02:43:34.911Z",
     "results": [
       {
         "id": "chennai-meta-ads",
@@ -910,16 +910,16 @@
         "mentioned": true,
         "cited": [
           "https://jothiswaroop.com/about/",
-          "https://jothiswaroop.com/",
-          "https://jothiswaroop.com/",
-          "https://jothiswaroop.com/about/",
           "https://jothiswaroop.com/about/",
           "https://jothiswaroop.com/",
           "https://jothiswaroop.com/",
           "https://jothiswaroop.com/about/",
+          "https://jothiswaroop.com/about/",
+          "https://jothiswaroop.com/about/",
+          "https://jothiswaroop.com/about/",
           "https://jothiswaroop.com/",
-          "https://jothiswaroop.com/",
-          "https://jothiswaroop.com/"
+          "https://jothiswaroop.com/blog/",
+          "https://jothiswaroop.com/blog/"
         ],
         "competitors": []
       },
@@ -996,18 +996,31 @@
       {
         "date": "2026-10-19",
         "rate": 0.125
+      },
+      {
+        "date": "2026-11-02",
+        "rate": 0.125
       }
     ]
   },
   "coverage": {
-    "total": 22,
-    "ok": 22,
+    "total": 23,
+    "ok": 23,
     "broken": []
   },
   "blog": {
-    "count": 8,
-    "last": "2026-10-13",
+    "count": 9,
+    "last": "2026-11-01",
     "posts": [
+      {
+        "slug": "ai-generated-product-video-ads-small",
+        "title": "AI-Generated Product Video Ads for Small Brands, Tested",
+        "date": "2026-11-01",
+        "lane": "guide",
+        "segment": "video",
+        "words": 1191,
+        "sources": 4
+      },
       {
         "slug": "read-meta-ads-report-as-founder",
         "title": "How to Read a Meta Ads Report as a Founder, in Five Numbers",
@@ -1085,11 +1098,16 @@
   "spend": {
     "month": "2026-11",
     "cap": 9,
-    "spent": 0,
-    "by": {},
-    "remaining": 9,
-    "pace": 0,
-    "projected": 0,
+    "spent": 1.537348,
+    "by": {
+      "blog": 0.455558,
+      "evolve": 0.218306,
+      "geo": 0.515622,
+      "scan": 0.347862
+    },
+    "remaining": 7.462652,
+    "pace": 2.562247,
+    "projected": 23.06022,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1099,16 +1117,16 @@
     }
   },
   "indexStatus": {
-    "checked": 22,
+    "checked": 23,
     "indexed": 20,
-    "notIndexed": 2,
+    "notIndexed": 3,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-29T05:21:42Z",
+        "lastCrawl": "2026-11-01T09:17:41Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1244,6 +1262,16 @@
         "canonical": null
       },
       {
+        "url": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
         "url": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
@@ -1266,8 +1294,8 @@
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
