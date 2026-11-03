@@ -1,6 +1,118 @@
 {
-  "generated": "2026-11-02T06:34:00.000Z",
+  "generated": "2026-11-03T07:05:10.497Z",
   "posts": [
+    {
+      "date": "2026-11-03",
+      "weekday": "Tue",
+      "pillar": "trending",
+      "format": "carousel",
+      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+      "isSales": false,
+      "videoPrompt": null,
+      "autopostSafe": true,
+      "heldBecause": null,
+      "hook": "OpenAI just raised what it pays hackers who find security holes in its systems. The headline is \"Rewarding defenders with bigger bug bounties.\" Most small business owners skip this kind of update. It reads like it's for engineers.",
+      "body": "OpenAI just raised what it pays hackers who find security holes in its systems. The headline is \"Rewarding defenders with bigger bug bounties.\"\n\nMost small business owners skip this kind of update. It reads like it's for engineers.\n\nIt isn't. If you run ads, you log into Meta, Google, maybe a CRM, every single day. Every password you reuse, every \"stay logged in\" you click, is a door. Bigger bounties mean more skilled people are hunting for cracks in the tools you already trust — which tells you plainly how much those doors are worth to someone else.\n\nYou don't need to understand the code. You need three minutes: turn on two-factor login, where a password alone isn't enough to get in, on your ad accounts and your email. That one habit protects more of your business than most of what gets taught about running ads.\n\nNobody tells you this because it doesn't sell anything. It just keeps what you've built from disappearing one Tuesday morning.",
+      "chars": 952,
+      "avgWords": 13.7,
+      "warnings": [
+        "no number in the first line — openers with a figure tend to do better",
+        "one paragraph is 323 chars — may read as a wall",
+        "over a limit: hook is 230 chars, must be under 210",
+        "over a limit: first line is 23 words (max 14) — short openers get expanded far more often",
+        "over a limit: cover slide is 11 words (max 10) — it carries most of the result",
+        "check: \"Bigger bounties mean more skilled people are hunting for cracks in the tools you\" — Presents a causal/certain claim about bug bounty dynamics as established fact rather than a general inference.",
+        "check: \"When the reward for breaking in goes up, so does the number of people trying.\" — States a causal mechanic as certain fact; this is an inference/generalisation, not a documented fact from the source.",
+        "check: \"Meta and Google already give you a free second lock on every account.\" — Platform mechanic stated as blanket fact about 'every account' — generalisation.",
+        "check: \"One missed step and a hacked ad account can drain a budget before you even see t\" — Presented as a certain outcome/fact rather than a hypothetical risk scenario.",
+        "check: \"That one habit protects more of your business than most of what gets taught abou\" — Unsupported comparative claim/opinion presented as fact."
+      ],
+      "images": [
+        "/linkedin/2026-11-03/slide-01.png",
+        "/linkedin/2026-11-03/slide-02.png",
+        "/linkedin/2026-11-03/slide-03.png",
+        "/linkedin/2026-11-03/slide-04.png",
+        "/linkedin/2026-11-03/slide-05.png",
+        "/linkedin/2026-11-03/slide-06.png",
+        "/linkedin/2026-11-03/slide-07.png",
+        "/linkedin/2026-11-03/slide-08.png",
+        "/linkedin/2026-11-03/slide-09.png",
+        "/linkedin/2026-11-03/slide-10.png",
+        "/linkedin/2026-11-03/slide-11.png"
+      ],
+      "pdf": "/linkedin/2026-11-03/carousel.pdf",
+      "slides": [
+        {
+          "kind": "statement",
+          "text": "OpenAI just started paying hackers more to break its own systems.",
+          "highlight": "more"
+        },
+        {
+          "kind": "statement",
+          "text": "This looks like news for engineers. It is actually about your login page."
+        },
+        {
+          "kind": "statement",
+          "text": "A bug bounty pays outsiders to find security holes before criminals do.",
+          "highlight": "security holes"
+        },
+        {
+          "kind": "statement",
+          "text": "OpenAI just raised what it pays them. That tells you something."
+        },
+        {
+          "kind": "statement",
+          "text": "When the reward for breaking in goes up, so does the number of people trying."
+        },
+        {
+          "kind": "statement",
+          "text": "Your ad account, your inbox, your CRM all sit behind one password most days."
+        },
+        {
+          "kind": "statement",
+          "text": "Meta and Google already give you a free second lock on every account."
+        },
+        {
+          "kind": "steps",
+          "text": "Most people never turn it on. Here is where it lives.",
+          "items": [
+            "Meta: Settings → Security and Login → Two-Factor Authentication",
+            "Google: myaccount.google.com → Security → 2-Step Verification"
+          ]
+        },
+        {
+          "kind": "callout",
+          "text": "One missed step and a hacked ad account can drain a budget before you even see the alert.",
+          "label": "THE COST"
+        },
+        {
+          "kind": "statement",
+          "text": "The bigger bounty isn't the story. The fact that someone is always trying is."
+        },
+        {
+          "kind": "statement",
+          "text": "Turn on two-factor login today. It takes three minutes and costs nothing.",
+          "highlight": "nothing"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Rewarding defenders with bigger bug bounties",
+          "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+          "publisher": "OpenAI"
+        }
+      ],
+      "status": "posted",
+      "firstHour": {
+        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+        "done": false
+      },
+      "impressions": null,
+      "postedAt": "2026-11-03T07:05:13.573Z",
+      "linkedinId": "urn:li:ugcPost:7523279100078170112",
+      "notPosted": null
+    },
     {
       "date": "2026-11-02",
       "weekday": "Mon",
@@ -49,8 +161,7 @@
       },
       "impressions": null,
       "postedAt": "2026-11-02T06:34:03.046Z",
-      "linkedinId": "urn:li:share:7522908863558512640",
-      "notPosted": null
+      "linkedinId": "urn:li:share:7522908863558512640"
     },
     {
       "date": "2026-10-27",
@@ -1039,107 +1150,6 @@
         {
           "title": "Pollo AI turns creative ideas into campaigns with OpenAI",
           "url": "https://openai.com/index/pollo-ai",
-          "publisher": "OpenAI"
-        }
-      ],
-      "status": "draft",
-      "firstHour": {
-        "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
-        "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
-        "done": false
-      },
-      "impressions": null,
-      "notPosted": "held for review — fact-check did not run — read every claim yourself before posting"
-    },
-    {
-      "date": "2026-10-09",
-      "weekday": "Fri",
-      "pillar": "trending",
-      "format": "carousel",
-      "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
-      "isSales": false,
-      "videoPrompt": "Video week: post one of your own films today instead of this draft. Video is the only format still growing, and the films already exist. Upload it natively — never a YouTube link, which suppresses reach.",
-      "autopostSafe": false,
-      "heldBecause": [
-        "fact-check did not run — read every claim yourself before posting"
-      ],
-      "hook": "OpenAI published \"Helping teens learn, plan, and shape the future of AI\" this week. Most posts will stop at \"OpenAI builds teen safety tools.\" That's the headline, not the point.",
-      "body": "OpenAI published \"Helping teens learn, plan, and shape the future of AI\" this week.\n\nMost posts will stop at \"OpenAI builds teen safety tools.\" That's the headline, not the point.\n\nThe point is simpler: a generation is about to grow up treating AI as the default way to ask a question, not a novelty. That changes what a search, a form fill or an enquiry even looks like in a few years.\n\nIf you run ads today, nothing in your account needs to change tomorrow because of this. But the people filling your lead forms five years from now learned to ask AI before they learned to Google. Your form, your landing page, your follow-up message — all built for people who type keywords. The next buyer might just ask an assistant to find and compare for them.\n\nNobody can tell you exactly what that means for cost per lead yet. Anyone who says they can is guessing. What you can do today is keep your own numbers honest, so when the shift shows up in your account, you notice it in your data and not in a feeling.",
-      "chars": 1005,
-      "avgWords": 17.2,
-      "warnings": [
-        "no number in the first line — openers with a figure tend to do better",
-        "one paragraph is 363 chars — may read as a wall",
-        "over a limit: cover slide is 11 words (max 10) — it carries most of the result",
-        "over a limit: slide 8: 23 words (max 20)",
-        "fact-check did not run — read every claim yourself before posting"
-      ],
-      "images": [
-        "/linkedin/2026-10-09/slide-01.png",
-        "/linkedin/2026-10-09/slide-02.png",
-        "/linkedin/2026-10-09/slide-03.png",
-        "/linkedin/2026-10-09/slide-04.png",
-        "/linkedin/2026-10-09/slide-05.png",
-        "/linkedin/2026-10-09/slide-06.png",
-        "/linkedin/2026-10-09/slide-07.png",
-        "/linkedin/2026-10-09/slide-08.png",
-        "/linkedin/2026-10-09/slide-09.png",
-        "/linkedin/2026-10-09/slide-10.png",
-        "/linkedin/2026-10-09/slide-11.png"
-      ],
-      "pdf": "/linkedin/2026-10-09/carousel.pdf",
-      "slides": [
-        {
-          "kind": "statement",
-          "text": "One OpenAI update this week has nothing to do with chatbots.",
-          "highlight": "nothing"
-        },
-        {
-          "kind": "statement",
-          "text": "Everyone is reading it as a safety story. That is the smaller part."
-        },
-        {
-          "kind": "statement",
-          "text": "OpenAI's 7 October post is about teaching teenagers to use AI as a daily tool, not a toy.",
-          "highlight": "daily tool"
-        },
-        {
-          "kind": "statement",
-          "text": "That means the people who will fill your lead forms in five years are learning AI first, search second."
-        },
-        {
-          "kind": "statement",
-          "text": "Today a buyer types your product name into Google. Soon they may just ask an assistant to find it."
-        },
-        {
-          "kind": "statement",
-          "text": "Your landing page, your ad copy, your form — all built for someone typing keywords by hand."
-        },
-        {
-          "kind": "statement",
-          "text": "Nobody knows yet what an AI-first buyer does to cost per lead or conversion rate."
-        },
-        {
-          "kind": "statement",
-          "text": "But you can check one thing this week: how many of your form leads come from someone clearly reading, not just tapping through."
-        },
-        {
-          "kind": "statement",
-          "text": "Open your lead form questions. Count how many need a real answer versus a pre-filled tap."
-        },
-        {
-          "kind": "statement",
-          "text": "That ratio is your form's readiness for a buyer who thinks before they click, not just one who scrolls fast."
-        },
-        {
-          "kind": "statement",
-          "text": "This change won't hit your ad account tomorrow. It will hit whoever didn't check their form today."
-        }
-      ],
-      "sources": [
-        {
-          "title": "Helping teens learn, plan, and shape the future of AI",
-          "url": "https://openai.com/index/teens-learn-and-plan",
           "publisher": "OpenAI"
         }
       ],

@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-03",
+  "weekday": "Tue",
+  "pillar": "trending",
+  "format": "carousel",
+  "angle": "Take the one item below that actually matters to someone running their own ads — ignore the rest, including anything corporate or off-topic. Lead with the thing itself, then the read nobody else is offering.",
+  "isSales": false,
+  "videoPrompt": null,
+  "autopostSafe": true,
+  "heldBecause": null,
+  "hook": "OpenAI just raised what it pays hackers who find security holes in its systems. The headline is \"Rewarding defenders with bigger bug bounties.\" Most small business owners skip this kind of update. It reads like it's for engineers.",
+  "body": "OpenAI just raised what it pays hackers who find security holes in its systems. The headline is \"Rewarding defenders with bigger bug bounties.\"\n\nMost small business owners skip this kind of update. It reads like it's for engineers.\n\nIt isn't. If you run ads, you log into Meta, Google, maybe a CRM, every single day. Every password you reuse, every \"stay logged in\" you click, is a door. Bigger bounties mean more skilled people are hunting for cracks in the tools you already trust — which tells you plainly how much those doors are worth to someone else.\n\nYou don't need to understand the code. You need three minutes: turn on two-factor login, where a password alone isn't enough to get in, on your ad accounts and your email. That one habit protects more of your business than most of what gets taught about running ads.\n\nNobody tells you this because it doesn't sell anything. It just keeps what you've built from disappearing one Tuesday morning.",
+  "chars": 952,
+  "avgWords": 13.7,
+  "warnings": [
+    "no number in the first line — openers with a figure tend to do better",
+    "one paragraph is 323 chars — may read as a wall",
+    "over a limit: hook is 230 chars, must be under 210",
+    "over a limit: first line is 23 words (max 14) — short openers get expanded far more often",
+    "over a limit: cover slide is 11 words (max 10) — it carries most of the result",
+    "check: \"Bigger bounties mean more skilled people are hunting for cracks in the tools you\" — Presents a causal/certain claim about bug bounty dynamics as established fact rather than a general inference.",
+    "check: \"When the reward for breaking in goes up, so does the number of people trying.\" — States a causal mechanic as certain fact; this is an inference/generalisation, not a documented fact from the source.",
+    "check: \"Meta and Google already give you a free second lock on every account.\" — Platform mechanic stated as blanket fact about 'every account' — generalisation.",
+    "check: \"One missed step and a hacked ad account can drain a budget before you even see t\" — Presented as a certain outcome/fact rather than a hypothetical risk scenario.",
+    "check: \"That one habit protects more of your business than most of what gets taught abou\" — Unsupported comparative claim/opinion presented as fact."
+  ],
+  "images": [
+    "/linkedin/2026-11-03/slide-01.png",
+    "/linkedin/2026-11-03/slide-02.png",
+    "/linkedin/2026-11-03/slide-03.png",
+    "/linkedin/2026-11-03/slide-04.png",
+    "/linkedin/2026-11-03/slide-05.png",
+    "/linkedin/2026-11-03/slide-06.png",
+    "/linkedin/2026-11-03/slide-07.png",
+    "/linkedin/2026-11-03/slide-08.png",
+    "/linkedin/2026-11-03/slide-09.png",
+    "/linkedin/2026-11-03/slide-10.png",
+    "/linkedin/2026-11-03/slide-11.png"
+  ],
+  "pdf": "/linkedin/2026-11-03/carousel.pdf",
+  "slides": [
+    {
+      "kind": "statement",
+      "text": "OpenAI just started paying hackers more to break its own systems.",
+      "highlight": "more"
+    },
+    {
+      "kind": "statement",
+      "text": "This looks like news for engineers. It is actually about your login page."
+    },
+    {
+      "kind": "statement",
+      "text": "A bug bounty pays outsiders to find security holes before criminals do.",
+      "highlight": "security holes"
+    },
+    {
+      "kind": "statement",
+      "text": "OpenAI just raised what it pays them. That tells you something."
+    },
+    {
+      "kind": "statement",
+      "text": "When the reward for breaking in goes up, so does the number of people trying."
+    },
+    {
+      "kind": "statement",
+      "text": "Your ad account, your inbox, your CRM all sit behind one password most days."
+    },
+    {
+      "kind": "statement",
+      "text": "Meta and Google already give you a free second lock on every account."
+    },
+    {
+      "kind": "steps",
+      "text": "Most people never turn it on. Here is where it lives.",
+      "items": [
+        "Meta: Settings → Security and Login → Two-Factor Authentication",
+        "Google: myaccount.google.com → Security → 2-Step Verification"
+      ]
+    },
+    {
+      "kind": "callout",
+      "text": "One missed step and a hacked ad account can drain a budget before you even see the alert.",
+      "label": "THE COST"
+    },
+    {
+      "kind": "statement",
+      "text": "The bigger bounty isn't the story. The fact that someone is always trying is."
+    },
+    {
+      "kind": "statement",
+      "text": "Turn on two-factor login today. It takes three minutes and costs nothing.",
+      "highlight": "nothing"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Rewarding defenders with bigger bug bounties",
+      "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+      "publisher": "OpenAI"
+    }
+  ],
+  "status": "posted",
+  "firstHour": {
+    "before": "Comment properly on 10-15 posts from the target list. Something the post left out: a number, a counter-case, a method. If it would fit under any post, it is worth nothing.",
+    "after": "Reply to every comment on this one. Each reply is itself a comment and keeps the thread alive through the window that decides reach.",
+    "done": false
+  },
+  "impressions": null,
+  "postedAt": "2026-11-03T07:05:13.573Z",
+  "linkedinId": "urn:li:ugcPost:7523279100078170112"
+}
