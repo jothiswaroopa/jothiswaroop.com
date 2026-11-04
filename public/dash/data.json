@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-03T03:59:10.703Z",
+  "generatedAt": "2026-11-04T03:07:20.951Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-04",
-      "end": "2026-11-01"
+      "start": "2026-10-05",
+      "end": "2026-11-02"
     },
     "totals": {
       "clicks": 22,
-      "impressions": 143,
-      "ctr": 0.15384615384615385,
-      "position": 12.447552447552448
+      "impressions": 144,
+      "ctr": 0.1527777777777778,
+      "position": 12.409722222222221
     },
     "previous": {
       "clicks": 8,
-      "impressions": 73,
-      "ctr": 0.1095890410958904,
-      "position": 8.164383561643836
+      "impressions": 74,
+      "ctr": 0.10810810810810811,
+      "position": 8.22972972972973
     },
     "daily": [
       {
@@ -341,15 +341,22 @@
         "impressions": 1,
         "ctr": 0,
         "position": 11
+      },
+      {
+        "key": "2026-11-01",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 21,
-        "ctr": 0.047619047619047616,
-        "position": 13.80952380952381
+        "impressions": 20,
+        "ctr": 0.05,
+        "position": 13.85
       },
       {
         "key": "dental practice missed calls",
@@ -503,16 +510,16 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 19,
+        "impressions": 20,
         "ctr": 0,
-        "position": 6.842105263157895
+        "position": 6.95
       },
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 14,
+        "impressions": 13,
         "ctr": 0,
-        "position": 14.142857142857142
+        "position": 13.76923076923077
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
@@ -524,9 +531,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 14,
         "ctr": 0,
-        "position": 11.933333333333334
+        "position": 11.857142857142858
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -545,9 +552,9 @@
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 9,
         "ctr": 0,
-        "position": 9
+        "position": 9.222222222222221
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
@@ -568,9 +575,9 @@
       {
         "key": "ind",
         "clicks": 22,
-        "impressions": 77,
-        "ctr": 0.2857142857142857,
-        "position": 7.714285714285714
+        "impressions": 78,
+        "ctr": 0.28205128205128205,
+        "position": 7.756410256410256
       },
       {
         "key": "are",
@@ -592,6 +599,13 @@
         "impressions": 3,
         "ctr": 0,
         "position": 29.333333333333332
+      },
+      {
+        "key": "bgd",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
       },
       {
         "key": "bgr",
@@ -627,22 +641,15 @@
         "impressions": 1,
         "ctr": 0,
         "position": 22
-      },
-      {
-        "key": "irl",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 10
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
         "clicks": 13,
-        "impressions": 113,
-        "ctr": 0.11504424778761062,
-        "position": 14.29203539823009
+        "impressions": 114,
+        "ctr": 0.11403508771929824,
+        "position": 14.228070175438596
       },
       {
         "key": "MOBILE",
@@ -662,8 +669,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-04",
-      "end": "2026-11-03"
+      "start": "2026-10-05",
+      "end": "2026-11-04"
     },
     "totals": {
       "views": 0,
@@ -678,12 +685,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1790899200000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -857,6 +858,12 @@
         "Clicks": 0,
         "Date": "/Date(1793404800000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1793491200000)/",
+        "Impressions": 0
       }
     ],
     "queries": []
@@ -1011,14 +1018,23 @@
     ]
   },
   "coverage": {
-    "total": 25,
-    "ok": 25,
+    "total": 26,
+    "ok": 26,
     "broken": []
   },
   "blog": {
-    "count": 9,
-    "last": "2026-11-01",
+    "count": 10,
+    "last": "2026-11-03",
     "posts": [
+      {
+        "slug": "learn-performance-marketing-from-zero-2026",
+        "title": "How to learn performance marketing from zero in 2026",
+        "date": "2026-11-03",
+        "lane": "guide",
+        "segment": "learn",
+        "words": 1257,
+        "sources": 5
+      },
       {
         "slug": "ai-generated-product-video-ads-small",
         "title": "AI-Generated Product Video Ads for Small Brands, Tested",
@@ -1105,17 +1121,17 @@
   "spend": {
     "month": "2026-11",
     "cap": 9,
-    "spent": 1.592902,
+    "spent": 2.20744,
     "by": {
-      "blog": 0.455558,
+      "blog": 0.97395,
       "evolve": 0.218306,
       "geo": 0.515622,
-      "linkedin": 0.055554,
+      "linkedin": 0.1517,
       "scan": 0.347862
     },
-    "remaining": 7.407098,
-    "pace": 1.769891,
-    "projected": 15.92902,
+    "remaining": 6.79256,
+    "pace": 1.839533,
+    "projected": 16.5558,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1125,9 +1141,9 @@
     }
   },
   "indexStatus": {
-    "checked": 25,
+    "checked": 26,
     "indexed": 21,
-    "notIndexed": 4,
+    "notIndexed": 5,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -1152,8 +1168,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1162,8 +1178,8 @@
       {
         "url": "https://jothiswaroop.com/films/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1290,11 +1306,21 @@
         "canonical": null
       },
       {
+        "url": "https://jothiswaroop.com/blog/learn-performance-marketing-from-zero-2026/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
         "url": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-02T12:07:36Z",
+        "lastCrawl": "2026-11-03T11:56:21Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
