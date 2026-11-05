@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-04T03:07:20.951Z",
+  "generatedAt": "2026-11-05T03:37:46.719Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-05",
-      "end": "2026-11-02"
+      "start": "2026-10-06",
+      "end": "2026-11-03"
     },
     "totals": {
-      "clicks": 22,
-      "impressions": 144,
-      "ctr": 0.1527777777777778,
-      "position": 12.409722222222221
+      "clicks": 24,
+      "impressions": 149,
+      "ctr": 0.1610738255033557,
+      "position": 12.10738255033557
     },
     "previous": {
-      "clicks": 8,
-      "impressions": 74,
-      "ctr": 0.10810810810810811,
-      "position": 8.22972972972973
+      "clicks": 9,
+      "impressions": 75,
+      "ctr": 0.12,
+      "position": 8.213333333333333
     },
     "daily": [
       {
@@ -348,6 +348,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 10
+      },
+      {
+        "key": "2026-11-02",
+        "clicks": 3,
+        "impressions": 6,
+        "ctr": 0.5,
+        "position": 4
       }
     ],
     "queries": [
@@ -439,17 +446,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 20,
-        "impressions": 61,
-        "ctr": 0.32786885245901637,
-        "position": 4.032786885245901
+        "clicks": 22,
+        "impressions": 64,
+        "ctr": 0.34375,
+        "position": 3.96875
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 36,
-        "ctr": 0.05555555555555555,
-        "position": 7.027777777777778
+        "impressions": 38,
+        "ctr": 0.05263157894736842,
+        "position": 6.631578947368421
       },
       {
         "key": "https://jothiswaroop.com/apply/",
@@ -478,6 +485,13 @@
         "impressions": 13,
         "ctr": 0,
         "position": 11.615384615384615
+      },
+      {
+        "key": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6.5
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
@@ -574,10 +588,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 22,
-        "impressions": 78,
-        "ctr": 0.28205128205128205,
-        "position": 7.756410256410256
+        "clicks": 24,
+        "impressions": 81,
+        "ctr": 0.2962962962962963,
+        "position": 7.518518518518518
       },
       {
         "key": "are",
@@ -646,17 +660,17 @@
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 13,
-        "impressions": 114,
-        "ctr": 0.11403508771929824,
-        "position": 14.228070175438596
+        "clicks": 15,
+        "impressions": 118,
+        "ctr": 0.1271186440677966,
+        "position": 13.872881355932204
       },
       {
         "key": "MOBILE",
         "clicks": 8,
-        "impressions": 28,
-        "ctr": 0.2857142857142857,
-        "position": 5.392857142857143
+        "impressions": 29,
+        "ctr": 0.27586206896551724,
+        "position": 5.275862068965517
       },
       {
         "key": "TABLET",
@@ -669,8 +683,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-05",
-      "end": "2026-11-04"
+      "start": "2026-10-06",
+      "end": "2026-11-05"
     },
     "totals": {
       "views": 0,
@@ -685,12 +699,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1790985600000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -863,6 +871,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1793491200000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1793577600000)/",
         "Impressions": 0
       }
     ],
@@ -1130,8 +1144,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 1.839533,
-    "projected": 16.5558,
+    "pace": 1.471627,
+    "projected": 13.24464,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1142,15 +1156,15 @@
   },
   "indexStatus": {
     "checked": 26,
-    "indexed": 21,
-    "notIndexed": 5,
+    "indexed": 22,
+    "notIndexed": 4,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-03T00:12:34Z",
+        "lastCrawl": "2026-11-04T08:12:12Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1178,8 +1192,8 @@
       {
         "url": "https://jothiswaroop.com/films/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1188,8 +1202,8 @@
       {
         "url": "https://jothiswaroop.com/systems/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1307,12 +1321,12 @@
       },
       {
         "url": "https://jothiswaroop.com/blog/learn-performance-marketing-from-zero-2026/",
-        "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-11-05T02:13:11Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
