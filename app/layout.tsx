@@ -21,7 +21,7 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"),
   title: "Jothi Swaroop — Performance marketing & AI systems",
-  description: "Performance marketer and AI automation engineer in Chennai. Meta lead generation, AI ads and commercials, and AI follow-up for founder-led businesses in India, the UK, the US, Canada and Australia.",
+  description: "Certified Performance Marketer and AI Automation Engineer in Chennai. Meta lead generation, AI ads and commercials, and AI follow-up for founder-led businesses in India, the UK, the US, Canada and Australia.",
   keywords: ["Jothi Swaroop", "Jothi Swaroopa", "performance marketer Chennai", "Meta ads Tirupur manufacturers", "AI automation engineer India", "n8n automation", "Gen AI architect", "lead generation for manufacturers UK", "digital marketing consultant Chennai"],
   authors: [{ name: "Jothi Swaroop", url: "https://jothiswaroop.com" }],
   creator: "Jothi Swaroop",
