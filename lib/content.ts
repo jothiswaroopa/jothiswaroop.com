@@ -68,6 +68,10 @@ export type Receipt = {
  */
 export const FX = { usdInr: 96.3, asOf: "October 2026" } as const;
 
+/** Said once, under the receipts, before a buyer abroad works it out alone: the budgets were small. Nova's ₹70,444
+ *  lifetime spend is on its case page; hiding it would cost more trust than stating it does. */
+export const receiptsScale = "Honest scale: these were Indian budgets. The biggest account spent ₹70,444 (≈$732) in total, and a lead in the US, UK or Australia costs more. What carries over is the method — which is why the first 30 days anywhere are a test, with one number we agree before day one.";
+
 export const receipts: Receipt[] = [
   // Every number below is read off a Meta Ads Manager screenshot in public/img/ads-*.png
   { value: 4248, label: "buyer leads · Nova Attire · ₹16.58 (≈$0.17) each", caseSlug: "nova" },
@@ -539,7 +543,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
   sub: "Founders come for the leads or for the ads that win them. They stay because the creative, the site, the scripts and the follow-up all come from the same brain — nothing is handed to a third vendor and lost in between.",
   core: [
     { name: "Meta lead generation", what: "Facebook and Instagram campaigns that bring in enquiries, booked calls and buyers — for any business where one customer is worth real money: manufacturers, clinics, law firms, schools, home services, B2B. Every number links to its Ads Manager screenshot.", proof: "7,341 form leads · 876 conversations · 9 ad accounts · India, UK, US, Canada", href: "/#work" },
-    { name: "AI ads & commercials", what: "Scroll-stopping video ads made with AI from the product photos you already have — UGC-style creator ads and cinematic commercials, cut for Reels, Stories and TikTok. No shoot, no studio, a fresh batch every month to test against your best ad.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · 17 films in the showreel", href: "/films/", cta: "watch the films" },
+    { name: "AI ads & commercials", what: "Scroll-stopping video ads made with AI from the product photos you already have — UGC-style creator ads and cinematic commercials, cut for Reels, Stories and TikTok. No shoot, no studio, a fresh batch every month to test against your best ad.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · 17 films in the showreel", href: "/ai-ads/", cta: "see the films and the price" },
   ],
   more: [
     { name: "AI automation & agents", what: "Any repeated task, built into a system that runs while you sleep — WhatsApp and voice receptionists, invoice bots, reorder agents, renewal reminders, reports. The receptionist is one build; the product is whatever your operation repeats.", proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice — all shown below" },
@@ -811,6 +815,36 @@ export const offers: { label: string; headline: string; sub: string; limit: stri
   ],
 };
 
+// ─── /ai-ads/ — the page cold emails abroad point at. Written for a brand founder who already spends on Meta and
+// has never heard the name: the films first, the honest limits second, the price and the free ad last.
+// Facts: 48-hour free ad and the 3-a-week cap (OFFERS.md "path from reply to paid"), never altering the product
+// (OFFERS §3), $1,500 management only worth it from ~$10K/month spend (sequences/ADS), $2,500 together (OFFERS §5).
+export const aiAds = {
+  label: "// AI ADS & COMMERCIALS",
+  headline: "New video ads every month, made from the product photos you already have.",
+  sub: "UGC-style creator ads and cinematic commercials for brands already running Meta ads. No shoot, no studio, no creator fees — and the first ad is free, so you judge it on your own product before you pay anything.",
+  // Client films first, then the concepts closest to a brand selling online. The full reel keeps Jothi's order.
+  films: ["Parota — UGC ad", "Jewellery commercial", "Ultra-premium brand reveal", "LUMORA — serum UGC ad", "UN HYPE — sunscreen UGC ad", "Creative fatigue — UGC ad", "SALT — waterproof jewellery UGC", "Imitation jewellery — UGC ad"],
+  steps: [
+    { k: "Day 1", t: "You send your product page and your current best ad.", d: "That ad is the bar. Everything I make is judged against it, in your own ad account." },
+    { k: "Within 48 hours", t: "Your free AI ad.", d: "One finished ad on your product, cut 9:16 and 1:1, within 48 hours of us agreeing the product and the angle. Run it or don't — no charge either way." },
+    { k: "Every month", t: "A fresh batch to test.", d: "8 ads for $950, or 12–14 ads plus a monthly review of which hooks won and what to test next for $2,000. Month to month." },
+  ],
+  honestLabel: "// BEFORE YOU PAY — THE HONEST PART",
+  honest: [
+    { k: "The reel is mostly concepts", v: "Most films here were made to show the craft and are labelled as concepts. The client films — Top-5 El Alimentos and House of Vummudi — are marked as clients." },
+    { k: "Some products need a real creator", v: "AI is strong at product, mood and a person talking to camera. It is weaker when someone has to use the product with their hands in a precise way. If yours is one of those, I'll tell you before you pay." },
+    { k: "Your product is never altered", v: "The person on screen is AI; the bottle, the ring or the jar is exactly what you sell. An ad that flatters a product into something it isn't is a refund waiting to happen." },
+  ],
+  faq: [
+    { q: "Who owns the ads?", a: "You do. Every file is yours to keep, and the ads run in your own Meta ad account. If we stop, nothing is held back." },
+    { q: "What do you need from me?", a: "Your product page or a few product photos, and the ad that is working best for you right now. No shoot, no samples shipped." },
+    { q: "How do I pay?", a: "Invoiced in US dollars, month to month, before each month's batch starts. No contract and no lock-in." },
+    { q: "Do you run the ads too?", a: "If you want. Meta ad management is $1,500 a month on its own, or $2,500 together with the ads — worth it once you spend around $10,000 a month on Meta. Below that I'd tell you to keep the fee for the ads themselves." },
+    { q: "What's the catch with the free ad?", a: "No catch, but a limit: three free ads a week across all brands, each made only after I've confirmed the product and the angle with you." },
+  ],
+};
+
 export const faq = [
   {
     q: "What does it cost?",
@@ -820,6 +854,10 @@ export const faq = [
     q: "What if it doesn't work?",
     // APPROVED 2026-09-17 — this is a commitment, not copy: 30-day checkpoint, no notice period, no lock-in.
     a: "Every engagement has a 30-day checkpoint. If the weekly number isn't moving by day 30, I show you exactly what I tried and what I'd change — and you decide whether we continue. No notice period, no lock-in. I don't hold anyone to a contract that isn't working.",
+  },
+  {
+    q: "Who owns the ad account and the ads?",
+    a: "You do. Campaigns run in your own Meta ad account, and every film, image and file is yours to keep. If we stop working together, nothing is held back.",
   },
   {
     q: "Why you and not an agency?",

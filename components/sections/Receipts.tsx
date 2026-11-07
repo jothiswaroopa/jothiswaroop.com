@@ -2,7 +2,7 @@ import Link from "next/link";
 import Counter from "@/components/motion/Counter";
 import Reveal from "@/components/motion/Reveal";
 import Button from "@/components/Button";
-import { receipts } from "@/lib/content";
+import { receipts, receiptsScale } from "@/lib/content";
 
 export default function Receipts() {
   return (
@@ -23,7 +23,10 @@ export default function Receipts() {
             </Reveal>
           ))}
         </div>
-        <Reveal delay={0.4} className="mt-12">
+        <Reveal delay={0.3} className="mt-12">
+          <p className="max-w-3xl text-sm leading-relaxed text-paper/65">{receiptsScale}</p>
+        </Reveal>
+        <Reveal delay={0.4} className="mt-6">
           <Button href="/audit" variant="quiet">Want numbers like these? Run the free audit</Button>
         </Reveal>
       </div>

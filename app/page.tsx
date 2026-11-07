@@ -14,6 +14,7 @@ import Faq from "@/components/sections/Faq";
 import Accelerator from "@/components/sections/Accelerator";
 import ApplySection from "@/components/sections/ApplySection";
 import Notes from "@/components/sections/Notes";
+import IndiaOnly from "@/components/IndiaOnly";
 
 export default function Home() {
   return (
@@ -30,7 +31,8 @@ export default function Home() {
       <Systems />
       <Testimonials />
       <Filter />
-      <Accelerator />
+      {/* An in-person week in Chennai: noise to a buyer abroad. */}
+      <IndiaOnly><Accelerator /></IndiaOnly>
       <Faq />
       <ApplySection />
       <Notes />

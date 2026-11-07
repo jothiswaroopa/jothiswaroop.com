@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/about/`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/services/`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/pricing/`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/ai-ads/`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/india/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/films/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/systems/`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

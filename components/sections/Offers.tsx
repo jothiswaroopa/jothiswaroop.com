@@ -1,33 +1,17 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { offers, site, type Offer } from "@/lib/content";
 import { calHref, submit } from "@/lib/submit";
+import { useDetectedMarket, type Market } from "@/lib/market";
 
-type Cur = "usd" | "inr";
-
-/** India is decided by the visitor's clock, not an IP lookup: the site is static and a timezone is honest enough.
- *  `?cur=inr` / `?cur=usd` wins, so an email or WhatsApp link can open the right side. */
-function detect(): Cur | null {
-  try {
-    const q = new URLSearchParams(location.search).get("cur");
-    if (q === "inr" || q === "usd") return q;
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    return tz === "Asia/Kolkata" || tz === "Asia/Calcutta" ? "inr" : null;
-  } catch {
-    return null;
-  }
-}
-
-const noSubscribe = () => () => {};
+type Cur = Market;
 
 /** The price list. One section, two markets: dollars for the clients abroad, rupees for India.
  *  Every figure comes from `offers` in lib/content.ts, which says where each one was already promised. */
 export default function Offers({ initial = "usd", detectMarket = true, heading = "h2" }: { initial?: Cur; detectMarket?: boolean; heading?: "h1" | "h2" }) {
-  // The visitor's market never changes during a visit, so there is nothing to subscribe to; the server snapshot is
-  // null, which keeps the static HTML on `initial` and lets the client switch after hydration.
-  const detected = useSyncExternalStore(noSubscribe, detect, () => null);
+  const detected = useDetectedMarket();
   const [picked, setPicked] = useState<Cur | null>(null);
   const cur: Cur = picked ?? (detectMarket ? detected : null) ?? initial;
 
@@ -141,7 +125,7 @@ function Cta({ o, cur, onFreeAd }: { o: Offer; cur: Cur; onFreeAd: () => void })
 }
 
 /** Two fields, so a founder can ask for the free ad without an 8-step application. */
-function FreeAdForm() {
+export function FreeAdForm() {
   const [email, setEmail] = useState("");
   const [product, setProduct] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "delivered" | "manual">("idle");

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
 import Showreel from "@/components/Showreel";
+import FilmsCta from "@/components/FilmsCta";
 
 export const metadata = {
   title: "AI Commercials & UGC-Style Ads — Showreel | Jothi Swaroop",
@@ -33,6 +34,7 @@ export default function FilmsPage() {
         </p>
 
         <Showreel />
+        <FilmsCta />
 
         <p className="mt-16 max-w-2xl text-paper/80">
           The films are one half. The other half is the ad account they run in — <Link href="/#work" className="underline-slide text-paper">see the lead-generation work and its receipts</Link>, or <Link href="/services/" className="underline-slide text-paper">every service</Link>.
