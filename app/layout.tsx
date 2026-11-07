@@ -21,7 +21,7 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"),
   title: "Jothi Swaroop — Performance marketing & AI systems",
-  description: "Certified Performance Marketer and AI Automation Engineer in Chennai. Meta and Google ads plus AI follow-up for founder-led brands in India, the UK and the US.",
+  description: "Performance marketer and AI automation engineer in Chennai. Meta lead generation, AI ads and commercials, and AI follow-up for founder-led businesses in India, the UK, the US, Canada and Australia.",
   keywords: ["Jothi Swaroop", "Jothi Swaroopa", "performance marketer Chennai", "Meta ads Tirupur manufacturers", "AI automation engineer India", "n8n automation", "Gen AI architect", "lead generation for manufacturers UK", "digital marketing consultant Chennai"],
   authors: [{ name: "Jothi Swaroop", url: "https://jothiswaroop.com" }],
   creator: "Jothi Swaroop",
@@ -111,7 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             description: "Performance marketer and AI-systems builder in Chennai, working with founder-led businesses in the UK, US and India.",
             address: { "@type": "PostalAddress", addressLocality: "Chennai", addressRegion: "Tamil Nadu", addressCountry: "IN" },
             sameAs: [site.socials.linkedin, site.socials.instagram, "https://instagram.com/jothiswaroop.ai", site.google.profile].filter(Boolean),
-            knowsAbout: ["Meta Ads", "Google Ads", "Lead generation", "WhatsApp automation", "AI agents", "n8n", "Generative engine optimisation", "Performance marketing"],
+            knowsAbout: ["Meta Ads", "AI video ads", "Lead generation", "WhatsApp automation", "AI agents", "n8n", "Generative engine optimisation", "Performance marketing"],
             award: ["Prompt Engineering Champion 2025", "Tamil Nadu Digital Summit award 2026", "Official Digital Partner, VROOM 2026"],
             performerIn: { "@type": "EducationEvent", name: "The Importance of Digital Marketing & AI Automation", description: "Seminar for 60+ entrepreneurs at a business networking meeting", location: { "@type": "Place", name: "Salem, Tamil Nadu, India" }, startDate: "2025-07" },
             areaServed: ["IN", "GB", "US"],

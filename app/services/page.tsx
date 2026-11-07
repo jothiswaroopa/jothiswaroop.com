@@ -3,15 +3,15 @@ import BackLink from "@/components/BackLink";
 import { site } from "@/lib/content";
 
 export const metadata = {
-  title: "Services — Meta & Google Ads, WhatsApp Automation, Websites | Jothi Swaroop",
-  description: "Meta and Facebook ads, Google Ads (PPC), WhatsApp automation and AI receptionists, websites and landing pages, video and content, SEO and GEO. Chennai → UK, US, India.",
+  title: "Services — Meta Ads, AI Ad Films, WhatsApp Automation, Websites | Jothi Swaroop",
+  description: "Meta ads on Facebook and Instagram, AI commercials and UGC-style ads, WhatsApp automation and AI receptionists, websites and landing pages, SEO and GEO. Chennai → UK, US, Canada, Australia, India.",
   alternates: { canonical: "/services/" },
   openGraph: { title: "Services — Jothi Swaroop", url: "/services/", images: ["/og.png"] },
 };
 
 /**
  * One URL per thing people actually search for. The homepage Services section stays short; this page carries the
- * searchable names (Facebook ads, PPC, WhatsApp automation, landing pages…) and links each service to its receipts.
+ * searchable names (Facebook ads, AI ads, WhatsApp automation, landing pages…) and links each service to its receipts.
  */
 const SERVICES = [
   {
@@ -25,18 +25,6 @@ const SERVICES = [
     proof: "7,341 leads · 9 ad accounts · ₹16.58–₹33 per B2B lead in India · a UK wholesale buyer enquiry for under $6",
     links: [{ t: "Nova Attire — 4,248 leads", h: "/work/nova/" }, { t: "Five Elements — 19 UK buyers", h: "/work/five-elements/" }],
     faq: { q: "How much does a Meta lead cost?", a: "In my Indian B2B accounts, between ₹16.58 and ₹33 per lead-form submission, measured lifetime in Ads Manager. A UK wholesale-buyer enquiry cost ₹443 (under $6). Your number depends on product, creative and season — which is why the first month is a test, not a promise." },
-  },
-  {
-    id: "google-ads-ppc",
-    name: "Google Ads — Search & PPC",
-    lead: "Search campaigns for high-intent enquiries where people already know what they want.",
-    body: [
-      "Google Search suits manufacturers, clinics and B2B services where a buyer types the problem into a search box. I build tight keyword groups, write ads that pre-qualify, and send clicks to a page built for that one query, not to a homepage.",
-      "Performance Max gets used when there is a product feed and a conversion history to learn from, and not before. Spending on automation without data is how small accounts burn a month.",
-    ],
-    proof: "Run alongside Meta on B2B accounts · reporting in one weekly sheet with the Meta numbers",
-    links: [{ t: "See how the accounts are reported", h: "/#work" }],
-    faq: { q: "Meta or Google — which should a small business start with?", a: "Meta if you need to create demand (a new product, a new market, wholesale buyers who aren't searching yet). Google Search if demand already exists and you need to capture it (a clinic, a service, an urgent B2B need). Most of my accounts start on one and add the other once the first is producing." },
   },
   {
     id: "ai-automation-agents",
@@ -127,7 +115,7 @@ export default function ServicesPage() {
         <p className="label">{"// SERVICES"}</p>
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.02]">Ads that bring customers. Systems that keep them.</h1>
         <p className="mt-6 max-w-2xl text-xl leading-relaxed text-paper/80">
-          Meta and Google ads, WhatsApp automation and AI receptionists, websites, video and search — for founder-led businesses in the United Kingdom, the United States and India. Every service below links to the work it produced.
+          Meta ads, AI ad films, WhatsApp automation and AI receptionists, websites and search — for founder-led businesses in the United Kingdom, the United States, Canada, Australia and India. Every service below links to the work it produced, and <Link href="/pricing/" className="underline-slide text-paper">the prices are public</Link>.
         </p>
 
         <nav aria-label="Services" className="mt-10 flex flex-wrap gap-2">

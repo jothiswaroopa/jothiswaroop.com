@@ -22,7 +22,7 @@ export default function Services() {
                   <h3 className="display mt-4 text-3xl text-paper transition-colors group-hover:text-signal md:text-4xl">{s.name}</h3>
                   <p className="mt-4 max-w-md text-paper/75">{s.what}</p>
                   <p className="mono mt-auto pt-8 text-xs leading-relaxed text-signal">{s.proof}</p>
-                  <p className="label mt-4 !text-paper/55 transition-colors group-hover:!text-signal">↗ see the receipts</p>
+                  <p className="label mt-4 !text-paper/55 transition-colors group-hover:!text-signal">↗ {s.cta ?? "see the receipts"}</p>
                 </div>
               </Link>
             </Reveal>

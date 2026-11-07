@@ -27,14 +27,14 @@ export const site = {
 };
 
 export const hero = {
-  eyebrow: "// FOR FOUNDER-LED MANUFACTURERS & BRANDS · INDIA · UK · US",
+  eyebrow: "// FOR FOUNDER-LED BUSINESSES · INDIA · UK · US · CANADA · AUSTRALIA",
   // PLACEHOLDER headline — shape: "[biggest verified number] for one client. Zero cold pitches for me."
-  headline: ["*4,248\u00a0leads* for one client.", "Four founders a\u00a0quarter.", "_Every\u00a0one_ _by\u00a0introduction._ Until\u00a0now."],
+  headline: ["*4,248\u00a0leads* for one client.", "Nine ad\u00a0accounts.", "_Every\u00a0one_ _by\u00a0introduction._ Until\u00a0now."],
   // alt A: "Every client since was introduced by the one before." · alt C: "Zero cold pitches, ever."
   // *…* = amber (the proof number) · _…_ = italic (the payoff) · NBSPs keep each marked phrase on one line
   // A/B alt (kept for testing): "Zero cold pitches for me."
-  sub: "I watched agencies sell reports. I decided to sell customers. Paid acquisition, creative, film and follow-up automation — every discipline under one roof, for founders in India, the\u00a0UK and the\u00a0US.",
-  ctaPrimary: { label: "Apply to work with me", href: "/apply" },
+  sub: "I watched agencies sell reports. I decided to sell customers. Meta ads, AI ad films and follow-up automation — every discipline under one roof, for founders in India, the\u00a0UK, the\u00a0US, Canada and Australia.",
+  ctaPrimary: { label: "See offers & prices", href: "/pricing/" },
   ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
   videoSrc: "", // pending — 60–90s straight-to-lens
   posterSrc: "/img/portrait-hero.jpg", // real — blue shirt, outdoor
@@ -158,9 +158,9 @@ export const who = {
 // three recognitions in 2026. Every number below is one already counted on this site.
 export const story = {
   label: "// THE FULL STORY",
-  titles: "Certified Performance Marketer · AI Automation Engineer · Gen AI Architect",
+  titles: "Performance Marketer · AI Automation Engineer · Gen AI Architect",
   lede: [
-    "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. Since 2023 I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK and the US, in your timezone, in your currency.",
+    "I am from Villupuram, a small town in Tamil Nadu, now based in Chennai, India. Since 2023 I have found buyers for the manufacturers of Tirupur — the town that knits a large share of what hangs in your high-street shops — then built the machines that make sure no enquiry is ever dropped. Now I do it for founders in the UK, the US, Canada and Australia, in your timezone, in your currency.",
     "Be The Brand is the studio name I worked under for the Chennai projects — the name you'll hear in the client videos. Same person, same receipts.",
   ],
   chapters: [
@@ -206,7 +206,7 @@ export const story = {
     },
     {
       year: "Now",
-      title: "Four founders a quarter. India, UK, US.",
+      title: "Two new clients a month abroad. Three in India.",
       body: "Paid media, creative, film, decks and automation — the full skill set of an agency, carried by one brain, so strategy and execution never drift apart. You get the person who built every result here, and the machines that keep following up while I sleep. Every ad number on this site links to the screenshot it came from; what clients report is marked as reported.",
     },
   ],
@@ -216,11 +216,11 @@ export const story = {
       { k: "Proof, not promises", v: "Every ad figure on this site is read from Meta Ads Manager and shown with its screenshot. Client-reported results are labelled as exactly that." },
       { k: "Already done abroad", v: "A UK wholesale-buyer campaign for a manufacturer with zero presence there, and a US–Canada summer-camp campaign for a Tamil Nadu art mentorship reaching diaspora families — both on the Results page." },
       { k: "Your hours, your currency", v: "Calls in your timezone. Reporting in GBP or USD. WhatsApp replies inside the day, not inside the week." },
-      { k: "Every skill, one brain", v: "An agency splits your growth across five departments and a junior joins the dots. Here the strategist, the media buyer, the creative and the automation engineer are the same mind — and I take four founders a quarter so that mind stays on your account." },
+      { k: "Every skill, one brain", v: "An agency splits your growth across five departments and a junior joins the dots. Here the strategist, the media buyer, the creative and the automation engineer are the same mind — and I take two new clients a month abroad so that mind stays on your account." },
     ],
   },
   roles: [
-    { k: "Performance marketing", v: "Meta and Google campaigns for manufacturers and D2C brands — measured by leads and cost per lead, never by reach." },
+    { k: "Performance marketing", v: "Meta campaigns for manufacturers, service businesses and D2C brands — measured by leads and cost per lead, never by reach." },
     { k: "AI automation", v: "n8n, voice AI and LLM agents that answer, qualify, book, invoice and follow up — so nothing a campaign produces is lost." },
     { k: "Gen AI", v: "AI creatives, films and investor decks, built by a prompt-battle champion who also knows what a CFO wants to see on slide two." },
   ],
@@ -532,20 +532,21 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
 /** Services — the two things clients hire for, and the disciplines around them that are done in-house.
  *  Every entry carries one `proof` line of the same kind (named clients, a counted total, or where on this
  *  site the work can be seen) so no row looks emptier than another. Never add a number here that isn't on Work. */
-export type Service = { name: string; what: string; proof: string; href?: string };
+export type Service = { name: string; what: string; proof: string; href?: string; cta?: string };
 export const services: { label: string; headline: string; sub: string; core: Service[]; more: Service[] } = {
   label: "// WHAT I DO",
   headline: "Two things I'm hired for. Everything around them, done in-house.",
-  sub: "Founders come for the leads or the automations. They stay because the creative, the site, the scripts and the follow-up all come from the same brain — nothing is handed to a third vendor and lost in between.",
+  sub: "Founders come for the leads or for the ads that win them. They stay because the creative, the site, the scripts and the follow-up all come from the same brain — nothing is handed to a third vendor and lost in between.",
   core: [
-    { name: "Performance marketing", what: "Meta and Google lead generation for founder-led manufacturers and brands — wholesale buyers, distributors, patients, students. Every number links to its Ads Manager screenshot.", proof: "7,341 form leads · 876 conversations · 9 ad accounts · India, UK, US, Canada", href: "/#work" },
-    { name: "AI automation & agents", what: "Any repeated task, built into a system that runs while you sleep — WhatsApp and voice receptionists, invoice bots, reorder agents, renewal reminders, reports. The receptionist is one build; the product is whatever your operation repeats.", proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice — all shown below", href: "/#systems" },
+    { name: "Meta lead generation", what: "Facebook and Instagram campaigns that bring in enquiries, booked calls and buyers — for any business where one customer is worth real money: manufacturers, clinics, law firms, schools, home services, B2B. Every number links to its Ads Manager screenshot.", proof: "7,341 form leads · 876 conversations · 9 ad accounts · India, UK, US, Canada", href: "/#work" },
+    { name: "AI ads & commercials", what: "Scroll-stopping video ads made with AI from the product photos you already have — UGC-style creator ads and cinematic commercials, cut for Reels, Stories and TikTok. No shoot, no studio, a fresh batch every month to test against your best ad.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · 17 films in the showreel", href: "/films/", cta: "watch the films" },
   ],
   more: [
+    { name: "AI automation & agents", what: "Any repeated task, built into a system that runs while you sleep — WhatsApp and voice receptionists, invoice bots, reorder agents, renewal reminders, reports. The receptionist is one build; the product is whatever your operation repeats.", proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice — all shown below" },
     { name: "Website development", what: "Fast, static, search-ready sites like this one — built to convert a cold visitor, not to win a design award.", proof: "GVP Enterprises LLP · Vaasavi IVF Micro Finance · jothiswaroop.com" },
     { name: "Script writing", what: "Ad scripts, reels and brand films written to the number they need to move.", proof: "Arkstorie · Tharunis Jewellery · the VROOM 2026 sponsor film" },
     { name: "Social media management", what: "Calendars, creatives and community, run to a monthly plan rather than a mood.", proof: "Retail · F&B · jewellery · spiritual products" },
-    { name: "AI commercials, AI UGC & media production", what: "Two kinds of finished ad film, generated end to end: cinematic product commercials, and UGC-style creator videos — a person on camera talking about the product — the format brands are buying most for Meta and TikTok right now. Cut for Reels, Shorts and TikTok; sold by the film or as a monthly set. Plus event films, product shoots and investor decks.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · 12 concept films incl. seven UGC ads — all in the showreel below" },
+    { name: "Media production", what: "Event films, product shoots and investor decks, alongside the AI work.", proof: "VROOM 2026 · Cynosure Architects" },
     { name: "SEO · GEO · LinkedIn optimisation", what: "Search, generative-engine (ChatGPT, Perplexity) and LinkedIn positioning, so the right buyer finds you before you find them.", proof: "Practised on this site and on my own profile — both are the case study" },
     { name: "AI consultation", what: "Advisory for founders and their teams: where AI genuinely saves money in your operation, what to build, what to buy off the shelf, and what to leave alone — delivered as a written plan your own people can execute.", proof: "Fixed-scope audits or monthly advisory · remote, in your timezone · India, UK, US" },
   ],
@@ -706,7 +707,115 @@ export const accelerator = {
   },
 };
 
+// ─── OFFERS & PRICES (/pricing/, /india/, homepage #offers) ──────────────────────────────────────────────────
+// Source: ~/Projects/outreach-engine/OFFERS.md. Every price and guarantee here is one the outreach emails already
+// state, so the site never promises more than a cold email did:
+// · first AI ad free, $150 single, 8 for $950 (sequences/E1) · 12–14 + review $2,000 (sequences/CS, Jothi 2 Nov)
+// · $750 pilot credited → $1,500/month, one number agreed before day one or the $750 back (the approved ADS-pilot
+//   guarantee, sequences/DENT) · India sprints reuse that same guarantee in rupees.
+// NOT on the site until Jothi says yes: the film pack's "beats your best ad or next month free" (OFFERS §4, and §4b
+// marks it unconfirmed). Limits (2 abroad, 3 India a month) are real — if they stop being kept, remove the line.
+export type OfferTier = { name: string; price: string; per?: string; note?: string };
+export type Offer = {
+  id: string;
+  name: string;
+  forWho: string;
+  free: string;
+  tiers: OfferTier[];
+  includes: string[];
+  guarantee?: string;
+  cta: { label: string; kind: "call" | "whatsapp" | "freead" };
+  ask?: string; // the WhatsApp message the button pre-fills
+  featured?: boolean;
+};
+
+export const offers: { label: string; headline: string; sub: string; limit: string; usd: Offer[]; inr: Offer[]; bundle: string; inrNote: string } = {
+  label: "// OFFERS & PRICES",
+  headline: "What it costs, what you get, and what happens if it doesn't work.",
+  sub: "Month to month, no lock-in. Every offer starts with something free, so you see the work before you pay for it.",
+  limit: "I take two new clients a month abroad and three in India, so every account gets the person who built the results on this page.",
+  bundle: "Want both? AI ads and Meta lead generation together: $2,500 a month.",
+  inrNote: "Paid in advance by UPI or bank transfer.",
+  usd: [
+    {
+      id: "ai-ads",
+      name: "AI ads & commercials",
+      forWho: "Product brands already running Meta ads, selling something worth $100 or more.",
+      free: "Your first AI ad free, made from product photos you already have.",
+      tiers: [
+        { name: "Single AI ad", price: "$150" },
+        { name: "Test Pack · 8 AI ads", price: "$950", per: "/month", note: "$119 an ad — enough to keep a rotation running" },
+        { name: "Creative Strategist · 12–14 AI ads + a monthly what's-working review", price: "$2,000", per: "/month", note: "For brands running 10+ live ads" },
+      ],
+      includes: ["UGC-style creator ads and cinematic commercials", "Different hooks and faces, cut 9:16 and 1:1 for Reels, Stories and TikTok", "Your product shown exactly as it is — never altered"],
+      cta: { label: "Get your free AI ad", kind: "freead" },
+      featured: true,
+    },
+    {
+      id: "lead-gen",
+      name: "Meta lead generation",
+      forWho: "Businesses where one customer is worth $3,000 or more — clinics, law firms, home improvement, schools, B2B.",
+      free: "A free one-page audit of your ads and enquiry flow.",
+      tiers: [
+        { name: "30-day pilot", price: "$750", note: "Credited in full if you continue" },
+        { name: "Then, month to month", price: "$1,500", per: "/month", note: "No lock-in" },
+      ],
+      includes: ["Facebook and Instagram campaigns, lead forms and budget moves", "2 AI video ads inside the pilot", "A weekly number you can check in Ads Manager yourself"],
+      guarantee: "Before day one we agree one number together — booked consultations, qualified enquiries or cost per lead. Miss it and the $750 comes back.",
+      cta: { label: "Book a call", kind: "call" },
+    },
+  ],
+  inr: [
+    {
+      id: "admissions",
+      name: "Admissions Engine",
+      forWho: "Colleges, schools and coaching centres.",
+      free: "A free Enquiry Leak Review: one page and a 2-minute voice note on where your enquiries are lost.",
+      tiers: [
+        { name: "30-Day Admissions Sprint", price: "₹25,000", note: "Credited in full to month one" },
+        { name: "Then", price: "₹50,000", per: "/month", note: "Six months, tied to the admission cycle" },
+      ],
+      includes: ["Meta campaign, 6 posters and 2 AI video ads", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a counsellor call script", "Your numbers every Monday"],
+      guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹25,000 comes back.",
+      cta: { label: "Ask for the free review", kind: "whatsapp" },
+      ask: "Hi Jothi, I saw the Admissions Engine on your site. I'd like the free Enquiry Leak Review for our institution.",
+      featured: true,
+    },
+    {
+      id: "patients",
+      name: "Patient Pipeline",
+      forWho: "Clinics and hospitals.",
+      free: "The same free Enquiry Leak Review.",
+      tiers: [
+        { name: "30-Day Patient Sprint", price: "₹25,000", note: "Credited in full to month one" },
+        { name: "Then", price: "₹50,000", per: "/month", note: "No lock-in" },
+      ],
+      includes: ["Meta campaign and 2 AI video ads built around the treatment that pays best", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a front-desk call script", "Your numbers every Monday"],
+      guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹25,000 comes back.",
+      cta: { label: "Ask for the free review", kind: "whatsapp" },
+      ask: "Hi Jothi, I saw the Patient Pipeline on your site. I'd like the free Enquiry Leak Review for our clinic.",
+    },
+    {
+      id: "films-in",
+      name: "AI commercials",
+      forWho: "Jewellery and saree showrooms, and online brands already running ads.",
+      free: "One 15-second AI film of a product you choose, free.",
+      tiers: [
+        { name: "Film pack · 4 films", price: "₹12,000", per: "/month" },
+        { name: "Single film", price: "₹3,500" },
+      ],
+      includes: ["Every film in 9:16 and 1:1, with a caption line", "Your product shown exactly as it is — never altered", "Ready weeks before the festival, not the night before"],
+      cta: { label: "Ask for the free film", kind: "whatsapp" },
+      ask: "Hi Jothi, I saw the AI commercials on your site. I'd like the free 15-second film of one of our products.",
+    },
+  ],
+};
+
 export const faq = [
+  {
+    q: "What does it cost?",
+    a: "AI ads start at $150 for one, or $950 a month for eight. Meta lead generation starts with a 30-day pilot at $750, credited in full, then $1,500 a month. In India, a 30-day sprint is ₹25,000 and a monthly engagement ₹50,000. Every price, with what's inside, is on the pricing page — and every offer starts with something free.",
+  },
   {
     q: "What if it doesn't work?",
     // APPROVED 2026-09-17 — this is a commitment, not copy: 30-day checkpoint, no notice period, no lock-in.

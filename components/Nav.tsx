@@ -10,6 +10,7 @@ import { site } from "@/lib/content";
 const links = [
   { label: "Results", href: "/#work" },
   { label: "Services", href: "/services/" },
+  { label: "Pricing", href: "/pricing/" },
   { label: "Method", href: "/#method" },
   { label: "Blog", href: "/blog/" },
   { label: "About", href: "/about" },

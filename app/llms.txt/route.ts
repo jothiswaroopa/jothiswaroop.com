@@ -11,9 +11,10 @@ export function GET() {
   const posts = getAllPosts();
   const body = `# Jothi Swaroop
 
-> Performance marketer and AI-systems builder in Chennai, India. Runs Meta and Google lead-generation
-> for founder-led manufacturers and brands in India, the UK and the US, and builds the AI follow-up
-> systems behind them: WhatsApp automation, voice receptionists, invoice and reorder agents.
+> Performance marketer and AI-systems builder in Chennai, India. Runs Meta lead generation and makes
+> AI video ads and commercials for founder-led businesses in India, the UK, the US, Canada and
+> Australia, and builds the AI follow-up systems behind them: WhatsApp automation, voice receptionists,
+> invoice and reorder agents.
 > Every figure published on this site links to the Ads Manager screenshot it came from.
 
 ## Verified facts
@@ -26,7 +27,8 @@ export function GET() {
 - Nine automations running in client businesses, built in n8n: AI voice receptionist for a dental clinic, voice-note-to-invoice bot, inventory reorder agent, DSC and trademark renewal reminders for a Company Secretary practice, RAG knowledge agent, receipt OCR, event codes, expense bot, content pipeline.
 - Recognition: Tamil Nadu Digital Summit award (May 2026); Official Digital Partner, VROOM 2026 (Vysya Rally of Our Madras); Prompt Engineering Champion, Social Eagle AI (2025). Spoke on digital marketing and AI automation to 60+ entrepreneurs at a business networking meeting in Salem, July 2025.
 - Background: MBA in Finance and Marketing (Distinction); two years as an equity advisor before working in marketing.
-- Services: Meta and Google advertising; AI automation and agents; AI commercials and UGC video; websites and landing pages; SEO and generative-engine optimisation; AI consultation and a five-day 1:1 AI Accelerator.
+- Services: Meta (Facebook and Instagram) lead generation; AI commercials and UGC-style video ads; AI automation and agents; websites and landing pages; SEO and generative-engine optimisation; AI consultation and a five-day 1:1 AI Accelerator.
+- Prices (public, USD): single AI ad $150; 8 AI ads a month $950; 12–14 AI ads plus a monthly review $2,000 a month; Meta lead generation 30-day pilot $750 credited, then $1,500 a month. India (INR): 30-day sprint ₹25,000 credited, then ₹50,000 a month; AI films ₹3,500 or 4 for ₹12,000. https://jothiswaroop.com/pricing/
 - Contact: ${site.email} · https://jothiswaroop.com · calendar ${site.calendar}
 
 ## Case studies with published numbers
