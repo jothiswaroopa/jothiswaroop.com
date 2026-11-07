@@ -7,6 +7,7 @@ import { AnimatePresence, m } from "framer-motion";
 import clsx from "clsx";
 import { site } from "@/lib/content";
 import { useDetectedMarket } from "@/lib/market";
+import { calHref } from "@/lib/submit";
 
 const links = [
   { label: "Results", href: "/#work" },
@@ -35,6 +36,7 @@ export default function Nav() {
   const onPaper = ["/apply", "/audit", "/about"].some((p) => pathname?.startsWith(p));
   const onApply = !!pathname?.startsWith("/apply");
   const onAiAds = !!pathname?.startsWith("/ai-ads");
+  const onPricing = !!pathname?.startsWith("/pricing");
 
   useEffect(() => {
     let last = window.scrollY, ticking = false, h = false, p = false;
@@ -154,6 +156,12 @@ export default function Nav() {
             {/* The cold-email landing page: its two exits are the price and the free ad, not an application. */}
             <a href="#price" className="press rounded-full border border-paper/20 py-3 text-center text-sm">See the price</a>
             <a href="#free-ad" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Free AI ad</a>
+          </>
+        ) : onPricing ? (
+          <>
+            {/* The price list's exits are its two offers: the free ad, and a call about lead generation. */}
+            <Link href="/ai-ads/#free-ad" className="press rounded-full border border-paper/20 py-3 text-center text-sm">Free AI ad</Link>
+            <a href={calHref(site.calendar, { notes: "From the pricing page" })} target="_blank" rel="noreferrer" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Book a call</a>
           </>
         ) : (
           <>
