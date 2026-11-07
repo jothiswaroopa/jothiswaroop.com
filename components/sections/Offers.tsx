@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import clsx from "clsx";
 import { offers, site, type Offer } from "@/lib/content";
 import { calHref, submit } from "@/lib/submit";
@@ -9,12 +8,13 @@ import { useDetectedMarket, type Market } from "@/lib/market";
 
 type Cur = Market;
 
-/** One price list per market, never both on one page: no currency switch, so a buyer abroad is never one tap from
- *  a rupee price for the same work. The public pages render dollars; /india/ renders rupees. A visitor whose clock
- *  says India gets one line pointing to /india/ — nobody else ever sees it. */
-export default function Offers({ market = "usd", heading = "h2" }: { market?: Cur; heading?: "h1" | "h2" }) {
-  const inIndia = useDetectedMarket() === "inr";
-  const list = offers[market];
+/** One price list per visitor, never both: no currency switch and no cross-link, so a buyer abroad never sees a
+ *  rupee price and a buyer in India never sees a dollar one. "auto" renders dollars in the static HTML (for search
+ *  and for everyone abroad) and swaps to rupees for a visitor whose clock says India; /india/ is always rupees. */
+export default function Offers({ market = "auto", heading = "h2" }: { market?: Cur | "auto"; heading?: "h1" | "h2" }) {
+  const detected = useDetectedMarket();
+  const cur: Cur = market === "auto" ? (detected === "inr" ? "inr" : "usd") : market;
+  const list = offers[cur];
   const H = heading;
 
   return (
@@ -23,15 +23,10 @@ export default function Offers({ market = "usd", heading = "h2" }: { market?: Cu
         <p className="label">{offers.label}</p>
         <H id="offers-heading" className="mt-6 max-w-4xl text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.04]">{offers.headline}</H>
         <p className="mt-6 max-w-2xl text-paper/75">{offers.sub}</p>
-        {market === "usd" && inIndia && (
-          <p className="mt-6 text-paper/85">
-            In India? <Link href="/india/" className="underline-slide text-signal">See rupee prices →</Link>
-          </p>
-        )}
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {list.offers.map((o) => (
-            <OfferCard key={o.id} o={o} cur={market} />
+            <OfferCard key={o.id} o={o} cur={cur} />
           ))}
         </div>
 

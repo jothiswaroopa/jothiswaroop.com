@@ -713,9 +713,9 @@ export const accelerator = {
 
 // ─── OFFERS & PRICES ──────────────────────────────────────────────────────────────────────────────────────────
 // Two offers, open to any business — no industry versions (Jothi, 7 Nov 2026: "i do not need niche based offers").
-// Two price lists that never meet: dollars on the public site (homepage #offers, /pricing/, /ai-ads/), rupees only on
-// /india/, which is noindex, out of the sitemap, and linked only for visitors whose clock says India. A buyer in the US
-// must never be one click from a rupee price for the same work.
+// Two price lists that never meet: each visitor sees one. The offers section shows dollars in the static HTML and to
+// everyone abroad, and rupees to a visitor whose clock says India (no switch, no cross-link); /india/ is always rupees
+// (noindex, out of the sitemap) for WhatsApp links. A buyer in the US must never see a rupee price for the same work.
 // Every price and guarantee is one the outreach already states (~/Projects/outreach-engine/OFFERS.md):
 // · first AI ad free, $150 single, 8 for $950 (sequences/E1) · 12–14 + review $2,000 (sequences/CS, Jothi 2 Nov)
 // · $750 pilot credited → $1,500/month, one number agreed before day one or the $750 back (the approved ADS-pilot
@@ -843,7 +843,7 @@ export const aiAds = {
 export const faq = [
   {
     q: "What does it cost?",
-    a: "AI ads start at $150 for one, or $950 a month for eight. Meta lead generation starts with a 30-day pilot at $750, credited in full, then $1,500 a month. Every price, with what's inside, is on the pricing page — and every offer starts with something free.",
+    a: "Two offers — AI ads & commercials, and Meta lead generation — each with its price, what's inside and a free first step in the offers section above and on the pricing page. Month to month, no lock-in, and lead generation starts with a 30-day pilot credited in full.",
   },
   {
     q: "What if it doesn't work?",

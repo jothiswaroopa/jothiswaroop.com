@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: { title: "Offers & prices — Jothi Swaroop", url: "/pricing/", images: ["/og.png"] },
 };
 
-/** The dollar price list on its own URL, for emails and link previews (they drop #anchors). Rupees live only on /india/. */
+/** The price list on its own URL, for emails and link previews (they drop #anchors). Dollars, or rupees for a visitor in India. */
 export default function PricingPage() {
   return (
     <div className="min-h-[100svh] pt-[96px]">
