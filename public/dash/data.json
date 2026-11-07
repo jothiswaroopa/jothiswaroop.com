@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-06T03:32:17.654Z",
+  "generatedAt": "2026-11-07T03:02:37.061Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-07",
-      "end": "2026-11-04"
+      "start": "2026-10-08",
+      "end": "2026-11-05"
     },
     "totals": {
-      "clicks": 24,
-      "impressions": 149,
-      "ctr": 0.1610738255033557,
-      "position": 12.013422818791947
+      "clicks": 21,
+      "impressions": 142,
+      "ctr": 0.14788732394366197,
+      "position": 12.816901408450704
     },
     "previous": {
-      "clicks": 9,
-      "impressions": 79,
-      "ctr": 0.11392405063291139,
-      "position": 8.367088607594937
+      "clicks": 12,
+      "impressions": 91,
+      "ctr": 0.13186813186813187,
+      "position": 8.340659340659341
     },
     "daily": [
       {
@@ -362,22 +362,22 @@
         "impressions": 4,
         "ctr": 0,
         "position": 7.75
+      },
+      {
+        "key": "2026-11-04",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 25.6
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 19,
-        "ctr": 0.05263157894736842,
-        "position": 14
-      },
-      {
-        "key": "dental practice missed calls",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 76
+        "impressions": 21,
+        "ctr": 0.047619047619047616,
+        "position": 12.952380952380953
       },
       {
         "key": "google ads for manufacturers",
@@ -396,9 +396,9 @@
       {
         "key": "how do ai search engines decide which brands to recommend",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 94.5
+        "position": 94.66666666666667
       },
       {
         "key": "how google gemini picks which businesses to recommend",
@@ -446,45 +446,45 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 22,
-        "impressions": 66,
-        "ctr": 0.3333333333333333,
-        "position": 4.0606060606060606
+        "clicks": 19,
+        "impressions": 59,
+        "ctr": 0.3220338983050847,
+        "position": 4.389830508474576
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 39,
-        "ctr": 0.05128205128205128,
-        "position": 6.666666666666667
+        "impressions": 32,
+        "ctr": 0.0625,
+        "position": 7
       },
       {
         "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 8,
         "ctr": 0,
-        "position": 6.5
+        "position": 6.375
       },
       {
         "key": "https://jothiswaroop.com/audit/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 5,
         "ctr": 0,
-        "position": 5.666666666666667
+        "position": 5.4
       },
       {
         "key": "https://jothiswaroop.com/blog/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 8,
         "ctr": 0,
-        "position": 5.8
+        "position": 8.5
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 12,
         "ctr": 0,
-        "position": 11.615384615384615
+        "position": 12.083333333333334
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
@@ -496,23 +496,23 @@
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 12,
         "ctr": 0,
-        "position": 39.63636363636363
+        "position": 44.25
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 2,
         "ctr": 0,
-        "position": 45.5
+        "position": 48.5
       },
       {
         "key": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 32
+        "position": 47.5
       },
       {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
@@ -538,16 +538,16 @@
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 12
+        "position": 10
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 14,
+        "impressions": 16,
         "ctr": 0,
-        "position": 11.5
+        "position": 11.3125
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -588,10 +588,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 24,
-        "impressions": 83,
-        "ctr": 0.2891566265060241,
-        "position": 7.554216867469879
+        "clicks": 21,
+        "impressions": 74,
+        "ctr": 0.28378378378378377,
+        "position": 8.635135135135135
       },
       {
         "key": "arg",
@@ -603,9 +603,9 @@
       {
         "key": "aus",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 29.333333333333332
+        "position": 6
       },
       {
         "key": "bgd",
@@ -631,9 +631,9 @@
       {
         "key": "gbr",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 6,
         "ctr": 0,
-        "position": 5.4
+        "position": 20.333333333333332
       },
       {
         "key": "hkg",
@@ -645,9 +645,9 @@
       {
         "key": "idn",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 22
+        "position": 12
       },
       {
         "key": "irl",
@@ -660,10 +660,10 @@
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 15,
-        "impressions": 116,
-        "ctr": 0.12931034482758622,
-        "position": 13.836206896551724
+        "clicks": 12,
+        "impressions": 109,
+        "ctr": 0.11009174311926606,
+        "position": 15
       },
       {
         "key": "MOBILE",
@@ -683,8 +683,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-07",
-      "end": "2026-11-06"
+      "start": "2026-10-08",
+      "end": "2026-11-07"
     },
     "totals": {
       "views": 0,
@@ -699,12 +699,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1791158400000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -877,6 +871,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1793664000000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1793750400000)/",
         "Impressions": 0
       }
     ],
@@ -1144,8 +1144,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 1.226356,
-    "projected": 11.0372,
+    "pace": 1.051162,
+    "projected": 9.460457,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1202,8 +1202,8 @@
       {
         "url": "https://jothiswaroop.com/systems/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
