@@ -34,6 +34,7 @@ export default function Nav() {
   const navLinks = india ? links.map((l) => (l.href === "/pricing/" ? { ...l, href: "/india/" } : l)) : links;
   const onPaper = ["/apply", "/audit", "/about"].some((p) => pathname?.startsWith(p));
   const onApply = !!pathname?.startsWith("/apply");
+  const onAiAds = !!pathname?.startsWith("/ai-ads");
 
   useEffect(() => {
     let last = window.scrollY, ticking = false, h = false, p = false;
@@ -148,8 +149,18 @@ export default function Nav() {
           pastHero && !open && !onApply ? "translate-y-0" : "translate-y-full"
         )}
       >
-        <Link href="/audit" className="press rounded-full border border-paper/20 py-3 text-center text-sm">Free audit</Link>
-        <Link href="/apply" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Apply</Link>
+        {onAiAds ? (
+          <>
+            {/* The cold-email landing page: its two exits are the price and the free ad, not an application. */}
+            <a href="#price" className="press rounded-full border border-paper/20 py-3 text-center text-sm">See the price</a>
+            <a href="#free-ad" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Free AI ad</a>
+          </>
+        ) : (
+          <>
+            <Link href="/audit" className="press rounded-full border border-paper/20 py-3 text-center text-sm">Free audit</Link>
+            <Link href="/apply" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Apply</Link>
+          </>
+        )}
       </div>
     </>
   );
