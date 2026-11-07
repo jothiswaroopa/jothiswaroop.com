@@ -8,8 +8,8 @@ import { useDetectedMarket } from "@/lib/market";
  *  ad right there, in their own currency — not an "Apply" button. */
 export default function FilmsCta() {
   const india = useDetectedMarket() === "inr";
-  const usd = offers.usd.find((o) => o.id === "ai-ads")!;
-  const inr = offers.inr.find((o) => o.id === "films-in")!;
+  const usd = offers.usd.offers.find((o) => o.id === "ai-ads")!;
+  const inr = offers.inr.offers.find((o) => o.id === "films-in")!;
   const o = india ? inr : usd;
   const pack = o.tiers.find((t) => t.per) ?? o.tiers[0];
   const btn = "press inline-flex min-h-[48px] items-center rounded-full px-6 text-sm font-medium";

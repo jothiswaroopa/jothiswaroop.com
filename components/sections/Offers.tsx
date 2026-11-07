@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import clsx from "clsx";
 import { offers, site, type Offer } from "@/lib/content";
 import { calHref, submit } from "@/lib/submit";
@@ -8,14 +9,12 @@ import { useDetectedMarket, type Market } from "@/lib/market";
 
 type Cur = Market;
 
-/** The price list. One section, two markets: dollars for the clients abroad, rupees for India.
- *  Every figure comes from `offers` in lib/content.ts, which says where each one was already promised. */
-export default function Offers({ initial = "usd", detectMarket = true, heading = "h2" }: { initial?: Cur; detectMarket?: boolean; heading?: "h1" | "h2" }) {
-  const detected = useDetectedMarket();
-  const [picked, setPicked] = useState<Cur | null>(null);
-  const cur: Cur = picked ?? (detectMarket ? detected : null) ?? initial;
-
-  const list = cur === "usd" ? offers.usd : offers.inr;
+/** One price list per market, never both on one page: no currency switch, so a buyer abroad is never one tap from
+ *  a rupee price for the same work. The public pages render dollars; /india/ renders rupees. A visitor whose clock
+ *  says India gets one line pointing to /india/ — nobody else ever sees it. */
+export default function Offers({ market = "usd", heading = "h2" }: { market?: Cur; heading?: "h1" | "h2" }) {
+  const inIndia = useDetectedMarket() === "inr";
+  const list = offers[market];
   const H = heading;
 
   return (
@@ -24,30 +23,21 @@ export default function Offers({ initial = "usd", detectMarket = true, heading =
         <p className="label">{offers.label}</p>
         <H id="offers-heading" className="mt-6 max-w-4xl text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.04]">{offers.headline}</H>
         <p className="mt-6 max-w-2xl text-paper/75">{offers.sub}</p>
+        {market === "usd" && inIndia && (
+          <p className="mt-6 text-paper/85">
+            In India? <Link href="/india/" className="underline-slide text-signal">See rupee prices →</Link>
+          </p>
+        )}
 
-        <div className="mt-10 inline-flex rounded-full border border-line-strong p-1" role="group" aria-label="Currency">
-          {(["usd", "inr"] as Cur[]).map((c) => (
-            <button
-              key={c}
-              type="button"
-              onClick={() => setPicked(c)}
-              aria-pressed={cur === c}
-              className={clsx("press min-h-[44px] rounded-full px-5 text-sm font-medium transition-colors", cur === c ? "bg-signal text-ink" : "text-paper/70 hover:text-paper")}
-            >
-              {c === "usd" ? "$ Abroad" : "₹ India"}
-            </button>
-          ))}
-        </div>
-
-        <div className={clsx("mt-10 grid gap-5", list.length === 3 ? "lg:grid-cols-3" : "md:grid-cols-2")}>
-          {list.map((o) => (
-            <OfferCard key={o.id} o={o} cur={cur} />
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {list.offers.map((o) => (
+            <OfferCard key={o.id} o={o} cur={market} />
           ))}
         </div>
 
         <div className="mt-10 grid gap-3 border-t hairline pt-8 md:grid-cols-2 md:gap-8">
-          <p className="text-paper/80">{cur === "usd" ? offers.bundle : offers.inrNote}</p>
-          <p className="mono text-xs leading-relaxed text-paper/60 md:text-right">{offers.limit}</p>
+          <p className="text-paper/80">{list.footnote}</p>
+          <p className="mono text-xs leading-relaxed text-paper/60 md:text-right">{list.limit}</p>
         </div>
       </div>
     </section>

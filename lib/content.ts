@@ -542,7 +542,7 @@ export const services: { label: string; headline: string; sub: string; core: Ser
   headline: "Two things I'm hired for. Everything around them, done in-house.",
   sub: "Founders come for the leads or for the ads that win them. They stay because the creative, the site, the scripts and the follow-up all come from the same brain — nothing is handed to a third vendor and lost in between.",
   core: [
-    { name: "Meta lead generation", what: "Facebook and Instagram campaigns that bring in enquiries, booked calls and buyers — for any business where one customer is worth real money: manufacturers, clinics, law firms, schools, home services, B2B. Every number links to its Ads Manager screenshot.", proof: "7,341 form leads · 876 conversations · 9 ad accounts · India, UK, US, Canada", href: "/#work" },
+    { name: "Meta lead generation", what: "Facebook and Instagram campaigns that bring in enquiries, booked calls and buyers — for any business where one customer is worth real money, product or service, B2B or consumer. Every number links to its Ads Manager screenshot.", proof: "7,341 form leads · 876 conversations · 9 ad accounts · India, UK, US, Canada", href: "/#work" },
     { name: "AI ads & commercials", what: "Scroll-stopping video ads made with AI from the product photos you already have — UGC-style creator ads and cinematic commercials, cut for Reels, Stories and TikTok. No shoot, no studio, a fresh batch every month to test against your best ad.", proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 · 17 films in the showreel", href: "/ai-ads/", cta: "see the films and the price" },
   ],
   more: [
@@ -711,14 +711,17 @@ export const accelerator = {
   },
 };
 
-// ─── OFFERS & PRICES (/pricing/, /india/, homepage #offers) ──────────────────────────────────────────────────
-// Source: ~/Projects/outreach-engine/OFFERS.md. Every price and guarantee here is one the outreach emails already
-// state, so the site never promises more than a cold email did:
+// ─── OFFERS & PRICES ──────────────────────────────────────────────────────────────────────────────────────────
+// Two offers, open to any business — no industry versions (Jothi, 7 Nov 2026: "i do not need niche based offers").
+// Two price lists that never meet: dollars on the public site (homepage #offers, /pricing/, /ai-ads/), rupees only on
+// /india/, which is noindex, out of the sitemap, and linked only for visitors whose clock says India. A buyer in the US
+// must never be one click from a rupee price for the same work.
+// Every price and guarantee is one the outreach already states (~/Projects/outreach-engine/OFFERS.md):
 // · first AI ad free, $150 single, 8 for $950 (sequences/E1) · 12–14 + review $2,000 (sequences/CS, Jothi 2 Nov)
 // · $750 pilot credited → $1,500/month, one number agreed before day one or the $750 back (the approved ADS-pilot
-//   guarantee, sequences/DENT) · India sprints reuse that same guarantee in rupees.
-// NOT on the site until Jothi says yes: the film pack's "beats your best ad or next month free" (OFFERS §4, and §4b
-// marks it unconfirmed). Limits (2 abroad, 3 India a month) are real — if they stop being kept, remove the line.
+//   guarantee, sequences/DENT) · India: ₹25,000 pilot → ₹50,000/month with the same guarantee in rupees; films ₹3,500,
+//   4 for ₹12,000. India's buyer rule is ICP-INDIA.md's: a customer worth ₹20,000+, or ₹5,000+ with repeat purchases.
+// NOT on the site until Jothi says yes: the film pack's "beats your best ad or next month free" (OFFERS §4/§4b).
 export type OfferTier = { name: string; price: string; per?: string; note?: string };
 export type Offer = {
   id: string;
@@ -732,87 +735,79 @@ export type Offer = {
   ask?: string; // the WhatsApp message the button pre-fills
   featured?: boolean;
 };
+export type PriceList = { offers: Offer[]; footnote: string; limit: string };
 
-export const offers: { label: string; headline: string; sub: string; limit: string; usd: Offer[]; inr: Offer[]; bundle: string; inrNote: string } = {
+export const offers: { label: string; headline: string; sub: string; usd: PriceList; inr: PriceList } = {
   label: "// OFFERS & PRICES",
   headline: "What it costs, what you get, and what happens if it doesn't work.",
-  sub: "Month to month, no lock-in. Every offer starts with something free, so you see the work before you pay for it.",
-  limit: "I take two new clients a month abroad and three in India, so every account gets the person who built the results on this page.",
-  bundle: "Want both? AI ads and Meta lead generation together: $2,500 a month.",
-  inrNote: "Paid in advance by UPI or bank transfer.",
-  usd: [
-    {
-      id: "ai-ads",
-      name: "AI ads & commercials",
-      forWho: "Product brands already running Meta ads, selling something worth $100 or more.",
-      free: "Your first AI ad free, made from product photos you already have.",
-      tiers: [
-        { name: "Single AI ad", price: "$150" },
-        { name: "Test Pack · 8 AI ads", price: "$950", per: "/month", note: "$119 an ad — enough to keep a rotation running" },
-        { name: "Creative Strategist · 12–14 AI ads + a monthly what's-working review", price: "$2,000", per: "/month", note: "For brands running 10+ live ads" },
-      ],
-      includes: ["UGC-style creator ads and cinematic commercials", "Different hooks and faces, cut 9:16 and 1:1 for Reels, Stories and TikTok", "Your product shown exactly as it is — never altered"],
-      cta: { label: "Get your free AI ad", kind: "freead" },
-      featured: true,
-    },
-    {
-      id: "lead-gen",
-      name: "Meta lead generation",
-      forWho: "Businesses where one customer is worth $3,000 or more — clinics, law firms, home improvement, schools, B2B.",
-      free: "A free one-page audit of your ads and enquiry flow.",
-      tiers: [
-        { name: "30-day pilot", price: "$750", note: "Credited in full if you continue" },
-        { name: "Then, month to month", price: "$1,500", per: "/month", note: "No lock-in" },
-      ],
-      includes: ["Facebook and Instagram campaigns, lead forms and budget moves", "2 AI video ads inside the pilot", "A weekly number you can check in Ads Manager yourself"],
-      guarantee: "Before day one we agree one number together — booked consultations, qualified enquiries or cost per lead. Miss it and the $750 comes back.",
-      cta: { label: "Book a call", kind: "call" },
-    },
-  ],
-  inr: [
-    {
-      id: "admissions",
-      name: "Admissions Engine",
-      forWho: "Colleges, schools and coaching centres.",
-      free: "A free Enquiry Leak Review: one page and a 2-minute voice note on where your enquiries are lost.",
-      tiers: [
-        { name: "30-Day Admissions Sprint", price: "₹25,000", note: "Credited in full to month one" },
-        { name: "Then", price: "₹50,000", per: "/month", note: "Six months, tied to the admission cycle" },
-      ],
-      includes: ["Meta campaign, 6 posters and 2 AI video ads", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a counsellor call script", "Your numbers every Monday"],
-      guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹25,000 comes back.",
-      cta: { label: "Ask for the free review", kind: "whatsapp" },
-      ask: "Hi Jothi, I saw the Admissions Engine on your site. I'd like the free Enquiry Leak Review for our institution.",
-      featured: true,
-    },
-    {
-      id: "patients",
-      name: "Patient Pipeline",
-      forWho: "Clinics and hospitals.",
-      free: "The same free Enquiry Leak Review.",
-      tiers: [
-        { name: "30-Day Patient Sprint", price: "₹25,000", note: "Credited in full to month one" },
-        { name: "Then", price: "₹50,000", per: "/month", note: "No lock-in" },
-      ],
-      includes: ["Meta campaign and 2 AI video ads built around the treatment that pays best", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a front-desk call script", "Your numbers every Monday"],
-      guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹25,000 comes back.",
-      cta: { label: "Ask for the free review", kind: "whatsapp" },
-      ask: "Hi Jothi, I saw the Patient Pipeline on your site. I'd like the free Enquiry Leak Review for our clinic.",
-    },
-    {
-      id: "films-in",
-      name: "AI commercials",
-      forWho: "Jewellery and saree showrooms, and online brands already running ads.",
-      free: "One 15-second AI film of a product you choose, free.",
-      tiers: [
-        { name: "Film pack · 4 films", price: "₹12,000", per: "/month" },
-        { name: "Single film", price: "₹3,500" },
-      ],
-      includes: ["Every film in 9:16 and 1:1, with a caption line", "Your product shown exactly as it is — never altered", "Ready weeks before the festival, not the night before"],
-      cta: { label: "Ask for the free film", kind: "whatsapp" },
-      ask: "Hi Jothi, I saw the AI commercials on your site. I'd like the free 15-second film of one of our products.",
-    },
-  ],
+  sub: "Two offers, for any business that sells something worth buying. Month to month, no lock-in, and every offer starts with something free, so you see the work before you pay for it.",
+  usd: {
+    footnote: "Want both? AI ads and Meta lead generation together: $2,500 a month.",
+    limit: "I take two new clients a month, so every account gets the person who built the results on this page.",
+    offers: [
+      {
+        id: "ai-ads",
+        name: "AI ads & commercials",
+        forWho: "Any brand already running Meta ads, selling something worth $100 or more.",
+        free: "Your first AI ad free, made from product photos you already have.",
+        tiers: [
+          { name: "Single AI ad", price: "$150" },
+          { name: "Test Pack · 8 AI ads", price: "$950", per: "/month", note: "$119 an ad — enough to keep a rotation running" },
+          { name: "Creative Strategist · 12–14 AI ads + a monthly what's-working review", price: "$2,000", per: "/month", note: "For brands running 10+ live ads" },
+        ],
+        includes: ["UGC-style creator ads and cinematic commercials", "Different hooks and faces, cut 9:16 and 1:1 for Reels, Stories and TikTok", "Your product shown exactly as it is — never altered"],
+        cta: { label: "Get your free AI ad", kind: "freead" },
+        featured: true,
+      },
+      {
+        id: "lead-gen",
+        name: "Meta lead generation",
+        forWho: "Any business where one customer is worth $3,000 or more — product or service, B2B or consumer.",
+        free: "A free one-page audit of your ads and enquiry flow.",
+        tiers: [
+          { name: "30-day pilot", price: "$750", note: "Credited in full if you continue" },
+          { name: "Then, month to month", price: "$1,500", per: "/month", note: "No lock-in" },
+        ],
+        includes: ["Facebook and Instagram campaigns, lead forms and budget moves", "2 AI video ads inside the pilot", "A weekly number you can check in Ads Manager yourself"],
+        guarantee: "Before day one we agree one number together — booked calls, qualified enquiries or cost per lead. Miss it and the $750 comes back.",
+        cta: { label: "Book a call", kind: "call" },
+      },
+    ],
+  },
+  inr: {
+    footnote: "Paid in advance by UPI or bank transfer.",
+    limit: "I take three new clients a month in India, so every account gets the person who built the results on this page.",
+    offers: [
+      {
+        id: "lead-gen-in",
+        name: "Meta lead generation",
+        forWho: "Any business where one customer is worth ₹20,000 or more — or ₹5,000 or more with repeat purchases.",
+        free: "A free one-page review of your ads and enquiries, with a 2-minute voice note on where they are being lost.",
+        tiers: [
+          { name: "30-day pilot", price: "₹25,000", note: "Credited in full to month one" },
+          { name: "Then, month to month", price: "₹50,000", per: "/month", note: "No lock-in" },
+        ],
+        includes: ["Meta campaign, posters and 2 AI video ads", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a call script for whoever answers", "Your numbers every Monday"],
+        guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹25,000 comes back.",
+        cta: { label: "Ask for the free review", kind: "whatsapp" },
+        ask: "Hi Jothi, I saw your Meta lead generation offer. I'd like the free review of our ads and enquiries.",
+        featured: true,
+      },
+      {
+        id: "films-in",
+        name: "AI ads & commercials",
+        forWho: "Any business with a product to show, already running ads or about to.",
+        free: "One 15-second AI film of a product you choose, free.",
+        tiers: [
+          { name: "Film pack · 4 films", price: "₹12,000", per: "/month" },
+          { name: "Single film", price: "₹3,500" },
+        ],
+        includes: ["Every film in 9:16 and 1:1, with a caption line", "Your product shown exactly as it is — never altered", "Ready before your sale or season, not the night before"],
+        cta: { label: "Ask for the free film", kind: "whatsapp" },
+        ask: "Hi Jothi, I saw your AI ads offer. I'd like the free 15-second film of one of our products.",
+      },
+    ],
+  },
 };
 
 // ─── /ai-ads/ — the page cold emails abroad point at. Written for a brand founder who already spends on Meta and
@@ -848,7 +843,7 @@ export const aiAds = {
 export const faq = [
   {
     q: "What does it cost?",
-    a: "AI ads start at $150 for one, or $950 a month for eight. Meta lead generation starts with a 30-day pilot at $750, credited in full, then $1,500 a month. In India, a 30-day sprint is ₹25,000 and a monthly engagement ₹50,000. Every price, with what's inside, is on the pricing page — and every offer starts with something free.",
+    a: "AI ads start at $150 for one, or $950 a month for eight. Meta lead generation starts with a 30-day pilot at $750, credited in full, then $1,500 a month. Every price, with what's inside, is on the pricing page — and every offer starts with something free.",
   },
   {
     q: "What if it doesn't work?",

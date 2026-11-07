@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, m } from "framer-motion";
 import clsx from "clsx";
 import { site } from "@/lib/content";
+import { useDetectedMarket } from "@/lib/market";
 
 const links = [
   { label: "Results", href: "/#work" },
@@ -28,6 +29,9 @@ export default function Nav() {
   const [pastHero, setPastHero] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  // Visitors in India get the rupee list; everyone else only ever sees dollars.
+  const india = useDetectedMarket() === "inr";
+  const navLinks = india ? links.map((l) => (l.href === "/pricing/" ? { ...l, href: "/india/" } : l)) : links;
   const onPaper = ["/apply", "/audit", "/about"].some((p) => pathname?.startsWith(p));
   const onApply = !!pathname?.startsWith("/apply");
 
@@ -66,7 +70,7 @@ export default function Nav() {
             {site.name}
           </Link>
           <nav className="hidden items-center gap-8 lg:flex">
-            {links.map((l) => (
+            {navLinks.map((l) => (
               <Link key={l.href} href={l.href} className="underline-slide text-sm text-paper/80 transition-colors duration-200 hover:text-paper">
                 {l.label}
               </Link>
@@ -106,7 +110,7 @@ export default function Nav() {
             transition={{ duration: 0.45, ease: EASE }}
           >
             <nav className="flex flex-col gap-2">
-              {links.map((l, i) => (
+              {navLinks.map((l, i) => (
                 <span key={l.href} className="mask-line">
                   <m.span
                     className="block"

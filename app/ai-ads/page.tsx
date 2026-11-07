@@ -16,7 +16,7 @@ export const metadata = {
  * then the price and the free ad. Copy lives in `aiAds` (lib/content.ts) with where each promise was already made.
  */
 export default function AiAdsPage() {
-  const offer = offers.usd.find((o) => o.id === "ai-ads")!;
+  const offer = offers.usd.offers.find((o) => o.id === "ai-ads")!;
   const films = aiAds.films.map((t) => videos.find((v) => v.title === t)).filter((v): v is (typeof videos)[number] => !!v);
   const base = "https://jothiswaroop.com";
   const schema = {
@@ -94,7 +94,7 @@ export default function AiAdsPage() {
                 <li key={x} className="flex gap-3"><span className="text-signal" aria-hidden>✓</span>{x}</li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-paper/60">{offers.bundle} <Link href="/pricing/" className="underline-slide text-paper">All prices →</Link></p>
+            <p className="mt-6 text-sm text-paper/60">{offers.usd.footnote} <Link href="/pricing/" className="underline-slide text-paper">All prices →</Link></p>
           </div>
 
           <div id="free-ad" className="scroll-mt-24">

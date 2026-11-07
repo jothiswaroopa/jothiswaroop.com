@@ -28,7 +28,7 @@ export function GET() {
 - Recognition: Tamil Nadu Digital Summit award (May 2026); Official Digital Partner, VROOM 2026 (Vysya Rally of Our Madras); Prompt Engineering Champion, Social Eagle AI (2025). Spoke on digital marketing and AI automation to 60+ entrepreneurs at a business networking meeting in Salem, July 2025.
 - Background: MBA in Finance and Marketing (Distinction); two years as an equity advisor before working in marketing.
 - Services: Meta (Facebook and Instagram) lead generation; AI commercials and UGC-style video ads; AI automation and agents; websites and landing pages; SEO and generative-engine optimisation; AI consultation and a five-day 1:1 AI Accelerator.
-- Prices (public, USD): single AI ad $150; 8 AI ads a month $950; 12–14 AI ads plus a monthly review $2,000 a month; Meta lead generation 30-day pilot $750 credited, then $1,500 a month. India (INR): 30-day sprint ₹25,000 credited, then ₹50,000 a month; AI films ₹3,500 or 4 for ₹12,000. https://jothiswaroop.com/pricing/
+- Prices (public, USD): single AI ad $150; 8 AI ads a month $950; 12–14 AI ads plus a monthly review $2,000 a month; Meta lead generation 30-day pilot $750 credited, then $1,500 a month. https://jothiswaroop.com/pricing/
 - Contact: ${site.email} · https://jothiswaroop.com · calendar ${site.calendar}
 
 ## Case studies with published numbers

@@ -4,12 +4,12 @@ import Offers from "@/components/sections/Offers";
 
 export const metadata = {
   title: "Prices — AI Ads, AI Commercials & Meta Lead Generation | Jothi Swaroop",
-  description: "AI UGC ads and commercials from $150, or 8 a month for $950; a $2,000 creative-strategist pack; Meta lead generation with a $750 pilot, then $1,500 a month. India: ₹25,000 sprints. Every offer starts free.",
+  description: "AI UGC ads and commercials from $150, or 8 a month for $950; a $2,000 creative-strategist pack; Meta lead generation with a $750 pilot, then $1,500 a month. Every offer starts free.",
   alternates: { canonical: "/pricing/" },
   openGraph: { title: "Offers & prices — Jothi Swaroop", url: "/pricing/", images: ["/og.png"] },
 };
 
-/** The price list on its own URL, for emails and link previews (they drop #anchors). Rupees by timezone or ?cur=inr. */
+/** The dollar price list on its own URL, for emails and link previews (they drop #anchors). Rupees live only on /india/. */
 export default function PricingPage() {
   return (
     <div className="min-h-[100svh] pt-[96px]">
