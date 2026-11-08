@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-07T03:02:37.061Z",
+  "generatedAt": "2026-11-08T02:39:15.165Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-08",
-      "end": "2026-11-05"
+      "start": "2026-10-09",
+      "end": "2026-11-06"
     },
     "totals": {
       "clicks": 21,
-      "impressions": 142,
-      "ctr": 0.14788732394366197,
-      "position": 12.816901408450704
+      "impressions": 139,
+      "ctr": 0.1510791366906475,
+      "position": 12.37410071942446
     },
     "previous": {
       "clicks": 12,
-      "impressions": 91,
-      "ctr": 0.13186813186813187,
-      "position": 8.340659340659341
+      "impressions": 94,
+      "ctr": 0.1276595744680851,
+      "position": 9.138297872340425
     },
     "daily": [
       {
@@ -369,15 +369,22 @@
         "impressions": 5,
         "ctr": 0,
         "position": 25.6
+      },
+      {
+        "key": "2026-11-05",
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 21,
-        "ctr": 0.047619047619047616,
-        "position": 12.952380952380953
+        "impressions": 20,
+        "ctr": 0.05,
+        "position": 13
       },
       {
         "key": "google ads for manufacturers",
@@ -422,13 +429,6 @@
         "position": 48
       },
       {
-        "key": "never miss a call dental receptionist",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 87
-      },
-      {
         "key": "sri raja rajeswari traders",
         "clicks": 0,
         "impressions": 1,
@@ -447,16 +447,16 @@
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 19,
-        "impressions": 59,
-        "ctr": 0.3220338983050847,
-        "position": 4.389830508474576
+        "impressions": 58,
+        "ctr": 0.3275862068965517,
+        "position": 4.448275862068965
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 32,
-        "ctr": 0.0625,
-        "position": 7
+        "impressions": 31,
+        "ctr": 0.06451612903225806,
+        "position": 6.967741935483871
       },
       {
         "key": "https://jothiswaroop.com/apply/",
@@ -503,9 +503,9 @@
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0,
-        "position": 48.5
+        "position": 10
       },
       {
         "key": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
@@ -538,16 +538,16 @@
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 4,
         "ctr": 0,
-        "position": 10
+        "position": 9.5
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 16,
+        "impressions": 15,
         "ctr": 0,
-        "position": 11.3125
+        "position": 11.133333333333333
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -589,9 +589,9 @@
       {
         "key": "ind",
         "clicks": 21,
-        "impressions": 74,
-        "ctr": 0.28378378378378377,
-        "position": 8.635135135135135
+        "impressions": 73,
+        "ctr": 0.2876712328767123,
+        "position": 8.73972602739726
       },
       {
         "key": "arg",
@@ -661,9 +661,9 @@
       {
         "key": "DESKTOP",
         "clicks": 12,
-        "impressions": 109,
-        "ctr": 0.11009174311926606,
-        "position": 15
+        "impressions": 106,
+        "ctr": 0.11320754716981132,
+        "position": 14.481132075471699
       },
       {
         "key": "MOBILE",
@@ -683,8 +683,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-08",
-      "end": "2026-11-07"
+      "start": "2026-10-09",
+      "end": "2026-11-08"
     },
     "totals": {
       "views": 0,
@@ -1032,8 +1032,8 @@
     ]
   },
   "coverage": {
-    "total": 26,
-    "ok": 26,
+    "total": 28,
+    "ok": 28,
     "broken": []
   },
   "blog": {
@@ -1144,8 +1144,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 1.051162,
-    "projected": 9.460457,
+    "pace": 0.919767,
+    "projected": 8.2779,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1155,9 +1155,9 @@
     }
   },
   "indexStatus": {
-    "checked": 26,
+    "checked": 28,
     "indexed": 22,
-    "notIndexed": 4,
+    "notIndexed": 6,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
@@ -1184,6 +1184,26 @@
         "verdict": "NEUTRAL",
         "coverage": "Discovered - currently not indexed",
         "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/pricing/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/ai-ads/",
+        "verdict": "NEUTRAL",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
