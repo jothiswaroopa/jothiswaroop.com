@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-10T04:44:18.387Z",
+  "generatedAt": "2026-11-11T02:56:06.345Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-11",
-      "end": "2026-11-08"
+      "start": "2026-10-12",
+      "end": "2026-11-09"
     },
     "totals": {
       "clicks": 26,
@@ -732,8 +732,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-11",
-      "end": "2026-11-10"
+      "start": "2026-10-12",
+      "end": "2026-11-11"
     },
     "totals": {
       "views": 0,
@@ -748,12 +748,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1791504000000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -926,6 +920,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1794009600000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1794096000000)/",
         "Impressions": 0
       }
     ],
@@ -1193,8 +1193,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.735813,
-    "projected": 6.62232,
+    "pace": 0.668921,
+    "projected": 6.020291,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1213,7 +1213,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-09T17:55:47Z",
+        "lastCrawl": "2026-11-10T21:40:13Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1231,8 +1231,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
