@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-11T02:56:06.345Z",
+  "generatedAt": "2026-11-12T04:02:00.061Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-12",
-      "end": "2026-11-09"
+      "start": "2026-10-13",
+      "end": "2026-11-10"
     },
     "totals": {
       "clicks": 26,
-      "impressions": 170,
-      "ctr": 0.15294117647058825,
-      "position": 12.988235294117647
+      "impressions": 175,
+      "ctr": 0.14857142857142858,
+      "position": 13.297142857142857
     },
     "previous": {
       "clicks": 12,
-      "impressions": 96,
-      "ctr": 0.125,
-      "position": 9.072916666666666
+      "impressions": 98,
+      "ctr": 0.12244897959183673,
+      "position": 9.112244897959183
     },
     "daily": [
       {
@@ -397,15 +397,22 @@
         "impressions": 17,
         "ctr": 0.058823529411764705,
         "position": 19.529411764705884
+      },
+      {
+        "key": "2026-11-09",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 20.142857142857142
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 20,
-        "ctr": 0.05,
-        "position": 13
+        "impressions": 19,
+        "ctr": 0.05263157894736842,
+        "position": 13.052631578947368
       },
       {
         "key": "google ads for manufacturers",
@@ -450,6 +457,13 @@
         "position": 65.5
       },
       {
+        "key": "how to get an events business recommended by ai search",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 40
+      },
+      {
         "key": "i want to know about the owner",
         "clicks": 0,
         "impressions": 1,
@@ -483,22 +497,36 @@
         "impressions": 1,
         "ctr": 0,
         "position": 47
+      },
+      {
+        "key": "tharunis jewellery",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "key": "what criteria should i consider when choosing an ai search provider for my business?",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11
       }
     ],
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 24,
-        "impressions": 69,
-        "ctr": 0.34782608695652173,
-        "position": 4.318840579710145
+        "impressions": 71,
+        "ctr": 0.3380281690140845,
+        "position": 4.267605633802817
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 42,
-        "ctr": 0.047619047619047616,
-        "position": 6.809523809523809
+        "impressions": 43,
+        "ctr": 0.046511627906976744,
+        "position": 6.651162790697675
       },
       {
         "key": "https://jothiswaroop.com/apply/",
@@ -531,16 +559,16 @@
       {
         "key": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 6,
         "ctr": 0,
-        "position": 8.2
+        "position": 14.166666666666666
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "clicks": 0,
-        "impressions": 27,
+        "impressions": 30,
         "ctr": 0,
-        "position": 35.03703703703704
+        "position": 33.6
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
@@ -580,9 +608,9 @@
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 14,
+        "impressions": 13,
         "ctr": 0,
-        "position": 13.214285714285714
+        "position": 12.923076923076923
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
@@ -594,9 +622,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 14,
         "ctr": 0,
-        "position": 10.933333333333334
+        "position": 10.857142857142858
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -629,18 +657,18 @@
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 5.5
+        "position": 13.666666666666666
       }
     ],
     "countries": [
       {
         "key": "ind",
         "clicks": 26,
-        "impressions": 87,
-        "ctr": 0.2988505747126437,
-        "position": 8.011494252873563
+        "impressions": 89,
+        "ctr": 0.29213483146067415,
+        "position": 8.112359550561798
       },
       {
         "key": "arg",
@@ -687,9 +715,9 @@
       {
         "key": "gbr",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 7,
         "ctr": 0,
-        "position": 20.333333333333332
+        "position": 23.142857142857142
       },
       {
         "key": "hkg",
@@ -710,16 +738,16 @@
       {
         "key": "DESKTOP",
         "clicks": 16,
-        "impressions": 129,
-        "ctr": 0.12403100775193798,
-        "position": 15.193798449612403
+        "impressions": 134,
+        "ctr": 0.11940298507462686,
+        "position": 15.365671641791044
       },
       {
         "key": "MOBILE",
         "clicks": 9,
         "impressions": 39,
         "ctr": 0.23076923076923078,
-        "position": 6
+        "position": 6.512820512820513
       },
       {
         "key": "TABLET",
@@ -732,8 +760,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-12",
-      "end": "2026-11-11"
+      "start": "2026-10-13",
+      "end": "2026-11-12"
     },
     "totals": {
       "views": 0,
@@ -1193,8 +1221,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.668921,
-    "projected": 6.020291,
+    "pace": 0.613178,
+    "projected": 5.5186,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1213,7 +1241,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-10T21:40:13Z",
+        "lastCrawl": "2026-11-11T19:41:50Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1261,8 +1289,8 @@
       {
         "url": "https://jothiswaroop.com/films/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
