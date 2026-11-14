@@ -716,11 +716,16 @@ export const accelerator = {
 // Two price lists that never meet: each visitor sees one. The offers section shows dollars in the static HTML and to
 // everyone abroad, and rupees to a visitor whose clock says India (no switch, no cross-link); /india/ is always rupees
 // (noindex, out of the sitemap) for WhatsApp links. A buyer in the US must never see a rupee price for the same work.
-// Every price and guarantee is one the outreach already states (~/Projects/outreach-engine/OFFERS.md):
-// · first AI ad free, $150 single, 8 for $950 (sequences/E1) · 12–14 + review $2,000 (sequences/CS, Jothi 2 Nov)
-// · $750 pilot credited → $1,500/month, one number agreed before day one or the $750 back (the approved ADS-pilot
-//   guarantee, sequences/DENT) · India: ₹25,000 pilot → ₹50,000/month with the same guarantee in rupees; films ₹3,500,
-//   4 for ₹12,000. India's buyer rule is ICP-INDIA.md's: a customer worth ₹20,000+, or ₹5,000+ with repeat purchases.
+// PRICE LIST OF 14 NOV 2026 (Jothi: abroad 20–25% under the market rate; India the normal Chennai rate, no margin cut).
+// Market references and sources: ~/Projects/outreach-engine/OFFERS.md, "Prices, 14 Nov 2026".
+// · Abroad: first AI ad free; single $129 (market ~$170); 8 a month $950 (~$1,200); 12–14 + review $2,000 (~$2,500);
+//   Meta lead generation $750 30-day pilot credited → $1,500/month (~$2,000), one number agreed before day one or the
+//   $750 back (the approved ADS-pilot guarantee); lead generation + the 12–14 pack $3,250 (separately $3,500).
+// · India (Chennai rates): lead generation ₹20,000 pilot credited → ₹35,000/month incl. posters, 2 AI videos, WhatsApp
+//   auto-reply and tracking (Chennai specialists ₹30,000+ for management alone); AI film ₹5,000; 4 a month ₹16,000.
+//   SKPC keeps its contracted ₹50,000 (a larger scope). India's buyer rule is ICP-INDIA.md's: a customer worth
+//   ₹20,000+, or ₹5,000+ with repeat purchases.
+// The E1 emails still quote $150 for a single ad until the next n8n paste; the site's lower price only ever helps the buyer.
 // NOT on the site until Jothi says yes: the film pack's "beats your best ad or next month free" (OFFERS §4/§4b).
 export type OfferTier = { name: string; price: string; per?: string; note?: string };
 export type Offer = {
@@ -742,7 +747,7 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
   headline: "What it costs, what you get, and what happens if it doesn't work.",
   sub: "Two offers, for any business that sells something worth buying. Month to month, no lock-in, and every offer starts with something free, so you see the work before you pay for it.",
   usd: {
-    footnote: "Want both? AI ads and Meta lead generation together: $2,500 a month.",
+    footnote: "Want both? Meta lead generation and the 12–14-ad Creative Strategist pack together: $3,250 a month, $250 less than the two apart.",
     limit: "I take two new clients a month, so every account gets the person who built the results on this page.",
     offers: [
       {
@@ -751,7 +756,7 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
         forWho: "Any brand already running Meta ads, selling something worth $100 or more.",
         free: "Your first AI ad free, made from product photos you already have.",
         tiers: [
-          { name: "Single AI ad", price: "$150" },
+          { name: "Single AI ad", price: "$129" },
           { name: "Test Pack · 8 AI ads", price: "$950", per: "/month", note: "$119 an ad — enough to keep a rotation running" },
           { name: "Creative Strategist · 12–14 AI ads + a monthly what's-working review", price: "$2,000", per: "/month", note: "For brands running 10+ live ads" },
         ],
@@ -784,11 +789,11 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
         forWho: "Any business where one customer is worth ₹20,000 or more — or ₹5,000 or more with repeat purchases.",
         free: "A free one-page review of your ads and enquiries, with a 2-minute voice note on where they are being lost.",
         tiers: [
-          { name: "30-day pilot", price: "₹25,000", note: "Credited in full to month one" },
-          { name: "Then, month to month", price: "₹50,000", per: "/month", note: "No lock-in" },
+          { name: "30-day pilot", price: "₹20,000", note: "Credited in full to month one" },
+          { name: "Then, month to month", price: "₹35,000", per: "/month", note: "No lock-in" },
         ],
         includes: ["Meta campaign, posters and 2 AI video ads", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a call script for whoever answers", "Your numbers every Monday"],
-        guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹25,000 comes back.",
+        guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹20,000 comes back.",
         cta: { label: "Ask for the free review", kind: "whatsapp" },
         ask: "Hi Jothi, I saw your Meta lead generation offer. I'd like the free review of our ads and enquiries.",
         featured: true,
@@ -799,8 +804,8 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
         forWho: "Any business with a product to show, already running ads or about to.",
         free: "One 15-second AI film of a product you choose, free.",
         tiers: [
-          { name: "Film pack · 4 films", price: "₹12,000", per: "/month" },
-          { name: "Single film", price: "₹3,500" },
+          { name: "Film pack · 4 films", price: "₹16,000", per: "/month", note: "₹4,000 a film" },
+          { name: "Single film", price: "₹5,000" },
         ],
         includes: ["Every film in 9:16 and 1:1, with a caption line", "Your product shown exactly as it is — never altered", "Ready before your sale or season, not the night before"],
         cta: { label: "Ask for the free film", kind: "whatsapp" },
@@ -813,7 +818,7 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
 // ─── /ai-ads/ — the page cold emails abroad point at. Written for a brand founder who already spends on Meta and
 // has never heard the name: the films first, the honest limits second, the price and the free ad last.
 // Facts: 48-hour free ad and the 3-a-week cap (OFFERS.md "path from reply to paid"), never altering the product
-// (OFFERS §3), $1,500 management only worth it from ~$10K/month spend (sequences/ADS), $2,500 together (OFFERS §5).
+// (OFFERS §3), $1,500 management only worth it from ~$10K/month spend (sequences/ADS), $3,250 with the 12–14 pack (14 Nov).
 export const aiAds = {
   label: "// AI ADS & COMMERCIALS",
   headline: "New video ads every month, made from the product photos you already have.",
@@ -835,7 +840,7 @@ export const aiAds = {
     { q: "Who owns the ads?", a: "You do. Every file is yours to keep, and the ads run in your own Meta ad account. If we stop, nothing is held back." },
     { q: "What do you need from me?", a: "Your product page or a few product photos, and the ad that is working best for you right now. No shoot, no samples shipped." },
     { q: "How do I pay?", a: "Invoiced in US dollars, month to month, before each month's batch starts. No contract and no lock-in." },
-    { q: "Do you run the ads too?", a: "If you want. Meta ad management is $1,500 a month on its own, or $2,500 together with the ads — worth it once you spend around $10,000 a month on Meta. Below that I'd tell you to keep the fee for the ads themselves." },
+    { q: "Do you run the ads too?", a: "If you want. Meta ad management is $1,500 a month on its own, or $3,250 together with the 12–14-ad pack — worth it once you spend around $10,000 a month on Meta. Below that I'd tell you to keep the fee for the ads themselves." },
     { q: "What's the catch with the free ad?", a: "No catch, but a limit: three free ads a week across all brands, each made only after I've confirmed the product and the angle with you." },
   ],
 };
