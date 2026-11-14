@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-13T03:31:36.454Z",
+  "generatedAt": "2026-11-14T03:27:18.844Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-14",
-      "end": "2026-11-11"
+      "start": "2026-10-15",
+      "end": "2026-11-12"
     },
     "totals": {
-      "clicks": 26,
-      "impressions": 181,
-      "ctr": 0.143646408839779,
-      "position": 13.657458563535911
+      "clicks": 25,
+      "impressions": 173,
+      "ctr": 0.14450867052023122,
+      "position": 13.664739884393063
     },
     "previous": {
-      "clicks": 12,
-      "impressions": 98,
-      "ctr": 0.12244897959183673,
-      "position": 9.112244897959183
+      "clicks": 13,
+      "impressions": 106,
+      "ctr": 0.12264150943396226,
+      "position": 9.443396226415095
     },
     "daily": [
       {
@@ -417,16 +417,9 @@
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 20,
-        "ctr": 0.05,
-        "position": 12.55
-      },
-      {
-        "key": "google ads for manufacturers",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 75
+        "impressions": 18,
+        "ctr": 0.05555555555555555,
+        "position": 13.166666666666666
       },
       {
         "key": "how ai decides which multi-location businesses get recommended in search",
@@ -530,17 +523,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 24,
-        "impressions": 73,
-        "ctr": 0.3287671232876712,
-        "position": 4.232876712328768
+        "clicks": 23,
+        "impressions": 69,
+        "ctr": 0.3333333333333333,
+        "position": 4.333333333333334
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 46,
-        "ctr": 0.043478260869565216,
-        "position": 6.521739130434782
+        "impressions": 44,
+        "ctr": 0.045454545454545456,
+        "position": 6.545454545454546
       },
       {
         "key": "https://jothiswaroop.com/ai-ads/",
@@ -552,23 +545,23 @@
       {
         "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 8,
         "ctr": 0,
-        "position": 6.222222222222222
+        "position": 6.375
       },
       {
         "key": "https://jothiswaroop.com/audit/",
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 5,
         "ctr": 0,
-        "position": 5.5
+        "position": 5.2
       },
       {
         "key": "https://jothiswaroop.com/blog/",
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 8,
         "ctr": 0,
-        "position": 8.555555555555555
+        "position": 8.875
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
@@ -601,9 +594,9 @@
       {
         "key": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0,
-        "position": 47.5
+        "position": 20
       },
       {
         "key": "https://jothiswaroop.com/blog/learn-performance-marketing-from-zero-2026/",
@@ -622,16 +615,16 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 20,
+        "impressions": 18,
         "ctr": 0,
-        "position": 6.95
+        "position": 7.055555555555555
       },
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 12,
         "ctr": 0,
-        "position": 12.923076923076923
+        "position": 12.666666666666666
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
@@ -643,9 +636,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 14,
         "ctr": 0,
-        "position": 10.666666666666666
+        "position": 10.642857142857142
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -686,10 +679,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 26,
-        "impressions": 91,
-        "ctr": 0.2857142857142857,
-        "position": 8.010989010989011
+        "clicks": 25,
+        "impressions": 88,
+        "ctr": 0.2840909090909091,
+        "position": 8.204545454545453
       },
       {
         "key": "arg",
@@ -741,27 +734,27 @@
         "position": 28.333333333333332
       },
       {
-        "key": "hkg",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 6
-      },
-      {
         "key": "idn",
         "clicks": 0,
         "impressions": 2,
         "ctr": 0,
         "position": 12
+      },
+      {
+        "key": "irl",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 16,
-        "impressions": 137,
-        "ctr": 0.11678832116788321,
-        "position": 16.021897810218977
+        "clicks": 15,
+        "impressions": 129,
+        "ctr": 0.11627906976744186,
+        "position": 16.178294573643413
       },
       {
         "key": "MOBILE",
@@ -781,8 +774,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-14",
-      "end": "2026-11-13"
+      "start": "2026-10-15",
+      "end": "2026-11-14"
     },
     "totals": {
       "views": 0,
@@ -797,12 +790,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1791763200000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -975,6 +962,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1794268800000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1794355200000)/",
         "Impressions": 0
       }
     ],
@@ -1242,8 +1235,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.56601,
-    "projected": 5.094092,
+    "pace": 0.525581,
+    "projected": 4.730229,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1272,7 +1265,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-12T05:07:52Z",
+        "lastCrawl": "2026-11-13T14:05:19Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1290,8 +1283,8 @@
       {
         "url": "https://jothiswaroop.com/pricing/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
