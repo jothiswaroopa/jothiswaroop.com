@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Source of /og.png, the link-preview card (1200x630). Rendered with headless Chrome:
+     "Google Chrome" --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-budget=6000 \
+       --screenshot=public/og.png file://$PWD/public/brand/og.src.html
+     The Rate Card look: card stock, two inks, the site's opening sentence. No prices: one image serves India and abroad. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Besley:wght@600;700&family=Libre+Franklin:wght@500;600;700&display=block" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body { background: #f3f4ee; color: #0e1411; font-family: "Libre Franklin", sans-serif; position: relative; }
+  .dateline { height: 46px; padding: 0 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #0e1411; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .rule { height: 6px; background: #0e1411; margin-top: 8px; }
+  .left { position: absolute; left: 56px; top: 96px; width: 700px; bottom: 44px; display: flex; flex-direction: column; justify-content: space-between; }
+  h1 { font-family: "Besley", serif; font-weight: 600; font-size: 66px; line-height: 1.03; letter-spacing: -0.022em; }
+  h1 span { display: block; }
+  h1 .g { color: #005c42; }
+  .who b { display: block; font-family: "Besley", serif; font-weight: 600; font-size: 30px; letter-spacing: -0.01em; }
+  .who i { display: block; font-style: normal; font-size: 18px; font-weight: 500; margin-top: 6px; }
+  .field { position: absolute; right: 0; top: 60px; bottom: 0; width: 400px; background: #005c42; overflow: hidden; }
+  .field img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; filter: grayscale(1) contrast(1.15) brightness(1.05); mix-blend-mode: screen; }
+  .stamp { position: absolute; right: 344px; bottom: 54px; background: #ffb49b; color: #0e1411; border: 2px solid #0e1411; outline: 1px solid #0e1411; outline-offset: 3px; padding: 12px 16px 10px; font-size: 17px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transform: rotate(-4deg); }
+</style>
+</head>
+<body>
+  <div class="dateline"><span>Rate card</span><span>Chennai → worldwide</span></div>
+  <div class="rule"></div>
+  <div class="left">
+    <h1><span>I watched agencies sell reports.</span><span class="g">I decided to sell customers.</span></h1>
+    <div class="who"><b>Jothi Swaroop</b><i>Certified Performance Marketer</i><i>Meta lead generation · AI ads &amp; commercials</i></div>
+  </div>
+  <div class="field"><img src="../img/portrait-hero.jpg" alt=""></div>
+  <div class="stamp">First step free</div>
+</body>
+</html>

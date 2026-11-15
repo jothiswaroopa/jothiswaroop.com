@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Icon from "@/components/Icon";
 
 /**
  * Phone-only cue for a horizontal swipe row: "N cards · swipe →" plus position dots.
@@ -33,11 +34,11 @@ export default function SwipeCue({ target, count, noun = "cards", className = ""
     <div className={`flex items-center justify-between md:hidden ${className}`} aria-hidden>
       <p className="label flex items-center gap-2">
         <span className="!normal-case !tracking-normal">{count} {noun} · swipe</span>
-        <span className={`text-signal ${moved ? "" : "animate-[nudge_1.4s_ease-in-out_infinite]"}`}>→</span>
+        <span className={`text-signal ${moved ? "" : "animate-[nudge_1.4s_ease-in-out_infinite]"}`}><Icon name="arrow" size={12} /></span>
       </p>
       <div className="flex items-center gap-1.5">
         {Array.from({ length: count }).map((_, k) => (
-          <span key={k} className={`h-1.5 rounded-full transition-all duration-300 ${k === i ? "w-4 bg-signal" : "w-1.5 bg-paper/30"}`} />
+          <span key={k} className={`h-1.5 rounded-full transition-all duration-300 ${k === i ? "w-4 bg-signal" : "w-1.5 bg-ink/30"}`} />
         ))}
       </div>
     </div>

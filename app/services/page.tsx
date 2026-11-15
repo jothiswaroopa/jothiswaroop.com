@@ -1,6 +1,9 @@
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
+import Burn from "@/components/sections/Burn";
+import Method from "@/components/sections/Method";
 import { site } from "@/lib/content";
+import Icon from "@/components/Icon";
 
 export const metadata = {
   title: "Services — Meta Ads, AI Ad Films, WhatsApp Automation, Websites | Jothi Swaroop",
@@ -35,7 +38,7 @@ const SERVICES = [
       "Built on n8n, OpenAI or Claude, and your existing tools (WhatsApp Business, Google Sheets, your CRM, Cal.com, Razorpay or Stripe). You own every workflow; nothing lives in a vendor account you can't open. UK and US builds run in your timezone with your data staying in your accounts.",
     ],
     proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice",
-    links: [{ t: "See the systems", h: "/#systems" }, { t: "The five-day Accelerator", h: "/apply/?program=accelerator" }],
+    links: [{ t: "See the systems", h: "/systems/" }, { t: "The five-day Accelerator", h: "/apply/?program=accelerator" }],
     faq: { q: "What can AI automation actually do for a small business?", a: "Anything a person does the same way every time: reply to every WhatsApp, email or web enquiry within seconds, book appointments into your calendar, send invoices and payment reminders, chase renewals, collect documents, log orders to a sheet, and send you a weekly summary. A dental clinic's AI receptionist, a food business's order-to-invoice flow and a Company Secretary's compliance reminders are three of the nine systems live today. A human still handles anything the system isn't sure about." },
   },
   {
@@ -60,7 +63,7 @@ const SERVICES = [
       "Brands buy this one of two ways: a single film for a launch, or a monthly set so there is always something new to test in the ad account. Creative is the biggest lever in a Meta account and the most under-invested; a set of ten fresh commercials a month is how you keep finding the winner. Scripts, shoots and social media management run alongside to the same monthly plan.",
     ],
     proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 sponsor film · Arkstorie · Tharunis Jewellery",
-    links: [{ t: "Watch the showreel", h: "/#work" }],
+    links: [{ t: "Watch the showreel", h: "/films/" }],
     faq: { q: "Are AI commercials and AI UGC videos good enough to run as real ads?", a: "The two Top-5 El Alimentos films and the House of Vummudi commercial were made for real brands, and the VROOM 2026 committee said on camera that all their sponsors enjoyed the AI videos. The honest test is the same as any creative: run it in the account next to what you have and see which one buyers respond to. Watch the showreel first and judge the craft yourself." },
   },
   {
@@ -108,19 +111,19 @@ export default function ServicesPage() {
   ];
 
   return (
+    <>
     <section className="min-h-[100svh] pt-[96px]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink className="mb-8" />
-        <p className="label">{"// SERVICES"}</p>
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.02]">Ads that bring customers. Systems that keep them.</h1>
-        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-paper/80">
-          Meta ads, AI ad films, WhatsApp automation and AI receptionists, websites and search — for founder-led businesses in the United Kingdom, the United States, Canada, Australia and India. Every service below links to the work it produced, and <Link href="/pricing/" className="underline-slide text-paper">the prices are public</Link>.
+        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-ink/80">
+          Meta ads, AI ad films, WhatsApp automation and AI receptionists, websites and search — for founder-led businesses in the United Kingdom, the United States, Canada, Australia and India. Every service below links to the work it produced, and <Link href="/pricing/" className="underline-slide text-ink">the prices are public</Link>.
         </p>
 
         <nav aria-label="Services" className="mt-10 flex flex-wrap gap-2">
           {SERVICES.map((s) => (
-            <a key={s.id} href={`#${s.id}`} className="mono rounded-full border hairline px-3 py-1.5 text-xs text-paper/70 transition-colors hover:border-paper/40 hover:text-paper">{s.name}</a>
+            <a key={s.id} href={`#${s.id}`} className="mono rounded-full border hairline px-3 py-1.5 text-xs text-ink/72 transition-colors hover:border-ink/40 hover:text-ink">{s.name}</a>
           ))}
         </nav>
 
@@ -128,19 +131,19 @@ export default function ServicesPage() {
           {SERVICES.map((s, i) => (
             <article key={s.id} id={s.id} className="grid gap-8 py-14 scroll-mt-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
               <div>
-                <p className="mono text-xs text-paper/50">0{i + 1}</p>
+                <p className="mono text-xs text-ink/72">0{i + 1}</p>
                 <h2 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] leading-tight">{s.name}</h2>
-                <p className="mt-4 text-lg text-paper/85">{s.lead}</p>
+                <p className="mt-4 text-lg text-ink/85">{s.lead}</p>
                 <p className="mono mt-6 text-xs leading-relaxed text-signal">{s.proof}</p>
               </div>
               <div className="max-w-2xl">
-                {s.body.map((p) => <p key={p.slice(0, 24)} className="mb-5 leading-relaxed text-paper/75">{p}</p>)}
+                {s.body.map((p) => <p key={p.slice(0, 24)} className="mb-5 leading-relaxed text-ink/75">{p}</p>)}
                 <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-                  {s.links.map((l) => <Link key={l.h} href={l.h} className="underline-slide text-sm text-paper/85 hover:text-paper">{l.t} →</Link>)}
+                  {s.links.map((l) => <Link key={l.h} href={l.h} className="underline-slide text-sm text-ink/85 hover:text-ink">{l.t} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>)}
                 </div>
                 <div className="mt-8 border-l-2 border-signal pl-5">
-                  <p className="text-paper">{s.faq.q}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-paper/70">{s.faq.a}</p>
+                  <p className="text-ink">{s.faq.q}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/72">{s.faq.a}</p>
                 </div>
               </div>
             </article>
@@ -150,16 +153,20 @@ export default function ServicesPage() {
         <div className="bezel mt-16">
           <div className="bezel-core flex flex-col gap-5 p-7 md:flex-row md:items-center md:justify-between md:p-9">
             <div>
-              <p className="label">{"// START HERE"}</p>
-              <p className="mt-3 max-w-xl text-lg text-paper/85">Not sure which of these you need? The free 10-minute audit tells you where the spend is leaking, and whether ads, follow-up or the website is the bottleneck.</p>
+              <p className="label">{"START HERE"}</p>
+              <p className="mt-3 max-w-xl text-lg text-ink/85">Not sure which of these you need? The free 10-minute audit tells you where the spend is leaking, and whether ads, follow-up or the website is the bottleneck.</p>
             </div>
             <div className="flex shrink-0 flex-wrap gap-3">
-              <Link href="/audit/?s=services" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Free audit →</Link>
-              <Link href="/apply/?s=services" className="press inline-flex items-center rounded-full border border-paper/30 px-5 py-3 text-sm text-paper hover:border-paper/60">Apply to work together</Link>
+              <Link href="/audit/?s=services" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-stock hover:bg-ink">Free audit <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>
+              <Link href="/apply/?s=services" className="press inline-flex items-center rounded-full border border-ink/30 px-5 py-3 text-sm text-ink hover:border-ink/60">Apply to work together</Link>
             </div>
           </div>
         </div>
       </div>
     </section>
+    {/* Moved here from the homepage on 13 Nov 2026: what agencies sold, and the three moves in full. */}
+    <Burn />
+    <Method />
+    </>
   );
 }

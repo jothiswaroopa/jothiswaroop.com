@@ -1,41 +1,30 @@
 import Hero from "@/components/sections/Hero";
-import Receipts from "@/components/sections/Receipts";
-import Who from "@/components/sections/Who";
-import Services from "@/components/sections/Services";
-import Offers from "@/components/sections/Offers";
-import Burn from "@/components/sections/Burn";
-import Method from "@/components/sections/Method";
-import Work from "@/components/sections/Work";
-import Systems from "@/components/sections/Systems";
-import Chain from "@/components/sections/Chain";
-import Testimonials from "@/components/sections/Testimonials";
-import Filter from "@/components/sections/Filter";
-import Faq from "@/components/sections/Faq";
-import Accelerator from "@/components/sections/Accelerator";
-import ApplySection from "@/components/sections/ApplySection";
-import Notes from "@/components/sections/Notes";
-import IndiaOnly from "@/components/IndiaOnly";
+import Specimens from "@/components/sections/Specimens";
+import Figures from "@/components/sections/Figures";
+import Timetable from "@/components/sections/Timetable";
+import Voices from "@/components/sections/Voices";
+import Issuer from "@/components/sections/Issuer";
+import Terms from "@/components/sections/Terms";
+import Close from "@/components/sections/Close";
 
+/**
+ * The homepage is the rate card: the opening and the rates, the specimens, the audited figures, how an
+ * engagement runs, the voices, who issues it, the terms, and the reply card.
+ * The longer sections it used to carry live on their own pages now: /work/ (every case, every screenshot,
+ * every testimonial), /about (the referral chain, recognition), /services/ (what you were sold, the method),
+ * /systems/ (the automations), /india/ (the Accelerator), /apply (the full application), /blog/.
+ */
 export default function Home() {
   return (
     <>
       <Hero />
-      <Receipts />
-      <Chain />
-      <Who />
-      <Services />
-      <Offers />
-      <Burn />
-      <Method />
-      <Work />
-      <Systems />
-      <Testimonials />
-      <Filter />
-      {/* An in-person week in Chennai: noise to a buyer abroad. */}
-      <IndiaOnly><Accelerator /></IndiaOnly>
-      <Faq />
-      <ApplySection />
-      <Notes />
+      <Specimens />
+      <Figures />
+      <Timetable />
+      <Voices />
+      <Issuer />
+      <Terms />
+      <Close />
     </>
   );
 }

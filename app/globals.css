@@ -1,89 +1,118 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   TOKENS — every colour on the site traces back to one of these.
-   Dark ink base · warm paper type · ONE signal accent · red = "before"
+   THE RATE CARD — 13 Nov 2026 (replaces "Ledger").
+   The site is a printed advertising rate card: card stock, two inks, ruled tables, a reply card.
+   Every colour traces back to these roles. There are no greys of their own, no shadows, no glass and
+   no gradients: secondary text is a tint of the ink it sits beside, the way a screen tint is in print.
+
+   stock  = the card the page is printed on        ink    = what is printed on it
+   signal = the second ink (emerald on stock)      salmon = the reply-card stock
    ───────────────────────────────────────────────────────────── */
 :root {
-  --ink: #0a0a0c;
-  --ink-2: #111114;
-  --ink-3: #18181d;
-  --paper: #f2ede4;
-  --paper-70: rgba(242, 237, 228, 0.8);
-  --paper-45: rgba(242, 237, 228, 0.55);
-  --paper-20: rgba(242, 237, 228, 0.2);
-  --line: rgba(242, 237, 228, 0.1);
-  --line-strong: rgba(242, 237, 228, 0.22);
-  --signal: #ffb020;
-  --signal-dim: rgba(255, 176, 32, 0.14);
-  --strike: #ff4d4d;
+  --stock: #f3f4ee;
+  --stock-2: #e8ebe2;
+  --stock-3: #dde2d6;
+  --ink: #0e1411;
+  --ink-70: rgb(14 20 17 / 0.8);
+  --ink-45: rgb(14 20 17 / 0.72); /* the floor: 6.6:1 on stock, so captions never go below AA */
+  --ink-20: rgb(14 20 17 / 0.22);
+  --line: rgb(14 20 17 / 0.22);
+  --line-strong: #0e1411;
+  --signal: #005c42;
+  --signal-dim: rgb(0 92 66 / 0.1);
+  --salmon: #ffb49b;
+  --strike: #a3271b;
+  --under: var(--stock); /* the surface beneath a card, for perforation notches */
+
+  --font-mono: var(--font-sans); /* no monospace on a rate card; figures are tabular Franklin */
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --d-fast: 0.4s;
-  --d-med: 0.8s;
-  --d-slow: 1.2s;
+  --d-fast: 0.35s;
+  --d-med: 0.7s;
+  --d-slow: 1.1s;
 }
 
 @theme inline {
+  --color-stock: var(--stock);
+  --color-stock-2: var(--stock-2);
+  --color-stock-3: var(--stock-3);
   --color-ink: var(--ink);
-  --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
-  --color-paper: var(--paper);
   --color-signal: var(--signal);
+  --color-salmon: var(--salmon);
   --color-strike: var(--strike);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --font-mono: var(--font-sans);
 
   --ease-out-expo: var(--ease);
 }
 
-/* THEME: Ledger — locked 2026-09-17. Ink base, cream proof islands, one amber accent. (Cream/Mono comparison modes removed.) */
+/* THE FIELD — a region printed solid in the second ink. Type reverses out to stock; the accent
+   becomes salmon so it still reads. Whole regions take this, never small boxes. */
+.field {
+  --stock: #005c42;
+  --stock-2: #00503a;
+  --stock-3: #004531;
+  --ink: #f3f4ee;
+  --ink-70: rgb(243 244 238 / 0.9);
+  --ink-45: rgb(243 244 238 / 0.8);
+  --ink-20: rgb(243 244 238 / 0.3);
+  --line: rgb(243 244 238 / 0.32);
+  --line-strong: #f3f4ee;
+  --signal: #ffb49b;
+  --signal-dim: rgb(255 180 155 / 0.16);
+  --under: #005c42;
+  background: var(--stock);
+  color: var(--ink);
+}
 
-/* PAPER SURFACE — scoped inversion for the proof sections: screenshots and receipts read as
-   native on light, not "presented" on dark. Amber darkens for contrast on cream. */
-.theme-paper {
-  --ink: #f2ede4;
-  --ink-2: #ebe5d9;
-  --ink-3: #e4ddcf;
-  --paper: #0a0a0c;
-  --paper-70: rgba(10, 10, 12, 0.78);
-  --paper-45: rgba(10, 10, 12, 0.66);
-  --paper-20: rgba(10, 10, 12, 0.2);
-  --line: rgba(10, 10, 12, 0.1);
-  --line-strong: rgba(10, 10, 12, 0.22);
-  --signal: #a85f00;
-  --signal-dim: rgba(168, 95, 0, 0.12);
-  --strike: #a32020; /* 5.6:1 on the cream card tone (#e4ddcf) — 12px labels need 4.5 */
-  background: var(--ink);
-  color: var(--paper);
+/* THE REPLY-CARD STOCK — salmon index card. Ink stays ink; the emerald still clears 4.5:1 on it. */
+.salmon {
+  --stock: #ffb49b;
+  --stock-2: #ffa587;
+  --stock-3: #f99578;
+  --ink: #0e1411;
+  --ink-70: rgb(14 20 17 / 0.86);
+  --ink-45: rgb(14 20 17 / 0.78);
+  --ink-20: rgb(14 20 17 / 0.26);
+  --line: rgb(14 20 17 / 0.3);
+  --line-strong: #0e1411;
+  --signal: #005c42;
+  --under: #ffb49b;
+  background: var(--stock);
+  color: var(--ink);
 }
-.theme-paper .bezel {
-  background: rgba(10, 10, 12, 0.03);
-  border-color: rgba(10, 10, 12, 0.08);
+
+/* THE SECOND STOCK — a slightly deeper card for forms and long reads (was the cream "paper" surface). */
+.theme-alt {
+  --stock: #e8ebe2;
+  --stock-2: #dde2d6;
+  --stock-3: #d2d8ca;
+  --under: #e8ebe2;
+  background: var(--stock);
+  color: var(--ink);
 }
-.theme-paper .bezel-core {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 20px 50px -30px rgba(10, 10, 12, 0.35);
-}
-.theme-paper ::selection { background: var(--paper); color: var(--ink); }
 
 /* ─────────────────────────────────────────────────────────────
    BASE
    ───────────────────────────────────────────────────────────── */
 html {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--stock);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  -webkit-tap-highlight-color: transparent; /* no grey flash on tap */
+  -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 96px; /* anchors land below the floating nav */
+  scroll-padding-top: 104px; /* anchors land below the masthead */
+  scrollbar-color: var(--ink) var(--stock);
+  scrollbar-width: thin;
+  caret-color: var(--signal);
 }
 
-/* controls: instant tap, no long-press selection, no 300ms delay */
 button, a, [role="button"] { touch-action: manipulation; }
 button, [role="button"], .press {
   user-select: none;
@@ -96,183 +125,293 @@ input, textarea, select {
 :focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
-[id] { scroll-margin-top: 96px; }
+[id] { scroll-margin-top: 104px; }
 
-/* press feedback — every pressable thing answers the finger */
+/* press: the stamp comes down — a pixel of travel, never a bounce */
 .press {
-  transition: transform 140ms var(--ease), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  transition: transform 120ms var(--ease), background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
-.press:active { transform: scale(0.97); }
-
-/* double-bezel: a plate sitting in a tray — never a card flat on the background */
-.bezel {
-  background: rgba(242, 237, 228, 0.035);
-  border: 1px solid rgba(242, 237, 228, 0.08);
-  padding: 6px;
-  border-radius: 24px;
-}
-.bezel-core {
-  border-radius: 18px;
-  background: var(--ink-3);
-  box-shadow: inset 0 1px 0 rgba(242, 237, 228, 0.08), 0 20px 60px -30px rgba(0, 0, 0, 0.8);
-  overflow: hidden;
-}
-
-/* scroll-entry reveal — CSS transitions (off main thread), toggled by IntersectionObserver */
-.rv {
-  opacity: 0;
-  transform: translate3d(0, var(--rv-y, 28px), 0);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
-  transition-delay: var(--rv-d, 0s);
-}
-@media (min-width: 768px) {
-  .rv { filter: blur(6px); }
-}
-.rv.in {
-  opacity: 1;
-  transform: none;
-  filter: none; /* not blur(0) — that would keep a filter layer alive on ~60 elements */
-  will-change: auto;
-}
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
+.press:active { transform: translateY(1px) scale(0.985); }
 
 body {
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 1.0625rem; /* 17px on phones: dark UI in daylight needs the extra point */
+  background: var(--stock);
+  color: var(--ink);
+  font-family: var(--font-sans), "Franklin Gothic Medium", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
   line-height: 1.55;
+  font-variant-numeric: lining-nums;
   overflow-x: clip;
 }
-@media (min-width: 768px) { body { font-size: 1rem; } }
 
 ::selection {
-  background: var(--signal);
-  color: var(--ink);
+  background: var(--salmon);
+  color: #0e1411;
 }
 
-h1, h2, h3, .display {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 400;
-  font-optical-sizing: auto;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
-  text-wrap: balance;
-}
-/* tracking is size-specific: the bigger the type, the tighter it wants to be */
-.tracking-display { letter-spacing: -0.035em; line-height: 0.92; }
+/* In the base layer on purpose: unlayered rules outrank every Tailwind utility, which silently killed
+   leading-[…] overrides on headings and quotes. Here a utility on the element wins, as intended. */
+@layer base {
+  a { text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
 
-.mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-feature-settings: "tnum" 1, "zero" 1;
-  letter-spacing: 0.02em;
-}
+  h1, h2, h3, .display {
+    font-family: var(--font-display), "Clarendon", "Rockwell", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+  .tracking-display { letter-spacing: -0.03em; line-height: 0.98; }
 
-.label {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--paper-45);
-}
+  /* Was a monospace voice. On a rate card the figures are tabular Franklin and nothing is in costume. */
+  .mono {
+    font-family: var(--font-sans), sans-serif;
+    font-variant-numeric: tabular-nums lining-nums;
+    letter-spacing: 0;
+  }
 
-.num {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-feature-settings: "tnum" 1;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
+  /* A small-cap line: column heads, captions, stamps. Full-strength ink, never a grey whisper. */
+  .label {
+    font-family: var(--font-sans), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .num {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 700;
+    font-variant-numeric: lining-nums;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+  }
+  .tnum { font-variant-numeric: tabular-nums lining-nums; }
 }
 
 /* ─────────────────────────────────────────────────────────────
-   SURFACES — physics, not gradients
+   PRINT FURNITURE
    ───────────────────────────────────────────────────────────── */
-.grain::before {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
-  z-index: 60;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  /* static: animating a full-screen fixed layer cost a repaint six times a second on every device */
-  inset: 0; width: 100%; height: 100%;
-}
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  20% { transform: translate(-2%, 3%); }
-  40% { transform: translate(3%, -1%); }
-  60% { transform: translate(-1%, -3%); }
-  80% { transform: translate(2%, 2%); }
-}
 
-.card-over {
-  position: relative;
-  z-index: 2;
-  border-radius: 40px 40px 0 0;
-  box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.6);
+/* Corners are die-cut, not rounded: every legacy rounded-* utility collapses to 2px. Unlayered, so it
+   outranks Tailwind's utilities layer without !important. */
+[class*="rounded"] { border-radius: 2px; }
+[class*="shadow-"] { box-shadow: none; }
+[class*="backdrop-blur"] { -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* A ruled box. (Was the double-bezel tray.) */
+.bezel {
+  background: var(--stock);
+  border: 1px solid var(--line-strong);
+  padding: 0;
 }
+.bezel-core { overflow: hidden; }
+
+/* Sections were sheets sliding over each other; on a card they simply follow. */
+.card-over { position: relative; }
 
 .hairline { border-color: var(--line); }
 
-/* translucent material: blur + saturate keeps colour alive underneath; bright top edge = light catching glass */
+/* The masthead and the mobile action bar: solid stock, one rule. */
 .glass {
-  background: rgba(10, 10, 12, 0.6);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: inset 0 1px 0 rgba(242, 237, 228, 0.07), 0 20px 60px -30px rgba(0, 0, 0, 0.9);
+  background: var(--stock);
+  border-bottom: 1px solid var(--line-strong);
 }
-.theme-paper.glass, .glass.theme-paper {
-  background: rgba(242, 237, 228, 0.72);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 20px 60px -30px rgba(10, 10, 12, 0.35);
+.scroll-edge-top { border-top: 1px solid var(--line-strong); border-bottom: 0; }
+
+/* SCOTCH RULE — thick over thin, the rule that opens every table on the card. Draws left to right as
+   it enters where scroll-driven animation exists; printed solid everywhere else. */
+.scotch { position: relative; padding-top: 9px; }
+.scotch::before,
+.scotch::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: var(--line-strong);
+  transform-origin: left center;
 }
-/* mobile: sections breathe less — 13 sections × 160px of padding is 2,000px of nothing on a phone */
+.scotch::before { top: 0; height: 4px; }
+.scotch::after { top: 7px; height: 1px; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scotch::before,
+    .scotch::after {
+      animation: rule-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+@keyframes rule-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* DOT LEADER — item ........ price */
+.leader {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(1.5rem, 1fr) auto;
+  align-items: baseline;
+  column-gap: 0.6rem;
+}
+.leader > .dots {
+  border-bottom: 2px dotted currentColor;
+  transform: translateY(-0.3em);
+}
+/* A long item takes its own line and the leader and price share the next: always for .leader-stack,
+   and for every row on phones. A leader is never squeezed to a stub. */
+.leader-stack { grid-template-columns: minmax(1.5rem, 1fr) auto; row-gap: 0.1rem; }
+.leader-stack > :first-child { grid-column: 1 / -1; }
+@media (max-width: 639px) {
+  .leader { grid-template-columns: minmax(1.5rem, 1fr) auto; row-gap: 0.1rem; }
+  .leader > :first-child { grid-column: 1 / -1; }
+}
+
+/* TARIFF ROLL — each digit is a reel that settles on its figure. The inline --d is the truth; the
+   animation only plays the arrival, so a page with no CSS animation still shows the right price. */
+.reel {
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: -0.1em;
+}
+.reel > span {
+  display: block;
+  transform: translateY(calc(var(--d) * -10%));
+  transition: transform 0.9s var(--ease);
+  animation: reel-in 1.2s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 55ms + var(--reel-base, 0.35s));
+}
+.reel > span > i {
+  display: block;
+  height: 1em;
+  font-style: normal;
+}
+@keyframes reel-in {
+  from { transform: translateY(0); }
+}
+
+/* STAMP — the one mark that is pressed on, not printed. */
+.stamp {
+  display: inline-block;
+  padding: 0.5em 0.8em 0.45em;
+  border: 2px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  animation: stamp-press 0.45s var(--ease) both;
+  animation-delay: var(--stamp-delay, 1.5s);
+}
+@keyframes stamp-press {
+  from { transform: rotate(-4deg) scale(1.7); opacity: 0; }
+  55% { opacity: 1; }
+  to { transform: rotate(-4deg) scale(1); opacity: 1; }
+}
+
+/* Arrival: whatever is on screen at load rolls or presses in as the page arrives (CSS only, before hydration).
+   A price or stamp further down is true at rest, and plays the same arrival once when the reader reaches it
+   (components/useArrival.ts remounts it; --reel-base and --stamp-delay drop the opening pause). It is never
+   scrubbed by scroll: a price must not show a wrong figure while the reader pauses on it. */
+
+/* CROP MARKS — printer's corner ticks around a specimen. They open a little when pointed at. */
+.crop { position: relative; }
+.crop > .tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  color: var(--ink);
+  transition: transform 0.4s var(--ease);
+}
+.crop > .tick::before,
+.crop > .tick::after { content: ""; position: absolute; background: currentColor; }
+.crop > .tick::before { width: 1px; height: 100%; }
+.crop > .tick::after { height: 1px; width: 100%; }
+.crop > .tick.tl { top: -20px; left: -20px; }
+.crop > .tick.tl::before { right: 0; } .crop > .tick.tl::after { bottom: 0; }
+.crop > .tick.tr { top: -20px; right: -20px; }
+.crop > .tick.tr::before { left: 0; } .crop > .tick.tr::after { bottom: 0; }
+.crop > .tick.bl { bottom: -20px; left: -20px; }
+.crop > .tick.bl::before { right: 0; } .crop > .tick.bl::after { top: 0; }
+.crop > .tick.br { bottom: -20px; right: -20px; }
+.crop > .tick.br::before { left: 0; } .crop > .tick.br::after { top: 0; }
+@media (hover: hover) and (pointer: fine) {
+  .crop:hover > .tick.tl { transform: translate(-4px, -4px); }
+  .crop:hover > .tick.tr { transform: translate(4px, -4px); }
+  .crop:hover > .tick.bl { transform: translate(-4px, 4px); }
+  .crop:hover > .tick.br { transform: translate(4px, 4px); }
+}
+
+/* REPLY CARD — a salmon index card in two pieces: the stub that stays, and the card below the perforation.
+   Sending it tears the card off; the acknowledgement is then printed on whatever the card was lying on. */
+.reply-card { position: relative; }
+.reply-card .stub { position: relative; border-bottom: 2px dashed var(--ink); }
+.reply-card .stub::before,
+.reply-card .stub::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--under-card, var(--stock));
+}
+.reply-card .stub::before { left: -8px; }
+.reply-card .stub::after { right: -8px; }
+.reply-card .body { transform-origin: 0 0; transition: transform 0.9s var(--ease), opacity 0.6s ease 0.25s; }
+.reply-card.sent .body { transform: translate(6%, 14%) rotate(7deg); opacity: 0; pointer-events: none; }
+/* a form line: label on the left, the answer written on a rule */
+.form-line {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.55rem 0 0.5rem;
+  color: var(--ink);
+  font: inherit;
+}
+.form-line::placeholder { color: var(--ink-45); }
+.form-line:focus { outline: none; border-bottom-width: 2px; padding-bottom: calc(0.5rem - 1px); border-color: var(--signal); }
+.form-line:focus-visible { outline: none; }
+
+/* Scroll-entry was fade, rise and un-blur on every block. On the card, content is simply there;
+   the authored motion lives in the hero, the rules, the reels and the reply card. */
+.rv, .rv.in { opacity: 1; transform: none; filter: none; }
+
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* mobile: sections breathe less */
 @media (max-width: 767px) {
   main > section > div.mx-auto { padding-top: 3.25rem; padding-bottom: 3.25rem; }
-  main > section.card-over { border-radius: 28px 28px 0 0; }
 }
 /* mobile: a row of cards is a swipe, not a stack. md+: back to the grid the class list describes. */
 @media (max-width: 767px) {
-  .m-scroller { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x pan-y; padding-bottom: 6px; margin-inline: -20px; padding-inline: 20px; }
+  .m-scroller { display: flex !important; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x pan-y; padding-bottom: 6px; margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
   .m-scroller::-webkit-scrollbar { display: none; }
   .m-scroller > * { flex: 0 0 80vw; max-width: 80vw; min-width: 0; scroll-snap-align: start; }
-  .m-scroller > .rv, .m-scroller .rv { opacity: 1; transform: none; filter: none; transition: none; } /* tiles peeking from the edge must be visible — reveal-on-scroll would hide them */
   .m-scroller > * * { min-width: 0; }
   .m-scroller.m-scroller-narrow > * { flex-basis: 62vw; }
 }
-/* where content meets floating chrome: a soft edge, not a 1px divider */
-.scroll-edge-top::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: -28px; height: 28px;
-  background: linear-gradient(to top, rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0));
-  pointer-events: none;
-}
 
-.duotone {
-  filter: grayscale(1) contrast(1.15) brightness(0.9);
-}
-.duotone::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--signal);
-  mix-blend-mode: multiply;
-  opacity: 0.12;
-  pointer-events: none;
-}
+/* A photograph printed in one ink: grey, then multiplied into whatever stock it sits on. */
+.duotone { filter: grayscale(1) contrast(1.12); mix-blend-mode: multiply; }
+.field .duotone { mix-blend-mode: luminosity; filter: grayscale(1) contrast(1.05) brightness(1.15); }
 
 /* ─────────────────────────────────────────────────────────────
    MOTION UTILITIES
@@ -280,21 +419,30 @@ h1, h2, h3, .display {
 .mask-line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
 }
-/* hero word reveal — CSS, not JS, so the headline paints before hydration on slow connections */
+/* the headline is set line by line — CSS, not JS, so it paints before hydration on slow connections */
 .word-rise {
-  transform: translateY(110%);
-  animation: word-rise 1s var(--ease) forwards;
+  display: block;
+  transform: translateY(108%);
+  animation: word-rise 0.95s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 0.05s);
 }
 @keyframes word-rise {
   to { transform: translateY(0); }
 }
-
-.underline-slide {
-  position: relative;
+.fade-up {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fade-up 0.8s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 0.5s);
 }
+@keyframes fade-up {
+  to { opacity: 1; transform: none; }
+}
+
+.underline-slide { position: relative; }
 .underline-slide::after {
   content: "";
   position: absolute;
@@ -308,55 +456,17 @@ h1, h2, h3, .display {
   transition: transform var(--d-fast) var(--ease);
 }
 @media (hover: hover) and (pointer: fine) {
-  .underline-slide:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
+  .underline-slide:hover::after { transform: scaleX(1); transform-origin: left; }
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
 @keyframes nudge {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(4px); }
 }
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
 
-.sweep {
-  position: relative;
-  overflow: hidden;
-}
-.sweep::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(from var(--a, 0deg), transparent 0 70%, var(--signal) 85%, transparent 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: sweep 6s linear infinite;
-  opacity: 0.8;
-}
-@property --a {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-@keyframes sweep {
-  to { --a: 360deg; }
-}
+.sweep { position: relative; overflow: hidden; }
 
-.strike-line {
-  position: relative;
-  display: inline-block;
-}
+.strike-line { position: relative; display: inline-block; }
 .strike-line::after {
   content: "";
   position: absolute;
@@ -372,47 +482,27 @@ h1, h2, h3, .display {
 .strike-line.on::after,
 .on .strike-line::after { --s: 1; }
 
-/* the signature at the bottom of the letter: present, quiet, never amber */
-.outline-text {
-  -webkit-text-stroke: 1px rgba(242, 237, 228, 0.32);
-  color: transparent;
-}
-@media (max-width: 767px) {
-  .outline-text { -webkit-text-stroke: 0.75px rgba(242, 237, 228, 0.38); } /* thinner stroke, a touch brighter, for small glyphs in daylight */
-}
+.outline-text { color: var(--ink); }
 
-/* reduced motion means gentler, not none: keep opacity/colour, drop travel and parallax */
+/* reduced motion means gentler, not none: keep colour changes, drop travel */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-property: opacity, color, background-color, border-color !important;
     transition-duration: 200ms !important;
   }
-  .grain::before { animation: none; }
-  .marquee-track { animation: none; }
-  .rv { opacity: 1; transform: none; filter: none; }
   .mask-line > * { transform: none !important; animation: none !important; }
-}
-/* frosted glass goes solid when the user asks for less transparency */
-@media (prefers-reduced-transparency: reduce) {
-  .glass, .glass-strong {
-    background: var(--ink-2);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
+  .fade-up { opacity: 1; transform: none; animation: none; }
+  .reply-card.sent .body { transform: none; }
 }
 @media (prefers-contrast: more) {
-  .glass, .glass-strong, .bezel { border-color: rgba(242, 237, 228, 0.35); }
-  .label { color: var(--paper-70); }
+  :root { --line: #0e1411; --ink-45: #0e1411; --ink-70: #0e1411; }
 }
 
 /* ─── MOBILE A11Y ───
-   Labels lift to 12px on phones; inline text links get a 44px-tall invisible hit area
-   (pseudo-element, no layout shift) so a thumb doesn't have to land on 20px of text. */
-@media (max-width: 767px) {
-  .label { font-size: 0.75rem; letter-spacing: 0.12em; }
-}
+   Inline text links get a 44px-tall invisible hit area (pseudo-element, no layout shift). */
 @media (pointer: coarse) {
   a.underline-slide,
   a:has(> .underline-slide),
@@ -428,61 +518,49 @@ h1, h2, h3, .display {
   }
 }
 
-/* phones/tablets: the portrait paints at its final size immediately (no clip/scale entrance),
-   so it can be the LCP at first paint instead of after hydration + 1.4s. Desktop keeps the reveal. */
-@media (max-width: 1023px) {
-  .hero-media { clip-path: none !important; transform: none !important; }
-}
-
-/* client marks: on touch screens they show in their own colours (nothing to hover); with a pointer they
-   rest in greyscale and come back in colour, lifting a touch, when pointed at */
+/* client marks: on touch screens they show in their own colours; with a pointer they rest in one ink
+   and come back in colour when pointed at */
 .logo-mark {
   opacity: 0.95;
   transform: translateZ(0);
-  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.5s var(--ease);
 }
 @media (hover: hover) and (pointer: fine) {
-  /* brightness pulls gold/pale marks down to a readable grey; contrast keeps the dark ones crisp */
   .logo-mark { filter: grayscale(1) brightness(0.72) contrast(1.15); opacity: 0.9; }
-  /* Outlines, neon and gold sit far lighter than a solid wordmark: measured against the paper the
-     proof section uses, the solid marks land near 55 on screen while these land at 109-130, so they
-     read as half-there next to their neighbours. Only the greyscale REST state is pushed harder -
-     hover still clears the filter entirely, so the brand's real colour is never altered. */
   .logo-mark-pale { filter: grayscale(1) brightness(0.5) contrast(1.35); }
   .logo-row li:hover .logo-mark { filter: none; opacity: 1; transform: translateY(-2px) scale(1.08); }
-  /* the rest of the row steps back slightly so the hovered mark reads as the focus */
   .logo-row:hover li:not(:hover) .logo-mark { opacity: 0.5; }
 }
 @media (prefers-reduced-motion: reduce) {
   .logo-row li:hover .logo-mark { transform: none; }
 }
-/* marks on ink: paper silhouettes, one tone; a touch brighter when pointed at */
-.logo-mark-ink { filter: brightness(0) invert(1); opacity: 0.55; transition: opacity 0.3s ease; }
-@media (hover: hover) and (pointer: fine) { a:hover .logo-mark-ink { opacity: 0.95; } }
-.theme-paper .logo-mark-ink { filter: brightness(0); }
+/* marks printed in the ink of the surface they sit on */
+.logo-mark-mono { filter: brightness(0); opacity: 0.8; transition: opacity 0.3s ease; }
+.field .logo-mark-mono { filter: brightness(0) invert(1); }
+@media (hover: hover) and (pointer: fine) { a:hover .logo-mark-mono { opacity: 1; } }
 
-/* ── Blog article typography (Ledger) ─────────────────────────────────────── */
-.prose { max-width: 42rem; color: var(--paper-70); font-size: 1.0625rem; line-height: 1.75; }
+/* ── Blog article typography ─────────────────────────────────────── */
+.prose { max-width: 42rem; color: var(--ink); font-size: 1.0625rem; line-height: 1.7; }
 .prose > * + * { margin-top: 1.25em; }
-.prose p strong { color: var(--paper); font-weight: 500; }
-.prose h2, .prose h3 { font-family: var(--font-display); color: var(--paper); line-height: 1.1; letter-spacing: -0.01em; scroll-margin-top: 6rem; }
+.prose p strong { font-weight: 650; }
+.prose h2, .prose h3 { font-family: var(--font-display), Georgia, serif; line-height: 1.1; letter-spacing: -0.015em; scroll-margin-top: 6rem; }
 .prose h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-top: 2.6em; }
 .prose h3 { font-size: clamp(1.35rem, 2.2vw, 1.6rem); margin-top: 2em; }
-.prose a { color: var(--paper); text-decoration: underline; text-decoration-color: rgba(242,237,228,.35); text-underline-offset: 3px; transition: text-decoration-color .2s; }
-.prose a:hover { text-decoration-color: var(--signal); }
+.prose a { color: var(--signal); text-decoration: underline; }
+.prose a:hover { color: var(--ink); }
 .prose ul, .prose ol { padding-left: 1.4em; }
-.prose li + li { margin-top: .5em; }
-.prose li::marker { color: var(--signal); font-family: var(--font-mono); font-size: .85em; }
-.prose blockquote { border-left: 2px solid var(--signal); padding: .25em 0 .25em 1.25em; font-family: var(--font-display); font-style: italic; font-size: 1.35em; line-height: 1.35; color: var(--paper); }
-.prose hr { border: 0; border-top: 1px solid var(--line); margin: 3em 0; }
-.prose code { font-family: var(--font-mono); font-size: .875em; background: rgba(242,237,228,.06); padding: .15em .4em; border-radius: .3em; color: var(--paper); }
-.prose pre { background: var(--ink-3); border: 1px solid var(--line); border-radius: .75rem; padding: 1.25rem; overflow-x: auto; }
+.prose li + li { margin-top: 0.5em; }
+.prose li::marker { color: var(--signal); font-weight: 700; }
+.prose blockquote { border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); padding: 0.9em 0; font-family: var(--font-display), Georgia, serif; font-style: italic; font-size: 1.3em; line-height: 1.35; }
+.prose hr { border: 0; border-top: 1px solid var(--line-strong); margin: 3em 0; }
+.prose code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.875em; background: var(--stock-2); padding: 0.15em 0.4em; }
+.prose pre { background: var(--stock-2); border: 1px solid var(--line-strong); padding: 1.25rem; overflow-x: auto; }
 .prose pre code { background: none; padding: 0; }
-.prose img { border-radius: .75rem; border: 1px solid var(--line); }
-.prose table { width: 100%; border-collapse: collapse; font-size: .95em; }
-.prose th, .prose td { text-align: left; padding: .6em .75em; border-bottom: 1px solid var(--line); vertical-align: top; }
-.prose th { font-family: var(--font-mono); font-size: .75em; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-45); }
-/* "Key facts" box the generator emits for answer engines: a blockquote whose first line is KEY FACTS */
-.prose .facts { border: 1px solid var(--line); border-radius: .75rem; padding: 1.25rem 1.5rem; background: rgba(242,237,228,.03); }
-.prose .facts p:first-child { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--signal); margin: 0 0 .75em; }
+.prose img { border: 1px solid var(--line-strong); }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.95em; font-variant-numeric: tabular-nums lining-nums; }
+.prose th, .prose td { text-align: left; padding: 0.6em 0.75em; border-bottom: 1px solid var(--line); vertical-align: top; }
+.prose th { font-size: 0.75em; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid var(--line-strong); }
+/* "Key facts" box the generator emits for answer engines */
+.prose .facts { border: 1px solid var(--line-strong); padding: 1.25rem 1.5rem; background: var(--stock-2); }
+.prose .facts p:first-child { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--signal); margin: 0 0 0.75em; }
 .prose .facts ul { margin: 0; }

@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
+import { Besley, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import SmoothScrollLoader from "@/components/motion/SmoothScrollLoader";
-import Preloader from "@/components/motion/Preloader";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import NavTracker from "@/components/NavTracker";
@@ -14,9 +13,10 @@ import MotionProvider from "@/components/motion/MotionProvider";
 // Share-card description mirrors the live headline — never a second copy that can drift.
 const ogLine = hero.headline.map((l) => l.replace(/[*_]/g, "").replace(/\u00a0/g, " ")).join(" ") + " Performance marketing and AI automation for founder-led manufacturers and brands — India, UK, US. Every number screenshot-backed.";
 
-const display = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-display", display: "swap" });
-const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap", preload: false }); // discovered via CSS; keeps the pipe free for the LCP image
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", preload: false });
+// The Rate Card's two faces: a Clarendon for headlines and prices, a Franklin Gothic for everything else.
+// The headline is the largest paint now, so the display face is the one that preloads.
+const display = Besley({ subsets: ["latin"], style: ["normal", "italic"], variable: "--font-display", display: "swap" });
+const sans = Libre_Franklin({ subsets: ["latin"], variable: "--font-sans", display: "swap", preload: false }); // discovered via CSS
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"),
@@ -42,23 +42,22 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0a0a0c",
-  colorScheme: "dark",
+  themeColor: "#f3f4ee",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${sans.variable}`}>
       <head>
         {/* Stable, query-free icon URLs for Google's favicon crawler — the app/icon.* files above get a cache-busting query on every build */}
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
       </head>
-      <body className="grain">
+      <body>
        <MotionProvider>
         <SmoothScrollLoader />
-        <Preloader name={site.name} />
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-ink">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-signal focus:px-4 focus:py-2 focus:text-stock">
           Skip to content
         </a>
         <NavTracker />

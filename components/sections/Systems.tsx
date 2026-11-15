@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Reveal from "@/components/motion/Reveal";
-import Scramble from "@/components/motion/Scramble";
 import Counter from "@/components/motion/Counter";
 import HScroller from "@/components/HScroller";
 import Button from "@/components/Button";
 import { automations, systemsIntro as intro } from "@/lib/content";
+import Icon from "@/components/Icon";
 
 function Stack({ items }: { items: string[] }) {
   return (
     <ul className="flex flex-wrap gap-1.5" aria-label="Built with">
-      {items.map((t) => <li key={t} className="mono rounded-full border border-line-strong px-2 py-0.5 text-[11px] text-paper/75">{t}</li>)}
+      {items.map((t) => <li key={t} className="mono rounded-full border border-line-strong px-2 py-0.5 text-[11px] text-ink/75">{t}</li>)}
     </ul>
   );
 }
@@ -20,18 +20,17 @@ export default function Systems({ heading: H = "h2" }: { heading?: "h1" | "h2" }
   const rest = automations.filter((a) => a !== hero);
 
   return (
-    <section id="systems" className="card-over relative bg-ink">
+    <section id="systems" className="card-over relative bg-stock">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
-        <p className="label"><Scramble text={intro.label} /></p>
         <Reveal><H className="mt-6 max-w-4xl text-[clamp(2.25rem,5.5vw,5rem)]">{intro.headline}</H></Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-paper/80">{intro.sub}</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-2xl text-lg text-ink/80">{intro.sub}</p></Reveal>
 
         {/* counted facts — the receipts convention */}
         <Reveal delay={0.15} className="mt-12 grid grid-cols-3 gap-6 border-y hairline py-8">
           {intro.facts.map((f) => (
             <div key={f.label}>
               <p className="num text-[clamp(2rem,4vw,3.5rem)] text-signal"><Counter value={f.value} /></p>
-              <p className="mt-2 text-sm text-paper/70">{f.label}</p>
+              <p className="mt-2 text-sm text-ink/72">{f.label}</p>
             </div>
           ))}
         </Reveal>
@@ -42,32 +41,32 @@ export default function Systems({ heading: H = "h2" }: { heading?: "h1" | "h2" }
             <div className="bezel-core grid gap-0 lg:grid-cols-[1.35fr_1fr]">
               <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[420px]">
                 <Image src={hero.image} alt={hero.title} fill sizes="(min-width:1024px) 60vw, 100vw" className="object-cover object-left" priority={false} />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-ink-3/60 hidden lg:block" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-stock-3/60 hidden lg:block" />
               </div>
               <div className="flex flex-col p-6 md:p-8">
                 <p className="label">Featured build</p>
-                <h3 className="mt-3 text-2xl text-paper md:text-3xl">{hero.title}</h3>
-                <p className="mt-4 text-paper/80">{hero.what}</p>
+                <h3 className="mt-3 text-2xl text-ink md:text-3xl">{hero.title}</h3>
+                <p className="mt-4 text-ink/80">{hero.what}</p>
                 {hero.flow && (
                   <>
                     <details className="mt-5 border-t hairline pt-4 sm:hidden">
-                      <summary className="press label cursor-pointer list-none !normal-case !tracking-normal text-paper/80">How it runs · 3 steps ↓</summary>
+                      <summary className="press label cursor-pointer list-none !normal-case !tracking-normal text-ink/80">How it runs · 3 steps <Icon name="arrow-down" size={14} className="ml-1 inline-block align-[-0.1em]" /></summary>
                       <ol className="mt-4 space-y-3">
                         {hero.flow.map((step, i) => (
-                          <li key={i} className="flex gap-3 text-sm text-paper/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
+                          <li key={i} className="flex gap-3 text-sm text-ink/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
                         ))}
                       </ol>
                     </details>
                     <ol className="mt-6 hidden space-y-3 border-t hairline pt-5 sm:block">
                       {hero.flow.map((step, i) => (
-                        <li key={i} className="flex gap-3 text-sm text-paper/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
+                        <li key={i} className="flex gap-3 text-sm text-ink/85"><span className="mono text-signal">0{i + 1}</span><span>{step}</span></li>
                       ))}
                     </ol>
                   </>
                 )}
                 <div className="mt-auto pt-6">
                   <p className="label">Replaces</p>
-                  <p className="mt-1 text-paper">{hero.replaces}</p>
+                  <p className="mt-1 text-ink">{hero.replaces}</p>
                   <div className="mt-4"><Stack items={hero.stack} /></div>
                 </div>
               </div>
@@ -83,10 +82,10 @@ export default function Systems({ heading: H = "h2" }: { heading?: "h1" | "h2" }
                 <div className="bezel-core flex h-full flex-col">
                   <div className="relative aspect-[16/9]"><Image src={a.image} alt={a.title} fill sizes="(min-width:640px) 440px, 86vw" className="object-cover object-left" /></div>
                   <div className="flex flex-1 flex-col p-5">
-                    <p className="text-lg text-paper">{a.title}</p>
-                    <p className="mt-2 text-sm text-paper/75">{a.what}</p>
+                    <p className="text-lg text-ink">{a.title}</p>
+                    <p className="mt-2 text-sm text-ink/75">{a.what}</p>
                     <div className="mt-auto pt-5">
-                      <p className="label">Replaces <span className="normal-case tracking-normal text-paper/85">· {a.replaces}</span></p>
+                      <p className="label">Replaces <span className="normal-case tracking-normal text-ink/85">· {a.replaces}</span></p>
                       <div className="mt-3"><Stack items={a.stack} /></div>
                     </div>
                   </div>

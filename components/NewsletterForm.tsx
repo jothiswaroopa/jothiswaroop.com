@@ -14,17 +14,16 @@ export default function NewsletterForm() {
     const r = await submit("Letter opt-in — jothiswaroop.com", { email, replyto: email });
     setState(r.delivered ? "delivered" : "manual");
   };
-  if (state === "delivered") return <p className="text-paper">You&apos;re in. First letter within two weeks.</p>;
+  if (state === "delivered") return <p className="text-ink">You&apos;re in. First letter within two weeks.</p>;
   if (state === "manual") {
     const href = site.email ? `mailto:${site.email}?subject=${encodeURIComponent("Add me to the letter")}&body=${encodeURIComponent(email)}` : `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Add me to the letter: ${email}`)}`;
-    return <p className="text-paper/85">One tap to finish: <a href={href} target="_blank" rel="noreferrer" className="underline-slide text-paper">send me your address →</a></p>;
+    return <p className="text-ink/85">One tap to finish: <a href={href} target="_blank" rel="noreferrer" className="underline-slide text-ink">send me your address</a></p>;
   }
   return (
-    <form className="flex w-full gap-2 md:w-auto" onSubmit={onSubmit}>
+    <form className="flex w-full items-end gap-3" onSubmit={onSubmit}>
       <label className="sr-only" htmlFor="letter-email">Email address</label>
-      <input id="letter-email" type="email" inputMode="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com"
-        className="w-full rounded-full border border-line-strong bg-transparent px-5 py-3 text-sm text-paper placeholder:text-paper/40 focus:border-signal focus:outline-none md:w-72" />
-      <button disabled={state === "sending"} className="press shrink-0 rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper disabled:opacity-40">{state === "sending" ? "…" : "Join"}</button>
+      <input id="letter-email" type="email" inputMode="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com" className="form-line" />
+      <button disabled={state === "sending"} className="press inline-flex min-h-[44px] shrink-0 items-center border border-ink px-4 text-sm font-semibold text-ink hover:bg-ink hover:text-stock disabled:opacity-50">{state === "sending" ? "Sending" : "Join"}</button>
     </form>
   );
 }

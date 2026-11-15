@@ -33,7 +33,7 @@ const delta = (cur?: number, prev?: number, invert = false) => {
   if (cur == null || prev == null || prev === 0) return null;
   const d = ((cur - prev) / prev) * 100;
   const good = invert ? d < 0 : d > 0;
-  return <span className={`mono ml-2 text-xs ${good ? "text-signal" : "text-paper/50"}`}>{d > 0 ? "+" : ""}{d.toFixed(0)}%</span>;
+  return <span className={`mono ml-2 text-xs ${good ? "text-signal" : "text-ink/72"}`}>{d > 0 ? "+" : ""}{d.toFixed(0)}%</span>;
 };
 
 function Spark({ values, h = 44 }: { values: number[]; h?: number }) {
@@ -51,8 +51,8 @@ function Tile({ label, value, sub, spark, children }: { label: string; value: st
   return (
     <div className="bezel"><div className="bezel-core p-5">
       <p className="label">{label}</p>
-      <p className="display mt-3 text-4xl text-paper tabular-nums">{value}{children}</p>
-      {sub && <p className="mono mt-1 text-xs text-paper/50">{sub}</p>}
+      <p className="display mt-3 text-4xl text-ink tabular-nums">{value}{children}</p>
+      {sub && <p className="mono mt-1 text-xs text-ink/72">{sub}</p>}
       {spark && <Spark values={spark} />}
     </div></div>
   );
@@ -64,17 +64,17 @@ function Table({ title, rows, cols }: { title: string; rows: Row[]; cols: { k: k
       <p className="label">{title}</p>
       {rows?.length ? (
         <table className="mt-4 w-full text-sm">
-          <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-paper/45"><th className="pb-2 font-normal">{cols[0].label}</th>{cols.slice(1).map((c) => <th key={String(c.k)} className="pb-2 text-right font-normal">{c.label}</th>)}</tr></thead>
+          <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-ink/72"><th className="pb-2 font-normal">{cols[0].label}</th>{cols.slice(1).map((c) => <th key={String(c.k)} className="pb-2 text-right font-normal">{c.label}</th>)}</tr></thead>
           <tbody className="divide-y hairline">
             {rows.map((r) => (
               <tr key={r.key}>
-                <td className="max-w-[260px] truncate py-2 pr-4 text-paper/85" title={r.key}>{r.key?.replace("https://jothiswaroop.com", "") || "(direct)"}</td>
-                {cols.slice(1).map((c) => <td key={String(c.k)} className="py-2 text-right tabular-nums text-paper/70">{(c.fmt ?? n)(r[c.k] as any)}</td>)}
+                <td className="max-w-[260px] truncate py-2 pr-4 text-ink/85" title={r.key}>{r.key?.replace("https://jothiswaroop.com", "") || "(direct)"}</td>
+                {cols.slice(1).map((c) => <td key={String(c.k)} className="py-2 text-right tabular-nums text-ink/72">{(c.fmt ?? n)(r[c.k] as any)}</td>)}
               </tr>
             ))}
           </tbody>
         </table>
-      ) : <p className="mt-4 text-sm text-paper/50">No data yet.</p>}
+      ) : <p className="mt-4 text-sm text-ink/72">No data yet.</p>}
     </div></section>
   );
 }
@@ -103,55 +103,54 @@ export default function Dash() {
   const clicksByPage: Record<string, number> = Object.fromEntries((g?.pages ?? []).map((r: Row) => [r.key.replace("https://jothiswaroop.com", ""), r.clicks]));
 
   return (
-    <section className="min-h-[100svh] bg-ink pt-[96px] text-paper">
+    <section className="min-h-[100svh] bg-stock pt-[96px] text-ink">
       <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-10 md:py-16">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="label">{"// SEO · GEO · OUTREACH · ONE WINDOW"}</p>
             <h1 className="mt-4 text-[clamp(2rem,4vw,3.5rem)]">How the site is being found.</h1>
           </div>
-          <p className="mono text-xs text-paper/50">{d.generatedAt ? `data as of ${new Date(d.generatedAt).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST · refreshes daily 05:00` : "no collection yet — add the secrets and run the workflow"}</p>
+          <p className="mono text-xs text-ink/72">{d.generatedAt ? `data as of ${new Date(d.generatedAt).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST · refreshes daily 05:00` : "no collection yet — add the secrets and run the workflow"}</p>
         </div>
         <Err block="Search Console" err={d.gsc?.error} /><Err block="Cloudflare" err={d.cloudflare?.error} /><Err block="GEO" err={d.geo?.error} /><Err block="Bing" err={d.bing?.error} />
 
         {/* overview */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Tile label="// GOOGLE CLICKS · 28D" value={n(g?.totals?.clicks)} sub={`vs previous 28d`} spark={g?.daily?.slice(-28).map((r: Row) => r.clicks ?? 0)}>{delta(g?.totals?.clicks, g?.previous?.clicks)}</Tile>
-          <Tile label="// IMPRESSIONS · 28D" value={n(g?.totals?.impressions)} sub={`CTR ${pct(g?.totals?.ctr)}`} spark={g?.daily?.slice(-28).map((r: Row) => r.impressions ?? 0)}>{delta(g?.totals?.impressions, g?.previous?.impressions)}</Tile>
-          <Tile label="// AVG POSITION" value={pos(g?.totals?.position)} sub="lower is better">{delta(g?.totals?.position, g?.previous?.position, true)}</Tile>
-          <Tile label="// VISITS · 30D (CLOUDFLARE)" value={n(cf?.totals?.visits)} sub={`${n(cf?.totals?.views)} page views · LCP p75 ${cf?.perf?.lcpP75 ? Math.round(cf.perf.lcpP75) + " ms" : "—"}`} spark={cf?.daily?.map((r: Row) => r.visits ?? 0)} />
+          <Tile label="GOOGLE CLICKS · 28D" value={n(g?.totals?.clicks)} sub={`vs previous 28d`} spark={g?.daily?.slice(-28).map((r: Row) => r.clicks ?? 0)}>{delta(g?.totals?.clicks, g?.previous?.clicks)}</Tile>
+          <Tile label="IMPRESSIONS · 28D" value={n(g?.totals?.impressions)} sub={`CTR ${pct(g?.totals?.ctr)}`} spark={g?.daily?.slice(-28).map((r: Row) => r.impressions ?? 0)}>{delta(g?.totals?.impressions, g?.previous?.impressions)}</Tile>
+          <Tile label="AVG POSITION" value={pos(g?.totals?.position)} sub="lower is better">{delta(g?.totals?.position, g?.previous?.position, true)}</Tile>
+          <Tile label="VISITS · 30D (CLOUDFLARE)" value={n(cf?.totals?.visits)} sub={`${n(cf?.totals?.views)} page views · LCP p75 ${cf?.perf?.lcpP75 ? Math.round(cf.perf.lcpP75) + " ms" : "—"}`} spark={cf?.daily?.map((r: Row) => r.visits ?? 0)} />
         </div>
 
         {/* GEO */}
         <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_2fr]">
-          <Tile label="// AI MENTION RATE" value={geo ? pct(geo.rate) : "—"} sub={geo ? `${geo.results.filter((r: any) => r.mentioned).length} of ${geo.results.length} tracked prompts name jothiswaroop.com` : "runs with the daily collection"} spark={geo?.history?.map((h: any) => h.rate)} />
+          <Tile label="AI MENTION RATE" value={geo ? pct(geo.rate) : "—"} sub={geo ? `${geo.results.filter((r: any) => r.mentioned).length} of ${geo.results.length} tracked prompts name jothiswaroop.com` : "runs with the daily collection"} spark={geo?.history?.map((h: any) => h.rate)} />
           <section className="bezel"><div className="bezel-core p-5">
-            <p className="label">{"// GEO TRACKER · WHAT AI ENGINES SAY"}</p>
+            <p className="label">{"GEO TRACKER · WHAT AI ENGINES SAY"}</p>
             {geo?.results?.length ? (
               <ul className="mt-4 divide-y hairline text-sm">
                 {geo.results.map((r: any) => (
                   <li key={r.id} className="grid gap-1 py-3 md:grid-cols-[24px_1fr_auto] md:gap-4">
-                    <span className={`mono text-xs ${r.mentioned ? "text-signal" : "text-paper/35"}`}>{r.error ? "!" : r.mentioned ? "●" : "○"}</span>
-                    <span><span className="text-paper/85">{r.prompt}</span>{r.competitors?.length ? <span className="mono mt-1 block text-[11px] text-paper/45">cited instead: {r.competitors.join(" · ")}</span> : null}</span>
-                    <span className="mono text-[10px] uppercase tracking-[0.1em] text-paper/45">{r.segment}</span>
+                    <span className={`mono text-xs ${r.mentioned ? "text-signal" : "text-ink/72"}`}>{r.error ? "!" : r.mentioned ? "●" : "○"}</span>
+                    <span><span className="text-ink/85">{r.prompt}</span>{r.competitors?.length ? <span className="mono mt-1 block text-[11px] text-ink/72">cited instead: {r.competitors.join(" · ")}</span> : null}</span>
+                    <span className="mono text-[10px] uppercase tracking-[0.1em] text-ink/72">{r.segment}</span>
                   </li>
                 ))}
               </ul>
-            ) : <p className="mt-4 text-sm text-paper/50">No checks yet.</p>}
+            ) : <p className="mt-4 text-sm text-ink/72">No checks yet.</p>}
           </div></section>
         </div>
 
         {/* search detail */}
         <div className="mt-4 grid gap-4 lg:grid-cols-2">
-          <Table title="// TOP QUERIES · GOOGLE · 28D" rows={g?.queries?.slice(0, 20) ?? []} cols={[{ k: "key", label: "query" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "position", label: "pos", fmt: pos }]} />
-          <Table title="// TOP PAGES · GOOGLE · 28D" rows={g?.pages?.slice(0, 20) ?? []} cols={[{ k: "key", label: "page" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "ctr", label: "ctr", fmt: pct }]} />
-          <Table title="// REFERRERS · CLOUDFLARE · 30D" rows={cf?.referrers ?? []} cols={[{ k: "key", label: "source" }, { k: "visits", label: "visits" }, { k: "views", label: "views" }]} />
-          <Table title="// COUNTRIES · GOOGLE · 28D" rows={g?.countries ?? []} cols={[{ k: "key", label: "country" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }]} />
-          {d.bing && !d.bing.error && <Table title="// TOP QUERIES · BING" rows={d.bing.queries ?? []} cols={[{ k: "key", label: "query" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "position", label: "pos", fmt: pos }]} />}
+          <Table title="TOP QUERIES · GOOGLE · 28D" rows={g?.queries?.slice(0, 20) ?? []} cols={[{ k: "key", label: "query" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "position", label: "pos", fmt: pos }]} />
+          <Table title="TOP PAGES · GOOGLE · 28D" rows={g?.pages?.slice(0, 20) ?? []} cols={[{ k: "key", label: "page" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "ctr", label: "ctr", fmt: pct }]} />
+          <Table title="REFERRERS · CLOUDFLARE · 30D" rows={cf?.referrers ?? []} cols={[{ k: "key", label: "source" }, { k: "visits", label: "visits" }, { k: "views", label: "views" }]} />
+          <Table title="COUNTRIES · GOOGLE · 28D" rows={g?.countries ?? []} cols={[{ k: "key", label: "country" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }]} />
+          {d.bing && !d.bing.error && <Table title="TOP QUERIES · BING" rows={d.bing.queries ?? []} cols={[{ k: "key", label: "query" }, { k: "clicks", label: "clicks" }, { k: "impressions", label: "impr." }, { k: "position", label: "pos", fmt: pos }]} />}
           <section className="bezel"><div className="bezel-core p-5">
-            <p className="label">{"// INDEX COVERAGE"}</p>
+            <p className="label">{"INDEX COVERAGE"}</p>
             <p className="display mt-3 text-4xl tabular-nums">{cov ? `${cov.ok}/${cov.total}` : "—"}</p>
-            <p className="mono mt-1 text-xs text-paper/50">sitemap URLs returning 200</p>
+            <p className="mono mt-1 text-xs text-ink/72">sitemap URLs returning 200</p>
             {cov?.broken?.length ? <ul className="mono mt-3 text-xs text-strike">{cov.broken.map((b: any) => <li key={b.url}>{b.status} {b.url}</li>)}</ul> : null}
           </div></section>
         </div>
@@ -159,40 +158,40 @@ export default function Dash() {
         {/* blog */}
         <section className="bezel mt-4"><div className="bezel-core p-5">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <p className="label">{`// BLOG · ${blog.count} POSTS${blog.last ? ` · LAST ${blog.last}` : ""}`}</p>
-            <Link href="/blog/" className="underline-slide text-sm text-paper/70">Open blog →</Link>
+            <p className="label">{`BLOG · ${blog.count} POSTS${blog.last ? ` · LAST ${blog.last}` : ""}`}</p>
+            <Link href="/blog/" className="underline-slide text-sm text-ink/72">Open blog →</Link>
           </div>
           {blog.posts.length ? (
             <table className="mt-4 w-full text-sm">
-              <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-paper/45"><th className="pb-2 font-normal">post</th><th className="pb-2 font-normal">lane</th><th className="pb-2 text-right font-normal">words</th><th className="pb-2 text-right font-normal">sources</th><th className="pb-2 text-right font-normal">google clicks 28d</th></tr></thead>
+              <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-ink/72"><th className="pb-2 font-normal">post</th><th className="pb-2 font-normal">lane</th><th className="pb-2 text-right font-normal">words</th><th className="pb-2 text-right font-normal">sources</th><th className="pb-2 text-right font-normal">google clicks 28d</th></tr></thead>
               <tbody className="divide-y hairline">
                 {blog.posts.map((p) => (
                   <tr key={p.slug}>
-                    <td className="py-2 pr-4"><Link href={`/blog/${p.slug}/`} className="text-paper/85 hover:text-signal">{p.title}</Link><span className="mono ml-2 text-[10px] text-paper/40">{p.date}</span></td>
-                    <td className="mono py-2 text-[10px] uppercase tracking-[0.1em] text-paper/50">{p.lane} · {p.segment}</td>
-                    <td className="py-2 text-right tabular-nums text-paper/70">{n(p.words)}</td>
-                    <td className="py-2 text-right tabular-nums text-paper/70">{p.sources}</td>
-                    <td className="py-2 text-right tabular-nums text-paper/70">{n(clicksByPage[`/blog/${p.slug}/`] ?? 0)}</td>
+                    <td className="py-2 pr-4"><Link href={`/blog/${p.slug}/`} className="text-ink/85 hover:text-signal">{p.title}</Link><span className="mono ml-2 text-[10px] text-ink/72">{p.date}</span></td>
+                    <td className="mono py-2 text-[10px] uppercase tracking-[0.1em] text-ink/72">{p.lane} · {p.segment}</td>
+                    <td className="py-2 text-right tabular-nums text-ink/72">{n(p.words)}</td>
+                    <td className="py-2 text-right tabular-nums text-ink/72">{p.sources}</td>
+                    <td className="py-2 text-right tabular-nums text-ink/72">{n(clicksByPage[`/blog/${p.slug}/`] ?? 0)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          ) : <p className="mt-4 text-sm text-paper/50">No posts yet. The generator runs every two days at 06:30 IST.</p>}
+          ) : <p className="mt-4 text-sm text-ink/72">No posts yet. The generator runs every two days at 06:30 IST.</p>}
         </div></section>
 
         {idx && (
           <section className="bezel mt-4"><div className="bezel-core p-5">
-            <p className="label">{`// INDEX STATUS · ${idx.indexed}/${idx.checked} INDEXED BY GOOGLE`}</p>
+            <p className="label">{`INDEX STATUS · ${idx.indexed}/${idx.checked} INDEXED BY GOOGLE`}</p>
             <table className="mt-4 w-full text-sm">
-              <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-paper/40"><th className="pb-2 text-left font-normal">Page</th><th className="pb-2 text-left font-normal">Google says</th><th className="pb-2 text-right font-normal">Last crawl</th></tr></thead>
+              <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-ink/72"><th className="pb-2 text-left font-normal">Page</th><th className="pb-2 text-left font-normal">Google says</th><th className="pb-2 text-right font-normal">Last crawl</th></tr></thead>
               <tbody className="divide-y hairline">
                 {idx.urls.map((u: any) => {
                   const ok = /indexed/i.test(u.coverage) && !/not indexed/i.test(u.coverage);
                   return (
                     <tr key={u.url}>
-                      <td className="py-2 pr-4 text-paper/85">{u.url.replace("https://jothiswaroop.com", "") || "/"}</td>
-                      <td className={`py-2 pr-4 ${ok ? "text-paper/70" : "text-signal"}`}>{u.coverage || u.verdict}{u.canonical ? ` → ${u.canonical.replace("https://jothiswaroop.com", "")}` : ""}</td>
-                      <td className="mono py-2 text-right text-[10px] text-paper/50">{u.lastCrawl ? u.lastCrawl.slice(0, 10) : "never"}</td>
+                      <td className="py-2 pr-4 text-ink/85">{u.url.replace("https://jothiswaroop.com", "") || "/"}</td>
+                      <td className={`py-2 pr-4 ${ok ? "text-ink/72" : "text-signal"}`}>{u.coverage || u.verdict}{u.canonical ? ` → ${u.canonical.replace("https://jothiswaroop.com", "")}` : ""}</td>
+                      <td className="mono py-2 text-right text-[10px] text-ink/72">{u.lastCrawl ? u.lastCrawl.slice(0, 10) : "never"}</td>
                     </tr>
                   );
                 })}
@@ -205,44 +204,44 @@ export default function Dash() {
         {o?.totals?.pipeline && (
           <div className="mt-10">
             <div className="flex flex-wrap items-end justify-between gap-3">
-              <p className="label">{"// OUTREACH ENGINE"}</p>
-              <p className="mono text-xs text-paper/50">
+              <p className="label">{"OUTREACH ENGINE"}</p>
+              <p className="mono text-xs text-ink/72">
                 {o.state === "live" ? `live · cap ${o.cap}/mailbox/day` : o.state === "warm-up" ? `warm-up · sending starts ${o.startDate}` : "paused"}
                 {o.updated ? ` · updated ${new Date(o.updated).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST` : " · no run yet"}
               </p>
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <Tile label="// EMAILS SENT" value={n(o.totals.sent)} sub={`${n(o.totals.contacted)} prospects contacted`} spark={o.daily?.map((r: any) => r.sent ?? 0)} />
-              <Tile label="// REPLIES" value={n(o.totals.replied)} sub="to answer today" />
-              <Tile label="// REPLY RATE" value={o.totals.contacted ? ((100 * o.totals.replied) / o.totals.contacted).toFixed(1) + "%" : "—"} sub="replies ÷ contacted" />
-              <Tile label="// LEADS IN QUEUE" value={n(o.totals.pipeline.new)} sub={`${n(o.totals.leads)} total · ${n(o.totals.bounced)} bounced · ${n(o.totals.stopped)} opted out`} />
+              <Tile label="EMAILS SENT" value={n(o.totals.sent)} sub={`${n(o.totals.contacted)} prospects contacted`} spark={o.daily?.map((r: any) => r.sent ?? 0)} />
+              <Tile label="REPLIES" value={n(o.totals.replied)} sub="to answer today" />
+              <Tile label="REPLY RATE" value={o.totals.contacted ? ((100 * o.totals.replied) / o.totals.contacted).toFixed(1) + "%" : "—"} sub="replies ÷ contacted" />
+              <Tile label="LEADS IN QUEUE" value={n(o.totals.pipeline.new)} sub={`${n(o.totals.leads)} total · ${n(o.totals.bounced)} bounced · ${n(o.totals.stopped)} opted out`} />
             </div>
             {Array.isArray(o.segments) && o.segments.length > 0 && (
               <section className="bezel mt-4"><div className="bezel-core p-5">
-                <p className="label">{"// BY SEGMENT"}</p>
+                <p className="label">{"BY SEGMENT"}</p>
                 <table className="mt-4 w-full text-sm">
-                  <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-paper/40"><th className="pb-2 text-left font-normal">Segment</th><th className="pb-2 text-right font-normal">Leads</th><th className="pb-2 text-right font-normal">Contacted</th><th className="pb-2 text-right font-normal">Replied</th><th className="pb-2 text-right font-normal">Rate</th><th className="pb-2 text-right font-normal">Bounced</th></tr></thead>
+                  <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-ink/72"><th className="pb-2 text-left font-normal">Segment</th><th className="pb-2 text-right font-normal">Leads</th><th className="pb-2 text-right font-normal">Contacted</th><th className="pb-2 text-right font-normal">Replied</th><th className="pb-2 text-right font-normal">Rate</th><th className="pb-2 text-right font-normal">Bounced</th></tr></thead>
                   <tbody className="divide-y hairline">
                     {o.segments.map((s: any) => (
                       <tr key={s.segment}>
-                        <td className="py-2 pr-4 text-paper/85">{s.name}</td>
-                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.leads)}</td>
-                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.contacted)}</td>
-                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.replied)}</td>
-                        <td className="py-2 text-right tabular-nums text-paper/70">{s.contacted ? ((100 * s.replied) / s.contacted).toFixed(1) + "%" : "—"}</td>
-                        <td className="py-2 text-right tabular-nums text-paper/70">{n(s.bounced)}</td>
+                        <td className="py-2 pr-4 text-ink/85">{s.name}</td>
+                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.leads)}</td>
+                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.contacted)}</td>
+                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.replied)}</td>
+                        <td className="py-2 text-right tabular-nums text-ink/72">{s.contacted ? ((100 * s.replied) / s.contacted).toFixed(1) + "%" : "—"}</td>
+                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.bounced)}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <p className="mono mt-4 text-[10px] text-paper/40">Pipeline: {n(o.totals.pipeline.new)} waiting · {n(o.totals.pipeline.step1)} after email 1 · {n(o.totals.pipeline.step2)} after 2 · {n(o.totals.pipeline.step3)} after 3 · {n(o.totals.pipeline.done)} sequence finished</p>
+                <p className="mono mt-4 text-[10px] text-ink/72">Pipeline: {n(o.totals.pipeline.new)} waiting · {n(o.totals.pipeline.step1)} after email 1 · {n(o.totals.pipeline.step2)} after 2 · {n(o.totals.pipeline.step3)} after 3 · {n(o.totals.pipeline.done)} sequence finished</p>
               </div></section>
             )}
-            <p className="mono mt-3 text-xs text-paper/40">Counts only. Prospect names, addresses and replies stay in the private engine repo — open it to answer a reply.</p>
+            <p className="mono mt-3 text-xs text-ink/72">Counts only. Prospect names, addresses and replies stay in the private engine repo — open it to answer a reply.</p>
           </div>
         )}
 
-        <p className="mono mt-10 text-xs text-paper/40">Sources: Google Search Console API · Cloudflare Web Analytics GraphQL · Bing Webmaster API · GEO checks via Claude + web search · sitemap HEAD checks · outreach aggregates from the private engine. Collected by .github/workflows/dash.yml.</p>
+        <p className="mono mt-10 text-xs text-ink/72">Sources: Google Search Console API · Cloudflare Web Analytics GraphQL · Bing Webmaster API · GEO checks via Claude + web search · sitemap HEAD checks · outreach aggregates from the private engine. Collected by .github/workflows/dash.yml.</p>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import { creatives, decks } from "@/lib/content";
+import Icon from "@/components/Icon";
 
 /** The work itself: ads that ran (masonry) and decks that were presented (cover + inner slides). Hidden until populated. */
 export default function CreativeGallery() {
@@ -10,15 +11,15 @@ export default function CreativeGallery() {
     <>
       {creatives.length > 0 && (
         <Reveal className="mt-16">
-          <p className="label">// CREATIVES THAT RAN</p>
+          <p className="label">CREATIVES THAT RAN</p>
           <div className="mt-5 columns-2 gap-4 md:columns-3 lg:columns-4 [&>*]:mb-4 [&>*]:break-inside-avoid">
             {creatives.map((c) => {
               const inner = (
                 <div className="bezel !p-1"><div className="bezel-core relative">
                   <Image src={c.src} alt={`${c.client} — ad creative`} width={800} height={1000} className="h-auto w-full object-cover" sizes="(min-width:1024px) 22vw, (min-width:768px) 30vw, 45vw" />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-3/90 to-transparent p-3 pt-10">
-                    <p className="text-sm text-paper">{c.client}</p>
-                    {c.note && <p className="mt-0.5 text-xs text-paper/70">{c.note}</p>}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-stock-3/90 to-transparent p-3 pt-10">
+                    <p className="text-sm text-ink">{c.client}</p>
+                    {c.note && <p className="mt-0.5 text-xs text-ink/72">{c.note}</p>}
                   </div>
                 </div></div>
               );
@@ -30,17 +31,17 @@ export default function CreativeGallery() {
 
       {decks.length > 0 && (
         <Reveal className="mt-16">
-          <p className="label">// DECKS IN FRONT OF INVESTORS &amp; MEDIA</p>
+          <p className="label">DECKS IN FRONT OF INVESTORS &amp; MEDIA</p>
           <div className="mt-5 space-y-6">
             {decks.map((d) => (
               <div key={d.title} className="bezel">
                 <div className="bezel-core grid gap-6 p-5 md:grid-cols-[1fr_1.6fr] md:p-6">
                   <div>
-                    <p className="display text-2xl text-paper md:text-3xl">{d.title}</p>
-                    <p className="mt-2 text-paper/75">{d.client}</p>
+                    <p className="display text-2xl text-ink md:text-3xl">{d.title}</p>
+                    <p className="mt-2 text-ink/75">{d.client}</p>
                     <p className="label mt-4">{d.audience}</p>
-                    {d.outcome && <p className="mt-3 text-paper/85">{d.outcome}</p>}
-                    {d.link && <a href={d.link} target="_blank" rel="noreferrer" className="underline-slide mt-4 inline-block text-sm text-paper/80 hover:text-paper">View deck →</a>}
+                    {d.outcome && <p className="mt-3 text-ink/85">{d.outcome}</p>}
+                    {d.link && <a href={d.link} target="_blank" rel="noreferrer" className="underline-slide mt-4 inline-block text-sm text-ink/80 hover:text-ink">View deck <Icon name="arrow-up-right" size={14} className="ml-1 inline-block align-[-0.1em]" /></a>}
                   </div>
                   <div className="grid grid-cols-3 gap-3">
                     {d.slides.slice(0, 3).map((s, i) => (

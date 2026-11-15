@@ -5,38 +5,43 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, m } from "framer-motion";
 import clsx from "clsx";
-import { site } from "@/lib/content";
+import { site, story } from "@/lib/content";
 import { useDetectedMarket } from "@/lib/market";
 import { calHref } from "@/lib/submit";
+import Clocks from "@/components/Clocks";
 
 const links = [
-  { label: "Results", href: "/#work" },
+  { label: "Work", href: "/work/" },
+  { label: "Films", href: "/films/" },
+  { label: "Rates", href: "/pricing/" },
   { label: "Services", href: "/services/" },
-  { label: "Pricing", href: "/pricing/" },
-  { label: "Method", href: "/#method" },
-  { label: "Blog", href: "/blog/" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog/" },
 ];
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+const small = "press inline-flex min-h-[40px] items-center px-4 text-sm font-semibold";
+const bar = "press inline-flex min-h-[48px] items-center justify-center px-3 text-center text-[0.9375rem] font-semibold";
 
 /**
- * Floating glass island, detached from the top edge. Hides on scroll-down, returns on scroll-up.
- * Mobile: name + hamburger that morphs to ×, full-screen glass menu with staggered mask reveal,
- * plus a sticky bottom bar with both exits once the hero is gone.
+ * The masthead of the rate card: a dateline (the reader's hour beside Chennai's), then the name and the
+ * sections, closed by a heavy rule. Leaves on scroll-down, returns on scroll-up.
+ * Mobile: name + menu button, a full-screen menu printed on the emerald field, and a bottom bar with the
+ * page's two exits once the opening has scrolled away.
  */
 export default function Nav() {
   const [hidden, setHidden] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  // Visitors in India get the rupee list; everyone else only ever sees dollars.
+  // Visitors in India get the rupee list and WhatsApp; everyone else only ever sees dollars.
   const india = useDetectedMarket() === "inr";
   const navLinks = india ? links.map((l) => (l.href === "/pricing/" ? { ...l, href: "/india/" } : l)) : links;
-  const onPaper = ["/apply", "/audit", "/about"].some((p) => pathname?.startsWith(p));
   const onApply = !!pathname?.startsWith("/apply");
   const onAiAds = !!pathname?.startsWith("/ai-ads");
   const onPricing = !!pathname?.startsWith("/pricing");
+  const wa = `https://wa.me/${site.whatsapp}`;
+  const issued = new Date().toLocaleString("en-GB", { month: "long", year: "numeric" });
 
   useEffect(() => {
     let last = window.scrollY, ticking = false, h = false, p = false;
@@ -60,113 +65,112 @@ export default function Nav() {
     document.documentElement.classList.toggle("lenis-stopped", open);
   }, [open]);
 
+  const primary = india
+    ? <a href={wa} target="_blank" rel="noreferrer" className={`${small} bg-signal text-stock hover:bg-ink`}>WhatsApp</a>
+    : <Link href="/#reply" className={`${small} bg-signal text-stock hover:bg-ink`}>Free AI ad</Link>;
+
   return (
     <>
-      <header
-        className={clsx(
-          "fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-[max(1rem,env(safe-area-inset-top))] transition-transform duration-500 ease-out-expo",
-          hidden ? "-translate-y-[130%]" : "translate-y-0"
-        )}
-      >
-        <div className={clsx("glass flex w-full items-center justify-between gap-6 rounded-full border py-2 pl-5 pr-2 lg:w-max lg:gap-14 lg:pl-6", onPaper ? "theme-paper border-paper/10" : "border-paper/10")}>
-          <Link href="/" className="display -my-3 py-3 text-xl tracking-tight text-paper" aria-label="Jothi Swaroop — home" onClick={() => setOpen(false)}>
-            {site.name}
-          </Link>
-          <nav className="hidden items-center gap-8 lg:flex">
-            {navLinks.map((l) => (
-              <Link key={l.href} href={l.href} className="underline-slide text-sm text-paper/80 transition-colors duration-200 hover:text-paper">
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="hidden items-center gap-2 md:flex">
-            <Link href="/audit" className="press rounded-full border border-paper/15 px-4 py-2 text-sm text-paper/85 hover:border-paper/40">
-              Free audit
-            </Link>
-            {!onApply && (
-              <Link href="/apply" className="press rounded-full bg-signal px-4 py-2 text-sm font-medium text-ink hover:bg-paper">
-                Apply
-              </Link>
-            )}
+      <header className={clsx("fixed inset-x-0 top-0 z-50 bg-stock transition-transform duration-500 ease-out-expo", hidden ? "-translate-y-full" : "translate-y-0")}>
+        <div className="border-b border-ink">
+          <div className="mx-auto flex h-8 max-w-[1440px] items-center justify-center gap-6 px-5 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] sm:justify-between md:px-10">
+            <span className="hidden sm:inline" suppressHydrationWarning>Rate card · {issued}</span>
+            <Clocks />
+            <span className="hidden md:inline">{story.titles.split(" · ")[0]}</span>
           </div>
-          <button
-            onClick={() => setOpen((o) => !o)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="press relative grid h-10 w-10 place-items-center rounded-full bg-paper/5 md:hidden"
-          >
-            <span className={clsx("absolute h-px w-4 bg-paper transition-transform duration-400 ease-out-expo", open ? "rotate-45" : "-translate-y-[3px]")} />
-            <span className={clsx("absolute h-px w-4 bg-paper transition-transform duration-400 ease-out-expo", open ? "-rotate-45" : "translate-y-[3px]")} />
-          </button>
+        </div>
+        <div className="border-b-4 border-ink">
+          <div className="mx-auto flex h-[60px] max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10">
+            <Link href="/" className="display -my-3 py-3 text-[1.5rem] text-ink" aria-label="Jothi Swaroop, home" onClick={() => setOpen(false)}>
+              {site.name}
+            </Link>
+            <nav className="hidden items-center gap-7 lg:flex" aria-label="Sections">
+              {navLinks.map((l) => (
+                <Link key={l.href} href={l.href} className={clsx("underline-slide text-[0.9375rem] font-medium text-ink", pathname?.startsWith(l.href.replace(/\/$/, "")) && "underline decoration-2 underline-offset-[6px]")}>
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="hidden items-center gap-2 md:flex">
+              <Link href="/audit" className={`${small} border border-ink text-ink hover:bg-ink hover:text-stock`}>Free audit</Link>
+              {!onApply && primary}
+            </div>
+            <button
+              onClick={() => setOpen((o) => !o)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              className="press relative grid h-11 w-11 place-items-center border border-ink md:hidden"
+            >
+              <span className={clsx("absolute h-[1.5px] w-5 bg-ink transition-transform duration-300 ease-out-expo", open ? "rotate-45" : "-translate-y-[4px]")} />
+              <span className={clsx("absolute h-[1.5px] w-5 bg-ink transition-transform duration-300 ease-out-expo", open ? "-rotate-45" : "translate-y-[4px]")} />
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Mobile full-screen menu */}
+      {/* Mobile menu: the sections, printed large on the field */}
       <AnimatePresence>
         {open && (
           <m.div
-            className="glass-strong fixed inset-0 z-40 flex flex-col justify-end bg-ink/85 px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-28 md:hidden"
-            style={{ transformOrigin: "top right" }}
-            initial={{ opacity: 0, scale: 0.98, backdropFilter: "blur(0px) saturate(100%)" }}
-            animate={{ opacity: 1, scale: 1, backdropFilter: "blur(24px) saturate(160%)" }}
-            exit={{ opacity: 0, scale: 0.98, backdropFilter: "blur(0px) saturate(100%)", transition: { duration: 0.25, ease: EASE } }}
-            transition={{ duration: 0.45, ease: EASE }}
+            className="field fixed inset-0 z-40 flex flex-col justify-end px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-28 md:hidden"
+            initial={{ clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            exit={{ clipPath: "inset(0 0 100% 0)", transition: { duration: 0.3, ease: EASE } }}
+            transition={{ duration: 0.5, ease: EASE }}
           >
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col" aria-label="Sections">
               {navLinks.map((l, i) => (
-                <span key={l.href} className="mask-line">
+                <span key={l.href} className="mask-line border-b border-line">
                   <m.span
                     className="block"
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
-                    exit={{ y: "110%", transition: { duration: 0.25 } }}
-                    transition={{ duration: 0.7, ease: EASE, delay: 0.05 + i * 0.06 }}
+                    exit={{ y: "110%", transition: { duration: 0.2 } }}
+                    transition={{ duration: 0.6, ease: EASE, delay: 0.08 + i * 0.05 }}
                   >
-                    <Link href={l.href} onClick={() => setOpen(false)} className="display block py-2 text-5xl text-paper">
+                    <Link href={l.href} onClick={() => setOpen(false)} className="display block py-3 text-[2.5rem] text-ink">
                       {l.label}
                     </Link>
                   </m.span>
                 </span>
               ))}
             </nav>
-            <m.div
-              className="mt-10 grid grid-cols-2 gap-3"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: EASE, delay: 0.35 }}
-            >
-              <Link href="/audit" onClick={() => setOpen(false)} className="press rounded-full border border-paper/20 py-3.5 text-center text-sm">Free audit</Link>
-              <Link href="/apply" onClick={() => setOpen(false)} className="press rounded-full bg-signal py-3.5 text-center text-sm font-medium text-ink">Apply</Link>
-            </m.div>
-            <p className="label mt-8 !text-paper/55">{site.base} · {site.whatsappDisplay}</p>
+            <div className="mt-8 grid grid-cols-2 gap-3">
+              <Link href="/audit" onClick={() => setOpen(false)} className={`${bar} border border-ink text-ink`}>Free audit</Link>
+              {india
+                ? <a href={wa} target="_blank" rel="noreferrer" className={`${bar} bg-signal text-stock`}>WhatsApp</a>
+                : <Link href="/#reply" onClick={() => setOpen(false)} className={`${bar} bg-signal text-stock`}>Free AI ad</Link>}
+            </div>
+            <p className="mt-6 text-sm text-ink">{site.base} <span aria-hidden>·</span> {site.whatsappDisplay}</p>
           </m.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile sticky bar — both exits, appears after hero */}
+      {/* Mobile bottom bar: the page's two exits, once the opening has scrolled away */}
       <div
         className={clsx(
-          "glass scroll-edge-top fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-expo md:hidden",
-          onPaper && "theme-paper",
+          "fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t-4 border-ink bg-stock p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-500 ease-out-expo md:hidden",
           pastHero && !open && !onApply ? "translate-y-0" : "translate-y-full"
         )}
       >
         {onAiAds ? (
           <>
-            {/* The cold-email landing page: its two exits are the price and the free ad, not an application. */}
-            <a href="#price" className="press rounded-full border border-paper/20 py-3 text-center text-sm">See the price</a>
-            <a href="#free-ad" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Free AI ad</a>
+            {/* The cold-email landing page: its two exits are the price and the free ad. */}
+            <a href="#price" className={`${bar} border border-ink text-ink`}>See the price</a>
+            <a href="#free-ad" className={`${bar} bg-signal text-stock`}>Free AI ad</a>
           </>
         ) : onPricing ? (
           <>
             {/* The price list's exits are its two offers: the free ad, and a call about lead generation. */}
-            <Link href="/ai-ads/#free-ad" className="press rounded-full border border-paper/20 py-3 text-center text-sm">Free AI ad</Link>
-            <a href={calHref(site.calendar, { notes: "From the pricing page" })} target="_blank" rel="noreferrer" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Book a call</a>
+            <a href="#reply" className={`${bar} border border-ink text-ink`}>Free AI ad</a>
+            <a href={calHref(site.calendar, { notes: "From the pricing page" })} target="_blank" rel="noreferrer" className={`${bar} bg-signal text-stock`}>Book a call</a>
           </>
         ) : (
           <>
-            <Link href="/audit" className="press rounded-full border border-paper/20 py-3 text-center text-sm">Free audit</Link>
-            <Link href="/apply" className="press rounded-full bg-signal py-3 text-center text-sm font-medium text-ink">Apply</Link>
+            <Link href="/audit" className={`${bar} border border-ink text-ink`}>Free audit</Link>
+            {india
+              ? <a href={wa} target="_blank" rel="noreferrer" className={`${bar} bg-signal text-stock`}>WhatsApp</a>
+              : <Link href="/#reply" className={`${bar} bg-signal text-stock`}>Free AI ad</Link>}
           </>
         )}
       </div>

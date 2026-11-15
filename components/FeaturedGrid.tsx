@@ -7,6 +7,7 @@ import Reveal from "@/components/motion/Reveal";
 import SwipeCue from "@/components/SwipeCue";
 import type { CaseStudy } from "@/lib/content";
 import ClientLogo, { logoFor } from "@/components/ClientLogo";
+import Result from "@/components/Result";
 
 /**
  * Same four cases, ordered for the reader: a visitor outside India sees the international
@@ -28,22 +29,22 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
     <div id="featured-cases" className="m-scroller mt-4 grid gap-5 md:mt-14 md:grid-cols-2">
       {list.map((c, i) => (
         <Reveal key={c.slug} delay={i * 0.08}>
-          <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-paper/20">
+          <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-ink/20">
             <div className="bezel-core">
               <div className="relative aspect-[16/9] overflow-hidden">
-                <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover object-left-top transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.03]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-3 via-ink-3/30 to-transparent" />
+                <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover object-left-top" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stock-3 via-stock-3/30 to-transparent" />
                 <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-4">
-                  <p className="num text-[clamp(1.6rem,2.6vw,2.5rem)] text-signal">{c.result}</p>
-                  {c.international && <span className="label rounded-full border border-paper/25 px-2 py-1 !text-paper/80">{/UK/.test(c.location) ? "UK" : "US · CA"}</span>}
+                  <p className="num text-[clamp(1.6rem,2.6vw,2.5rem)] text-signal"><Result>{c.result}</Result></p>
+                  {c.international && <span className="label rounded-full border border-ink/25 px-2 py-1 !text-ink/80">{/UK/.test(c.location) ? "UK" : "US · CA"}</span>}
                 </div>
               </div>
               <div className="grid gap-4 p-5 md:grid-cols-2 md:p-6">
-                <div><p className="label !text-strike">Before</p><p className="mt-2 text-sm text-paper/80">{c.before}</p></div>
-                <div><p className="label !text-paper/80">After</p><p className="mt-2 text-sm text-paper/90">{c.after}</p></div>
+                <div><p className="label !text-strike">Before</p><p className="mt-2 text-sm text-ink/80">{c.before}</p></div>
+                <div><p className="label !text-ink/80">After</p><p className="mt-2 text-sm text-ink/90">{c.after}</p></div>
               </div>
               <div className="flex items-center justify-between border-t hairline px-5 py-3 md:px-6">
-                <p className="flex items-center gap-3 text-sm text-paper/70">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={26} />}<span>{c.client} · {c.industry}</span></p>
+                <p className="flex items-center gap-3 text-sm text-ink/72">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={26} />}<span>{c.client} · {c.industry}</span></p>
                 <p className="label">{c.year}</p>
               </div>
             </div>

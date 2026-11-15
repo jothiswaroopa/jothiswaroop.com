@@ -91,6 +91,7 @@ export function getPost(slug: string): Post | null {
     segment: data.segment ?? "general",
     sources: data.sources ?? [],
     faq: data.faq ?? [],
+    cover: data.cover?.value != null ? { value: String(data.cover.value), label: data.cover.label } : undefined,
     draft: !!data.draft,
     html,
     words,

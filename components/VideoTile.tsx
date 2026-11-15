@@ -25,19 +25,19 @@ export default function VideoTile({ youtubeId, title, vertical, poster: posterOv
   }, [pi]); // eslint-disable-line react-hooks/exhaustive-deps
   const base = `https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1&cc_load_policy=1&playsinline=1`;
   return (
-    <div className={`relative bg-ink ${vertical ? "aspect-[9/16]" : "aspect-video"} ${className}`}>
+    <div className={`relative bg-stock ${vertical ? "aspect-[9/16]" : "aspect-video"} ${className}`}>
       {touch ? (
         <>
-          <img src={poster} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-85" />
+          <img src={poster} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
           <iframe src={base} title={title} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />
         </>
       ) : play ? (
         <iframe src={`${base}&autoplay=1`} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />
       ) : (
         <button onClick={() => setPlay(true)} className="press group absolute inset-0 grid place-items-center" aria-label={`Play: ${title}`}>
-          <img ref={imgRef} src={poster} alt="" loading="lazy" decoding="async" onLoad={onPoster} onError={onPoster} className="absolute inset-0 h-full w-full object-cover opacity-85 transition-opacity duration-300 group-hover:opacity-100" />
-          <span className="relative grid h-14 w-14 place-items-center rounded-full bg-signal text-ink transition-transform duration-300 ease-out-expo group-hover:scale-105">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z" /></svg>
+          <img ref={imgRef} src={poster} alt="" loading="lazy" decoding="async" onLoad={onPoster} onError={onPoster} className="absolute inset-0 h-full w-full object-cover" />
+          <span className="salmon relative grid h-14 w-14 place-items-center border border-ink transition-transform duration-300 ease-out-expo group-hover:scale-105">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden><path d="M4 2.5v11l9-5.5z" /></svg>
           </span>
         </button>
       )}

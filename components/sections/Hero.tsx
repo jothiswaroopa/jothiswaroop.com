@@ -1,138 +1,60 @@
-"use client";
-
 import Image from "next/image";
-import { m } from "framer-motion";
-import SplitText from "@/components/motion/SplitText";
-import Button from "@/components/Button";
-import Scramble from "@/components/motion/Scramble";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { hero, site, byTheNumbers, story, logos } from "@/lib/content";
+import { hero, site, story, byTheNumbers } from "@/lib/content";
+import { RateCard } from "@/components/sections/Offers";
+import HeroActions from "@/components/HeroActions";
+import Icon from "@/components/Icon";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
-
-/** display:none doesn't stop <img> downloads — so the mark row only mounts once we know the screen is wide */
-function useWide() {
-  const [wide, setWide] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
-    const on = () => setWide(mq.matches);
-    on(); mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
-  }, []);
-  return wide;
-}
-
+/**
+ * The opening of the rate card. Left: the one sentence the whole site argues, the line under it, the two
+ * actions and who issues the card; on a wide screen it holds its place while the reader scrolls the card.
+ * Right: the rate card itself, tall, running on below the first screen, with the reply card's tab at its corner.
+ * On a phone the order is sentence, actions, card, then the issuer: the card's head and first price have to
+ * land inside the first screen, so the issuer waits under the card.
+ */
 export default function Hero() {
-  const wide = useWide();
-  const wordCount = hero.headline.join(" ").split(" ").length;
-  const settle = 0.2 + wordCount * 0.04;
-
+  const [leads, conversations] = byTheNumbers.stats;
   return (
-    <section className="relative min-h-[100svh] overflow-hidden pt-[88px]">
-      <div className="mx-auto grid max-w-[1440px] gap-8 px-5 pb-16 pt-6 md:px-10 lg:grid-cols-[55fr_45fr] lg:items-end lg:gap-12 lg:pb-14 lg:pt-10">
-        {/* Video / portrait — first on mobile */}
-        <m.div
-          className="hero-media bezel relative order-1 h-[min(28svh,360px)] w-full lg:order-2 lg:h-[min(72vh,760px)]"
-          initial={{ clipPath: "inset(6% 6% 6% 6% round 24px)", scale: 1.1 }}
-          animate={{ clipPath: "inset(0% 0% 0% 0% round 24px)", scale: 1 }}
-          transition={{ duration: 1.4, ease: EASE, delay: settle * 0.6 }}
-        >
-         <div className="bezel-core relative h-full w-full">
-          {hero.videoSrc ? (
-            <video className="h-full w-full object-cover" src={hero.videoSrc} poster={hero.posterSrc} autoPlay muted loop playsInline />
-          ) : (
-            // The duotone is baked into this file by scripts/images.mjs rather than applied with a
-            // CSS filter and a blend layer. This is the LCP element, and on a throttled phone the
-            // runtime version cost 4.4s of render delay after the image had already arrived.
-            <div className="relative h-full w-full">
-              <Image src="/img/portrait-hero-duotone.jpg" alt={`${site.name}, portrait`} fill priority fetchPriority="high" sizes="(min-width:1024px) 45vw, 70vw" className="object-cover object-[50%_32%]" />
+    <section className="relative pt-[96px]">
+      <div className="mx-auto grid max-w-[1440px] gap-x-10 gap-y-8 px-5 pb-16 pt-5 md:px-10 md:pb-24 md:pt-14 lg:grid-cols-12">
+        {/* `contents` below lg: its two blocks become grid items, so the card can sit between them */}
+        <div className="contents lg:sticky lg:top-[136px] lg:col-span-7 lg:block lg:self-start">
+          <div className="order-1">
+            <h1 className="tracking-display text-[clamp(2rem,5.6vw,5.5rem)]">
+              <span className="mask-line"><span className="word-rise" style={{ "--i": 0 } as React.CSSProperties}>{hero.thesis[0][0]}<br />{hero.thesis[0][1]}</span></span>
+              <span className="mask-line"><span className="word-rise text-signal" style={{ "--i": 2 } as React.CSSProperties}>{hero.thesis[1][0]}<br />{hero.thesis[1][1]}</span></span>
+            </h1>
+            <p className="fade-up mt-5 max-w-[34rem] text-lg leading-relaxed md:mt-7 md:text-xl" style={{ "--i": 2 } as React.CSSProperties}>{hero.lede}</p>
+            <div className="fade-up mt-6 md:mt-8" style={{ "--i": 3 } as React.CSSProperties}>
+              <HeroActions />
             </div>
-          )}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-          <m.p
-            className="label absolute bottom-5 left-5 !text-paper/80"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: settle + 0.8 }}
-          >
-            <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-signal align-middle" />
-            {site.seatsLine} · Q4 2026
-          </m.p>
-         </div>
-        </m.div>
+          </div>
 
-        {/* Copy — on desktop the column is as tall as the portrait: eyebrow + counted totals at the top, the pitch at the bottom */}
-        <div className="order-2 lg:order-1 lg:flex lg:h-[min(72vh,760px)] lg:flex-col lg:justify-between">
-          <div>
-            <m.p className="label" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
-              <Scramble text={hero.eyebrow} />
-            </m.p>
-            {/* desktop only: who this is, before the pitch — name, credentials, then the counted proof line */}
-            <m.div
-              className="mt-7 hidden lg:block"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
-            >
-              <p className="display text-[2.4rem] leading-none tracking-display text-paper">{site.name}</p>
-              <p className="mono mt-3 text-[13px] text-paper/70">{story.titles}</p>
-            </m.div>
-            <m.ul
-              className="mt-6 hidden gap-x-8 gap-y-3 border-t hairline pt-5 lg:flex lg:flex-wrap"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              aria-label="Counted across every ad account on this page"
-            >
-              {byTheNumbers.stats.slice(0, 3).map((st) => (
-                <li key={st.k} className="flex items-baseline gap-2">
-                  <span className="mono text-sm text-signal">{st.prefix ?? ""}{st.value.toLocaleString("en-IN")}{st.suffix ?? ""}</span>
-                  <span className="label !normal-case !tracking-normal">{st.k}</span>
-                </li>
-              ))}
-            </m.ul>
-            {/* the brands behind those numbers — case marks only, flattened to paper so the hero stays two-tone */}
-            {wide && <m.ul
-              className="mt-4 mb-8 hidden items-center gap-x-6 lg:flex"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              aria-label="Clients with a case study on this page"
-            >
-              {logos.primary.filter((l) => l.caseSlug && !l.noSilhouette).map((l) => (
-                <li key={l.file}>
-                  <Link href={`/work/${l.caseSlug}`} title={l.name} className="block">
-                    <img src={`/img/logos/${l.file}.webp`} alt={l.name} className="logo-mark-ink w-auto" style={{ height: l.wide ? 14 : 22, maxWidth: l.wide ? 96 : 48 }} />
-                  </Link>
-                </li>
-              ))}
-            </m.ul>}
+          <div className="order-3 lg:mt-10">
+            <div className="fade-up flex max-w-[34rem] items-center gap-5 border-t border-ink pt-6" style={{ "--i": 4 } as React.CSSProperties}>
+              <div className="relative h-[88px] w-[72px] shrink-0 bg-stock-3">
+                <Image src="/img/portrait-hero.jpg" alt={`${site.name}, portrait`} fill priority fetchPriority="high" sizes="72px" className="duotone object-cover object-[50%_22%]" />
+              </div>
+              <div>
+                <p className="display text-xl">{site.name}</p>
+                <p className="mt-1 text-sm">{story.titles}</p>
+                <p className="mt-1 text-sm">{site.base}</p>
+              </div>
+            </div>
+            <p className="fade-up mt-6 max-w-[34rem] text-[0.9375rem]" style={{ "--i": 5 } as React.CSSProperties}>
+              <span className="tnum font-semibold">{leads.value.toLocaleString("en-US")} leads</span> and{" "}
+              <span className="tnum font-semibold">{conversations.value.toLocaleString("en-US")} conversations</span> across nine ad accounts. Every figure links to its Ads Manager screenshot.{" "}
+              <Link href="#figures" className="inline-flex items-center gap-1 font-semibold underline">See the figures <Icon name="arrow-down" size={14} /></Link>
+            </p>
           </div>
-          <div>
-          <SplitText
-            lines={hero.headline}
-            className="tracking-display mt-5 text-[clamp(2.5rem,4.6vw,4.5rem)] text-paper lg:mt-0"
-            delay={0.2}
-          />
-          <m.p
-            className="mt-6 max-w-xl text-base leading-relaxed text-paper/80 md:mt-8 md:text-lg"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: settle + 0.2 }}
-          >
-            {hero.sub}
-          </m.p>
-          <m.div
-            className="mt-8 flex flex-wrap items-center gap-4 md:mt-10"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: settle + 0.4 }}
-          >
-            <Button href={hero.ctaPrimary.href}>{hero.ctaPrimary.label}</Button>
-            <Button href={hero.ctaSecondary.href} variant="ghost">{hero.ctaSecondary.label}</Button>
-          </m.div>
-          </div>
+        </div>
+
+        <div id="offers" className="relative order-2 mt-3 lg:order-none lg:col-span-5 lg:mt-0">
+          <span id="services" className="absolute top-0" aria-hidden />
+          <Link href="#reply" className="salmon press absolute -top-5 right-4 z-10 inline-flex rotate-3 items-center gap-2 border border-ink px-3 py-2 text-xs font-bold uppercase tracking-[0.08em] transition-transform duration-300 ease-out-expo hover:rotate-0">
+            Reply card inside <Icon name="arrow-down" size={14} />
+          </Link>
+          <RateCard />
         </div>
       </div>
     </section>

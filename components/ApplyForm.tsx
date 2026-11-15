@@ -6,6 +6,7 @@ import { AnimatePresence, m } from "framer-motion";
 import { apply, site, type Currency } from "@/lib/content";
 import { submit, calHref } from "@/lib/submit";
 import { sourceNote } from "@/lib/source";
+import Icon from "@/components/Icon";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const stepVariants = {
@@ -76,9 +77,9 @@ export default function ApplyForm() {
     adspend: a.spend,
     notes: [a.sell && `Sells: ${a.sell}`, a.broken && `Broken: ${a.broken}`, a.introducer && `Introduced by: ${a.introducer}`, programLabel && `Programme: ${programLabel}`, sourceNote()].filter(Boolean).join(" · "),
   });
-  const Cal = () => site.calendar ? <a href={calUrl} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-ink hover:bg-paper">Book a 30-min call →</a> : null;
-  const Mail = () => mailHref ? <a href={mailHref} className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${intl && !site.calendar ? "bg-signal font-medium text-ink hover:bg-paper" : "border border-line-strong hover:border-paper/50"}`}>Send by email <span className="mono text-xs opacity-70">{site.email}</span></a> : null;
-  const Wa = () => <a href={waHref} target="_blank" rel="noreferrer" className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${!intl ? "bg-signal font-medium text-ink hover:bg-paper" : "border border-line-strong hover:border-paper/50"}`}>Send on WhatsApp <span className="mono text-xs opacity-70">{site.whatsappDisplay}</span></a>;
+  const Cal = () => site.calendar ? <a href={calUrl} target="_blank" rel="noreferrer" className="press inline-flex items-center rounded-full bg-signal px-5 py-3 text-sm font-medium text-stock hover:bg-ink">Book a 30-min call <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></a> : null;
+  const Mail = () => mailHref ? <a href={mailHref} className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${intl && !site.calendar ? "bg-signal font-medium text-stock hover:bg-ink" : "border border-line-strong hover:border-ink/50"}`}>Send by email <span className="mono text-xs opacity-70">{site.email}</span></a> : null;
+  const Wa = () => <a href={waHref} target="_blank" rel="noreferrer" className={`press inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm ${!intl ? "bg-signal font-medium text-stock hover:bg-ink" : "border border-line-strong hover:border-ink/50"}`}>Send on WhatsApp <span className="mono text-xs opacity-70">{site.whatsappDisplay}</span></a>;
   const Actions = () => <div className="mt-8 flex flex-wrap gap-3">{intl ? <><Cal /><Mail /><Wa /></> : <><Wa /><Cal /><Mail /></>}</div>;
 
   // progress: steps count up; "sending"/"manual" hold just short of full — full only when actually delivered
@@ -88,27 +89,27 @@ export default function ApplyForm() {
     <div className="mx-auto w-full max-w-2xl">
       {programLabel && <p className="label mb-6 inline-block rounded-full border border-line-strong px-3 py-1.5 !normal-case !tracking-normal">Applying for: {programLabel}</p>}
       <div className="mb-10 flex items-center gap-4">
-        <span className="mono text-xs text-paper/65">{phase === "delivered" ? "Sent" : `${String(Math.min(step + 1, total)).padStart(2, "0")} / ${String(total).padStart(2, "0")}`}</span>
+        <span className="mono text-xs text-ink/72">{phase === "delivered" ? "Sent" : `${String(Math.min(step + 1, total)).padStart(2, "0")} / ${String(total).padStart(2, "0")}`}</span>
         <div className="h-px flex-1 bg-line"><m.div className="h-full bg-signal" animate={{ width: `${progress * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
 
       <AnimatePresence mode="wait" custom={dir}>
         {phase === "steps" && (
           <m.div key={step} custom={dir} variants={stepVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.4, ease: EASE }}>
-            <p className="display text-3xl text-paper md:text-4xl">{cur.q}</p>
+            <p className="display text-3xl text-ink md:text-4xl">{cur.q}</p>
 
             {cur.type === "text" && (
               <input aria-label={cur.q} value={a[cur.key] ?? ""} onChange={(e) => setA({ ...a, [cur.key]: e.target.value })} onKeyDown={(e) => e.key === "Enter" && valid && next()} placeholder={cur.placeholder}
-                className="mt-8 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-paper placeholder:text-paper/40 focus:border-signal focus:outline-none" />
+                className="mt-8 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-ink placeholder:text-ink/72 focus:border-signal focus:outline-none" />
             )}
 
             {cur.type === "choice" && (
               <div className="mt-8 grid gap-3 sm:grid-cols-2" role="group" aria-label={cur.q}>
                 {cur.options.map((o) => (
                   <button key={o} onClick={() => setA({ ...a, [cur.key]: o })} aria-pressed={a[cur.key] === o}
-                    className={`press rounded-2xl border px-5 py-4 text-left text-base ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/85 hover:border-paper"}`}>{o}</button>
+                    className={`press rounded-2xl border px-5 py-4 text-left text-base ${a[cur.key] === o ? "border-signal bg-signal text-stock" : "border-line-strong text-ink/85 hover:border-ink"}`}>{o}</button>
                 ))}
-                {a.intro === apply.introducedValue && <p className="label sm:col-span-2 !normal-case !tracking-normal text-paper/70">Introductions go first — you&apos;ll hear from me today.</p>}
+                {a.intro === apply.introducedValue && <p className="label sm:col-span-2 !normal-case !tracking-normal text-ink/72">Introductions go first — you&apos;ll hear from me today.</p>}
               </div>
             )}
 
@@ -116,9 +117,9 @@ export default function ApplyForm() {
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 {CURRENCIES.map((c) => (
                   <button key={c.id} type="button" onClick={() => setA({ ...a, currency: c.id })} aria-pressed={currency === c.id && !!a.currency} aria-label={`${c.label} · ${c.sub}`}
-                    className={`press rounded-2xl border px-4 py-4 text-left ${a.currency === c.id ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/85 hover:border-paper"}`}>
+                    className={`press rounded-2xl border px-4 py-4 text-left ${a.currency === c.id ? "border-signal bg-signal text-stock" : "border-line-strong text-ink/85 hover:border-ink"}`}>
                     <span className="display block text-2xl">{c.label}</span>
-                    <span className={`mono mt-1 block text-xs ${a.currency === c.id ? "text-ink/70" : "text-paper/55"}`}>{c.sub}</span>
+                    <span className={`mono mt-1 block text-xs ${a.currency === c.id ? "text-stock/70" : "text-ink/72"}`}>{c.sub}</span>
                   </button>
                 ))}
               </div>
@@ -128,7 +129,7 @@ export default function ApplyForm() {
               <div className="mt-8 flex flex-wrap gap-3" role="group" aria-label={cur.q}>
                 {cur.options[currency].map((o) => (
                   <button key={o} onClick={() => setA({ ...a, [cur.key]: o })} aria-pressed={a[cur.key] === o}
-                    className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-ink" : "border-line-strong text-paper/85 hover:border-paper"}`}>{o}</button>
+                    className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-stock" : "border-line-strong text-ink/85 hover:border-ink"}`}>{o}</button>
                 ))}
               </div>
             )}
@@ -138,51 +139,51 @@ export default function ApplyForm() {
                 <label className="block">
                   <span className="label">Email · required</span>
                   <input type="email" inputMode="email" autoComplete="email" enterKeyHint="send" value={a.email ?? ""} onChange={(e) => setA({ ...a, email: e.target.value })} onKeyDown={(e) => e.key === "Enter" && valid && next()} placeholder="you@company.com"
-                    className="mt-2 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-paper placeholder:text-paper/40 focus:border-signal focus:outline-none" />
+                    className="mt-2 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-ink placeholder:text-ink/72 focus:border-signal focus:outline-none" />
                 </label>
                 <label className="block">
                   <span className="label">WhatsApp / phone · optional</span>
                   <input type="tel" inputMode="tel" autoComplete="tel" value={a.phone ?? ""} onChange={(e) => setA({ ...a, phone: e.target.value })} placeholder={intl ? "+44 …" : "+91 …"}
-                    className="mt-2 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-paper placeholder:text-paper/40 focus:border-signal focus:outline-none" />
+                    className="mt-2 w-full border-b border-line-strong bg-transparent pb-3 text-lg text-ink placeholder:text-ink/72 focus:border-signal focus:outline-none" />
                 </label>
               </div>
             )}
 
             <div className="mt-10 flex items-center gap-6">
-              <button onClick={next} disabled={!valid} className="press rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-ink hover:bg-paper disabled:cursor-not-allowed disabled:opacity-40">
-                {step < total - 1 ? "Next →" : "Send application →"}
+              <button onClick={next} disabled={!valid} className="press rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-stock hover:bg-ink disabled:cursor-not-allowed disabled:opacity-40">
+                {step < total - 1 ? "Next" : "Send application"} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" />
               </button>
-              {step > 0 && <button onClick={back} className="press py-2 text-sm text-paper/65 hover:text-paper">← Back</button>}
+              {step > 0 && <button onClick={back} className="press py-2 text-sm text-ink/72 hover:text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back</button>}
             </div>
-            <p className="mt-6 text-xs text-paper/50">Not ready? <Link href="/audit" className="underline-slide text-paper/80">Run the free Bottleneck Audit instead →</Link></p>
+            <p className="mt-6 text-xs text-ink/72">Not ready? <Link href="/audit" className="underline-slide text-ink/80">Run the free Bottleneck Audit instead <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
           </m.div>
         )}
 
         {phase === "sending" && (
-          <m.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3 text-paper/80">
+          <m.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3 text-ink/80">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-signal" /> Sending…
           </m.div>
         )}
 
         {phase === "delivered" && (
           <m.div key="delivered" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-            <p className="display text-3xl text-paper md:text-4xl">Received.</p>
-            <p className="mt-4 text-paper/80">{introduced ? <>You were introduced, so you go first — a personal reply at <span className="text-paper">{a.email}</span> today.</> : <>I read every application myself. You&apos;ll have a personal reply at <span className="text-paper">{a.email}</span> by the end of the next working day, in your timezone.</>}</p>
+            <p className="display text-3xl text-ink md:text-4xl">Received.</p>
+            <p className="mt-4 text-ink/80">{introduced ? <>You were introduced, so you go first — a personal reply at <span className="text-ink">{a.email}</span> today.</> : <>I read every application myself. You&apos;ll have a personal reply at <span className="text-ink">{a.email}</span> by the end of the next working day, in your timezone.</>}</p>
             {(site.calendar || site.email) && <><p className="label mt-8">Want to move faster?</p><Actions /></>}
           </m.div>
         )}
 
         {phase === "manual" && (
           <m.div key="manual" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-            <p className="display text-3xl text-paper md:text-4xl">Almost there — send it to me directly.</p>
-            <p className="mt-4 text-paper/80">Your answers are packed and ready. {intl ? "Pick a time, or send it by whichever you prefer." : "One tap and it lands in my hand."}</p>
+            <p className="display text-3xl text-ink md:text-4xl">Almost there — send it to me directly.</p>
+            <p className="mt-4 text-ink/80">Your answers are packed and ready. {intl ? "Pick a time, or send it by whichever you prefer." : "One tap and it lands in my hand."}</p>
             <Actions />
-            <button onClick={back} className="press mt-8 py-2 text-sm text-paper/65 hover:text-paper">← Back to edit an answer</button>
+            <button onClick={back} className="press mt-8 py-2 text-sm text-ink/72 hover:text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back to edit an answer</button>
           </m.div>
         )}
       </AnimatePresence>
 
-      {phase === "steps" && <p className="label mt-12 max-w-md !normal-case !tracking-normal !text-paper/55">{apply.followup}</p>}
+      {phase === "steps" && <p className="label mt-12 max-w-md !normal-case !tracking-normal !text-ink/72">{apply.followup}</p>}
     </div>
   );
 }

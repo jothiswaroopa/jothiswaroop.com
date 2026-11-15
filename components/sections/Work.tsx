@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Result from "@/components/Result";
 import Reveal from "@/components/motion/Reveal";
 import Scramble from "@/components/motion/Scramble";
 import Button from "@/components/Button";
@@ -11,6 +12,7 @@ import LogoStrip from "@/components/LogoStrip";
 import ClientLogo, { logoFor } from "@/components/ClientLogo";
 import { byTheNumbers as n, cases, externalProof } from "@/lib/content";
 import Counter from "@/components/motion/Counter";
+import Icon from "@/components/Icon";
 
 
 /** Proof reads truer on paper: real screenshots are light UIs; on dark they look like pitch-deck slides. Flip to "ink" to compare. */
@@ -22,10 +24,9 @@ export default function Work() {
   const rest = live.filter((c) => !c.featured);
 
   return (
-    <section id="work" className={`card-over relative ${PROOF_THEME === "paper" ? "theme-paper" : "bg-ink-2"}`}>
+    <section id="work" className={`card-over relative ${PROOF_THEME === "paper" ? "theme-alt" : "bg-stock-2"}`}>
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
-        <p className="label"><Scramble text="// SELECTED WORK" /></p>
-        <Reveal><h2 className="mt-6 max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)]">Before, after, and the receipts in between.</h2></Reveal>
+        <h1 className="max-w-4xl text-[clamp(2.5rem,5.6vw,5.5rem)]">Before, after, and the receipts in between.</h1>
 
         {/* Every mark below belongs to a client who agreed to be shown; the first row links to its case */}
         <LogoStrip />
@@ -35,12 +36,12 @@ export default function Work() {
 
         {/* Raw receipts — every Ads Manager screen, big enough to read, swipe sideways */}
         <Reveal className="mt-12">
-          <p className="label">// RAW RECEIPTS · EVERY AD ACCOUNT</p>
+          <p className="label">RAW RECEIPTS · EVERY AD ACCOUNT</p>
           <HScroller hint="9 accounts · scroll" className="mt-5">
             {live.flatMap((c) => (c.receipts ?? []).map((src, i) => (
               <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
                 <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:640px) 520px, 86vw" className="object-cover object-left-top" />
-                <span className="label absolute bottom-2 left-2 flex items-center gap-2 rounded bg-ink/85 py-1 pl-1 pr-2 !text-paper/85">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={22} />}{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
+                <span className="label absolute bottom-2 left-2 flex items-center gap-2 rounded bg-stock/85 py-1 pl-1 pr-2 !text-ink/85">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={22} />}{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
               </div></Link>
             )))}
           </HScroller>
@@ -53,10 +54,10 @@ export default function Work() {
         {/* Proof I don't host — only rendered when real links exist. A dead link is worse than no link. */}
         {Object.values(externalProof).some((p) => p.href) && (
           <Reveal className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-y hairline py-5">
-            <p className="label">// PROOF I DON'T HOST</p>
+            <p className="label">PROOF I DON&rsquo;T HOST</p>
             {Object.values(externalProof).filter((p) => p.href).map((p) => (
-              <a key={p.label} href={p.href} className="underline-slide text-sm text-paper/80 hover:text-paper" target="_blank" rel="noreferrer">
-                {p.label}{p.count ? ` · ${p.count}` : ""} →
+              <a key={p.label} href={p.href} className="underline-slide text-sm text-ink/80 hover:text-ink" target="_blank" rel="noreferrer">
+                {p.label}{p.count ? ` · ${p.count}` : ""} <Icon name="arrow-up-right" size={14} className="ml-1 inline-block align-[-0.1em]" />
               </a>
             ))}
           </Reveal>
@@ -68,9 +69,9 @@ export default function Work() {
           <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {n.stats.map((st) => (
               <div key={st.k} className="flex flex-col">
-                <dt className="order-2 mt-3 text-paper">{st.k}</dt>
+                <dt className="order-2 mt-3 text-ink">{st.k}</dt>
                 <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
-                <dd className="order-3 mt-1 text-sm text-paper/65">{st.v}</dd>
+                <dd className="order-3 mt-1 text-sm text-ink/72">{st.v}</dd>
               </div>
             ))}
           </dl>
@@ -80,14 +81,14 @@ export default function Work() {
         <Reveal className="mt-14 grid gap-8 border-t hairline pt-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <p className="label"><Scramble text={n.reported.label} /></p>
-            <p className="mt-5 max-w-sm text-sm text-paper/60">{n.reported.source}</p>
+            <p className="mt-5 max-w-sm text-sm text-ink/72">{n.reported.source}</p>
           </div>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
             {n.reported.stats.map((st) => (
               <div key={st.k} className="flex flex-col">
-                <dt className="order-2 mt-3 text-paper">{st.k}</dt>
-                <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-paper"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} /></dd>
-                <dd className="order-3 mt-1 text-sm text-paper/65">{st.v}</dd>
+                <dt className="order-2 mt-3 text-ink">{st.k}</dt>
+                <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-ink"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} /></dd>
+                <dd className="order-3 mt-1 text-sm text-ink/72">{st.v}</dd>
               </div>
             ))}
           </dl>
@@ -98,8 +99,8 @@ export default function Work() {
           <dl className="mt-6 grid gap-x-6 gap-y-6 sm:grid-cols-3">
             {n.after.facts.map((f) => (
               <div key={f.k}>
-                <dt className="display text-2xl text-paper">{f.k}</dt>
-                <dd className="mt-1 text-sm text-paper/75">{f.v}</dd>
+                <dt className="display text-2xl text-ink">{f.k}</dt>
+                <dd className="mt-1 text-sm text-ink/75">{f.v}</dd>
               </div>
             ))}
           </dl>
@@ -107,14 +108,14 @@ export default function Work() {
 
         {/* The rest — one row each */}
         <Reveal className="mt-14">
-          <p className="label">// AND</p>
+          <p className="label">AND</p>
           <ul className="mt-4 border-t hairline">
             {rest.map((c) => (
               <li key={c.slug}>
-                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-paper/[0.03] md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
-                  <span className="display text-2xl text-paper transition-transform duration-300 ease-out-expo group-hover:translate-x-2">{c.client}</span>
-                  <span className="text-sm text-paper/70">{c.industry} · {c.location}</span>
-                  <span className="mono text-sm text-signal">{c.result}</span>
+                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-ink/[0.03] md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
+                  <span className="display text-2xl text-ink transition-transform duration-300 ease-out-expo group-hover:translate-x-2">{c.client}</span>
+                  <span className="text-sm text-ink/72">{c.industry} · {c.location}</span>
+                  <span className="mono text-sm text-signal"><Result>{c.result}</Result></span>
                   <span className="label md:text-right">{c.year}</span>
                 </Link>
               </li>

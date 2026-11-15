@@ -41,17 +41,15 @@ const LINKS = [
  */
 export default function CardPage() {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-ink px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(2rem,env(safe-area-inset-top))] text-paper">
-      {/* amber halo behind the portrait */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(60%_55%_at_50%_28%,rgba(255,176,32,0.22),transparent_70%)]" />
+    <section className="relative min-h-[100svh] overflow-hidden bg-stock px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(2rem,env(safe-area-inset-top))] text-ink">
 
       <div className="relative mx-auto max-w-[420px]">
-        <p className="mono text-center text-[10.5px] uppercase tracking-[0.18em] text-paper/55">// Performance marketing &amp; AI systems</p>
+        <p className="mono text-center text-[10.5px] uppercase tracking-[0.18em] text-ink/72">Performance marketing &amp; AI systems</p>
 
         {/* portrait cutout — the AI halo above the head, hoodie fading into the ink */}
         <div className="relative mx-auto mt-2 h-[340px] w-full">
           <div aria-hidden className="absolute left-1/2 top-[50%] h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-signal/30" />
-          <div aria-hidden className="absolute left-1/2 top-[50%] h-[270px] w-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-paper/8" />
+          <div aria-hidden className="absolute left-1/2 top-[50%] h-[270px] w-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/8" />
           {/* plain img: served raw, not through the _w variant pipeline */}
           <img
             src="/img/portrait-ai.webp"
@@ -65,15 +63,15 @@ export default function CardPage() {
         <h1 className="display -mt-3 text-center text-[2.85rem] leading-none tracking-[-0.01em]">
           {site.name}<span className="text-signal">.</span>
         </h1>
-        <p className="mono mt-3 text-center text-[11px] uppercase tracking-[0.14em] text-paper/60">Ads · Websites · Content · AI systems</p>
-        <p className="mt-2 text-center text-sm text-paper/60">Chennai → India · UK · US</p>
+        <p className="mono mt-3 text-center text-[11px] uppercase tracking-[0.14em] text-ink/72">Ads · Websites · Content · AI systems</p>
+        <p className="mt-2 text-center text-sm text-ink/72">Chennai → India · UK · US</p>
 
         {/* the two CTAs */}
         <div className="mt-7 grid gap-3">
-          <a href="/jothi-swaroop.vcf" download="Jothi Swaroop.vcf" className="press flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-4 text-[15px] font-medium text-ink shadow-[0_10px_40px_-12px_rgba(255,176,32,0.6)] hover:bg-paper">
+          <a href="/jothi-swaroop.vcf" download="Jothi Swaroop.vcf" className="press flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-4 text-[15px] font-medium text-stock shadow-[0_10px_40px_-12px_rgba(255,176,32,0.6)] hover:bg-ink">
             <span aria-hidden className="text-lg leading-none">+</span> Save contact
           </a>
-          <a href="/?s=card&c=page" className="press flex items-center justify-center gap-2 rounded-full border border-paper/25 bg-paper/[0.04] px-6 py-4 text-[15px] text-paper hover:border-paper/50 hover:bg-paper/[0.08]">
+          <a href="/?s=card&c=page" className="press flex items-center justify-center gap-2 rounded-full border border-ink/25 bg-ink/[0.04] px-6 py-4 text-[15px] text-ink hover:border-ink/50 hover:bg-ink/[0.08]">
             {ICON.globe} Visit jothiswaroop.com <span aria-hidden>→</span>
           </a>
         </div>
@@ -86,54 +84,54 @@ export default function CardPage() {
             { label: "WhatsApp", href: WA, glyph: ICON.wa },
           ].map((a) => (
             <li key={a.label}>
-              <a href={a.href} className="press flex flex-col items-center gap-2 rounded-2xl border border-paper/10 bg-paper/[0.03] py-4 text-paper/85 hover:border-paper/25 hover:bg-paper/[0.07]">
+              <a href={a.href} className="press flex flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-ink/[0.03] py-4 text-ink/85 hover:border-ink/25 hover:bg-ink/[0.07]">
                 {a.glyph}
-                <span className="mono text-[10px] uppercase tracking-[0.12em] text-paper/55">{a.label}</span>
+                <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink/72">{a.label}</span>
               </a>
             </li>
           ))}
         </ul>
 
         {/* the cream receipt */}
-        <div className="theme-paper mt-6 overflow-hidden rounded-2xl bg-ink text-paper shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
+        <div className="theme-alt mt-6 overflow-hidden rounded-2xl bg-stock text-ink shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
           <div className="flex items-center justify-between border-b hairline px-5 py-3">
-            <p className="mono text-[10.5px] uppercase tracking-[0.16em] text-strike">// The receipts</p>
-            <p className="mono text-[10.5px] uppercase tracking-[0.12em] text-paper/50">Ask to see them</p>
+            <p className="mono text-[10.5px] uppercase tracking-[0.16em] text-strike">The receipts</p>
+            <p className="mono text-[10.5px] uppercase tracking-[0.12em] text-ink/72">Ask to see them</p>
           </div>
-          <dl className="grid grid-cols-3 divide-x divide-paper/15">
+          <dl className="grid grid-cols-3 divide-x divide-ink/15">
             {RECEIPTS.map((r) => (
               <div key={r.k} className="flex flex-col px-4 py-5">
-                <dt className="mono order-2 mt-2 text-[10px] uppercase tracking-[0.1em] text-paper/55">{r.k}</dt>
+                <dt className="mono order-2 mt-2 text-[10px] uppercase tracking-[0.1em] text-ink/72">{r.k}</dt>
                 <dd className="display order-1 text-[1.9rem] leading-none tabular-nums">{r.n}</dd>
               </div>
             ))}
           </dl>
           <dl className="grid grid-cols-[84px_1fr] gap-y-3 border-t hairline px-5 py-5 text-[15px]">
-            <dt className="text-paper/50">Phone</dt><dd><a href={`tel:${PHONE_TEL}`} className="underline-slide">{site.whatsappDisplay}</a></dd>
-            <dt className="text-paper/50">Email</dt><dd><a href={`mailto:${site.email}`} className="underline-slide break-all">{site.email}</a></dd>
-            <dt className="text-paper/50">Web</dt><dd><a href="/?s=card&c=page" className="underline-slide">jothiswaroop.com</a></dd>
-            <dt className="text-paper/50">Based in</dt><dd>Chennai, India · works in your timezone</dd>
+            <dt className="text-ink/72">Phone</dt><dd><a href={`tel:${PHONE_TEL}`} className="underline-slide">{site.whatsappDisplay}</a></dd>
+            <dt className="text-ink/72">Email</dt><dd><a href={`mailto:${site.email}`} className="underline-slide break-all">{site.email}</a></dd>
+            <dt className="text-ink/72">Web</dt><dd><a href="/?s=card&c=page" className="underline-slide">jothiswaroop.com</a></dd>
+            <dt className="text-ink/72">Based in</dt><dd>Chennai, India · works in your timezone</dd>
           </dl>
         </div>
 
         {/* links */}
-        <p className="mono mt-8 px-1 text-[10.5px] uppercase tracking-[0.16em] text-paper/50">// Next step</p>
-        <ul className="mt-3 divide-y divide-paper/10 overflow-hidden rounded-2xl border border-paper/12 bg-paper/[0.03]">
+        <p className="mono mt-8 px-1 text-[10.5px] uppercase tracking-[0.16em] text-ink/72">Next step</p>
+        <ul className="mt-3 divide-y divide-ink/10 overflow-hidden rounded-2xl border border-ink/12 bg-ink/[0.03]">
           {LINKS.map((l, i) => (
             <li key={l.k}>
-              <a href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="press group flex items-center gap-4 px-5 py-4 hover:bg-paper/[0.06]">
-                <span className="mono w-5 text-[10px] text-paper/40">0{i + 1}</span>
+              <a href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="press group flex items-center gap-4 px-5 py-4 hover:bg-ink/[0.06]">
+                <span className="mono w-5 text-[10px] text-ink/72">0{i + 1}</span>
                 <span className="flex-1">
-                  <span className="block text-[15px] text-paper">{l.k}</span>
-                  <span className="block text-[13px] text-paper/50">{l.v}</span>
+                  <span className="block text-[15px] text-ink">{l.k}</span>
+                  <span className="block text-[13px] text-ink/72">{l.v}</span>
                 </span>
-                <span className="text-paper/50 transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
+                <span className="text-ink/72 transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
               </a>
             </li>
           ))}
         </ul>
 
-        <p className="mono mt-9 text-center text-[10px] uppercase tracking-[0.12em] leading-relaxed text-paper/40">
+        <p className="mono mt-9 text-center text-[10px] uppercase tracking-[0.12em] leading-relaxed text-ink/72">
           Prompt Engineering Champion 2025<br />TN Digital Summit awardee 2026<br />Official Digital Partner, VROOM 2026
         </p>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import Icon from "@/components/Icon";
 
 /**
  * Horizontal scroller with an explicit cue, ← → buttons, mouse drag, and trackpad support.
@@ -97,18 +98,15 @@ export default function HScroller({ children, hint = "scroll", className = "" }:
         {children}
       </div>
 
-      <div className={`pointer-events-none absolute right-0 top-0 flex h-[calc(100%-1rem)] items-center pr-2 transition-opacity duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`} aria-hidden>
-        <div className="flex items-center gap-2 rounded-full bg-ink/85 px-3 py-1.5 backdrop-blur-md">
-          <span className="label !text-paper/90 !normal-case !tracking-normal">{hint}</span>
-          <span className="label !text-signal animate-[nudge_1.4s_ease-in-out_infinite]">→</span>
-        </div>
-      </div>
+      <p className={`mt-3 flex items-center gap-2 text-sm font-semibold transition-opacity duration-500 md:hidden ${scrolled ? "opacity-0" : "opacity-100"}`} aria-hidden>
+        {hint} <Icon name="arrow" size={14} />
+      </p>
 
       <div className="mt-2 hidden items-center justify-between md:flex">
-        <p className="label !normal-case !tracking-normal text-paper/55">Drag, swipe sideways on a trackpad, or use the arrows</p>
+        <p className="text-sm">Drag, swipe sideways on a trackpad, or use the arrows</p>
         <div className="flex gap-2">
-          <button onClick={() => by(-1)} disabled={!canL} aria-label="Scroll left" className="press grid h-10 w-10 place-items-center rounded-full border border-line-strong text-paper/80 hover:border-paper disabled:opacity-30">←</button>
-          <button onClick={() => by(1)} disabled={!canR} aria-label="Scroll right" className="press grid h-10 w-10 place-items-center rounded-full border border-line-strong text-paper/80 hover:border-paper disabled:opacity-30">→</button>
+          <button onClick={() => by(-1)} disabled={!canL} aria-label="Scroll left" className="press grid h-11 w-11 place-items-center border border-ink text-ink hover:bg-ink hover:text-stock disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink"><Icon name="arrow-left" /></button>
+          <button onClick={() => by(1)} disabled={!canR} aria-label="Scroll right" className="press grid h-11 w-11 place-items-center border border-ink text-ink hover:bg-ink hover:text-stock disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink"><Icon name="arrow" /></button>
         </div>
       </div>
     </div>
