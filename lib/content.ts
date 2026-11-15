@@ -220,7 +220,7 @@ export const story = {
     },
   ],
   objection: {
-    label: "WHY TRUST SOMEONE 8,000 KM AWAY",
+    label: "Why trust someone 8,000 km away?",
     points: [
       { k: "Proof, not promises", v: "Every ad figure on this site is read from Meta Ads Manager and shown with its screenshot. Client-reported results are labelled as exactly that." },
       { k: "Already done abroad", v: "A UK wholesale-buyer campaign for a manufacturer with zero presence there, and a US–Canada summer-camp campaign for a Tamil Nadu art mentorship reaching diaspora families — both on the Results page." },
@@ -240,7 +240,7 @@ export const story = {
 };
 
 export const burn = {
-  label: "WHAT YOU WERE SOLD",
+  label: "What you were sold",
   strikes: ["Impressions.", "Reach.", "A monthly PDF.", "“Brand awareness.”"],
   payoff: "You wanted customers.",
   mechanism: "So I build the engine that gets them — and the automation that makes sure none slip through.",
@@ -459,7 +459,7 @@ export const cases: CaseStudy[] = [
 // 7,341 form leads = Nova 4,248 + Five Elements 1,337 + Sathyam 1,349 + SRR 323 + Angel 84.
 // 876 conversations = Sathyam 240 + Tharunis 321 + Kalavridhi 315.  Reach = Ram 950,548 + Nova 260K + Tharunis 156K.
 export const byTheNumbers = {
-  label: "ACROSS EVERY ACCOUNT ON THIS PAGE",
+  label: "Across every account on this page",
   stats: [
     { value: 7341, suffix: "", k: "form leads", v: "Wholesale buyers, retailers, distributors and customers who filled in a form" },
     { value: 876, suffix: "", k: "conversations", v: "WhatsApp and Instagram enquiries started from an ad" },
@@ -469,7 +469,7 @@ export const byTheNumbers = {
   // CLIENT-REPORTED — figures as told to Jothi by clients (B2B and D2C together), not read from Ads Manager.
   // Published on Jothi's decision, 2026-09-17. Kept visually separate from screenshot numbers and labelled as reported.
   reported: {
-    label: "WHAT CLIENTS REPORT",
+    label: "What clients report",
     stats: [
       { value: 65, suffix: "%", k: "average conversion", v: "Enquiries that became business — an average across B2B orders and D2C purchases; it differs from niche to niche. As reported by clients" },
       { value: 1, prefix: "₹", suffix: " Cr+", k: "in client revenue", v: "Attributed to these campaigns across all clients, as reported by clients" },
@@ -477,7 +477,7 @@ export const byTheNumbers = {
     source: "Ad numbers come from Ads Manager and are shown with their screenshots. Business results happen inside each client's company, so these two are based on what clients have shared with me.",
   },
   after: {
-    label: "WHAT THE LEADS TURNED INTO",
+    label: "What the leads turned into",
     facts: [
       { k: "Scaled", v: "Nova Attire — a year together, and a second ad account after ten months" },
       { k: "Expanded", v: "Five Elements → UK · Kalavridhi → US & Canada" },

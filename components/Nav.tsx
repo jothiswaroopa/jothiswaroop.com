@@ -65,6 +65,7 @@ export default function Nav() {
     document.documentElement.classList.toggle("lenis-stopped", open);
   }, [open]);
 
+  const credential = story.titles.split(" · ")[0]; // "Certified Performance Marketer": on every screen size, always
   const primary = india
     ? <a href={wa} target="_blank" rel="noreferrer" className={`${small} bg-signal text-stock hover:bg-ink`}>WhatsApp</a>
     : <Link href="/#reply" className={`${small} bg-signal text-stock hover:bg-ink`}>Free AI ad</Link>;
@@ -76,13 +77,15 @@ export default function Nav() {
           <div className="mx-auto flex h-8 max-w-[1440px] items-center justify-center gap-6 px-5 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] sm:justify-between md:px-10">
             <span className="hidden sm:inline" suppressHydrationWarning>Rate card · {issued}</span>
             <Clocks />
-            <span className="hidden md:inline">{story.titles.split(" · ")[0]}</span>
+            <span className="hidden md:inline">{credential}</span>
           </div>
         </div>
         <div className="border-b-4 border-ink">
           <div className="mx-auto flex h-[60px] max-w-[1440px] items-center justify-between gap-6 px-5 md:px-10">
-            <Link href="/" className="display -my-3 py-3 text-[1.5rem] text-ink" aria-label="Jothi Swaroop, home" onClick={() => setOpen(false)}>
-              {site.name}
+            <Link href="/" className="-my-3 py-3 text-ink" aria-label="Jothi Swaroop, home" onClick={() => setOpen(false)}>
+              <span className="display block text-[1.5rem] leading-none">{site.name}</span>
+              {/* On a phone the dateline has room for the clocks only, so the credential sits under the name, letterhead-style. */}
+              <span className="mt-1.5 block text-[0.6875rem] font-semibold uppercase leading-none tracking-[0.08em] md:hidden">{credential}</span>
             </Link>
             <nav className="hidden items-center gap-7 lg:flex" aria-label="Sections">
               {navLinks.map((l) => (

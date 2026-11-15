@@ -17,7 +17,7 @@ export default function BackLink({ label = "Back", fallback = "/", className = "
     } catch {}
   }, []);
 
-  const cls = `press group inline-flex items-center gap-2 text-sm text-ink/72 transition-colors hover:text-ink ${className}`;
+  const cls = `press group inline-flex items-center gap-2 text-sm text-ink ${className}`;
   const arrow = <span className="inline-block transition-transform duration-300 ease-out-expo group-hover:-translate-x-1" aria-hidden><Icon name="arrow-left" size={14} /></span>;
 
   if (canGoBack) {

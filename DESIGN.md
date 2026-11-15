@@ -209,7 +209,7 @@ Two inks on a card: every colour is a role in a print job, and a region changes 
 
 **The Two Faces Rule.** Besley for anything set large or priced; Libre Franklin for everything else. Columns of figures use tabular lining Franklin. No monospace, no third face.
 
-**The Heading Opens Rule.** A section opens with its Scotch rule and then its heading. The label style is for column heads, captions, the dateline and the printed furniture of a card (the reply card's stub imprint, the rate card's effective line); it never sits above a heading as a kicker.
+**The Heading Opens Rule.** A section opens with its Scotch rule and then its heading. The label style is for column heads, captions, the dateline and the printed furniture of a card (the reply card's stub imprint, the rate card's effective line); it never sits above a heading as a kicker. On an inner page a sub-section opens with `.opener`: a real `h2` in Besley at clamp(1.375rem, 2.1vw, 1.875rem), under a hairline rule. Text on every page is full-strength ink; only a form placeholder is lighter.
 
 ## Layout
 
@@ -281,7 +281,7 @@ A salmon index card in two pieces, at most 540px wide. The stub carries the impr
 - **Placeholder:** the one place text is a tint of ink.
 
 ### Navigation
-- **Dateline:** a 32px strip of 0.6875rem labels: "Rate card" and the month of issue, the clocks, and "Certified Performance Marketer". The clocks read "{visitor's time} your time · {time} in Chennai" abroad and Chennai time alone for a visitor in India; on phones only the clocks show.
+- **Dateline:** a 32px strip of 0.6875rem labels: "Rate card" and the month of issue, the clocks, and "Certified Performance Marketer". The clocks read "{visitor's time} your time · {time} in Chennai" abroad and Chennai time alone for a visitor in India; on phones only the clocks show. Below 768px the strip holds the clocks only, and "Certified Performance Marketer" sits under the name in the masthead bar, at the same label size, so the credential shows on every screen.
 - **Masthead:** the name in Besley 1.5rem, six section links at 0.9375rem and 500 whose underline slides in on hover (the current section is underlined 2px), then a ghost and a fill button at masthead size.
 - **Mobile:** a 44px ruled menu button; the menu is a full-screen emerald field wiped down from the top with the sections in Besley 2.5rem on hairlines and the two actions beneath. A bottom bar closed by a 4px rule carries the page's two exits.
 - **Footer:** the back of the card, on the field: one Besley line, a Scotch rule, the index of links and a colophon naming the two typefaces. No motion.

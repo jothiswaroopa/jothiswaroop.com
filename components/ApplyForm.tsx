@@ -89,7 +89,7 @@ export default function ApplyForm() {
     <div className="mx-auto w-full max-w-2xl">
       {programLabel && <p className="label mb-6 inline-block rounded-full border border-line-strong px-3 py-1.5 !normal-case !tracking-normal">Applying for: {programLabel}</p>}
       <div className="mb-10 flex items-center gap-4">
-        <span className="mono text-xs text-ink/72">{phase === "delivered" ? "Sent" : `${String(Math.min(step + 1, total)).padStart(2, "0")} / ${String(total).padStart(2, "0")}`}</span>
+        <span className="mono text-xs text-ink">{phase === "delivered" ? "Sent" : `${String(Math.min(step + 1, total)).padStart(2, "0")} / ${String(total).padStart(2, "0")}`}</span>
         <div className="h-px flex-1 bg-line"><m.div className="h-full bg-signal" animate={{ width: `${progress * 100}%` }} transition={{ duration: 0.6, ease: EASE }} /></div>
       </div>
 
@@ -107,9 +107,9 @@ export default function ApplyForm() {
               <div className="mt-8 grid gap-3 sm:grid-cols-2" role="group" aria-label={cur.q}>
                 {cur.options.map((o) => (
                   <button key={o} onClick={() => setA({ ...a, [cur.key]: o })} aria-pressed={a[cur.key] === o}
-                    className={`press rounded-2xl border px-5 py-4 text-left text-base ${a[cur.key] === o ? "border-signal bg-signal text-stock" : "border-line-strong text-ink/85 hover:border-ink"}`}>{o}</button>
+                    className={`press rounded-2xl border px-5 py-4 text-left text-base ${a[cur.key] === o ? "border-signal bg-signal text-stock" : "border-line-strong text-ink hover:border-ink"}`}>{o}</button>
                 ))}
-                {a.intro === apply.introducedValue && <p className="label sm:col-span-2 !normal-case !tracking-normal text-ink/72">Introductions go first — you&apos;ll hear from me today.</p>}
+                {a.intro === apply.introducedValue && <p className="label sm:col-span-2 !normal-case !tracking-normal text-ink">Introductions go first — you&apos;ll hear from me today.</p>}
               </div>
             )}
 
@@ -117,9 +117,9 @@ export default function ApplyForm() {
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 {CURRENCIES.map((c) => (
                   <button key={c.id} type="button" onClick={() => setA({ ...a, currency: c.id })} aria-pressed={currency === c.id && !!a.currency} aria-label={`${c.label} · ${c.sub}`}
-                    className={`press rounded-2xl border px-4 py-4 text-left ${a.currency === c.id ? "border-signal bg-signal text-stock" : "border-line-strong text-ink/85 hover:border-ink"}`}>
+                    className={`press rounded-2xl border px-4 py-4 text-left ${a.currency === c.id ? "border-signal bg-signal text-stock" : "border-line-strong text-ink hover:border-ink"}`}>
                     <span className="display block text-2xl">{c.label}</span>
-                    <span className={`mono mt-1 block text-xs ${a.currency === c.id ? "text-stock/70" : "text-ink/72"}`}>{c.sub}</span>
+                    <span className={`mono mt-1 block text-xs ${a.currency === c.id ? "text-stock/70" : "text-ink"}`}>{c.sub}</span>
                   </button>
                 ))}
               </div>
@@ -129,7 +129,7 @@ export default function ApplyForm() {
               <div className="mt-8 flex flex-wrap gap-3" role="group" aria-label={cur.q}>
                 {cur.options[currency].map((o) => (
                   <button key={o} onClick={() => setA({ ...a, [cur.key]: o })} aria-pressed={a[cur.key] === o}
-                    className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-stock" : "border-line-strong text-ink/85 hover:border-ink"}`}>{o}</button>
+                    className={`press rounded-full border px-4 py-2.5 text-sm ${a[cur.key] === o ? "border-signal bg-signal text-stock" : "border-line-strong text-ink hover:border-ink"}`}>{o}</button>
                 ))}
               </div>
             )}
@@ -153,14 +153,14 @@ export default function ApplyForm() {
               <button onClick={next} disabled={!valid} className="press rounded-full bg-signal px-6 py-3.5 text-sm font-medium text-stock hover:bg-ink disabled:cursor-not-allowed disabled:opacity-40">
                 {step < total - 1 ? "Next" : "Send application"} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" />
               </button>
-              {step > 0 && <button onClick={back} className="press py-2 text-sm text-ink/72 hover:text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back</button>}
+              {step > 0 && <button onClick={back} className="press py-2 text-sm text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back</button>}
             </div>
-            <p className="mt-6 text-xs text-ink/72">Not ready? <Link href="/audit" className="underline-slide text-ink/80">Run the free Bottleneck Audit instead <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
+            <p className="mt-6 text-xs text-ink">Not ready? <Link href="/audit" className="underline-slide text-ink">Run the free Bottleneck Audit instead <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
           </m.div>
         )}
 
         {phase === "sending" && (
-          <m.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3 text-ink/80">
+          <m.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-3 text-ink">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-signal" /> Sending…
           </m.div>
         )}
@@ -168,7 +168,7 @@ export default function ApplyForm() {
         {phase === "delivered" && (
           <m.div key="delivered" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-ink md:text-4xl">Received.</p>
-            <p className="mt-4 text-ink/80">{introduced ? <>You were introduced, so you go first — a personal reply at <span className="text-ink">{a.email}</span> today.</> : <>I read every application myself. You&apos;ll have a personal reply at <span className="text-ink">{a.email}</span> by the end of the next working day, in your timezone.</>}</p>
+            <p className="mt-4 text-ink">{introduced ? <>You were introduced, so you go first — a personal reply at <span className="text-ink">{a.email}</span> today.</> : <>I read every application myself. You&apos;ll have a personal reply at <span className="text-ink">{a.email}</span> by the end of the next working day, in your timezone.</>}</p>
             {(site.calendar || site.email) && <><p className="label mt-8">Want to move faster?</p><Actions /></>}
           </m.div>
         )}
@@ -176,14 +176,14 @@ export default function ApplyForm() {
         {phase === "manual" && (
           <m.div key="manual" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="display text-3xl text-ink md:text-4xl">Almost there — send it to me directly.</p>
-            <p className="mt-4 text-ink/80">Your answers are packed and ready. {intl ? "Pick a time, or send it by whichever you prefer." : "One tap and it lands in my hand."}</p>
+            <p className="mt-4 text-ink">Your answers are packed and ready. {intl ? "Pick a time, or send it by whichever you prefer." : "One tap and it lands in my hand."}</p>
             <Actions />
-            <button onClick={back} className="press mt-8 py-2 text-sm text-ink/72 hover:text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back to edit an answer</button>
+            <button onClick={back} className="press mt-8 py-2 text-sm text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back to edit an answer</button>
           </m.div>
         )}
       </AnimatePresence>
 
-      {phase === "steps" && <p className="label mt-12 max-w-md !normal-case !tracking-normal !text-ink/72">{apply.followup}</p>}
+      {phase === "steps" && <p className="label mt-12 max-w-md !normal-case !tracking-normal !text-ink">{apply.followup}</p>}
     </div>
   );
 }

@@ -21,16 +21,16 @@ export default function Testimonials() {
                   <VideoTile youtubeId={t.youtubeId} poster={t.poster} title={`${t.name}, ${t.business}`} vertical={t.vertical} />
                   <figcaption className="flex flex-1 flex-col gap-5 p-5">
                     {t.quote ? (
-                      <blockquote className="text-[15px] leading-[1.65] text-ink/90">&ldquo;{t.quote}&rdquo;</blockquote>
+                      <blockquote className="text-[15px] leading-[1.65] text-ink">&ldquo;{t.quote}&rdquo;</blockquote>
                     ) : (
-                      <p className="text-[15px] leading-[1.65] text-ink/80">{t.context}</p>
+                      <p className="text-[15px] leading-[1.65] text-ink">{t.context}</p>
                     )}
                     <div className="mt-auto border-t hairline pt-4">
                       <p className="text-[15px] font-medium text-ink">{t.name}</p>
-                      <p className="mt-0.5 text-[13px] leading-snug text-ink/72">{t.business}</p>
+                      <p className="mt-0.5 text-[13px] leading-snug text-ink">{t.business}</p>
                       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
-                        {t.language && <span className="mono text-[11px] uppercase tracking-[0.1em] text-ink/72">{t.language}</span>}
-                        {t.caseSlug && <Link href={`/work/${t.caseSlug}`} className="underline-slide text-[13px] text-ink/75 hover:text-ink">The numbers <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>}
+                        {t.language && <span className="mono text-[11px] uppercase tracking-[0.1em] text-ink">{t.language}</span>}
+                        {t.caseSlug && <Link href={`/work/${t.caseSlug}`} className="underline-slide text-[13px] text-ink">The numbers <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>}
                       </div>
                     </div>
                   </figcaption>

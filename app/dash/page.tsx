@@ -33,7 +33,7 @@ const delta = (cur?: number, prev?: number, invert = false) => {
   if (cur == null || prev == null || prev === 0) return null;
   const d = ((cur - prev) / prev) * 100;
   const good = invert ? d < 0 : d > 0;
-  return <span className={`mono ml-2 text-xs ${good ? "text-signal" : "text-ink/72"}`}>{d > 0 ? "+" : ""}{d.toFixed(0)}%</span>;
+  return <span className={`mono ml-2 text-xs ${good ? "text-signal" : "text-ink"}`}>{d > 0 ? "+" : ""}{d.toFixed(0)}%</span>;
 };
 
 function Spark({ values, h = 44 }: { values: number[]; h?: number }) {
@@ -52,7 +52,7 @@ function Tile({ label, value, sub, spark, children }: { label: string; value: st
     <div className="bezel"><div className="bezel-core p-5">
       <p className="label">{label}</p>
       <p className="display mt-3 text-4xl text-ink tabular-nums">{value}{children}</p>
-      {sub && <p className="mono mt-1 text-xs text-ink/72">{sub}</p>}
+      {sub && <p className="mono mt-1 text-xs text-ink">{sub}</p>}
       {spark && <Spark values={spark} />}
     </div></div>
   );
@@ -64,17 +64,17 @@ function Table({ title, rows, cols }: { title: string; rows: Row[]; cols: { k: k
       <p className="label">{title}</p>
       {rows?.length ? (
         <table className="mt-4 w-full text-sm">
-          <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-ink/72"><th className="pb-2 font-normal">{cols[0].label}</th>{cols.slice(1).map((c) => <th key={String(c.k)} className="pb-2 text-right font-normal">{c.label}</th>)}</tr></thead>
+          <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-ink"><th className="pb-2 font-normal">{cols[0].label}</th>{cols.slice(1).map((c) => <th key={String(c.k)} className="pb-2 text-right font-normal">{c.label}</th>)}</tr></thead>
           <tbody className="divide-y hairline">
             {rows.map((r) => (
               <tr key={r.key}>
-                <td className="max-w-[260px] truncate py-2 pr-4 text-ink/85" title={r.key}>{r.key?.replace("https://jothiswaroop.com", "") || "(direct)"}</td>
-                {cols.slice(1).map((c) => <td key={String(c.k)} className="py-2 text-right tabular-nums text-ink/72">{(c.fmt ?? n)(r[c.k] as any)}</td>)}
+                <td className="max-w-[260px] truncate py-2 pr-4 text-ink" title={r.key}>{r.key?.replace("https://jothiswaroop.com", "") || "(direct)"}</td>
+                {cols.slice(1).map((c) => <td key={String(c.k)} className="py-2 text-right tabular-nums text-ink">{(c.fmt ?? n)(r[c.k] as any)}</td>)}
               </tr>
             ))}
           </tbody>
         </table>
-      ) : <p className="mt-4 text-sm text-ink/72">No data yet.</p>}
+      ) : <p className="mt-4 text-sm text-ink">No data yet.</p>}
     </div></section>
   );
 }
@@ -109,7 +109,7 @@ export default function Dash() {
           <div>
             <h1 className="mt-4 text-[clamp(2rem,4vw,3.5rem)]">How the site is being found.</h1>
           </div>
-          <p className="mono text-xs text-ink/72">{d.generatedAt ? `data as of ${new Date(d.generatedAt).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST · refreshes daily 05:00` : "no collection yet — add the secrets and run the workflow"}</p>
+          <p className="mono text-xs text-ink">{d.generatedAt ? `data as of ${new Date(d.generatedAt).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST · refreshes daily 05:00` : "no collection yet — add the secrets and run the workflow"}</p>
         </div>
         <Err block="Search Console" err={d.gsc?.error} /><Err block="Cloudflare" err={d.cloudflare?.error} /><Err block="GEO" err={d.geo?.error} /><Err block="Bing" err={d.bing?.error} />
 
@@ -130,13 +130,13 @@ export default function Dash() {
               <ul className="mt-4 divide-y hairline text-sm">
                 {geo.results.map((r: any) => (
                   <li key={r.id} className="grid gap-1 py-3 md:grid-cols-[24px_1fr_auto] md:gap-4">
-                    <span className={`mono text-xs ${r.mentioned ? "text-signal" : "text-ink/72"}`}>{r.error ? "!" : r.mentioned ? "●" : "○"}</span>
-                    <span><span className="text-ink/85">{r.prompt}</span>{r.competitors?.length ? <span className="mono mt-1 block text-[11px] text-ink/72">cited instead: {r.competitors.join(" · ")}</span> : null}</span>
-                    <span className="mono text-[10px] uppercase tracking-[0.1em] text-ink/72">{r.segment}</span>
+                    <span className={`mono text-xs ${r.mentioned ? "text-signal" : "text-ink"}`}>{r.error ? "!" : r.mentioned ? "●" : "○"}</span>
+                    <span><span className="text-ink">{r.prompt}</span>{r.competitors?.length ? <span className="mono mt-1 block text-[11px] text-ink">cited instead: {r.competitors.join(" · ")}</span> : null}</span>
+                    <span className="mono text-[10px] uppercase tracking-[0.1em] text-ink">{r.segment}</span>
                   </li>
                 ))}
               </ul>
-            ) : <p className="mt-4 text-sm text-ink/72">No checks yet.</p>}
+            ) : <p className="mt-4 text-sm text-ink">No checks yet.</p>}
           </div></section>
         </div>
 
@@ -150,7 +150,7 @@ export default function Dash() {
           <section className="bezel"><div className="bezel-core p-5">
             <p className="label">{"INDEX COVERAGE"}</p>
             <p className="display mt-3 text-4xl tabular-nums">{cov ? `${cov.ok}/${cov.total}` : "—"}</p>
-            <p className="mono mt-1 text-xs text-ink/72">sitemap URLs returning 200</p>
+            <p className="mono mt-1 text-xs text-ink">sitemap URLs returning 200</p>
             {cov?.broken?.length ? <ul className="mono mt-3 text-xs text-strike">{cov.broken.map((b: any) => <li key={b.url}>{b.status} {b.url}</li>)}</ul> : null}
           </div></section>
         </div>
@@ -159,39 +159,39 @@ export default function Dash() {
         <section className="bezel mt-4"><div className="bezel-core p-5">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <p className="label">{`BLOG · ${blog.count} POSTS${blog.last ? ` · LAST ${blog.last}` : ""}`}</p>
-            <Link href="/blog/" className="underline-slide text-sm text-ink/72">Open blog →</Link>
+            <Link href="/blog/" className="underline-slide text-sm text-ink">Open blog →</Link>
           </div>
           {blog.posts.length ? (
             <table className="mt-4 w-full text-sm">
-              <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-ink/72"><th className="pb-2 font-normal">post</th><th className="pb-2 font-normal">lane</th><th className="pb-2 text-right font-normal">words</th><th className="pb-2 text-right font-normal">sources</th><th className="pb-2 text-right font-normal">google clicks 28d</th></tr></thead>
+              <thead><tr className="mono text-left text-[10px] uppercase tracking-[0.12em] text-ink"><th className="pb-2 font-normal">post</th><th className="pb-2 font-normal">lane</th><th className="pb-2 text-right font-normal">words</th><th className="pb-2 text-right font-normal">sources</th><th className="pb-2 text-right font-normal">google clicks 28d</th></tr></thead>
               <tbody className="divide-y hairline">
                 {blog.posts.map((p) => (
                   <tr key={p.slug}>
-                    <td className="py-2 pr-4"><Link href={`/blog/${p.slug}/`} className="text-ink/85 hover:text-signal">{p.title}</Link><span className="mono ml-2 text-[10px] text-ink/72">{p.date}</span></td>
-                    <td className="mono py-2 text-[10px] uppercase tracking-[0.1em] text-ink/72">{p.lane} · {p.segment}</td>
-                    <td className="py-2 text-right tabular-nums text-ink/72">{n(p.words)}</td>
-                    <td className="py-2 text-right tabular-nums text-ink/72">{p.sources}</td>
-                    <td className="py-2 text-right tabular-nums text-ink/72">{n(clicksByPage[`/blog/${p.slug}/`] ?? 0)}</td>
+                    <td className="py-2 pr-4"><Link href={`/blog/${p.slug}/`} className="text-ink hover:text-signal">{p.title}</Link><span className="mono ml-2 text-[10px] text-ink">{p.date}</span></td>
+                    <td className="mono py-2 text-[10px] uppercase tracking-[0.1em] text-ink">{p.lane} · {p.segment}</td>
+                    <td className="py-2 text-right tabular-nums text-ink">{n(p.words)}</td>
+                    <td className="py-2 text-right tabular-nums text-ink">{p.sources}</td>
+                    <td className="py-2 text-right tabular-nums text-ink">{n(clicksByPage[`/blog/${p.slug}/`] ?? 0)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          ) : <p className="mt-4 text-sm text-ink/72">No posts yet. The generator runs every two days at 06:30 IST.</p>}
+          ) : <p className="mt-4 text-sm text-ink">No posts yet. The generator runs every two days at 06:30 IST.</p>}
         </div></section>
 
         {idx && (
           <section className="bezel mt-4"><div className="bezel-core p-5">
             <p className="label">{`INDEX STATUS · ${idx.indexed}/${idx.checked} INDEXED BY GOOGLE`}</p>
             <table className="mt-4 w-full text-sm">
-              <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-ink/72"><th className="pb-2 text-left font-normal">Page</th><th className="pb-2 text-left font-normal">Google says</th><th className="pb-2 text-right font-normal">Last crawl</th></tr></thead>
+              <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-ink"><th className="pb-2 text-left font-normal">Page</th><th className="pb-2 text-left font-normal">Google says</th><th className="pb-2 text-right font-normal">Last crawl</th></tr></thead>
               <tbody className="divide-y hairline">
                 {idx.urls.map((u: any) => {
                   const ok = /indexed/i.test(u.coverage) && !/not indexed/i.test(u.coverage);
                   return (
                     <tr key={u.url}>
-                      <td className="py-2 pr-4 text-ink/85">{u.url.replace("https://jothiswaroop.com", "") || "/"}</td>
-                      <td className={`py-2 pr-4 ${ok ? "text-ink/72" : "text-signal"}`}>{u.coverage || u.verdict}{u.canonical ? ` → ${u.canonical.replace("https://jothiswaroop.com", "")}` : ""}</td>
-                      <td className="mono py-2 text-right text-[10px] text-ink/72">{u.lastCrawl ? u.lastCrawl.slice(0, 10) : "never"}</td>
+                      <td className="py-2 pr-4 text-ink">{u.url.replace("https://jothiswaroop.com", "") || "/"}</td>
+                      <td className={`py-2 pr-4 ${ok ? "text-ink" : "text-signal"}`}>{u.coverage || u.verdict}{u.canonical ? ` → ${u.canonical.replace("https://jothiswaroop.com", "")}` : ""}</td>
+                      <td className="mono py-2 text-right text-[10px] text-ink">{u.lastCrawl ? u.lastCrawl.slice(0, 10) : "never"}</td>
                     </tr>
                   );
                 })}
@@ -205,7 +205,7 @@ export default function Dash() {
           <div className="mt-10">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <p className="label">{"OUTREACH ENGINE"}</p>
-              <p className="mono text-xs text-ink/72">
+              <p className="mono text-xs text-ink">
                 {o.state === "live" ? `live · cap ${o.cap}/mailbox/day` : o.state === "warm-up" ? `warm-up · sending starts ${o.startDate}` : "paused"}
                 {o.updated ? ` · updated ${new Date(o.updated).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST` : " · no run yet"}
               </p>
@@ -220,28 +220,28 @@ export default function Dash() {
               <section className="bezel mt-4"><div className="bezel-core p-5">
                 <p className="label">{"BY SEGMENT"}</p>
                 <table className="mt-4 w-full text-sm">
-                  <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-ink/72"><th className="pb-2 text-left font-normal">Segment</th><th className="pb-2 text-right font-normal">Leads</th><th className="pb-2 text-right font-normal">Contacted</th><th className="pb-2 text-right font-normal">Replied</th><th className="pb-2 text-right font-normal">Rate</th><th className="pb-2 text-right font-normal">Bounced</th></tr></thead>
+                  <thead><tr className="mono text-[10px] uppercase tracking-[0.1em] text-ink"><th className="pb-2 text-left font-normal">Segment</th><th className="pb-2 text-right font-normal">Leads</th><th className="pb-2 text-right font-normal">Contacted</th><th className="pb-2 text-right font-normal">Replied</th><th className="pb-2 text-right font-normal">Rate</th><th className="pb-2 text-right font-normal">Bounced</th></tr></thead>
                   <tbody className="divide-y hairline">
                     {o.segments.map((s: any) => (
                       <tr key={s.segment}>
-                        <td className="py-2 pr-4 text-ink/85">{s.name}</td>
-                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.leads)}</td>
-                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.contacted)}</td>
-                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.replied)}</td>
-                        <td className="py-2 text-right tabular-nums text-ink/72">{s.contacted ? ((100 * s.replied) / s.contacted).toFixed(1) + "%" : "—"}</td>
-                        <td className="py-2 text-right tabular-nums text-ink/72">{n(s.bounced)}</td>
+                        <td className="py-2 pr-4 text-ink">{s.name}</td>
+                        <td className="py-2 text-right tabular-nums text-ink">{n(s.leads)}</td>
+                        <td className="py-2 text-right tabular-nums text-ink">{n(s.contacted)}</td>
+                        <td className="py-2 text-right tabular-nums text-ink">{n(s.replied)}</td>
+                        <td className="py-2 text-right tabular-nums text-ink">{s.contacted ? ((100 * s.replied) / s.contacted).toFixed(1) + "%" : "—"}</td>
+                        <td className="py-2 text-right tabular-nums text-ink">{n(s.bounced)}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <p className="mono mt-4 text-[10px] text-ink/72">Pipeline: {n(o.totals.pipeline.new)} waiting · {n(o.totals.pipeline.step1)} after email 1 · {n(o.totals.pipeline.step2)} after 2 · {n(o.totals.pipeline.step3)} after 3 · {n(o.totals.pipeline.done)} sequence finished</p>
+                <p className="mono mt-4 text-[10px] text-ink">Pipeline: {n(o.totals.pipeline.new)} waiting · {n(o.totals.pipeline.step1)} after email 1 · {n(o.totals.pipeline.step2)} after 2 · {n(o.totals.pipeline.step3)} after 3 · {n(o.totals.pipeline.done)} sequence finished</p>
               </div></section>
             )}
-            <p className="mono mt-3 text-xs text-ink/72">Counts only. Prospect names, addresses and replies stay in the private engine repo — open it to answer a reply.</p>
+            <p className="mono mt-3 text-xs text-ink">Counts only. Prospect names, addresses and replies stay in the private engine repo — open it to answer a reply.</p>
           </div>
         )}
 
-        <p className="mono mt-10 text-xs text-ink/72">Sources: Google Search Console API · Cloudflare Web Analytics GraphQL · Bing Webmaster API · GEO checks via Claude + web search · sitemap HEAD checks · outreach aggregates from the private engine. Collected by .github/workflows/dash.yml.</p>
+        <p className="mono mt-10 text-xs text-ink">Sources: Google Search Console API · Cloudflare Web Analytics GraphQL · Bing Webmaster API · GEO checks via Claude + web search · sitemap HEAD checks · outreach aggregates from the private engine. Collected by .github/workflows/dash.yml.</p>
       </div>
     </section>
   );

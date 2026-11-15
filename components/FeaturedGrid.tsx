@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useDetectedMarket } from "@/lib/market";
 import Reveal from "@/components/motion/Reveal";
 import SwipeCue from "@/components/SwipeCue";
 import type { CaseStudy } from "@/lib/content";
@@ -14,14 +14,9 @@ import Result from "@/components/Result";
  * cases first. Decided from the browser timezone on mount; the static HTML keeps the default order.
  */
 export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
-  const [list, setList] = useState(cases);
-  useEffect(() => {
-    try {
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-      const india = /Kolkata|Calcutta/.test(tz);
-      if (!india) setList([...cases].sort((a, b) => Number(!!b.international) - Number(!!a.international)));
-    } catch {}
-  }, [cases]);
+  // Abroad (and in the static HTML) the international accounts lead; in India the order is the list's own.
+  const market = useDetectedMarket();
+  const list = market === "inr" ? cases : [...cases].sort((a, b) => Number(!!b.international) - Number(!!a.international));
 
   return (
     <>
@@ -29,22 +24,21 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
     <div id="featured-cases" className="m-scroller mt-4 grid gap-5 md:mt-14 md:grid-cols-2">
       {list.map((c, i) => (
         <Reveal key={c.slug} delay={i * 0.08}>
-          <Link href={`/work/${c.slug}`} className="group bezel block press transition-colors duration-300 hover:border-ink/20">
+          <Link href={`/work/${c.slug}`} className="group bezel block press">
             <div className="bezel-core">
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-ink">
                 <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover object-left-top" />
-                <div className="absolute inset-0 bg-gradient-to-t from-stock-3 via-stock-3/30 to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-4">
-                  <p className="num text-[clamp(1.6rem,2.6vw,2.5rem)] text-signal"><Result>{c.result}</Result></p>
-                  {c.international && <span className="label rounded-full border border-ink/25 px-2 py-1 !text-ink/80">{/UK/.test(c.location) ? "UK" : "US · CA"}</span>}
-                </div>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-ink px-5 py-4 transition-colors duration-150 group-hover:bg-salmon md:px-6">
+                <h3 className="num text-[clamp(1.5rem,2.4vw,2.25rem)] !leading-[1.05] text-signal group-hover:text-ink"><Result>{c.result}</Result></h3>
+                {c.international && <span className="label shrink-0 border border-ink px-2 py-1">{/UK/.test(c.location) ? "UK" : "US · CA"}</span>}
               </div>
               <div className="grid gap-4 p-5 md:grid-cols-2 md:p-6">
-                <div><p className="label !text-strike">Before</p><p className="mt-2 text-sm text-ink/80">{c.before}</p></div>
-                <div><p className="label !text-ink/80">After</p><p className="mt-2 text-sm text-ink/90">{c.after}</p></div>
+                <div><p className="label !text-strike">Before</p><p className="mt-2 text-sm text-ink">{c.before}</p></div>
+                <div><p className="label !text-ink">After</p><p className="mt-2 text-sm text-ink"><Result add={false}>{c.after}</Result></p></div>
               </div>
               <div className="flex items-center justify-between border-t hairline px-5 py-3 md:px-6">
-                <p className="flex items-center gap-3 text-sm text-ink/72">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={26} />}<span>{c.client} · {c.industry}</span></p>
+                <p className="flex items-center gap-3 text-sm text-ink">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={26} />}<span>{c.client} · {c.industry}</span></p>
                 <p className="label">{c.year}</p>
               </div>
             </div>

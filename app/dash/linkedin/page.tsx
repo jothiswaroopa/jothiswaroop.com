@@ -78,7 +78,7 @@ export default function LinkedInQueue() {
     <section className="min-h-[100svh] pt-[96px]">
       <div className="mx-auto max-w-[900px] px-5 py-16 md:px-10 md:py-20">
         <h1 className="mt-5 text-[clamp(2rem,5vw,3.25rem)]">One post a weekday.</h1>
-        <p className="mt-4 max-w-2xl text-ink/75">
+        <p className="mt-4 max-w-2xl text-ink">
           Drafted at 06:00 IST, Monday to Friday. Read it, change one line so it&apos;s yours, copy, post.
           Nothing here posts by itself — that is on purpose.
         </p>
@@ -86,7 +86,7 @@ export default function LinkedInQueue() {
         <div className="bezel mt-8">
           <div className="bezel-core border-l-2 border-signal p-5 md:p-6">
             <p className="label text-signal">{"READ THIS EVERY TIME"}</p>
-            <p className="mt-3 text-ink/85">
+            <p className="mt-3 text-ink">
               The draft invents narrative detail. It cannot know what actually broke, which day it
               happened, or what a client really said &mdash; it only knows the figures it was given.
               <strong className="text-ink"> Every story in the post is a guess until you confirm it.</strong>{" "}
@@ -100,17 +100,17 @@ export default function LinkedInQueue() {
           <div className="bezel-core border-l-2 border-signal p-5 md:p-6">
             <p className="label text-signal">{"THE HIGHEST-LEVERAGE THING ON THIS PAGE"}</p>
             <p className="mt-3 text-lg text-ink">20 connection requests a day. Founders, not marketers.</p>
-            <p className="mt-3 text-ink/80">
+            <p className="mt-3 text-ink">
               LinkedIn shows a post to your own network first, then decides whether to push it wider.
               So who you are connected to decides who ever sees your work. Right now that is mostly
               other marketers, and other marketers will never pay you.
             </p>
-            <p className="mt-3 text-ink/80">
+            <p className="mt-3 text-ink">
               Search apparel founders, D2C owners, clinic owners, manufacturers &mdash; the people whose
               ad accounts you would want. Twenty a day, no pitch, no note or one line about their business.
               That is 600 a month, and it permanently changes who every future post reaches.
             </p>
-            <p className="mt-3 text-sm text-ink/72">
+            <p className="mt-3 text-sm text-ink">
               Boring, unglamorous, and worth more than the content. Do it while your coffee is brewing.
             </p>
           </div>
@@ -119,30 +119,30 @@ export default function LinkedInQueue() {
         <div className="bezel mt-4">
           <div className="bezel-core p-5 md:p-6">
             <p className="label">{"THE WEEK"}</p>
-            <ul className="mt-3 grid gap-2 text-sm text-ink/80 sm:grid-cols-2">
+            <ul className="mt-3 grid gap-2 text-sm text-ink sm:grid-cols-2">
               <li><span className="mono text-signal">MON</span> &nbsp;<strong className="text-ink">Text</strong> &mdash; what changed in AI or ads, then what to do about it</li>
               <li><span className="mono text-signal">TUE</span> &nbsp;<strong className="text-ink">Carousel</strong> &mdash; a named framework, handed over whole</li>
               <li><span className="mono text-signal">WED</span> &nbsp;<strong className="text-ink">Text</strong> &mdash; one complete method, given away</li>
               <li><span className="mono text-signal">THU</span> &nbsp;<strong className="text-ink">Carousel</strong> &mdash; your own numbers; the one day a free thing is mentioned</li>
               <li><span className="mono text-signal">FRI</span> &nbsp;<strong className="text-ink">Poster</strong> &mdash; an argument worth having. Every fourth Friday, a film instead.</li>
             </ul>
-            <p className="mt-3 text-sm text-ink/72">
+            <p className="mt-3 text-sm text-ink">
               The content never sells &mdash; your profile does. Four days ask for nothing at all. One day
               mentions something free, once, as help. The bot refuses to write a call to action on any
               other day.
             </p>
-            <p className="mt-2 text-sm text-ink/72">
+            <p className="mt-2 text-sm text-ink">
               The mix is from 2026 platform benchmarks, not preference. Carousels lead on engagement
               (~7%) and give the best reach for an account under 50,000 followers &mdash; two days a week.
               Text engages least (~4%) but draws the most comments, and comments are what start
               conversations &mdash; two days. One poster (~5%). Polls are excluded entirely: highest reach
               on LinkedIn, lowest engagement, and poll voters rarely look at your profile.
             </p>
-            <p className="mt-2 text-sm text-ink/72">
+            <p className="mt-2 text-sm text-ink">
               No client&apos;s ad account is ever discussed &mdash; not their settings, not their campaigns,
               named or not. Only patterns, methods, and your own totals.
             </p>
-            <p className="mt-2 text-sm text-ink/72">
+            <p className="mt-2 text-sm text-ink">
               News days never stop at the news. Four hundred accounts post the same announcement within
               a day; being fast is not being expert. Every trending post has to land on what you&apos;d
               actually change in an account you run.
@@ -153,12 +153,12 @@ export default function LinkedInQueue() {
         <div className="bezel mt-4">
           <div className="bezel-core p-5 md:p-6">
             <p className="label">{"YOUR DAY — ABOUT 30 MINUTES"}</p>
-            <p className="mt-3 text-sm text-ink/72">
+            <p className="mt-3 text-sm text-ink">
               The bot writes. This is the half that decides whether anyone sees it.
             </p>
 
             <p className="mono mt-5 text-[11px] uppercase tracking-[0.14em] text-signal">Before &mdash; 15 min</p>
-            <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-ink/80">
+            <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-ink">
               <li><strong className="text-ink">Read the draft properly.</strong> It goes out under your name. Check every claim about what you did or saw &mdash; the bot cannot verify those, only the numbers.</li>
               <li><strong className="text-ink">Change one line</strong> so the voice is yours.</li>
               <li><strong className="text-ink">Comment on five posts</strong> from founders in your segments. Two useful sentences, no pitch.</li>
@@ -166,19 +166,19 @@ export default function LinkedInQueue() {
             </ol>
 
             <p className="mono mt-5 text-[11px] uppercase tracking-[0.14em] text-signal">Post &mdash; 10:00 to 11:30 IST</p>
-            <p className="mt-2 text-sm text-ink/80">
+            <p className="mt-2 text-sm text-ink">
               Published analyses agree on mid-morning, Tuesday to Thursday &mdash; that window carries
               the bulk of B2B engagement, and weekday posts far outperform weekend ones. Your network is
               mostly Indian today, and early engagement from your own network is what decides whether
               LinkedIn pushes a post wider, so post to India time and let it travel.
             </p>
-            <p className="mt-2 text-sm text-ink/72">
+            <p className="mt-2 text-sm text-ink">
               Carousel? Upload the images in order as a multi-image post. Paste the caption. No link in
               the post &mdash; put any link in the first comment instead.
             </p>
 
             <p className="mono mt-5 text-[11px] uppercase tracking-[0.14em] text-signal">After &mdash; the first 60 minutes</p>
-            <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-ink/80">
+            <ol className="mt-2 list-decimal space-y-2 pl-5 text-sm text-ink">
               <li><strong className="text-ink">Stay on the app and reply to every comment</strong> within the first hour. Reply with a sentence that adds something, never just &ldquo;thanks&rdquo;. Early replies decide reach more than anything else you control.</li>
               <li>Anyone who comments twice, or views your profile: look at what they do. If they fit, message them <strong className="text-ink">about their business</strong> &mdash; never about yours.</li>
               <li>Do not edit the post in the first hour. Editing resets its distribution.</li>
@@ -189,7 +189,7 @@ export default function LinkedInQueue() {
         </div>
 
         {!q && (
-          <p className="mono mt-10 text-sm text-ink/72">
+          <p className="mono mt-10 text-sm text-ink">
             No queue yet. The first draft lands on the next weekday morning, or trigger the{" "}
             <span className="text-ink">LinkedIn draft</span> workflow by hand.
           </p>
@@ -216,7 +216,7 @@ export default function LinkedInQueue() {
         {arr(learning?.scans).length > 0 && (
           <>
             <p className="label mt-14">{"WHAT IT FOUND ON LINKEDIN"}</p>
-            <p className="mt-2 max-w-2xl text-sm text-ink/72">
+            <p className="mt-2 max-w-2xl text-sm text-ink">
               On the 1st and 15th it searches for what is actually landing on LinkedIn right now,
               decides what suits an account built on receipts, and adds angles worth writing. It can
               retire topics that keep failing. Finding nothing worth changing is a valid answer and
@@ -230,7 +230,7 @@ export default function LinkedInQueue() {
                   {arr(s.whatsWorking).length > 0 && (
                     <>
                       <p className="label mt-3">{"WORKING NOW"}</p>
-                      <ul className="mt-2 space-y-1.5 text-sm text-ink/80">
+                      <ul className="mt-2 space-y-1.5 text-sm text-ink">
                         {arr(s.whatsWorking).map((x, i) => <li key={i}>&middot; {x}</li>)}
                       </ul>
                     </>
@@ -238,7 +238,7 @@ export default function LinkedInQueue() {
                   {arr(s.doesNotSuitUs).length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label text-signal">{"DELIBERATELY NOT COPYING"}</p>
-                      <ul className="mt-2 space-y-1.5 text-sm text-ink/75">
+                      <ul className="mt-2 space-y-1.5 text-sm text-ink">
                         {arr(s.doesNotSuitUs).map((x, i) => <li key={i}>&middot; {x}</li>)}
                       </ul>
                     </div>
@@ -246,11 +246,11 @@ export default function LinkedInQueue() {
                   {s.added?.length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label">{`${s.added.length} ANGLE${s.added.length === 1 ? "" : "S"} ADDED`}</p>
-                      <ul className="mt-2 space-y-2 text-sm text-ink/75">
+                      <ul className="mt-2 space-y-2 text-sm text-ink">
                         {arr(s.added).map((a, i) => (
                           <li key={i}>
                             <span className="mono text-signal">{a.pillar}</span> {a.angle}
-                            <span className="block text-ink/72">{a.why}</span>
+                            <span className="block text-ink">{a.why}</span>
                           </li>
                         ))}
                       </ul>
@@ -265,7 +265,7 @@ export default function LinkedInQueue() {
         {arr(learning?.changes).length > 0 && (
           <>
             <p className="label mt-14">{"WHAT IT CHANGED ABOUT ITSELF"}</p>
-            <p className="mt-2 max-w-2xl text-sm text-ink/72">
+            <p className="mt-2 max-w-2xl text-sm text-ink">
               On the 1st of each month the engine reads its own failure record, researches what has
               changed on LinkedIn, and adjusts. It may move its own limits within fixed bounds.
               Anything touching your facts, your voice or the fabrication rules is listed for you to
@@ -276,14 +276,14 @@ export default function LinkedInQueue() {
                 <div className="bezel-core p-5 md:p-6">
                   <p className="label">{c.date}</p>
                   {arr(c.findings).length > 0 && (
-                    <ul className="mt-3 space-y-1.5 text-sm text-ink/80">
+                    <ul className="mt-3 space-y-1.5 text-sm text-ink">
                       {arr(c.findings).map((f, i) => <li key={i}>&middot; {f}</li>)}
                     </ul>
                   )}
                   {arr(c.applied).length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label">{"APPLIED"}</p>
-                      <ul className="mt-2 space-y-1 text-sm text-ink/75">
+                      <ul className="mt-2 space-y-1 text-sm text-ink">
                         {arr(c.applied).map((a, i) => (
                           <li key={i}>
                             <span className="mono text-signal">{a.key}</span> {a.from} &rarr; {a.to} &mdash; {a.reason}
@@ -295,7 +295,7 @@ export default function LinkedInQueue() {
                   {arr(c.forReview).length > 0 && (
                     <div className="mt-4 border-t hairline pt-3">
                       <p className="label text-signal">{"NEEDS YOUR APPROVAL"}</p>
-                      <ul className="mt-2 space-y-1 text-sm text-ink/75">
+                      <ul className="mt-2 space-y-1 text-sm text-ink">
                         {arr(c.forReview).map((r, i) => <li key={i}>&middot; {r}</li>)}
                       </ul>
                     </div>
@@ -306,7 +306,7 @@ export default function LinkedInQueue() {
           </>
         )}
 
-        <p className="mono mt-14 text-xs text-ink/72">
+        <p className="mono mt-14 text-xs text-ink">
           <Link href="/dash/" className="underline-slide">&larr; Back to the dashboard</Link>
           {q && <span className="ml-4">Queue written {new Date(q.generated).toLocaleString("en-GB", { timeZone: "Asia/Kolkata" })} IST</span>}
         </p>
@@ -323,27 +323,27 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
           <span className="label">{fmtDate(p.date)} &middot; {p.weekday}</span>
           <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">{p.pillar}</span>
           {p.format === "carousel" && (
-            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-ink/72">carousel</span>
+            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-ink">carousel</span>
           )}
           {p.status === "posted" ? (
             <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">posted</span>
           ) : p.tokenExpired ? (
             <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">token expired</span>
           ) : p.autopostSafe === false ? (
-            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-ink/72">waiting for you</span>
+            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-ink">waiting for you</span>
           ) : p.autopostSafe === true ? (
-            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-ink/72">clean</span>
+            <span className="mono border hairline px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-ink">clean</span>
           ) : null}
           {p.isSales && (
             <span className="mono border border-signal px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-signal">may mention the free audit</span>
           )}
-          <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink/72">{p.chars} chars</span>
+          <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink">{p.chars} chars</span>
         </div>
 
-        <p className="mono mt-2 text-[11px] text-ink/72">{PILLAR[p.pillar] ?? p.pillar}</p>
+        <p className="mono mt-2 text-[11px] text-ink">{PILLAR[p.pillar] ?? p.pillar}</p>
 
         <p
-          className={`mt-4 whitespace-pre-wrap ${lead ? "text-[1.05rem] text-ink" : "text-sm text-ink/85"}`}
+          className={`mt-4 whitespace-pre-wrap ${lead ? "text-[1.05rem] text-ink" : "text-sm text-ink"}`}
         >
           {p.body}
         </p>
@@ -361,7 +361,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
                 </a>
               ))}
             </div>
-            <p className="mono mt-2 text-[11px] text-ink/72">
+            <p className="mono mt-2 text-[11px] text-ink">
               1080&times;1350 PNG. Tap one to open it full size, then save and upload in order.
             </p>
           </div>
@@ -373,7 +373,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
             <ul className="mt-2 space-y-1 text-sm">
               {arr(p.sources).map((s) => (
                 <li key={s.url}>
-                  <a href={s.url} target="_blank" rel="noreferrer" className="underline-slide text-ink/75">
+                  <a href={s.url} target="_blank" rel="noreferrer" className="underline-slide text-ink">
                     {s.publisher}: {s.title}
                   </a>
                 </li>
@@ -385,14 +385,14 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
         {p.videoPrompt && (
           <div className="mt-5 border-t hairline pt-4">
             <p className="label text-signal">{"VIDEO WEEK"}</p>
-            <p className="mt-2 text-sm text-ink/85">{p.videoPrompt}</p>
+            <p className="mt-2 text-sm text-ink">{p.videoPrompt}</p>
           </div>
         )}
 
         {p.tokenExpired && (
           <div className="mt-5 border-t hairline pt-4">
             <p className="label text-signal">{"LINKEDIN TOKEN EXPIRED — POST THIS ONE BY HAND"}</p>
-            <p className="mt-2 text-sm text-ink/80">
+            <p className="mt-2 text-sm text-ink">
               Tokens last about 60 days. Generate a new one at{" "}
               <a href="https://www.linkedin.com/developers/tools/oauth/token-generator" target="_blank" rel="noreferrer" className="underline-slide">
                 linkedin.com/developers &rarr; token generator
@@ -406,14 +406,14 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
         {p.notPosted && !p.tokenExpired && (
           <div className="mt-5 border-t hairline pt-4">
             <p className="label">{"NOT POSTED AUTOMATICALLY"}</p>
-            <p className="mt-2 text-sm text-ink/75">{p.notPosted}</p>
+            <p className="mt-2 text-sm text-ink">{p.notPosted}</p>
           </div>
         )}
 
         {p.autopostSafe === false && p.heldBecause && (
           <div className="mt-5 border-t hairline pt-4">
             <p className="label text-signal">{"HELD FOR YOU — WILL NOT AUTO-POST"}</p>
-            <ul className="mt-2 space-y-1 text-sm text-ink/75">
+            <ul className="mt-2 space-y-1 text-sm text-ink">
               {arr(p.heldBecause).map((w, i) => <li key={i}>&middot; {w}</li>)}
             </ul>
           </div>
@@ -422,7 +422,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
         {p.warnings?.length > 0 && (
           <div className="mt-5 border-t hairline pt-4">
             <p className="label text-signal">{"CHECK BEFORE POSTING"}</p>
-            <ul className="mt-2 space-y-1 text-sm text-ink/72">
+            <ul className="mt-2 space-y-1 text-sm text-ink">
               {arr(p.warnings).map((w, i) => <li key={i}>&middot; {w}</li>)}
             </ul>
           </div>
@@ -431,7 +431,7 @@ function PostCard({ p, lead = false }: { p: Post; lead?: boolean }) {
         <div className="mt-5 flex flex-wrap items-center gap-3 border-t hairline pt-4">
           <CopyText text={p.body} />
           {p.slides && <CopyText text={arr(p.slides).map((s, i) => `${i + 1}. ${s.text}`).join("\n")} label="Copy slides" />}
-          <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink/72">Edit one line so it&apos;s yours</span>
+          <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink">Edit one line so it&apos;s yours</span>
         </div>
       </div>
     </div>

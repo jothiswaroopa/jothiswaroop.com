@@ -29,7 +29,7 @@ export default function Chain() {
             One client. One <span className="italic text-signal">introduction</span>. Then the next.
           </h2>
         </Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-ink/75">Zero ads for myself and, until this quarter, zero cold pitches — every client came by introduction, in this order: a label manufacturer, a knitwear brand, that brand&apos;s UK expansion, and the fashion label they sent my way. That chain is why I can now write to founders directly. If you got an email from me, this page is the introduction.</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-ink">Zero ads for myself and, until this quarter, zero cold pitches — every client came by introduction, in this order: a label manufacturer, a knitwear brand, that brand&apos;s UK expansion, and the fashion label they sent my way. That chain is why I can now write to founders directly. If you got an email from me, this page is the introduction.</p></Reveal>
 
         {/* Mobile: vertical rail */}
         <ol className="mt-14 border-l border-signal/40 md:hidden">
@@ -44,9 +44,9 @@ export default function Chain() {
                 <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-stock-3" />
               )}
               <Link href={`/work/${c.slug}`} className="group block pl-3">
-                <p className="mono text-xs text-ink/72">{String(i + 1).padStart(2, "0")} · {c.how}</p>
+                <p className="mono text-xs text-ink">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                 <p className="display mt-1 text-xl text-ink group-hover:text-signal">{c.label}</p>
-                <p className="mono mt-1 text-xs text-ink/72"><Result>{c.result}</Result></p>
+                <p className="mono mt-1 text-xs text-ink"><Result>{c.result}</Result></p>
               </Link>
             </m.li>
           ))}
@@ -84,9 +84,9 @@ export default function Chain() {
                   initial={{ opacity: 0, x: left ? -12 : 12 }} animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * (2.2 / chain.length), ease: EASE }}>
                   <Link href={`/work/${c.slug}`} className={`group block ${left ? "text-right" : ""}`}>
-                    <p className="mono text-xs text-ink/72 md:text-xs">{String(i + 1).padStart(2, "0")} · {c.how}</p>
+                    <p className="mono text-xs text-ink md:text-xs">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                     <p className="display mt-1 text-lg leading-tight text-ink transition-colors group-hover:text-signal md:text-2xl">{c.label}</p>
-                    <p className="mono mt-1 text-xs text-ink/72"><Result>{c.result}</Result></p>
+                    <p className="mono mt-1 text-xs text-ink"><Result>{c.result}</Result></p>
                   </Link>
                 </m.li>
               );

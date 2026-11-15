@@ -18,10 +18,10 @@ function Block({ m, i }: { m: Move; i: number }) {
     <Reveal delay={i * 0.1}>
       <article ref={ref} className="grid h-full gap-5 rounded-2xl border hairline p-5 md:rounded-none md:border-0 md:border-t md:p-0 md:grid-cols-[1fr_1.2fr] md:gap-14 md:py-16">
         <div>
-          <p className="mono text-sm text-ink/72">{m.n}</p>
+          <p className="mono text-sm text-ink">{m.n}</p>
           <h3 className="mt-3 text-[clamp(2rem,4vw,3.5rem)]">{m.title}</h3>
-          <p className="mt-5 text-base text-ink/80 md:mt-6 md:text-lg">{m.what}</p>
-          <p className="mt-4 flex gap-2 text-ink/72"><Icon name="arrow" size={14} className="mt-1.5 shrink-0" />{m.gets}</p>
+          <p className="mt-5 text-base text-ink md:mt-6 md:text-lg">{m.what}</p>
+          <p className="mt-4 flex gap-2 text-ink"><Icon name="arrow" size={14} className="mt-1.5 shrink-0" />{m.gets}</p>
           <dl className="mt-6 grid grid-cols-2 gap-5 border-t hairline pt-5 md:mt-8 md:gap-6 md:pt-6">
             <div>
               <dt className="label">How long</dt>
@@ -29,7 +29,7 @@ function Block({ m, i }: { m: Move; i: number }) {
             </div>
             <div>
               <dt className="label">What I need from you</dt>
-              <dd className="mt-2 text-sm text-ink/80">{m.need}</dd>
+              <dd className="mt-2 text-sm text-ink">{m.need}</dd>
             </div>
           </dl>
         </div>
@@ -38,7 +38,7 @@ function Block({ m, i }: { m: Move; i: number }) {
           <Motion.div style={{ y }} className="absolute inset-[-8%]">
             <Image src={m.artefact} alt={m.artefactCaption ?? `${m.title} — artefact`} fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover object-left-top" />
           </Motion.div>
-          {m.artefactCaption && <span className="label absolute bottom-3 left-3 hidden rounded bg-stock/85 px-2 py-1 !text-ink/85 md:inline">{m.artefactCaption}</span>}
+          {m.artefactCaption && <span className="label absolute bottom-3 left-3 hidden rounded bg-stock/85 px-2 py-1 !text-ink md:inline">{m.artefactCaption}</span>}
          </div>
          {/* phones: caption sits under the image instead of covering it */}
          {m.artefactCaption && <p className="label mt-2 truncate !normal-case !tracking-normal md:hidden">{m.artefactCaption}</p>}

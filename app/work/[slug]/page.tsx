@@ -1,3 +1,4 @@
+import Result from "@/components/Result";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -65,36 +66,36 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink label="All work" fallback="/work/" />
-        <p className="mt-10 flex items-center gap-3 text-ink/72">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={34} />}<span>{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</span></p>
+        <p className="mt-10 flex items-center gap-3 text-ink">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={34} />}<span>{c.client}{c.placeholder ? " · PLACEHOLDER" : ""}</span></p>
         <h1 className="num mt-4 text-[clamp(2.5rem,8vw,8rem)] text-signal">
           <Counter value={h.value} prefix={h.prefix} suffix={h.suffix} decimals={h.decimals} />
         </h1>
-        <p className="mono mt-4 text-sm text-ink/72">{c.industry} · {c.location} · {c.year}</p>
+        <p className="mono mt-4 text-sm text-ink">{c.industry} · {c.location} · {c.year}</p>
 
         <div className="bezel mt-14"><div className="bezel-core relative aspect-[16/8]"><Image src={c.image} alt={`Ads Manager — ${c.client}`} fill className="object-cover object-left-top" sizes="100vw" priority /></div></div>
 
         {c.outcome && (
           <div className="mt-14 border-l-2 border-signal pl-6">
-            <p className="label">WHAT IT TURNED INTO</p>
-            <p className="display mt-3 text-2xl text-ink md:text-4xl">{c.outcome}</p>
-            {c.outcomeSource && <p className="mono mt-3 text-xs text-ink/72">{c.outcomeSource}</p>}
+            <h2 className="opener">What it turned into</h2>
+            <p className="display mt-3 text-2xl leading-[1.12] text-ink md:text-4xl">{c.outcome}</p>
+            {c.outcomeSource && <p className="mono mt-3 text-xs text-ink">{c.outcomeSource}</p>}
           </div>
         )}
 
         <div className="mt-16 grid gap-12 md:grid-cols-2">
-          <div><p className="label !text-strike">Before</p><p className="mt-4 text-xl text-ink/80">{c.before}</p></div>
-          <div><p className="label !text-signal">After</p><p className="mt-4 text-xl text-ink">{c.after}</p></div>
+          <div><p className="label !text-strike">Before</p><p className="mt-4 text-xl text-ink">{c.before}</p></div>
+          <div><p className="label !text-signal">After</p><p className="mt-4 text-xl text-ink"><Result add={false}>{c.after}</Result></p></div>
         </div>
 
         {/* How this was counted — the receipt behind the number. A case without this block is a claim. */}
         {c.measured && (
-          <section className="theme-alt card-over mt-16 rounded-3xl px-6 py-10 md:px-10 md:py-12">
-            <p className="label">HOW THIS WAS COUNTED</p>
+          <section className="theme-alt card-over mt-16 border border-ink px-6 py-10 md:px-10 md:py-12">
+            <h2 className="opener">How this was counted</h2>
             <div className="mt-6 grid gap-8 md:grid-cols-[1fr_1.2fr] md:gap-12">
               <dl className="space-y-5">
                 <div><dt className="label">Source</dt><dd className="mt-1 text-lg text-ink">{c.measured.source}</dd></div>
-                <div><dt className="label">Window</dt><dd className="mono mt-1 text-ink">{c.measured.window}</dd></div>
-                <div><dt className="label">What counts</dt><dd className="mt-1 text-ink/80">{c.measured.counted}</dd></div>
+                <div><dt className="label">Window</dt><dd className="tnum mt-1 text-lg text-ink">{c.measured.window}</dd></div>
+                <div><dt className="label">What counts</dt><dd className="mt-1 text-lg text-ink">{c.measured.counted}</dd></div>
               </dl>
               {c.measured.screenshot && (
                 <div className="bezel"><div className="bezel-core relative aspect-[16/10]">
@@ -114,39 +115,39 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
         {video && (
           <section className="mt-16">
-            <p className="label">{video.name.toUpperCase()}, ON CAMERA</p>
+            <h2 className="opener">{video.name}, on camera</h2>
             <div className={`bezel mt-5 ${video.vertical ? "max-w-sm" : "max-w-3xl"}`}><div className="bezel-core"><VideoTile youtubeId={video.youtubeId} poster={video.poster} title={`${video.name}, ${video.business}`} vertical={video.vertical} /></div></div>
             {video.quote ? (
-              <blockquote className="display mt-6 max-w-2xl text-2xl italic text-ink/90 md:text-3xl">&ldquo;{video.quote}&rdquo;</blockquote>
+              <blockquote className="display mt-6 max-w-2xl text-2xl italic text-ink md:text-3xl">&ldquo;{video.quote}&rdquo;</blockquote>
             ) : (
-              <p className="mt-6 max-w-2xl text-ink/80">{video.context}</p>
+              <p className="mt-6 max-w-2xl text-ink">{video.context}</p>
             )}
-            <p className="mt-3 text-sm text-ink/72">— {video.name}, {video.business}</p>
+            <p className="mt-3 text-sm text-ink">— {video.name}, {video.business}</p>
           </section>
         )}
 
         {c.quote && !video && (
           <blockquote className="mt-16 border-l-2 border-signal pl-6">
-            <p className="display text-2xl italic text-ink/90 md:text-4xl">“{c.quote.text}”</p>
-            <p className="mt-4 text-sm text-ink/72">— {c.quote.author}{c.quote.verified ? "" : " · awaiting sign-off"}</p>
+            <p className="display text-2xl italic text-ink md:text-4xl">“{c.quote.text}”</p>
+            <p className="mt-4 text-sm text-ink">— {c.quote.author}{c.quote.verified ? "" : " · awaiting sign-off"}</p>
           </blockquote>
         )}
 
         {next && (
           <div className="mt-20 border-t hairline pt-10">
-            <p className="label">THIS CLIENT INTRODUCED</p>
+            <h2 className="opener">This client introduced</h2>
             <Link href={`/work/${next.slug}`} className="display mt-3 block text-3xl text-ink hover:text-signal md:text-5xl">{next.client} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>
           </div>
         )}
         {/* How this number was made — the questions a sceptical founder asks, answered from the measured block. Also FAQ schema. */}
         {c.measured && (
           <section className="mt-20 border-t hairline pt-10">
-            <p className="label">{"HOW THIS NUMBER WAS MADE"}</p>
+            <h2 className="opener">How this number was made</h2>
             <dl className="mt-6 divide-y hairline">
               {faqFor(c).map((f) => (
                 <div key={f.q} className="py-5">
-                  <dt className="display text-xl text-ink md:text-2xl">{f.q}</dt>
-                  <dd className="mt-2 max-w-2xl text-ink/75">{f.a}</dd>
+                  <dt className="display text-xl leading-[1.15] text-ink md:text-2xl"><Result add={false}>{f.q}</Result></dt>
+                  <dd className="mt-2 max-w-2xl text-ink">{f.a}</dd>
                 </div>
               ))}
             </dl>
@@ -155,7 +156,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
         {relatedPosts.length > 0 && (
           <section className="mt-16 border-t hairline pt-10">
-            <p className="label">{"READ THE FULL ACCOUNT"}</p>
+            <h2 className="opener">Read the full account</h2>
             <ul className="mt-4 space-y-2">
               {relatedPosts.map((p) => <li key={p.slug}><Link href={`/blog/${p.slug}/`} className="underline-slide text-lg text-ink hover:text-signal">{p.title} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></li>)}
             </ul>
@@ -163,11 +164,11 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         )}
 
         <section className="mt-16 border-t hairline pt-10">
-          <p className="label">{"MORE WORK"}</p>
+          <h2 className="opener">More work</h2>
           <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-            {others.map((o) => <li key={o.slug}><Link href={`/work/${o.slug}/`} className="underline-slide text-ink/80 hover:text-ink">{o.client} <span className="mono text-xs text-ink/72">· {o.result}</span></Link></li>)}
+            {others.map((o) => <li key={o.slug}><Link href={`/work/${o.slug}/`} className="underline-slide text-ink">{o.client} <span className="text-sm">· {o.result}</span></Link></li>)}
           </ul>
-          <p className="mt-6 text-sm text-ink/72">The service behind this account: <Link href="/services/#meta-facebook-instagram-ads" className="underline-slide text-ink/85">Meta ads — Facebook &amp; Instagram</Link>.</p>
+          <p className="mt-6 text-sm text-ink">The service behind this account: <Link href="/services/#meta-facebook-instagram-ads" className="underline-slide text-ink">Meta ads — Facebook &amp; Instagram</Link>.</p>
         </section>
 
         <div className="mt-16 flex flex-wrap gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button></div>

@@ -17,7 +17,7 @@ export default function NewsletterForm() {
   if (state === "delivered") return <p className="text-ink">You&apos;re in. First letter within two weeks.</p>;
   if (state === "manual") {
     const href = site.email ? `mailto:${site.email}?subject=${encodeURIComponent("Add me to the letter")}&body=${encodeURIComponent(email)}` : `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Add me to the letter: ${email}`)}`;
-    return <p className="text-ink/85">One tap to finish: <a href={href} target="_blank" rel="noreferrer" className="underline-slide text-ink">send me your address</a></p>;
+    return <p className="text-ink">One tap to finish: <a href={href} target="_blank" rel="noreferrer" className="underline-slide text-ink">send me your address</a></p>;
   }
   return (
     <form className="flex w-full items-end gap-3" onSubmit={onSubmit}>

@@ -15,7 +15,7 @@ function Tile({ v }: { v: Video }) {
           {v.vertical && <span className="label">{v.kind}</span>}
           <div>
             <p className="text-ink">{v.title}</p>
-            <p className="mt-0.5 text-sm text-ink/72">{v.client}</p>
+            <p className="mt-0.5 text-sm text-ink">{v.client}</p>
           </div>
           {!v.vertical && <span className="label shrink-0">{v.kind}</span>}
         </div>
@@ -30,14 +30,14 @@ export default function Showreel({ items = videos, rowId = "showreel-row", label
   if (!items.length) return null;
   return (
     <Reveal className="mt-16">
-      <p className="label">{label}</p>
+      <h2 className="opener">{label}</h2>
       <SwipeCue target={rowId} count={items.length} noun="films" className="mt-4" />
       <div id={rowId} className="m-scroller mt-3 grid gap-4 md:mt-5 md:grid-cols-3 lg:grid-cols-5">
         {items.map((v) => (
           <div key={v.title} className={v.vertical ? "md:col-span-1" : "md:col-span-2"}><Tile v={v} /></div>
         ))}
       </div>
-      <p className="mt-4 text-sm text-ink/72">AI-generated commercials and films, produced end to end — script, visuals, sound and cut. Tiles marked “Concept film” were made to show the craft, not for a client brief. Video plays from YouTube only after you tap.</p>
+      <p className="mt-4 text-sm text-ink">AI-generated commercials and films, produced end to end — script, visuals, sound and cut. Tiles marked “Concept film” were made to show the craft, not for a client brief. Video plays from YouTube only after you tap.</p>
     </Reveal>
   );
 }

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Result from "@/components/Result";
+import { CroreFigure, CroreNote } from "@/components/Crore";
 import Reveal from "@/components/motion/Reveal";
-import Scramble from "@/components/motion/Scramble";
 import Button from "@/components/Button";
 import Showreel from "@/components/Showreel";
 import FeaturedGrid from "@/components/FeaturedGrid";
@@ -36,12 +36,12 @@ export default function Work() {
 
         {/* Raw receipts — every Ads Manager screen, big enough to read, swipe sideways */}
         <Reveal className="mt-12">
-          <p className="label">RAW RECEIPTS · EVERY AD ACCOUNT</p>
+          <h2 className="opener">Raw receipts, every ad account</h2>
           <HScroller hint="9 accounts · scroll" className="mt-5">
             {live.flatMap((c) => (c.receipts ?? []).map((src, i) => (
               <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
                 <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:640px) 520px, 86vw" className="object-cover object-left-top" />
-                <span className="label absolute bottom-2 left-2 flex items-center gap-2 rounded bg-stock/85 py-1 pl-1 pr-2 !text-ink/85">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={22} />}{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · {c.result}</span>
+                <span className="label absolute bottom-2 left-2 flex items-center gap-2 rounded bg-stock/85 py-1 pl-1 pr-2 !text-ink">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={22} />}{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · <Result>{c.result}</Result></span>
               </div></Link>
             )))}
           </HScroller>
@@ -54,9 +54,9 @@ export default function Work() {
         {/* Proof I don't host — only rendered when real links exist. A dead link is worse than no link. */}
         {Object.values(externalProof).some((p) => p.href) && (
           <Reveal className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-y hairline py-5">
-            <p className="label">PROOF I DON&rsquo;T HOST</p>
+            <h2 className="text-lg font-semibold [font-family:var(--font-sans)] tracking-normal">Proof I don&rsquo;t host</h2>
             {Object.values(externalProof).filter((p) => p.href).map((p) => (
-              <a key={p.label} href={p.href} className="underline-slide text-sm text-ink/80 hover:text-ink" target="_blank" rel="noreferrer">
+              <a key={p.label} href={p.href} className="underline-slide text-sm text-ink" target="_blank" rel="noreferrer">
                 {p.label}{p.count ? ` · ${p.count}` : ""} <Icon name="arrow-up-right" size={14} className="ml-1 inline-block align-[-0.1em]" />
               </a>
             ))}
@@ -65,13 +65,13 @@ export default function Work() {
 
         {/* Totals across every account — each addend is a screenshot number (see lib/content.ts) */}
         <Reveal className="mt-16 border-t hairline pt-10">
-          <p className="label"><Scramble text={n.label} /></p>
+          <h2 className="opener">{n.label}</h2>
           <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {n.stats.map((st) => (
               <div key={st.k} className="flex flex-col">
                 <dt className="order-2 mt-3 text-ink">{st.k}</dt>
-                <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
-                <dd className="order-3 mt-1 text-sm text-ink/72">{st.v}</dd>
+                <dd className="order-1 num text-[clamp(2rem,4vw,3.25rem)] text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
+                <dd className="order-3 mt-1 text-sm text-ink">{st.v}</dd>
               </div>
             ))}
           </dl>
@@ -80,27 +80,27 @@ export default function Work() {
         {/* Client-reported — kept apart from the screenshot totals, on paper tone, with its source line */}
         <Reveal className="mt-14 grid gap-8 border-t hairline pt-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="label"><Scramble text={n.reported.label} /></p>
-            <p className="mt-5 max-w-sm text-sm text-ink/72">{n.reported.source}</p>
+            <h2 className="opener">{n.reported.label}</h2>
+            <p className="mt-5 max-w-sm text-sm text-ink">{n.reported.source}</p>
           </div>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
             {n.reported.stats.map((st) => (
               <div key={st.k} className="flex flex-col">
                 <dt className="order-2 mt-3 text-ink">{st.k}</dt>
-                <dd className="order-1 mono text-[clamp(2rem,4vw,3.25rem)] leading-none text-ink"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} /></dd>
-                <dd className="order-3 mt-1 text-sm text-ink/72">{st.v}</dd>
+                <dd className="order-1 num text-[clamp(2rem,4vw,3.25rem)] text-ink">{st.prefix === "₹" ? <CroreFigure value={st.value} /> : <Counter value={st.value} prefix={st.prefix} suffix={st.suffix} />}</dd>
+                <dd className="order-3 mt-1 text-sm text-ink">{st.v}{st.prefix === "₹" && <CroreNote value={st.value} />}</dd>
               </div>
             ))}
           </dl>
         </Reveal>
 
         <Reveal className="mt-14">
-          <p className="label"><Scramble text={n.after.label} /></p>
+          <h2 className="opener">{n.after.label}</h2>
           <dl className="mt-6 grid gap-x-6 gap-y-6 sm:grid-cols-3">
             {n.after.facts.map((f) => (
               <div key={f.k}>
-                <dt className="display text-2xl text-ink">{f.k}</dt>
-                <dd className="mt-1 text-sm text-ink/75">{f.v}</dd>
+                <dt className="display text-2xl leading-[1.12] text-ink">{f.k}</dt>
+                <dd className="mt-1 text-sm text-ink">{f.v}</dd>
               </div>
             ))}
           </dl>
@@ -108,14 +108,14 @@ export default function Work() {
 
         {/* The rest — one row each */}
         <Reveal className="mt-14">
-          <p className="label">AND</p>
+          <h2 className="opener">And the rest</h2>
           <ul className="mt-4 border-t hairline">
             {rest.map((c) => (
               <li key={c.slug}>
-                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-ink/[0.03] md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
-                  <span className="display text-2xl text-ink transition-transform duration-300 ease-out-expo group-hover:translate-x-2">{c.client}</span>
-                  <span className="text-sm text-ink/72">{c.industry} · {c.location}</span>
-                  <span className="mono text-sm text-signal"><Result>{c.result}</Result></span>
+                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-salmon md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
+                  <span className="display text-2xl text-ink">{c.client}</span>
+                  <span className="text-sm text-ink">{c.industry} · {c.location}</span>
+                  <span className="font-semibold text-signal group-hover:text-ink"><Result>{c.result}</Result></span>
                   <span className="label md:text-right">{c.year}</span>
                 </Link>
               </li>

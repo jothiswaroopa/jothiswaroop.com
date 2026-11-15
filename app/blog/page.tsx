@@ -47,7 +47,7 @@ export default function BlogIndex() {
         <BackLink className="mb-8" />
         <div className="mt-6 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
           <h1 className="text-[clamp(2.5rem,6vw,5.5rem)]">What worked, what didn&apos;t.</h1>
-          <p className="max-w-xl text-ink/75 lg:pb-3">
+          <p className="max-w-xl text-ink lg:pb-3">
             Ads, AI systems and search, written from real accounts and real builds — including the parts that failed. For founders who read their own numbers.
           </p>
         </div>
@@ -66,9 +66,9 @@ export default function BlogIndex() {
                     {LANE[lead.lane]} · {fmtDate(lead.date)} · {lead.minutes} min
                   </p>
                   <p className="display mt-4 text-3xl text-ink transition-colors group-hover:text-signal md:text-[2.6rem] md:leading-[1.08]">{lead.title}</p>
-                  <p className="mt-4 text-ink/75">{lead.description}</p>
+                  <p className="mt-4 text-ink">{lead.description}</p>
                 </div>
-                <p className="mono mt-8 text-xs uppercase tracking-[0.16em] text-ink/72">
+                <p className="mono mt-8 text-xs uppercase tracking-[0.16em] text-ink">
                   {SEGMENT[lead.segment] ?? lead.segment} · {lead.sources?.length ?? 0} sources
                   <span className="ml-3 text-signal">Read <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></span>
                 </p>
@@ -91,8 +91,8 @@ export default function BlogIndex() {
                         {LANE[p.lane]} · {fmtDate(p.date)}
                       </p>
                       <p className="display mt-3 text-xl text-ink transition-colors group-hover:text-signal md:text-2xl">{p.title}</p>
-                      <p className="mt-3 flex-1 text-sm text-ink/72">{p.description}</p>
-                      <p className="mono mt-5 border-t hairline pt-4 text-xs uppercase tracking-[0.16em] text-ink/72">
+                      <p className="mt-3 flex-1 text-sm text-ink">{p.description}</p>
+                      <p className="mono mt-5 border-t hairline pt-4 text-xs uppercase tracking-[0.16em] text-ink">
                         {p.minutes} min · {p.sources?.length ?? 0} sources
                       </p>
                     </div>
@@ -103,15 +103,15 @@ export default function BlogIndex() {
           </ul>
         )}
 
-        {posts.length === 0 && <p className="mt-14 text-ink/72">First post lands this week.</p>}
+        {posts.length === 0 && <p className="mt-14 text-ink">First post lands this week.</p>}
 
         <div className="bezel mt-16">
           <div className="bezel-core flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8">
-            <p className="text-lg text-ink/85">One letter every two weeks. A result, a lesson, no fluff.</p>
+            <p className="text-lg text-ink">One letter every two weeks. A result, a lesson, no fluff.</p>
             <NewsletterForm />
           </div>
         </div>
-        <p className="mono mt-6 text-xs text-ink/72">
+        <p className="mono mt-6 text-xs text-ink">
           <a href="/feed.xml" className="underline-slide">RSS feed</a>
         </p>
       </div>

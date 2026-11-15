@@ -28,14 +28,14 @@ export default function FilmsPage() {
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink className="mb-8" />
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.02]">AI commercials and UGC-style ads.</h1>
-        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-ink/80">
+        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-ink">
           Made end to end — script, visuals, voice and cut — and sized for Reels, Stories and TikTok. Client films for Top-5 El Alimentos and House of Vummudi, the VROOM 2026 event film, and concept films made to show the craft.
         </p>
 
         <Showreel />
         <FilmsCta />
 
-        <p className="mt-16 max-w-2xl text-ink/80">
+        <p className="mt-16 max-w-2xl text-ink">
           The films are one half. The other half is the ad account they run in — <Link href="/work/" className="underline-slide text-ink">see the lead-generation work and its receipts</Link>, or <Link href="/services/" className="underline-slide text-ink">every service</Link>.
         </p>
       </div>

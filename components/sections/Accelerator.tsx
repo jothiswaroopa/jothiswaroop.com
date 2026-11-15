@@ -18,7 +18,7 @@ export default function Accelerator() {
           {/* pitch */}
           <div>
             <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)]">{a.headline}</h2></Reveal>
-            <Reveal delay={0.1}><p className="mt-6 max-w-lg text-lg text-ink/80">{a.body}</p></Reveal>
+            <Reveal delay={0.1}><p className="mt-6 max-w-lg text-lg text-ink">{a.body}</p></Reveal>
 
             <Reveal delay={0.15}>
               <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t hairline pt-6 sm:grid-cols-4">
@@ -36,7 +36,7 @@ export default function Accelerator() {
                 {a.arc.map((d) => (
                   <li key={d.k} className="grid grid-cols-[88px_1fr] gap-4 border-b hairline py-4 sm:grid-cols-[110px_1fr]">
                     <span className="mono text-sm text-signal">{d.k}</span>
-                    <p className="text-ink/85">{d.v}</p>
+                    <p className="text-ink">{d.v}</p>
                   </li>
                 ))}
               </ol>
@@ -46,18 +46,18 @@ export default function Accelerator() {
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 <div>
                   <p className="label">For</p>
-                  <p className="mt-2 text-sm text-ink/85">{a.fit.yes}</p>
+                  <p className="mt-2 text-sm text-ink">{a.fit.yes}</p>
                 </div>
                 <div>
                   <p className="label">Not for</p>
-                  <p className="mt-2 text-sm text-ink/85">{a.fit.no}</p>
+                  <p className="mt-2 text-sm text-ink">{a.fit.no}</p>
                 </div>
               </div>
             </Reveal>
 
             <Reveal delay={0.3} className="mt-10">
               <Button href={a.cta.href}>{a.cta.label}</Button>
-              <p className="label mt-4 !normal-case !tracking-normal text-ink/72">{a.ctaNote}</p>
+              <p className="label mt-4 !normal-case !tracking-normal text-ink">{a.ctaNote}</p>
             </Reveal>
           </div>
 
@@ -74,14 +74,14 @@ export default function Accelerator() {
                   </div>
                   <div>
                     <p className="text-ink">{t.author}</p>
-                    <p className="text-sm text-ink/72">{t.role}</p>
+                    <p className="text-sm text-ink">{t.role}</p>
                     <p className="label mt-1 !normal-case !tracking-normal">{t.where}</p>
                   </div>
                 </figcaption>
 
                 {(t.video || t.receipt) && (
                   <div className="mt-8 border-t hairline pt-6">
-                    <p className="label">{"AFTER THE PROGRAMME, AND ON DAY ONE"}</p>
+                    <p className="label">After the programme, and on day one</p>
                     {/* The reel keeps its 9:16; the screenshot sits beside it in the space that leaves. */}
                     <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,260px)_1fr] sm:items-start">
                       {t.video && (
@@ -91,11 +91,11 @@ export default function Accelerator() {
                       )}
                       {t.receipt && (
                         <div className="sm:pt-1">
-                          <p className="text-sm text-ink/75">He opens the video by saying he isn&apos;t tech savvy. The message below is from the evening of day one, before the week was finished.</p>
+                          <p className="text-sm text-ink">He opens the video by saying he isn&apos;t tech savvy. The message below is from the evening of day one, before the week was finished.</p>
                           <div className="mt-4 overflow-hidden rounded-xl border hairline bg-stock/90 p-1.5">
                             <Image src={t.receipt} alt="The original WhatsApp message from D Balaji" width={442} height={552} className="h-auto w-full rounded-lg" />
                           </div>
-                          <p className="mt-3 text-sm text-ink/75">{t.receiptCaption} The line that matters is the last one: <span className="text-ink">&ldquo;technologically challenged like me.&rdquo;</span> That is who this is built for.</p>
+                          <p className="mt-3 text-sm text-ink">{t.receiptCaption} The line that matters is the last one: <span className="text-ink">&ldquo;technologically challenged like me.&rdquo;</span> That is who this is built for.</p>
                         </div>
                       )}
                     </div>

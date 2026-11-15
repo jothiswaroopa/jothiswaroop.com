@@ -164,6 +164,10 @@ body {
   }
   .tracking-display { letter-spacing: -0.03em; line-height: 0.98; }
 
+  /* A sub-section's opening line on an inner page: a real heading, one clear step under the page headline.
+     (These were small uppercase labels standing in for headings.) */
+  .opener { font-size: clamp(1.375rem, 2.1vw, 1.875rem); line-height: 1.1; letter-spacing: -0.018em; }
+
   /* Was a monospace voice. On a rate card the figures are tabular Franklin and nothing is in costume. */
   .mono {
     font-family: var(--font-sans), sans-serif;
@@ -562,5 +566,5 @@ html.lenis body { height: auto; }
 .prose th { font-size: 0.75em; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid var(--line-strong); }
 /* "Key facts" box the generator emits for answer engines */
 .prose .facts { border: 1px solid var(--line-strong); padding: 1.25rem 1.5rem; background: var(--stock-2); }
-.prose .facts p:first-child { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--signal); margin: 0 0 0.75em; }
+.prose .facts p:first-child { font-family: var(--font-display), Georgia, serif; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); margin: 0 0 0.6em; }
 .prose .facts ul { margin: 0; }

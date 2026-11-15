@@ -19,7 +19,7 @@ export default function CopyText({ text, label = "Copy post" }: { text: string; 
     }
   };
   return (
-    <button type="button" onClick={copy} className="mono press border hairline px-3 py-2 text-[11px] uppercase tracking-[0.12em] text-ink/80 hover:text-signal">
+    <button type="button" onClick={copy} className="mono press border hairline px-3 py-2 text-[11px] uppercase tracking-[0.12em] text-ink hover:text-signal">
       {said ? "Copied" : label}
     </button>
   );

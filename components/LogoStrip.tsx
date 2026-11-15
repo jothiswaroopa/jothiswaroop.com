@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
-import Scramble from "@/components/motion/Scramble";
 import { logos, type ClientLogo } from "@/lib/content";
 
 /** One row of every client mark on paper (cases first — those link to their case page).
@@ -35,13 +34,13 @@ export default function LogoStrip() {
   const all = [...logos.primary, ...logos.more];
   return (
     <Reveal className="mt-12 border-t hairline pt-8">
-      <p className="label"><Scramble text="CLIENTS I'VE WORKED WITH" /></p>
+      <h2 className="opener">Clients I&rsquo;ve worked with</h2>
       <Row items={all} />
       {/* Said in plain sight rather than left to a hover title. The Naturals work is for a
           franchisee, not the chain — and on a page whose whole case is receipts, a mark that lets
           a reader assume the parent brand is doing work a fact cannot do. Cheaper to say it here
           than to correct it on a call. */}
-      <p className="mt-6 text-xs text-ink/72">
+      <p className="mt-6 text-xs text-ink">
         Naturals and Nails &rsquo;n Beyond: engaged through a franchise owner, not the parent brand.
       </p>
     </Reveal>

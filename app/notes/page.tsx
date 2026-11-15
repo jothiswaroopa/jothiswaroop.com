@@ -9,7 +9,7 @@ export default function NotesRedirect() {
     <section className="min-h-[100svh] pt-[96px]">
       <meta httpEquiv="refresh" content="0; url=/blog/" />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10">
-        <p className="text-ink/75">Notes moved. <Link href="/blog/" className="underline-slide text-ink">Go to the blog <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
+        <p className="text-ink">Notes moved. <Link href="/blog/" className="underline-slide text-ink">Go to the blog <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
       </div>
     </section>
   );

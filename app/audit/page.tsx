@@ -11,7 +11,7 @@ export default function AuditPage() {
         <div>
           <BackLink className="mb-8" />
           <h1 className="mt-6 text-[clamp(2.5rem,5.5vw,5rem)]">{audit.headline}</h1>
-          <p className="mt-6 max-w-lg text-ink/75">{audit.sub}</p>
+          <p className="mt-6 max-w-lg text-ink">{audit.sub}</p>
         </div>
         <AuditForm />
       </div>

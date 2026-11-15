@@ -44,7 +44,7 @@ export default function CardPage() {
     <section className="relative min-h-[100svh] overflow-hidden bg-stock px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[max(2rem,env(safe-area-inset-top))] text-ink">
 
       <div className="relative mx-auto max-w-[420px]">
-        <p className="mono text-center text-[10.5px] uppercase tracking-[0.18em] text-ink/72">Performance marketing &amp; AI systems</p>
+        <p className="mono text-center text-[10.5px] uppercase tracking-[0.18em] text-ink">Performance marketing &amp; AI systems</p>
 
         {/* portrait cutout — the AI halo above the head, hoodie fading into the ink */}
         <div className="relative mx-auto mt-2 h-[340px] w-full">
@@ -63,8 +63,8 @@ export default function CardPage() {
         <h1 className="display -mt-3 text-center text-[2.85rem] leading-none tracking-[-0.01em]">
           {site.name}<span className="text-signal">.</span>
         </h1>
-        <p className="mono mt-3 text-center text-[11px] uppercase tracking-[0.14em] text-ink/72">Ads · Websites · Content · AI systems</p>
-        <p className="mt-2 text-center text-sm text-ink/72">Chennai → India · UK · US</p>
+        <p className="mono mt-3 text-center text-[11px] uppercase tracking-[0.14em] text-ink">Ads · Websites · Content · AI systems</p>
+        <p className="mt-2 text-center text-sm text-ink">Chennai → India · UK · US</p>
 
         {/* the two CTAs */}
         <div className="mt-7 grid gap-3">
@@ -84,9 +84,9 @@ export default function CardPage() {
             { label: "WhatsApp", href: WA, glyph: ICON.wa },
           ].map((a) => (
             <li key={a.label}>
-              <a href={a.href} className="press flex flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-ink/[0.03] py-4 text-ink/85 hover:border-ink/25 hover:bg-ink/[0.07]">
+              <a href={a.href} className="press flex flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-ink/[0.03] py-4 text-ink hover:border-ink/25 hover:bg-ink/[0.07]">
                 {a.glyph}
-                <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink/72">{a.label}</span>
+                <span className="mono text-[10px] uppercase tracking-[0.12em] text-ink">{a.label}</span>
               </a>
             </li>
           ))}
@@ -96,42 +96,42 @@ export default function CardPage() {
         <div className="theme-alt mt-6 overflow-hidden rounded-2xl bg-stock text-ink shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)]">
           <div className="flex items-center justify-between border-b hairline px-5 py-3">
             <p className="mono text-[10.5px] uppercase tracking-[0.16em] text-strike">The receipts</p>
-            <p className="mono text-[10.5px] uppercase tracking-[0.12em] text-ink/72">Ask to see them</p>
+            <p className="mono text-[10.5px] uppercase tracking-[0.12em] text-ink">Ask to see them</p>
           </div>
           <dl className="grid grid-cols-3 divide-x divide-ink/15">
             {RECEIPTS.map((r) => (
               <div key={r.k} className="flex flex-col px-4 py-5">
-                <dt className="mono order-2 mt-2 text-[10px] uppercase tracking-[0.1em] text-ink/72">{r.k}</dt>
+                <dt className="mono order-2 mt-2 text-[10px] uppercase tracking-[0.1em] text-ink">{r.k}</dt>
                 <dd className="display order-1 text-[1.9rem] leading-none tabular-nums">{r.n}</dd>
               </div>
             ))}
           </dl>
           <dl className="grid grid-cols-[84px_1fr] gap-y-3 border-t hairline px-5 py-5 text-[15px]">
-            <dt className="text-ink/72">Phone</dt><dd><a href={`tel:${PHONE_TEL}`} className="underline-slide">{site.whatsappDisplay}</a></dd>
-            <dt className="text-ink/72">Email</dt><dd><a href={`mailto:${site.email}`} className="underline-slide break-all">{site.email}</a></dd>
-            <dt className="text-ink/72">Web</dt><dd><a href="/?s=card&c=page" className="underline-slide">jothiswaroop.com</a></dd>
-            <dt className="text-ink/72">Based in</dt><dd>Chennai, India · works in your timezone</dd>
+            <dt className="text-ink">Phone</dt><dd><a href={`tel:${PHONE_TEL}`} className="underline-slide">{site.whatsappDisplay}</a></dd>
+            <dt className="text-ink">Email</dt><dd><a href={`mailto:${site.email}`} className="underline-slide break-all">{site.email}</a></dd>
+            <dt className="text-ink">Web</dt><dd><a href="/?s=card&c=page" className="underline-slide">jothiswaroop.com</a></dd>
+            <dt className="text-ink">Based in</dt><dd>Chennai, India · works in your timezone</dd>
           </dl>
         </div>
 
         {/* links */}
-        <p className="mono mt-8 px-1 text-[10.5px] uppercase tracking-[0.16em] text-ink/72">Next step</p>
+        <p className="mono mt-8 px-1 text-[10.5px] uppercase tracking-[0.16em] text-ink">Next step</p>
         <ul className="mt-3 divide-y divide-ink/10 overflow-hidden rounded-2xl border border-ink/12 bg-ink/[0.03]">
           {LINKS.map((l, i) => (
             <li key={l.k}>
               <a href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="press group flex items-center gap-4 px-5 py-4 hover:bg-ink/[0.06]">
-                <span className="mono w-5 text-[10px] text-ink/72">0{i + 1}</span>
+                <span className="mono w-5 text-[10px] text-ink">0{i + 1}</span>
                 <span className="flex-1">
                   <span className="block text-[15px] text-ink">{l.k}</span>
-                  <span className="block text-[13px] text-ink/72">{l.v}</span>
+                  <span className="block text-[13px] text-ink">{l.v}</span>
                 </span>
-                <span className="text-ink/72 transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
+                <span className="text-ink transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
               </a>
             </li>
           ))}
         </ul>
 
-        <p className="mono mt-9 text-center text-[10px] uppercase tracking-[0.12em] leading-relaxed text-ink/72">
+        <p className="mono mt-9 text-center text-[10px] uppercase tracking-[0.12em] leading-relaxed text-ink">
           Prompt Engineering Champion 2025<br />TN Digital Summit awardee 2026<br />Official Digital Partner, VROOM 2026
         </p>
       </div>
