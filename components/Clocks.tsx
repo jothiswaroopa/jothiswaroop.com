@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/lib/content";
+import { useDetectedMarket } from "@/lib/market";
 
 const fmt = (tz: string | undefined) =>
   new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", hour12: true, timeZone: tz }).format(new Date()).toLowerCase();
@@ -13,11 +14,13 @@ const fmt = (tz: string | undefined) =>
  */
 export default function Clocks({ className }: { className?: string }) {
   const [t, setT] = useState<{ here: string; place: string; chennai: string } | null>(null);
+  // The same market signal as the prices (clock, ?cur=, or a single-market preview build), so the strip and the
+  // price list never disagree.
+  const market = useDetectedMarket();
   useEffect(() => {
     const tick = () => {
       try {
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const india = tz === "Asia/Kolkata" || tz === "Asia/Calcutta";
+        const india = market === "inr";
         // "your time", not the zone's city: America/Chicago is also Dallas, Europe/London is also Glasgow.
         setT({ here: fmt(undefined), place: india ? "" : "your time", chennai: fmt("Asia/Kolkata") });
       } catch {}
@@ -25,7 +28,7 @@ export default function Clocks({ className }: { className?: string }) {
     tick();
     const id = window.setInterval(tick, 20_000);
     return () => window.clearInterval(id);
-  }, []);
+  }, [market]);
   if (!t) return <span className={className}>{site.base}</span>;
   return (
     <span className={className}>
