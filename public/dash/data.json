@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-14T03:27:18.844Z",
+  "generatedAt": "2026-11-15T02:57:16.663Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-15",
-      "end": "2026-11-12"
+      "start": "2026-10-16",
+      "end": "2026-11-13"
     },
     "totals": {
-      "clicks": 25,
-      "impressions": 173,
-      "ctr": 0.14450867052023122,
-      "position": 13.664739884393063
+      "clicks": 24,
+      "impressions": 183,
+      "ctr": 0.13114754098360656,
+      "position": 13.03825136612022
     },
     "previous": {
-      "clicks": 13,
-      "impressions": 106,
-      "ctr": 0.12264150943396226,
-      "position": 9.443396226415095
+      "clicks": 15,
+      "impressions": 116,
+      "ctr": 0.12931034482758622,
+      "position": 10.586206896551724
     },
     "daily": [
       {
@@ -411,6 +411,20 @@
         "impressions": 6,
         "ctr": 0,
         "position": 24.166666666666668
+      },
+      {
+        "key": "2026-11-11",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 27.5
+      },
+      {
+        "key": "2026-11-12",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr": 0.07142857142857142,
+        "position": 6
       }
     ],
     "queries": [
@@ -445,16 +459,16 @@
       {
         "key": "how do ai search engines decide which brands to recommend",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 1,
         "ctr": 0,
-        "position": 94.66666666666667
+        "position": 95
       },
       {
         "key": "how do ai search engines decide which saas tools to recommend",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 42
+        "position": 32
       },
       {
         "key": "how google gemini picks which businesses to recommend",
@@ -506,6 +520,13 @@
         "position": 47
       },
       {
+        "key": "sri rajarajeshwari traders",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 71
+      },
+      {
         "key": "tharunis jewellery",
         "clicks": 0,
         "impressions": 1,
@@ -523,24 +544,24 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 23,
-        "impressions": 69,
-        "ctr": 0.3333333333333333,
-        "position": 4.333333333333334
+        "clicks": 22,
+        "impressions": 76,
+        "ctr": 0.2894736842105263,
+        "position": 4.565789473684211
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 44,
-        "ctr": 0.045454545454545456,
-        "position": 6.545454545454546
+        "impressions": 49,
+        "ctr": 0.04081632653061224,
+        "position": 6.26530612244898
       },
       {
         "key": "https://jothiswaroop.com/ai-ads/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 7
+        "position": 7.5
       },
       {
         "key": "https://jothiswaroop.com/apply/",
@@ -566,9 +587,9 @@
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 12,
         "ctr": 0,
-        "position": 11.923076923076923
+        "position": 12
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
@@ -580,9 +601,9 @@
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "clicks": 0,
-        "impressions": 32,
+        "impressions": 29,
         "ctr": 0,
-        "position": 35.65625
+        "position": 33.03448275862069
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
@@ -601,9 +622,9 @@
       {
         "key": "https://jothiswaroop.com/blog/learn-performance-marketing-from-zero-2026/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 18
+        "position": 12.5
       },
       {
         "key": "https://jothiswaroop.com/blog/meta-ads-dental-clinics-uk-real/",
@@ -615,9 +636,9 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 18,
+        "impressions": 19,
         "ctr": 0,
-        "position": 7.055555555555555
+        "position": 6.842105263157895
       },
       {
         "key": "https://jothiswaroop.com/work/angel/",
@@ -629,9 +650,9 @@
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 9.5
+        "position": 9.6
       },
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
@@ -664,9 +685,9 @@
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 12,
         "ctr": 0,
-        "position": 29.9
+        "position": 36.75
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
@@ -679,10 +700,10 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 25,
-        "impressions": 88,
-        "ctr": 0.2840909090909091,
-        "position": 8.204545454545453
+        "clicks": 24,
+        "impressions": 89,
+        "ctr": 0.2696629213483146,
+        "position": 6.078651685393258
       },
       {
         "key": "arg",
@@ -694,9 +715,9 @@
       {
         "key": "aus",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0,
-        "position": 6
+        "position": 5
       },
       {
         "key": "bgd",
@@ -708,9 +729,9 @@
       {
         "key": "bgr",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 3,
         "ctr": 0,
-        "position": 7
+        "position": 5.333333333333333
       },
       {
         "key": "bra",
@@ -727,41 +748,41 @@
         "position": 10
       },
       {
+        "key": "col",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 67
+      },
+      {
+        "key": "dnk",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 15.5
+      },
+      {
         "key": "gbr",
         "clicks": 0,
         "impressions": 9,
         "ctr": 0,
         "position": 28.333333333333332
-      },
-      {
-        "key": "idn",
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0,
-        "position": 12
-      },
-      {
-        "key": "irl",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 10
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 15,
-        "impressions": 129,
-        "ctr": 0.11627906976744186,
-        "position": 16.178294573643413
+        "clicks": 14,
+        "impressions": 135,
+        "ctr": 0.1037037037037037,
+        "position": 15.362962962962962
       },
       {
         "key": "MOBILE",
         "clicks": 9,
-        "impressions": 42,
-        "ctr": 0.21428571428571427,
-        "position": 6.261904761904762
+        "impressions": 46,
+        "ctr": 0.1956521739130435,
+        "position": 6.478260869565218
       },
       {
         "key": "TABLET",
@@ -774,8 +795,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-15",
-      "end": "2026-11-14"
+      "start": "2026-10-16",
+      "end": "2026-11-15"
     },
     "totals": {
       "views": 0,
@@ -790,12 +811,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1791849600000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -969,9 +984,22 @@
         "Clicks": 0,
         "Date": "/Date(1794355200000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1794441600000)/",
+        "Impressions": 1
       }
     ],
-    "queries": []
+    "queries": [
+      {
+        "key": "jothi swaroopani a",
+        "clicks": 0,
+        "impressions": 1,
+        "position": 3
+      }
+    ]
   },
   "geo": {
     "checkedAt": "2026-11-02T02:43:34.911Z",
@@ -1235,8 +1263,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.525581,
-    "projected": 4.730229,
+    "pace": 0.490542,
+    "projected": 4.41488,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1313,8 +1341,8 @@
       {
         "url": "https://jothiswaroop.com/systems/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1325,7 +1353,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-21T11:35:53Z",
+        "lastCrawl": "2026-11-14T21:20:25Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1365,7 +1393,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-27T03:57:11Z",
+        "lastCrawl": "2026-11-14T23:49:54Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1455,7 +1483,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-13T21:48:44Z",
+        "lastCrawl": "2026-11-14T21:48:35Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
