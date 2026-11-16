@@ -29,7 +29,7 @@ export function SpecimenStrip({ films, className = "" }: { films: Video[]; class
 
 /**
  * The specimens: eight films set as a test strip, each inside printer's crop marks. Eight is the size of
- * one month's Test Pack, so the strip is also what the reader would be buying. Client films come first.
+ * one month's Growth plan, so the strip is also what the reader would be buying. Client films come first.
  */
 export default function Specimens() {
   const films = aiAds.films.map((t) => videos.find((v) => v.title === t)).filter((v): v is Video => !!v);
@@ -46,7 +46,7 @@ export default function Specimens() {
         <SpecimenStrip films={films} className="mt-8" />
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-10 gap-y-4 border-t border-ink pt-6">
-          <p className="max-w-2xl text-[0.9375rem]">Eight films, the size of one month&apos;s Test Pack. Tiles marked concept were made to show the craft, not for a client brief. Video plays from YouTube only after you tap.</p>
+          <p className="max-w-2xl text-[0.9375rem]">Eight films, the size of one month&apos;s Growth plan. Tiles marked concept were made to show the craft, not for a client brief. Video plays from YouTube only after you tap.</p>
           <Button href="/films/" variant="quiet">The full reel, {videos.length} films</Button>
         </div>
       </div>

@@ -4,12 +4,12 @@ import Button from "@/components/Button";
 import ReplyCard from "@/components/ReplyCard";
 import Icon from "@/components/Icon";
 import { SpecimenStrip } from "@/components/sections/Specimens";
-import { RateTable } from "@/components/sections/Offers";
-import { aiAds, offers, videos, type Video } from "@/lib/content";
+import { ServicePlans } from "@/components/sections/Offers";
+import { aiAds, videos, type Video } from "@/lib/content";
 
 export const metadata = {
   title: "AI Video Ads & UGC-Style Ads for Brands on Meta — From $129 | Jothi Swaroop",
-  description: "UGC-style creator ads and cinematic AI commercials made from your product photos. 8 ads a month for $950, or 12–14 with a monthly hook review for $2,000. Your first AI ad is free.",
+  description: "UGC-style creator ads and cinematic AI commercials made from your product photos. 4 ads a month for $499, 8 for $950, or 12–14 with a monthly hook review for $2,000. Your first AI ad is free.",
   alternates: { canonical: "/ai-ads/" },
   openGraph: { title: "AI video ads made from your product photos — Jothi Swaroop", url: "/ai-ads/", images: ["/og.png"] },
 };
@@ -83,8 +83,7 @@ export default function AiAdsPage() {
         <div className="mx-auto grid max-w-[1440px] gap-x-16 gap-y-14 px-5 py-16 md:px-10 md:py-24 lg:grid-cols-2 lg:items-start">
           <div>
             <div className="scotch mb-6" aria-hidden />
-            <RateTable offerId={{ usd: "ai-ads", inr: "films-in" }} replyHref="#free-ad" />
-            <p className="mt-6 text-[0.9375rem]">{offers.usd.footnote} <Link href="/pricing/" className="font-semibold underline">All rates</Link></p>
+            <ServicePlans service="ai" replyHref="#free-ad" />
           </div>
           <div id="free-ad" className="lg:pt-2">
             <span id="reply" className="block" aria-hidden />

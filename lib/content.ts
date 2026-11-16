@@ -752,7 +752,7 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
   headline: "What it costs, what you get, and what happens if it doesn't work.",
   sub: "Two offers, for any business that sells something worth buying. Month to month, no lock-in, and every offer starts with something free, so you see the work before you pay for it.",
   usd: {
-    footnote: "Want both? Meta lead generation and the 12–14-ad Creative Strategist pack together: $3,250 a month, $250 less than the two apart.",
+    footnote: "Want me to run them too? Growth: 8 ads a month and your Meta ads run for you, $2,250. Scale: 12–14 ads, the ads run and a monthly review, $3,250.",
     limit: "I take two new clients a month, so every account gets the person who built the results on this page.",
     offers: [
       {
@@ -762,8 +762,8 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
         free: "Your first AI ad free, made from product photos you already have.",
         tiers: [
           { name: "Single AI ad", price: "$129" },
-          { name: "Test Pack · 8 AI ads", price: "$950", per: "/month", note: "$119 an ad — enough to keep a rotation running" },
-          { name: "Creative Strategist · 12–14 AI ads + a monthly what's-working review", price: "$2,000", per: "/month", note: "For brands running 10+ live ads" },
+          { name: "Starter · 8 AI ads", price: "$950", per: "/month", note: "$119 an ad — enough to keep a rotation running" },
+          { name: "12–14 AI ads + a monthly what's-working review", price: "$2,000", per: "/month", note: "For brands running 10+ live ads" },
         ],
         includes: ["UGC-style creator ads and cinematic commercials", "Different hooks and faces, cut 9:16 and 1:1 for Reels, Stories and TikTok", "Your product shown exactly as it is — never altered"],
         cta: { label: "Get your free AI ad", kind: "freead" },
@@ -797,7 +797,7 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
           { name: "30-day pilot", price: "₹20,000", note: "Credited in full to month one" },
           { name: "Then, month to month", price: "₹35,000", per: "/month", note: "No lock-in" },
         ],
-        includes: ["Meta campaign, posters and 2 AI video ads", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a call script for whoever answers", "Your numbers every Monday"],
+        includes: ["Meta campaign, posters and 4 AI films a month", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a call script for whoever answers", "Your numbers every Monday"],
         guarantee: "Before day one we agree a number of qualified enquiries. Miss it in 30 days and the ₹20,000 comes back.",
         cta: { label: "Ask for the free review", kind: "whatsapp" },
         ask: "Hi Jothi, I saw your Meta lead generation offer. I'd like the free review of our ads and enquiries.",
@@ -809,7 +809,7 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
         forWho: "Any business with a product to show, already running ads or about to.",
         free: "One 15-second AI film of a product you choose, free.",
         tiers: [
-          { name: "Film pack · 4 films", price: "₹16,000", per: "/month", note: "₹4,000 a film" },
+          { name: "Starter · 4 films", price: "₹16,000", per: "/month", note: "₹4,000 a film" },
           { name: "Single film", price: "₹5,000" },
         ],
         includes: ["Every film in 9:16 and 1:1, with a caption line", "Your product shown exactly as it is — never altered", "Ready before your sale or season, not the night before"],
@@ -817,6 +817,242 @@ export const offers: { label: string; headline: string; sub: string; usd: PriceL
         ask: "Hi Jothi, I saw your AI ads offer. I'd like the free 15-second film of one of our products.",
       },
     ],
+  },
+};
+
+// ─── PLANS — three named tiers for each service (proposed 16 Nov 2026, Jothi to approve before it goes live) ─────
+// Jothi: "3 tiers for both our packages like meta ads 3 tiers and ai commercials 3 tiers … use price anchoring".
+// One ladder per service, because the two services have different buyers: a clinic wants its ads run, a brand with a
+// media buyer wants creative. A ladder only steers a buyer to its middle when all three rungs fit that buyer.
+// · Abroad, Meta ads: Starter $1,500 (the live management offer) → Growth $2,250 (+ 8 AI ads; $2,450 apart) → Scale
+//   $3,250 (12–14 ads + review; the live bundle, $3,500 apart). Pilots: half the first month ($750 / $1,125 / $1,625).
+// · Abroad, AI ads: Starter $499 (4 ads; NEW) → Growth $950 (8, live) → Scale $2,000 (12–14 + review, the live
+//   "Creative Strategist" pack).
+// · India, lead generation: Starter ₹20,000 (campaign + posters; NEW) → Growth ₹35,000 (live scope) → Scale ₹50,000
+//   (6 films + monthly review; NEW, SKPC's contracted figure). Pilots half the first month (₹10,000 / ₹17,500 / ₹25,000).
+// · India, AI films: Starter ₹9,000 (2 films; NEW) → Growth ₹16,000 (4, live) → Scale ₹32,000 (8 + monthly plan; NEW).
+//   Checked 16 Nov: specialist AI/UGC-style short ads in India run ₹5,000–15,000 a video (retency.in, ckstudio.in,
+//   Spilanth ₹4,999–9,999); plain reel editing ₹750–1,900 a reel in packs. The single film stays at the band's floor
+//   (₹5,000); packs give at most the usual 20% bundle discount (₹4,000 a film), and Starter sits near reel-pack money
+//   for the buyer who would otherwise say "too costly". Scale was ₹30,000 (₹3,750 a film) in the first draft: raised so
+//   the biggest volume does not pay the least per film while delivery capacity at volume is still untested.
+// Why three, and why this order (research, 16 Nov): with three options most buyers take the middle (compromise
+// effect, Simonson 1989); a cheaper option that holds less makes the middle read as the sensible buy (decoy effect,
+// Huber, Payne & Puto 1982); listing the highest price first leads buyers to choose higher-priced options (Suk, Lee &
+// Lichtenstein, Journal of Marketing Research 49(5), 2012). "Recommended", never "most popular": no client is on a plan
+// yet, and the badge must be true. "Bought separately" figures are sums of prices on this same page.
+export type Plan = {
+  id: "starter" | "growth" | "scale";
+  name: string;
+  line: string; // what the plan is, in one line
+  short: string; // what is inside, in one line, for the compact rate card
+  price: string;
+  per: string;
+  includes: string[];
+  notes: string[];
+  recommended?: boolean;
+};
+export type PlanService = {
+  id: "meta" | "ai";
+  name: string;
+  forWho: string;
+  plans: Plan[];
+  free: string;
+  guarantee?: string;
+  every?: string;
+  single?: OfferTier[];
+  more?: string; // the other service, for a page that shows this one alone
+  cta: { label: string; kind: "call" | "whatsapp" | "freead" };
+  ask?: string;
+};
+export type PlanList = { services: PlanService[]; limit: string; footnote?: string };
+
+/** Highest first on the card (see the research note above). Flip to false to list Starter first. */
+export const PLANS_HIGHEST_FIRST = true;
+
+export const plans: { headline: string; sub: string; usd: PlanList; inr: PlanList } = {
+  headline: "What it costs, what you get, and what happens if it doesn't work.",
+  sub: "Two services, three plans each, for any business that sells something worth buying. Month to month, no lock-in, and every plan starts with something free, so you see the work before you pay for it.",
+  usd: {
+    services: [
+      {
+        id: "meta",
+        name: "Meta ads, run for you",
+        forWho: "Any business where one customer is worth $3,000 or more — product or service, B2B or consumer.",
+        plans: [
+          {
+            id: "starter",
+            name: "Starter",
+            line: "I run your ads. You bring the creative.",
+            short: "Your ads run, a weekly number, 2 AI ads in month one",
+            price: "$1,500",
+            per: "/month",
+            includes: ["I run your Facebook and Instagram ads: campaigns, lead forms, budgets", "A weekly number you can check in Ads Manager yourself", "2 AI video ads in the first month"],
+            notes: ["Starts with a 30-day pilot: $750, credited in full"],
+          },
+          {
+            id: "growth",
+            name: "Growth",
+            line: "I make your ads and run them.",
+            short: "Your ads run, plus 8 new AI ads every month",
+            price: "$2,250",
+            per: "/month",
+            includes: ["I run your Facebook and Instagram ads: campaigns, lead forms, budgets", "8 new AI ads every month", "A weekly number you can check in Ads Manager yourself"],
+            notes: ["$2,450 if bought separately", "Starts with a 30-day pilot: $1,125, credited in full"],
+            recommended: true,
+          },
+          {
+            id: "scale",
+            name: "Scale",
+            line: "The most ads, run by me, steered every month.",
+            short: "Your ads run, 12–14 new AI ads a month and a monthly review",
+            price: "$3,250",
+            per: "/month",
+            includes: ["I run your Facebook and Instagram ads: campaigns, lead forms, budgets", "12–14 new AI ads every month", "A weekly number you can check in Ads Manager yourself", "A monthly what's-working review: which ads won, what to test next"],
+            notes: ["$3,500 if bought separately", "Starts with a 30-day pilot: $1,625, credited in full"],
+          },
+        ],
+        free: "A one-page audit of your ads and enquiry flow.",
+        guarantee: "Every plan starts with a 30-day pilot at half price. Before day one we agree one number — booked calls, qualified enquiries or cost per lead. Miss it and the pilot fee comes back.",
+        cta: { label: "Book a call", kind: "call" },
+      },
+      {
+        id: "ai",
+        name: "AI ads & commercials",
+        forWho: "Any brand already running Meta ads, selling something worth $100 or more.",
+        plans: [
+          {
+            id: "starter",
+            name: "Starter",
+            line: "Fresh ads to test every month.",
+            short: "4 new AI ads a month — $125 an ad",
+            price: "$499",
+            per: "/month",
+            includes: ["4 new AI ads a month — $125 an ad"],
+            notes: ["$516 at the single-ad price"],
+          },
+          {
+            id: "growth",
+            name: "Growth",
+            line: "Enough new ads to keep a rotation running.",
+            short: "8 new AI ads a month — $119 an ad",
+            price: "$950",
+            per: "/month",
+            includes: ["8 new AI ads a month — $119 an ad"],
+            notes: ["$1,032 at the single-ad price"],
+            recommended: true,
+          },
+          {
+            id: "scale",
+            name: "Scale",
+            line: "Your creative strategist.",
+            short: "12–14 new AI ads a month and a monthly what's-working review",
+            price: "$2,000",
+            per: "/month",
+            includes: ["12–14 new AI ads a month", "A monthly what's-working review: which hooks won, what to test next"],
+            notes: ["For brands running 10+ live ads"],
+          },
+        ],
+        free: "Your first AI ad free, made from product photos you already have.",
+        every: "Every ad: UGC-style creator ads or cinematic commercials, different hooks and faces, cut 9:16 and 1:1, with your product shown exactly as it is. Yours to run in your own ad account.",
+        single: [{ name: "Single AI ad", price: "$129" }],
+        more: "Want me to run them too? Meta ads Growth, $2,250 a month, includes 8 of these ads every month.",
+        cta: { label: "Get your free AI ad", kind: "freead" },
+      },
+    ],
+    limit: "I take two new clients a month, so every account gets the person who built the results on this page.",
+  },
+  inr: {
+    services: [
+      {
+        id: "meta",
+        name: "Meta lead generation",
+        forWho: "Any business where one customer is worth ₹20,000 or more — or ₹5,000 or more with repeat purchases.",
+        plans: [
+          {
+            id: "starter",
+            name: "Starter",
+            line: "I run your Meta ads.",
+            short: "Lead campaign, posters and your numbers every Monday",
+            price: "₹20,000",
+            per: "/month",
+            includes: ["Meta lead campaign and posters", "Your numbers every Monday"],
+            notes: ["Starts with a 30-day pilot: ₹10,000, credited in full"],
+          },
+          {
+            id: "growth",
+            name: "Growth",
+            line: "I run your Meta ads, and no enquiry waits.",
+            short: "Starter, plus WhatsApp instant reply, tracking, a call script and 2 AI films",
+            price: "₹35,000",
+            per: "/month",
+            includes: ["Meta lead campaign and posters", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a call script", "2 AI films a month", "Your numbers every Monday"],
+            notes: ["Starts with a 30-day pilot: ₹17,500, credited in full"],
+            recommended: true,
+          },
+          {
+            id: "scale",
+            name: "Scale",
+            line: "More films, more enquiries, and a monthly review.",
+            short: "Growth, with 6 AI films a month and a monthly review meeting",
+            price: "₹50,000",
+            per: "/month",
+            includes: ["Meta lead campaign and posters", "WhatsApp instant reply, so no enquiry waits", "Enquiry tracking sheet and a call script", "6 AI films a month", "Your numbers every Monday, and a monthly review meeting"],
+            notes: ["₹51,000 if bought separately", "Starts with a 30-day pilot: ₹25,000, credited in full"],
+          },
+        ],
+        free: "A one-page review of your ads and enquiries, with a 2-minute voice note on where they are being lost.",
+        guarantee: "Every plan starts with a 30-day pilot at half price. Before day one we agree a number of qualified enquiries. Miss it in 30 days and the pilot fee comes back.",
+        cta: { label: "Ask for the free review", kind: "whatsapp" },
+        ask: "Hi Jothi, I saw your Meta lead generation plans. I'd like the free review of our ads and enquiries.",
+      },
+      {
+        id: "ai",
+        name: "AI ads & commercials",
+        forWho: "Any business with a product to show, already running ads or about to.",
+        plans: [
+          {
+            id: "starter",
+            name: "Starter",
+            line: "A couple of fresh films every month.",
+            short: "2 AI films a month — ₹4,500 a film",
+            price: "₹9,000",
+            per: "/month",
+            includes: ["2 AI films a month — ₹4,500 a film"],
+            notes: ["₹10,000 at the single-film price"],
+          },
+          {
+            id: "growth",
+            name: "Growth",
+            line: "A new film every week.",
+            short: "4 AI films a month — ₹4,000 a film",
+            price: "₹16,000",
+            per: "/month",
+            includes: ["4 AI films a month — ₹4,000 a film"],
+            notes: ["₹20,000 at the single-film price"],
+            recommended: true,
+          },
+          {
+            id: "scale",
+            name: "Scale",
+            line: "A film for every sale and festival.",
+            short: "8 AI films a month and a monthly plan for your sales and festivals",
+            price: "₹32,000",
+            per: "/month",
+            includes: ["8 AI films a month — ₹4,000 a film", "A monthly plan: which films to make for the month's sales and festivals"],
+            notes: ["₹40,000 at the single-film price"],
+          },
+        ],
+        free: "One 15-second AI film of a product you choose, free.",
+        every: "Every film: 9:16 and 1:1, with a caption line, and your product shown exactly as it is. Ready before your sale or season, not the night before.",
+        single: [{ name: "Single AI film", price: "₹5,000" }],
+        more: "Want enquiries too? Meta lead generation Growth, ₹35,000 a month, runs your ads with 2 films a month, WhatsApp instant reply and tracking.",
+        cta: { label: "Ask for the free film", kind: "whatsapp" },
+        ask: "Hi Jothi, I saw your AI ads plans. I'd like the free 15-second film of one of our products.",
+      },
+    ],
+    limit: "I take three new clients a month in India, so every account gets the person who built the results on this page.",
+    footnote: "Paid in advance by UPI or bank transfer.",
   },
 };
 
@@ -833,7 +1069,7 @@ export const aiAds = {
   steps: [
     { k: "Day 1", t: "You send your product page and your current best ad.", d: "That ad is the bar. Everything I make is judged against it, in your own ad account." },
     { k: "Within 48 hours", t: "Your free AI ad.", d: "One finished ad on your product, cut 9:16 and 1:1, within 48 hours of us agreeing the product and the angle. Run it or don't — no charge either way." },
-    { k: "Every month", t: "A fresh batch to test.", d: "8 ads for $950, or 12–14 ads plus a monthly review of which hooks won and what to test next for $2,000. Month to month." },
+    { k: "Every month", t: "A fresh batch to test.", d: "4 ads for $499, 8 for $950, or 12–14 plus a monthly review of which hooks won and what to test next for $2,000. Month to month." },
   ],
   honestLabel: "BEFORE YOU PAY — THE HONEST PART",
   honest: [
@@ -845,7 +1081,7 @@ export const aiAds = {
     { q: "Who owns the ads?", a: "You do. Every file is yours to keep, and the ads run in your own Meta ad account. If we stop, nothing is held back." },
     { q: "What do you need from me?", a: "Your product page or a few product photos, and the ad that is working best for you right now. No shoot, no samples shipped." },
     { q: "How do I pay?", a: "Invoiced in US dollars, month to month, before each month's batch starts. No contract and no lock-in." },
-    { q: "Do you run the ads too?", a: "If you want. Meta ad management is $1,500 a month on its own, or $3,250 together with the 12–14-ad pack — worth it once you spend around $10,000 a month on Meta. Below that I'd tell you to keep the fee for the ads themselves." },
+    { q: "Do you run the ads too?", a: "If you want. Meta ads Growth is $2,250 a month with 8 of these ads included, Scale is $3,250 with 12–14 and a monthly review, and Starter — the ads run, without the monthly batch — is $1,500. Worth it once you spend around $10,000 a month on Meta. Below that I'd tell you to keep the fee for the ads themselves." },
     { q: "What's the catch with the free ad?", a: "No catch, but a limit: three free ads a week across all brands, each made only after I've confirmed the product and the angle with you." },
   ],
 };
@@ -853,7 +1089,7 @@ export const aiAds = {
 export const faq = [
   {
     q: "What does it cost?",
-    a: "Two offers — AI ads & commercials, and Meta lead generation — each with its price, what's inside and a free first step in the offers section above and on the pricing page. Month to month, no lock-in, and lead generation starts with a 30-day pilot credited in full.",
+    a: "Two services — Meta ads and AI ads & commercials — with three plans each: Starter, Growth and Scale. Prices, what's inside and the free first step are in the rates above and on the pricing page. Month to month, no lock-in, and every Meta ads plan starts with a 30-day pilot at half price, credited in full.",
   },
   {
     q: "What if it doesn't work?",
