@@ -40,7 +40,7 @@ const SERVICES = [
       "Built on n8n, OpenAI or Claude, and your existing tools (WhatsApp Business, Google Sheets, your CRM, Cal.com, Razorpay or Stripe). You own every workflow; nothing lives in a vendor account you can't open. UK and US builds run in your timezone with your data staying in your accounts.",
     ],
     proof: "9 automations live · a dental clinic, a food business, a Company Secretary's practice",
-    links: [{ t: "See the systems", h: "/systems/" }, { t: "The AI Accelerator: 5-day 1:1 mentorship", h: "/apply/?program=accelerator" }],
+    links: [{ t: "See the systems", h: "/systems/" }, { t: "The AI Accelerator: 1:1 AI mentorship", h: "/pricing/#accelerator" }],
     faq: { q: "What can AI automation actually do for a small business?", a: "Anything a person does the same way every time: reply to every WhatsApp, email or web enquiry within seconds, book appointments into your calendar, send invoices and payment reminders, chase renewals, collect documents, log orders to a sheet, and send you a weekly summary. A dental clinic's AI receptionist, a food business's order-to-invoice flow and a Company Secretary's compliance reminders are three of the nine systems live today. A human still handles anything the system isn't sure about." },
   },
   {
@@ -86,11 +86,11 @@ const SERVICES = [
     lead: "Where AI genuinely saves money in your operation, what to build, what to buy, what to leave alone.",
     body: [
       "Advisory, not a course. I sit in your operation, map every repeated task, and hand you a written plan your own team can execute — with costs, tools and the order to do it in. Fixed-scope audits or monthly advisory, remote in your timezone.",
-      "For owners who want to use AI themselves, the AI Accelerator is the hands-on version: a five-day, one-to-one AI mentorship at your office in India. You learn the tools on your own work and leave using them.",
+      "For owners who want to use AI themselves, the AI Accelerator is the hands-on version: a one-to-one AI mentorship, in person at your office in India or remote over five live video sessions anywhere else. There is no fixed syllabus: you learn the tools chosen for your work, on your own work, and leave using them.",
     ],
     proof: "Fixed-scope audits or monthly advisory · India, UK, US",
-    links: [{ t: "The AI Accelerator: 5-day 1:1 mentorship", h: "/apply/?program=accelerator" }],
-    faq: { q: "Is the AI consultation a training course?", a: "No. It's advisory: a diagnosis of your operation and a written plan. If you want to learn to use the tools yourself, that's the AI Accelerator: a five-day, one-to-one mentorship, in person at your office in India." },
+    links: [{ t: "The AI Accelerator: 1:1 AI mentorship", h: "/pricing/#accelerator" }],
+    faq: { q: "Is the AI consultation a training course?", a: "No. It's advisory: a diagnosis of your operation and a written plan. If you want to learn to use the tools yourself, that's the AI Accelerator: a one-to-one mentorship, in person at your office in India or remote over live video sessions anywhere else." },
   },
 ];
 

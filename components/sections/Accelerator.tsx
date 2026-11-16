@@ -1,29 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import VideoTile from "@/components/VideoTile";
 import Reveal from "@/components/motion/Reveal";
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
-import { accelerator as a } from "@/lib/content";
+import Price from "@/components/Price";
+import { accelerator as a, site } from "@/lib/content";
+import { calHref } from "@/lib/submit";
+import { useDetectedMarket, type Market } from "@/lib/market";
 
 /**
  * The AI Accelerator: one-to-one AI mentorship for owners who want to use AI themselves. Says plainly what it is,
- * who it is for, where, how long, what happens each day and what the owner leaves with.
+ * who it is for, where, how long, what happens at each step, what the owner leaves with and what it costs.
+ * Two versions, one per visitor and never both: in person in India (rupees) or remote over video (dollars). "auto"
+ * prints the remote version in the static HTML and re-prints the Indian one for a visitor whose clock says India.
  * One real, named review with the original message shown — not linked, not hidden — so the proof does the selling.
  */
-export default function Accelerator() {
+export default function Accelerator({ market = "auto" }: { market?: Market | "auto" }) {
+  const detected = useDetectedMarket();
+  const cur: Market = market === "auto" ? (detected === "inr" ? "inr" : "usd") : market;
+  const v = a[cur];
   const t = a.testimonial;
+  const ctaHref = v.cta.kind === "call" ? calHref(site.calendar, { notes: "AI Accelerator, remote" }) : v.cta.href ?? "/apply?program=accelerator";
   return (
     <section className="theme-alt card-over relative" id="accelerator">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">
         <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
           {/* pitch */}
           <div>
-            <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)]">{a.headline}</h2></Reveal>
-            <Reveal delay={0.1}><p className="mt-6 max-w-lg text-lg text-ink">{a.body}</p></Reveal>
+            <Reveal><h2 className="mt-6 text-[clamp(2.25rem,5vw,4.25rem)]">{v.headline}</h2></Reveal>
+            <Reveal delay={0.1}><p className="mt-6 max-w-lg text-lg text-ink">{v.body}</p></Reveal>
 
             <Reveal delay={0.15}>
               <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t hairline pt-6 sm:grid-cols-4">
-                {a.facts.map((f) => (
+                {v.facts.map((f) => (
                   <div key={f.k}>
                     <dt className="label">{f.k}</dt>
                     <dd className="mt-2 text-sm text-ink">{f.v}</dd>
@@ -34,8 +45,8 @@ export default function Accelerator() {
 
             <Reveal delay={0.2}>
               <ol className="mt-10 border-t hairline">
-                {a.arc.map((d) => (
-                  <li key={d.k} className="grid grid-cols-[88px_1fr] gap-4 border-b hairline py-4 sm:grid-cols-[110px_1fr]">
+                {v.arc.map((d) => (
+                  <li key={d.k} className="grid grid-cols-[96px_1fr] gap-4 border-b hairline py-4 sm:grid-cols-[120px_1fr]">
                     <span className="text-sm font-semibold text-signal">{d.k}</span>
                     <p className="text-ink">{d.v}</p>
                   </li>
@@ -46,7 +57,7 @@ export default function Accelerator() {
             <Reveal delay={0.22}>
               <h3 className="opener mt-10">{a.outcomesLabel}</h3>
               <ul className="mt-4 space-y-2">
-                {a.outcomes.map((o) => (
+                {v.outcomes.map((o) => (
                   <li key={o} className="flex gap-3 text-ink"><Icon name="check" className="mt-1 shrink-0 text-signal" />{o}</li>
                 ))}
               </ul>
@@ -66,9 +77,23 @@ export default function Accelerator() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.3} className="mt-10">
-              <Button href={a.cta.href}>{a.cta.label}</Button>
-              <p className="label mt-4 !normal-case !tracking-normal text-ink">{a.ctaNote}</p>
+            {/* The fee, on a dot leader like every other rate on the card */}
+            <Reveal delay={0.28}>
+              <div className="mt-10 border-y border-ink py-5">
+                <div className="leader">
+                  <span className="display text-[1.375rem] md:text-[1.625rem]">{v.fee.name}</span>
+                  <span className="dots" aria-hidden />
+                  <Price value={v.fee.price} className="num text-[2rem] md:text-[2.5rem]" />
+                </div>
+                <p className="mt-2 text-sm text-ink">{v.fee.note}</p>
+                {v.fee.founding && <p className="mt-3 text-[0.9375rem] text-ink"><strong className="font-bold">Founding price.</strong> {v.fee.founding}</p>}
+                {v.guarantee && <p className="mt-3 text-[0.9375rem] text-ink"><strong className="font-bold">If it isn&apos;t for you.</strong> {v.guarantee}</p>}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.3} className="mt-8">
+              <Button href={ctaHref} icon={v.cta.kind === "call" ? "arrow-up-right" : "arrow"}>{v.cta.label}</Button>
+              <p className="label mt-4 !normal-case !tracking-normal text-ink">{v.ctaNote}</p>
             </Reveal>
           </div>
 
@@ -77,6 +102,7 @@ export default function Accelerator() {
             <figure className="bezel h-full">
               <div className="bezel-core flex h-full flex-col p-6 md:p-8">
                 <p className="label">{a.proofLabel}</p>
+                {v.proofNote && <p className="mt-3 text-sm text-ink">{v.proofNote}</p>}
                 <blockquote className="display mt-6 text-2xl !leading-[1.25] text-ink md:text-[2rem]">&ldquo;{t.text}&rdquo;</blockquote>
 
                 <figcaption className="mt-8 flex items-center gap-4 border-t hairline pt-6">
@@ -112,7 +138,6 @@ export default function Accelerator() {
                     </div>
                   </div>
                 )}
-
               </div>
             </figure>
           </Reveal>

@@ -675,41 +675,98 @@ export const videoTestimonials: VideoTestimonial[] = [
   { youtubeId: "_-ZU5bM_iAs", name: "VROOM 2026 organising committee", business: "B-SHIP Chennai Tycoons · Vysya Rally of Our Madras", quote: "They did posters, email automation, AI videos — all our sponsors enjoyed the AI videos. All the big brands were very appreciative.", context: "On the digital partnership for VROOM 2026.", vertical: true }, // verbatim (trimmed). TODO: speaker's name from Jothi → replace the committee attribution
 ];
 
-// ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time. In person, India only.
-// Reworded 16 Nov 2026 (Jothi: "if an outsider sees they won't understand it"). The old copy said what it was not
-// ("Not a course. Not a webinar") and never what it was; "running it yourself" and "the other door" were insider
-// words. It now leads with the buyer's own words for it — Balaji called it "a customised AI productivity training
-// program" — and says who it is for, where, how long, what happens each day and what the owner leaves with.
-// The five-day arc keeps the shape Jothi approved on 17 Sep 2026; only the wording is plainer.
-export const accelerator = {
-  label: "THE OTHER DOOR",
-  headline: "Learn to use AI in your own business, one to one, in five days.",
-  body: "The AI Accelerator is a one-to-one AI mentorship for business owners who are not technical. I come to your office for five days and teach you AI tools like ChatGPT on your real work — your quotes, enquiries, emails and follow-ups — until you can use them on your own. No classroom, no recorded videos, no jargon.",
-  facts: [
-    { k: "Who it's for", v: "Business owners — no tech skills needed" },
-    { k: "Where", v: "In person, at your office in India" },
-    { k: "How long", v: "5 days" },
-    { k: "How many", v: "Just you — one owner at a time" },
-  ],
-  // APPROVED 2026-09-17 — the shape of the five days, confirmed by Jothi. Reworded 16 Nov, same shape.
-  arc: [
-    { k: "Day 1", v: "I spend the day with you and write down every task you repeat." },
-    { k: "Days 2–4", v: "We set up AI to do those tasks, on your real work — your invoices, enquiries and follow-ups. No practice examples." },
-    { k: "Day 5", v: "You do the work with AI on your own. I watch, and fix what breaks." },
-  ],
+// ─── AI ACCELERATOR — 1:1 AI mentorship for owners who are not technical. Two versions that never meet on one page:
+// India (in person, five days at the owner's office, ₹35,000 — Jothi's fee, 16 Nov 2026) and abroad (remote, five
+// live video sessions, $1,500). There is no fixed syllabus: the tools are chosen for the owner's work (Jothi, 16 Nov).
+// Reworded 16 Nov 2026 (Jothi: "if an outsider sees they won't understand it"): it leads with the buyer's own words
+// for it — Balaji called it "a customised AI productivity training program" — and says who it is for, where, how
+// long, what happens each step and what the owner leaves with. The five-step arc keeps the shape Jothi approved
+// on 17 Sep 2026. Remote fee (16 Nov research): human 1:1 AI coaching sells at $125–250 an hour (bigdevelop.com
+// $250/hr, rovingleads.com $125 a session in a pack); AI consultants average $150–300 an hour. ~11 live hours plus
+// the setup between sessions is worth ~$1,900–2,800 at market; $1,500 is ~20–25% under (Jothi's abroad rule) and
+// still inside the professional band. The first-session refund is the risk reversal for a buyer who has never met him.
+// Compared 16 Nov: Iman Gadzhi sells recorded courses at $1,499 (Agency Navigator) and $1,995 (Monetise); live group AI
+// courses for owners run $199–995. $1,500 buys ~11 live one-to-one hours (~$136/hr), so the price is fair; the founding
+// $990 answers the real hesitation, which is trust in an unknown name abroad. Jothi confirmed all four remote promises.
+export type AcceleratorVersion = {
+  headline: string;
+  body: string;
+  facts: { k: string; v: string }[];
+  arc: { k: string; v: string }[];
+  outcomes: string[];
+  fee: { name: string; price: string; note: string; founding?: string };
+  guarantee?: string;
+  proofNote?: string;
+  cta: { label: string; kind: "apply" | "call"; href?: string };
+  ctaNote: string;
+};
+export const accelerator: {
+  outcomesLabel: string;
+  fit: { yes: string; no: string; noLink: { label: string; href: string } };
+  inr: AcceleratorVersion;
+  usd: AcceleratorVersion;
+  proofLabel: string;
+  testimonial: { text: string; full: string; author: string; role: string; where: string; image: string; videoPoster: string; video: string; videoQuote: string; receipt: string; receiptCaption: string; verified: boolean };
+} = {
   outcomesLabel: "What you leave with",
-  outcomes: [
-    "A list of the tasks you repeat every week, and which of them AI now handles",
-    "AI tools set up on your own work, not on sample files",
-    "The confidence to use them without me",
-  ],
   fit: {
     yes: "Owners who want to learn AI themselves and understand what they're using — especially if you've never thought of yourself as good with technology.",
     no: "Teams, or owners who'd rather have it built and run for them. For that, I build the AI systems for you.",
     noLink: { label: "See the AI systems I build", href: "/systems/" },
   },
-  cta: { label: "Apply for the AI Accelerator", href: "/apply?program=accelerator" },
-  ctaNote: "One owner at a time. I read every application myself.",
+  inr: {
+    headline: "Learn to use AI in your own business, one to one, in five days.",
+    body: "The AI Accelerator is a one-to-one AI mentorship for business owners who are not technical. I come to your office for five days and teach you AI on your real work — your quotes, enquiries, emails and follow-ups — until you can use it on your own. There is no fixed syllabus: I choose the AI tools that fit the way you work. No classroom, no recorded videos, no jargon.",
+    facts: [
+      { k: "Who it's for", v: "Business owners — no tech skills needed" },
+      { k: "Where", v: "In person, at your office in India" },
+      { k: "How long", v: "5 days" },
+      { k: "How many", v: "Just you — one owner at a time" },
+    ],
+    // APPROVED 2026-09-17 — the shape of the five days, confirmed by Jothi. Reworded 16 Nov, same shape.
+    arc: [
+      { k: "Day 1", v: "I spend the day with you and write down every task you repeat." },
+      { k: "Days 2–4", v: "We set up AI to do those tasks, on your real work — your invoices, enquiries and follow-ups. No practice examples." },
+      { k: "Day 5", v: "You do the work with AI on your own. I watch, and fix what breaks." },
+    ],
+    outcomes: [
+      "A list of the tasks you repeat every week, and which of them AI now handles",
+      "AI tools chosen for your work and set up on it, not on sample files",
+      "The confidence to use them without me",
+    ],
+    fee: { name: "AI Accelerator, in person", price: "₹35,000", note: "One payment for all five days, by UPI or bank transfer." },
+    cta: { label: "Apply for the AI Accelerator", kind: "apply", href: "/apply?program=accelerator" },
+    ctaNote: "One owner at a time. I read every application myself.",
+  },
+  usd: {
+    headline: "Learn to use AI in your own business, one to one, from anywhere.",
+    body: "The AI Accelerator, remote: a one-to-one AI mentorship for business owners who are not technical. Five live video sessions over two weeks, in your working hours. There is no fixed syllabus — I choose the AI tools that fit the way you work and teach you on your real tasks, until you can use them on your own.",
+    facts: [
+      { k: "Who it's for", v: "Business owners — no tech skills needed" },
+      { k: "Where", v: "Live on video, in your working hours" },
+      { k: "How long", v: "5 sessions of 2 hours, over 2 weeks" },
+      { k: "How many", v: "Just you — one owner at a time" },
+    ],
+    arc: [
+      { k: "Session 1", v: "We go through your week on screen, and I write down every task you repeat." },
+      { k: "Sessions 2–4", v: "We set up AI to do those tasks, on your real work, while you share your screen. No practice examples." },
+      { k: "Session 5", v: "You do the work with AI on your own. I watch, and fix what breaks." },
+      { k: "30 days later", v: "A follow-up call to fix anything that stopped working, and to answer what came up." },
+    ],
+    outcomes: [
+      "A list of the tasks you repeat every week, and which of them AI now handles",
+      "AI tools chosen for your work and set up on it, not on sample files",
+      "A recording of every session to come back to",
+      "The confidence to use them without me",
+    ],
+    // Founding price (16 Nov 2026): the first three remote clients pay $990 for an honest video review — the trust gap
+    // abroad is no remote proof yet, not the price. REMOVE this line once three remote clients have signed.
+    fee: { name: "AI Accelerator, remote", price: "$1,500", note: "One payment: the five live sessions, the setup between them and the follow-up call.", founding: "My first three remote clients pay $990, in exchange for an honest video review when we finish." },
+    guarantee: "If after the first session you don't think it's worth it, tell me and you get your full fee back.",
+    proofNote: "Balaji took the in-person programme in Chennai. The remote version follows the same steps over video.",
+    cta: { label: "Book a call about the Accelerator", kind: "call" },
+    ctaNote: "One owner at a time, so every session is with me.",
+  },
   proofLabel: "In his own words",
   testimonial: {
     // Verbatim from the BSHIP Chennai Tycoons WhatsApp group (400+ members). Confirm Balaji is happy to be quoted by name.

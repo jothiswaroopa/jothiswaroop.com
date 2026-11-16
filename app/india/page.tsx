@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 /** The rupee rate card, for WhatsApp and Indian emails. Never linked from the dollar pages except for visitors in India.
- *  The five-day Accelerator, which only runs in person in India, lives here too. */
+ *  The AI Accelerator in its in-person form (five days at the owner's office, ₹35,000) lives here too. */
 export default function IndiaPage() {
   return (
     <div className="min-h-[100svh] pt-[96px]">
@@ -30,7 +30,7 @@ export default function IndiaPage() {
           </p>
         </div>
       </section>
-      <Accelerator />
+      <Accelerator market="inr" />
       <Close market="inr" />
     </div>
   );
