@@ -1,12 +1,13 @@
 import Image from "next/image";
 import VideoTile from "@/components/VideoTile";
 import Reveal from "@/components/motion/Reveal";
-import Scramble from "@/components/motion/Scramble";
+import Icon from "@/components/Icon";
 import Button from "@/components/Button";
 import { accelerator as a } from "@/lib/content";
 
 /**
- * The other door: for owners who want to run it themselves.
+ * The AI Accelerator: one-to-one AI mentorship for owners who want to use AI themselves. Says plainly what it is,
+ * who it is for, where, how long, what happens each day and what the owner leaves with.
  * One real, named review with the original message shown — not linked, not hidden — so the proof does the selling.
  */
 export default function Accelerator() {
@@ -25,7 +26,7 @@ export default function Accelerator() {
                 {a.facts.map((f) => (
                   <div key={f.k}>
                     <dt className="label">{f.k}</dt>
-                    <dd className="mono mt-2 text-sm text-ink">{f.v}</dd>
+                    <dd className="mt-2 text-sm text-ink">{f.v}</dd>
                   </div>
                 ))}
               </dl>
@@ -35,22 +36,32 @@ export default function Accelerator() {
               <ol className="mt-10 border-t hairline">
                 {a.arc.map((d) => (
                   <li key={d.k} className="grid grid-cols-[88px_1fr] gap-4 border-b hairline py-4 sm:grid-cols-[110px_1fr]">
-                    <span className="mono text-sm text-signal">{d.k}</span>
+                    <span className="text-sm font-semibold text-signal">{d.k}</span>
                     <p className="text-ink">{d.v}</p>
                   </li>
                 ))}
               </ol>
             </Reveal>
 
+            <Reveal delay={0.22}>
+              <h3 className="opener mt-10">{a.outcomesLabel}</h3>
+              <ul className="mt-4 space-y-2">
+                {a.outcomes.map((o) => (
+                  <li key={o} className="flex gap-3 text-ink"><Icon name="check" className="mt-1 shrink-0 text-signal" />{o}</li>
+                ))}
+              </ul>
+            </Reveal>
+
             <Reveal delay={0.25}>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              <div className="mt-10 grid gap-6 border-t hairline pt-6 sm:grid-cols-2">
                 <div>
-                  <p className="label">For</p>
+                  <p className="label">Right for</p>
                   <p className="mt-2 text-sm text-ink">{a.fit.yes}</p>
                 </div>
                 <div>
-                  <p className="label">Not for</p>
+                  <p className="label">Not right for</p>
                   <p className="mt-2 text-sm text-ink">{a.fit.no}</p>
+                  <a href={a.fit.noLink.href} className="mt-2 inline-flex items-center gap-1 text-sm font-semibold underline">{a.fit.noLink.label} <Icon name="arrow" size={14} /></a>
                 </div>
               </div>
             </Reveal>
@@ -65,7 +76,7 @@ export default function Accelerator() {
           <Reveal delay={0.1}>
             <figure className="bezel h-full">
               <div className="bezel-core flex h-full flex-col p-6 md:p-8">
-                <p className="label"><Scramble text={a.proofLabel} /></p>
+                <p className="label">{a.proofLabel}</p>
                 <blockquote className="display mt-6 text-2xl !leading-[1.25] text-ink md:text-[2rem]">&ldquo;{t.text}&rdquo;</blockquote>
 
                 <figcaption className="mt-8 flex items-center gap-4 border-t hairline pt-6">
@@ -81,7 +92,7 @@ export default function Accelerator() {
 
                 {(t.video || t.receipt) && (
                   <div className="mt-8 border-t hairline pt-6">
-                    <p className="label">After the programme, and on day one</p>
+                    <p className="label">After the five days, and on day one</p>
                     {/* The reel keeps its 9:16; the screenshot sits beside it in the space that leaves. */}
                     <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,260px)_1fr] sm:items-start">
                       {t.video && (
@@ -95,7 +106,7 @@ export default function Accelerator() {
                           <div className="mt-4 overflow-hidden rounded-xl border hairline bg-stock/90 p-1.5">
                             <Image src={t.receipt} alt="The original WhatsApp message from D Balaji" width={442} height={552} className="h-auto w-full rounded-lg" />
                           </div>
-                          <p className="mt-3 text-sm text-ink">{t.receiptCaption} The line that matters is the last one: <span className="text-ink">&ldquo;technologically challenged like me.&rdquo;</span> That is who this is built for.</p>
+                          <p className="mt-3 text-sm text-ink">{t.receiptCaption} The words that matter: <span className="text-ink">&ldquo;technologically challenged like me.&rdquo;</span> That is who this is built for.</p>
                         </div>
                       )}
                     </div>

@@ -671,34 +671,46 @@ export const videoTestimonials: VideoTestimonial[] = [
   { youtubeId: "PDhEzmseFkE", name: "Nova Attire", business: "Apparel manufacturer · Tirupur", quote: "Within ten days, 150-plus enquiries came in, and we are converting many of them.", context: "4,248 wholesale buyer leads at ₹16.58.", caseSlug: "nova", language: "Tamil · translated", vertical: true }, // translated from the video's Tamil ("விதின் 10 டேஸ்ல 150 பிளஸ் கிளையண்ட்ஸ் உள்ள வந்துருக்கு")
   { youtubeId: "ezCbWV8w2Cs", name: "Kala Praveen", business: "Architect · Cynosure Architects, Chennai", quote: "Amazing, holistic deliverables — right from the registration to the promo videos to the social media throughout the entire programme.", context: "On working with Jothi.", vertical: true }, // verbatim from the video transcript (trimmed)
   { youtubeId: "xsOodldPC9s", name: "Lakshmi Sridhar", business: "B-SHIP Chennai Tycoons · VROOM 2026", quote: "The deliverables were top-notch. Timelines were met, and the quality was very good. Appreciated throughout the community.", context: "On Be The Brand as Official Digital Partner.", vertical: true }, // verbatim from the video (trimmed)
-  { youtubeId: "7ASRs2d-BUs", poster: "/img/poster-balaji.jpg", name: "D Balaji", business: "Centralised AC design · BSHIP Chennai Tycoons", quote: "Frankly speaking, I am not that tech savvy. I was not sure where to start. Jothi Swaroop designed a course content specifically for me — now I am very confident of using AI tools.", context: "On the five-day AI Accelerator.", vertical: true }, // verbatim from the video (trimmed, not reworded)
+  { youtubeId: "7ASRs2d-BUs", poster: "/img/poster-balaji-photo.jpg", name: "D Balaji", business: "Centralised AC design · BSHIP Chennai Tycoons", quote: "Frankly speaking, I am not that tech savvy. I was not sure where to start. Jothi Swaroop designed a course content specifically for me — now I am very confident of using AI tools.", context: "On the five-day AI Accelerator.", vertical: true }, // verbatim from the video (trimmed, not reworded)
   { youtubeId: "_-ZU5bM_iAs", name: "VROOM 2026 organising committee", business: "B-SHIP Chennai Tycoons · Vysya Rally of Our Madras", quote: "They did posters, email automation, AI videos — all our sponsors enjoyed the AI videos. All the big brands were very appreciative.", context: "On the digital partnership for VROOM 2026.", vertical: true }, // verbatim (trimmed). TODO: speaker's name from Jothi → replace the committee attribution
 ];
 
-// ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time.
+// ─── AI ACCELERATOR — 1:1 mentorship, five days at the owner's office. One at a time. In person, India only.
+// Reworded 16 Nov 2026 (Jothi: "if an outsider sees they won't understand it"). The old copy said what it was not
+// ("Not a course. Not a webinar") and never what it was; "running it yourself" and "the other door" were insider
+// words. It now leads with the buyer's own words for it — Balaji called it "a customised AI productivity training
+// program" — and says who it is for, where, how long, what happens each day and what the owner leaves with.
+// The five-day arc keeps the shape Jothi approved on 17 Sep 2026; only the wording is plainer.
 export const accelerator = {
   label: "THE OTHER DOOR",
-  headline: "Five days at your desk. You leave running it yourself.",
-  body: "Not a course. Not a webinar. The AI Accelerator is one owner, one office, five days. I build the curriculum around your business, on your real work, and sit beside you until the tools are yours.",
+  headline: "Learn to use AI in your own business, one to one, in five days.",
+  body: "The AI Accelerator is a one-to-one AI mentorship for business owners who are not technical. I come to your office for five days and teach you AI tools like ChatGPT on your real work — your quotes, enquiries, emails and follow-ups — until you can use them on your own. No classroom, no recorded videos, no jargon.",
   facts: [
-    { k: "Format", v: "1:1 · at your office" },
-    { k: "Length", v: "5 days" },
-    { k: "Curriculum", v: "Built around your business" },
-    { k: "Intake", v: "One owner at a time" },
+    { k: "Who it's for", v: "Business owners — no tech skills needed" },
+    { k: "Where", v: "In person, at your office in India" },
+    { k: "How long", v: "5 days" },
+    { k: "How many", v: "Just you — one owner at a time" },
   ],
-  // APPROVED 2026-09-17 — the shape of the five days, confirmed by Jothi.
+  // APPROVED 2026-09-17 — the shape of the five days, confirmed by Jothi. Reworded 16 Nov, same shape.
   arc: [
-    { k: "Day 1", v: "I sit in your day. Every task you repeat gets written down." },
-    { k: "Days 2–4", v: "We build the tools on your real work — your invoices, your enquiries, your follow-ups. No sample data." },
-    { k: "Day 5", v: "You run it. I watch, and fix what breaks." },
+    { k: "Day 1", v: "I spend the day with you and write down every task you repeat." },
+    { k: "Days 2–4", v: "We set up AI to do those tasks, on your real work — your invoices, enquiries and follow-ups. No practice examples." },
+    { k: "Day 5", v: "You do the work with AI on your own. I watch, and fix what breaks." },
+  ],
+  outcomesLabel: "What you leave with",
+  outcomes: [
+    "A list of the tasks you repeat every week, and which of them AI now handles",
+    "AI tools set up on your own work, not on sample files",
+    "The confidence to use them without me",
   ],
   fit: {
-    yes: "Owners who want to keep the keys and understand what they're running.",
-    no: "Teams, or anyone who wants it done for them. That's the other door — apply above.",
+    yes: "Owners who want to learn AI themselves and understand what they're using — especially if you've never thought of yourself as good with technology.",
+    no: "Teams, or owners who'd rather have it built and run for them. For that, I build the AI systems for you.",
+    noLink: { label: "See the AI systems I build", href: "/systems/" },
   },
-  cta: { label: "Apply for the Accelerator", href: "/apply?program=accelerator" },
+  cta: { label: "Apply for the AI Accelerator", href: "/apply?program=accelerator" },
   ctaNote: "One owner at a time. I read every application myself.",
-  proofLabel: "PROOF · VERBATIM",
+  proofLabel: "In his own words",
   testimonial: {
     // Verbatim from the BSHIP Chennai Tycoons WhatsApp group (400+ members). Confirm Balaji is happy to be quoted by name.
     text: "He tailored the entire curriculum to fit my specific needs perfectly. His teaching style is down to earth — making complex concepts easy to follow even for someone technologically challenged like me.",
@@ -707,11 +719,11 @@ export const accelerator = {
     role: "Centralised AC · BSHIP Chennai Tycoons",
     where: "Posted in the BSHIP Chennai Tycoons WhatsApp group · 400+ members",
     image: "/img/accelerator-balaji.jpg",
-    videoPoster: "/img/poster-balaji.jpg", // YouTube's own still has a burned-in caption across his arms
+    videoPoster: "/img/poster-balaji-photo.jpg", // YouTube's own still has a burned-in caption; this is the photo part of the old poster, without its dark text panel
     video: "7ASRs2d-BUs", // on camera, after the programme — the WhatsApp message below was day one
     videoQuote: "Frankly speaking, I am not that tech savvy. I was not sure where to start and how to go about. Jothi Swaroop designed a course content specifically for me, considering my special needs. Now I am very confident of using AI tools.", // verbatim from the video, trimmed
     receipt: "/img/accelerator-balaji-review.png", // the actual WhatsApp message — proof the quote is real
-    receiptCaption: "The original message, as posted. Unedited.",
+    receiptCaption: "His WhatsApp message on the evening of day one, as posted. Unedited.",
     verified: true,
   },
 };
