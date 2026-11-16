@@ -5,7 +5,7 @@ import Accelerator from "@/components/sections/Accelerator";
 import { site } from "@/lib/content";
 
 export const metadata = {
-  title: "Prices in India — Meta Lead Generation & AI Ads | Jothi Swaroop",
+  title: "Prices in India — Meta Ads for Enquiries & Online Sales, AI Ads | Jothi Swaroop",
   description: "Meta lead generation and AI video ads for businesses in India, priced in rupees.",
   alternates: { canonical: "/india/" },
   // Rupee prices are for Indian buyers only: kept out of search and the sitemap, and linked only for visitors in India.

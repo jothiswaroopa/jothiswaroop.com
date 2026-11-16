@@ -21,9 +21,10 @@ const SERVICES = [
   {
     id: "meta-facebook-instagram-ads",
     name: "Meta ads — Facebook & Instagram",
-    lead: "Lead generation campaigns for founder-led businesses: wholesale buyers, distributors, patients, students.",
+    lead: "Lead and sales campaigns for founder-led businesses: wholesale buyers, distributors, patients, students — and online shops.",
     body: [
       "Most of the 7,341 form leads on this site came from Meta lead ads and WhatsApp click-to-message campaigns. I run the account end to end: audience research, creative, instant forms, budget moves, and a weekly number you can check against Ads Manager yourself.",
+      "For an online shop the same work runs as sales campaigns: catalogue ads, purchase tracking, and cost per purchase or ROAS as the weekly number.",
       "The work is the same whether the buyer is in Tirupur or Manchester; what changes is the creative, the currency and the hour the phone rings. UK and US accounts are run in your timezone with reporting in GBP or USD.",
     ],
     proof: "7,341 leads · 9 ad accounts · ₹16.58–₹33 per B2B lead in India · a UK wholesale buyer enquiry for under $6",

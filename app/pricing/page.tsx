@@ -3,8 +3,8 @@ import Offers from "@/components/sections/Offers";
 import Close from "@/components/sections/Close";
 
 export const metadata = {
-  title: "Prices — AI Ads, AI Commercials & Meta Lead Generation | Jothi Swaroop",
-  description: "Meta ads run for you from $1,500 a month, or $2,250 with 8 AI ads included; AI ads & commercials from $499 for 4 a month, $950 for 8, $2,000 for 12–14 with a monthly review. Every plan starts free.",
+  title: "Prices — Meta Ads for Leads & Online Sales, AI Ads & Commercials | Jothi Swaroop",
+  description: "Meta ads for leads or online sales, run for you from $1,500 a month, or $2,250 with 8 AI ads included; AI ads & commercials from $499 for 4 a month, $950 for 8, $2,000 for 12–14 with a monthly review. Every plan starts free.",
   alternates: { canonical: "/pricing/" },
   openGraph: { title: "Offers & prices — Jothi Swaroop", url: "/pricing/", images: ["/og.png"] },
 };
