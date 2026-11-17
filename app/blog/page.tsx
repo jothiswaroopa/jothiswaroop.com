@@ -1,3 +1,4 @@
+import MoneyText from "@/components/MoneyText";
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -42,6 +43,7 @@ export default function BlogIndex() {
   const [lead, ...rest] = posts;
 
   return (
+    <MoneyText dollars>
     <section className="min-h-[100svh] pt-[96px]">
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
         <BackLink className="mb-8" />
@@ -116,5 +118,6 @@ export default function BlogIndex() {
         </p>
       </div>
     </section>
+    </MoneyText>
   );
 }

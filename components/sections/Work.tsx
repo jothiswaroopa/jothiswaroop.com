@@ -12,6 +12,7 @@ import LogoStrip from "@/components/LogoStrip";
 import ClientLogo, { logoFor } from "@/components/ClientLogo";
 import { byTheNumbers as n, cases, externalProof } from "@/lib/content";
 import Counter from "@/components/motion/Counter";
+import MoneyCounter from "@/components/MoneyCounter";
 import Icon from "@/components/Icon";
 
 
@@ -70,7 +71,7 @@ export default function Work() {
             {n.stats.map((st) => (
               <div key={st.k} className="flex flex-col">
                 <dt className="order-2 mt-3 text-ink">{st.k}</dt>
-                <dd className="order-1 num text-[clamp(2rem,4vw,3.25rem)] text-signal"><Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} /></dd>
+                <dd className="order-1 num text-[clamp(2rem,4vw,3.25rem)] text-signal">{st.prefix === "₹" ? <MoneyCounter value={st.value} suffix={st.suffix} decimals={st.decimals} /> : <Counter value={st.value} prefix={st.prefix} suffix={st.suffix} decimals={st.decimals} />}</dd>
                 <dd className="order-3 mt-1 text-sm text-ink">{st.v}</dd>
               </div>
             ))}

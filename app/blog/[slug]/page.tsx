@@ -1,3 +1,6 @@
+import MoneyText from "@/components/MoneyText";
+import MoneyHtml from "@/components/MoneyHtml";
+import type { Market } from "@/lib/market";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BackLink from "@/components/BackLink";
@@ -62,7 +65,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       : null,
   ].filter(Boolean);
 
+  // The post's own market: a post that talks in rupees is written for India, so its static HTML (what search engines
+  // read) keeps rupees; each visitor still sees their own currency once the page runs.
+  const rupees = (p.title + p.html).split("₹").length - 1, dollars = (p.title + p.html).split("$").length - 1;
+  const postMarket: Market = rupees > 0 && rupees >= dollars ? "inr" : "usd";
+
   return (
+    <MoneyText staticMarket={postMarket} dollars>
     <article className="min-h-[100svh] pt-[96px]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
@@ -75,7 +84,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_280px]">
           <div>
-            <div className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
+            <MoneyHtml html={p.html} staticMarket={postMarket} className="prose" />
 
             {p.faq.length > 0 && (
               <section className="mt-14 border-t hairline pt-10" aria-labelledby="faq">
@@ -153,5 +162,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         )}
       </div>
     </article>
+    </MoneyText>
   );
 }

@@ -196,7 +196,7 @@ export const story = {
     {
       year: "2025",
       title: "The same client asked me to open Britain.",
-      body: "Five Elements — 1,318 domestic knitwear leads at ₹19 — then asked for UK buyers. I found 19 wholesale apparel buyers with a 200-piece minimum order for under $6 an enquiry. That campaign is why this site speaks to you.",
+      body: "Five Elements — 1,318 domestic knitwear leads at ₹19 — then asked for UK buyers. I found 19 wholesale apparel buyers with a 200-piece minimum order for ₹443 (under $6) an enquiry. That campaign is why this site speaks to you.",
     },
     {
       year: "Jul 2025",
@@ -224,7 +224,7 @@ export const story = {
     points: [
       { k: "Proof, not promises", v: "Every ad figure on this site is read from Meta Ads Manager and shown with its screenshot. Client-reported results are labelled as exactly that." },
       { k: "Already done abroad", v: "A UK wholesale-buyer campaign for a manufacturer with zero presence there, and a US–Canada summer-camp campaign for a Tamil Nadu art mentorship reaching diaspora families — both on the Results page." },
-      { k: "Your hours, your currency", v: "Calls in your timezone. Reporting in GBP or USD. WhatsApp replies inside the day, not inside the week." },
+      { k: "Your hours, your currency", v: "Calls in your timezone. Reporting in your own currency. WhatsApp replies inside the day, not inside the week." },
       { k: "Every skill, one brain", v: "An agency splits your growth across five departments and a junior joins the dots. Here the strategist, the media buyer, the creative and the automation engineer are the same mind — and I take two new clients a month abroad so that mind stays on your account." },
     ],
   },
@@ -355,7 +355,7 @@ export const cases: CaseStudy[] = [
     result: "1,337 leads · India + UK",
     headline: { value: 1337, suffix: " leads" },
     before: "A Tirupur manufacturer with no inbound pipeline and zero presence in the UK.",
-    after: "1,318 domestic knitwear leads at ₹19.34 each, and 19 UK apparel buyers (MOQ 200) at ₹443 — a wholesale enquiry for under $6.",
+    after: "1,318 domestic knitwear leads at ₹19.34 each, and 19 UK apparel buyers (MOQ 200) for ₹443 (under $6) a wholesale enquiry.",
     measured: { source: "Meta Ads Manager, lifetime view", window: "Jul 2025", counted: "Lead = lead-form submission. Domestic and UK campaigns counted separately; the UK campaign targeted apparel buyers with a 200-piece minimum order.", screenshot: "/img/ads-five-elements.png" },
     receipts: ["/img/ads-five-elements.png"],
     outcome: "They asked me to open Britain. After the domestic campaign, the same client funded a UK buyer campaign — and later introduced Nova Attire.",
@@ -464,7 +464,7 @@ export const byTheNumbers = {
     { value: 7341, suffix: "", k: "form leads", v: "Wholesale buyers, retailers, distributors and customers who filled in a form" },
     { value: 876, suffix: "", k: "conversations", v: "WhatsApp and Instagram enquiries started from an ad" },
     { value: 1.36, suffix: "M+", decimals: 2, k: "people reached", v: "Across India, the UK, the US and Canada" },
-    { value: 16.58, prefix: "₹", suffix: "", decimals: 2, k: "per wholesale buyer lead", v: "Under 25¢ — Nova Attire, 4,248 of them" },
+    { value: 16.58, prefix: "₹", suffix: "", decimals: 2, k: "per wholesale buyer lead", v: "Nova Attire, 4,248 of them" },
   ],
   // CLIENT-REPORTED — figures as told to Jothi by clients (B2B and D2C together), not read from Ads Manager.
   // Published on Jothi's decision, 2026-09-17. Kept visually separate from screenshot numbers and labelled as reported.
@@ -1138,7 +1138,7 @@ export const aiAds = {
   steps: [
     { k: "Day 1", t: "You send your product page and your current best ad.", d: "That ad is the bar. Everything I make is judged against it, in your own ad account." },
     { k: "Within 48 hours", t: "Your free AI ad.", d: "One finished ad on your product, cut 9:16 and 1:1, within 48 hours of us agreeing the product and the angle. Run it or don't — no charge either way." },
-    { k: "Every month", t: "A fresh batch to test.", d: "4 ads for $499, 8 for $950, or 12–14 plus a monthly review of which hooks won and what to test next for $2,000. Month to month." },
+    { k: "Every month", t: "A fresh batch to test.", d: "4, 8 or 12–14 new ads a month — the biggest plan with a monthly review of which hooks won and what to test next. Month to month." },
   ],
   honestLabel: "BEFORE YOU PAY — THE HONEST PART",
   honest: [

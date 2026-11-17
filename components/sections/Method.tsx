@@ -8,6 +8,7 @@ import Scramble from "@/components/motion/Scramble";
 import SwipeCue from "@/components/SwipeCue";
 import { method, type Move } from "@/lib/content";
 import Icon from "@/components/Icon";
+import Result from "@/components/Result";
 
 function Block({ m, i }: { m: Move; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,10 +39,10 @@ function Block({ m, i }: { m: Move; i: number }) {
           <Motion.div style={{ y }} className="absolute inset-[-8%]">
             <Image src={m.artefact} alt={m.artefactCaption ?? `${m.title} — artefact`} fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover object-left-top" />
           </Motion.div>
-          {m.artefactCaption && <span className="label absolute bottom-3 left-3 hidden rounded bg-stock/85 px-2 py-1 !text-ink md:inline">{m.artefactCaption}</span>}
+          {m.artefactCaption && <span className="label absolute bottom-3 left-3 hidden rounded bg-stock/85 px-2 py-1 !text-ink md:inline"><Result>{m.artefactCaption}</Result></span>}
          </div>
          {/* phones: caption sits under the image instead of covering it */}
-         {m.artefactCaption && <p className="label mt-2 truncate !normal-case !tracking-normal md:hidden">{m.artefactCaption}</p>}
+         {m.artefactCaption && <p className="label mt-2 truncate !normal-case !tracking-normal md:hidden"><Result>{m.artefactCaption}</Result></p>}
         </div>
       </article>
     </Reveal>

@@ -1,3 +1,4 @@
+import MoneyText from "@/components/MoneyText";
 import Work from "@/components/sections/Work";
 import Testimonials from "@/components/sections/Testimonials";
 import Close from "@/components/sections/Close";
@@ -16,10 +17,12 @@ export const metadata = {
  */
 export default function WorkPage() {
   return (
+    <MoneyText>
     <div className="min-h-[100svh] pt-[96px]">
       <Work />
       <Testimonials />
       <Close />
     </div>
+    </MoneyText>
   );
 }

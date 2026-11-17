@@ -88,8 +88,8 @@ export default function Figures() {
               {n.reported.stats.map((s) => (
                 <div key={s.k} className="flex items-baseline justify-between gap-6 border-t border-line py-3">
                   {s.prefix === "₹" && market !== "inr" ? (
-                    // A crore is ten million rupees: abroad the figure reads in dollars, with the reported rupee figure named.
-                    <><dt>{s.k} <span className="whitespace-nowrap">(₹{s.value} crore+)</span></dt><dd className="num whitespace-nowrap text-[1.75rem]">≈${Math.floor((s.value * 1e7) / FX.usdInr / 1e5) * 100}K+</dd></>
+                    // A crore is ten million rupees: abroad the figure reads in dollars only (one currency per visitor).
+                    <><dt>{s.k}</dt><dd className="num whitespace-nowrap text-[1.75rem]">≈${Math.floor((s.value * 1e7) / FX.usdInr / 1e5) * 100}K+</dd></>
                   ) : (
                     <><dt>{s.k}</dt><dd className="num text-[1.75rem]">{s.prefix ?? ""}{s.value}{s.suffix ?? ""}</dd></>
                   )}

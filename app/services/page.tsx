@@ -1,3 +1,4 @@
+import MoneyText from "@/components/MoneyText";
 import Link from "next/link";
 import BackLink from "@/components/BackLink";
 import Button from "@/components/Button";
@@ -25,9 +26,9 @@ const SERVICES = [
     body: [
       "Most of the 7,341 form leads on this site came from Meta lead ads and WhatsApp click-to-message campaigns. I run the account end to end: audience research, creative, instant forms, budget moves, and a weekly number you can check against Ads Manager yourself.",
       "For an online shop the same work runs as sales campaigns: catalogue ads, purchase tracking, and cost per purchase or ROAS as the weekly number.",
-      "The work is the same whether the buyer is in Tirupur or Manchester; what changes is the creative, the currency and the hour the phone rings. UK and US accounts are run in your timezone with reporting in GBP or USD.",
+      "The work is the same whether the buyer is in Tirupur or Manchester; what changes is the creative, the currency and the hour the phone rings. UK and US accounts are run in your timezone with reporting in your own currency.",
     ],
-    proof: "7,341 leads · 9 ad accounts · ₹16.58–₹33 per B2B lead in India · a UK wholesale buyer enquiry for under $6",
+    proof: "7,341 leads · 9 ad accounts · ₹16.58–₹33 per B2B lead in India · a UK wholesale buyer enquiry for ₹443 (under $6)",
     links: [{ t: "Nova Attire — 4,248 leads", h: "/work/nova/" }, { t: "Five Elements — 19 UK buyers", h: "/work/five-elements/" }],
     faq: { q: "How much does a Meta lead cost?", a: "In my Indian B2B accounts, between ₹16.58 and ₹33 per lead-form submission, measured lifetime in Ads Manager. A UK wholesale-buyer enquiry cost ₹443 (under $6). Your number depends on product, creative and season — which is why the first month is a test, not a promise." },
   },
@@ -113,6 +114,7 @@ export default function ServicesPage() {
   ];
 
   return (
+    <MoneyText>
     <>
     <section className="min-h-[100svh] pt-[96px]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
@@ -170,5 +172,6 @@ export default function ServicesPage() {
     <Burn />
     <Method />
     </>
+    </MoneyText>
   );
 }

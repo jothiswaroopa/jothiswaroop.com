@@ -1,3 +1,4 @@
+import MoneyText from "@/components/MoneyText";
 import BackLink from "@/components/BackLink";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -25,6 +26,7 @@ function RecognitionPhotos({ r, sizes }: { r: (typeof recognition)[number]; size
 
 export default function AboutPage() {
   return (
+    <MoneyText>
     <>
     <section className="theme-alt min-h-[100svh] pt-[96px]">
       <div className="mx-auto grid max-w-[1440px] gap-14 px-5 pb-12 pt-16 md:grid-cols-[2fr_3fr] md:px-10 md:pb-16 md:pt-24">
@@ -151,5 +153,6 @@ export default function AboutPage() {
     {/* The referral chain, moved here from the homepage on 13 Nov 2026. */}
     <Chain />
     </>
+    </MoneyText>
   );
 }

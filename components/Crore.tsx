@@ -11,8 +11,8 @@ export function CroreFigure({ value }: { value: number }) {
   return <>{india ? "₹" + value + " Cr+" : "≈$" + usdK + "K+"}</>;
 }
 
-/** The reported rupee figure, named beside the dollar one for a reader abroad. */
-export function CroreNote({ value }: { value: number }) {
+/** For a reader abroad, how the dollar figure was made — in words, so no rupee sign reaches them. */
+export function CroreNote({ value: _value }: { value: number }) {
   const india = useDetectedMarket() === "inr";
-  return india ? null : <>. The figure clients gave was ₹{value} crore+.</>;
+  return india ? null : <>. Clients reported it in rupees; converted at {FX.usdInr} rupees to the dollar.</>;
 }

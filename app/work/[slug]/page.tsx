@@ -1,3 +1,4 @@
+import MoneyText from "@/components/MoneyText";
 import Result from "@/components/Result";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,20 +12,22 @@ import { getAllPosts } from "@/lib/blog";
 import VideoTile from "@/components/VideoTile";
 import ClientLogo, { logoFor } from "@/components/ClientLogo";
 import Icon from "@/components/Icon";
+import IndiaOnly from "@/components/IndiaOnly";
+import { localMoney } from "@/lib/gloss";
 
 /** Per-case title/description/canonical so each result is its own page in Google and its own card on LinkedIn. */
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const c = cases.find((x) => x.slug === slug && !x.placeholder);
   if (!c) return {};
-  const title = `${c.client} — ${c.result} | Jothi Swaroop`;
-  const full = `${c.after} ${c.industry}, ${c.location}.`;
+  const title = localMoney(`${c.client} — ${c.result} | Jothi Swaroop`, null);
+  const full = localMoney(`${c.after} ${c.industry}, ${c.location}.`, null);
   const description = full.length > 158 ? full.slice(0, 155).replace(/\s+\S*$/, "") + "…" : full;
   return {
     title,
     description,
     alternates: { canonical: `/work/${c.slug}/` },
-    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article", images: [{ url: c.image ?? "/og.png", width: 1200, height: 630, alt: `${c.client} — ${c.result}` }] },
+    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article", images: [{ url: c.image ?? "/og.png", width: 1200, height: 630, alt: localMoney(`${c.client} — ${c.result}`, null) }] },
     twitter: { title, description },
   };
 }
@@ -62,6 +65,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   ].filter(Boolean);
 
   return (
+    <MoneyText>
     <article className="pt-[96px]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 md:py-24">
@@ -154,14 +158,23 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </section>
         )}
 
-        {relatedPosts.length > 0 && (
-          <section className="mt-16 border-t hairline pt-10">
-            <h2 className="opener">Read the full account</h2>
-            <ul className="mt-4 space-y-2">
-              {relatedPosts.map((p) => <li key={p.slug}><Link href={`/blog/${p.slug}/`} className="underline-slide text-lg text-ink hover:text-signal">{p.title} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></li>)}
-            </ul>
-          </section>
-        )}
+        {/* Blog titles keep the market they were written for: a post priced in rupees is for readers in India, so a visitor
+            abroad does not get it recommended (and the section goes when every post in it is one of those). */}
+        {relatedPosts.length > 0 && (() => {
+          const indiaPost = (t: string) => /₹|lakh|crore/i.test(t);
+          const section = (
+            <section className="mt-16 border-t hairline pt-10">
+              <h2 className="opener">Read the full account</h2>
+              <ul className="mt-4 space-y-2">
+                {relatedPosts.map((p) => {
+                  const li = <li key={p.slug}><Link data-money="keep" href={`/blog/${p.slug}/`} className="underline-slide text-lg text-ink hover:text-signal">{p.title} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></li>;
+                  return indiaPost(p.title) ? <IndiaOnly key={p.slug}>{li}</IndiaOnly> : li;
+                })}
+              </ul>
+            </section>
+          );
+          return relatedPosts.every((p) => indiaPost(p.title)) ? <IndiaOnly>{section}</IndiaOnly> : section;
+        })()}
 
         <section className="mt-16 border-t hairline pt-10">
           <h2 className="opener">More work</h2>
@@ -174,5 +187,6 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <div className="mt-16 flex flex-wrap gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button></div>
       </div>
     </article>
+    </MoneyText>
   );
 }
