@@ -20,14 +20,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const c = cases.find((x) => x.slug === slug && !x.placeholder);
   if (!c) return {};
-  const title = localMoney(`${c.client} — ${c.result} | Jothi Swaroop`, null);
+  // The tab title can't change per visitor (it is fixed at build time), so it carries no money: "Nova Attire — 4,248 leads".
+  const headline = c.result.replace(/\s+(?:at|on|for)\s+₹\s?[\d,.]+(?:\s*\((?:≈|under )\$[^)]*\))?/g, "").replace(/\s*\(?₹[^)·]*\)?/g, "").trim();
+  const title = `${c.client} — ${headline} | Jothi Swaroop`;
   const full = localMoney(`${c.after} ${c.industry}, ${c.location}.`, null);
   const description = full.length > 158 ? full.slice(0, 155).replace(/\s+\S*$/, "") + "…" : full;
   return {
     title,
     description,
     alternates: { canonical: `/work/${c.slug}/` },
-    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article", images: [{ url: c.image ?? "/og.png", width: 1200, height: 630, alt: localMoney(`${c.client} — ${c.result}`, null) }] },
+    openGraph: { title, description, url: `/work/${c.slug}/`, type: "article", images: [{ url: c.image ?? "/og.png", width: 1200, height: 630, alt: `${c.client} — ${headline}` }] },
     twitter: { title, description },
   };
 }

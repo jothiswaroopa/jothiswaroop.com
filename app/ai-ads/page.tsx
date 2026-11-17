@@ -8,7 +8,7 @@ import { ServicePlans } from "@/components/sections/Offers";
 import { aiAds, videos, type Video } from "@/lib/content";
 
 export const metadata = {
-  title: "AI Video Ads & UGC-Style Ads for Brands on Meta — From $129 | Jothi Swaroop",
+  title: "AI Video Ads & UGC-Style Ads for Brands on Meta | Jothi Swaroop",
   description: "UGC-style creator ads and cinematic AI commercials made from your product photos. 4 ads a month for $499, 8 for $950, or 12–14 with a monthly hook review for $2,000. Your first AI ad is free.",
   alternates: { canonical: "/ai-ads/" },
   openGraph: { title: "AI video ads made from your product photos — Jothi Swaroop", url: "/ai-ads/", images: ["/og.png"] },
