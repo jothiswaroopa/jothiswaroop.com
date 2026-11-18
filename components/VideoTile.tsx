@@ -10,6 +10,24 @@ export default function VideoTile({ youtubeId, title, vertical, poster: posterOv
   // lazily (it loads only near the viewport) and let its play button take the one tap.
   const [touch, setTouch] = useState(false);
   useEffect(() => { setTouch(window.matchMedia("(pointer: coarse)").matches); }, []);
+  // ...but only once the tile is actually on screen, or about to be. The iframe's own loading="lazy" was not
+  // enough: Chrome widens its "near" distance on slow connections (to 3,000-4,000px), so on Indian mobile data
+  // — and on PageSpeed's slow-4G phone — the homepage film carousel, ~2,500px down, mounted all eight players
+  // at page open: 9.2MB of the page's 10MB and 3.8s of main thread (PageSpeed, 18 Nov 2026: mobile 59-61,
+  // TBT 1,980ms). An observer measures against the real viewport and respects the carousel's clipping, so a
+  // visitor loads a player only for a tile they can see. Once mounted it stays mounted, or playback would stop.
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    if (!touch || near) return;
+    const el = boxRef.current;
+    if (!el || !("IntersectionObserver" in window)) { setNear(true); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { setNear(true); io.disconnect(); }
+    }, { rootMargin: "300px 0px", scrollMargin: "0px 200px" } as IntersectionObserverInit);
+    io.observe(el);
+    return () => io.disconnect();
+  }, [touch, near]);
   // YouTube returns a 120px grey placeholder (HTTP 200, so onError never fires) when a size isn't ready; walk the chain on load.
   const chain = vertical ? ["oardefault", "oar2", "hq720", "hqdefault"] : ["maxresdefault", "hq720", "sddefault", "hqdefault"];
   const [pi, setPi] = useState(0);
@@ -25,11 +43,11 @@ export default function VideoTile({ youtubeId, title, vertical, poster: posterOv
   }, [pi]); // eslint-disable-line react-hooks/exhaustive-deps
   const base = `https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1&cc_load_policy=1&playsinline=1`;
   return (
-    <div className={`relative bg-stock ${vertical ? "aspect-[9/16]" : "aspect-video"} ${className}`}>
+    <div ref={boxRef} className={`relative bg-stock ${vertical ? "aspect-[9/16]" : "aspect-video"} ${className}`}>
       {touch ? (
         <>
           <img src={poster} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
-          <iframe src={base} title={title} loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />
+          {near && <iframe src={base} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />}
         </>
       ) : play ? (
         <iframe src={`${base}&autoplay=1`} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />
