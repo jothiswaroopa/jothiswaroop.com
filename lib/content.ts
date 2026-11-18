@@ -508,6 +508,9 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     // page which does not mention them is worse than a mark that does not link.
     { name: "Naturals (franchise)", file: "naturals", wide: true },
     { name: "Nails 'n Beyond by Naturals (franchise)", file: "nails-n-beyond" },
+    // Added 18 Nov at Jothi's instruction: social media and Meta ads for 2027–28 admissions, under
+    // contract. Same rule as Naturals — no case page yet, so no link.
+    { name: "SKPC — Sri Kanyaka Parameswari Arts & Science College for Women", file: "skpc", pale: true },
     { name: "Ram Textiles", file: "ram", caseSlug: "ram" },
     { name: "Sri Raja Rajeswari Traders", file: "srr", caseSlug: "srr" },
     { name: "Tharunis Jewellery", file: "tharunis", caseSlug: "tharunis" },
