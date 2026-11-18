@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-17T05:11:55.930Z",
+  "generatedAt": "2026-11-18T04:39:21.606Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-18",
-      "end": "2026-11-15"
+      "start": "2026-10-19",
+      "end": "2026-11-16"
     },
     "totals": {
-      "clicks": 27,
-      "impressions": 181,
-      "ctr": 0.14917127071823205,
-      "position": 12.447513812154696
+      "clicks": 26,
+      "impressions": 180,
+      "ctr": 0.14444444444444443,
+      "position": 12.394444444444444
     },
     "previous": {
       "clicks": 12,
-      "impressions": 122,
-      "ctr": 0.09836065573770492,
-      "position": 12.098360655737705
+      "impressions": 120,
+      "ctr": 0.1,
+      "position": 12.625
     },
     "daily": [
       {
@@ -439,15 +439,22 @@
         "impressions": 8,
         "ctr": 0.125,
         "position": 15.375
+      },
+      {
+        "key": "2026-11-15",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 0.16666666666666666,
+        "position": 5.5
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
-        "clicks": 2,
-        "impressions": 17,
-        "ctr": 0.11764705882352941,
-        "position": 9.117647058823529
+        "clicks": 1,
+        "impressions": 15,
+        "ctr": 0.06666666666666667,
+        "position": 9.466666666666667
       },
       {
         "key": "best peopl advice on getting a brand recommended by ai search",
@@ -478,11 +485,18 @@
         "position": 90
       },
       {
+        "key": "how do ai engines decide which brands to recommend?",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
         "key": "how do ai search engines decide which brands to recommend",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 49.5
+        "position": 33.333333333333336
       },
       {
         "key": "how do ai search engines decide which saas tools to recommend",
@@ -490,6 +504,13 @@
         "impressions": 2,
         "ctr": 0,
         "position": 32
+      },
+      {
+        "key": "how does chatgpt choose which businesses to recommend",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
       },
       {
         "key": "how google gemini picks which businesses to recommend",
@@ -572,17 +593,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 25,
-        "impressions": 77,
-        "ctr": 0.3246753246753247,
-        "position": 4.441558441558442
+        "clicks": 24,
+        "impressions": 78,
+        "ctr": 0.3076923076923077,
+        "position": 4.5
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 53,
-        "ctr": 0.03773584905660377,
-        "position": 6.773584905660377
+        "impressions": 54,
+        "ctr": 0.037037037037037035,
+        "position": 6.851851851851852
       },
       {
         "key": "https://jothiswaroop.com/ai-ads/",
@@ -594,9 +615,9 @@
       {
         "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 9,
         "ctr": 0,
-        "position": 9.5
+        "position": 10.11111111111111
       },
       {
         "key": "https://jothiswaroop.com/audit/",
@@ -608,9 +629,9 @@
       {
         "key": "https://jothiswaroop.com/blog/",
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 8,
         "ctr": 0,
-        "position": 8.444444444444445
+        "position": 8.875
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
@@ -629,9 +650,9 @@
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "clicks": 0,
-        "impressions": 33,
+        "impressions": 36,
         "ctr": 0,
-        "position": 31.09090909090909
+        "position": 29.02777777777778
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
@@ -657,16 +678,16 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 16,
+        "impressions": 13,
         "ctr": 0,
-        "position": 7.0625
+        "position": 7.384615384615385
       },
       {
         "key": "https://jothiswaroop.com/work/angel/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 9,
         "ctr": 0,
-        "position": 12.363636363636363
+        "position": 12
       },
       {
         "key": "https://jothiswaroop.com/work/five-elements/",
@@ -678,9 +699,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 12,
         "ctr": 0,
-        "position": 12.76923076923077
+        "position": 12.916666666666666
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -692,39 +713,39 @@
       {
         "key": "https://jothiswaroop.com/work/ram/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 3,
         "ctr": 0,
-        "position": 10.5
+        "position": 12
       },
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 9,
         "ctr": 0,
-        "position": 11.6
+        "position": 12.11111111111111
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 9,
         "ctr": 0,
-        "position": 29.454545454545453
+        "position": 32.55555555555556
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 13.666666666666666
+        "position": 16.5
       }
     ],
     "countries": [
       {
         "key": "ind",
-        "clicks": 27,
-        "impressions": 89,
-        "ctr": 0.30337078651685395,
-        "position": 5.898876404494382
+        "clicks": 26,
+        "impressions": 90,
+        "ctr": 0.28888888888888886,
+        "position": 5.933333333333334
       },
       {
         "key": "arg",
@@ -732,13 +753,6 @@
         "impressions": 1,
         "ctr": 0,
         "position": 10
-      },
-      {
-        "key": "aus",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 5
       },
       {
         "key": "bgd",
@@ -750,9 +764,9 @@
       {
         "key": "bgr",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 5.333333333333333
+        "position": 4.5
       },
       {
         "key": "bra",
@@ -788,22 +802,29 @@
         "impressions": 10,
         "ctr": 0,
         "position": 26.1
+      },
+      {
+        "key": "hrv",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
         "clicks": 16,
-        "impressions": 134,
-        "ctr": 0.11940298507462686,
-        "position": 14.582089552238806
+        "impressions": 132,
+        "ctr": 0.12121212121212122,
+        "position": 14.568181818181818
       },
       {
         "key": "MOBILE",
-        "clicks": 10,
-        "impressions": 45,
-        "ctr": 0.2222222222222222,
-        "position": 6.333333333333333
+        "clicks": 9,
+        "impressions": 46,
+        "ctr": 0.1956521739130435,
+        "position": 6.391304347826087
       },
       {
         "key": "TABLET",
@@ -816,8 +837,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-18",
-      "end": "2026-11-17"
+      "start": "2026-10-19",
+      "end": "2026-11-18"
     },
     "totals": {
       "views": 0,
@@ -832,12 +853,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1792195200000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -1010,6 +1025,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1794700800000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1794787200000)/",
         "Impressions": 0
       }
     ],
@@ -1252,8 +1273,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.432831,
-    "projected": 3.895482,
+    "pace": 0.408785,
+    "projected": 3.679067,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1272,7 +1293,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-16T09:34:18Z",
+        "lastCrawl": "2026-11-18T02:31:28Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1340,8 +1361,8 @@
       {
         "url": "https://jothiswaroop.com/systems/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1442,7 +1463,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-16T13:00:32Z",
+        "lastCrawl": "2026-11-18T03:38:44Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1500,8 +1521,8 @@
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1512,7 +1533,7 @@
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-10-06T04:30:48Z",
+        "lastCrawl": "2026-11-17T09:10:16Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
