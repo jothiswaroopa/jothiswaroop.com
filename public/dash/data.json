@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-20T04:10:29.854Z",
+  "generatedAt": "2026-11-21T04:10:22.145Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-21",
-      "end": "2026-11-18"
+      "start": "2026-10-22",
+      "end": "2026-11-19"
     },
     "totals": {
-      "clicks": 23,
-      "impressions": 184,
-      "ctr": 0.125,
-      "position": 13.983695652173912
+      "clicks": 21,
+      "impressions": 192,
+      "ctr": 0.109375,
+      "position": 13.848958333333334
     },
     "previous": {
-      "clicks": 13,
-      "impressions": 120,
-      "ctr": 0.10833333333333334,
-      "position": 13.225
+      "clicks": 15,
+      "impressions": 122,
+      "ctr": 0.12295081967213115,
+      "position": 12.754098360655737
     },
     "daily": [
       {
@@ -460,6 +460,13 @@
         "impressions": 13,
         "ctr": 0,
         "position": 16.923076923076923
+      },
+      {
+        "key": "2026-11-18",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0,
+        "position": 11
       }
     ],
     "queries": [
@@ -499,6 +506,20 @@
         "position": 90
       },
       {
+        "key": "how ai search engines choose brands",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "key": "how ai search ranks businesses",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 17
+      },
+      {
         "key": "how do ai engines decide which brands to recommend?",
         "clicks": 0,
         "impressions": 1,
@@ -508,9 +529,9 @@
       {
         "key": "how do ai search engines decide which brands to recommend",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 45.25
+        "position": 40.2
       },
       {
         "key": "how do ai search engines decide which saas tools to recommend",
@@ -590,13 +611,6 @@
         "position": 5
       },
       {
-        "key": "sri raja rajeswari traders chennai",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 47
-      },
-      {
         "key": "sri rajarajeshwari traders",
         "clicks": 0,
         "impressions": 2,
@@ -621,17 +635,17 @@
     "pages": [
       {
         "key": "https://jothiswaroop.com/",
-        "clicks": 21,
-        "impressions": 74,
-        "ctr": 0.28378378378378377,
-        "position": 4.905405405405405
+        "clicks": 19,
+        "impressions": 75,
+        "ctr": 0.25333333333333335,
+        "position": 4.96
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 2,
-        "impressions": 52,
-        "ctr": 0.038461538461538464,
-        "position": 6.923076923076923
+        "impressions": 53,
+        "ctr": 0.03773584905660377,
+        "position": 6.773584905660377
       },
       {
         "key": "https://jothiswaroop.com/ai-ads/",
@@ -643,9 +657,9 @@
       {
         "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 10,
         "ctr": 0,
-        "position": 9.875
+        "position": 9.1
       },
       {
         "key": "https://jothiswaroop.com/audit/",
@@ -657,44 +671,44 @@
       {
         "key": "https://jothiswaroop.com/blog/",
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 10,
         "ctr": 0,
-        "position": 8.875
+        "position": 8.2
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 12,
         "ctr": 0,
-        "position": 13.636363636363637
+        "position": 12.833333333333334
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-generated-product-video-ads-small/",
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 8,
         "ctr": 0,
-        "position": 12.714285714285714
+        "position": 12.375
       },
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "clicks": 0,
-        "impressions": 49,
+        "impressions": 55,
         "ctr": 0,
-        "position": 29.183673469387756
+        "position": 27.945454545454545
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 10
+        "position": 8
       },
       {
         "key": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 20
+        "position": 12.5
       },
       {
         "key": "https://jothiswaroop.com/blog/learn-performance-marketing-from-zero-2026/",
@@ -709,6 +723,13 @@
         "impressions": 9,
         "ctr": 0,
         "position": 7.555555555555555
+      },
+      {
+        "key": "https://jothiswaroop.com/work/",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 3.6666666666666665
       },
       {
         "key": "https://jothiswaroop.com/work/angel/",
@@ -741,23 +762,23 @@
       {
         "key": "https://jothiswaroop.com/work/ram/",
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 9.25
+        "position": 9.2
       },
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
-        "impressions": 12,
+        "impressions": 14,
         "ctr": 0,
-        "position": 10.666666666666666
+        "position": 10.571428571428571
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 10,
         "ctr": 0,
-        "position": 28.454545454545453
+        "position": 26.6
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
@@ -770,10 +791,17 @@
     "countries": [
       {
         "key": "ind",
-        "clicks": 23,
-        "impressions": 87,
-        "ctr": 0.26436781609195403,
-        "position": 6.241379310344827
+        "clicks": 21,
+        "impressions": 86,
+        "ctr": 0.2441860465116279,
+        "position": 7.011627906976744
+      },
+      {
+        "key": "arg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
       },
       {
         "key": "bgd",
@@ -792,9 +820,9 @@
       {
         "key": "bra",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0,
-        "position": 42
+        "position": 37
       },
       {
         "key": "can",
@@ -827,32 +855,25 @@
       {
         "key": "gbr",
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 14,
         "ctr": 0,
-        "position": 32.46153846153846
-      },
-      {
-        "key": "hrv",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 3
+        "position": 31.571428571428573
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
-        "clicks": 15,
-        "impressions": 137,
-        "ctr": 0.10948905109489052,
-        "position": 16.48175182481752
+        "clicks": 13,
+        "impressions": 144,
+        "ctr": 0.09027777777777778,
+        "position": 16.208333333333336
       },
       {
         "key": "MOBILE",
         "clicks": 7,
-        "impressions": 45,
-        "ctr": 0.15555555555555556,
-        "position": 6.688888888888889
+        "impressions": 46,
+        "ctr": 0.15217391304347827,
+        "position": 6.760869565217392
       },
       {
         "key": "TABLET",
@@ -865,8 +886,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-21",
-      "end": "2026-11-20"
+      "start": "2026-10-22",
+      "end": "2026-11-21"
     },
     "totals": {
       "views": 0,
@@ -881,12 +902,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1792454400000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -1059,6 +1074,12 @@
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
         "Date": "/Date(1794960000000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1795046400000)/",
         "Impressions": 0
       }
     ],
@@ -1301,8 +1322,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.367907,
-    "projected": 3.31116,
+    "pace": 0.350387,
+    "projected": 3.153486,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1349,8 +1370,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1388,8 +1409,13 @@
       },
       {
         "url": "https://jothiswaroop.com/systems/",
-        "verdict": "ERROR",
-        "detail": "The service is currently unavailable."
+        "verdict": "NEUTRAL",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
       },
       {
         "url": "https://jothiswaroop.com/apply/",
@@ -1543,8 +1569,13 @@
       },
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
-        "verdict": "ERROR",
-        "detail": "The service is currently unavailable."
+        "verdict": "NEUTRAL",
+        "coverage": "Discovered - currently not indexed",
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "lastCrawl": null,
+        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "canonical": null
       },
       {
         "url": "https://jothiswaroop.com/blog/google-ads-b2b-manufacturers-run-search/",
