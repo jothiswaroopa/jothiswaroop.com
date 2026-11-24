@@ -593,19 +593,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 
 
 
-/* hero: one product photo in, five ads out */
-.stage{height:720px}
+/* hero: one product photo on top, five ads come out below it */
+.stage{--fo:250px;height:760px}
+.fan{position:absolute;left:0;right:0;top:var(--fo);bottom:auto;height:0}
+.f1,.f2,.cu2{margin-top:var(--fo)}
+.f3{top:36px}.f4{top:72px}.cu1{top:122px}
 .p1,.p5{--rise:150px;--dl:.18s}.p2,.p4{--rise:75px;--dl:.09s}.p3{--rise:0px;--dl:0s}
-.motion .stage.pre .fan .phone{transform:translateX(-50%) translateY(330px) scale(.22);opacity:0}
+.motion .stage.pre .fan .phone{transform:translateX(-50%) translateY(var(--pre-y,-270px)) scale(.22);opacity:0}
 .motion .stage.pre .fc,.motion .stage.pre .cursor{opacity:0}
 .stage.intro .fan .phone{transition:transform 1.05s cubic-bezier(.2,1.15,.3,1) var(--dl),opacity .45s ease var(--dl)}
 .stage.intro .fc,.stage.intro .cursor{transition:opacity .7s ease .9s}
-.src{position:absolute;left:50%;top:530px;z-index:5;width:132px;margin:0;padding:7px 7px 9px;background:#fff;border-radius:12px;box-shadow:var(--sh-2);rotate:-2deg;
-  transform:translateX(-50%) translateY(calc(var(--sp,0) * 40px)) scale(calc(1 - var(--sp,0) * .12));opacity:calc(1 - var(--sp,0) * .85)}
+.src{position:absolute;left:50%;top:0;z-index:5;width:132px;margin:0;padding:7px 7px 9px;background:#fff;border-radius:12px;box-shadow:var(--sh-2);rotate:-2deg;transform-origin:50% 0;
+  transform:translateX(-50%) translateY(calc(var(--sp,0) * -20px)) scale(calc(1 - var(--sp,0) * .12));opacity:calc(1 - var(--sp,0) * .85)}
 .src img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:7px}
 .src figcaption{font:600 10px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase;text-align:center;margin-top:7px;color:var(--ink-2);white-space:nowrap}
 .src .s-pre{display:none}
-.motion .stage.pre .src{transform:translateX(-50%) translateY(-370px) scale(1.75)}
+.motion .stage.pre .src{transform:translateX(-50%) translateY(var(--pre-src,24px)) scale(var(--pre-k,1.6))}
 .motion .stage.pre .src .s-pre{display:inline}.motion .stage.pre .src .s-post{display:none}
 .stage.intro .src{transition:transform .85s cubic-bezier(.65,0,.2,1),opacity .4s}
 .src::after{content:"";position:absolute;left:7px;right:7px;top:7px;height:22%;border-radius:7px;pointer-events:none;opacity:0;
@@ -616,15 +619,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .stage.wired .wires{opacity:calc(1 - var(--sp,0) * 1.5)}
 .wires path{fill:none;stroke:rgba(23,22,15,.38);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:2 7;animation:flow 1.1s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-18}}
-@media (max-width:1180px){.stage{height:680px}.src{top:490px}}
-@media (max-width:980px){.stage{height:650px}.src{top:470px}}
+@media (max-width:1180px){.stage{height:700px}}
+@media (max-width:980px){.stage{height:690px}.f3{left:calc(50% - 320px);top:30px}.f4{right:calc(50% - 330px);top:64px}}
 @media (max-width:760px){
-  .stage{height:calc(80vw + 64px + 36vw + 44px)}
-  .src{top:calc(80vw + 52px);width:25vw;padding:5px 5px 6px;border-radius:9px}
+  .stage{--fo:calc(31vw + 58px);--pre-y:-46vw;--pre-src:10px;--pre-k:1.9;height:calc(111vw + 92px)}
+  .src{width:25vw;padding:5px 5px 6px;border-radius:9px}
   .src img{border-radius:5px}
   .src figcaption{font-size:7.5px;margin-top:5px}
-  .motion .stage.pre .fan .phone{transform:translateX(-50%) translateY(62vw) scale(.22)}
-  .motion .stage.pre .src{transform:translateX(-50%) translateY(-64vw) scale(1.9)}
+  .f2{margin-top:0;top:14px;right:10px}
 }
 
 /* client work */
@@ -1017,7 +1019,7 @@ html.in .r-us{display:none!important}
         <div class="phone p5"><div class="screen"><video data-src="media/n6b.mp4" poster="media/n6b.jpg" muted loop playsinline preload="none" aria-label="SOLA studio spot"></video><span class="tc">STUDIO SPOT</span></div></div>
       </div>
       <svg class="wires" id="wires" aria-hidden="true"><path/><path/><path/><path/><path/></svg>
-      <figure class="src" id="src"><img src="media/sola-photo.jpg" alt="The one SOLA product photo all five ads were made from" width="400" height="500"><figcaption><span class="s-pre">Generating 5 ads…</span><span class="s-post">1 product photo → 5 ads</span></figcaption></figure>
+      <figure class="src" id="src"><img src="media/sola-photo.jpg" alt="The one SOLA product photo all five ads were made from" width="400" height="500"><figcaption><span class="s-pre">Generating 5 ads…</span><span class="s-post">1 photo → 5 ads</span></figcaption></figure>
 
       <div class="fc fc-hook f1" aria-hidden="true">
         <div class="k"><i class="live"></i>Hook test · one body</div>
@@ -1130,17 +1132,17 @@ html.in .r-us{display:none!important}
       <div class="wrap story-grid">
         <div class="cap-col">
           <div class="caps" aria-live="polite">
-            <div class="cap on"><p class="label">01 · The usual way</p><h3>A new batch of ads takes <span class="bad">six weeks.</span></h3><p>Brief creators, ship the product, chase drafts, reshoot, then sort out usage rights. Every step waits on the one before it.</p></div>
+            <div class="cap on"><p class="label">01 · Traditional shoots</p><h3>A new batch of ads takes <span class="bad">six weeks.</span></h3><p>Brief creators, ship the product, chase drafts, reshoot, then sort out usage rights. Every step waits on the one before it.</p></div>
             <div class="cap"><p class="label">02 · The problem</p><h3>Your best ad is tired by <span class="bad">week three.</span></h3><p>Winning ads usually wear out within two to four weeks. After that you're paying to show a tired ad while the new ones are still in production.</p></div>
             <div class="cap"><p class="label">03 · The cause</p><h3>The timeline is broken. <span class="bad">Not</span> your product.</h3><p>On Meta and <span class="r-us">TikTok</span><span class="r-in">YouTube</span>, the ad now does much of the targeting. The brands that win test the most different ads and replace them before they tire. A six-week process can't keep up.</p></div>
             <div class="cap"><p class="label">04 · The fix</p><h3>New ads in <span class="good">7 days.</span> Then on repeat.</h3><p class="r-us">Strategy, scripts and production in one place. On Growth, a fresh batch lands every two weeks, before the last one fades. For less than one round of creator videos.</p><p class="r-in">Strategy, scripts and production in one place. On Growth, four new films a month, so a fresh one is always ready before the last one fades. For less than half of what four creator videos cost.</p></div>
           </div>
-          <ol class="steps-mini" aria-hidden="true"><li class="on">The usual way</li><li>The problem</li><li>The cause</li><li>The fix</li></ol>
+          <ol class="steps-mini" aria-hidden="true"><li class="on">Traditional shoots</li><li>The problem</li><li>The cause</li><li>The fix</li></ol>
         </div>
 
-        <div class="tl" aria-label="Timeline: the usual six-week ad process against a 7-day batch">
+        <div class="tl" aria-label="Timeline: a six-week traditional shoot against a 7-day batch">
           <div class="tl-bar"><i></i><i></i><i></i><span>creative calendar · <b data-brand>your-brand</b></span>
-            <div class="meter" id="meter"><small id="mLabel">The usual way</small><b id="mVal">$0</b><small id="mSub">10 creator videos + usage</small></div>
+            <div class="meter" id="meter"><small id="mLabel">Traditional shoots</small><b id="mVal">$0</b><small id="mSub">10 creator videos + usage</small></div>
           </div>
           <div class="tl-in" id="tlIn">
             <div class="tl-axis"><span></span><div class="ticks"><span style="left:0%">W0</span><span style="left:12.5%">W1</span><span style="left:25%">W2</span><span style="left:37.5%">W3</span><span style="left:50%">W4</span><span style="left:62.5%">W5</span><span style="left:75%">W6</span><span style="left:87.5%">W7</span><span style="left:100%">W8</span></div></div>
@@ -1190,7 +1192,7 @@ html.in .r-us{display:none!important}
             <div class="race-caps" aria-live="polite">
               <div class="rcap on"><p class="label">01 · Same 8 weeks</p><h3>Two ways to keep your <span class="r-us">ads</span><span class="r-in">films</span> fresh.</h3><p>Both start with the same winning ad. Scroll, and watch the weeks go by.</p></div>
               <div class="rcap"><p class="label">02 · The problem</p><h3>Every winning ad <span class="bad">wears out.</span></h3><p>In about three weeks people have seen it enough and it stops pulling. Every day it runs tired, your cost per purchase creeps up.</p></div>
-              <div class="rcap"><p class="label">03 · The cause</p><h3>The usual way takes <span class="bad">six weeks</span> to replace it.</h3><p>Briefs, shipping, drafts, reshoots, usage rights. While you wait, you keep paying to show a tired ad.</p></div>
+              <div class="rcap"><p class="label">03 · The cause</p><h3>A traditional shoot takes <span class="bad">six weeks</span> to replace it.</h3><p>Briefs, shipping, drafts, reshoots, usage rights. While you wait, you keep paying to show a tired ad.</p></div>
               <div class="rcap"><p class="label">04 · The fix</p><h3><span class="r-us">New ads</span><span class="r-in">New films</span> every two weeks. <span class="good">No gap.</span></h3><p>Strategy, scripts and production in one place, so a fresh batch lands before the last one fades.</p></div>
             </div>
             <ol class="steps-mini" aria-hidden="true"><li class="on">Same 8 weeks</li><li>The problem</li><li>The cause</li><li>The fix</li></ol>
@@ -1200,7 +1202,7 @@ html.in .r-us{display:none!important}
 
         <div class="lanes">
           <div class="lane usual">
-            <div class="lane-head"><span class="mono">The usual way</span><span class="lane-tag">Creators and shoots</span></div>
+            <div class="lane-head"><span class="mono">Traditional shoots</span><span class="lane-tag">Creators + studios, no AI</span></div>
             <div class="lprice"><b><span class="r-us">≈ $450</span><span class="r-in">≈ ₹10,000</span></b><span class="per"><span class="r-us">an ad</span><span class="r-in">a film</span></span><small><span class="r-us">10 creator videos ≈ $4,500, with usage</span><span class="r-in">4 creator videos ≈ ₹40,000</span></small><span class="lalt"><span class="r-us">Studio shoot: $20K+ a spot</span><span class="r-in">Studio film: ₹1–3 lakh</span></span></div>
             <div class="lane-body">
               <div class="phone"><div class="screen"><div class="mock" id="rMockA" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><span class="stamp">TIRED</span><span class="newchip" id="rNewA">New batch live</span></div></div>
@@ -1232,7 +1234,7 @@ html.in .r-us{display:none!important}
         <div class="rscore" aria-live="polite">
           <div class="rs-main">
             <p class="mono">Extra ad spend lost to tired ads</p>
-            <div class="rs-row usual"><span class="rs-k"><span class="full">The usual way</span><span class="short">Usual way</span></span><div class="rs-bar"><i id="rsBarA"></i></div><b id="rsA">$0</b></div>
+            <div class="rs-row usual"><span class="rs-k"><span class="full">Traditional shoots</span><span class="short">Traditional</span></span><div class="rs-bar"><i id="rsBarA"></i></div><b id="rsA">$0</b></div>
             <div class="rs-row lab"><span class="rs-k"><span class="full">The Creative Lab way</span><span class="short">Creative Lab</span></span><div class="rs-bar"><i id="rsBarB"></i></div><b id="rsB">$0</b></div>
             <p class="rs-save" id="rsSave"></p>
           </div>
@@ -1248,7 +1250,7 @@ html.in .r-us{display:none!important}
           <span class="rmark" id="rMark"></span>
           <div class="rticks"><span style="left:0%">W0</span><span style="left:12.5%">W1</span><span style="left:25%">W2</span><span style="left:37.5%">W3</span><span style="left:50%">W4</span><span style="left:62.5%">W5</span><span style="left:75%">W6</span><span style="left:87.5%">W7</span><span style="left:100%">W8</span></div>
           <div class="rfoot">
-            <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Usual batch</span></div>
+            <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Shoot batch</span></div>
           </div>
           <p class="rnote">Illustration at <b id="rBudgetTxt">$25K</b> a month in ad spend.<span class="rnote-2"> Lost to tired ads = the extra you pay as cost per purchase climbs while an ad tires (modelled up to about 50% at full fatigue), counted day by day at the budget you pick. Your numbers will differ.</span></p>
         </div>
@@ -1513,7 +1515,7 @@ html.in .r-us{display:none!important}
       <div class="center">
         <p class="label reveal">The math</p>
         <h2 class="reveal d1">The shoot you <span class="hl">skip.</span></h2>
-        <p class="lede reveal d2">What the same output costs the usual ways, at typical 2026 rates <span class="r-us">for US and UK DTC brands</span><span class="r-in">in India</span>.</p>
+        <p class="lede reveal d2">What the same output costs with creators and studio shoots, at typical 2026 rates <span class="r-us">for US and UK DTC brands</span><span class="r-in">in India</span>.</p>
       </div>
       <div class="math r-us">
         <div class="cost reveal">
@@ -2151,12 +2153,12 @@ html.in .r-us{display:none!important}
   function wire(){
     if(!wiresEl)return;
     var sr=stg.getBoundingClientRect(),cr=srcEl.getBoundingClientRect();
-    var sx=cr.left+cr.width/2-sr.left,sy=cr.top-sr.top+6;
+    var sx=cr.left+cr.width/2-sr.left,sy=cr.bottom-sr.top-6;
     var vis=fanPhones.filter(function(ph){return ph.offsetParent!==null});
     wPaths.forEach(function(path,i){
       var ph=vis[i];if(!ph){path.setAttribute('d','');return}
-      var r=ph.getBoundingClientRect(),px=r.left+r.width/2-sr.left,py=r.bottom-sr.top-8;
-      path.setAttribute('d','M'+sx.toFixed(1)+','+sy.toFixed(1)+' C'+sx.toFixed(1)+','+(sy-46).toFixed(1)+' '+px.toFixed(1)+','+(py+70).toFixed(1)+' '+px.toFixed(1)+','+py.toFixed(1));
+      var r=ph.getBoundingClientRect(),px=r.left+r.width/2-sr.left,py=r.top-sr.top+8;
+      path.setAttribute('d','M'+sx.toFixed(1)+','+sy.toFixed(1)+' C'+sx.toFixed(1)+','+(sy+50).toFixed(1)+' '+px.toFixed(1)+','+(py-64).toFixed(1)+' '+px.toFixed(1)+','+py.toFixed(1));
     });
   }
   var played=false;
@@ -2169,12 +2171,19 @@ html.in .r-us{display:none!important}
     setTimeout(function(){stg.classList.toggle('intro',false);wire()},2650);
   }
   if(document.documentElement.classList.contains('motion')&&'IntersectionObserver' in window){
+    var introT=0;
+    function introDone(){introIO.disconnect();seenIO.disconnect();clearTimeout(introT)}
     var introIO=new IntersectionObserver(function(es){es.forEach(function(e){
       if(played)return;
-      if(e.isIntersecting&&e.intersectionRatio>=.8){introIO.disconnect();playIntro()}
-      else if(e.boundingClientRect.bottom<0){introIO.disconnect();played=true;finishIntro()}  /* landed below it: show the finished fan */
-    })},{threshold:[0,.8,1]});
-    introIO.observe(srcEl);
+      if(e.isIntersecting&&e.intersectionRatio>=.8){introDone();playIntro()}
+      else if(e.boundingClientRect.bottom<0){introDone();played=true;finishIntro()}  /* landed below it: show the finished fan */
+    })},{threshold:[0,.8,1],rootMargin:'0px 0px -38% 0px'});
+    /* photo fully on screen but low and the visitor stops scrolling: play anyway after a beat */
+    var seenIO=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(played)return;clearTimeout(introT);
+      if(e.intersectionRatio>=.95)introT=setTimeout(function(){if(!played){introDone();playIntro()}},2200);
+    })},{threshold:[0,.95]});
+    introIO.observe(srcEl);seenIO.observe(srcEl);
   }else{played=true;finishIntro()}
   window.addEventListener('resize',function(){wire()});
 
@@ -2208,7 +2217,7 @@ html.in .r-us{display:none!important}
   var fx=[],measures=[];
 
   /* 12a. Hero: copy softens away, the fan straightens, cards drift off */
-  var heroCopy=$('.hero > .wrap'),stageEl=$('.stage');
+  var heroCopy=$('.hero > .wrap'),stageEl=$('.stage'),fanEl=$('.fan');
   fx.push(function(vh,lag){
     var y=window.scrollY-lag;if(y>vh*2.4)return;
     var hp=clamp((y-180)/520,0,1);
@@ -2216,7 +2225,7 @@ html.in .r-us{display:none!important}
     heroCopy.style.filter=hp>.01?'blur('+(hp*6).toFixed(2)+'px)':'none';
     heroCopy.style.translate='0 '+(-hp*40).toFixed(1)+'px';
     var r=stageEl.getBoundingClientRect();
-    var spv=clamp((vh*.5-r.top-lag)/(vh*.8),0,1);stageEl.style.setProperty('--sp',spv.toFixed(3));if(spv<.75&&!stageEl.classList.contains('intro'))wire();
+    var spv=clamp((vh*.5-(r.top+fanEl.offsetTop)-lag)/(vh*.8),0,1);stageEl.style.setProperty('--sp',spv.toFixed(3));if(spv<.75&&!stageEl.classList.contains('intro'))wire();
   });
 
   /* 12b. "Is this you?": each note flies in and gets pinned */
@@ -2311,7 +2320,7 @@ html.in .r-us{display:none!important}
       else if(c2>0.02&&c2<7.98){cur.classList.add('on','g');cur.style.left=(G.cx+G.tw*c2/8).toFixed(1)+'px';curL.textContent='Week '+Math.floor(c2)}
       else{cur.classList.remove('on')}
       var v,lab,sub,good=m>.4;
-      if(m<=0){v=RG.u*clamp(c/5.5,0,1);lab='The usual way';sub=RG.uSub}
+      if(m<=0){v=RG.u*clamp(c/5.5,0,1);lab='Traditional shoots';sub=RG.uSub}
       else{v=lerp(RG.u,RG.f,eOut(clamp(m/.4,0,1)));lab='With me';sub=RG.fSub}
       var mv=RG.cur+(Math.round(v/RG.step)*RG.step).toLocaleString(RG.loc);
       if(mv!==lastMeter){mVal.textContent=mv;lastMeter=mv}
