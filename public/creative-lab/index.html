@@ -7,7 +7,7 @@
 <meta name="description" content="Creative strategy and AI-made UGC and commercials for DTC brands in the US, UK and Australia.">
 <meta name="theme-color" content="#F4F1EA">
 <title>Creative Lab | Jothi Swaroop</title>
-<script>(function(){var d=document.documentElement,m=d.getAttribute("data-force");try{var q=new URLSearchParams(location.search).get("cur");if(q==="inr"||q==="usd"){try{sessionStorage.setItem("cur",q)}catch(e){}m=m||q}if(!m){var k=null;try{k=sessionStorage.getItem("cur")}catch(e){}if(k==="inr"||k==="usd")m=k}if(!m){var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;if(tz==="Asia/Kolkata"||tz==="Asia/Calcutta")m="inr"}}catch(e){}if(m==="inr")d.classList.add("in");d.classList.add("js");try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)d.classList.add("motion")}catch(e){}setTimeout(function(){if(window.__cl)return;var s=document.querySelector(".stage");if(s){s.classList.toggle("pre",false);s.classList.add("wired")}},4500)})();</script>
+<script>(function(){var d=document.documentElement,m=d.getAttribute("data-force");try{var q=new URLSearchParams(location.search).get("cur");if(q==="inr"||q==="usd"){try{sessionStorage.setItem("cur",q)}catch(e){}m=m||q}if(!m){var k=null;try{k=sessionStorage.getItem("cur")}catch(e){}if(k==="inr"||k==="usd")m=k}if(!m){var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;if(tz==="Asia/Kolkata"||tz==="Asia/Calcutta")m="inr"}}catch(e){}if(m==="inr")d.classList.add("in");d.classList.add("js");try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)d.classList.add("motion")}catch(e){}setTimeout(function(){if(window.__cl)return;var s=document.querySelector(".stage");if(s){s.classList.toggle("pre",false);s.classList.add("wired")}},4500);try{var sq=new URLSearchParams(location.search).get("story");d.setAttribute("data-story",sq==="timeline"||sq==="race"?sq:"race")}catch(e){d.setAttribute("data-story","race")}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -751,6 +751,127 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .slots-note b{color:#fff}
 @media (max-width:760px){.slot-row{grid-template-columns:repeat(5,1fr);gap:8px}.slot{aspect-ratio:1/1;padding:7px;font-size:9px}.slot .num{font-size:10px}}
 
+
+/* story switch */
+html[data-story="race"] #story{display:none}
+html[data-story="timeline"] #race{display:none}
+
+/* the race: same 8 weeks, two ways */
+.race{position:relative;height:560vh}
+.race-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;padding-top:70px;overflow:hidden}
+.race-top{display:grid;grid-template-columns:1fr auto;gap:12px 40px;align-items:end}
+.race-caps{position:relative;min-height:168px}
+.rcap{position:absolute;left:0;right:0;bottom:0;opacity:0;translate:0 14px;transition:opacity .45s var(--ease),translate .45s var(--ease);pointer-events:none}
+.rcap.on{opacity:1;translate:0 0}
+.rcap h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.6vw,50px);line-height:1.02;letter-spacing:-.02em;margin-top:10px}
+.rcap h3 .bad{color:var(--no);font-style:italic}
+.rcap h3 .good{font-style:italic;background:linear-gradient(transparent 58%,var(--marker) 58%,var(--marker) 92%,transparent 92%);padding:0 .06em}
+.rcap p:not(.label){color:var(--muted);margin:10px 0 0;max-width:58ch;font-size:16px}
+.race .steps-mini{margin-top:16px}
+.rweek{text-align:right;min-width:110px}
+.rweek .mono{display:block}
+.rweek b{display:block;font-family:var(--serif);font-weight:400;font-size:76px;line-height:.9;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}
+.lane{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:18px;box-shadow:var(--sh-2);transition:box-shadow .6s var(--ease),border-color .6s}
+.lane.win{border-color:var(--marker);box-shadow:0 0 0 3px var(--marker),var(--sh-3)}
+.lane-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.lane-head .mono{color:var(--ink);font-weight:500}
+.lane-tag{font-size:12px;color:var(--muted);white-space:nowrap}
+.lane-who{display:inline-flex;align-items:center;gap:9px}
+.lane-who .jmark{flex:none;width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--marker)}
+@media (max-width:760px){.lane-who{gap:7px}.lane-who .jmark{width:26px;height:26px}.lane-head .mono{font-size:10.5px;letter-spacing:.03em;white-space:nowrap}.lane-tag{font-size:10px}.lane.lab .lane-tag{padding:2px 7px}}
+.lane.lab .lane-tag{background:var(--marker);color:var(--ink);padding:2px 9px;border-radius:999px;font-weight:600}
+.lane-body{display:grid;grid-template-columns:136px 1fr;gap:18px;align-items:start}
+.lane .phone{width:136px;border-radius:20px;padding:5px}
+.lane .screen{border-radius:15px}
+.lane .screen video{transition:filter .5s}
+.lane.tired .screen video{filter:grayscale(1) brightness(.72)}
+.stamp{position:absolute;z-index:3;left:50%;top:44%;translate:-50% -50%;rotate:-12deg;padding:6px 10px;border:2.5px solid var(--no);border-radius:6px;background:rgba(255,255,255,.88);color:var(--no);font:700 15px/1 var(--mono);letter-spacing:.12em;opacity:0;scale:1.6;transition:opacity .3s,scale .4s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+.lane.tired .stamp{opacity:1;scale:1}
+.newchip{position:absolute;z-index:3;left:50%;bottom:10px;translate:-50% 8px;padding:4px 9px;border-radius:999px;background:var(--marker);color:var(--ink);font:600 10.5px/1.2 var(--sans);white-space:nowrap;opacity:0;transition:opacity .3s,translate .35s cubic-bezier(.3,1.6,.5,1)}
+.newchip.on{opacity:1;translate:-50% 0}
+.batt{position:relative;height:32px;border-radius:9px;background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.batt-fill{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--ok);transition:background-color .4s}
+.batt-fill.mid{background:#E39B2E}.batt-fill.low{background:var(--no)}
+.batt-l{position:absolute;left:11px;top:50%;translate:0 -50%;font:600 12px/1 var(--sans);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.batt.empty .batt-l{color:var(--no);text-shadow:none}
+.batt-p{position:absolute;right:11px;top:50%;translate:0 -50%;font:600 12px/1 var(--mono);color:var(--ink-2)}
+.lane-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.pipe{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.pipe li{font-size:12px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--faint);transition:background .3s,color .3s,border-color .3s}
+.pipe li.done{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(105,100,90,.55)}
+.pipe li.now{color:var(--ink);border-color:#E39B2E;background:#FFF0D4;animation:pulse 1.8s ease-in-out infinite}
+.pipe li.live{background:var(--ink);color:#fff;border-color:var(--ink)}
+.batches{display:flex;flex-wrap:wrap;gap:6px}
+.batches span{font-size:12px;padding:4px 9px;border-radius:999px;border:1px dashed var(--line);color:var(--faint);transition:background .3s,color .3s,border-color .3s,scale .35s cubic-bezier(.3,1.6,.5,1)}
+.batches span.on{background:var(--marker);border:1px solid var(--marker);color:var(--ink);font-weight:600;scale:1.04}
+.lstats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.lstats div{padding:10px 12px;border-radius:12px;background:var(--paper)}
+.lstats b{display:block;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+.lstats span{display:block;margin-top:4px;font-size:12px;line-height:1.3;color:var(--muted)}
+.lstats .bad b{color:var(--no)}
+.lane.lab .lstats b{color:var(--ok)}
+.raxis{position:relative;margin-top:26px;padding-bottom:26px}
+.raxis-line{position:relative;height:3px;border-radius:2px;background:var(--line)}
+.raxis-line i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:2px;background:var(--ink)}
+.rdot{position:absolute;top:-4px;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;border:2px solid var(--paper)}
+.rdot.lab{background:var(--marker);box-shadow:0 0 0 1px rgba(23,22,15,.25)}
+.rdot.usual{background:var(--ink)}
+.rmark{position:absolute;top:-8px;left:0;width:19px;height:19px;margin-left:-9.5px;border-radius:50%;background:var(--card);border:3px solid var(--ink);box-shadow:var(--sh-1)}
+.rticks{position:relative;height:18px;margin-top:10px}
+.rticks span{position:absolute;top:0;transform:translateX(-50%);font:500 10.5px/1 var(--mono);color:var(--faint)}
+.rlegend{display:flex;gap:18px;justify-content:flex-end;margin-top:6px;font-size:12px;color:var(--muted)}
+.rlegend span{display:inline-flex;align-items:center;gap:7px}
+.rlegend .rdot{position:static;margin:0;display:inline-block;border-width:0}
+@media (max-width:980px){.race-top{grid-template-columns:1fr auto}.race .steps-mini{display:none}.lane-body{grid-template-columns:110px 1fr}.lane .phone{width:110px}}
+@media (max-width:760px){
+  .race{height:520vh}
+  .race-stage{align-items:flex-start;padding-top:76px}
+  .race-caps{min-height:118px}
+  .rcap h3{font-size:25px;margin-top:6px}
+  .rcap p:not(.label){display:none}
+  .rweek{min-width:64px}.rweek b{font-size:44px}
+  .lanes{grid-template-columns:1fr;gap:10px;margin-top:12px}
+  .lane{padding:12px;border-radius:16px}
+  .lane-head{margin-bottom:8px}
+  .lane-tag{font-size:10.5px}
+  .lane-body{grid-template-columns:80px 1fr;gap:12px}
+  .lane .phone{width:80px;padding:3px;border-radius:13px}.lane .screen{border-radius:10px}
+  .stamp{font-size:10px;padding:4px 6px;border-width:2px}
+  .newchip{font-size:8.5px;padding:3px 6px;bottom:6px}
+  .batt{height:26px}.batt-l,.batt-p{font-size:10.5px}
+  .lane-k{margin:8px 0 6px;font-size:9.5px}
+  .pipe,.batches{gap:4px}.pipe li,.batches span{font-size:10.5px;padding:3px 7px}
+  .lstats{margin-top:8px;gap:6px}.lstats div{padding:7px 9px}.lstats b{font-size:23px}.lstats span{font-size:10.5px}
+  .raxis{margin-top:14px;padding-bottom:6px}
+  .rticks span{font-size:9px}
+  .rlegend{justify-content:flex-start;gap:12px;font-size:10.5px}
+}
+@media (max-width:760px) and (max-height:720px){.lane-k{display:none}.race-caps{min-height:100px}.rcap h3{font-size:22px}}
+.reduce .race{height:auto}
+.reduce .race-stage{position:relative;height:auto;padding:24px 0 0;overflow:visible}
+
+
+/* neutral "your current ad" mock for the race (not one of our films) */
+.mock{position:absolute;inset:0;z-index:1;overflow:hidden;background:#C9D1D8;transition:opacity .45s var(--ease),filter .5s}
+.mock.off{opacity:0;pointer-events:none}
+.mock-bg{position:absolute;inset:-12%;background:radial-gradient(55% 45% at 50% 42%,#EEF2F5,#B4BEC8 72%);animation:kb 9s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.1) translateY(-4%)}}
+.mock-prod{position:absolute;left:50%;top:45%;width:30%;translate:-50% -50%;filter:drop-shadow(0 10px 10px rgba(0,0,0,.22))}
+.mock-prod path{fill:#8E9AA7}.mock-prod rect{fill:#E8ECF0}
+.mock.v2{background:#E3D2C2}
+.mock.v2 .mock-bg{background:radial-gradient(55% 45% at 50% 42%,#F6ECE3,#CBB39C 72%)}
+.mock.v2 .mock-prod path{fill:#A98E76}
+.mock-sp{position:absolute;left:7px;top:7px;padding:3px 5px;border-radius:4px;background:rgba(0,0,0,.32);color:#fff;font:600 8px/1 var(--sans)}
+.mock-ic{position:absolute;right:6px;bottom:30px;display:grid;gap:5px}
+.mock-ic i{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.85)}
+.mock-cap{position:absolute;left:6px;right:6px;bottom:7px;display:flex;justify-content:space-between;align-items:center;gap:4px}
+.mock-cap b{font:600 8.5px/1.15 var(--sans);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.mock-cap span{flex:none;padding:3px 6px;border-radius:4px;background:#fff;color:var(--ink);font:600 7.5px/1 var(--sans)}
+.lane.tired .mock{filter:grayscale(1) brightness(.72)}
+.lane .screen video{position:absolute;inset:0}
+@media (max-width:760px){.mock-cap b{font-size:6.5px}.mock-cap span{font-size:6px;padding:2px 4px}.mock-sp{font-size:6px}.mock-ic{display:none}}
+
 /* two price lists that never meet */
 html:not(.in) .r-in{display:none!important}
 html.in .r-us{display:none!important}
@@ -979,6 +1100,61 @@ html.in .r-us{display:none!important}
       <div class="s-hint" id="sHint" aria-hidden="true">Keep scrolling <span>↓</span></div>
     </div>
   </div>
+  <!-- 3b · THE REAL PROBLEM, version B: same 8 weeks, two ways (pinned, scroll-driven) -->
+  <div class="race" id="race" data-media="media/">
+    <div class="race-stage">
+      <div class="wrap">
+        <div class="race-top">
+          <div>
+            <div class="race-caps" aria-live="polite">
+              <div class="rcap on"><p class="label">01 · Same 8 weeks</p><h3>Two ways to keep your <span class="r-us">ads</span><span class="r-in">films</span> fresh.</h3><p>Both start with the same winning ad. Scroll, and watch the weeks go by.</p></div>
+              <div class="rcap"><p class="label">02 · The problem</p><h3>Every winning ad <span class="bad">wears out.</span></h3><p>In about three weeks people have seen it enough and it stops pulling. That happens to every ad, whoever made it.</p></div>
+              <div class="rcap"><p class="label">03 · The cause</p><h3>The usual way takes <span class="bad">six weeks</span> to replace it.</h3><p>Briefs, shipping, drafts, reshoots, usage rights. While you wait, you keep paying to show a tired ad.</p></div>
+              <div class="rcap"><p class="label">04 · The fix</p><h3><span class="r-us">New ads</span><span class="r-in">New films</span> every two weeks. <span class="good">No gap.</span></h3><p>Strategy, scripts and production in one place, so a fresh batch lands before the last one fades.</p></div>
+            </div>
+            <ol class="steps-mini" aria-hidden="true"><li class="on">Same 8 weeks</li><li>The problem</li><li>The cause</li><li>The fix</li></ol>
+          </div>
+          <div class="rweek" aria-hidden="true"><span class="mono">Week</span><b id="rWeek">0</b><span class="mono">of 8</span></div>
+        </div>
+
+        <div class="lanes">
+          <div class="lane usual">
+            <div class="lane-head"><span class="mono">The usual way</span><span class="lane-tag">Creators and shoots</span></div>
+            <div class="lane-body">
+              <div class="phone"><div class="screen"><div class="mock" id="rMockA" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><span class="stamp">TIRED</span><span class="newchip" id="rNewA">New batch live</span></div></div>
+              <div>
+                <div class="batt"><div class="batt-fill" id="rBattA"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-p" id="rPctA">100%</span></div>
+                <p class="lane-k">Next batch, in production</p>
+                <ul class="pipe" id="rPipe"><li>Brief</li><li>Cast</li><li>Ship</li><li>Drafts</li><li>Reshoot</li><li>Usage</li><li>Live</li></ul>
+                <div class="lstats"><div class="bad"><b id="rDaysA">0</b><span>days on a tired ad</span></div><div><b id="rAdsA">0</b><span>new <span class="r-us">ads</span><span class="r-in">films</span> shipped</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="lane lab">
+            <div class="lane-head"><span class="lane-who"><svg class="jmark" viewBox="0 0 64 64" role="img" aria-label="Jothi Swaroop"><circle cx="32" cy="32" r="32" fill="#0a0a0c"/><text x="29" y="45" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="40" fill="#f2ede4">J</text><circle cx="44.5" cy="43" r="4" fill="#ffb020"/></svg><span class="mono">The Creative Lab way</span></span><span class="lane-tag">by Jothi Swaroop</span></div>
+            <div class="lane-body">
+              <div class="phone"><div class="screen"><div class="mock" id="rMockB" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><video id="rVidB" muted loop playsinline preload="none"></video><span class="stamp">TIRED</span><span class="newchip" id="rNewB">New batch live</span></div></div>
+              <div>
+                <div class="batt"><div class="batt-fill" id="rBattB"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-p" id="rPctB">100%</span></div>
+                <p class="lane-k">Fresh batches, every two weeks</p>
+                <div class="batches" id="rBatches"><span>W1</span><span>W3</span><span>W5</span><span>W7</span></div>
+                <div class="lstats"><div><b id="rDaysB">0</b><span>days on a tired ad</span></div><div><b id="rAdsB">0</b><span>new <span class="r-us">ads</span><span class="r-in">films</span> shipped</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="raxis" aria-hidden="true">
+          <div class="raxis-line"><i id="rFill"></i></div>
+          <span class="rdot lab" style="left:12.5%"></span><span class="rdot lab" style="left:37.5%"></span><span class="rdot lab" style="left:62.5%"></span><span class="rdot lab" style="left:87.5%"></span><span class="rdot usual" style="left:75%"></span>
+          <span class="rmark" id="rMark"></span>
+          <div class="rticks"><span style="left:0%">W0</span><span style="left:12.5%">W1</span><span style="left:25%">W2</span><span style="left:37.5%">W3</span><span style="left:50%">W4</span><span style="left:62.5%">W5</span><span style="left:75%">W6</span><span style="left:87.5%">W7</span><span style="left:100%">W8</span></div>
+          <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Usual batch</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 4 · THE METHOD -->
   <section id="method">
     <div class="wrap">
@@ -1920,7 +2096,7 @@ html.in .r-us{display:none!important}
     new IntersectionObserver(function(es){es.forEach(function(e){pastHero=!e.isIntersecting&&e.boundingClientRect.top<0;upd()})},{threshold:0}).observe($('.ctas'));
     var asks=new Set();
     var aio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)asks.add(e.target);else asks.delete(e.target)});atAsk=asks.size>0;upd()},{threshold:0});
-    aio.observe($('#free'));aio.observe($('#start'));if($('#story'))aio.observe($('#story'));
+    aio.observe($('#free'));aio.observe($('#start'));if($('#story'))aio.observe($('#story'));if($('#race'))aio.observe($('#race'));
   }
 
   /* 12. Scroll-linked motion: everything below is driven by scroll position, one rAF per frame */
@@ -2044,9 +2220,58 @@ html.in .r-us{display:none!important}
       scene(p>=.66?3:p>=.47?2:c>=2.5?1:0);
     };
     fx.push(function(vh,lag){
+      if(story.offsetParent===null)return;
       var r=story.getBoundingClientRect();if(r.bottom<-vh||r.top>vh*2)return;
       renderStory(clamp(-(r.top+lag)/(r.height-vh),0,1));
     });
+  }
+
+  /* 12c-B. The race: same 8 weeks, the usual way vs Creative Lab (week = scroll) */
+  var race=$('#race');
+  if(race){
+    var RR=IN?{usual:4,batch:2,chip:'New films live',unit:'films'}:{usual:10,batch:8,chip:'New batch live',unit:'ads'};
+    var RM=race.getAttribute('data-media')||'media/';
+    var mockA=$('#rMockA'),mockB=$('#rMockB'),vB=$('#rVidB'),laneA=$('.lane.usual',race),laneB=$('.lane.lab',race);
+    var battA=$('#rBattA'),battB=$('#rBattB'),pctA=$('#rPctA'),pctB=$('#rPctB'),chipA=$('#rNewA'),chipB=$('#rNewB');
+    var pipeLi=$$('#rPipe li'),batchS=$$('#rBatches span'),daysA=$('#rDaysA'),adsA=$('#rAdsA'),daysB=$('#rDaysB'),adsB=$('#rAdsB');
+    var rWeek=$('#rWeek'),rFill=$('#rFill'),rMark=$('#rMark'),rcaps=$$('.rcap',race),rmini=$$('.steps-mini li',race);
+    var PIPE=[[0,.6],[.6,1.2],[1.2,2],[2,3.6],[3.6,4.6],[4.6,5.7],[6,99]];
+    var LB=[0,1,3,5,7],ADS_B=[null,'n7','t2','n6','n6b'],TT=2.56;
+    chipA.textContent=RR.chip;chipB.textContent=RR.chip;
+    batchS.forEach(function(sp,i){sp.textContent='W'+LB[i+1]+' · +'+RR.batch});
+    function fresh(dt){if(dt<0)return 100;var x=Math.min(1,dt/3.2);return Math.max(0,100*(1-Math.pow(x,1.3)))}
+    function batt(el,pc,v){v=Math.round(v);el.style.width=v+'%';el.parentNode.classList.toggle('empty',v<30);el.classList.toggle('mid',v<50&&v>=25);el.classList.toggle('low',v<25);pc.textContent=v+'%'}
+    var curA=-1,curB=-1,lastSc=-1,rLive=false,chipTA,chipTB;
+    function vid(v,name){v.poster=RM+name+'.jpg';v.src=RM+name+'.mp4';v.muted=true;if(rLive&&!reduce)v.play().catch(function(){})}
+    function flash(ch,which){ch.classList.add('on');clearTimeout(which==='A'?chipTA:chipTB);var t=setTimeout(function(){ch.classList.remove('on')},1500);if(which==='A')chipTA=t;else chipTB=t}
+    var renderRace=function(p){
+      var t=8*clamp((p-.03)/.92,0,1);
+      var iA=t<6?0:1,lbi=0;for(var i=0;i<LB.length;i++){if(t>=LB[i])lbi=i}
+      var fA=fresh(t-(t<6?0:6)),fB=fresh(t-LB[lbi]);
+      batt(battA,pctA,fA);batt(battB,pctB,fB);
+      laneA.classList.toggle('tired',fA<25);laneB.classList.toggle('tired',fB<25);
+      if(iA!==curA){var upA=curA!==-1&&iA>curA;curA=iA;mockA.classList.toggle('v2',iA===1);$('.mock-t',mockA).textContent=iA===1?'New creator video':'Your current best ad';if(upA)flash(chipA,'A')}
+      if(lbi!==curB){var upB=curB!==-1&&lbi>curB;curB=lbi;mockB.classList.toggle('off',lbi>0);if(lbi>0){vid(vB,ADS_B[lbi])}else{vB.pause()}if(upB)flash(chipB,'B')}
+      pipeLi.forEach(function(li,i){var r=PIPE[i],last=i===PIPE.length-1;li.classList.toggle('done',!last&&t>=r[1]);li.classList.toggle('now',!last&&t>=r[0]&&t<r[1]);li.classList.toggle('live',last&&t>=6)});
+      batchS.forEach(function(sp,i){sp.classList.toggle('on',t>=LB[i+1])});
+      daysA.textContent=t<=TT?0:Math.round((Math.min(t,6)-TT)*7);
+      adsA.textContent=t>=6?RR.usual:0;
+      daysB.textContent=0;adsB.textContent=RR.batch*lbi;
+      rWeek.textContent=Math.min(8,Math.floor(t));
+      rFill.style.width=(t/8*100).toFixed(2)+'%';rMark.style.left=(t/8*100).toFixed(2)+'%';
+      laneB.classList.toggle('win',t>=7.3);
+      var sc=t<.35?0:t<TT?1:t<6?2:3;
+      if(sc!==lastSc){lastSc=sc;rcaps.forEach(function(c,j){c.classList.toggle('on',j===sc)});rmini.forEach(function(m,j){m.classList.toggle('on',j===sc);m.classList.toggle('done',j<sc)})}
+    };
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){rLive=e.isIntersecting;[vB].forEach(function(v){if(!v.getAttribute('src'))return;if(rLive&&!reduce){v.play().catch(function(){})}else{v.pause()}})})},{threshold:0}).observe(race);
+    }
+    fx.push(function(vh,lag){
+      if(race.offsetParent===null)return;
+      var r=race.getBoundingClientRect();if(r.bottom<-vh||r.top>vh*2)return;
+      renderRace(clamp(-(r.top+lag)/(r.height-vh),0,1));
+    });
+    if(reduce&&race.offsetParent!==null){renderRace(1)}
   }
 
   /* 12d. Method: the four steps fly in and dock into the window (wide screens) */
