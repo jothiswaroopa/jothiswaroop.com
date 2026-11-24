@@ -887,6 +887,72 @@ html[data-story="timeline"] #race{display:none}
 @media (max-width:760px){.lprice{margin:-2px 0 8px;padding:7px 9px;gap:0 6px}.lprice b{font-size:22px}.lprice .per{font-size:11px}.lprice small{font-size:10px}.lwin{font-size:9.5px;padding:3px 7px;right:7px}.lalt{font-size:9.5px;padding:3px 7px;right:7px}}
 @media (max-width:760px) and (max-height:720px){.lprice small{display:none}}
 
+
+/* race outcome: cost per purchase + spend on a tired ad */
+.cpa{display:flex;justify-content:space-between;align-items:center;margin:7px 0 0;font-size:12.5px;color:var(--muted)}
+.cpa b{font-weight:700;color:var(--ok);font-variant-numeric:tabular-nums}
+.cpa b.up{color:#C47A12}.cpa b.hot{color:var(--no)}
+.lstats{grid-template-columns:repeat(3,1fr)}
+.lstats b{font-size:26px}
+.rfoot{display:flex;justify-content:space-between;align-items:center;gap:10px 20px;flex-wrap:wrap;margin-top:6px}
+.rfoot .rlegend{margin-top:0}
+.rbudget{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.rbudget .mono{margin-right:4px}
+.rbudget button{padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);font:600 12px/1 var(--sans);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.rbudget button:hover{border-color:var(--ink)}
+.rbudget button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.rnote{margin:8px 0 0;font-size:11.5px;color:var(--faint);line-height:1.45}
+.rnote b{color:var(--muted);font-weight:600}
+@media (min-width:761px) and (max-height:980px){.race-caps{min-height:118px}.rcap p:not(.label){display:none}.race .steps-mini{display:none}.lane .phone{width:116px}.lane-body{grid-template-columns:116px 1fr}.lane-k{margin:10px 0 6px}.lprice{margin-bottom:10px}}
+@media (max-width:760px){
+  .cpa{font-size:10.5px;margin-top:5px}
+  .lstats b{font-size:18px}.lstats span{font-size:9px}
+  .pipe::before{content:"In production";align-self:center;font:500 9px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+  .pipe li:not(.now):not(.live){display:none}
+  .rbudget .mono{display:none}.rbudget button{padding:4px 8px;font-size:10.5px}
+  .rfoot{margin-top:4px}
+  .rnote{font-size:9.5px;margin-top:4px}.rnote-2{display:none}
+}
+
+
+/* race v2: one shipped line per lane + the outcome scoreboard */
+.shipped{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.shipped b{font-family:var(--serif);font-weight:400;font-size:24px;color:var(--ink);margin-right:2px;font-variant-numeric:tabular-nums}
+.shipped.good b{color:var(--ok)}
+.rscore{display:grid;grid-template-columns:1fr auto;gap:14px 30px;align-items:center;margin-top:16px;padding:16px 22px;border-radius:20px;background:var(--ink);color:#F4F1EA;box-shadow:var(--sh-2)}
+.rscore .mono{margin:0 0 4px;color:#B9B3A3}
+.rs-row{display:grid;grid-template-columns:170px 1fr 130px;gap:16px;align-items:center;margin-top:8px}
+.rs-k{font-size:13px;color:#D9D3C4}
+.rs-bar{height:12px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+.rs-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#C9402F,#FF7A59)}
+.rs-row.lab .rs-bar i{background:#7CF0B0}
+.rs-row b{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1;text-align:right;font-variant-numeric:tabular-nums;color:#FF8A73}
+.rs-row.lab b{color:#7CF0B0}
+.rs-save{margin:10px 0 0;min-height:1.4em;font-size:14px;color:var(--marker);font-weight:600;opacity:0;translate:0 6px;transition:opacity .4s,translate .4s}
+.rs-save.on{opacity:1;translate:0 0}
+.rscore .rbudget{flex-direction:column;align-items:flex-end;gap:8px}
+.rscore .rbudget .mono{margin:0;color:#B9B3A3}
+.rscore .rbudget button{background:transparent;color:#F4F1EA;border-color:rgba(255,255,255,.28)}
+.rscore .rbudget button:hover{border-color:#fff}
+.rscore .rbudget button[aria-pressed="true"]{background:var(--marker);border-color:var(--marker);color:var(--ink)}
+.rbudget-btns{display:flex;gap:6px}
+@media (max-width:980px){.rs-row{grid-template-columns:130px 1fr 110px}}
+@media (min-width:761px) and (max-height:980px){.rscore{padding:12px 18px;margin-top:12px}.rs-row{margin-top:5px}.rs-row b{font-size:26px}.rs-save{margin-top:6px}}
+@media (max-width:760px){
+  .shipped{margin-top:6px;font-size:10.5px}.shipped b{font-size:17px}
+  .rscore{grid-template-columns:1fr;gap:6px;margin-top:10px;padding:10px 12px;border-radius:14px}
+  .rscore .mono{font-size:9.5px}
+  .rs-row{grid-template-columns:84px 1fr 86px;gap:8px;margin-top:5px}
+  .rs-k{font-size:10px}.rs-bar{height:8px}.rs-row b{font-size:20px}
+  .rs-save{font-size:10.5px;margin-top:4px;min-height:1.2em}
+  .rscore .rbudget{flex-direction:row;align-items:center;justify-content:flex-start}
+  .rscore .rbudget .mono{display:none}
+}
+
+@media (min-width:761px) and (max-height:800px){.race-stage{padding-top:64px}.race-caps{min-height:96px}.rcap h3{font-size:32px}.rweek b{font-size:56px}.lane{padding:14px}.lane .phone{width:100px}.lane-body{grid-template-columns:100px 1fr;gap:14px}.lprice{padding:7px 10px;margin-bottom:8px}.lprice b{font-size:24px}.lane-k{display:none}.shipped{margin-top:6px}.rscore{margin-top:10px;padding:10px 16px}.rs-row b{font-size:22px}.raxis{margin-top:14px}.rnote-2{display:none}}
+.rs-k .short{display:none}
+@media (max-width:760px){.race-caps{min-height:80px}.rcap h3{font-size:21px}.lanes{gap:8px;margin-top:8px}.lane{padding:10px}.lane-head{margin-bottom:6px}.lane .phone{width:62px;padding:2px;border-radius:11px}.lane .screen{border-radius:9px}.lane-body{grid-template-columns:62px 1fr;gap:10px}.lprice{padding:6px 8px;margin-bottom:6px}.lprice b{font-size:20px}.shipped{margin-top:4px}.batt{height:22px}.stamp{font-size:8px;padding:3px 4px}.rs-k .full{display:none}.rs-k .short{display:inline}.rs-row{grid-template-columns:70px 1fr 84px}.rscore{margin-top:8px;padding:9px 11px}.rs-save{font-size:10px}.raxis{margin-top:8px}}
+@media (max-width:760px){.lwin,.lalt{top:6px;translate:0 0}}
 /* two price lists that never meet */
 html:not(.in) .r-in{display:none!important}
 html.in .r-us{display:none!important}
@@ -1123,7 +1189,7 @@ html.in .r-us{display:none!important}
           <div>
             <div class="race-caps" aria-live="polite">
               <div class="rcap on"><p class="label">01 · Same 8 weeks</p><h3>Two ways to keep your <span class="r-us">ads</span><span class="r-in">films</span> fresh.</h3><p>Both start with the same winning ad. Scroll, and watch the weeks go by.</p></div>
-              <div class="rcap"><p class="label">02 · The problem</p><h3>Every winning ad <span class="bad">wears out.</span></h3><p>In about three weeks people have seen it enough and it stops pulling. That happens to every ad, whoever made it.</p></div>
+              <div class="rcap"><p class="label">02 · The problem</p><h3>Every winning ad <span class="bad">wears out.</span></h3><p>In about three weeks people have seen it enough and it stops pulling. Every day it runs tired, your cost per purchase creeps up.</p></div>
               <div class="rcap"><p class="label">03 · The cause</p><h3>The usual way takes <span class="bad">six weeks</span> to replace it.</h3><p>Briefs, shipping, drafts, reshoots, usage rights. While you wait, you keep paying to show a tired ad.</p></div>
               <div class="rcap"><p class="label">04 · The fix</p><h3><span class="r-us">New ads</span><span class="r-in">New films</span> every two weeks. <span class="good">No gap.</span></h3><p>Strategy, scripts and production in one place, so a fresh batch lands before the last one fades.</p></div>
             </div>
@@ -1140,9 +1206,10 @@ html.in .r-us{display:none!important}
               <div class="phone"><div class="screen"><div class="mock" id="rMockA" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><span class="stamp">TIRED</span><span class="newchip" id="rNewA">New batch live</span></div></div>
               <div>
                 <div class="batt"><div class="batt-fill" id="rBattA"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-p" id="rPctA">100%</span></div>
+                <p class="cpa">Cost per purchase <b id="rCpaA">steady</b></p>
                 <p class="lane-k">Next batch, in production</p>
                 <ul class="pipe" id="rPipe"><li>Brief</li><li>Cast</li><li>Ship</li><li>Drafts</li><li>Reshoot</li><li>Usage</li><li>Live</li></ul>
-                <div class="lstats"><div class="bad"><b id="rDaysA">0</b><span>days on a tired ad</span></div><div><b id="rAdsA">0</b><span>new <span class="r-us">ads</span><span class="r-in">films</span> shipped</span></div></div>
+                <p class="shipped"><b id="rAdsA">0</b> new <span class="r-us">ads</span><span class="r-in">films</span> shipped</p>
               </div>
             </div>
           </div>
@@ -1153,12 +1220,26 @@ html.in .r-us{display:none!important}
               <div class="phone"><div class="screen"><div class="mock" id="rMockB" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><video id="rVidB" muted loop playsinline preload="none"></video><span class="stamp">TIRED</span><span class="newchip" id="rNewB">New batch live</span></div></div>
               <div>
                 <div class="batt"><div class="batt-fill" id="rBattB"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-p" id="rPctB">100%</span></div>
+                <p class="cpa">Cost per purchase <b id="rCpaB">steady</b></p>
                 <p class="lane-k">Fresh batches, every two weeks</p>
                 <div class="batches" id="rBatches"><span>W1</span><span>W3</span><span>W5</span><span>W7</span></div>
-                <div class="lstats"><div><b id="rDaysB">0</b><span>days on a tired ad</span></div><div><b id="rAdsB">0</b><span>new <span class="r-us">ads</span><span class="r-in">films</span> shipped</span></div></div>
+                <p class="shipped good"><b id="rAdsB">0</b> new <span class="r-us">ads</span><span class="r-in">films</span> shipped</p>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="rscore" aria-live="polite">
+          <div class="rs-main">
+            <p class="mono">Extra ad spend lost to tired ads</p>
+            <div class="rs-row usual"><span class="rs-k"><span class="full">The usual way</span><span class="short">Usual way</span></span><div class="rs-bar"><i id="rsBarA"></i></div><b id="rsA">$0</b></div>
+            <div class="rs-row lab"><span class="rs-k"><span class="full">The Creative Lab way</span><span class="short">Creative Lab</span></span><div class="rs-bar"><i id="rsBarB"></i></div><b id="rsB">$0</b></div>
+            <p class="rs-save" id="rsSave"></p>
+          </div>
+          <div class="rbudget" role="group" aria-label="Your monthly ad spend"><span class="mono">Your monthly ad spend</span><div class="rbudget-btns">
+              <button type="button" class="r-us" data-m="10000">$10K</button><button type="button" class="r-us" data-m="25000" aria-pressed="true">$25K</button><button type="button" class="r-us" data-m="50000">$50K</button>
+              <button type="button" class="r-in" data-m="100000">₹1L</button><button type="button" class="r-in" data-m="200000" aria-pressed="true">₹2L</button><button type="button" class="r-in" data-m="500000">₹5L</button>
+            </div></div>
         </div>
 
         <div class="raxis" aria-hidden="true">
@@ -1166,7 +1247,10 @@ html.in .r-us{display:none!important}
           <span class="rdot lab" style="left:12.5%"></span><span class="rdot lab" style="left:37.5%"></span><span class="rdot lab" style="left:62.5%"></span><span class="rdot lab" style="left:87.5%"></span><span class="rdot usual" style="left:75%"></span>
           <span class="rmark" id="rMark"></span>
           <div class="rticks"><span style="left:0%">W0</span><span style="left:12.5%">W1</span><span style="left:25%">W2</span><span style="left:37.5%">W3</span><span style="left:50%">W4</span><span style="left:62.5%">W5</span><span style="left:75%">W6</span><span style="left:87.5%">W7</span><span style="left:100%">W8</span></div>
-          <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Usual batch</span></div>
+          <div class="rfoot">
+            <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Usual batch</span></div>
+          </div>
+          <p class="rnote">Illustration at <b id="rBudgetTxt">$25K</b> a month in ad spend.<span class="rnote-2"> Lost to tired ads = the extra you pay as cost per purchase climbs while an ad tires (modelled up to about 50% at full fatigue), counted day by day at the budget you pick. Your numbers will differ.</span></p>
         </div>
       </div>
     </div>
@@ -2250,7 +2334,7 @@ html.in .r-us{display:none!important}
     var RM=race.getAttribute('data-media')||'media/';
     var mockA=$('#rMockA'),mockB=$('#rMockB'),vB=$('#rVidB'),laneA=$('.lane.usual',race),laneB=$('.lane.lab',race);
     var battA=$('#rBattA'),battB=$('#rBattB'),pctA=$('#rPctA'),pctB=$('#rPctB'),chipA=$('#rNewA'),chipB=$('#rNewB');
-    var pipeLi=$$('#rPipe li'),batchS=$$('#rBatches span'),daysA=$('#rDaysA'),adsA=$('#rAdsA'),daysB=$('#rDaysB'),adsB=$('#rAdsB');
+    var pipeLi=$$('#rPipe li'),batchS=$$('#rBatches span'),adsA=$('#rAdsA'),adsB=$('#rAdsB'),rsA=$('#rsA'),rsB=$('#rsB'),rsBarA=$('#rsBarA'),rsSave=$('#rsSave');
     var rWeek=$('#rWeek'),rFill=$('#rFill'),rMark=$('#rMark'),rcaps=$$('.rcap',race),rmini=$$('.steps-mini li',race);
     var PIPE=[[0,.6],[.6,1.2],[1.2,2],[2,3.6],[3.6,4.6],[4.6,5.7],[6,99]];
     var LB=[0,1,3,5,7],ADS_B=[null,'n7','t2','n6','n6b'],TT=2.56;
@@ -2258,10 +2342,28 @@ html.in .r-us{display:none!important}
     batchS.forEach(function(sp,i){sp.textContent='W'+LB[i+1]+' · +'+RR.batch});
     function fresh(dt){if(dt<0)return 100;var x=Math.min(1,dt/3.2);return Math.max(0,100*(1-Math.pow(x,1.3)))}
     function batt(el,pc,v){v=Math.round(v);el.style.width=v+'%';el.parentNode.classList.toggle('empty',v<30);el.classList.toggle('mid',v<50&&v>=25);el.classList.toggle('low',v<25);pc.textContent=v+'%'}
-    var curA=-1,curB=-1,lastSc=-1,rLive=false,chipTA,chipTB;
+    var curA=-1,curB=-1,lastSc=-1,rLive=false,chipTA,chipTB,lastRP=0;
+    var budget=IN?200000:25000,cpaA=$('#rCpaA'),cpaB=$('#rCpaB'),bTxt=$('#rBudgetTxt'),TMAX=(6-2.56)*7;
+    function money(v){v=Math.round(v);if(IN){return v>=100000?'₹'+(v/100000).toFixed(2)+' lakh':'₹'+v.toLocaleString('en-IN')}return '$'+v.toLocaleString('en-US')}
+    function budgetLabel(m){return IN?'₹'+(m/100000)+' lakh':'$'+(m/1000)+'K'}
+    function cpaRaw(f){var x=Math.max(0,(60-f)/60);return 50*Math.pow(x,1.2)}
+    function cpaRise(f){return Math.round(cpaRaw(f))}
+    /* extra spend vs a fresh ad's cost per purchase, summed day by day up to week tNow */
+    function extraLost(tNow,launches){
+      var step=.05,sum=0,daily=budget/30.4;
+      for(var x=0;x<tNow;x+=step){var l=0;for(var i=0;i<launches.length;i++){if(x>=launches[i])l=launches[i]}var m=1+cpaRaw(fresh(x-l))/100;sum+=daily*7*step*(1-1/m)}
+      return sum;
+    }
+    function cpaSet(el,f){var r=cpaRise(f);el.textContent=r<3?'steady':'▲ '+r+'%';el.classList.toggle('up',r>=3&&r<15);el.classList.toggle('hot',r>=15)}
+    bTxt.textContent=budgetLabel(budget);
+    $$('.rbudget button',race).forEach(function(bt){bt.addEventListener('click',function(){
+      $$('.rbudget button',race).forEach(function(x){x.setAttribute('aria-pressed','false')});bt.setAttribute('aria-pressed','true');
+      budget=+bt.getAttribute('data-m');bTxt.textContent=budgetLabel(budget);renderRace(lastRP);
+    })});
     function vid(v,name){v.poster=RM+name+'.jpg';v.src=RM+name+'.mp4';v.muted=true;if(rLive&&!reduce)v.play().catch(function(){})}
     function flash(ch,which){ch.classList.add('on');clearTimeout(which==='A'?chipTA:chipTB);var t=setTimeout(function(){ch.classList.remove('on')},1500);if(which==='A')chipTA=t;else chipTB=t}
     var renderRace=function(p){
+      lastRP=p;
       var t=8*clamp((p-.03)/.92,0,1);
       var iA=t<6?0:1,lbi=0;for(var i=0;i<LB.length;i++){if(t>=LB[i])lbi=i}
       var fA=fresh(t-(t<6?0:6)),fB=fresh(t-LB[lbi]);
@@ -2271,9 +2373,14 @@ html.in .r-us{display:none!important}
       if(lbi!==curB){var upB=curB!==-1&&lbi>curB;curB=lbi;mockB.classList.toggle('off',lbi>0);if(lbi>0){vid(vB,ADS_B[lbi])}else{vB.pause()}if(upB)flash(chipB,'B')}
       pipeLi.forEach(function(li,i){var r=PIPE[i],last=i===PIPE.length-1;li.classList.toggle('done',!last&&t>=r[1]);li.classList.toggle('now',!last&&t>=r[0]&&t<r[1]);li.classList.toggle('live',last&&t>=6)});
       batchS.forEach(function(sp,i){sp.classList.toggle('on',t>=LB[i+1])});
-      daysA.textContent=t<=TT?0:Math.round((Math.min(t,6)-TT)*7);
+      var tiredDays=t<=TT?0:(Math.min(t,6)-TT)*7;
+      var LA=[0,6],lostA=extraLost(t,LA),lostB=extraLost(t,LB),maxA=extraLost(8,LA),endB=extraLost(8,LB);
+      rsA.textContent=money(lostA);rsB.textContent=money(lostB);
+      rsBarA.style.width=(lostA/maxA*100).toFixed(1)+'%';$('#rsBarB').style.width=Math.max(1.5,lostB/maxA*100).toFixed(1)+'%';
+      rsSave.textContent="That's about "+money(maxA-endB)+' less lost to tired ads.';rsSave.classList.toggle('on',t>=7.3);
+      cpaSet(cpaA,fA);cpaSet(cpaB,fB);
       adsA.textContent=t>=6?RR.usual:0;
-      daysB.textContent=0;adsB.textContent=RR.batch*lbi;
+      adsB.textContent=RR.batch*lbi;
       rWeek.textContent=Math.min(8,Math.floor(t));
       rFill.style.width=(t/8*100).toFixed(2)+'%';rMark.style.left=(t/8*100).toFixed(2)+'%';
       laneB.classList.toggle('win',t>=7.3);
