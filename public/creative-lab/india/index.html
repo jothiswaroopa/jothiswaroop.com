@@ -100,7 +100,7 @@ em{font-style:italic}
 .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--rec);animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(229,72,59,.35)}50%{box-shadow:0 0 0 6px rgba(229,72,59,0)}}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,8.4vw,116px);line-height:.94;letter-spacing:-.028em;margin:24px auto 0;max-width:15ch}
-.hero .lede{margin-top:26px;max-width:56ch}
+.hero .lede{margin:26px auto 0;max-width:56ch}
 .hero .lede b{color:var(--ink);font-weight:600}
 .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
 .micro{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:13.5px;color:var(--muted)}
@@ -718,7 +718,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .path b{display:block;color:#fff;font-size:16px}
 .path small{display:block;color:rgba(255,255,255,.76);font-size:13.5px;margin-top:4px;line-height:1.45}
 @media (max-width:760px){.path{grid-template-columns:1fr;gap:18px}.path li::after{display:none}}
-.founding{margin:0 0 16px;padding:10px 12px;border-radius:12px;background:var(--marker-soft);border:1px dashed rgba(23,22,15,.25);font-size:13px;line-height:1.45}
 .final-cal{margin:16px 0 0;font-size:14.5px;color:#C9C3B3}
 .final-cal a{color:#fff;font-weight:600}
 
@@ -731,6 +730,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .fit-col li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45}
 .fit-col .ck,.fit-col .x{margin-top:3px}
 @media (max-width:760px){.fit{grid-template-columns:1fr}}
+
+
+/* monthly slots */
+.slots{max-width:980px;margin:52px auto 0;padding:clamp(20px,3vw,32px);border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);text-align:left}
+.slots-head{display:flex;justify-content:space-between;align-items:baseline;gap:6px 20px;flex-wrap:wrap}
+.slots h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.1;color:#fff;letter-spacing:-.01em}
+.slots .mono{color:rgba(255,255,255,.7);margin:0}
+.slot-row{display:grid;grid-template-columns:repeat(10,1fr);gap:10px;margin-top:20px}
+.slot{display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:3/4;padding:9px 8px;border-radius:12px;border:1.5px dashed rgba(255,255,255,.45);color:rgba(255,255,255,.8);font:500 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  opacity:0;scale:.7;transition:opacity .45s var(--ease),scale .55s cubic-bezier(.3,1.5,.5,1)}
+.slot .num{font-size:12px;color:rgba(255,255,255,.55)}
+.slot .st{display:flex;align-items:center;gap:6px}
+.slot .st i{flex:none;width:7px;height:7px;border-radius:50%;background:#7CF0B0;animation:slotPulse 2.2s ease-in-out infinite}
+.slots.in .slot{opacity:1;scale:1}
+.slot.booked{background:var(--marker);border:1.5px solid var(--marker);color:var(--ink)}
+.slot.booked .num{color:rgba(23,22,15,.55)}
+@keyframes slotPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,240,176,.6)}50%{box-shadow:0 0 0 5px rgba(124,240,176,0)}}
+.slots-note{margin:16px 0 0;color:rgba(255,255,255,.8);font-size:14.5px;line-height:1.5}
+.slots-note b{color:#fff}
+@media (max-width:760px){.slot-row{grid-template-columns:repeat(5,1fr);gap:8px}.slot{aspect-ratio:1/1;padding:7px;font-size:9px}.slot .num{font-size:10px}}
 
 /* two price lists that never meet */
 html:not(.in) .r-in{display:none!important}
@@ -1419,6 +1438,15 @@ html.in .r-us{display:none!important}
           <p class="capnote"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 4.5V8l2.4 1.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>I make three spec ads a week, <span class="r-us">only for brands already running ads</span><span class="r-in">for businesses running ads or about to</span>, so I confirm the product and the angle with you first.</p>
         </div>
 
+        <div class="slots reveal" id="slots" data-cap="10" data-booked="0">
+          <div class="slots-head">
+            <h3><span class="r-us">I take 10 brands a month.</span><span class="r-in">I take 10 businesses a month.</span></h3>
+            <p class="mono">Intake · <span class="slot-month">this month</span></p>
+          </div>
+          <div class="slot-row" id="slotRow" aria-hidden="true"></div>
+          <p class="slots-note"><span id="slotCount">Slots open</span> for <span class="slot-month">this month</span>. Ten, so every <span class="r-us">brand</span><span class="r-in">business</span> gets the strategy and the craft you've seen on this page.</p>
+        </div>
+
         <ol class="path r-us reveal">
           <li><span class="pn">1</span><b>Free spec ad</b><small>Your product, one winning format, watermarked. 48 hours.</small></li>
           <li><span class="pn">2</span><b>Test batch · $1,000</b><small>The preview becomes ad #1, plus 7 more. 7 working days.</small></li>
@@ -1443,7 +1471,6 @@ html.in .r-us{display:none!important}
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>One revision round</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Delivered in 7 working days</li>
             </ul>
-            <p class="founding"><b>Founding offer:</b> the first 3 brands outside India pay $750, in exchange for a short video review when the batch is done.</p>
             <a class="btn light" href="mailto:hello@jothiswaroop.com?subject=Test%20batch" data-mail="Test batch">Ask about a test batch</a>
           </div>
           <div class="tier feat reveal d1">
@@ -1824,6 +1851,22 @@ html.in .r-us{display:none!important}
   if(!reduce&&window.matchMedia('(hover: hover) and (pointer: fine)').matches){
     $('.hero').addEventListener('mousemove',function(e){tmx=(e.clientX/window.innerWidth-.5)*2;tmy=(e.clientY/window.innerHeight-.5)*2;if(!mRun){mRun=true;requestAnimationFrame(mStep)}});
     $('.hero').addEventListener('mouseleave',function(){tmx=0;tmy=0;if(!mRun){mRun=true;requestAnimationFrame(mStep)}});
+  }
+
+  /* 8g. Monthly slots: capacity and real bookings come from data-cap and data-booked on #slots */
+  var slotsEl=$('#slots');
+  if(slotsEl){
+    var cap=+slotsEl.getAttribute('data-cap')||10,booked=Math.max(0,Math.min(cap,+slotsEl.getAttribute('data-booked')||0)),open=cap-booked;
+    var now=new Date(),mon=now.toLocaleString('en-US',{month:'long'}),nextMon=new Date(now.getFullYear(),now.getMonth()+1,1).toLocaleString('en-US',{month:'long'});
+    $$('.slot-month',slotsEl).forEach(function(e){e.textContent=mon});
+    var rowHtml='';
+    for(var si=0;si<cap;si++){
+      var bk=si<booked;
+      rowHtml+='<div class="slot'+(bk?' booked':'')+'" style="transition-delay:'+(si*0.06).toFixed(2)+'s"><span class="num">'+(si<9?'0':'')+(si+1)+'</span><span class="st">'+(bk?'✓ Booked':'<i></i>Open')+'</span></div>';
+    }
+    $('#slotRow').innerHTML=rowHtml;
+    $('#slotCount').innerHTML=booked===0?'<b>All '+cap+' slots open</b>':'<b>'+booked+' booked, '+open+' open</b>';
+    if(open===0){$('.slots-note',slotsEl).innerHTML='<b>Fully booked for '+mon+'.</b> Spec ads are open for '+nextMon+'.'}
   }
 
   /* 8f. Hero intro: one product photo becomes five ads, wired to the photo */
