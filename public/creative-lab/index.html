@@ -7,7 +7,7 @@
 <meta name="description" content="Creative strategy and AI-made UGC and commercials for DTC brands in the US, UK and Australia.">
 <meta name="theme-color" content="#F4F1EA">
 <title>Creative Lab | Jothi Swaroop</title>
-<script>(function(){var d=document.documentElement,m=d.getAttribute("data-force");try{var q=new URLSearchParams(location.search).get("cur");if(q==="inr"||q==="usd"){try{sessionStorage.setItem("cur",q)}catch(e){}m=m||q}if(!m){var k=null;try{k=sessionStorage.getItem("cur")}catch(e){}if(k==="inr"||k==="usd")m=k}if(!m){var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;if(tz==="Asia/Kolkata"||tz==="Asia/Calcutta")m="inr"}}catch(e){}if(m==="inr")d.classList.add("in");d.classList.add("js");try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)d.classList.add("motion")}catch(e){}setTimeout(function(){var s=document.querySelector(".stage");if(s){s.classList.toggle("pre",false);s.classList.add("wired")}},4500)})();</script>
+<script>(function(){var d=document.documentElement,m=d.getAttribute("data-force");try{var q=new URLSearchParams(location.search).get("cur");if(q==="inr"||q==="usd"){try{sessionStorage.setItem("cur",q)}catch(e){}m=m||q}if(!m){var k=null;try{k=sessionStorage.getItem("cur")}catch(e){}if(k==="inr"||k==="usd")m=k}if(!m){var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;if(tz==="Asia/Kolkata"||tz==="Asia/Calcutta")m="inr"}}catch(e){}if(m==="inr")d.classList.add("in");d.classList.add("js");try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)d.classList.add("motion")}catch(e){}setTimeout(function(){if(window.__cl)return;var s=document.querySelector(".stage");if(s){s.classList.toggle("pre",false);s.classList.add("wired")}},4500)})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -161,7 +161,8 @@ em{font-style:italic}
   .phone{border-radius:18px;padding:4px}.screen{border-radius:14px}
   .fan .tc{font-size:8.5px;padding:2px 5px;left:7px;top:7px}
   .f1,.f3,.f4,.cu1{display:none}
-  .f2{right:6px;top:calc(56vw);--fw:168px;--dir:0;font-size:11.5px;padding:9px 11px 10px;border-radius:13px}
+  .f2{right:2px;top:calc(80vw + 74px);--fw:122px;--dir:0;font-size:10px;padding:8px 9px 9px;border-radius:12px}
+  .f2 li{gap:6px}.f2 .ck{width:14px;height:14px}
   .f2 .k{margin-bottom:6px}
   .eyebrow{font-size:12.5px}
 }
@@ -1631,6 +1632,7 @@ html.in .r-us{display:none!important}
 
 <script>
 (function(){
+  window.__cl=1;
   document.documentElement.classList.add('js');
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduce');
   var $=function(s,c){return (c||document).querySelector(s)};
@@ -1837,12 +1839,23 @@ html.in .r-us{display:none!important}
       path.setAttribute('d','M'+sx.toFixed(1)+','+sy.toFixed(1)+' C'+sx.toFixed(1)+','+(sy-46).toFixed(1)+' '+px.toFixed(1)+','+(py+70).toFixed(1)+' '+px.toFixed(1)+','+py.toFixed(1));
     });
   }
-  if(document.documentElement.classList.contains('motion')){
-    setTimeout(function(){stg.classList.add('scan')},300);
-    setTimeout(function(){stg.classList.toggle('pre',false)},1350);
-    setTimeout(function(){wire();stg.classList.add('wired')},2050);
-    setTimeout(function(){stg.classList.toggle('intro',false);wire()},2700);
-  }else{stg.classList.toggle('pre',false);stg.classList.toggle('intro',false);stg.classList.add('wired');wire()}
+  var played=false;
+  function finishIntro(){stg.classList.toggle('pre',false);stg.classList.toggle('intro',false);stg.classList.add('wired');wire()}
+  function playIntro(){
+    if(played)return;played=true;
+    setTimeout(function(){stg.classList.add('scan')},200);
+    setTimeout(function(){stg.classList.toggle('pre',false)},1300);
+    setTimeout(function(){wire();stg.classList.add('wired')},2000);
+    setTimeout(function(){stg.classList.toggle('intro',false);wire()},2650);
+  }
+  if(document.documentElement.classList.contains('motion')&&'IntersectionObserver' in window){
+    var introIO=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(played)return;
+      if(e.isIntersecting&&e.intersectionRatio>=.8){introIO.disconnect();playIntro()}
+      else if(e.boundingClientRect.bottom<0){introIO.disconnect();played=true;finishIntro()}  /* landed below it: show the finished fan */
+    })},{threshold:[0,.8,1]});
+    introIO.observe(srcEl);
+  }else{played=true;finishIntro()}
   window.addEventListener('resize',function(){wire()});
 
   /* 9. Hero hook card: walks A to E to show a test running */
