@@ -188,6 +188,31 @@ section{position:relative;padding:clamp(80px,11vw,132px) 0;overflow-x:clip}
 .note.pinned:hover{scale:1.03;transition:scale .3s var(--ease)}
 @media (max-width:900px){.notes{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.notes{grid-template-columns:1fr;gap:20px}.note{min-height:0;padding:30px 20px 20px}.board{padding:22px 18px}}
+
+/* pain board, pinned: the board holds still and each note is pinned on its own as you scroll */
+.motion .pain-track{height:calc(100vh + 230vh);height:calc(100svh + 230vh)}
+.motion .pain-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:60px}
+.motion .pain-track.pin-off{height:auto}
+.motion .pain-track.pin-off .pain-stage{position:relative;height:auto;padding-top:0}
+.pain-stage .board{transition:box-shadow .3s}
+@media (min-width:561px) and (max-height:840px){
+  .pain-stage .board{margin-top:24px;padding:26px 36px}
+  .pain-stage .notes{gap:20px 30px}
+  .pain-stage .note{min-height:0;padding:28px 18px 18px}
+  .pain-stage .note p{font-size:clamp(20px,1.85vw,25px)}
+  .pain-stage h2{font-size:clamp(40px,4.4vw,60px)}
+}
+@media (max-width:560px){
+  .pain-stage .board{margin-top:18px;padding:16px 12px}
+  .pain-stage .notes{grid-template-columns:repeat(2,1fr);gap:12px 10px}
+  .pain-stage .note{padding:24px 11px 12px;border-radius:2px 2px 6px 2px}
+  .pain-stage .note p{font-size:16px;line-height:1.12;margin-top:3px}
+  .pain-stage .note .n{font-size:9.5px}
+  .pain-stage .note::before{top:7px;width:11px;height:11px;margin-left:-5.5px}
+  .pain-stage .note::after{width:22px;height:22px}
+  .pain-stage h2{font-size:42px}
+}
+@media (max-width:560px) and (max-height:700px){.pain-stage .note p{font-size:14.5px}.pain-stage h2{font-size:36px}.pain-stage .label{display:none}}
 .payoff{font-family:var(--serif);font-size:clamp(36px,5vw,64px);line-height:1.04;letter-spacing:-.02em;text-align:center;margin:64px auto 0}
 .payoff-sub{text-align:center;color:var(--muted);margin:16px auto 0;max-width:52ch}
 
@@ -874,6 +899,10 @@ html[data-story="timeline"] #race{display:none}
 .mock-cap b{font:600 8.5px/1.15 var(--sans);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
 .mock-cap span{flex:none;padding:3px 6px;border-radius:4px;background:#fff;color:var(--ink);font:600 7.5px/1 var(--sans)}
 .lane.tired .mock{filter:grayscale(1) brightness(.72)}
+.mock.real{background:#2a2622}
+.mock.real .mock-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mock.real::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to top,rgba(0,0,0,.55),transparent);pointer-events:none}
+.mock.real .mock-sp,.mock.real .mock-ic,.mock.real .mock-cap{z-index:2}
 .lane .screen video{position:absolute;inset:0}
 @media (max-width:760px){.mock-cap b{font-size:6.5px}.mock-cap span{font-size:6px;padding:2px 4px}.mock-sp{font-size:6px}.mock-ic{display:none}}
 
@@ -957,6 +986,72 @@ html[data-story="timeline"] #race{display:none}
 .rs-k .short{display:none}
 @media (max-width:760px){.race-caps{min-height:80px}.rcap h3{font-size:21px}.lanes{gap:8px;margin-top:8px}.lane{padding:10px}.lane-head{margin-bottom:6px}.lane .phone{width:62px;padding:2px;border-radius:11px}.lane .screen{border-radius:9px}.lane-body{grid-template-columns:62px 1fr;gap:10px}.lprice{padding:6px 8px;margin-bottom:6px}.lprice b{font-size:20px}.shipped{margin-top:4px}.batt{height:22px}.stamp{font-size:8px;padding:3px 4px}.rs-k .full{display:none}.rs-k .short{display:inline}.rs-row{grid-template-columns:70px 1fr 84px}.rscore{margin-top:8px;padding:9px 11px}.rs-save{font-size:10px}.raxis{margin-top:8px}}
 @media (max-width:760px){.lwin,.lalt{top:6px;translate:0 0}}
+
+/* race: week bar sits on top as the timeline; a face on each freshness bar */
+.race .raxis{margin-top:20px;padding-bottom:0}
+.race .raxis + .lanes{margin-top:12px}
+.race .rfoot{justify-content:flex-end;margin:24px 0 0}
+.race .rnote{margin-top:10px}
+.batt-e{position:absolute;right:52px;top:50%;translate:0 -50%;font-size:18px;line-height:1;filter:drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+.batt-e.pop{animation:emopop .5s cubic-bezier(.3,1.8,.5,1)}
+@keyframes emopop{0%{scale:.3;rotate:-20deg}100%{scale:1;rotate:0deg}}
+@media (min-width:761px) and (max-height:800px){.race .raxis{margin-top:12px}.race .rfoot{margin-top:21px}.race .rlegend{font-size:11px}.race .raxis + .lanes{margin-top:8px}}
+@media (max-width:760px){
+  .race .raxis{margin-top:10px}
+  .race .rfoot{margin-top:20px}
+  .race .raxis + .lanes{margin-top:6px}
+  .batt-e{right:42px;font-size:14px}
+}
+
+/* hook test, plain version: a mini "opening + same ad" strip on each choice, a timeline under the phone */
+.hookbtn{grid-template-columns:46px 1fr auto auto}
+.hk-mini{display:flex;gap:2px;width:70px;height:9px}
+.hk-mini i{display:block;height:100%;border-radius:2px}
+.hk-mini .o{background:var(--ink-2);opacity:.35}
+.hk-mini .r{flex:1;background:repeating-linear-gradient(90deg,var(--line) 0 4px,transparent 4px 6px)}
+.hookbtn[aria-pressed="true"] .hk-mini .o{background:var(--marker);opacity:1}
+.hk-time{margin:22px 6px 0}
+.hk-bar{position:relative;display:flex;gap:3px;height:30px}
+.hk-o,.hk-r{display:flex;align-items:center;border-radius:8px;font:600 11px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.hk-o{justify-content:center;background:var(--marker);color:var(--ink);transition:width .4s var(--ease),box-shadow .3s}
+.hk-o b{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:0;text-transform:none}
+.hk-o.now{box-shadow:0 0 0 3px var(--marker-soft)}
+.hk-r{flex:1;justify-content:center;background:var(--paper-2);color:var(--muted);border:1px dashed var(--line)}
+.hk-head{position:absolute;top:-5px;bottom:-5px;width:2px;margin-left:-1px;border-radius:2px;background:var(--rec);left:0;transition:left .26s linear}
+.hk-head.jump{transition:none}
+.hk-lab{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:12px;color:var(--muted)}
+.hk-lab b{color:var(--ink);font-weight:600}
+.why-hook b{color:var(--ink)}
+@media (max-width:560px){.hookbtn{grid-template-columns:40px 1fr auto;gap:10px;padding:11px 12px 11px 10px}.hookbtn b{width:40px;height:40px;font-size:24px}.hookbtn > i{display:none}.hk-mini{width:52px}.hookbtn span{font-size:14.5px}.hookbtn small{font-size:12.5px}}
+
+
+/* receipts: a results panel (what my campaigns did) next to what running ads taught me */
+.rx{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;margin-top:44px;align-items:stretch}
+.rx-dash{display:flex;flex-direction:column;padding:22px 26px 28px;border-radius:24px;background:var(--ink);color:#F4F1EA;box-shadow:var(--sh-2)}
+.rx-top{display:flex;align-items:center;gap:10px}
+.rx-top .mono{margin:0;color:#B9B3A3}
+.rx-dot{width:8px;height:8px;border-radius:50%;background:#7CF0B0;box-shadow:0 0 0 4px rgba(124,240,176,.16)}
+.rx-kpis{flex:1;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;margin-top:20px}
+.rx-kpis div{padding:4px 20px;border-left:1px solid rgba(255,255,255,.13)}
+.rx-kpis div:first-child{padding-left:0;border-left:0}
+.rx-kpis b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,4.6vw,64px);line-height:1;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums}
+.rx-kpis span{display:block;margin-top:10px;font-size:14.5px;color:#D9D3C4;line-height:1.35}
+.rx-learn{padding:22px 26px 24px;border-radius:24px;background:var(--card);border:1px solid var(--line-2);box-shadow:var(--sh-1)}
+.rx-learn > .mono{margin:0;color:var(--muted)}
+.rx-learn ol{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+.rx-learn li{display:flex;gap:12px;align-items:flex-start;font-size:16px;font-weight:600;line-height:1.35;color:var(--ink)}
+.rx-learn li b{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--marker);font:600 13px/1 var(--mono)}
+.rx-made{margin:18px 0 0;padding-top:14px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.rx-made b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+@media (max-width:900px){.rx{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .rx{margin-top:30px;gap:12px}
+  .rx-dash{padding:18px 18px 22px;border-radius:20px}
+  .rx-kpis{grid-template-columns:1fr 1fr;margin-top:16px}
+  .rx-kpis div:nth-child(3){grid-column:1 / -1;border-left:0;padding:16px 0 0;margin-top:16px;border-top:1px solid rgba(255,255,255,.13)}
+  .rx-kpis b{font-size:42px}.rx-kpis span{font-size:13px}
+  .rx-learn{padding:18px;border-radius:20px}.rx-learn li{font-size:15px}
+}
 /* two price lists that never meet */
 html:not(.in) .r-in{display:none!important}
 html.in .r-us{display:none!important}
@@ -1101,6 +1196,8 @@ html.in .r-us{display:none!important}
 
   <!-- 2 · PROBLEM -->
   <section id="pain">
+    <div class="pain-track">
+    <div class="pain-stage">
     <div class="wrap">
       <div class="center">
         <p class="label reveal">Sound familiar?</p>
@@ -1113,9 +1210,13 @@ html.in .r-us{display:none!important}
           <div class="note" style="--c:var(--n3);--r:-1deg"><span class="n">#3</span><p>"Meta keeps telling us to test more creative. We have four ads."</p></div>
           <div class="note" style="--c:var(--n4);--r:1.2deg"><span class="n">#4</span><p>"We paid a creator, waited three weeks, and got one take we could use."</p></div>
           <div class="note" style="--c:var(--n5);--r:-1.8deg"><span class="n">#5</span><p>"Our agency sends 'content'. Nobody tells us which hook to test, or why."</p></div>
-          <div class="note" style="--c:var(--n6);--r:2deg"><span class="n">#6</span><p>"A proper shoot is $20K and six weeks out. We need new ads this month."</p></div>
+          <div class="note" style="--c:var(--n6);--r:2deg"><span class="n">#6</span><p>"A proper shoot is <span class="r-us">$20K</span><span class="r-in">₹1–3 lakh</span> and six weeks out. We need new <span class="r-us">ads</span><span class="r-in">films</span> this month."</p></div>
         </div>
       </div>
+    </div>
+    </div>
+    </div>
+    <div class="wrap">
       <p class="payoff reveal">It's not your product.<br>It's your <span class="hl">creative supply.</span></p>
       <p class="payoff-sub reveal d1">Ads wear out faster than most teams can replace them. That gap is the whole job.</p>
     </div>
@@ -1202,14 +1303,24 @@ html.in .r-us{display:none!important}
           <div class="rweek" aria-hidden="true"><span class="mono">Week</span><b id="rWeek">0</b><span class="mono">of 8</span></div>
         </div>
 
+        <div class="raxis" aria-hidden="true">
+          <div class="raxis-line"><i id="rFill"></i></div>
+          <span class="rdot lab" style="left:12.5%"></span><span class="rdot lab" style="left:37.5%"></span><span class="rdot lab" style="left:62.5%"></span><span class="rdot lab" style="left:87.5%"></span><span class="rdot usual" style="left:75%"></span>
+          <span class="rmark" id="rMark"></span>
+          <div class="rticks"><span style="left:0%">W0</span><span style="left:12.5%">W1</span><span style="left:25%">W2</span><span style="left:37.5%">W3</span><span style="left:50%">W4</span><span style="left:62.5%">W5</span><span style="left:75%">W6</span><span style="left:87.5%">W7</span><span style="left:100%">W8</span></div>
+          <div class="rfoot">
+            <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Shoot batch</span></div>
+          </div>
+        </div>
+
         <div class="lanes">
           <div class="lane usual">
             <div class="lane-head"><span class="mono">Traditional shoots</span><span class="lane-tag">Creators + studios, no AI</span></div>
             <div class="lprice"><b><span class="r-us">≈ $450</span><span class="r-in">≈ ₹10,000</span></b><span class="per"><span class="r-us">an ad</span><span class="r-in">a film</span></span><small><span class="r-us">10 creator videos ≈ $4,500, with usage</span><span class="r-in">4 creator videos ≈ ₹40,000</span></small><span class="lalt"><span class="r-us">Studio shoot: $20K+ a spot</span><span class="r-in">Studio film: ₹1–3 lakh</span></span></div>
             <div class="lane-body">
-              <div class="phone"><div class="screen"><div class="mock" id="rMockA" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><span class="stamp">TIRED</span><span class="newchip" id="rNewA">New batch live</span></div></div>
+              <div class="phone"><div class="screen"><div class="mock real" id="rMockA" aria-hidden="true"><video class="mock-v" id="rVidA" poster="media/trad1.jpg" muted loop playsinline preload="none"></video><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><span class="stamp">TIRED</span><span class="newchip" id="rNewA">New batch live</span></div></div>
               <div>
-                <div class="batt"><div class="batt-fill" id="rBattA"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-p" id="rPctA">100%</span></div>
+                <div class="batt"><div class="batt-fill" id="rBattA"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-e" aria-hidden="true">😄</span><span class="batt-p" id="rPctA">100%</span></div>
                 <p class="cpa">Cost per purchase <b id="rCpaA">steady</b></p>
                 <p class="lane-k">Next batch, in production</p>
                 <ul class="pipe" id="rPipe"><li>Brief</li><li>Cast</li><li>Ship</li><li>Drafts</li><li>Reshoot</li><li>Usage</li><li>Live</li></ul>
@@ -1223,7 +1334,7 @@ html.in .r-us{display:none!important}
             <div class="lane-body">
               <div class="phone"><div class="screen"><div class="mock" id="rMockB" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><video id="rVidB" muted loop playsinline preload="none"></video><span class="stamp">TIRED</span><span class="newchip" id="rNewB">New batch live</span></div></div>
               <div>
-                <div class="batt"><div class="batt-fill" id="rBattB"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-p" id="rPctB">100%</span></div>
+                <div class="batt"><div class="batt-fill" id="rBattB"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-e" aria-hidden="true">😄</span><span class="batt-p" id="rPctB">100%</span></div>
                 <p class="cpa">Cost per purchase <b id="rCpaB">steady</b></p>
                 <p class="lane-k">Fresh batches, every two weeks</p>
                 <div class="batches" id="rBatches"><span>W1</span><span>W3</span><span>W5</span><span>W7</span></div>
@@ -1246,16 +1357,7 @@ html.in .r-us{display:none!important}
             </div></div>
         </div>
 
-        <div class="raxis" aria-hidden="true">
-          <div class="raxis-line"><i id="rFill"></i></div>
-          <span class="rdot lab" style="left:12.5%"></span><span class="rdot lab" style="left:37.5%"></span><span class="rdot lab" style="left:62.5%"></span><span class="rdot lab" style="left:87.5%"></span><span class="rdot usual" style="left:75%"></span>
-          <span class="rmark" id="rMark"></span>
-          <div class="rticks"><span style="left:0%">W0</span><span style="left:12.5%">W1</span><span style="left:25%">W2</span><span style="left:37.5%">W3</span><span style="left:50%">W4</span><span style="left:62.5%">W5</span><span style="left:75%">W6</span><span style="left:87.5%">W7</span><span style="left:100%">W8</span></div>
-          <div class="rfoot">
-            <div class="rlegend"><span><i class="rdot lab"></i>Creative Lab batch</span><span><i class="rdot usual"></i>Shoot batch</span></div>
-          </div>
-          <p class="rnote">Illustration at <b id="rBudgetTxt">$25K</b> a month in ad spend.<span class="rnote-2"> Lost to tired ads = the extra you pay as cost per purchase climbs while an ad tires (modelled up to about 50% at full fatigue), counted day by day at the budget you pick. Your numbers will differ.</span></p>
-        </div>
+        <p class="rnote">Illustration at <b id="rBudgetTxt">$25K</b> a month in ad spend.<span class="rnote-2"> Lost to tired ads = the extra you pay as cost per purchase climbs while an ad tires (modelled up to about 50% at full fatigue), counted day by day at the budget you pick. Your numbers will differ.</span></p>
       </div>
     </div>
   </div>
@@ -1491,14 +1593,26 @@ html.in .r-us{display:none!important}
   <section id="proof" style="padding-top:0">
     <div class="wrap">
       <p class="label reveal">Receipts</p>
-      <h2 class="reveal d1">I've spent real money on Meta. It shows in <span class="hl">every script.</span></h2>
-      <p class="lede reveal d2">Before AI films, I ran Meta campaigns for manufacturers, retailers and brands. That's where the strategy comes from: knowing what a lead costs, and what a good ad does to that number.</p>
-      <div class="stats reveal d2">
-        <div class="stat"><b data-to="7341">7,341</b><span>form leads from Meta campaigns I've run</span></div>
-        <div class="stat"><b data-to="876">876</b><span>WhatsApp and Instagram conversations started from ads</span></div>
-        <div class="stat"><b data-to="9">9</b><span>client ad accounts</span></div>
-        <div class="stat"><b data-to="1000" data-suf="+">1,000+</b><span>ad creatives produced</span></div>
-        <div class="stat"><b data-to="500" data-suf="+">500+</b><span>AI films made end to end</span></div>
+      <h2 class="reveal d1">I've run the ads myself. <span class="hl">So I know what works.</span></h2>
+      <p class="lede reveal d2">Before AI films, I ran Facebook and Instagram ad campaigns for 9 businesses, with their money on the line. Every day I saw which ads brought in customers and which ones burned budget. That's what goes into every script I write.</p>
+      <div class="rx reveal d2">
+        <div class="rx-dash">
+          <div class="rx-top"><span class="rx-dot" aria-hidden="true"></span><span class="mono">Results from campaigns I ran</span></div>
+          <div class="rx-kpis">
+            <div><b data-to="7341">7,341</b><span>people asked to hear more</span></div>
+            <div><b data-to="876">876</b><span>WhatsApp and Instagram chats started</span></div>
+            <div><b data-to="9">9</b><span>businesses whose ads I ran</span></div>
+          </div>
+        </div>
+        <div class="rx-learn">
+          <p class="mono">What running ads taught me</p>
+          <ol>
+            <li><b>1</b><span>The first three seconds decide if an ad works.</span></li>
+            <li><b>2</b><span>One ad is never enough. You need a few to test.</span></li>
+            <li><b>3</b><span>Even your best ad gets tired within weeks.</span></li>
+          </ol>
+          <p class="rx-made">Since then: <b data-to="1000" data-suf="+">1,000+</b> ads and <b data-to="500" data-suf="+">500+</b> AI films made.</p>
+        </div>
       </div>
       <p class="honest reveal"><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 7v4.2M8 4.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span><span class="r-us">Honest scale: those campaigns ran on Indian budgets, so the cost per lead won't carry over to the US, UK or Australia. The method does.</span><span class="r-in">Honest scale: those campaigns ran on Indian budgets, in rupees, in the same market you sell in.</span> The lead and conversation numbers trace to Ads Manager screenshots I'm happy to show you.</span></p>
 
@@ -1543,20 +1657,24 @@ html.in .r-us{display:none!important}
     <div class="wrap">
       <div class="hooks">
         <div>
-          <p class="label reveal">The method, live</p>
-          <h2 class="reveal d1">One body. Five hooks. <span class="hl">Let the data pick.</span></h2>
-          <p class="lede reveal d2">A winning ad wears out in weeks. This is how you stay ahead of it: one strong body, five different openings, tested side by side. Tap a hook to watch it.</p>
+          <p class="label reveal">How I test ads</p>
+          <h2 class="reveal d1">Same ad. Five different openings. <span class="hl">Your viewers pick the winner.</span></h2>
+          <p class="lede reveal d2">People decide in the first three seconds whether to keep watching. So I make one ad and give it five different openings. All five run at the same time, and the opening that keeps the most people watching becomes the start of your next ads. Tap one to watch it.</p>
           <div class="hooklist reveal d3" role="group" aria-label="Choose a hook">
-            <button class="hookbtn" aria-pressed="true" data-src="media/hook-a.mp4"><b>A</b><span>Pain point<small>"Still wide awake at 2 a.m.?"</small></span><i>Playing</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="media/hook-b.mp4"><b>B</b><span>Problem visual<small>"Five bottles, a scoop of chalk…"</small></span><i>Play</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="media/hook-c.mp4"><b>C</b><span>The secret<small>"Nobody talks about this…"</small></span><i>Play</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="media/hook-d.mp4"><b>D</b><span>Time jump<small>"Day thirty of taking these…"</small></span><i>Play</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="media/hook-e.mp4"><b>E</b><span>Product drop<small>Slow-motion slam, no words</small></span><i>Play</i></button>
+            <button class="hookbtn" aria-pressed="true" data-src="media/hook-a.mp4" data-cut="4.08"><b>A</b><span>Asks about their problem<small>"Still wide awake at 2 a.m.?"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Playing</i></button>
+            <button class="hookbtn" aria-pressed="false" data-src="media/hook-b.mp4" data-cut="5.04"><b>B</b><span>Shows the problem<small>"Five bottles, a scoop of chalk…"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:33%"></i><i class="r"></i></em><i>Play</i></button>
+            <button class="hookbtn" aria-pressed="false" data-src="media/hook-c.mp4" data-cut="4.08"><b>C</b><span>Teases a secret<small>"Nobody talks about this…"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Play</i></button>
+            <button class="hookbtn" aria-pressed="false" data-src="media/hook-d.mp4" data-cut="4.08"><b>D</b><span>Jumps to the result<small>"Day thirty of taking these…"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Play</i></button>
+            <button class="hookbtn" aria-pressed="false" data-src="media/hook-e.mp4" data-cut="4.08"><b>E</b><span>Just shows the product<small>Slow-motion slam, no words</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Play</i></button>
           </div>
-          <p class="why-hook reveal d4">Changing only the opening is the cheapest test in advertising. Same script, same creator, same cost to run. Whichever hook wins becomes the opener for your next batch.</p>
+          <p class="why-hook reveal d4"><b>Why it works:</b> only the first few seconds change, so the test costs almost nothing extra. And you find out exactly which opening makes people stop scrolling. The winner becomes the opening of your next batch.</p>
         </div>
         <div class="hook-phone reveal d2">
-          <div class="phone"><div class="screen" role="button" tabindex="0" aria-label="Toggle sound on the hook test video"><video id="hookvid" src="media/hook-a.mp4" poster="media/n1.jpg" muted loop playsinline preload="metadata"></video><span class="tc" id="hooktc">HOOK A + BODY</span><span class="snd" id="hooksnd">🔊 <span>Tap for sound</span></span></div></div>
+          <div class="phone"><div class="screen" role="button" tabindex="0" aria-label="Toggle sound on the hook test video"><video id="hookvid" src="media/hook-a.mp4" poster="media/n1.jpg" muted loop playsinline preload="metadata"></video><span class="tc" id="hooktc">OPENING A + SAME AD</span><span class="snd" id="hooksnd">🔊 <span>Tap for sound</span></span></div></div>
+          <div class="hk-time" aria-hidden="true">
+            <div class="hk-bar"><span class="hk-o" id="hkO"><b id="hkL">A</b></span><span class="hk-r">Same ad</span><i class="hk-head" id="hkHead"></i></div>
+            <div class="hk-lab"><span><b>Opening</b> · changes</span><span><b>The rest</b> · same every time</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -2082,8 +2200,16 @@ html.in .r-us{display:none!important}
     hbtn.forEach(function(x){x.setAttribute('aria-pressed','false');x.querySelector('i').textContent='Play'});
     b.setAttribute('aria-pressed','true');b.querySelector('i').textContent='Playing';
     var wasMuted=hv.muted;hv.src=b.dataset.src;hv.muted=wasMuted;hv.play().catch(function(){});
-    htc.textContent='HOOK '+b.querySelector('b').textContent+' + BODY';
+    htc.textContent='OPENING '+b.querySelector('b').textContent+' + SAME AD';hkSet(b);
   })});
+  /* the timeline under the phone: opening (changes) vs the rest (same), with a playhead */
+  var hkO=$('#hkO'),hkL=$('#hkL'),hkHead=$('#hkHead'),hkCut=4.08,hkLast=0;
+  function hkSet(b){hkCut=+b.getAttribute('data-cut')||4.08;hkL.textContent=b.querySelector('b').textContent;hkO.style.width=(hkCut/(hv.duration||14.14)*100).toFixed(1)+'%'}
+  hv.addEventListener('loadedmetadata',function(){var on=$('.hookbtn[aria-pressed="true"]');if(on)hkSet(on)});
+  hv.addEventListener('timeupdate',function(){
+    var d=hv.duration||14.14,t=hv.currentTime;hkHead.classList.toggle('jump',t<hkLast);hkLast=t;
+    hkHead.style.left=(t/d*100).toFixed(2)+'%';hkO.classList.toggle('now',t<hkCut);
+  });
   function hookSound(){hv.muted=!hv.muted;if(hv.paused)hv.play().catch(function(){});hsnd.style.opacity=hv.muted?'1':'0'}
   hv.parentNode.addEventListener('click',hookSound);
   hv.parentNode.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();hookSound()}});
@@ -2212,7 +2338,7 @@ html.in .r-us{display:none!important}
     new IntersectionObserver(function(es){es.forEach(function(e){pastHero=!e.isIntersecting&&e.boundingClientRect.top<0;upd()})},{threshold:0}).observe($('.ctas'));
     var asks=new Set();
     var aio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)asks.add(e.target);else asks.delete(e.target)});atAsk=asks.size>0;upd()},{threshold:0});
-    aio.observe($('#free'));aio.observe($('#start'));if($('#story'))aio.observe($('#story'));if($('#race'))aio.observe($('#race'));
+    aio.observe($('#free'));aio.observe($('#start'));if($('.pain-stage'))aio.observe($('.pain-stage'));if($('#story'))aio.observe($('#story'));if($('#race'))aio.observe($('#race'));
   }
 
   /* 12. Scroll-linked motion: everything below is driven by scroll position, one rAF per frame */
@@ -2236,12 +2362,19 @@ html.in .r-us{display:none!important}
 
   /* 12b. "Is this you?": each note flies in and gets pinned */
   var board=$('.board'),notes=$$('.note');
-  var NO=[[-260,190,-16],[40,270,14],[290,170,18],[-310,290,-12],[60,350,-18],[330,310,16]];
+  var NO=[[-140,520,-16],[40,560,14],[170,520,18],[-170,560,-12],[40,600,-18],[180,580,16]];
+  var painTrack=$('.pain-track'),painStage=$('.pain-stage'),painPin=true;
+  measures.push(function(){  /* pin only when the whole board fits on screen */
+    painTrack.classList.remove('pin-off');
+    painPin=painStage.firstElementChild.offsetHeight+60<=window.innerHeight;
+    painTrack.classList.toggle('pin-off',!painPin);
+  });
   fx.push(function(vh,lag){
-    var r=board.getBoundingClientRect();
-    var bp=clamp((vh*.94-r.top-lag)/(vh*.72),0,1),k=window.innerWidth<=560?.4:1;
+    var bp,k=window.innerWidth<=560?.5:1;
+    if(painPin){var tr=painTrack.getBoundingClientRect();bp=clamp(-(tr.top+lag)/Math.max(1,painTrack.offsetHeight-vh),0,1)}
+    else{var r=board.getBoundingClientRect();bp=clamp((vh*.94-r.top-lag)/(vh*1.1),0,1)}
     notes.forEach(function(n,i){
-      var t=clamp((bp-i*.075)/.5,0,1),q=1-eOut(t),o=NO[i];
+      var t=clamp((bp-.03-i*.145)/.11,0,1),q=1-eOut(t),o=NO[i];
       n.style.translate=(o[0]*k*q).toFixed(1)+'px '+(o[1]*k*q).toFixed(1)+'px';
       n.style.rotate='calc(var(--r) + '+(o[2]*q).toFixed(2)+'deg)';
       n.style.opacity=clamp(t*2.4,0,1).toFixed(3);
@@ -2347,7 +2480,7 @@ html.in .r-us{display:none!important}
   if(race){
     var RR=IN?{usual:4,batch:2,chip:'New films live',unit:'films'}:{usual:10,batch:8,chip:'New batch live',unit:'ads'};
     var RM=race.getAttribute('data-media')||'media/';
-    var mockA=$('#rMockA'),mockB=$('#rMockB'),vB=$('#rVidB'),laneA=$('.lane.usual',race),laneB=$('.lane.lab',race);
+    var mockA=$('#rMockA'),mockB=$('#rMockB'),vB=$('#rVidB'),vA=$('#rVidA'),laneA=$('.lane.usual',race),laneB=$('.lane.lab',race);
     var battA=$('#rBattA'),battB=$('#rBattB'),pctA=$('#rPctA'),pctB=$('#rPctB'),chipA=$('#rNewA'),chipB=$('#rNewB');
     var pipeLi=$$('#rPipe li'),batchS=$$('#rBatches span'),adsA=$('#rAdsA'),adsB=$('#rAdsB'),rsA=$('#rsA'),rsB=$('#rsB'),rsBarA=$('#rsBarA'),rsSave=$('#rsSave');
     var rWeek=$('#rWeek'),rFill=$('#rFill'),rMark=$('#rMark'),rcaps=$$('.rcap',race),rmini=$$('.steps-mini li',race);
@@ -2356,7 +2489,10 @@ html.in .r-us{display:none!important}
     chipA.textContent=RR.chip;chipB.textContent=RR.chip;
     batchS.forEach(function(sp,i){sp.textContent='W'+LB[i+1]+' · +'+RR.batch});
     function fresh(dt){if(dt<0)return 100;var x=Math.min(1,dt/3.2);return Math.max(0,100*(1-Math.pow(x,1.3)))}
-    function batt(el,pc,v){v=Math.round(v);el.style.width=v+'%';el.parentNode.classList.toggle('empty',v<30);el.classList.toggle('mid',v<50&&v>=25);el.classList.toggle('low',v<25);pc.textContent=v+'%'}
+    var EMO=[[80,'😄'],[60,'🙂'],[40,'😐'],[25,'😩'],[-1,'😴']];
+    function batt(el,pc,v){v=Math.round(v);el.style.width=v+'%';el.parentNode.classList.toggle('empty',v<30);el.classList.toggle('mid',v<50&&v>=25);el.classList.toggle('low',v<25);pc.textContent=v+'%';
+      var e=el.parentNode.querySelector('.batt-e'),f='😴';for(var i=0;i<EMO.length;i++){if(v>=EMO[i][0]){f=EMO[i][1];break}}
+      if(e&&e.textContent!==f){e.textContent=f;e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop')}}
     var curA=-1,curB=-1,lastSc=-1,rLive=false,chipTA,chipTB,lastRP=0;
     var budget=IN?200000:25000,cpaA=$('#rCpaA'),cpaB=$('#rCpaB'),bTxt=$('#rBudgetTxt'),TMAX=(6-2.56)*7;
     function money(v){v=Math.round(v);if(IN){return v>=100000?'₹'+(v/100000).toFixed(2)+' lakh':'₹'+v.toLocaleString('en-IN')}return '$'+v.toLocaleString('en-US')}
@@ -2384,7 +2520,7 @@ html.in .r-us{display:none!important}
       var fA=fresh(t-(t<6?0:6)),fB=fresh(t-LB[lbi]);
       batt(battA,pctA,fA);batt(battB,pctB,fB);
       laneA.classList.toggle('tired',fA<25);laneB.classList.toggle('tired',fB<25);
-      if(iA!==curA){var upA=curA!==-1&&iA>curA;curA=iA;mockA.classList.toggle('v2',iA===1);$('.mock-t',mockA).textContent=iA===1?'New creator video':'Your current best ad';if(upA)flash(chipA,'A')}
+      if(iA!==curA){var upA=curA!==-1&&iA>curA;curA=iA;mockA.classList.toggle('v2',iA===1);$('.mock-t',mockA).textContent=iA===1?'New creator video':'Your current best ad';if(vA)vid(vA,iA===1?'trad2':'trad1');if(upA)flash(chipA,'A')}
       if(lbi!==curB){var upB=curB!==-1&&lbi>curB;curB=lbi;mockB.classList.toggle('off',lbi>0);if(lbi>0){vid(vB,ADS_B[lbi])}else{vB.pause()}if(upB)flash(chipB,'B')}
       pipeLi.forEach(function(li,i){var r=PIPE[i],last=i===PIPE.length-1;li.classList.toggle('done',!last&&t>=r[1]);li.classList.toggle('now',!last&&t>=r[0]&&t<r[1]);li.classList.toggle('live',last&&t>=6)});
       batchS.forEach(function(sp,i){sp.classList.toggle('on',t>=LB[i+1])});
@@ -2403,7 +2539,7 @@ html.in .r-us{display:none!important}
       if(sc!==lastSc){lastSc=sc;rcaps.forEach(function(c,j){c.classList.toggle('on',j===sc)});rmini.forEach(function(m,j){m.classList.toggle('on',j===sc);m.classList.toggle('done',j<sc)})}
     };
     if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){es.forEach(function(e){rLive=e.isIntersecting;[vB].forEach(function(v){if(!v.getAttribute('src'))return;if(rLive&&!reduce){v.play().catch(function(){})}else{v.pause()}})})},{threshold:0}).observe(race);
+      new IntersectionObserver(function(es){es.forEach(function(e){rLive=e.isIntersecting;[vA,vB].forEach(function(v){if(!v)return;if(!v.getAttribute('src'))return;if(rLive&&!reduce){v.play().catch(function(){})}else{v.pause()}})})},{threshold:0}).observe(race);
     }
     fx.push(function(vh,lag){
       if(race.offsetParent===null)return;
