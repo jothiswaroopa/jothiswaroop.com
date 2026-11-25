@@ -1223,6 +1223,89 @@ html.in .r-us{display:none!important}
   .reveal{opacity:1;translate:none}
   .hl{background-size:100% 40%}
 }
+
+/* ===== phone readability pass: nothing important below ~12px; pinned scenes rebuilt to fit at full size ===== */
+.pain-n{display:none}
+.pain-stage > .wrap{width:100%}
+@media (max-width:560px){
+  /* notes: one big readable note at a time, each new one pinned on top of the stack */
+  .pain-stage .board{margin-top:16px;padding:18px 14px 22px}
+  .pain-stage .notes{display:block;position:relative;height:262px}
+  .pain-stage .note{position:absolute;left:0;right:0;top:calc(var(--k,0) * 7px);width:min(320px,100%);margin:0 auto;min-height:214px;padding:36px 20px 18px;border-radius:2px 2px 8px 2px}
+  .pain-stage .note:nth-child(2){--k:1}.pain-stage .note:nth-child(3){--k:2}.pain-stage .note:nth-child(4){--k:3}.pain-stage .note:nth-child(5){--k:4}.pain-stage .note:nth-child(6){--k:5}
+  .pain-stage .note p{font-size:26px;line-height:1.12;margin-top:6px}
+  .pain-stage .note .n{font-size:12px}
+  .pain-stage .note::before{top:12px;width:15px;height:15px;margin-left:-7.5px}
+  .pain-stage .note::after{width:32px;height:32px}
+  .pain-stage h2{font-size:44px}
+  .pain-n{display:block;margin:14px 0 0;text-align:center;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .pain-n b{font-family:var(--serif);font-weight:400;font-size:22px;letter-spacing:0;color:var(--ink);margin-right:2px;vertical-align:-2px}
+}
+@media (max-width:560px) and (max-height:700px){.pain-stage .note p{font-size:24px}.pain-stage h2{font-size:38px}.pain-stage .label{display:none}}
+
+@media (max-width:760px){
+  /* race: price moves up beside the lane name, small extras go, text grows */
+  .race-stage{padding-top:70px}
+  .race-caps{min-height:78px}
+  .rcap .label{font-size:11.5px}
+  .rcap h3{font-size:21px;line-height:1.12}
+  .rweek b{font-size:40px}
+  .rticks{display:none}
+  .race .rfoot{margin-top:12px}
+  .lanes{gap:10px}
+  .lane{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:10px;padding:10px 12px 11px;border-radius:16px}
+  .lane-head{margin:0;min-width:0}
+  .lane-head .mono{font-size:12px;letter-spacing:.04em}
+  .lane-tag{display:none}
+  .lane-who .jmark{width:26px;height:26px}
+  .lprice{margin:0;padding:0;background:none!important;flex-wrap:nowrap;gap:0 5px;justify-content:flex-end}
+  .lprice b{font-size:22px}
+  .lprice .per{font-size:13px}
+  .lprice small,.lprice .lalt,.lprice .lwin{display:none}
+  .lane-body{grid-column:1 / -1;grid-template-columns:60px 1fr;gap:12px;margin-top:9px;align-items:center}
+  .lane .phone{width:60px;padding:2px;border-radius:11px}.lane .screen{border-radius:9px}
+  .lane-k,.pipe,.batches{display:none!important}
+  .stamp{font-size:9.5px;padding:3px 5px}
+  .newchip{font-size:8.5px;padding:2px 5px;bottom:5px}
+  .batt{height:30px}
+  .batt-l,.batt-p{font-size:13px}
+  .batt-e{font-size:17px;right:48px}
+  .cpa{font-size:13.5px;margin-top:7px}
+  .pipe,.batches{margin-top:7px;gap:4px}
+  .pipe::before{font-size:11px}
+  .pipe li,.batches span{font-size:12px;padding:3px 8px}
+  .shipped{font-size:13.5px;margin-top:7px}.shipped b{font-size:21px}
+  .rscore{margin-top:10px;padding:13px 15px 14px;border-radius:16px}
+  .rscore .mono{font-size:11.5px}
+  .rs-row{grid-template-columns:98px 1fr 104px;gap:10px;margin-top:5px}
+  .rs-k{font-size:13.5px}.rs-bar{height:9px}
+  .rs-row b{font-size:23px}
+  .rs-save{font-size:13px;margin-top:6px}
+  .rscore .rbudget{display:none}
+  .race .rnote{font-size:11.5px;margin-top:8px}
+  .race .rnote-2{display:none}
+
+  /* hero */
+  .fan .tc{font-size:10px;padding:3px 6px}
+  .hsnd{font-size:11.5px;padding:6px 10px}
+  .f2{--fw:118px;font-size:11px}.f2 .k{font-size:10.5px}
+  .src{width:28vw}.src figcaption{font-size:9px;letter-spacing:.02em}
+  .stage{--fo:calc(35vw + 72px);height:calc(115vw + 106px)}
+  /* small labels elsewhere */
+  .cl-tag{font-size:11px}
+  .slate{font-size:11.5px}
+  .cw-dur{font-size:11.5px}
+  .cost .k{font-size:12.5px}
+  .pa-scale div{font-size:11.5px}
+  .tc{font-size:11px}
+  .hk-r{font-size:12px}
+  .hookbtn .hk-side > i{font-size:10.5px}
+  .tdx-cap,.lbx-cap{font-size:11.5px}
+  .tdx-run{font-size:11px}
+  .tdx-tag{font-size:10.5px}
+  .tdx-ad b{font-size:13.5px}
+  .honest-box .label{font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -1369,6 +1452,7 @@ html.in .r-us{display:none!important}
           <div class="note" style="--c:var(--n6);--r:2deg"><span class="n">#6</span><p>"A proper shoot is <span class="r-us">$20K</span><span class="r-in">₹1–3 lakh</span> and six weeks out. We need new <span class="r-us">ads</span><span class="r-in">films</span> this month."</p></div>
         </div>
       </div>
+      <p class="pain-n" aria-hidden="true"><b id="painN">0</b> of 6 pinned</p>
     </div>
     </div>
     </div>
@@ -2527,7 +2611,7 @@ html.in .r-us{display:none!important}
   /* 12b. "Is this you?": each note flies in and gets pinned */
   var board=$('.board'),notes=$$('.note');
   var NO=[[-140,520,-16],[40,560,14],[170,520,18],[-170,560,-12],[40,600,-18],[180,580,16]];
-  var painTrack=$('.pain-track'),painStage=$('.pain-stage'),painPin=true;
+  var painTrack=$('.pain-track'),painStage=$('.pain-stage'),painPin=true,painN=$('#painN');
   var raceStageEl=$('.race-stage'),raceWrapEl=raceStageEl?raceStageEl.querySelector('.wrap'):null;
   measures.push(function(){  /* the race must fit inside one small-viewport screen, or its bottom gets clipped */
     if(!raceWrapEl)return;raceWrapEl.style.zoom='';
@@ -2551,6 +2635,7 @@ html.in .r-us{display:none!important}
       n.style.setProperty('--lift',q.toFixed(3));
       n.classList.toggle('pinned',t>=.97);
     });
+    var pc=0;notes.forEach(function(n){if(n.classList.contains('pinned'))pc++});if(painN.textContent!=String(pc))painN.textContent=pc;
   });
 
   /* 12c. The real problem: a pinned timeline that breaks, then merges into one 7-day batch */
