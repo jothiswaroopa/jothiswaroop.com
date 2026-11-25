@@ -663,6 +663,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .cw-head p{color:var(--muted);margin:0;max-width:52ch}
 .cw-row{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,2vw,26px);margin-top:40px;align-items:start}
 .cw-item{margin:0}
+.cw-item.wide{grid-column:span 2;align-self:center}
+.cw-item.wide .phone{border-radius:20px}
+.cw-item.wide .screen{aspect-ratio:16/9}
 .cw-item:nth-child(even){margin-top:34px}
 .cw-item .phone{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
 .cw-item:hover .phone{transform:translateY(-6px) rotate(-.6deg);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),var(--sh-3)}
@@ -1321,8 +1324,10 @@ html.in .r-us{display:none!important}
 .race .raxis + .lanes{margin-top:8px}
 
 /* plans: the traditional price for the same output, struck through, then ours counts down into place */
-.anchor{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin-top:12px}
-.anchor s{font-size:13.5px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--no)}
+.anchor{display:block;margin-top:12px}
+.anc-k{display:block;font-size:13px;line-height:1.3;color:var(--muted)}
+.anc-v{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin-top:4px}
+.anchor s{font-size:19px;font-weight:600;letter-spacing:-.01em;color:#5A564C;text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:rgba(184,69,43,.85)}
 .anchor .save{padding:3px 9px;border-radius:999px;background:#E6F4EC;color:var(--ok);font:700 12px/1.2 var(--sans);white-space:nowrap}
 .tier .price{margin-top:6px}
 .js .tier.pre-reveal .anchor s{text-decoration-color:transparent}
@@ -1332,7 +1337,34 @@ html.in .r-us{display:none!important}
 .tier.revealing .price b{color:var(--ink)}
 .tier .price b.counting{color:var(--no)}
 .anchor-note{max-width:70ch;margin:22px auto 0;text-align:center;font-size:12.5px;color:rgba(255,255,255,.62)}
-@media (max-width:560px){.anchor s{font-size:13px}.anchor .save{font-size:11.5px}.anchor-note{font-size:12px}}
+@media (max-width:560px){.anchor s{font-size:18px}.anchor .save{font-size:11.5px}.anchor-note{font-size:12px}}
+
+/* is this a fit: picture tiles instead of a list to read */
+.fit2{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1060px;margin:40px auto 0}
+.fit2-col{border-radius:24px;padding:24px 24px 26px}
+.fit2-col.yes{background:var(--card);border:1px solid var(--line-2);box-shadow:var(--sh-1)}
+.fit2-col.no{border:1.5px dashed var(--line)}
+.fit2-h{display:flex;align-items:center;gap:11px;margin:0;font-family:var(--serif);font-size:28px;line-height:1.1}
+.fit2-badge{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;font:700 17px/1 var(--sans)}
+.yes .fit2-badge{background:var(--ok)}
+.no .fit2-badge{background:var(--no)}
+.fit2-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.ft{display:flex;flex-direction:column;gap:5px;padding:16px 15px;border-radius:16px}
+.yes .ft{background:#EFF7F1}
+.no .ft{background:rgba(184,69,43,.055)}
+.ft-i{display:grid;place-items:center;width:44px;height:44px;margin-bottom:6px;border-radius:13px;background:#fff;font-size:23px;line-height:1;box-shadow:0 2px 6px rgba(23,22,15,.08)}
+.ft b{font-size:15.5px;line-height:1.25;color:var(--ink)}
+.ft small{font-size:13px;line-height:1.38;color:var(--muted)}
+.no .ft b{color:#4A463D}
+@media (max-width:860px){.fit2{grid-template-columns:1fr;max-width:560px}}
+@media (max-width:420px){.fit2-col{padding:18px 16px 20px}.fit2-h{font-size:25px}.fit2-grid{gap:9px}.ft{padding:13px 12px}.ft-i{width:40px;height:40px;font-size:21px}.ft b{font-size:14.5px}.ft small{font-size:12.5px}}
+
+/* plans: the saving framed as ad budget, plus one plain comparison under the price */
+.anchor .save{white-space:normal;line-height:1.3;border-radius:9px;padding:4px 9px}
+.equiv{margin:8px 0 0;font-size:14.5px;line-height:1.35;font-weight:600;color:#2E6B4F}
+.js .tier.pre-reveal .equiv{opacity:0;translate:0 5px}
+.tier.revealing .equiv{transition:opacity .45s 1.6s,translate .45s 1.6s}
+@media (max-width:560px){.equiv{font-size:14px}}
 </style>
 </head>
 <body>
@@ -1945,15 +1977,14 @@ html.in .r-us{display:none!important}
       <div class="cw" id="clients">
         <div class="cw-head">
           <div><p class="label reveal">Client work</p><h3 class="reveal d1">Real clients. Real faces. <span class="hl">Real ads.</span></h3></div>
-          <p class="reveal d2">The reel above is sample work, made to show the range. These six were made for paying clients, including two AI-avatar films of a real insurance agent, in Tamil. Tap any film to watch.</p>
+          <p class="reveal d2">The reel above is sample work, made to show the range. These five were made for paying clients, including two AI-avatar films of a real insurance agent, in Tamil, and the anthem film for the VROOM 2026 rally. Tap any film to watch.</p>
         </div>
         <div class="cw-row">
           <figure class="cw-item reveal"><div class="phone"><div class="screen cw-local" role="button" tabindex="0" aria-label="Play the Galaxy Health Insurance agent film with sound"><video src="../media/ins1.mp4" poster="../media/ins1.jpg" playsinline preload="none"></video><span class="cl-tag">AI AVATAR · TAMIL</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="cw-dur">0:28</span></div></div><figcaption><b>Galaxy Health Insurance agent</b><span>"Your gold is safe in a locker. Is your health?"</span></figcaption></figure>
           <figure class="cw-item reveal d1"><div class="phone"><div class="screen cw-local" role="button" tabindex="0" aria-label="Play the SSK Insurance agent film with sound"><video src="../media/ins2.mp4" poster="../media/ins2.jpg" playsinline preload="none"></video><span class="cl-tag">AI AVATAR · TAMIL</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="cw-dur">0:49</span></div></div><figcaption><b>SSK Insurance agent</b><span>Health-cover myths, busted one by one</span></figcaption></figure>
           <figure class="cw-item reveal d2"><div class="phone"><a class="screen" href="https://www.youtube.com/watch?v=8nIrz38jXNA" data-yt="8nIrz38jXNA" target="_blank" rel="noopener" aria-label="Watch the Top-5 El Alimentos UGC ad"><img src="../media/cf1.jpg" alt="" loading="lazy"><span class="cl-tag">UGC · FMCG</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span></a></div><figcaption><b>Top-5 El Alimentos</b><span>Creator-style ad for their parotta</span></figcaption></figure>
           <figure class="cw-item reveal d3"><div class="phone"><a class="screen" href="https://www.youtube.com/watch?v=8CF9gKUf3VY" data-yt="8CF9gKUf3VY" target="_blank" rel="noopener" aria-label="Watch the House of Vummudi jewellery commercial"><img src="../media/cf2.jpg" alt="" loading="lazy"><span class="cl-tag">COMMERCIAL</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span></a></div><figcaption><b>House of Vummudi</b><span>Jewellery commercial</span></figcaption></figure>
-          <figure class="cw-item reveal d4"><div class="phone"><a class="screen" href="https://www.youtube.com/watch?v=_3n9P6FXZ-U" data-yt="_3n9P6FXZ-U" target="_blank" rel="noopener" aria-label="Watch the Top-5 El Alimentos brand reveal"><img src="../media/cf3.jpg" alt="" loading="lazy"><span class="cl-tag">BRAND FILM</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span></a></div><figcaption><b>Top-5 El Alimentos</b><span>Premium brand reveal</span></figcaption></figure>
-          <figure class="cw-item reveal d4"><div class="phone"><div class="screen cw-local" role="button" tabindex="0" aria-label="Play the Top-5 chola poori commercial"><video src="../media/cf4.mp4" poster="../media/cf4.jpg" playsinline preload="none"></video><span class="cl-tag">COMMERCIAL · FMCG</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="cw-dur">0:15</span></div></div><figcaption><b>Top-5 El Alimentos</b><span>Chola poori pack commercial</span></figcaption></figure>
+          <figure class="cw-item wide reveal d4"><div class="phone"><div class="screen cw-local" role="button" tabindex="0" aria-label="Play the VROOM 2026 anthem film with sound"><video src="../media/vroom.mp4" poster="../media/vroom.jpg" playsinline preload="none"></video><span class="cl-tag">AI FILM · EVENT</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="cw-dur">0:20</span></div></div><figcaption><b>VROOM 2026 · Chennai Tycoons</b><span>Rally anthem film, made in four languages</span></figcaption></figure>
         </div>
         <ul class="awards-row reveal">
           <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l2.3 4.9 5.2.6-3.9 3.6 1.1 5.2L10 13.7l-4.7 2.6 1.1-5.2-3.9-3.6 5.2-.6z" fill="currentColor"/></svg><span>Prompt Engineering Champion<small>Social Eagle AI prompt battle · 2025</small></span></li>
@@ -2097,24 +2128,14 @@ html.in .r-us{display:none!important}
   <section id="fit" style="padding-top:0">
     <div class="wrap">
       <div class="center"><p class="label reveal">Before you ask</p><h2 class="reveal d1">Is this a <span class="hl">fit?</span></h2></div>
-      <div class="fit">
-        <div class="fit-col yes reveal">
-          <p class="mono">A good fit</p>
-          <ul>
-            <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i><span><span class="r-us">You already run Facebook or Instagram ads, selling something worth $100 or more</span><span class="r-in">You have a product to show, and you run ads or are about to</span></span></li>
-            <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i><span>Your product is something a person can hold up and talk about</span></li>
-            <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i><span>You want new ads every month, not one hero video</span></li>
-            <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i><span>You can give a yes or no on scripts within a day</span></li>
-          </ul>
+      <div class="fit2">
+        <div class="fit2-col yes reveal">
+          <p class="fit2-h"><span class="fit2-badge" aria-hidden="true">✓</span>A good fit</p>
+          <div class="fit2-grid"><div class="ft"><span class="ft-i" aria-hidden="true"><span class="r-us">📣</span><span class="r-in">📦</span></span><b><span class="r-us">You already run ads</span><span class="r-in">You have a product to show</span></b><small><span class="r-us">On Facebook or Instagram, selling something worth $100+</span><span class="r-in">And you run ads, or are about to</span></small></div><div class="ft"><span class="ft-i" aria-hidden="true">🤳</span><b>Someone can hold it up</b><small>A product a person can show and talk about on camera</small></div><div class="ft"><span class="ft-i" aria-hidden="true">🔁</span><b>You want new ads every month</b><small>Not one big hero video</small></div><div class="ft"><span class="ft-i" aria-hidden="true">⚡</span><b>You can say yes or no in a day</b><small>On scripts, so nothing waits</small></div></div>
         </div>
-        <div class="fit-col no reveal d1">
-          <p class="mono">Not a fit, yet</p>
-          <ul>
-            <li><i class="x"><svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 1.5l5 5M6.5 1.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i><span><span class="r-us">You're not running ads yet</span><span class="r-in">You need one video and never another</span></span></li>
-            <li><i class="x"><svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 1.5l5 5M6.5 1.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i><span>Your product needs precise hand movements to demo</span></li>
-            <li><i class="x"><svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 1.5l5 5M6.5 1.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i><span>You need a real celebrity or influencer on camera</span></li>
-            <li><i class="x"><svg width="8" height="8" viewBox="0 0 8 8"><path d="M1.5 1.5l5 5M6.5 1.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i><span>You want guaranteed sales from your ads. Nobody honest can promise that.</span></li>
-          </ul>
+        <div class="fit2-col no reveal d1">
+          <p class="fit2-h"><span class="fit2-badge" aria-hidden="true">✕</span>Not a fit, yet</p>
+          <div class="fit2-grid"><div class="ft"><span class="ft-i" aria-hidden="true"><span class="r-us">⏸️</span><span class="r-in">1️⃣</span></span><b><span class="r-us">You're not running ads yet</span><span class="r-in">You need just one video, ever</span></b><small><span class="r-us">Come back when you are, and we start with a sample</span><span class="r-in">This works best as a steady monthly supply</span></small></div><div class="ft"><span class="ft-i" aria-hidden="true">✋</span><b>It needs careful hand demos</b><small>Precise hand movements are where AI still slips</small></div><div class="ft"><span class="ft-i" aria-hidden="true">⭐</span><b>You need a real celebrity</b><small>A famous face or a real influencer on camera</small></div><div class="ft"><span class="ft-i" aria-hidden="true">🎯</span><b>You want guaranteed sales</b><small>Nobody honest can promise that</small></div></div>
         </div>
       </div>
     </div>
@@ -2172,8 +2193,9 @@ html.in .r-us{display:none!important}
         <div class="tiers r-us">
           <div class="tier reveal">
             <span class="k">Test batch</span>
-            <div class="anchor"><s>8 creator videos: from $2,400</s><span class="save">Save $1,400+</span></div>
+            <div class="anchor"><span class="anc-k">If you hired creators for these 8 ads</span><span class="anc-v"><s>$2,400+</s><span class="save">$1,400+ back in your ad budget</span></span></div>
             <div class="price"><b data-from="2400" data-cur="$">$1,000</b><span>one-off</span></div>
+            <p class="equiv">8 ads for about the price of 3 creator videos.</p>
             <p class="tag-line">Find your first winners.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Research into the longest-running ads in your market</li>
@@ -2188,8 +2210,9 @@ html.in .r-us{display:none!important}
           <div class="tier feat reveal d1">
             <span class="ribbon">For brands spending $10K+/mo on ads</span>
             <span class="k">Growth</span>
-            <div class="anchor"><s>16 videos + 1 studio spot: from $24,800</s><span class="save">Save $22,000+</span></div>
+            <div class="anchor"><span class="anc-k">If you hired creators and a studio for this</span><span class="anc-v"><s>$24,800+</s><span class="save">$22,000+ a month back in your ad budget</span></span></div>
             <div class="price"><b data-from="24800" data-cur="$">$2,500</b><span>/ month</span></div>
+            <p class="equiv">16 ads + a commercial for about the price of 8 creator videos.</p>
             <p class="tag-line">A steady supply of new winners.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>16 new ads a month (4 ad ideas × 4 openings)</li>
@@ -2203,8 +2226,9 @@ html.in .r-us{display:none!important}
           </div>
           <div class="tier reveal d2">
             <span class="k">Scale</span>
-            <div class="anchor"><s>30 videos + 2 studio films: from $49,000</s><span class="save">Save $44,000+</span></div>
+            <div class="anchor"><span class="anc-k">If you hired creators and a studio for this</span><span class="anc-v"><s>$49,000+</s><span class="save">$44,000+ a month back in your ad budget</span></span></div>
             <div class="price"><b data-from="49000" data-cur="$">$5,000</b><span>/ month</span></div>
+            <p class="equiv">A month of ads for a quarter of one studio shoot.</p>
             <p class="tag-line">Creative on a weekly rhythm.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>30 new ads a month</li>
@@ -2220,8 +2244,9 @@ html.in .r-us{display:none!important}
         <div class="tiers r-in">
           <div class="tier reveal">
             <span class="k">Starter</span>
-            <div class="anchor"><s>2 creator videos: ₹10,000–30,000</s><span class="save">Save up to ₹21,000</span></div>
+            <div class="anchor"><span class="anc-k">If you hired creators for these 2 films</span><span class="anc-v"><s>₹10,000–30,000</s><span class="save">Up to ₹21,000 a month back in your ad budget</span></span></div>
             <div class="price"><b data-from="20000" data-cur="₹">₹9,000</b><span>/ month</span></div>
+            <p class="equiv">2 films for what 1 creator video costs.</p>
             <p class="tag-line">A couple of fresh films every month.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>2 AI films a month — ₹4,500 a film</li>
@@ -2235,8 +2260,9 @@ html.in .r-us{display:none!important}
           <div class="tier feat reveal d1">
             <span class="ribbon">Recommended</span>
             <span class="k">Growth</span>
-            <div class="anchor"><s>4 creator videos: ₹20,000–60,000</s><span class="save">Save up to ₹44,000</span></div>
+            <div class="anchor"><span class="anc-k">If you hired creators for these 4 films</span><span class="anc-v"><s>₹20,000–60,000</s><span class="save">Up to ₹44,000 a month back in your ad budget</span></span></div>
             <div class="price"><b data-from="40000" data-cur="₹">₹16,000</b><span>/ month</span></div>
+            <p class="equiv">4 films for what 1–2 creator videos cost.</p>
             <p class="tag-line">A new film every week.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>4 AI films a month — ₹4,000 a film</li>
@@ -2249,8 +2275,9 @@ html.in .r-us{display:none!important}
           </div>
           <div class="tier reveal d2">
             <span class="k">Scale</span>
-            <div class="anchor"><s>8 creator videos: ₹40,000–1.2 lakh</s><span class="save">Save up to ₹88,000</span></div>
+            <div class="anchor"><span class="anc-k">If you hired creators for these 8 films</span><span class="anc-v"><s>₹40,000–1.2 lakh</s><span class="save">Up to ₹88,000 a month back in your ad budget</span></span></div>
             <div class="price"><b data-from="80000" data-cur="₹">₹32,000</b><span>/ month</span></div>
+            <p class="equiv">8 films for what 2–3 creator videos cost.</p>
             <p class="tag-line">A film for every sale and festival.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>8 AI films a month — ₹4,000 a film</li>
@@ -2262,7 +2289,7 @@ html.in .r-us{display:none!important}
             <a class="btn light" href="https://wa.me/919944812223" data-mail="Scale plan (₹32,000 a month)">Ask about Scale</a>
           </div>
         </div>
-        <p class="anchor-note"><span class="r-us">Struck-through prices: the same output from creators ($300+ a video with rights) and studios ($20K+ a spot), at the low end of typical 2026 rates.</span><span class="r-in">Struck-through prices: the same number of videos from mid-level creators at ₹5,000–15,000 each, typical 2026 rates.</span></p>
+        <p class="anchor-note"><span class="r-us">Struck-through prices are what the same number of ads would cost if you hired creators ($300+ a video with rights) and a studio ($20K+ a spot), at the low end of typical 2026 rates. Everything in these plans is made with AI.</span><span class="r-in">Struck-through prices are what the same number of films would cost if you hired mid-level creators at ₹5,000–15,000 each, typical 2026 rates. Everything in these plans is made with AI.</span></p>
         <div class="terms r-us">
           <span>✓ Prices in US dollars, invoiced before each batch</span>
           <span>✓ Month to month, no lock-in</span>
@@ -2358,7 +2385,8 @@ html.in .r-us{display:none!important}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Jothiswaroop</span>
+    <span>© <span id="yr">2026</span> Jothi Swaroop · Creative Lab</span>
+    <span>All rights reserved.</span>
   </div>
 </footer>
 
