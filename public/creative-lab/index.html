@@ -661,7 +661,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .cw-head{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;align-items:end}
 .cw-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.2vw,54px);line-height:1.02;letter-spacing:-.02em;margin-top:12px}
 .cw-head p{color:var(--muted);margin:0;max-width:52ch}
-.cw-row{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2vw,26px);margin-top:40px;align-items:start}
+.cw-row{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,2vw,26px);margin-top:40px;align-items:start}
 .cw-item{margin:0}
 .cw-item:nth-child(even){margin-top:34px}
 .cw-item .phone{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
@@ -682,7 +682,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 .awards-row svg{color:#B08A00;flex:none}
 .awards-row small{color:var(--muted);font-weight:400;margin-left:6px}
 @media (max-width:980px){.cw-head{grid-template-columns:1fr}.cw-row{grid-template-columns:repeat(3,1fr)}.cw-item:nth-child(even){margin-top:0}}
-@media (max-width:640px){.cw-row{grid-template-columns:repeat(2,1fr);gap:14px}.cw-item:last-child{grid-column:1 / -1;width:calc(50% - 7px);justify-self:center}.cw-item .phone{border-radius:18px;padding:4px}.cw-item .screen{border-radius:14px}.cw-item .play{width:44px;height:44px;margin:-22px 0 0 -22px}.awards-row li{border-radius:14px}.awards-row small{display:block;margin-left:0}}
+@media (max-width:640px){.cw-row{grid-template-columns:repeat(2,1fr);gap:14px}.cw-item .phone{border-radius:18px;padding:4px}.cw-item .screen{border-radius:14px}.cw-item .play{width:44px;height:44px;margin:-22px 0 0 -22px}.awards-row li{border-radius:14px}.awards-row small{display:block;margin-left:0}}
 
 /* testimonial faces */
 .quote figcaption{display:flex;gap:14px;align-items:center}
@@ -1306,6 +1306,19 @@ html.in .r-us{display:none!important}
   .tdx-ad b{font-size:13.5px}
   .honest-box .label{font-size:12px}
 }
+
+/* race fixes: badges sit level with the price, the freshness label stays readable as the bar drains,
+   and the scoreboard says something at every week */
+@media (min-width:761px){.lprice .lalt,.lprice .lwin{top:10px;translate:0 0}}
+.batt-fill{overflow:hidden;z-index:1}
+.batt-e,.batt-p{z-index:2}
+.batt > .batt-l{color:var(--ink-2);text-shadow:none}
+.batt .batt-fill .batt-l{color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25);white-space:nowrap}
+.batt.empty > .batt-l{color:var(--ink-2)}
+.rs-save{opacity:1;translate:0 0;color:#CFC8B8;font-weight:500}
+.rs-save.on{color:var(--marker);font-weight:600}
+.race .rfoot{margin-top:22px}
+.race .raxis + .lanes{margin-top:8px}
 </style>
 </head>
 <body>
@@ -1560,7 +1573,7 @@ html.in .r-us{display:none!important}
             <div class="lane-body">
               <div class="phone"><div class="screen"><div class="mock real" id="rMockA" aria-hidden="true"><video class="mock-v" id="rVidA" poster="media/trad1.jpg" muted loop playsinline preload="none"></video><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><span class="stamp">TIRED</span><span class="newchip" id="rNewA">New batch live</span></div></div>
               <div>
-                <div class="batt"><div class="batt-fill" id="rBattA"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-e" aria-hidden="true">😄</span><span class="batt-p" id="rPctA">100%</span></div>
+                <div class="batt"><div class="batt-fill" id="rBattA"><span class="batt-l on-fill" aria-hidden="true"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-e" aria-hidden="true">😄</span><span class="batt-p" id="rPctA">100%</span></div>
                 <p class="cpa">Cost per purchase <b id="rCpaA">steady</b></p>
                 <p class="lane-k">Next batch, in production</p>
                 <ul class="pipe" id="rPipe"><li>Brief</li><li>Cast</li><li>Ship</li><li>Drafts</li><li>Reshoot</li><li>Rights</li><li>Live</li></ul>
@@ -1574,7 +1587,7 @@ html.in .r-us{display:none!important}
             <div class="lane-body">
               <div class="phone"><div class="screen"><div class="mock" id="rMockB" aria-hidden="true"><div class="mock-bg"></div><svg class="mock-prod" viewBox="0 0 60 120"><path d="M24 4h12v10c0 3 8 6 8 16v78c0 4-3 8-8 8H24c-5 0-8-4-8-8V30c0-10 8-13 8-16z"/><rect x="18" y="52" width="24" height="30" rx="3"/></svg><span class="mock-sp">Sponsored</span><span class="mock-ic"><i></i><i></i><i></i></span><div class="mock-cap"><b class="mock-t">Your current best ad</b><span>Shop now</span></div></div><video id="rVidB" muted loop playsinline preload="none"></video><span class="stamp">TIRED</span><span class="newchip" id="rNewB">New batch live</span></div></div>
               <div>
-                <div class="batt"><div class="batt-fill" id="rBattB"></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-e" aria-hidden="true">😄</span><span class="batt-p" id="rPctB">100%</span></div>
+                <div class="batt"><div class="batt-fill" id="rBattB"><span class="batt-l on-fill" aria-hidden="true"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span></div><span class="batt-l"><span class="r-us">Ad</span><span class="r-in">Film</span> freshness</span><span class="batt-e" aria-hidden="true">😄</span><span class="batt-p" id="rPctB">100%</span></div>
                 <p class="cpa">Cost per purchase <b id="rCpaB">steady</b></p>
                 <p class="lane-k">Fresh batches, every two weeks</p>
                 <div class="batches" id="rBatches"><span>W1</span><span>W3</span><span>W5</span><span>W7</span></div>
@@ -1695,12 +1708,12 @@ html.in .r-us{display:none!important}
       <div class="work-head">
         <div>
           <p class="label reveal">Sample work</p>
-          <h2 class="reveal d1">17 films. Each one copies a format that's <span class="hl">already winning.</span></h2>
+          <h2 class="reveal d1">22 films. Each one copies a format that's <span class="hl">already winning.</span></h2>
         </div>
       </div>
       <p class="lede reveal d2">Sample ads, made to show the full range; <a class="jump" href="#clients">the real client work is right below them ↓</a>. The main ads come with captions and an on-screen headline, ready to post. Hover to preview, tap any film for sound.</p>
       <div class="chips" role="group" aria-label="Filter by category">
-        <button class="chip" aria-pressed="true" data-f="all">All 17</button>
+        <button class="chip" aria-pressed="true" data-f="all">All 22</button>
         <button class="chip" aria-pressed="false" data-f="supp">Supplements &amp; fitness</button>
         <button class="chip" aria-pressed="false" data-f="beauty">Beauty &amp; skincare</button>
         <button class="chip" aria-pressed="false" data-f="fnb">Food &amp; drink</button>
@@ -1826,9 +1839,44 @@ html.in .r-us{display:none!important}
           <div class="tags"><span class="tag">Faceless</span><span class="tag">TikTok Shop</span></div>
           <p class="why">The restock trend TikTok Shop buyers scroll for. No creator, so it's the cheapest format to make in volume.</p></div>
         </article>
+        <article class="card" data-c="beauty film">
+          <div class="screen" role="button" tabindex="0" aria-label="Play SOLÉ vitamin C serum spot"><video src="media/p1.mp4" poster="media/p1.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="meta"><div class="slate"><span>18 · Spot</span><span>0:15</span></div>
+          <h3>SOLÉ · vitamin C serum spot</h3>
+          <div class="tags"><span class="tag">Commercial</span><span class="tag">Product hero</span></div>
+          <p class="why">Sunlit citrus and a slow dropper pour: the premium serum look from one product photo.</p></div>
+        </article>
+        <article class="card" data-c="beauty film">
+          <div class="screen" role="button" tabindex="0" aria-label="Play NOIRÉ fragrance film"><video src="media/p2.mp4" poster="media/p2.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="meta"><div class="slate"><span>19 · Spot</span><span>0:15</span></div>
+          <h3>NOIRÉ · fragrance film</h3>
+          <div class="tags"><span class="tag">Commercial</span><span class="tag">Launch</span></div>
+          <p class="why">Smoke, gold light and black stone. The luxury perfume look, without a set or a smoke machine.</p></div>
+        </article>
+        <article class="card" data-c="beauty film">
+          <div class="screen" role="button" tabindex="0" aria-label="Play TERRA clay mask spot"><video src="media/p3.mp4" poster="media/p3.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="meta"><div class="slate"><span>20 · Spot</span><span>0:15</span></div>
+          <h3>TERRA · clay mask spot</h3>
+          <div class="tags"><span class="tag">Commercial</span><span class="tag">Texture</span></div>
+          <p class="why">A slow push into the jar, so a buyer sees the texture before they read a word.</p></div>
+        </article>
+        <article class="card" data-c="beauty film">
+          <div class="screen" role="button" tabindex="0" aria-label="Play GLAZE lip gloss spot"><video src="media/p4.mp4" poster="media/p4.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="meta"><div class="slate"><span>21 · Spot</span><span>0:12</span></div>
+          <h3>GLAZE · lip gloss spot</h3>
+          <div class="tags"><span class="tag">Commercial</span><span class="tag">Gen Z</span></div>
+          <p class="why">Bubbles, shine and a playful pour, made for a younger beauty buyer on TikTok and Reels.</p></div>
+        </article>
+        <article class="card" data-c="beauty film">
+          <div class="screen" role="button" tabindex="0" aria-label="Play VELURA hair oil spot"><video src="media/p5.mp4" poster="media/p5.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="meta"><div class="slate"><span>22 · Spot</span><span>0:11</span></div>
+          <h3>VELURA · hair oil spot</h3>
+          <div class="tags"><span class="tag">Commercial</span><span class="tag">Retargeting</span></div>
+          <p class="why">Silk and a single golden drop: the soft-luxury haircare look.</p></div>
+        </article>
         <article class="card next" data-c="supp beauty fnb film">
           <div class="next-in">
-            <span class="mono">Film 18</span>
+            <span class="mono">Film 23</span>
             <h3>Could star <span data-brand-name>your product</span>.</h3>
             <p>Send one product link. I'll make a 15-second sample ad in a format that's already winning in your category, and send you a watermarked preview within 48 hours.</p>
             <a class="btn marker" href="mailto:hello@jothiswaroop.com?subject=Free%20sample%20ad" data-mail>Get my sample ad <span class="arr">→</span></a>
@@ -1883,7 +1931,7 @@ html.in .r-us{display:none!important}
       <div class="cw" id="clients">
         <div class="cw-head">
           <div><p class="label reveal">Client work</p><h3 class="reveal d1">Real clients. Real faces. <span class="hl">Real ads.</span></h3></div>
-          <p class="reveal d2">The reel above is sample work, made to show the range. These five were made for paying clients, including two AI-avatar films of a real insurance agent, in Tamil. Tap any film to watch.</p>
+          <p class="reveal d2">The reel above is sample work, made to show the range. These six were made for paying clients, including two AI-avatar films of a real insurance agent, in Tamil. Tap any film to watch.</p>
         </div>
         <div class="cw-row">
           <figure class="cw-item reveal"><div class="phone"><div class="screen cw-local" role="button" tabindex="0" aria-label="Play the Galaxy Health Insurance agent film with sound"><video src="media/ins1.mp4" poster="media/ins1.jpg" playsinline preload="none"></video><span class="cl-tag">AI AVATAR · TAMIL</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="cw-dur">0:28</span></div></div><figcaption><b>Galaxy Health Insurance agent</b><span>"Your gold is safe in a locker. Is your health?"</span></figcaption></figure>
@@ -1891,6 +1939,7 @@ html.in .r-us{display:none!important}
           <figure class="cw-item reveal d2"><div class="phone"><a class="screen" href="https://www.youtube.com/watch?v=8nIrz38jXNA" data-yt="8nIrz38jXNA" target="_blank" rel="noopener" aria-label="Watch the Top-5 El Alimentos UGC ad"><img src="media/cf1.jpg" alt="" loading="lazy"><span class="cl-tag">UGC · FMCG</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span></a></div><figcaption><b>Top-5 El Alimentos</b><span>Creator-style ad for their parotta</span></figcaption></figure>
           <figure class="cw-item reveal d3"><div class="phone"><a class="screen" href="https://www.youtube.com/watch?v=8CF9gKUf3VY" data-yt="8CF9gKUf3VY" target="_blank" rel="noopener" aria-label="Watch the House of Vummudi jewellery commercial"><img src="media/cf2.jpg" alt="" loading="lazy"><span class="cl-tag">COMMERCIAL</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span></a></div><figcaption><b>House of Vummudi</b><span>Jewellery commercial</span></figcaption></figure>
           <figure class="cw-item reveal d4"><div class="phone"><a class="screen" href="https://www.youtube.com/watch?v=_3n9P6FXZ-U" data-yt="_3n9P6FXZ-U" target="_blank" rel="noopener" aria-label="Watch the Top-5 El Alimentos brand reveal"><img src="media/cf3.jpg" alt="" loading="lazy"><span class="cl-tag">BRAND FILM</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span></a></div><figcaption><b>Top-5 El Alimentos</b><span>Premium brand reveal</span></figcaption></figure>
+          <figure class="cw-item reveal d4"><div class="phone"><div class="screen cw-local" role="button" tabindex="0" aria-label="Play the Top-5 chola poori commercial"><video src="media/cf4.mp4" poster="media/cf4.jpg" playsinline preload="none"></video><span class="cl-tag">COMMERCIAL · FMCG</span><span class="play"><svg width="16" height="16" viewBox="0 0 14 14"><path d="M3.5 1.8v10.4L12 7z" fill="currentColor"/></svg></span><span class="cw-dur">0:15</span></div></div><figcaption><b>Top-5 El Alimentos</b><span>Chola poori pack commercial</span></figcaption></figure>
         </div>
         <ul class="awards-row reveal">
           <li><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l2.3 4.9 5.2.6-3.9 3.6 1.1 5.2L10 13.7l-4.7 2.6 1.1-5.2-3.9-3.6 5.2-.6z" fill="currentColor"/></svg><span>Prompt Engineering Champion<small>Social Eagle AI prompt battle · 2025</small></span></li>
@@ -2783,7 +2832,8 @@ html.in .r-us{display:none!important}
       var LA=[0,6],lostA=extraLost(t,LA),lostB=extraLost(t,LB),maxA=extraLost(8,LA),endB=extraLost(8,LB);
       rsA.textContent=money(lostA);rsB.textContent=money(lostB);
       rsBarA.style.width=(lostA/maxA*100).toFixed(1)+'%';$('#rsBarB').style.width=Math.max(1.5,lostB/maxA*100).toFixed(1)+'%';
-      rsSave.textContent="That's about "+money(maxA-endB)+' less lost to tired ads.';rsSave.classList.toggle('on',t>=7.3);
+      var fin=t>=7.3,gap=lostA-lostB;
+      rsSave.textContent=fin?"That's about "+money(maxA-endB)+' less lost to tired ads.':(gap<1?'Scroll to watch the weeks go by.':'So far: '+money(gap)+' more lost the traditional way.');rsSave.classList.toggle('on',fin);
       cpaSet(cpaA,fA);cpaSet(cpaB,fB);
       adsA.textContent=t>=6?RR.usual:0;
       adsB.textContent=RR.batch*lbi;
