@@ -1319,6 +1319,20 @@ html.in .r-us{display:none!important}
 .rs-save.on{color:var(--marker);font-weight:600}
 .race .rfoot{margin-top:22px}
 .race .raxis + .lanes{margin-top:8px}
+
+/* plans: the traditional price for the same output, struck through, then ours counts down into place */
+.anchor{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin-top:12px}
+.anchor s{font-size:13.5px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--no)}
+.anchor .save{padding:3px 9px;border-radius:999px;background:#E6F4EC;color:var(--ok);font:700 12px/1.2 var(--sans);white-space:nowrap}
+.tier .price{margin-top:6px}
+.js .tier.pre-reveal .anchor s{text-decoration-color:transparent}
+.js .tier.pre-reveal .anchor .save{opacity:0;scale:.7}
+.tier.revealing .anchor s{transition:text-decoration-color .45s ease}
+.tier.revealing .anchor .save{transition:opacity .35s 1.5s,scale .45s 1.5s cubic-bezier(.3,1.8,.5,1)}
+.tier.revealing .price b{color:var(--ink)}
+.tier .price b.counting{color:var(--no)}
+.anchor-note{max-width:70ch;margin:22px auto 0;text-align:center;font-size:12.5px;color:rgba(255,255,255,.62)}
+@media (max-width:560px){.anchor s{font-size:13px}.anchor .save{font-size:11.5px}.anchor-note{font-size:12px}}
 </style>
 </head>
 <body>
@@ -2158,7 +2172,8 @@ html.in .r-us{display:none!important}
         <div class="tiers r-us">
           <div class="tier reveal">
             <span class="k">Test batch</span>
-            <div class="price"><b>$1,000</b><span>one-off</span></div>
+            <div class="anchor"><s>8 creator videos: from $2,400</s><span class="save">Save $1,400+</span></div>
+            <div class="price"><b data-from="2400" data-cur="$">$1,000</b><span>one-off</span></div>
             <p class="tag-line">Find your first winners.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Research into the longest-running ads in your market</li>
@@ -2173,7 +2188,8 @@ html.in .r-us{display:none!important}
           <div class="tier feat reveal d1">
             <span class="ribbon">For brands spending $10K+/mo on ads</span>
             <span class="k">Growth</span>
-            <div class="price"><b>$2,500</b><span>/ month</span></div>
+            <div class="anchor"><s>16 videos + 1 studio spot: from $24,800</s><span class="save">Save $22,000+</span></div>
+            <div class="price"><b data-from="24800" data-cur="$">$2,500</b><span>/ month</span></div>
             <p class="tag-line">A steady supply of new winners.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>16 new ads a month (4 ad ideas × 4 openings)</li>
@@ -2187,7 +2203,8 @@ html.in .r-us{display:none!important}
           </div>
           <div class="tier reveal d2">
             <span class="k">Scale</span>
-            <div class="price"><b>$5,000</b><span>/ month</span></div>
+            <div class="anchor"><s>30 videos + 2 studio films: from $49,000</s><span class="save">Save $44,000+</span></div>
+            <div class="price"><b data-from="49000" data-cur="$">$5,000</b><span>/ month</span></div>
             <p class="tag-line">Creative on a weekly rhythm.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>30 new ads a month</li>
@@ -2203,12 +2220,13 @@ html.in .r-us{display:none!important}
         <div class="tiers r-in">
           <div class="tier reveal">
             <span class="k">Starter</span>
-            <div class="price"><b>₹9,000</b><span>/ month</span></div>
+            <div class="anchor"><s>2 creator videos: ₹10,000–30,000</s><span class="save">Save up to ₹21,000</span></div>
+            <div class="price"><b data-from="20000" data-cur="₹">₹9,000</b><span>/ month</span></div>
             <p class="tag-line">A couple of fresh films every month.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>2 AI films a month — ₹4,500 a film</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Scripts you approve before anything is made</li>
-              <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>9:16 and 1:1, with a caption line</li>
+              <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Sized for Reels and feed, with a caption line</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Your product shown exactly as it is</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Month to month, no lock-in</li>
             </ul>
@@ -2217,31 +2235,34 @@ html.in .r-us{display:none!important}
           <div class="tier feat reveal d1">
             <span class="ribbon">Recommended</span>
             <span class="k">Growth</span>
-            <div class="price"><b>₹16,000</b><span>/ month</span></div>
+            <div class="anchor"><s>4 creator videos: ₹20,000–60,000</s><span class="save">Save up to ₹44,000</span></div>
+            <div class="price"><b data-from="40000" data-cur="₹">₹16,000</b><span>/ month</span></div>
             <p class="tag-line">A new film every week.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>4 AI films a month — ₹4,000 a film</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Openings written for your buyer, in Tamil or English</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Scripts you approve before anything is made</li>
-              <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>9:16 and 1:1, with a caption line</li>
+              <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Sized for Reels and feed, with a caption line</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Month to month, no lock-in</li>
             </ul>
             <a class="btn" href="https://wa.me/919944812223" data-mail="Growth plan (₹16,000 a month)">Start with a sample film <span class="arr">→</span></a>
           </div>
           <div class="tier reveal d2">
             <span class="k">Scale</span>
-            <div class="price"><b>₹32,000</b><span>/ month</span></div>
+            <div class="anchor"><s>8 creator videos: ₹40,000–1.2 lakh</s><span class="save">Save up to ₹88,000</span></div>
+            <div class="price"><b data-from="80000" data-cur="₹">₹32,000</b><span>/ month</span></div>
             <p class="tag-line">A film for every sale and festival.</p>
             <ul>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>8 AI films a month — ₹4,000 a film</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>A monthly plan: which films to make for your sales and festivals</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Scripts you approve before anything is made</li>
-              <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>9:16 and 1:1, with a caption line</li>
+              <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Sized for Reels and feed, with a caption line</li>
               <li><i class="ck"><svg width="9" height="9" viewBox="0 0 10 10"><path d="M1.5 5.2l2.4 2.3L8.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>Month to month, no lock-in</li>
             </ul>
             <a class="btn light" href="https://wa.me/919944812223" data-mail="Scale plan (₹32,000 a month)">Ask about Scale</a>
           </div>
         </div>
+        <p class="anchor-note"><span class="r-us">Struck-through prices: the same output from creators ($300+ a video with rights) and studios ($20K+ a spot), at the low end of typical 2026 rates.</span><span class="r-in">Struck-through prices: the same number of videos from mid-level creators at ₹5,000–15,000 each, typical 2026 rates.</span></p>
         <div class="terms r-us">
           <span>✓ Prices in US dollars, invoiced before each batch</span>
           <span>✓ Month to month, no lock-in</span>
@@ -2615,6 +2636,27 @@ html.in .r-us{display:none!important}
     introIO.observe(srcEl);seenIO.observe(srcEl);
   }else{played=true;finishIntro()}
   window.addEventListener('resize',function(){wire()});
+
+
+  /* 8h. Plans: strike the traditional price, then count our price down into place, once per card */
+  (function(){
+    var cards=$$('.tier').filter(function(t){return t.querySelector('.price b[data-from]')});
+    if(!cards.length)return;
+    function fmt(v,cur){return cur+Math.round(v).toLocaleString(cur==='₹'?'en-IN':'en-US')}
+    if(reduce||!('IntersectionObserver' in window))return;
+    cards.forEach(function(t){t.classList.add('pre-reveal')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;io.unobserve(e.target);
+      var t=e.target,b=t.querySelector('.price b[data-from]'),cur=b.getAttribute('data-cur'),final=b.textContent,to=+final.replace(/[^0-9]/g,''),from=+b.getAttribute('data-from');
+      t.classList.add('revealing');t.classList.remove('pre-reveal');
+      b.classList.add('counting');b.textContent=fmt(from,cur);
+      setTimeout(function(){
+        var t0=performance.now(),d=1000;
+        (function tick(n){var k=Math.min((n-t0)/d,1),q=1-Math.pow(1-k,3);b.textContent=fmt(from+(to-from)*q,cur);if(k<1){requestAnimationFrame(tick)}else{b.textContent=final;b.classList.remove('counting')}})(t0);
+      },450);
+    })},{threshold:.45});
+    cards.forEach(function(t){io.observe(t)});
+  })();
 
   /* 9. Hero hook card: walks A to E to show a test running */
   var hk=$$('.fc-hook li'),hi=0;
