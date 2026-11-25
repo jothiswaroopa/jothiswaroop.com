@@ -1365,6 +1365,47 @@ html.in .r-us{display:none!important}
 .js .tier.pre-reveal .equiv{opacity:0;translate:0 5px}
 .tier.revealing .equiv{transition:opacity .45s 1.6s,translate .45s 1.6s}
 @media (max-width:560px){.equiv{font-size:14px}}
+
+/* the supply gap: best ad tires at week 3, the next one lands at week 6 */
+.gap{max-width:820px;margin:34px auto 0}
+.gap-chart{position:relative;padding:26px 0 0}
+.gap-axis{position:absolute;top:0;left:170px;right:0;height:18px;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.gap-axis span{position:absolute;top:0;translate:-50% 0;white-space:nowrap}
+.gap-axis span:first-child{translate:0 0}.gap-axis span:last-child{translate:-100% 0}
+.gap-row{display:grid;grid-template-columns:170px 1fr;align-items:center;margin-top:12px}
+.gap-k{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:var(--ink)}
+.gap-k i{font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--card);box-shadow:0 2px 6px rgba(23,22,15,.08);font-size:17px}
+.gap-track{position:relative;height:40px;border-radius:12px;background:rgba(23,22,15,.06);overflow:hidden}
+.gap-track > i{position:absolute;top:0;bottom:0;display:flex;align-items:center;transform-origin:left;font-style:normal}
+.gap-track em{font-style:normal;font:700 12.5px/1 var(--sans);color:#fff;padding:0 12px;white-space:nowrap}
+.g-fresh{left:0;width:50%;background:linear-gradient(90deg,#1F9D6B,#2BB57E)}
+.g-tired{left:50%;width:50%;background:repeating-linear-gradient(135deg,#C9402F 0 10px,#B8382A 10px 20px)}
+.g-make{left:0;width:100%;background:repeating-linear-gradient(135deg,#8C877B 0 10px,#7E7A6F 10px 20px)}
+.g-done{position:absolute;right:8px;top:50%;translate:0 -50%;padding:5px 9px;border-radius:999px;background:#fff;color:var(--ok);font:700 12px/1 var(--sans);z-index:1}
+.gap-band{position:absolute;left:calc(170px + (100% - 170px) / 2);right:0;top:20px;bottom:-34px;border:2px dashed var(--no);border-radius:14px;background:rgba(201,64,47,.06);pointer-events:none}
+.gap-band span{position:absolute;left:50%;bottom:8px;translate:-50% 0;white-space:nowrap;font:700 12.5px/1 var(--sans);color:var(--no)}
+.gap + .payoff-sub{margin-top:54px}
+.payoff-sub b{color:var(--ink)}
+/* scroll-in */
+.js.motion .gap:not(.on) .g-fresh,.js.motion .gap:not(.on) .g-tired,.js.motion .gap:not(.on) .g-make{transform:scaleX(0)}
+.js.motion .gap:not(.on) .g-done,.js.motion .gap:not(.on) .gap-band{opacity:0}
+.gap.on .g-fresh{transition:transform .8s cubic-bezier(.3,.7,.3,1)}
+.gap.on .g-tired{transition:transform .8s .8s cubic-bezier(.3,.7,.3,1)}
+.gap.on .g-make{transition:transform 1.6s linear}
+.gap.on .g-done{transition:opacity .35s 1.6s}
+.gap.on .gap-band{transition:opacity .5s 1.8s}
+@media (max-width:640px){
+  .gap{margin-top:26px}
+  .gap-axis{left:0}
+  .gap-row{grid-template-columns:1fr;gap:6px;margin-top:14px}
+  .gap-k{font-size:14px}.gap-k i{width:28px;height:28px;font-size:15px}
+  .gap-track{height:36px}
+  .gap-track em{font-size:11.5px;padding:0 9px}
+  .g-make em{font-size:11px}
+  .gap-band{left:50%;top:20px;bottom:-34px}
+  .gap-band span{font-size:11.5px;white-space:normal;width:92%;text-align:center;bottom:6px}
+  .gap-chart{padding-bottom:4px}
+}
 </style>
 </head>
 <body>
@@ -1517,7 +1558,17 @@ html.in .r-us{display:none!important}
     </div>
     <div class="wrap">
       <p class="payoff reveal">It's not your product.<br>It's your <span class="hl">creative supply.</span></p>
-      <p class="payoff-sub reveal d1">Ads wear out faster than most teams can replace them. That gap is the whole job.</p>
+      <div class="gap" id="supplyGap" aria-label="Your best ad tires in about three weeks, while a new one takes about six weeks to make the usual way. For three weeks you pay more for every sale.">
+        <div class="gap-chart" aria-hidden="true">
+          <div class="gap-axis"><span style="left:0">Week 0</span><span style="left:50%">Week 3</span><span style="left:100%">Week 6</span></div>
+          <div class="gap-row"><span class="gap-k"><i>🔋</i><span>Your best <span class="r-us">ad</span><span class="r-in">film</span></span></span>
+            <div class="gap-track"><i class="g-fresh"><em>Fresh</em></i><i class="g-tired"><em>Tired</em></i></div></div>
+          <div class="gap-row"><span class="gap-k"><i>⏳</i><span>Your next <span class="r-us">ad</span><span class="r-in">film</span></span></span>
+            <div class="gap-track"><i class="g-make"><em>Being made the usual way</em></i><b class="g-done">✓ Ready</b></div></div>
+          <div class="gap-band"><span>The gap: 3 weeks of paying more for every sale</span></div>
+        </div>
+      </div>
+      <p class="payoff-sub reveal d1">Ads wear out faster than most teams can replace them. <b>That gap is the whole job.</b></p>
     </div>
   </section>
 
@@ -2684,6 +2735,15 @@ html.in .r-us{display:none!important}
       },450);
     })},{threshold:.45});
     cards.forEach(function(t){io.observe(t)});
+  })();
+
+
+  /* 8i. The supply gap draws itself once, when it comes into view */
+  (function(){
+    var g=document.getElementById('supplyGap');if(!g)return;
+    if(reduce||!('IntersectionObserver' in window)){g.classList.add('on');return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){g.classList.add('on');io.disconnect()}})},{threshold:.55});
+    io.observe(g);
   })();
 
   /* 9. Hero hook card: walks A to E to show a test running */
