@@ -486,10 +486,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:
 
 /* sticky mobile cta */
 .sticky{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:70;display:none;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(23,22,15,.92);color:#fff;
-  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--sh-3);transform:translateY(140%);transition:transform .45s var(--ease)}
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--sh-3);transform:translateY(calc(100% + 30px + env(safe-area-inset-bottom,0px)));visibility:hidden;transition:transform .45s var(--ease),visibility 0s .45s}
 .sticky span{font-size:14px;font-weight:500}
 .sticky span small{display:block;font-size:12px;color:#B9B3A3;font-weight:400}
-.sticky.show{transform:none}
+.sticky.show{transform:none;visibility:visible;transition:transform .45s var(--ease),visibility 0s}
 @media (max-width:760px){.sticky{display:flex}footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
 
 
@@ -1004,7 +1004,10 @@ html[data-story="timeline"] #race{display:none}
 }
 
 /* hook test, plain version: a mini "opening + same ad" strip on each choice, a timeline under the phone */
-.hookbtn{grid-template-columns:46px 1fr auto auto}
+.hookbtn{grid-template-columns:46px 1fr auto}
+.hk-side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.hookbtn .hk-side > i{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.hookbtn[aria-pressed="true"] .hk-side > i::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rec);animation:pulse 1.8s infinite}
 .hk-mini{display:flex;gap:2px;width:70px;height:9px}
 .hk-mini i{display:block;height:100%;border-radius:2px}
 .hk-mini .o{background:var(--ink-2);opacity:.35}
@@ -1022,7 +1025,7 @@ html[data-story="timeline"] #race{display:none}
 .hk-lab{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:12px;color:var(--muted)}
 .hk-lab b{color:var(--ink);font-weight:600}
 .why-hook b{color:var(--ink)}
-@media (max-width:560px){.hookbtn{grid-template-columns:40px 1fr auto;gap:10px;padding:11px 12px 11px 10px}.hookbtn b{width:40px;height:40px;font-size:24px}.hookbtn > i{display:none}.hk-mini{width:52px}.hookbtn span{font-size:14.5px}.hookbtn small{font-size:12.5px}}
+@media (max-width:560px){.hookbtn{grid-template-columns:40px 1fr auto;gap:10px;padding:11px 12px 11px 10px}.hookbtn b{width:40px;height:40px;font-size:24px}.hookbtn .hk-side > i{font-size:9.5px}.hk-mini{width:52px}.hookbtn span{font-size:14.5px}.hookbtn small{font-size:12.5px}}
 
 
 /* receipts: a results panel (what my campaigns did) next to what running ads taught me */
@@ -1823,11 +1826,11 @@ html.in .r-us{display:none!important}
           <h2 class="reveal d1">Same ad. Five different openings. <span class="hl">Your viewers pick the winner.</span></h2>
           <p class="lede reveal d2">People decide in the first three seconds whether to keep watching. So I make one ad and give it five different openings. All five run at the same time, and the opening that keeps the most people watching becomes the start of your next ads. Tap one to watch it.</p>
           <div class="hooklist reveal d3" role="group" aria-label="Choose a hook">
-            <button class="hookbtn" aria-pressed="true" data-src="../media/hook-a.mp4" data-cut="4.08"><b>A</b><span>Asks about their problem<small>"Still wide awake at 2 a.m.?"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Playing</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-b.mp4" data-cut="5.04"><b>B</b><span>Shows the problem<small>"Five bottles, a scoop of chalk…"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:33%"></i><i class="r"></i></em><i>Play</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-c.mp4" data-cut="4.08"><b>C</b><span>Teases a secret<small>"Nobody talks about this…"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Play</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-d.mp4" data-cut="4.08"><b>D</b><span>Jumps to the result<small>"Day thirty of taking these…"</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Play</i></button>
-            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-e.mp4" data-cut="4.08"><b>E</b><span>Just shows the product<small>Slow-motion slam, no words</small></span><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em><i>Play</i></button>
+            <button class="hookbtn" aria-pressed="true" data-src="../media/hook-a.mp4" data-cut="4.08"><b>A</b><span>Asks about their problem<small>"Still wide awake at 2 a.m.?"</small></span><span class="hk-side"><i>Playing</i><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em></span></button>
+            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-b.mp4" data-cut="5.04"><b>B</b><span>Shows the problem<small>"Five bottles, a scoop of chalk…"</small></span><span class="hk-side"><i>Play</i><em class="hk-mini" aria-hidden="true"><i class="o" style="width:33%"></i><i class="r"></i></em></span></button>
+            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-c.mp4" data-cut="4.08"><b>C</b><span>Teases a secret<small>"Nobody talks about this…"</small></span><span class="hk-side"><i>Play</i><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em></span></button>
+            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-d.mp4" data-cut="4.08"><b>D</b><span>Jumps to the result<small>"Day thirty of taking these…"</small></span><span class="hk-side"><i>Play</i><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em></span></button>
+            <button class="hookbtn" aria-pressed="false" data-src="../media/hook-e.mp4" data-cut="4.08"><b>E</b><span>Just shows the product<small>Slow-motion slam, no words</small></span><span class="hk-side"><i>Play</i><em class="hk-mini" aria-hidden="true"><i class="o" style="width:29%"></i><i class="r"></i></em></span></button>
           </div>
           <p class="why-hook reveal d4"><b>Why it works:</b> only the first few seconds change, so the test costs almost nothing extra. And you find out exactly which opening makes people stop scrolling. The winner becomes the opening of your next batch.</p>
         </div>
@@ -2156,8 +2159,7 @@ html.in .r-us{display:none!important}
             <b>Something else on your mind?</b>
             <p>Ask me directly. I read every message myself.</p>
             <div class="row">
-              <a class="btn sm" href="mailto:hello@jothiswaroop.com" data-mail="Question">Email me</a>
-              <a class="btn sm light" href="https://wa.me/919944812223" data-wa target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn sm" href="mailto:hello@jothiswaroop.com" data-mail="Question"><span class="r-us">Email me</span><span class="r-in">WhatsApp me</span></a>
             </div>
           </div>
         </div>
@@ -2191,9 +2193,8 @@ html.in .r-us{display:none!important}
         <p class="lede">No call, no contract. Like the preview, and it becomes the first ad of your first batch. If not, you've lost a minute.</p>
         <div class="ctas">
           <a class="btn marker" href="mailto:hello@jothiswaroop.com?subject=Free%20spec%20ad" data-mail><span class="r-us">Email me your product link</span><span class="r-in">WhatsApp me your product link</span> <span class="arr">→</span></a>
-          <a class="btn ghost-dark" id="altCta" href="https://wa.me/919944812223" data-wa target="_blank" rel="noopener">Message on WhatsApp</a>
         </div>
-        <div class="mailbox"><code id="email">hello@jothiswaroop.com</code><button id="copy" type="button">Copy</button></div>
+        <div class="mailbox r-us"><code id="email">hello@jothiswaroop.com</code><button id="copy" type="button">Copy</button></div>
         <p class="final-cal">Prefer to talk first? <a data-cal href="https://cal.com/jothi-swaroop-ccbqmw/30min" target="_blank" rel="noopener">Book a 30-minute call</a></p>
         <p class="reply">or just reply to the <span class="r-us">email</span><span class="r-in">message</span> that brought you here</p>
       </div>
@@ -2203,8 +2204,7 @@ html.in .r-us{display:none!important}
 
 <footer>
   <div class="wrap">
-    <span class="r-us">Jothi Swaroop · Creative strategy &amp; AI ads · Tamil Nadu, India · for brands in the US, UK &amp; Australia</span><span class="r-in">Jothi Swaroop · Creative strategy &amp; AI ads · Tamil Nadu, India · for brands across India and abroad</span>
-    <span>rooted, LIFT, WILLA, halo and SOLA are sample brands made to show the craft, not clients. People in these films are AI-generated. Client films are labelled.</span>
+    <span>© <span id="yr">2026</span> Jothiswaroop</span>
   </div>
 </footer>
 
@@ -2249,7 +2249,7 @@ html.in .r-us{display:none!important}
   }
   $$('[data-mail]').forEach(function(a){
     var plan=a.getAttribute('data-mail');
-    if(IN&&plan!=='Question'){a.href=waHref(plan);a.target='_blank';a.rel='noopener';return}  /* India: WhatsApp first */
+    if(IN){a.href=waHref(plan);a.target='_blank';a.rel='noopener';return}  /* India: every contact button opens WhatsApp */
     var subj=plan?(plan+' for '+who):('Free spec ad for '+who);  /* subject names the brand */
     var body=plan==='Question'?'Hi Jothi,\n\n':'Hi Jothi,\n\nProduct link: \nWho buys it: \nMarket ('+(IN?'city / region':'US / UK / AU')+'): \n\nThanks';
     a.href='mailto:hello@jothiswaroop.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
@@ -2258,6 +2258,8 @@ html.in .r-us{display:none!important}
   var alt=$('#altCta');
   if(IN&&alt){alt.href='mailto:hello@jothiswaroop.com?subject='+encodeURIComponent('Free film for '+who);alt.removeAttribute('target');alt.textContent='Email instead'}
 
+
+  var yr=$('#yr');if(yr)yr.textContent=new Date().getFullYear();
 
   /* 1b. Booking links (Cal.com, 30 min) carry the brand in the notes */
   $$('[data-cal]').forEach(function(a){a.href='https://cal.com/jothi-swaroop-ccbqmw/30min?notes='+encodeURIComponent('From the Creative Lab page'+(brand?' · '+brand:''))});
@@ -2526,9 +2528,15 @@ html.in .r-us{display:none!important}
   var board=$('.board'),notes=$$('.note');
   var NO=[[-140,520,-16],[40,560,14],[170,520,18],[-170,560,-12],[40,600,-18],[180,580,16]];
   var painTrack=$('.pain-track'),painStage=$('.pain-stage'),painPin=true;
+  var raceStageEl=$('.race-stage'),raceWrapEl=raceStageEl?raceStageEl.querySelector('.wrap'):null;
+  measures.push(function(){  /* the race must fit inside one small-viewport screen, or its bottom gets clipped */
+    if(!raceWrapEl)return;raceWrapEl.style.zoom='';
+    var cs=getComputedStyle(raceStageEl),avail=raceStageEl.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-10;
+    var z=Math.min(1,avail/raceWrapEl.offsetHeight);if(z<.995)raceWrapEl.style.zoom=z.toFixed(3);
+  });
   measures.push(function(){  /* pin only when the whole board fits on screen */
     painTrack.classList.remove('pin-off');
-    painPin=painStage.firstElementChild.offsetHeight+60<=window.innerHeight;
+    painPin=painStage.firstElementChild.offsetHeight+60<=painStage.clientHeight;
     painTrack.classList.toggle('pin-off',!painPin);
   });
   fx.push(function(vh,lag){
