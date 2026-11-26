@@ -6,6 +6,30 @@ import posters from "@/lib/posters.json";
 // Widths made by scripts/posters.mjs for each film (our own WebP copies of the YouTube still).
 const POSTERS = posters as Record<string, number[]>;
 
+// Touch devices: no YouTube player until the visitor has moved the page — a scroll, a swipe, a wheel or a key.
+// On /ai-ads/ and /films/ the films sit just under the headline, so "on screen" alone mounted two players the
+// moment the page opened: 1.9MB and 2.1s of main thread before the visitor had done anything (PageSpeed,
+// 18 Nov 2026: /ai-ads/ 78, TBT 760ms; /films/ 84, TBT 480ms). A tap is deliberately not on the list. A tap on a
+// poster goes to the poster's own button below, and waking on it would swap that button for the player
+// between the touch and its click, so the click would land on nothing.
+// One set of listeners for every tile; once woken it stays woken for the rest of the visit.
+const WAKE_EVENTS = ["scroll", "touchmove", "wheel", "keydown"] as const;
+let woken = false;
+let listening = false;
+const waiting = new Set<() => void>();
+function wake() {
+  woken = true;
+  WAKE_EVENTS.forEach((e) => window.removeEventListener(e, wake));
+  waiting.forEach((f) => f());
+  waiting.clear();
+}
+function afterFirstMove(cb: () => void): () => void {
+  if (woken) { cb(); return () => {}; }
+  waiting.add(cb);
+  if (!listening) { listening = true; WAKE_EVENTS.forEach((e) => window.addEventListener(e, wake, { passive: true })); }
+  return () => { waiting.delete(cb); };
+}
+
 /** Poster first, iframe only after a tap — no third-party scripts until the visitor asks for them. */
 export default function VideoTile({ youtubeId, title, vertical, poster: posterOverride, className = "" }: { youtubeId: string; title: string; vertical?: boolean; poster?: string; className?: string }) {
   const [play, setPlay] = useState(false);
@@ -22,8 +46,13 @@ export default function VideoTile({ youtubeId, title, vertical, poster: posterOv
   // visitor loads a player only for a tile they can see. Once mounted it stays mounted, or playback would stop.
   const boxRef = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
+  const [moved, setMoved] = useState(false);
+  useEffect(() => (touch ? afterFirstMove(() => setMoved(true)) : undefined), [touch]);
+  // A poster tapped before any of that: mount the player at once, asking it to start. Android plays with sound;
+  // iOS shows YouTube's player and wants its play button — the old two taps, only in this one case.
+  const [tapped, setTapped] = useState(false);
   useEffect(() => {
-    if (!touch || near) return;
+    if (!touch || !moved || near) return;
     const el = boxRef.current;
     if (!el || !("IntersectionObserver" in window)) { setNear(true); return; }
     const io = new IntersectionObserver((entries) => {
@@ -31,7 +60,7 @@ export default function VideoTile({ youtubeId, title, vertical, poster: posterOv
     }, { rootMargin: "300px 0px", scrollMargin: "0px 200px" } as IntersectionObserverInit);
     io.observe(el);
     return () => io.disconnect();
-  }, [touch, near]);
+  }, [touch, moved, near]);
   // YouTube returns a 120px grey placeholder (HTTP 200, so onError never fires) when a size isn't ready; walk the chain on load.
   const chain = vertical ? ["oardefault", "oar2", "hq720", "hqdefault"] : ["maxresdefault", "hq720", "sddefault", "hqdefault"];
   const [pi, setPi] = useState(0);
@@ -57,7 +86,15 @@ export default function VideoTile({ youtubeId, title, vertical, poster: posterOv
       {touch ? (
         <>
           <img src={poster} srcSet={srcSet} sizes={sizes} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
-          {near && <iframe src={base} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />}
+          {near ? (
+            <iframe src={tapped ? `${base}&autoplay=1` : base} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />
+          ) : (
+            <button onClick={() => { setTapped(true); setNear(true); }} className="absolute inset-0 grid place-items-center" aria-label={`Play: ${title}`}>
+              <span className="salmon relative grid h-14 w-14 place-items-center border border-ink">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden><path d="M4 2.5v11l9-5.5z" /></svg>
+              </span>
+            </button>
+          )}
         </>
       ) : play ? (
         <iframe src={`${base}&autoplay=1`} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />

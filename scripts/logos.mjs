@@ -1,13 +1,18 @@
 // Client logos: assets/logos-raw/*.png → public/img/logos/<name>.{png,webp}
 // Keys out the flat background colour (sampled from the corners), trims, and fits each mark into a
-// 480×200 box so the strip renders at a uniform optical size. CSS handles greyscale.
+// 480×160 box so the strip renders at a uniform optical size. CSS handles greyscale.
+//
+// Size and quality (18 Nov 2026): the strip draws a mark at most 68px tall (73px in the hover zoom), and a
+// 3x phone draws its 48px box with 144 pixels, so 160 covers every screen. The first cut was a 200px box at
+// WebP q86 — 661KB for 31 marks, flagged by PageSpeed on /work/ ("Improve image delivery", 659KiB). At 160px
+// and q72 it is 335KB, and side by side at 144px tall the two are indistinguishable.
 import { readdir, mkdir } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
 const SRC = "assets/logos-raw";
 const OUT = "public/img/logos";
-const BOX = { w: 480, h: 200 };
+const BOX = { w: 480, h: 160 };
 // per-file pre-crops (left, top, width, height as fractions) for posters that aren't plain logos
 const CROP = {
   vroom: { left: 0.02, top: 0.02, width: 0.96, height: 0.62 },
@@ -94,6 +99,6 @@ for (const f of files) {
     .resize(BOX.w, BOX.h, { fit: "inside", withoutEnlargement: false });
   const out = await fitted.clone().png({ compressionLevel: 9, palette: false }).toFile(path.join(OUT, `${name}.png`));
   // WebP is what the site actually serves (≈¼ the bytes); the PNG stays as the lossless master
-  const webp = await fitted.clone().webp({ quality: 86, alphaQuality: 90, effort: 6 }).toFile(path.join(OUT, `${name}.webp`));
+  const webp = await fitted.clone().webp({ quality: 72, alphaQuality: 70, effort: 6 }).toFile(path.join(OUT, `${name}.webp`));
   console.log(`${name}: bg rgb(${bg}) keyed ${Math.round((keyed / (data.length / channels)) * 100)}% → ${out.width}×${out.height} png ${Math.round(out.size / 1024)}KB · webp ${Math.round(webp.size / 1024)}KB`);
 }
