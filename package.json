@@ -6,7 +6,7 @@
     "images": "node scripts/images.mjs",
     "predev": "node scripts/images.mjs && node scripts/blog/og.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/images.mjs && node scripts/posters.mjs && node scripts/blog/og.mjs && node scripts/blog/cover.mjs",
+    "prebuild": "node scripts/git-history.mjs && node scripts/images.mjs && node scripts/posters.mjs && node scripts/blog/og.mjs && node scripts/blog/cover.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
