@@ -21,7 +21,7 @@ export default function FilmsCta() {
       <div className="flex shrink-0 flex-wrap gap-3">
         {india
           ? <Button href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(s.ask ?? "Hi Jothi, I'd like the free AI film.")}`} icon="arrow-up-right">Ask on WhatsApp</Button>
-          : <Button href="/ai-ads/#free-ad">Get your free AI ad</Button>}
+          : <Button href="/creative-lab/#free" native>Get your free AI ad</Button>}
         <Button href={india ? "/india/" : "/pricing/"} variant="ghost">All rates</Button>
       </div>
     </div>

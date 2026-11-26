@@ -76,7 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/work/", "app/work/page.tsx", "monthly", 0.9),
     page("/services/", "app/services/page.tsx", "monthly", 0.9),
     page("/pricing/", "app/pricing/page.tsx", "monthly", 0.9),
-    page("/ai-ads/", "app/ai-ads/page.tsx", "monthly", 0.9),
     page("/films/", "app/films/page.tsx", "monthly", 0.8),
     page("/systems/", "app/systems/page.tsx", "monthly", 0.8),
     page("/apply/", "app/apply/page.tsx", "monthly", 0.8),

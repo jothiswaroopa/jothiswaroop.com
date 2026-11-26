@@ -9,8 +9,11 @@ import { aiAds, videos, type Video } from "@/lib/content";
 
 export const metadata = {
   title: "AI Video Ads & UGC-Style Ads for Brands on Meta | Jothi Swaroop",
-  description: "UGC-style creator ads and cinematic AI commercials made from your product photos. 4 ads a month for $499, 8 for $950, or 12–14 with a monthly hook review for $2,000. Your first AI ad is free.",
+  description: "UGC-style creator ads and cinematic AI commercials made from your product photos. A $1,000 test batch of 8 ads, then $2,500 a month for 16 and a studio commercial, or 30 a month for $5,000. Your first sample ad is free.",
   alternates: { canonical: "/ai-ads/" },
+  // 26 Nov 2026: Creative Lab (/creative-lab/) is the main AI-video page and has the current prices (Jothi). This page
+  // stays live for links already sent in cold emails, but is kept out of Google so the two do not compete.
+  robots: { index: false, follow: true },
   openGraph: { title: "AI video ads made from your product photos — Jothi Swaroop", url: "/ai-ads/", images: ["/og.png"] },
 };
 
