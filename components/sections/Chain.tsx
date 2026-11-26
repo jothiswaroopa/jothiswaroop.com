@@ -43,7 +43,7 @@ export default function Chain() {
               ) : (
                 <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-signal bg-stock-3" />
               )}
-              <Link href={`/work/${c.slug}`} className="group block pl-3">
+              <Link href={`/work/${c.slug}/`} className="group block pl-3">
                 <p className="mono text-xs text-ink">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                 <p className="display mt-1 text-xl text-ink group-hover:text-signal">{c.label}</p>
                 <p className="mono mt-1 text-xs text-ink"><Result>{c.result}</Result></p>
@@ -83,7 +83,7 @@ export default function Chain() {
                   style={{ top: `${((50 + i * stepY) / h) * 100}%`, [left ? "right" : "left"]: "72.5%", transform: "translateY(-50%)" }}
                   initial={{ opacity: 0, x: left ? -12 : 12 }} animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 + i * (2.2 / chain.length), ease: EASE }}>
-                  <Link href={`/work/${c.slug}`} className={`group block ${left ? "text-right" : ""}`}>
+                  <Link href={`/work/${c.slug}/`} className={`group block ${left ? "text-right" : ""}`}>
                     <p className="mono text-xs text-ink md:text-xs">{String(i + 1).padStart(2, "0")} · {c.how}</p>
                     <p className="display mt-1 text-lg leading-tight text-ink transition-colors group-hover:text-signal md:text-2xl">{c.label}</p>
                     <p className="mono mt-1 text-xs text-ink"><Result>{c.result}</Result></p>

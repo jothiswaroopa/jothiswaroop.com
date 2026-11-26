@@ -145,7 +145,7 @@ export default function AboutPage() {
           <p className="display text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.1] text-ink">{story.close.headline}</p>
           <div>
             <p className="max-w-lg text-ink">{story.close.body}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button><BackLink className="ml-2" /></div>
+            <div className="mt-8 flex flex-wrap items-center gap-4"><Button href="/apply/">Apply</Button><Button href="/audit/" variant="ghost">Free audit</Button><BackLink className="ml-2" /></div>
           </div>
         </section>
       </div>

@@ -30,7 +30,7 @@ export default function Testimonials() {
                       <p className="mt-0.5 text-[13px] leading-snug text-ink">{t.business}</p>
                       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
                         {t.language && <span className="mono text-[11px] uppercase tracking-[0.1em] text-ink">{t.language}</span>}
-                        {t.caseSlug && <Link href={`/work/${t.caseSlug}`} className="underline-slide text-[13px] text-ink">The numbers <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>}
+                        {t.caseSlug && <Link href={`/work/${t.caseSlug}/`} className="underline-slide text-[13px] text-ink">The numbers <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>}
                       </div>
                     </div>
                   </figcaption>

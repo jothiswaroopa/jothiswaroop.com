@@ -96,8 +96,8 @@ export default function Systems({ heading: H = "h2" }: { heading?: "h1" | "h2" }
         </Reveal>
 
         <Reveal delay={0.1} className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
-          <Button href="/apply" variant="quiet">Need one of these built? Apply</Button>
-          <Button href="/audit" variant="quiet">Not sure where the leak is? Run the free audit</Button>
+          <Button href="/apply/" variant="quiet">Need one of these built? Apply</Button>
+          <Button href="/audit/" variant="quiet">Not sure where the leak is? Run the free audit</Button>
         </Reveal>
       </div>
     </section>

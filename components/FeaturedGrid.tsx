@@ -24,7 +24,7 @@ export default function FeaturedGrid({ cases }: { cases: CaseStudy[] }) {
     <div id="featured-cases" className="m-scroller mt-4 grid gap-5 md:mt-14 md:grid-cols-2">
       {list.map((c, i) => (
         <Reveal key={c.slug} delay={i * 0.08}>
-          <Link href={`/work/${c.slug}`} className="group bezel block press">
+          <Link href={`/work/${c.slug}/`} className="group bezel block press">
             <div className="bezel-core">
               <div className="relative aspect-[16/9] overflow-hidden border-b border-ink">
                 <Image src={c.image} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover object-left-top" />

@@ -19,7 +19,7 @@ function Row({ items }: { items: ClientLogo[] }) {
               className={`logo-mark${l.pale ? " logo-mark-pale" : ""} max-h-full max-w-full object-contain`} />
           </span>
         );
-        const href = l.caseSlug ? `/work/${l.caseSlug}` : l.href;
+        const href = l.caseSlug ? `/work/${l.caseSlug}/` : l.href;
         return (
           <li key={l.file} className="flex items-center py-1">
             {href ? <Link href={href} title={l.name} className="block press">{img}</Link> : <span title={l.name}>{img}</span>}

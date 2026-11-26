@@ -40,7 +40,7 @@ export const hero = {
   thesis: [["I watched agencies", "sell reports."], ["I decided to", "sell customers."]],
   lede: "Meta ads, AI ad films and follow-up automation — every discipline under one roof, for founders in India, the\u00a0UK, the\u00a0US, Canada and Australia.",
   ctaPrimary: { label: "See offers & prices", href: "/pricing/" },
-  ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit" },
+  ctaSecondary: { label: "Run the free Bottleneck Audit", href: "/audit/" },
   videoSrc: "", // pending — 60–90s straight-to-lens
   posterSrc: "/img/portrait-hero.jpg", // real — blue shirt, outdoor
   placeholder: false,
@@ -516,8 +516,8 @@ export const logos: { primary: ClientLogo[]; more: ClientLogo[] } = {
     { name: "Tharunis Jewellery", file: "tharunis", caseSlug: "tharunis" },
     { name: "Kalavridhi Arts", file: "kalavridhi", caseSlug: "kalavridhi" , noSilhouette: true },
     { name: "Angel Homemade Cakes", file: "angel", caseSlug: "angel" },
-    { name: "BSHIP Chennai Tycoons", file: "chennai-tycoons", href: "/about", wide: true },
-    { name: "VROOM 2026", file: "vroom", href: "/about" , noSilhouette: true },
+    { name: "BSHIP Chennai Tycoons", file: "chennai-tycoons", href: "/about/", wide: true },
+    { name: "VROOM 2026", file: "vroom", href: "/about/" , noSilhouette: true },
   ],
   more: [
     { name: "Arkstorie", file: "arkstorie" },
@@ -738,7 +738,7 @@ export const accelerator: {
       "The confidence to use them without me",
     ],
     fee: { name: "AI Accelerator, in person", price: "₹35,000", note: "One payment for all five days, by UPI or bank transfer." },
-    cta: { label: "Apply for the AI Accelerator", kind: "apply", href: "/apply?program=accelerator" },
+    cta: { label: "Apply for the AI Accelerator", kind: "apply", href: "/apply/?program=accelerator" },
     ctaNote: "One owner at a time. I read every application myself.",
   },
   usd: {

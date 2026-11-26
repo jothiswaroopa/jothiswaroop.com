@@ -52,7 +52,7 @@ export default function ApplyForm() {
   })();
 
   const next = async () => {
-    if (cur.type === "chips" && cur.escape && a[cur.key] === cur.escape) { window.location.href = "/audit"; return; }
+    if (cur.type === "chips" && cur.escape && a[cur.key] === cur.escape) { window.location.href = "/audit/"; return; }
     if (step < total - 1) { setDir(1); setStep(step + 1); return; }
     setPhase("sending");
     const fields: Record<string, string> = {};
@@ -155,7 +155,7 @@ export default function ApplyForm() {
               </button>
               {step > 0 && <button onClick={back} className="press py-2 text-sm text-ink"><Icon name="arrow-left" size={14} className="mr-1 inline-block align-[-0.1em]" />Back</button>}
             </div>
-            <p className="mt-6 text-xs text-ink">Not ready? <Link href="/audit" className="underline-slide text-ink">Run the free Bottleneck Audit instead <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
+            <p className="mt-6 text-xs text-ink">Not ready? <Link href="/audit/" className="underline-slide text-ink">Run the free Bottleneck Audit instead <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link></p>
           </m.div>
         )}
 

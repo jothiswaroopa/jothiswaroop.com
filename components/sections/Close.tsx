@@ -11,7 +11,7 @@ export default function Close({ id = "reply", market = "auto" }: { id?: string; 
         <div className="lg:col-span-6">
           <h2 className="text-[clamp(1.75rem,4.6vw,4.25rem)]">{apply.headline}</h2>
           <p className="mt-6 max-w-[32rem] text-lg">{apply.followup}</p>
-          <div className="mt-8"><Button href="/apply" variant="quiet">Apply in full</Button></div>
+          <div className="mt-8"><Button href="/apply/" variant="quiet">Apply in full</Button></div>
         </div>
         <div className="lg:col-span-6 lg:pl-8">
           <ReplyCard ground="field" market={market} className="mx-auto max-w-[540px] transition-transform duration-500 ease-out-expo lg:-rotate-1 lg:hover:rotate-0" />

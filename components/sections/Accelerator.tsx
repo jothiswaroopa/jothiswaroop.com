@@ -22,7 +22,7 @@ export default function Accelerator({ market = "auto" }: { market?: Market | "au
   const cur: Market = market === "auto" ? (detected === "inr" ? "inr" : "usd") : market;
   const v = a[cur];
   const t = a.testimonial;
-  const ctaHref = v.cta.kind === "call" ? calHref(site.calendar, { notes: "AI Accelerator, remote" }) : v.cta.href ?? "/apply?program=accelerator";
+  const ctaHref = v.cta.kind === "call" ? calHref(site.calendar, { notes: "AI Accelerator, remote" }) : v.cta.href ?? "/apply/?program=accelerator";
   return (
     <section className="theme-alt card-over relative" id="accelerator">
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-28">

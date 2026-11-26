@@ -23,7 +23,7 @@ export default function CreativeGallery() {
                   </div>
                 </div></div>
               );
-              return c.caseSlug ? <Link key={c.src} href={`/work/${c.caseSlug}`} className="press block">{inner}</Link> : <div key={c.src}>{inner}</div>;
+              return c.caseSlug ? <Link key={c.src} href={`/work/${c.caseSlug}/`} className="press block">{inner}</Link> : <div key={c.src}>{inner}</div>;
             })}
           </div>
         </Reveal>

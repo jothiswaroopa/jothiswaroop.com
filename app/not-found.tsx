@@ -8,7 +8,7 @@ export default function NotFound() {
         <p className="mt-6 max-w-lg text-ink">The link is wrong or the page moved. Everything worth seeing is one click away.</p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button href="/">Back to the results</Button>
-          <Button href="/audit" variant="ghost">Run the free audit</Button>
+          <Button href="/audit/" variant="ghost">Run the free audit</Button>
         </div>
       </div>
     </section>

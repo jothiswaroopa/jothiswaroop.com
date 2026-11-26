@@ -41,7 +41,7 @@ export default function Issuer() {
               <Link href="/systems/" className="font-semibold underline">the nine automations</Link>.
             </p>
 
-            <div className="mt-8"><Button href="/about" variant="quiet">The full story, the referral chain and the recognition</Button></div>
+            <div className="mt-8"><Button href="/about/" variant="quiet">The full story, the referral chain and the recognition</Button></div>
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ export default function Work() {
           <h2 className="opener">Raw receipts, every ad account</h2>
           <HScroller hint="9 accounts · scroll" className="mt-5">
             {live.flatMap((c) => (c.receipts ?? []).map((src, i) => (
-              <Link key={src} href={`/work/${c.slug}`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
+              <Link key={src} href={`/work/${c.slug}/`} className="bezel press relative w-[86vw] shrink-0 snap-start !rounded-xl !p-1 sm:w-[520px]"><div className="bezel-core relative aspect-[16/9] !rounded-lg">
                 <Image src={src} alt={`Ads Manager — ${c.client}`} fill sizes="(min-width:640px) 520px, 86vw" className="object-cover object-left-top" />
                 <span className="label absolute bottom-2 left-2 flex items-center gap-2 rounded bg-stock/85 py-1 pl-1 pr-2 !text-ink">{logoFor(c.slug) && <ClientLogo mark={logoFor(c.slug)!} h={22} />}{c.client}{i > 0 ? ` · account ${i + 1}` : ""} · <Result>{c.result}</Result></span>
               </div></Link>
@@ -113,7 +113,7 @@ export default function Work() {
           <ul className="mt-4 border-t hairline">
             {rest.map((c) => (
               <li key={c.slug}>
-                <Link href={`/work/${c.slug}`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-salmon md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
+                <Link href={`/work/${c.slug}/`} className="group grid items-baseline gap-1 border-b hairline py-5 transition-colors duration-200 hover:bg-salmon md:grid-cols-[2fr_1.5fr_1.6fr_auto] md:gap-6 md:px-3">
                   <span className="display text-2xl text-ink">{c.client}</span>
                   <span className="text-sm text-ink">{c.industry} · {c.location}</span>
                   <span className="font-semibold text-signal group-hover:text-ink"><Result>{c.result}</Result></span>
@@ -125,8 +125,8 @@ export default function Work() {
         </Reveal>
 
         <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
-          <Button href="/apply" variant="quiet">Want to be the next row? Apply</Button>
-          <Button href="/audit" variant="quiet">Not sure yet? Run the free audit</Button>
+          <Button href="/apply/" variant="quiet">Want to be the next row? Apply</Button>
+          <Button href="/audit/" variant="quiet">Not sure yet? Run the free audit</Button>
         </div>
       </div>
     </section>

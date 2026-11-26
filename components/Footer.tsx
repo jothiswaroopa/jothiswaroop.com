@@ -24,7 +24,7 @@ export default function Footer() {
             <Link href="/pricing/" className={link}>Rates</Link>
             <Link href="/services/" className={link}>Services</Link>
             <Link href="/systems/" className={link}>Systems</Link>
-            <Link href="/about" className={link}>About</Link>
+            <Link href="/about/" className={link}>About</Link>
             <Link href="/blog/" className={link}>Blog</Link>
           </nav>
           <nav className="flex flex-col gap-2.5 md:col-span-2" aria-label="Contact">
@@ -33,8 +33,8 @@ export default function Footer() {
             <a href={`https://wa.me/${site.whatsapp}`} className={link} target="_blank" rel="noreferrer">WhatsApp</a>
             {site.socials.linkedin && <a href={site.socials.linkedin} className={link} target="_blank" rel="noreferrer">LinkedIn</a>}
             {site.socials.instagram && <a href={site.socials.instagram} className={link} target="_blank" rel="noreferrer">Instagram</a>}
-            <Link href="/audit" className={link}>Free audit</Link>
-            <Link href="/apply" className={link}>Apply</Link>
+            <Link href="/audit/" className={link}>Free audit</Link>
+            <Link href="/apply/" className={link}>Apply</Link>
           </nav>
           <div className="text-sm md:col-span-3 md:text-right">
             <p>{footer.built}</p>

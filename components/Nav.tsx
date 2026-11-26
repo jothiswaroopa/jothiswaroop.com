@@ -15,7 +15,7 @@ const links = [
   { label: "Films", href: "/films/" },
   { label: "Rates", href: "/pricing/" },
   { label: "Services", href: "/services/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about/" },
   { label: "Blog", href: "/blog/" },
 ];
 
@@ -37,9 +37,12 @@ export default function Nav() {
   // Visitors in India get the rupee list and WhatsApp; everyone else only ever sees dollars.
   const india = useDetectedMarket() === "inr";
   const navLinks = india ? links.map((l) => (l.href === "/pricing/" ? { ...l, href: "/india/" } : l)) : links;
-  const onApply = !!pathname?.startsWith("/apply");
-  const onAiAds = !!pathname?.startsWith("/ai-ads");
-  const onPricing = !!pathname?.startsWith("/pricing");
+  // First path segment, not startsWith("/apply"): a bare "/apply" in the shipped code reads to Google as a link
+  // to the slash-less address, which only redirects (Search Console, 26 Nov 2026: "Page with redirect").
+  const section = pathname?.split("/")[1];
+  const onApply = section === "apply";
+  const onAiAds = section === "ai-ads";
+  const onPricing = section === "pricing";
   const wa = `https://wa.me/${site.whatsapp}`;
   const issued = new Date().toLocaleString("en-GB", { month: "long", year: "numeric" });
 
@@ -95,7 +98,7 @@ export default function Nav() {
               ))}
             </nav>
             <div className="hidden items-center gap-2 md:flex">
-              <Link href="/audit" className={`${small} border border-ink text-ink hover:bg-ink hover:text-stock`}>Free audit</Link>
+              <Link href="/audit/" className={`${small} border border-ink text-ink hover:bg-ink hover:text-stock`}>Free audit</Link>
               {!onApply && primary}
             </div>
             <button
@@ -139,7 +142,7 @@ export default function Nav() {
               ))}
             </nav>
             <div className="mt-8 grid grid-cols-2 gap-3">
-              <Link href="/audit" onClick={() => setOpen(false)} className={`${bar} border border-ink text-ink`}>Free audit</Link>
+              <Link href="/audit/" onClick={() => setOpen(false)} className={`${bar} border border-ink text-ink`}>Free audit</Link>
               {india
                 ? <a href={wa} target="_blank" rel="noreferrer" className={`${bar} bg-signal text-stock`}>WhatsApp</a>
                 : <Link href="/#reply" onClick={() => setOpen(false)} className={`${bar} bg-signal text-stock`}>Free AI ad</Link>}
@@ -170,7 +173,7 @@ export default function Nav() {
           </>
         ) : (
           <>
-            <Link href="/audit" className={`${bar} border border-ink text-ink`}>Free audit</Link>
+            <Link href="/audit/" className={`${bar} border border-ink text-ink`}>Free audit</Link>
             {india
               ? <a href={wa} target="_blank" rel="noreferrer" className={`${bar} bg-signal text-stock`}>WhatsApp</a>
               : <Link href="/#reply" className={`${bar} bg-signal text-stock`}>Free AI ad</Link>}

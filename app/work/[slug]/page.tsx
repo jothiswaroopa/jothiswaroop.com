@@ -142,7 +142,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         {next && (
           <div className="mt-20 border-t hairline pt-10">
             <h2 className="opener">This client introduced</h2>
-            <Link href={`/work/${next.slug}`} className="display mt-3 block text-3xl text-ink hover:text-signal md:text-5xl">{next.client} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>
+            <Link href={`/work/${next.slug}/`} className="display mt-3 block text-3xl text-ink hover:text-signal md:text-5xl">{next.client} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>
           </div>
         )}
         {/* How this number was made — the questions a sceptical founder asks, answered from the measured block. Also FAQ schema. */}
@@ -186,7 +186,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <p className="mt-6 text-sm text-ink">The service behind this account: <Link href="/services/#meta-facebook-instagram-ads" className="underline-slide text-ink">Meta ads — Facebook &amp; Instagram</Link>.</p>
         </section>
 
-        <div className="mt-16 flex flex-wrap gap-4"><Button href="/apply">Apply</Button><Button href="/audit" variant="ghost">Free audit</Button></div>
+        <div className="mt-16 flex flex-wrap gap-4"><Button href="/apply/">Apply</Button><Button href="/audit/" variant="ghost">Free audit</Button></div>
       </div>
     </article>
     </MoneyText>
