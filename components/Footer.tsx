@@ -20,7 +20,6 @@ export default function Footer() {
           </div>
           <nav className="flex flex-col gap-2.5 md:col-span-2" aria-label="Site">
             <Link href="/work/" className={link}>Work</Link>
-            <Link href="/films/" className={link}>Films</Link>
             <Link href="/pricing/" className={link}>Rates</Link>
             <Link href="/services/" className={link}>Services</Link>
             <Link href="/systems/" className={link}>Systems</Link>

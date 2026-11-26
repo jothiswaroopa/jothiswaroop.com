@@ -66,7 +66,7 @@ const SERVICES = [
       "Brands buy this one of two ways: a single film for a launch, or a monthly set so there is always something new to test in the ad account. Creative is the biggest lever in a Meta account and the most under-invested; a set of ten fresh commercials a month is how you keep finding the winner. Scripts, shoots and social media management run alongside to the same monthly plan.",
     ],
     proof: "Top-5 El Alimentos · House of Vummudi · VROOM 2026 sponsor film · Arkstorie · Tharunis Jewellery",
-    links: [{ t: "Watch the showreel", h: "/films/" }],
+    links: [{ t: "See the films on Creative Lab", h: "/creative-lab/" }],
     faq: { q: "Are AI commercials and AI UGC videos good enough to run as real ads?", a: "The two Top-5 El Alimentos films and the House of Vummudi commercial were made for real brands, and the VROOM 2026 committee said on camera that all their sponsors enjoyed the AI videos. The honest test is the same as any creative: run it in the account next to what you have and see which one buyers respond to. Watch the showreel first and judge the craft yourself." },
   },
   {
@@ -143,7 +143,9 @@ export default function ServicesPage() {
               <div className="max-w-2xl">
                 {s.body.map((p) => <p key={p.slice(0, 24)} className="mb-5 leading-relaxed text-ink">{p}</p>)}
                 <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-                  {s.links.map((l) => <Link key={l.h} href={l.h} className="text-[0.9375rem] font-semibold text-ink underline">{l.t} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>)}
+                  {s.links.map((l) => l.h.startsWith("/creative-lab/")
+                    ? <a key={l.h} href={l.h} className="text-[0.9375rem] font-semibold text-ink underline">{l.t} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></a>
+                    : <Link key={l.h} href={l.h} className="text-[0.9375rem] font-semibold text-ink underline">{l.t} <Icon name="arrow" size={14} className="ml-1 inline-block align-[-0.1em]" /></Link>)}
                 </div>
                 <div className="mt-8 border-l-2 border-signal pl-5">
                   <p className="font-semibold text-ink">{s.faq.q}</p>

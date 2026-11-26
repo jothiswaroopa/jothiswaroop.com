@@ -47,7 +47,7 @@ export default function AiAdsPage() {
 
           <SpecimenStrip films={films} className="mt-12" />
           <p className="mt-8 border-t border-ink pt-5 text-[0.9375rem]">
-            Client films come first; tiles marked concept were made to show the craft. <Link href="/films/" className="font-semibold underline">The full reel has all {videos.length} films</Link>.
+            Client films come first; tiles marked concept were made to show the craft. <a href="/creative-lab/" className="font-semibold underline">See all the films on Creative Lab</a>.
           </p>
         </div>
       </section>

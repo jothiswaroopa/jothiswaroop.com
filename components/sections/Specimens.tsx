@@ -47,7 +47,7 @@ export default function Specimens() {
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-10 gap-y-4 border-t border-ink pt-6">
           <p className="max-w-2xl text-[0.9375rem]">Eight films, the size of one month&apos;s Growth plan. Tiles marked concept were made to show the craft, not for a client brief. Video plays from YouTube only after you tap.</p>
-          <Button href="/films/" variant="quiet">The full reel, {videos.length} films</Button>
+          <Button href="/creative-lab/" native variant="quiet">See all the films on Creative Lab</Button>
         </div>
       </div>
     </section>

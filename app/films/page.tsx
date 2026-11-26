@@ -7,6 +7,9 @@ export const metadata = {
   title: "AI Commercials & UGC-Style Ads — Showreel | Jothi Swaroop",
   description: "Product commercials and UGC-style ads made end to end with AI, cut for Reels, Stories and TikTok. Client films for Top-5 El Alimentos and House of Vummudi, the VROOM 2026 event film, and concept films labelled as concepts.",
   alternates: { canonical: "/films/" },
+  // 26 Nov 2026: Creative Lab (/creative-lab/) is the AI-commercials site and portfolio (Jothi). This reel stays live for
+  // links already sent in emails, but is kept out of Google so it does not compete with Creative Lab.
+  robots: { index: false, follow: true },
   openGraph: { title: "AI commercials & UGC-style ads — Jothi Swaroop", url: "/films/", images: ["/og.png"] },
 };
 

@@ -26,7 +26,7 @@ export default function IndiaPage() {
           </p>
           <p className="mt-5 max-w-3xl">
             See the proof first: <Link href="/work/nova/" className="font-semibold underline">4,248 leads for Nova Attire</Link> with every Ads Manager screenshot, and{" "}
-            <Link href="/films/" className="font-semibold underline">the AI films</Link>.
+            <a href="/creative-lab/" className="font-semibold underline">the AI films</a>.
           </p>
         </div>
       </section>

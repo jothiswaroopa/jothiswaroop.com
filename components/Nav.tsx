@@ -12,7 +12,8 @@ import Clocks from "@/components/Clocks";
 
 const links = [
   { label: "Work", href: "/work/" },
-  { label: "Films", href: "/films/" },
+  // 26 Nov 2026: Creative Lab is the site for AI commercials (Jothi); /films/ stays live for email links, out of Google.
+  { label: "Creative Lab", href: "/creative-lab/", native: true },
   { label: "Rates", href: "/pricing/" },
   { label: "Services", href: "/services/" },
   { label: "About", href: "/about/" },
@@ -92,9 +93,13 @@ export default function Nav() {
             </Link>
             <nav className="hidden items-center gap-7 lg:flex" aria-label="Sections">
               {navLinks.map((l) => (
+                l.native ? (
+                  <a key={l.href} href={l.href} className="underline-slide text-[0.9375rem] font-medium text-ink">{l.label}</a>
+                ) : (
                 <Link key={l.href} href={l.href} className={clsx("underline-slide text-[0.9375rem] font-medium text-ink", pathname?.startsWith(l.href.replace(/\/$/, "")) && "underline decoration-2 underline-offset-[6px]")}>
                   {l.label}
                 </Link>
+                )
               ))}
             </nav>
             <div className="hidden items-center gap-2 md:flex">
@@ -134,9 +139,13 @@ export default function Nav() {
                     exit={{ y: "110%", transition: { duration: 0.2 } }}
                     transition={{ duration: 0.6, ease: EASE, delay: 0.08 + i * 0.05 }}
                   >
+                    {l.native ? (
+                      <a href={l.href} onClick={() => setOpen(false)} className="display block py-3 text-[2.5rem] text-ink">{l.label}</a>
+                    ) : (
                     <Link href={l.href} onClick={() => setOpen(false)} className="display block py-3 text-[2.5rem] text-ink">
                       {l.label}
                     </Link>
+                    )}
                   </m.span>
                 </span>
               ))}
