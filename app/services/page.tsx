@@ -8,8 +8,8 @@ import { site } from "@/lib/content";
 import Icon from "@/components/Icon";
 
 export const metadata = {
-  title: "Services — Meta Ads, AI Ad Films, WhatsApp Automation, Websites | Jothi Swaroop",
-  description: "Meta ads on Facebook and Instagram, AI commercials and UGC-style ads, WhatsApp automation and AI receptionists, websites and landing pages, SEO and GEO. Chennai → UK, US, Canada, Australia, India.",
+  title: "Digital Marketing Services in Chennai — Meta Ads, AI Ads & Automation | Jothi Swaroop",
+  description: "Digital marketing from Chennai: Meta ads on Facebook and Instagram, AI commercials and UGC-style ads, WhatsApp automation and AI receptionists, websites and landing pages, SEO and GEO. For India, the UK, US, Canada and Australia.",
   alternates: { canonical: "/services/" },
   openGraph: { title: "Services — Jothi Swaroop", url: "/services/", images: ["/og.png"] },
 };
@@ -122,7 +122,7 @@ export default function ServicesPage() {
         <BackLink className="mb-8" />
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.02]">Ads that bring customers. Systems that keep them.</h1>
         <p className="mt-6 max-w-2xl text-xl leading-relaxed text-ink">
-          Meta ads, AI ad films, WhatsApp automation and AI receptionists, websites and search — for founder-led businesses in the United Kingdom, the United States, Canada, Australia and India. Every service below links to the work it produced, and <Link href="/pricing/" className="underline-slide text-ink">the prices are public</Link>.
+          Digital marketing from Chennai: Meta ads, AI ad films, WhatsApp automation and AI receptionists, websites and search — for founder-led businesses in the United Kingdom, the United States, Canada, Australia and India. Every service below links to the work it produced, and <Link href="/pricing/" className="underline-slide text-ink">the prices are public</Link>.
         </p>
 
         <nav aria-label="Services" className="mt-10 flex flex-wrap gap-2">

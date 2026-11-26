@@ -20,8 +20,10 @@ const sans = Libre_Franklin({ subsets: ["latin"], variable: "--font-sans", displ
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jothiswaroop.com"),
-  title: "Jothi Swaroop — Performance marketing & AI systems",
-  description: "Certified Performance Marketer and AI Automation Engineer in Chennai. Meta lead generation, AI ads and commercials, and AI follow-up for founder-led businesses in India, the UK, the US, Canada and Australia.",
+  // Search title (26 Nov 2026): name first for name searches, then the words buyers type — "digital marketing" appeared
+  // nowhere on the homepage, and Maps/Search match on it ("digital marketing near me", "… in Chennai").
+  title: "Jothi Swaroop — Digital & Performance Marketing, AI Automation | Chennai",
+  description: "Digital and performance marketer and AI automation engineer in Chennai. Meta and Google ads that bring leads and sales, AI video ads, and WhatsApp AI receptionists for founder-led businesses in India, the UK, the US, Canada and Australia.",
   keywords: ["Jothi Swaroop", "Jothi Swaroopa", "performance marketer Chennai", "Meta ads Tirupur manufacturers", "AI automation engineer India", "n8n automation", "Gen AI architect", "lead generation for manufacturers UK", "digital marketing consultant Chennai"],
   authors: [{ name: "Jothi Swaroop", url: "https://jothiswaroop.com" }],
   creator: "Jothi Swaroop",

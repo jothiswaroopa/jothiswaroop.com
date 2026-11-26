@@ -2,7 +2,7 @@ import BackLink from "@/components/BackLink";
 import Systems from "@/components/sections/Systems";
 
 export const metadata = {
-  title: "AI Automation & Agents Built for Real Businesses | Jothi Swaroop",
+  title: "AI Automation & Agents for Real Businesses — Chennai, India | Jothi Swaroop",
   description: "Nine systems running for real businesses: an AI receptionist on a dental clinic's phone, a voice-order to invoice bot, an inventory reorder agent, renewal reminders and more. Built in n8n, wired to the tools the owner already uses.",
   alternates: { canonical: "/systems/" },
   openGraph: { title: "AI automation & agents — Jothi Swaroop", url: "/systems/", images: ["/og.png"] },
