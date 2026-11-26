@@ -82,6 +82,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/apply/", "app/apply/page.tsx", "monthly", 0.8),
     page("/audit/", "app/audit/page.tsx", "monthly", 0.8),
     page("/blog/", "app/blog/page.tsx", "daily", 0.8),
+    // A hand-built static page (public/creative-lab/), indexed since 26 Nov 2026. /creative-lab/india/ is its rupee-only
+    // copy for Indian links and stays noindex: the main page already switches to rupees for Indian visitors.
+    page("/creative-lab/", "public/creative-lab/index.html", "monthly", 0.8),
   ];
   const caseChanged = changed("app/work/[slug]/page.tsx");
   for (const c of cases.filter((c) => !c.placeholder)) {
