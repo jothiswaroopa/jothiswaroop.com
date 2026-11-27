@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-11-26T05:19:27.961Z",
+  "generatedAt": "2026-11-27T05:15:34.459Z",
   "site": "https://jothiswaroop.com",
   "gsc": {
     "site": "sc-domain:jothiswaroop.com",
     "range": {
-      "start": "2026-10-27",
-      "end": "2026-11-24"
+      "start": "2026-10-28",
+      "end": "2026-11-25"
     },
     "totals": {
       "clicks": 15,
-      "impressions": 217,
-      "ctr": 0.06912442396313365,
-      "position": 14.608294930875577
+      "impressions": 225,
+      "ctr": 0.06666666666666667,
+      "position": 15.017777777777777
     },
     "previous": {
       "clicks": 20,
-      "impressions": 134,
-      "ctr": 0.14925373134328357,
-      "position": 14.149253731343284
+      "impressions": 138,
+      "ctr": 0.14492753623188406,
+      "position": 13.644927536231885
     },
     "daily": [
       {
@@ -502,15 +502,22 @@
         "impressions": 13,
         "ctr": 0,
         "position": 9.307692307692308
+      },
+      {
+        "key": "2026-11-24",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 14.529411764705882
       }
     ],
     "queries": [
       {
         "key": "jothiswaroop.com",
         "clicks": 1,
-        "impressions": 21,
-        "ctr": 0.047619047619047616,
-        "position": 13.047619047619047
+        "impressions": 20,
+        "ctr": 0.05,
+        "position": 13.55
       },
       {
         "key": "best peopl advice on getting a brand recommended by ai search",
@@ -585,9 +592,9 @@
       {
         "key": "how does chatgpt choose which businesses to recommend",
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 7
+        "position": 20.25
       },
       {
         "key": "how does chatgpt decide which companies to recommend?",
@@ -641,9 +648,9 @@
       {
         "key": "sathyam labels",
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 10
+        "position": 10.666666666666666
       },
       {
         "key": "specialise peopl advice on getting a brand recommended by ai search",
@@ -685,16 +692,16 @@
       {
         "key": "https://jothiswaroop.com/",
         "clicks": 14,
-        "impressions": 69,
-        "ctr": 0.2028985507246377,
-        "position": 4.463768115942029
+        "impressions": 64,
+        "ctr": 0.21875,
+        "position": 4.609375
       },
       {
         "key": "https://jothiswaroop.com/about/",
         "clicks": 1,
-        "impressions": 54,
-        "ctr": 0.018518518518518517,
-        "position": 6.888888888888889
+        "impressions": 50,
+        "ctr": 0.02,
+        "position": 7.04
       },
       {
         "key": "https://jothiswaroop.com/ai-ads/",
@@ -706,23 +713,23 @@
       {
         "key": "https://jothiswaroop.com/apply/",
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 10,
         "ctr": 0,
-        "position": 11.909090909090908
+        "position": 12.5
       },
       {
         "key": "https://jothiswaroop.com/audit/",
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 4,
         "ctr": 0,
-        "position": 5.2
+        "position": 5.25
       },
       {
         "key": "https://jothiswaroop.com/blog/",
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 8,
         "ctr": 0,
-        "position": 8.666666666666668
+        "position": 8.875
       },
       {
         "key": "https://jothiswaroop.com/blog/advertising-indian-manufactured-apparel-brand-uk/",
@@ -741,9 +748,9 @@
       {
         "key": "https://jothiswaroop.com/blog/ai-search-chooses-which-businesses-recommend/",
         "clicks": 0,
-        "impressions": 79,
+        "impressions": 81,
         "ctr": 0,
-        "position": 25.860759493670887
+        "position": 26.77777777777778
       },
       {
         "key": "https://jothiswaroop.com/blog/dental-clinic-missed-calls-after-hours/",
@@ -769,9 +776,9 @@
       {
         "key": "https://jothiswaroop.com/blog/read-meta-ads-report-as-founder/",
         "clicks": 0,
-        "impressions": 12,
+        "impressions": 14,
         "ctr": 0,
-        "position": 9.75
+        "position": 8.285714285714285
       },
       {
         "key": "https://jothiswaroop.com/blog/what-4248-wholesale-leads-cost-tirupur/",
@@ -804,9 +811,9 @@
       {
         "key": "https://jothiswaroop.com/work/kalavridhi/",
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 12,
         "ctr": 0,
-        "position": 16
+        "position": 14.5
       },
       {
         "key": "https://jothiswaroop.com/work/nova/",
@@ -825,16 +832,16 @@
       {
         "key": "https://jothiswaroop.com/work/sathyam/",
         "clicks": 0,
-        "impressions": 19,
+        "impressions": 24,
         "ctr": 0,
-        "position": 11.210526315789474
+        "position": 11.416666666666666
       },
       {
         "key": "https://jothiswaroop.com/work/srr/",
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 17,
         "ctr": 0,
-        "position": 20.666666666666668
+        "position": 19.529411764705884
       },
       {
         "key": "https://jothiswaroop.com/work/tharunis/",
@@ -848,9 +855,9 @@
       {
         "key": "ind",
         "clicks": 15,
-        "impressions": 89,
-        "ctr": 0.16853932584269662,
-        "position": 7.224719101123595
+        "impressions": 94,
+        "ctr": 0.1595744680851064,
+        "position": 7.76595744680851
       },
       {
         "key": "arg",
@@ -881,6 +888,13 @@
         "position": 4.5
       },
       {
+        "key": "brn",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 3
+      },
+      {
         "key": "can",
         "clicks": 0,
         "impressions": 2,
@@ -907,29 +921,22 @@
         "impressions": 1,
         "ctr": 0,
         "position": 9
-      },
-      {
-        "key": "gbr",
-        "clicks": 0,
-        "impressions": 15,
-        "ctr": 0,
-        "position": 37.4
       }
     ],
     "devices": [
       {
         "key": "DESKTOP",
         "clicks": 10,
-        "impressions": 161,
-        "ctr": 0.062111801242236024,
-        "position": 17.06832298136646
+        "impressions": 164,
+        "ctr": 0.06097560975609756,
+        "position": 17.591463414634145
       },
       {
         "key": "MOBILE",
         "clicks": 5,
-        "impressions": 55,
-        "ctr": 0.09090909090909091,
-        "position": 7.472727272727273
+        "impressions": 60,
+        "ctr": 0.08333333333333333,
+        "position": 8.05
       },
       {
         "key": "TABLET",
@@ -942,8 +949,8 @@
   },
   "cloudflare": {
     "range": {
-      "start": "2026-10-27",
-      "end": "2026-11-26"
+      "start": "2026-10-28",
+      "end": "2026-11-27"
     },
     "totals": {
       "views": 0,
@@ -958,18 +965,6 @@
   },
   "bing": {
     "traffic": [
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1792886400000)/",
-        "Impressions": 0
-      },
-      {
-        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
-        "Clicks": 0,
-        "Date": "/Date(1792972800000)/",
-        "Impressions": 0
-      },
       {
         "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
         "Clicks": 0,
@@ -1137,6 +1132,18 @@
         "Clicks": 0,
         "Date": "/Date(1795392000000)/",
         "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 0,
+        "Date": "/Date(1795478400000)/",
+        "Impressions": 0
+      },
+      {
+        "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+        "Clicks": 1,
+        "Date": "/Date(1795564800000)/",
+        "Impressions": 2
       }
     ],
     "queries": [
@@ -1266,8 +1273,8 @@
     ]
   },
   "coverage": {
-    "total": 29,
-    "ok": 29,
+    "total": 28,
+    "ok": 28,
     "broken": []
   },
   "blog": {
@@ -1378,8 +1385,8 @@
       "scan": 0.347862
     },
     "remaining": 6.79256,
-    "pace": 0.283005,
-    "projected": 2.547046,
+    "pace": 0.272523,
+    "projected": 2.452711,
     "shares": {
       "blog": 3.6,
       "geo": 2.2,
@@ -1389,16 +1396,16 @@
     }
   },
   "indexStatus": {
-    "checked": 29,
-    "indexed": 24,
-    "notIndexed": 5,
+    "checked": 28,
+    "indexed": 27,
+    "notIndexed": 1,
     "urls": [
       {
         "url": "https://jothiswaroop.com/",
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-24T18:43:27Z",
+        "lastCrawl": "2026-11-26T16:18:01Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1426,8 +1433,8 @@
       {
         "url": "https://jothiswaroop.com/services/",
         "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
+        "coverage": "URL is unknown to Google",
+        "crawledAs": "",
         "lastCrawl": null,
         "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
         "indexing": "INDEXING_STATE_UNSPECIFIED",
@@ -1435,42 +1442,22 @@
       },
       {
         "url": "https://jothiswaroop.com/pricing/",
-        "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
-        "canonical": null
-      },
-      {
-        "url": "https://jothiswaroop.com/ai-ads/",
         "verdict": "PASS",
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
-        "lastCrawl": "2026-11-09T01:04:12Z",
+        "lastCrawl": "2026-11-26T14:59:18Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
-        "url": "https://jothiswaroop.com/films/",
-        "verdict": "NEUTRAL",
-        "coverage": "URL is unknown to Google",
-        "crawledAs": "",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
-        "canonical": null
-      },
-      {
         "url": "https://jothiswaroop.com/systems/",
-        "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-11-26T15:02:41Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
@@ -1499,6 +1486,16 @@
         "coverage": "Submitted and indexed",
         "crawledAs": "MOBILE",
         "lastCrawl": "2026-11-23T21:56:58Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
+        "canonical": null
+      },
+      {
+        "url": "https://jothiswaroop.com/creative-lab/",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-11-26T17:16:43Z",
         "robots": "ALLOWED",
         "indexing": "INDEXING_ALLOWED",
         "canonical": null
@@ -1625,12 +1622,12 @@
       },
       {
         "url": "https://jothiswaroop.com/blog/do-meta-ads-budget-under-1/",
-        "verdict": "NEUTRAL",
-        "coverage": "Discovered - currently not indexed",
-        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED",
-        "lastCrawl": null,
-        "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
-        "indexing": "INDEXING_STATE_UNSPECIFIED",
+        "verdict": "PASS",
+        "coverage": "Submitted and indexed",
+        "crawledAs": "MOBILE",
+        "lastCrawl": "2026-11-26T15:08:15Z",
+        "robots": "ALLOWED",
+        "indexing": "INDEXING_ALLOWED",
         "canonical": null
       },
       {
